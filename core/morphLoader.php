@@ -111,10 +111,12 @@ class morphLoader {
 				$this->$name = $param;
 			}
 			
+			if(!$this->jquery_core) unset($this->scripts['/templates/morph/core/js/jquery.js']);
+			
 			if(isset($_GET['morph'])){
 				$uri = JFactory::getURI();
 				$uri->delVar('morph');
-				echo var_dump($this->developer_toolbar);
+
 				header('Location: ' . $uri->toString());
 			}
 		}
