@@ -151,7 +151,6 @@ if ( isset($_COOKIE['unpackjs']) && $pack_js == 1 || isset($_COOKIE['unpackjs'])
 	if ( $plugin_scrollto == 1 ) { 
 	$document->addScript($templatepath .'/js/jquery.scrollTo-1.4.2-min.js');
 	}
-	$document->addScript($templatepath .'/core/js/template.js');
 	$document->addScript($templatepath .'/core/js/template.js.php'.$packed_js);
 	if( $custom_js == 1 ){ $document->addScript($themeletpath .'/js/custom.js'); }
 }else{
