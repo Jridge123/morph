@@ -82,7 +82,49 @@
 	<param name="logo_alttext" type="text" default="Your logo image alternate text" label="Logo image alt text" tooltip="inline" description="Set your logo image alt text" />
 	<param name="logo_linktitle" type="text" default="Your logo link title text" label="Logo link title text" tooltip="inline" description="Set your logo link title text" />
 	<param name="logo_textcolor" type="colorpicker" default="#666161" label="Logo text color" tooltip="inline" description="Set your logo text foreground color." />
-	<param name="logo_fontsize" type="text" default="2.5em" label="Logo font size" tooltip="inline" description="Adjust the font size of your custom logo text." />
+	<param name="logo_fontsize" type="list" default="2.5em" label="Logo font size" tooltip="inline" description="Adjust the font size of your custom logo text.">
+	    <option value="1em">1em</option>
+	    <option value="1.1em">1.1em</option>
+	    <option value="1.2em">1.2em</option>
+	    <option value="1.3em">1.3em</option>	
+	    <option value="1.4em">1.4em</option>
+	    <option value="1.5em">1.5em</option>
+	    <option value="1.6em">1.6em</option>	
+	    <option value="1.7em">1.7em</option>
+	    <option value="1.8em">1.8em</option>
+	    <option value="1.9em">1.9em</option>	
+	    <option value="2em">2em</option>
+	    <option value="2.1em">2.1em</option>
+	    <option value="2.2em">2.2em</option>
+	    <option value="2.3em">2.3em</option>
+	    <option value="2.4em">2.4em</option>
+	    <option value="2.5em">2.5em</option>	
+	    <option value="2.6em">2.6em</option>
+	    <option value="2.7em">2.7em</option>
+	    <option value="2.8em">2.8em</option>		    	    
+	    <option value="2.9em">2.9em</option>		    	    
+	    <option value="3em">3em</option>
+	    <option value="3.1em">3.1em</option>
+	    <option value="3.2em">3.2em</option>
+	    <option value="3.3em">3.3em</option>	
+	    <option value="3.4em">3.4em</option>
+	    <option value="3.5em">3.5em</option>
+	    <option value="3.6em">3.6em</option>	
+	    <option value="3.7em">3.7em</option>
+	    <option value="3.8em">3.8em</option>
+	    <option value="3.9em">3.9em</option>	
+	    <option value="4em">4em</option>
+	    <option value="4.1em">4.1em</option>
+	    <option value="4.2em">4.2em</option>
+	    <option value="4.3em">4.3em</option>
+	    <option value="4.4em">4.4em</option>
+	    <option value="4.5em">4.5em</option>	
+	    <option value="4.6em">4.6em</option>
+	    <option value="4.7em">4.7em</option>
+	    <option value="4.8em">4.8em</option>		    	    
+	    <option value="4.9em">4.9em</option>		    	    
+	    <option value="5em">5em</option>
+	</param>    	
 	<param name="logo_fontfamily" type="list" default="'Palatino Linotype', 'Book Antiqua', Palatino, serif" label="Logo font family" tooltip="inline" description="Choose which font family you would like to use.">
 	    <option value=""> </option>
 	    <option value="Arial, Helvetica, sans-serif">Arial</option>
@@ -112,7 +154,49 @@
 	</param>
 	<param name="slogan_text" type="textarea" rows="1" cols="32" default="Go live faster." tooltip="inline" label="Tagline text" description="Set the text to use for your sites slogan. This box will automatically expand as needed." />
 	<param name="slogan_textcolor" type="colorpicker" default="#aba9a9" label="Tagline text color" tooltip="inline" description="Set your slogans text foreground color." />
-	<param name="slogan_fontsize" type="text" default="1.4em" label="Tagline font size" tooltip="inline" description="Adjust the font size of your custom slogan text." />
+	<param name="slogan_fontsize" type="list" default="1.4em" label="Tagline font size" tooltip="inline" description="Adjust the font size of your custom slogan text.">
+	    <option value="1em">1em</option>
+	    <option value="1.1em">1.1em</option>
+	    <option value="1.2em">1.2em</option>
+	    <option value="1.3em">1.3em</option>	
+	    <option value="1.4em">1.4em</option>
+	    <option value="1.5em">1.5em</option>
+	    <option value="1.6em">1.6em</option>	
+	    <option value="1.7em">1.7em</option>
+	    <option value="1.8em">1.8em</option>
+	    <option value="1.9em">1.9em</option>	
+	    <option value="2em">2em</option>
+	    <option value="2.1em">2.1em</option>
+	    <option value="2.2em">2.2em</option>
+	    <option value="2.3em">2.3em</option>
+	    <option value="2.4em">2.4em</option>
+	    <option value="2.5em">2.5em</option>	
+	    <option value="2.6em">2.6em</option>
+	    <option value="2.7em">2.7em</option>
+	    <option value="2.8em">2.8em</option>		    	    
+	    <option value="2.9em">2.9em</option>		    	    
+	    <option value="3em">3em</option>
+	    <option value="3.1em">3.1em</option>
+	    <option value="3.2em">3.2em</option>
+	    <option value="3.3em">3.3em</option>	
+	    <option value="3.4em">3.4em</option>
+	    <option value="3.5em">3.5em</option>
+	    <option value="3.6em">3.6em</option>	
+	    <option value="3.7em">3.7em</option>
+	    <option value="3.8em">3.8em</option>
+	    <option value="3.9em">3.9em</option>	
+	    <option value="4em">4em</option>
+	    <option value="4.1em">4.1em</option>
+	    <option value="4.2em">4.2em</option>
+	    <option value="4.3em">4.3em</option>
+	    <option value="4.4em">4.4em</option>
+	    <option value="4.5em">4.5em</option>	
+	    <option value="4.6em">4.6em</option>
+	    <option value="4.7em">4.7em</option>
+	    <option value="4.8em">4.8em</option>		    	    
+	    <option value="4.9em">4.9em</option>		    	    
+	    <option value="5em">5em</option>
+	</param>
 	<param name="slogan_fontfamily" type="list" default="'Trebuchet MS', Helvetica, sans-serif" label="Tagline font family" tooltip="inline" description="Choose which font family you would like to use.">
 	    <option value=""> </option>
 	    <option value="Arial, Helvetica, sans-serif">Arial</option>
