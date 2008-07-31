@@ -266,7 +266,6 @@
 	<param name="color_bodytext" type="colorpicker" default="default" tooltip="inline" label="Body text color" description="Set the foreground color of your sites main body text." />	
 </params>
 
-
 <params group="progressivedata">
 	<param name="plugins heading" type="heading" label="jQuery Plugins:" />	
 	<param name="rounded_corners" type="radio" default="0" label="Enable rounded corners" tooltip="inline" description="Would you like to include the jQuery Rounded Corners plugin? This is automatically overridden if you add a module suffix of 'rounded' to any of your modules.">
@@ -283,7 +282,6 @@
 		<option value="0">No</option>
 	</param>
 </params>
-
 
 <params group="menudata">
 	<param name="topnav_hoverintent" type="radio" default="1" label="HoverIntent" tooltip="inline" description="HoverIntent is a plug-in that attempts to determine the user's intent... like a crystal ball, only with mouse movement! This generally improves the usability of your Superfish menu.">
@@ -346,7 +344,6 @@
 		<option value="fast">Fast</option>
 	</param>
 </params>
-
 
 <params group="performancedata">
 	<param name="pack_css" type="radio" default="1" label="Enable css packing" tooltip="inline" description="CSS Packing (otherwise refered to as CSS Concatination) refers to the combining of multiple files into a single file. This boosts your sites performance as fewer http requests are needed.">
