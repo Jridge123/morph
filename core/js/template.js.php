@@ -19,17 +19,12 @@ if($pack_js == 1){
 	if ( $topnav_supersubs == 1 ) { include("jquery.superfish.supersubs.js"); }
 	if ( $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1 ) { include('jquery.slider.js'); }
 	if ( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1  ) { include('jquery.equalheights.js'); }
-	include('jquery.scrollTo-1.4.2-min.js');
+	if ( $plugin_scrollto == 1 ) { 	include('jquery.scrollTo-1.4.2-min.js'); }
 	include('template.js');
 }
 ?>
 (function($) {
 	$(document).ready(function(){
-	
-		// TODO: Wrap first word of module headings to allow for additional styling.		
-		// var str = $(".mod h3:first").text();
-		// $(".mod h3:last").html(str);
-		
 		<?php if ( $topshelf_equalize == 1 ) { ?>
 		$(function(){ $('#topshelf .mod-grid').equalHeights(); });
 		<?php } if ( $bottomshelf_equalize == 1 ) { ?>
@@ -99,8 +94,6 @@ if($pack_js == 1){
 	    initSlider('#bottomshelf', '<?php echo $bottomshelf_slider_text; ?>');	
 		<?php } if ( $topnav_hoverfocus == 1 ) { ?>
 		$('#nav ul.menu ul').hover( function(){ $('#user1').fadeTo("fast", "0.1");},function(){	$('#user1').fadeTo("fast", "1"); } );
-		<?php } if ( $image_captions == 1 ) { ?>
-		$('img.captify').captify();
 		<?php } if ( $toolbar_slider or $topshelf_slider or $bottomshelf_slider ) {
 		include('jquery.slider.js'); ?>
 		<?php } if ( $tabscount > 0 ) { 

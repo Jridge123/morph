@@ -138,14 +138,19 @@ if ( isset($_COOKIE['unpackjs']) && $pack_js == 1 || isset($_COOKIE['unpackjs'])
 		$document->addScript($templatepath .'/core/js/jquery.ui.core.js');
 		$document->addScript($templatepath .'/core/js/jquery.ui.accordion.js');
 	}
-	if( $tabscount >= 1 or $accordionscount >= 1 or $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1 ) { $document->addScript($templatepath .'/core/js/jquery.cookie.js'); }
+	if( $tabscount >= 1 or $accordionscount >= 1 or $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1 ) { 
+	$document->addScript($templatepath .'/core/js/jquery.cookie.js'); 
+	}
 	if( $topfish >= 1 && $topnav_hoverintent == 1 ) { $document->addScript($templatepath .'/core/js/jquery.superfish.hoverintent.js');}
 	if( $sidefish >= 1 or $topfish >= 1  ) { $document->addScript($templatepath .'/core/js/jquery.superfish.js');	}
 	if( $topfish >= 1 && $topnav_supersubs == 1 ) { $document->addScript($templatepath .'/core/js/jquery.superfish.supersubs.js'); }
 	if( $rounded_corners == 1 or $roundedcount !== 0 ) { $document->addScript($templatepath .'/core/js/jquery.corners.js');	}
-	if( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1  ) { $document->addScript($templatepath .'/core/js/jquery.equalheights.js'); }
-	if( $image_captions == 1 ) { $document->addScript($templatepath .'/core/js/jquery.captify.js'); }
-	$document->addScript($templatepath .'/core/js/jquery.scrollTo-1.4.2-min.js');
+	if( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1  ) { 
+	$document->addScript($templatepath .'/core/js/jquery.equalheights.js'); 
+	}
+	if ( $plugin_scrollto == 1 ) { 
+	$document->addScript($templatepath .'/js/jquery.scrollTo-1.4.2-min.js');
+	}
 	$document->addScript($templatepath .'/core/js/template.js');
 	$document->addScript($templatepath .'/core/js/template.js.php'.$packed_js);
 	if( $custom_js == 1 ){ $document->addScript($themeletpath .'/js/custom.js'); }
@@ -167,9 +172,6 @@ if ( isset($_COOKIE['unpackcss']) && $pack_css == 1 || isset($_COOKIE['unpackcss
 	if($this->direction == 'rtl' ){
 		$document->addStyleSheet($themeletpath .'/core/css/rtl.css');
 	}	
-	
-	
-	
 	$document->addStyleSheet($themeletpath .'/css/joomla.css');
 	$document->addStyleSheet($themeletpath .'/css/modules.css');
 	$document->addStyleSheet($themeletpath .'/css/typo.css');

@@ -42,8 +42,8 @@ $slogan_fontsize = $MORPH->slogan_fontsize;
 // progressive enhancements
 $rounded_corners = $MORPH->rounded_corners;
 $rounded_amount = $MORPH->rounded_amount;
-$image_captions = $MORPH->image_captions;
 $equal_heights = $MORPH->equal_heights;
+$plugin_scrollto = $MORPH->plugin_scrollto;
 
 // menu settings
 $topnav_supersubs = $MORPH->topnav_supersubs;
