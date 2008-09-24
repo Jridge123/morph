@@ -100,18 +100,29 @@ $secondary_override			= $absolutepath."/html/secondary.php";
 $tertiary_override			= $absolutepath."/html/tertiary.php";
 $foot_override				= $absolutepath."/html/foot.php";
 
-if($option !== 'com_user') {
-	if($user->get('guest') == 1 or $user->usertype == 'Registered' or $load_mootools == 0) {
-		$headerstuff = $this->getHeadData();
-		unset($headerstuff['scripts'][$this->baseurl.'/media/system/js/mootools.js']);
-		$this->setHeadData($headerstuff);
+if($load_mootools == 0) {
+    $headnomootools = $this->getHeadData();
+    $headoriginal = $this->getHeadData();
+    if($user->get('guest') == 1 or $user->usertype == 'Registered'){
+        switch($option){
+            default:
+            unset($headnomootools['scripts'][$this->baseurl.'/media/system/js/mootools.js']);
+    		$this->setHeadData($headnomootools);
+            break;
+            case 'com_user':
+            case 'com_contact':
+            $this->setHeadData($headoriginal);
+            break;
+        }
 	}
 }
 
-if($user->get('guest') == 1 or $user->usertype == 'Registered' && $load_caption == 0) {
-	$headerstuff = $this->getHeadData();
-	unset($headerstuff['scripts'][$this->baseurl.'/media/system/js/caption.js']);
-	$this->setHeadData($headerstuff);
+$headoriginal = $this->getHeadData();
+if (!$user->authorize('com_content', 'edit', 'content', 'all')) {
+    unset($headoriginal['scripts'][$this->baseurl.'/media/system/js/caption.js']);
+	$this->setHeadData($headoriginal);
+}else{
+    $this->setHeadData($headoriginal);
 }
 
 if ( $remove_generator == 1 ) {
