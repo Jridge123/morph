@@ -111,8 +111,6 @@ body{color:#<?php echo $color_bodytext; ?>;}
 .caption-top,.caption-bottom{background:<?php echo $captions_bgcolor; ?>;color:<?php echo $captions_textcolor; ?>;}
 .caption-top{border-bottom:<?php echo $captions_borderheight; ?> solid <?php echo $captions_bordercolor; ?>;}
 .caption-bottom{border-top:<?php echo $captions_borderheight; ?> solid <?php echo $captions_bordercolor; ?>;}
-<!-- dynamic css ends -->
-
 <?php } if( $pack_css == 1 ){
     if( $direction == 'rtl' && file_exists($css_rtl)){ include($css_rtl); } elseif ($direction == 'rtl') { include('rtl.css'); }
 	if($custom_css == 1){ include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/custom.css'); }
