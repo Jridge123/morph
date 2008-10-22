@@ -29,13 +29,22 @@ include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/modfx.css');
 include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/themelet.css');
 if( $simpleticker == 1 ) { include(JPATH . 'modules/mod_simpleticker/simpleticker/simpleticker.css'); }
 } ?>
+html{
+background-color:#<?php echo $html_bg_color; ?>;
+<?php if ( $use_html_bg_image == 1 ) { ?>
+background-image:url(../../../../morph_assets/backgrounds/<?php echo $html_bg_image; ?>);
+background-repeat:<?php echo $html_bg_repeat; ?>;
+background-position:<?php echo $html_bg_position; ?>;
+background-attachment:<?php echo $html_bg_attachment; ?>;
+<?php } ?>
+}
 body{
-background-color:#<?php echo $bg_color; ?>;
-<?php if ( $use_bg_image == 1 ) { ?>
-background-image:url(../../../../morph_assets/backgrounds/<?php echo $bg_image; ?>);
-background-repeat:<?php echo $bg_repeat; ?>;
-background-position:<?php echo $bg_position; ?>;
-background-attachment:<?php echo $bg_attachment; ?>;
+background-color:#<?php echo $body_bg_color; ?>;
+<?php if ( $use_body_bg_image == 1 ) { ?>
+background-image:url(../../../../morph_assets/backgrounds/<?php echo $body_bg_image; ?>);
+background-repeat:<?php echo $body_bg_repeat; ?>;
+background-position:<?php echo $body_bg_position; ?>;
+background-attachment:<?php echo $body_bg_attachment; ?>;
 <?php } ?>
 }
 <?php if ( $masthead_height ) { ?>
