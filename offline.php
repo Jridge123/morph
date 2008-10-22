@@ -26,7 +26,6 @@ include_once(JPATH_ROOT . "/templates/" . $this->template . '/core/morphFunction
 <body>
     <jdoc:include type="message" />
 	<div id="frame" class="outline">
-		<img src="images/joomla_logo_black.jpg" alt="Joomla! Logo" align="middle" />
 		<h1>
 			<?php echo $mainframe->getCfg('sitename'); ?>
 		</h1>
