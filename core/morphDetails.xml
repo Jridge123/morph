@@ -45,7 +45,7 @@
 <params group="generaldata">
 	<param name="general heading" type="heading" label=" " description="This is where you set your sites width and which themelet you would like to use. Themelets (also known as child themes) handle the visual aspect of Morph. &lt;a class=&quot;modal-link&quot; href=&quot;blockinner.html&quot; title=&quot;What is a themelet?&quot;&gt;Click here to learn more&lt;/a&gt;" />
 
-		<param name="themelet" type="folderlist" default="dark-base" label="Select themelet" directory="templates/morph/assets/themelets" hide_none="false" hide_default="false" tooltip="inline" description="Select which themelet you would like to use. The themelets are stored in your templates assets folder. Use the Installer tab on the right to install new themelets." />
+		<param name="themelet" type="folderlist" label="Select themelet" directory="templates/morph/assets/themelets" hide_none="false" hide_default="false" tooltip="inline" description="Select which themelet you would like to use. The themelets are stored in your templates assets folder. Use the Installer tab on the right to install new themelets." />
 	<param name="site_width" type="list" default="doc4" label="Site width" tooltip="inline" description="Set your sites page width. The full width 100% option is a bit buggy at the moment - especially with the fixed 200px left and right sidebar layout defaults (ie, your inner and outer layouts).">
 		<option value="doc">750px</option>
 		<option value="doc2">950px</option>

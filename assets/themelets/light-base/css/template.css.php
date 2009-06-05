@@ -1,4 +1,5 @@
 <?php
+header("content-type: text/css; charset: UTF-8");
 $themelet = $_GET['01'];
 $topnav_type = $_GET['02'];
 $topfish = $_GET['03'];
@@ -7,7 +8,6 @@ $direction = $_GET['05'];
 $tabscount = $_GET['06'];
 $gzip_compression = $_GET['07'];
 
-header("content-type: text/css; charset: UTF-8");
 if ( $gzip_compression == 1 ) {
 ob_start("ob_gzhandler");
 header("cache-control: must-revalidate");

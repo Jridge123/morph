@@ -81,7 +81,7 @@ include_once($absolutepath.'/custom.php');
 
 $db=& JFactory::getDBO();
 
-$query = "SELECT COUNT(*) FROM `#__morph` WHERE `param_value` = 'tabs' ";
+$query = "SELECT COUNT(*) FROM `#__configurator` WHERE `param_value` = 'tabs' ";
 $db->setQuery( $query );
 $tabscount = $db->loadResult();
 
@@ -89,9 +89,9 @@ $query = "SELECT COUNT(*) FROM `#__modules` WHERE `params` LIKE '%moduleclass_sf
 $db->setQuery( $query );
 $roundedcount = $db->loadResult();
 
-$query = "SELECT COUNT(*) FROM #__modules WHERE position = 'user3' AND params LIKE '%moduleclass_sfx=superdrop%' OR position = 'user3' AND params LIKE '% superdrop%'";
+$query = "SELECT COUNT(*) FROM #__modules WHERE position = 'user3' AND params LIKE '%moduleclass_sfx=topdrop%' OR position = 'user3' AND params LIKE '% topdrop%'";
 $db->setQuery( $query );
-$superdrop = $db->loadResult();
+$topdrop = $db->loadResult();
 
 $query = "SELECT COUNT(*) FROM #__modules WHERE position = 'user3' AND params LIKE '%moduleclass_sfx=topfish%' OR position = 'user3' AND params LIKE '% topfish%'";
 $db->setQuery( $query );
@@ -113,11 +113,11 @@ $query = "SELECT COUNT(*) FROM #__modules WHERE position = 'left' AND params LIK
 $db->setQuery( $query );
 $animate_left = $db->loadResult();
 
-$js_vars1 = "01=$jquery_core" . '&amp;' . "02=$topfish" . '&amp;' . "03=$superdrop" . '&amp;' . "04=$topnav_supersubs" . '&amp;' . "05=$topnav_hoverintent" . '&amp;' . "06=$toolbar_slider" . '&amp;' . "07=$topshelf_slider". '&amp;' . "08=$bottomshelf_slider" . '&amp;' . "09=$topshelf_equalize". '&amp;' . "10=$bottomshelf_equalize". '&amp;' . "11=$user1_equalize" . '&amp;' . "12=$user2_equalize". '&amp;' . "13=$tabscount" . '&amp;' . "14=$image_captions". '&amp;' . "15=$rounded_corners" . '&amp;' . "16=$gzip_compression" . '&amp;' . "17=$topnav_type";
+$js_vars1 = "01=$jquery_core" . '&amp;' . "02=$topfish" . '&amp;' . "03=$topdrop" . '&amp;' . "04=$topnav_supersubs" . '&amp;' . "05=$topnav_hoverintent" . '&amp;' . "06=$toolbar_slider" . '&amp;' . "07=$topshelf_slider". '&amp;' . "08=$bottomshelf_slider" . '&amp;' . "09=$topshelf_equalize". '&amp;' . "10=$bottomshelf_equalize". '&amp;' . "11=$user1_equalize" . '&amp;' . "12=$user2_equalize". '&amp;' . "13=$tabscount" . '&amp;' . "14=$image_captions". '&amp;' . "15=$rounded_corners" . '&amp;' . "16=$gzip_compression" . '&amp;' . "17=$topnav_type";
 
 $js_vars2 = "01=$topshelf_equalize" . '&amp;' . "02=$bottomshelf_equalize" . '&amp;' . "03=$user1_equalize" . '&amp;' . "04=$user2_equalize" . '&amp;' . "05=$topshelfcount" . '&amp;' . "06=$btmshelfcount" . '&amp;' . "07=$user1count". '&amp;' . "08=$user2count" . '&amp;' . "09=$sidefish" . '&amp;' . "10=$animate_left" . '&amp;' . "12=$rounded_corners" . '&amp;' . "13=$toolbar_slider" . '&amp;' . "14=$toolbar_slider_text" . '&amp;' . "15=$topshelf_slider" . '&amp;' . "16=$topshelf_slider_text" . '&amp;' . "17=$bottomshelf_slider" . '&amp;' . "18=$bottomshelf_slider_text" . '&amp;' . "19=$image_captions" . '&amp;' . "20=$topnav_hoverfocus" . '&amp;' . "21=$rounded_amount" . '&amp;' . "22=$gzip_compression" . '&amp;' . "23=$tabscount" . '&amp;' . "24=$topnav_type" . '&amp;' . "25=$topnav_supersubs" . '&amp;' . "26=$topnav_minwidth" . '&amp;' . "27=$topnav_maxwidth" . '&amp;' . "28=$topnav_delay" . '&amp;' . "29=$topnav_animation";
 
-$css_vars1 = "01=$themelet" . '&amp;' . "02=$topnav_type" . '&amp;' . "03=$topfish" . '&amp;' . "04=$topdrop" . '&amp;' . "05=$direction" . '&amp;' . "06=$tabscount" . '&amp;' . "06=$gzip_compression";
+$css_vars1 = "01=$themelet" . '&amp;' . "02=$topnav_type" . '&amp;' . "03=$topfish" . '&amp;' . "04=$topdrop" . '&amp;' . "05=$direction" . '&amp;' . "06=$tabscount" . '&amp;' . "07=$gzip_compression";
 
 if ($themelet_bgimage == "" ) { $themelet_bgimage = "default"; }
 

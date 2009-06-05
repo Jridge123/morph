@@ -40,8 +40,8 @@ function isIE6(){
 body{<?php if ( $themelet_bgcolor && $themelet_bgcolor !== "default" ) { ?>background-color: <?php echo $themelet_bgcolor; ?>;<?php } if ( $themelet_bgimage && $themelet_bgimage !== "default" ) { ?>background-image: <?php echo $themelet_bgimage; ?>;<?php } if ( $themelet_bgrepeat && $themelet_bgrepeat !== "default" ) { ?>background-repeat: <?php echo $themelet_bgrepeat; ?>;<?php } if ( $themelet_bgposition && $themelet_bgposition !== "default" ) { ?>background-position: <?php echo $themelet_bgposition; ?>;<?php } ?>}
 
 <?php if ( $logo_type == 2 ) { ?>
-#branding h1{width:<?php echo $logo_width; ?>;}
-#branding h1 a{width:<?php echo $logo_width; ?>;height:<?php echo $logo_height; ?>;background:transparent url(../../../logos/<?php if( isIE6() && $logo_image_ie !== ''){ echo $ie_logo_image; } else { echo $logo_image; } ?>) no-repeat 0;}
+#branding h1{width:<?php echo $logo_width; ?>px;height:<?php echo $logo_height; ?>px;}
+#branding h1 a{width:<?php echo $logo_width; ?>px;height:<?php echo $logo_height; ?>px;background:transparent url(../../../logos/<?php if( isIE6() && $logo_image_ie !== ''){ echo $ie_logo_image; } else { echo $logo_image; } ?>) no-repeat 0;}
 <?php } 
 
 if ( $toolbar_slider == 1 ) { ?>

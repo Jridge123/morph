@@ -27,11 +27,11 @@ class morphLoader {
       
       if( !isset( $template ) ) return;
       // Check if the Morph DB table exists (Morph installed).
-      $database->setQuery( "SHOW TABLES LIKE '%morph'" );
+      $database->setQuery( "SHOW TABLES LIKE '%configurator'" );
       $morph_installed = $database->loadResult();
       if ( isset( $morph_installed ) ) {
           // Load any saved settings.
-          $query = "SELECT * FROM #__morph WHERE `template_name` = '{$template}'";
+          $query = "SELECT * FROM #__configurator WHERE `template_name` = '{$template}'";
           $database->setQuery( $query );
           $params = $database->loadObjectList();
       } else {
