@@ -292,7 +292,7 @@ form.polls ul{margin:0 0 5px 0;}
 /* search module in top2 */
 #top2{position:relative;}
 #top2 .mod{margin:0;padding:0;border:0;background:none;}
-#top2 .search{position:absolute;top:2.5em;right:0;border: 1px solid #ccc}
+#top2 .search{position:absolute;top:3.4em;right:0;border: 1px solid #ccc}
 #top2 .search #mod_search_searchword{width:290px;padding:.7em;background:#ddd url(../images/icon-search.gif) no-repeat 97%;}
 #topnav .search{float: right;padding-right: .6em;}
 #topnav .search .inputbox{width: 10em;}

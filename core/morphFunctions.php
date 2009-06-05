@@ -167,7 +167,7 @@ if ( $pack_css == 1 ) {
 	$document->addStyleSheet($themeletpath .'/css/template.css.php?'.$css_vars1);
 	$document->addStyleSheet($themeletpath .'/css/dynamic.css.php?'.$css_vars2);
 	if(file_exists($customcss) && is_readable($customcss)){
-	$document->addScript($themeletpath .'/css/custom.css');
+	$document->addStyleSheet($themeletpath .'/css/custom.css');
 	}
 } else {
 	$document->addStyleSheet($templatepath .'/css/yui.css');
