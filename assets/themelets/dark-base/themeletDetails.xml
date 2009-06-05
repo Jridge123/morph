@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<install type="themelet">
+	<name>Dark Base</name>
+	<shortname>dark_base</shortname>
+	<foldername>dark-base</foldername>
+	<version>0.02</version>
+	<creationDate>18 May 09</creationDate>
+	<author>JoomlaJunkie</author>
+	<authorEmail>noreply@joomlajunkie.com</authorEmail>
+	<authorUrl>http://www.joomlajunkie.com</authorUrl>
+	<copyright>Copyright (C) 2009 JoomlaJunkie</copyright>
+	<license>Commercial</license>
+	<description>
+	<![CDATA[<h1>Morphfolio Default Themelet</h1>
+	<img src="../templates/morph/assets/themelets/darkbase/themelet_thumb.png" align="left" style="margin: 0px 10px 10px 0px;" />
+	]]>
+	</description>
+</install>

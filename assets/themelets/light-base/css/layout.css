@@ -1,0 +1,128 @@
+/*----------------------------------------------------------------------------
+++ Themelets layout css
+++ All the themelets layout specific css goes here.
+----------------------------------------------------------------------------*/
+
+/*Andys Styles*/
+
+#top-wrap {
+background: #0B0D0D;
+}
+
+#bd-wrap {
+background: url(../images/main-bg.jpg)repeat-x;
+border-top:1px solid #FFFFFF;
+padding-top:25px;
+}
+
+/*#bd {
+	background: white;
+	border: 1px solid #ddd;
+}*/
+
+/*.bd-inner {
+padding: 1em;
+}*/
+
+#topshelf-wrap {
+background:#F3F3F3 none repeat scroll 0 0;
+padding:0.3em 0;
+color:  #333;
+text-align: center;
+border-bottom: 1px solid #ccc;
+}
+
+#topnav-wrap {
+background: url(../images/nav-bg.png) repeat-x;
+}
+
+#topnav {
+background: url(../images/nav-bg.png) repeat-x;
+border:1px solid #ccc;
+}
+
+#bottomshelf-wrap {
+background: #121212;
+color: #ccc;
+margin: 1em 0;
+padding: 1em 0;
+}
+
+/* styles from subsite 
+**********************************/
+h2.main-title {
+-x-system-font:none;
+color:#525252;
+font-family:Arial;
+font-size:62px;
+font-size-adjust:none;
+font-stretch:normal;
+font-style:normal;
+font-variant:normal;
+font-weight:bold;
+letter-spacing:-0.05em;
+line-height:normal;
+margin:30px 0 20px;
+text-align:center;
+}
+
+p.intro {
+-x-system-font:none;
+color:#999999;
+font-family:Arial;
+font-size:20px;
+font-size-adjust:none;
+font-stretch:normal;
+font-style:normal;
+font-variant:normal;
+font-weight:normal;
+line-height:28px;
+margin:0 0 50px;
+text-align:center;
+}
+
+
+body{text-align:center;margin:0;padding:0;background:#0B0D0D;}
+#top{overflow:hidden;}
+#bottom{overflow:hidden;}
+#bd{margin: 1em auto;}
+/* logo options 
+**********************************/
+#branding h1{padding:0;margin: 0.3em 0;}
+#branding h1 a{display:block;position:relative;text-indent:-7887px;}
+.img-logo img{float:left;margin:0;padding:0;margin-top:20px;}
+.txt-logo .logo{display:block;float:left;text-decoration:none;padding-left:0.5em;}
+.slogan .logo span{font-size:.5em;display:block;}
+.slogan .logo{line-height:.7em;height:auto;}
+/* topbar */
+#toolbar-wrap{padding:0;z-index: 999;}
+#toolbar{padding:15px 0;}
+#toolbar-wrap .slider-toolbar{margin:0 auto;width:974px;position:relative;}
+#toolbar-wrap .slider-open a{position:absolute;top:0px;right:0;width:auto;padding:5px 10px;background:#ddd;color:#666;font:bold 12px Arial;text-transform:uppercase;border:1px solid #ccc;border-top:0;display:block;cursor:pointer;}
+#toolbar-wrap .slider-open a:hover, #toolbar-wrap .slider-open a.active{background:#ccc;color:#fff;text-decoration:none;}
+#toolbar-wrap .slider-close a{position:absolute;top:0px;right:0;width:auto;padding:5px 10px;background:#ccc;color:#666;font:bold 10px Arial;text-transform:uppercase;border:1px solid #222;border-top:0;display:block;cursor:pointer;}
+#toolbar-wrap .slider-close a:hover, #toolbar-wrap .slider-close a.active{background:#ccc;color:#fff;text-decoration:none;}
+.selected a{color:#eee;}
+.txt-logo .logo{font:normal 3em/1em Georgia,Times,serif;color:#CCC;}
+.slogan .logo span{color:#888;}
+.slogan .logo:hover{color:#FFF;}
+/*#footer{color:#FFF;}*/
+#topbar-wrap{background:#ccc;}
+.search.search-btn{}
+#secondary-content #username,
+#tertiary-content #username,
+#secondary-content #passwd,
+#tertiary-content #passwd{width:97%;}
+#footer-wrap{background:#eee;border-top:1px solid #111;}
+#footer{padding:0 0 1em 0;}
+#footer *{margin:0;padding:0;list-style:none;background:none;overflow:hidden;height:auto;}
+#footer .joomlajunkie-swish{width:60px;height:50px;text-indent:-7998px;display:block;float:left;background: transparent url(../images/swish.png) no-repeat top;}
+#footer .joomlajunkie-swish:hover{background-position:bottom;}
+#footer #footer-links{padding-top:5px;text-transform:lowercase;}
+#footer #footer-text{padding-top:8px;}
+#footer #footer-links .fl-left,#footer #footer-text .ft-left,#footer #footer-links .fl-left .menu li{float:left;width:auto;}
+#footer #footer-text .ft-right,#footer #footer-links .fl-right,#footer #footer-links .fl-right ul li{float:right;text-align:right;width:auto;}
+#footer #footer-links .footer-rss img{display:none;}
+#footer #footer-links .fl-left li{padding-right:10px;margin-right:10px;border-right:1px solid #999;}
+#footer #footer-links .fl-right li{padding-left:10px;margin-left:10px;border-left:1px solid #999;}
+#footer #footer-links .fl-left .fl-last,#footer #footer-links .fl-right .fl-last{margin:0;padding:0;border:0;}

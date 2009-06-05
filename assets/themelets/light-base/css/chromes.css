@@ -1,0 +1,22 @@
+.mod-basic{border:1px solid #000;background:#eee;padding:.8em;width:100%;float:none;}
+.mod-fx{margin:0 0 1em 0;padding:0;border:1px solid #ccc;background:#eee;}
+.mod-fx .modinner{padding:1em;border:1px solid #fff;}
+.mod h3{font-size:1.4em;margin:0;}
+#user1{margin:0 0 1em 0;overflow:hidden;float:none;width:100%;clear:both;}
+#secondary-content .mod.first,
+#tertiary-content .mod{width:100%;clear:both;float:none;}
+#user1{margin:0 0 1em 0;}
+#user2{clear:both;background:#eee;border:1px solid #ccc;}
+#user2 #user2-inner{padding:1em;overflow:hidden;border: 1px solid #fff;}
+#user1 .mod{margin:0;padding:0;}
+#user1 .yui-u{margin-left:1.670%;}
+#user1 .first{margin-left:0;}
+#toolbar-wrap{background:#eee;border-bottom:1px solid #ccc;}
+#toolbar{margin:0 auto;padding:0;}
+#toolbar div{margin:0;padding:1em 0;height:100%;}
+#toolbar p{margin:0;padding:0;}
+#toolbar .mod{background:none;padding:0;margin:0;color:#666;}
+#top2 .bannergroup{float:right;margin-top:2em;}
+#inset1,#inset2,#inset3,#inset4{border:1px solid #ccc;margin-bottom:1em;}
+#inset1 .mod-basic,#inset2 .mod-basic,#inset3 .mod-basic,#inset4 .mod-basic{border:1px solid #fff;background:#eee;width:auto;}
+#inset4{clear:both;}

@@ -1,0 +1,122 @@
+/*----------------------------------------------------------------------------
+++ Joomla core - First layer
+----------------------------------------------------------------------------*/
+/*First level*/
+.sidenav ul.menu,
+.sidenav ul{margin:0;}
+.sidenav ul.menu li{border-top:1px solid #fff;border-bottom:1px solid #ddd;list-style-type:none;}
+.sidenav ul.menu li a,
+.sidenav li .mod.sidefish span.separator{color:#333;text-decoration:none;font-size:1em;padding:0.7em .5em;height:100%;position:relative;display:block;}
+.sidenav ul.menu li a:hover{height:100%;display:block;background:#e3e3e3;}
+.sidenav ul.menu a.active{background:#999;}
+.sidenav ul.menu li.first{border-top:none;}
+.sidenav ul.menu li.last{border-bottom:none;}
+.sidenav .mod-fx ul.menu{margin:0 -6px;padding:0;}
+/*Sub level*/
+.sidenav ul.menu li li{border-top:1px solid #f6f6f6;border-bottom:1px solid #ddd;list-style-type:none;}
+.sidenav ul.menu ul{background:#e7e7e7;}
+.sidenav ul.menu ul a, .sidenav li span.separator {color:#555;}
+/*Sub level icon*/
+.sidenav .menu li li a,
+.sidenav .menu li li span.separator {background:url(../images/minus_small.gif) no-repeat 6% 48% ;}
+.sidenav .menu li li li a,
+.sidenav .menu li li li span.separator {background:url(../images/minus_small.gif) no-repeat 14% 48% ;}
+.sidenav .menu li li li li a,
+.sidenav .menu li li li li span.separator {background:url(../images/minus_small.gif) no-repeat 19% 48% ;}
+.sidenav .menu li li a:hover{background:#E3E3E3 url(../images/minus_small.gif) no-repeat 6% 48% ;}
+.sidenav .menu li li li a:hover{background:#E3E3E3 url(../images/minus_small.gif) no-repeat 14% 48% ;}
+.sidenav .menu li li li li a:hover{background:#E3E3E3 url(../images/minus_small.gif) no-repeat 19% 48% ;}
+/*Sub level indentation*/
+.sidenav .menu li li a, .sidenav li li span.separator{padding-left:2.5em;}
+.sidenav .menu li li li a, .sidenav li li span.separator{padding-left:3.5em;}
+.sidenav .menu li li li li a, .sidenav li li span.separator{padding-left:4.5em;}
+
+/*----------------------------------------------------------------------------
+++ Subtext layer (sidebar)
+----------------------------------------------------------------------------*/
+.sidenav .mod.subtext ul.menu .mainmenu_item{padding:0;display:block;text-transform:uppercase;font-size:1em;font-weight:normal;font-size:1em;padding:0;color:#222;line-height:1.9em;margin-bottom:-3px;}
+.sidenav .mod.subtext ul.menu .submenu_item{padding:0;display:block;line-height:1.9em;text-transform:none;font-weight:normal;font-size:0.9em;padding:0;color:#999}
+
+/*----------------------------------------------------------------------------
+++ Sidefish core layer - Dont change!
+----------------------------------------------------------------------------*/
+.sidenav .mod.sidefish .menu,
+.sidenav .mod.sidefish .menu *{margin:0;padding:0;list-style:none;}
+.sidenav .mod.sidefish .menu{line-height:1.0;}
+.sidenav .mod.sidefish .menu ul{position:absolute;top:-999em;width:15em;/* left offset of submenus need to match (see below) */}
+.sidenav .mod.sidefish .menu ul li{width:100%;}
+.sidenav .mod.sidefish .menu li:hover{visibility:inherit;/* fixes IE7 'sticky bug' */}
+.sidenav .mod.sidefish .menu li{position:relative;}
+.sidenav .mod.sidefish .menu a, .sidenav .mod.sidefish span.separator {display:block;position:relative;padding:0.7em .5em;}
+.sidenav .mod.sidefish .menu li li a {background-image: none; padding: 0.7em 0.5em;}
+
+/*----------------------------------------------------------------------------
+++ Sidefish Final Layer
+----------------------------------------------------------------------------*/
+
+/*Add arrows and base for flyouts**/
+.sidenav .sf-sub-indicator{position:absolute;display:block;right:.75em;top:1.05em;/* IE6 only */
+width:5px;height:9px;text-indent:-999em;overflow:hidden;background:url('../images/subchild.gif') repeat 0 0;/* 8-bit indexed alpha png. IE6 gets solid image only */}
+.sidenav .mod.sidefish ul.menu ul {background: #eee;width: 14em;border: 1px solid #ccc;}
+
+.sidenav .mod.subtext ul.menu li:hover, .sidenav .mod.subtext ul.menu li.sfHover,
+.sidenav .mod.subtext ul.menu a:focus, .sidenav .mod.subtext ul.menu a:hover, .sidenav .mod.subtext ul.menu a:active {background-color:#E3E3E3;outline:0;}
+
+/*Set the width of first flyout*/
+.yui-t1 .sidenav .mod.sidefish ul.menu ul,
+.yui-t4 .sidenav .mod.sidefish ul.menu ul{width: 12em;top:0;}
+.yui-t2 .sidenav .mod.sidefish ul.menu ul,
+.yui-t5 .sidenav .mod.sidefish ul.menu ul{width: 13em;top:0;}
+.yui-t3 .sidenav .mod.sidefish ul.menu ul,
+.yui-t7 .sidenav .mod.sidefish ul.menu ul{width: 17em;top:0;}
+.yui-t8 .sidenav .mod.sidefish ul.menu ul,
+.yui-t9 .sidenav .mod.sidefish ul.menu ul{width: 15em;top:0;}
+
+/*Off set nested sub flyouts for each layout*/
+.yui-t1 .sidenav .mod.sidefish ul.menu li:hover ul,
+.yui-t1 .sidenav .mod.sidefish ul.menu li.sfHover ul{left:10.1009em;}
+.yui-t2 .sidenav .mod.sidefish ul.menu li:hover ul,
+.yui-t2 .sidenav .mod.sidefish ul.menu li.sfHover ul{left:11.7000em;}
+.yui-t3 .sidenav .mod.sidefish ul.menu li:hover ul,
+.yui-t3 .sidenav .mod.sidefish ul.menu li.sfHover ul{left:20.8769em;}
+/*This layout (t3) needs more specificity for 3rd level*/
+.yui-t3 .sidenav .mod.sidefish ul.menu li:hover ul ul,
+.yui-t3 .sidenav .mod.sidefish ul.menu li.sfHover ul ul {left:14.8769em;}
+.yui-t8 .sidenav .mod.sidefish ul.menu li:hover ul,
+.yui-t8 .sidenav .mod.sidefish ul.menu li.sfHover ul{left:14.1em;}
+
+/*Set flyout positions for when secondary is in right position*/
+.yui-t4 .sidenav .mod.sidefish ul.menu li:hover ul,
+.yui-t4 .sidenav .mod.sidefish ul.menu li.sfHover ul,
+.yui-t5 .sidenav .mod.sidefish ul.menu li:hover ul,
+.yui-t5 .sidenav .mod.sidefish ul.menu li.sfHover ul,
+.yui-t6 .sidenav .mod.sidefish ul.menu li:hover ul,
+.yui-t6 .sidenav .mod.sidefish ul.menu li.sfHover ul,
+.yui-t9 .sidenav .mod.sidefish ul.menu li:hover ul,
+.yui-t9 .sidenav .mod.sidefish ul.menu li.sfHover ul{left:-14.3456em;top:0em;}
+
+/*Flyout positioning when menu published to right module (tertiary)*/
+.yui-t1 #tertiary-content .mod.sidefish ul.menu li:hover ul,
+.yui-t1 #tertiary-content .mod.sidefish ul.menu li.sfHover ul,
+.yui-t2 #tertiary-content .mod.sidefish ul.menu li:hover ul,
+.yui-t2 #tertiary-content .mod.sidefish ul.menu li.sfHover ul,
+.yui-t3 #tertiary-content .mod.sidefish ul.menu li:hover ul,
+.yui-t3 #tertiary-content .mod.sidefish ul.menu li.sfHover ul,
+.yui-t4 #tertiary-content .mod.sidefish ul.menu li:hover ul,
+.yui-t4 #tertiary-content .mod.sidefish ul.menu li.sfHover ul,
+.yui-t5 #tertiary-content .mod.sidefish ul.menu li:hover ul,
+.yui-t5 #tertiary-content .mod.sidefish ul.menu li.sfHover ul,
+.yui-t6 #tertiary-content .mod.sidefish ul.menu li:hover ul,
+.yui-t6 #tertiary-content .mod.sidefish ul.menu li.sfHover ul,
+.yui-t8 #tertiary-content .mod.sidefish ul.menu li:hover ul,
+.yui-t8 #tertiary-content .mod.sidefish ul.menu li.sfHover ul,
+.yui-t9 #tertiary-content .mod.sidefish ul.menu li:hover ul,
+.yui-t9 #tertiary-content .mod.sidefish ul.menu li.sfHover ul{left:-15.00769em;}
+
+/*** position indicator for sidebar with menufx - subtext **/
+.sidenav .mod.subtext ul.menu .sf-sub-indicator{right:2%;margin-top:13px;}
+
+/*** position indicator for sidenav sub items **/
+.sidenav .mod.subtext ul.menu li ul li a .sf-sub-indicator{right:0.5em;margin-top:0px;}
+
+

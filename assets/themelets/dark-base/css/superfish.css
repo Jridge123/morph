@@ -1,0 +1,63 @@
+/* superfish core - dont change */
+.menu,
+.menu *{margin:0;padding:0;list-style:none;}
+.menu{line-height:1.0;}
+.menu ul{position:absolute;top:-999em;width:14em;/* left offset of submenus need to match (see below) */}
+.menu ul li{width:100%;}
+.menu li:hover{visibility:inherit;/* fixes IE7 'sticky bug' */}
+.menu li{float:left;position:relative;}
+.menu a{display:block;position:relative;}
+.menu li:hover ul,
+.menu li.sfHover ul{left:0;top:3em;/* match top ul list item height */
+z-index:99;}
+ul.menu li:hover li ul,
+ul.menu li.sfHover li ul{top:-999em;}
+ul.menu li li:hover ul,
+ul.menu li li.sfHover ul{left:14em;/* match ul width */
+top:0;}
+ul.menu li li:hover li ul,
+ul.menu li li.sfHover li ul{top:-999em;}
+ul.menu li li li:hover ul,
+ul.menu li li li.sfHover ul{left:14em;/* match ul width */
+top:0;}
+
+/* adjusting the layout to accomodate the subtext */
+/*
+#topnav.subtext ul.menu li.sfHover ul,
+#topnav.subtext ul.menu li:hover ul{top:4.7em;}
+
+#topnav.subtext ul.menu li.sfHover ul ul,
+#topnav.subtext ul.menu li:hover ul ul{top:3.1em;}*/
+
+#topnav.subtext ul.menu ul{
+margin-top: 20px;
+}
+#topnav.subtext ul.menu ul ul{
+margin-top: 0px;
+}
+#topnav.subtext .search{margin:.8em .7em 0 0;}
+
+/* menu styling */
+#topnav{border:1px solid #000;}
+#nav .menu{float:left;border-right:1px solid #222;}
+#nav .menu ul{border-bottom:1px solid #000;}
+#nav .menu a{border-left:1px solid #222;border-right:1px solid #000;border-top:1px solid #222;padding:.95em 1em;text-decoration:none;}
+#nav .menu a,
+#nav .menu a:link,
+#nav .menu a:visited{/* visited pseudo selector so IE6 applies text colour*/
+color:#666;}
+#nav .menu li{}
+#nav .menu li li{background:#111;}
+#nav .menu li li li{background:#111;}
+#nav .menu li:hover,
+#nav .menu li.sfHover,
+#nav .menu a:focus,
+#nav .menu a:hover,
+#nav .menu a:active{background:#111;outline:0;}
+#nav .menu ul li:hover,
+#nav .menu ul li.sfHover,
+#nav .menu ul a:focus,
+#nav .menu ul a:hover,
+#nav .menu ul a:active{background:#000;outline:0;}
+#nav .menu .parent a{background:transparent url(../images/parent.gif) 50% 85% no-repeat;}
+#nav .menu .parent ul a{background:none;}

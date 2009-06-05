@@ -1,0 +1,10 @@
+html{background:#eee;}
+#printview{color:#111;background-image:none;font:normal 14px/160% arial;background-color:#FFF;border:1px solid #ccc;margin:1em;padding:2em;}
+#printview h1{font-size:3em;margin:.3em 0 1em 0;}
+#printview h2{font-size:2em;margin:.5em 0 0.3em 0;}
+#printview a,#printview a:visited,#printview a:link{color:#000;}
+#printview .article_column{width:100%!important;}
+#printview .article-options,
+#printview .pagination-links{display:none;}
+#printview .author,#printview .created{font-weight:bold;color:#666;}
+#printview .modified{color:#999;}

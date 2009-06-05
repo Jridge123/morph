@@ -1,0 +1,319 @@
+/*----------------------------------------------------------------------------
+++ JoomlaJunkie Module CSS
+++ All Joomla! module tyling is kept here.
+----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------
+++ modules css
+----------------------------------------------------------------------------*/
+/*#user1 .module.last,#inset1 .module.last{background:none;}
+#user1 .module.last div,#inset1 .module.last div{padding:0;}
+.module .modinner{padding:0 5px 0 0;}
+*/
+.mod-vert-seperator{height:12px;display:block;margin:5px 0 20px;}
+/* intelli module header styles
+*************************************/
+.mod h3{font-size:17px;padding:0 0 0.5em;font-weight:bold;}
+/* intelli module container styles
+*************************************/
+.moduletable{margin:13px 0;}
+#toolbar .moduletable{margin:0;}
+/* sidebars module header styles
+*************************************/
+.module.firstmodule{margin:0;}
+
+/* sidebars module container styles
+*************************************/
+.module.nopadding .modinner div{padding:0;}
+.module.nopadding .modinner{padding:0;}
+/* this style fixes padding and border
+inconsistencies with nested divs
+*************************************/
+.module div div,.module_menu div div,.module_text div div,.module.rounded div div{padding:0px;border:none;}
+div.moduletable-sfx.nopadding{padding:0;width:auto;}
+/* footer shelf module adjustments
+*************************************/
+#btmshelf .module h3,#jjUser1 .module h3,#jjUser5 .module h3,#jjUser6 .moduletable h3,#jjUser7 .module h3,#jjUser8 .module h3{margin:0.2em 0;padding:0.5em 0;}
+#btmshelf .module,#jjUser1 .module{margin-bottom:10px;margin-top:15px;}
+/* solid color background headers
+*************************************/
+.mod.h3style-14 h3,.mod.h3style-15 h3,.mod.h3style-16 h3,.mod.h3style-17 h3,.mod.h3style-18 h3,.mod.h3style-19 h3,.mod.h3style-14 h3{margin:-11px -12px 12px -12px;padding:10px 0 10px 10px;}
+/* module background "bgstyle" styles
+/* look in themelet css
+*************************************/
+/* module header icon options
+*************************************/
+.mod.iconstyle-01 h3,
+.mod.iconstyle-02 h3,
+.mod.iconstyle-03 h3,
+.mod.iconstyle-04 h3,
+.mod.iconstyle-05 h3,
+.mod.iconstyle-06 h3,
+.mod.iconstyle-07 h3,
+.mod.iconstyle-08 h3,
+.mod.iconstyle-09 h3,
+.mod.iconstyle-10 h3,
+.mod.iconstyle-11 h3,
+.mod.iconstyle-12 h3{background-repeat:no-repeat;background-position:3% 16%;padding-left:30px;}
+.mod.callout{font-size:3.2em;line-height:1.5em;}
+.mod-vert-seperator{background:url(../images/mod-horiz-seperator-tp.png) no-repeat 50%;}
+/*Sidebars Module Header Styles*/
+.module h3,.module-sfx h3,.module_menu h3,.module_text h3{color:#CCC;}
+
+/*Inset and shelf lists*/
+/*#btmshelf ul li a,#user1 ul li a,#inset1 ul li a,#inset2 ul li a,#inset3 ul li a,#bottom ul li a,#header ul li a{color:#CCC;}
+*/
+#btmshelf ul,#user1 ul,#inset1 ul,#inset2 ul,#inset3 ul,#bottom ul,#header ul{padding:0;margin:0;}
+/*Reset Module Margins via Suffix*/
+.nomargin{margin:0;}
+/*Reset Module Padding via Suffix*/
+.nopadding{padding:0;}
+
+/*Module Header Style Options*/
+.mod.h3style-01 h3{color:#FFFFFF;}
+.mod.h3style-02 h3{color:#468EA1;}
+.mod.h3style-03 h3{color:#999900;}
+.mod.h3style-04 h3{color:#626262;}
+.mod.h3style-05 h3{color:#B4AA9A;}
+.mod.h3style-06 h3{color:#A1BFC2;}
+.mod.h3style-07 h3{border-bottom:3px solid #222;}
+.mod.h3style-08 h3{border-bottom:3px solid #6CACBE;}
+.mod.h3style-09 h3{border-bottom:3px solid #B4AA9A;}
+.mod.h3style-10 h3{border-bottom:3px solid #999900;}
+.mod.h3style-11 h3{border-bottom:3px solid #CC3300;}
+.mod.h3style-12 h3{border-bottom:3px solid #202F33;}
+.mod.h3style-13 h3{border-bottom:3px solid #2597B4;}
+/*Solid color background headers*/
+.mod.h3style-14 h3{background:#2E7B8F;}
+.mod.h3style-15 h3{background:#7F7F0F;}
+.mod.h3style-16 h3{background:#1C2426;}
+.mod.h3style-17 h3{background:#8B471D;}
+.mod.h3style-18 h3{background:#750013;}
+.mod.h3style-19 h3{background:#004A5B;}
+.mod.h3style-20 h3{font-size:1.2em;}
+.mod.h3style-21 h3{font-size:1.4em;}
+.mod.h3style-22 h3{font-size:1.5em;}
+.mod.h3style-23 h3{font-size:1.6em;}
+.mod.h3style-24 h3{font-size:1.7em;}
+.mod.h3style-25 h3{font-size:1.8em;}
+.mod.rounded div div div{/*[disabled]border:1px solid #1A2022;*/}
+/*Module Background "BGStyle" styles*/
+/*.mod.bgstyle-01{background:#111617 url(../images/bg-01.jpg) no-repeat scroll center bottom;}
+.mod.bgstyle-02{background:#111617 url(../images/bg-02.jpg) no-repeat scroll center top;}
+.mod.bgstyle-03{background:#111617 url(../images/bg-03.jpg) no-repeat scroll center top;}
+.mod.bgstyle-04{background:#111617 url(../images/bg-04.jpg) no-repeat scroll center bottom;}
+.mod.bgstyle-05{background:#111617 url(../images/bg-05.jpg) no-repeat scroll center top;}
+.mod.bgstyle-06{background:#111617 url(../images/bg-06.jpg) no-repeat scroll center bottom;}
+.mod.bgstyle-07{background:#111617 url(../images/bg-07.jpg) no-repeat scroll center top;}
+.mod.bgstyle-08{background:#111617 url(../images/bg-08.jpg) no-repeat scroll center bottom;}
+.mod.bgstyle-09{background:#111617 url(../images/bg-09.jpg) no-repeat scroll center bottom;}
+.mod.bgstyle-10{background:#111617 url(../images/bg-10.jpg) no-repeat scroll center top;}
+.mod.bgstyle-11{background:#111617 url(../images/bg-11.jpg) repeat-x scroll center top;}
+.mod.bgstyle-12{background:#111617 url(../images/bg-12.jpg) repeat-x scroll center top;}
+.mod.bgstyle-13{background:#111617 url(../images/bg-13.jpg) repeat-x scroll center top;}
+.mod.bgstyle-14{background:#111617 url(../images/bg-14.jpg) repeat-x scroll center top;}*/
+.mod.bgstyle-15{background:#171A1B;}
+.mod.bgstyle-16{background:#1C2426;}
+.mod.bgstyle-17{background:#004A5B;}
+.mod.bgstyle-18{background:#666715;}
+.mod.bgstyle-19{background:#8B471D;}
+.mod.bgstyle-19{background:#750013;}
+/*Module Header Icon Options*/
+.mod.iconstyle-01 h3{background-image:url(../images/icons/iconstyle-01.png);}
+.mod.iconstyle-02 h3{background-image:url(../images/icons/iconstyle-02.png);}
+.mod.iconstyle-03 h3{background-image:url(../images/icons/iconstyle-03.png);}
+.mod.iconstyle-04 h3{background-image:url(../images/icons/iconstyle-04.png);}
+.mod.iconstyle-05 h3{background-image:url(../images/icons/iconstyle-05.png);}
+.mod.iconstyle-06 h3{background-image:url(../images/icons/iconstyle-06.png);}
+.mod.iconstyle-07 h3{background-image:url(../images/icons/iconstyle-07.png);}
+.mod.iconstyle-08 h3{background-image:url(../images/icons/iconstyle-08.png);}
+.mod.iconstyle-09 h3{background-image:url(../images/icons/iconstyle-09.png);}
+.mod.iconstyle-10 h3{background-image:url(../images/icons/iconstyle-10.png);}
+.mod.iconstyle-11 h3{background-image:url(../images/icons/iconstyle-11.png);}
+.mod.iconstyle-12 h3{background-image:url(../images/icons/iconstyle-12.png);}
+.mod.callout{font-family:Arial,Helvetica,sans-serif;}
+.mod.callout2{font-family:Arial,Helvetica,sans-serif;font-size:1.6em;color:#777;}
+.mod.callout2 a{background:#6CADBE;color:#FFFFFF;padding:1px 6px;text-decoration:none;}
+
+/* List separator styles
+*************************************/
+#btmshelf .list-seperators ul,#user1 .list-seperators ul,#inset1 .list-seperators ul,#inset2 .list-seperators ul,#inset3 .list-seperators ul,#bottom .list-seperators ul,#header .list-seperators ul{border-bottom:1px solid #222;}
+#btmshelf .list-seperators ul li,#user1 .list-seperators ul li,#inset1 .list-seperators ul li,#inset2 .list-seperators ul li,#inset3 .list-seperators ul li,#bottom .list-seperators ul li,#header .list-seperators ul li{border-top:1px solid #222;border-bottom:1px solid #000;}
+#btmshelf .list-seperators ul li a:hover,#user1 .list-seperators ul li a:hover,#inset1 .list-seperators ul li a:hover,#inset2 .list-seperators ul li a:hover,#inset3 .list-seperators ul li a:hover,#bottom .list-seperators ul li a:hover,#header .list-seperators ul li a:hover{background:#111;}
+#btmshelf .list-seperators ul li a,
+#user1 .list-seperators ul li a,
+#inset1 .list-seperators ul li a,
+#inset2 .list-seperators ul li a,
+#header .list-seperators ul li a{display:block;padding:0.5em 0 0.5em 0.4em;}
+#shelf .list-seperators ul li.firstmodule,
+#user1 .list-seperators ul li.firstmodule,
+#inset1 .list-seperators ul li.firstmodule,
+#inset2 .list-seperators ul li.firstmodule,
+#header .list-seperators ul li.firstmodule{border-top:none;}
+.question{background:url(../images/question.gif) no-repeat left center;}
+.question p{padding-left:64px;}
+.moduletable-callout a{border-bottom:3px dotted #90A815;}
+.testamonial p{font-style:italic;font-size:1.2em;}
+.testamonial tr.alt{background:none;border:none;}
+.testamonial .jjmod-content{padding-left:55px;background-image:url(../images/quote.gif);background-repeat:no-repeat;margin-top:20px;}
+#btmshelf .testamonial .review-by{color:#999;font-size:1em;font-style:normal;margin-left:-50px;}
+#btmshelf .testamonial .review-by span{display:block;font-size:13px;color:#555;}
+/*Custom Modules*/
+#bigtweet{background:url(../images/bigtweet.jpg) no-repeat top left;height:194px;width:188px;}
+#recent-preview-header{background:url(../images/recent-preview-header.jpg) no-repeat 0 0;border:6px solid #222222;height:213px;margin-top:1px;text-indent:-7887px;}
+.recent-type,
+.recent-tech,
+.recent-client{color:#CCCCCC;font-size:1em;}
+.recent-visit,
+.recent-other{float:left;margin:1.5em 1em 1em 0;}
+.recent-visit a,
+.recent-other a{background:#161B1C;color:#6C6C6C;font-size:1.1em;padding:1em 2em 1.2em 2em;}
+.recent-type span,
+.recent-tech span,
+.recent-client span{color:#999;font-size:0.9em;}
+/*Portfolio Modules Controls
+set the suffix in the module*/
+#bottom li.mod_portfolio_item,#bottom ul.mod_portfolio{border:none;}
+.mod_portfolio.portfolio2 li{padding:0 1%;float:left;width:48%;}
+.mod_portfolio.portfolio3 li{padding:0 1%;float:left;width:31%;}
+.mod_portfolio.portfolio4 li{padding:0 1%;float:left;width:23%;}
+.mod_portfolio.portfolio5 li{padding:0 1%;float:left;width:18%;}
+a.mod_portfolio_img{margin:1em 0;}
+a.mod_portfolio_img img{background:#1F2323 none repeat scroll 0 0;border:1px solid #000000;padding:0.7em;}
+.portmod_technology{margin:1em 0;color:#999;}
+.portmod_technology span{color:#666;font-style:italic;}
+.portmod_url{background:#161B1C;color:#6C6C6C;display:block;font-size:1.1em;margin:2em 0;padding:0.7em 0 0.9em;text-align:center;}
+span.portfolio_time{color:#666666;font-size:0.8em;font-style:italic;font-weight:normal;position:relative;right:100%;}
+/* Wordpress Latest Posts Module*/
+#yui-main #wp-latest-wrapper ul li a{padding:1em 0;display:inline;}
+.wp-latest-title{font-size:1.5em;margin:1em 0;}
+span.wp-latest-readmore{display:block;padding:1.5em 0;}
+.wp-latest-introtext{margin:1em 0;}
+#yui-main #wp-latest-wrapper ul li a:hover{background:none;}
+#wp-latest-wrapper li a{padding:2em 0;}
+#wp-latest-wrapper li .wp-latest-title a:hover{background:none;}
+#wp-latest-cats{margin:1.5em 0;border-top:4px solid #1b1b1b;}
+#wp-latest-cats li.categories{padding:1.5em 0;font-size:1.5em;}
+#primary-content ul.wp-latest-latest{border:none;}
+#primary-content ul.wp-latest-latest li{border:none;list-style-type:none;}
+#primary-content #wp-latest-cats ul li{list-style-type:none;font-size:0.7em;line-height:2em;}
+#primary-content #wp-latest-cats li.categories ul{margin:0.5em 0;}
+/*----------------------------------------------------------------------------
+++ JoomlaJunkie Simple Contact Module.
+----------------------------------------------------------------------------*/
+#simpleContact p{margin-bottom:10px;padding:0 0 5px 28px;color:#ccc;}
+#simpleContact p.contact-position{color:#999;margin-top:-13px;}
+p.contact-name{background:transparent url(../../../../../../modules/mod_jj_simplecontact/images/contact-name.png) no-repeat 2px 3px;font:bold 1.4em Arial;margin-bottom:0;}
+p.contact-address{background:transparent url(../../../../../../modules/mod_jj_simplecontact/images/contact-address.png) no-repeat 2px 3px;}
+p.contact-mobile{background:transparent url(../../../../../../modules/mod_jj_simplecontact/images/contact-mobile.png) no-repeat 2px 3px;}
+p.contact-tel{background:transparent url(../../../../../../modules/mod_jj_simplecontact/images/contact-telephone.png) no-repeat 2px 3px;}
+p.contact-fax{background:transparent url(../../../../../../modules/mod_jj_simplecontact/images/contact-fax.png) no-repeat 2px 3px;}
+p.contact-email{background:transparent url(../../../../../../modules/mod_jj_simplecontact/images/contact-email.png) no-repeat 2px 6px;}
+p.contact-website{background:transparent url(../../../../../../modules/mod_jj_simplecontact/images/contact-link.png) no-repeat 2px 3px;}
+p.contact-email a{color:#333;}
+#simpleContact p.contact-sendusemail{padding:0;}
+p.contact-sendusemail a:link,.contact-sendusemail a:visited{background:#161B1C none repeat scroll 0 0;border:1px solid #111111;color:#555555;display:block;font-size:2em;margin:16px 0 -13px 3px;padding:0.6em 0 0.7em;text-align:center;}
+.contact-sendusemail span{text-transform:capitalize;}
+#simpleContact .contact-alert{margin:0 0 1em 0;padding:10px;border:1px solid #EFDD1D;background:#FFFEEF;color:#8F5B00;}
+.contact-alert em{color:#8F5B00;background:#FFEEBF;}
+.simpleContact-item{padding-top:1em;margin-top:1em;border-top:1px dotted #ccc;}
+#simpleContact .contact-image{padding:1px;background:#fff;border:5px solid #eee;}
+/* Custom Template Tweaks */
+#simpleContact.beez,
+#simpleContact.vector{padding:0 0 1em 1em;}
+#simpleContact.vector .contact-image{margin:0 0 1em;}
+#simpleContact.zappa .contact-image{border-color:#DFD7B5;margin:0 0 .5em;}
+#simpleContact.zappa p.contact-sendusemail a{padding:4px 0 0 8px;}
+/*----------------------------------------------------------------------------
+++ JoomlaJunkie Socializer Module.
+----------------------------------------------------------------------------*/
+#jjSociable p,
+#sociableList,
+#sociableList li{list-style:none;margin:0;padding:0;background:none;}
+#jjSociable p{padding:0 0 10px 0;}
+ul.favicons li a{padding:11px 0 11px 27px;}
+.generic li{display:block;margin:3px 0;width:100%;height:22px;line-height:30px;}
+.generic li a{display:block;height:67px;text-indent:27px;background:transparent url(icon.png) no-repeat top left;}
+.generic li a:hover{background:transparent url(../../../../../../modules/mod_jj_simplecontact/images/icon.png) no-repeat bottom left;}
+#sociableList li a{line-height:2.2em;height:inherit;border-bottom:1px solid #202F33;font:normal 14px Arial;display:block;color:#999;}
+#sociableList li a:hover{text-decoration:underline;color:#666;}
+#jjSociable{padding:0;}
+ul#sociableList{overflow:hidden;}
+ul#sociableList li{float:left;width:135px;display:inline;}
+.favicons li.sociableTwitter a{background:transparent url(../../../../../../modules/mod_jj_socializer/socializer/twitter.png) no-repeat 5px;}
+.favicons li.sociableTumblr a{background:transparent url(../../../../../../modules/mod_jj_socializer/socializer/tumblr.png) no-repeat 5px;}
+.favicons li.sociableTwitter a{background:transparent url(../../../../../../modules/mod_jj_socializer/socializer/twitter.png) no-repeat 5px;}
+.favicons li.sociableTumblr a{background:transparent url(../../../../../../modules/mod_jj_socializer/socializer/tumblr.png) no-repeat 5px;}
+.favicons li.sociablePlurk a{background:transparent url(../../../../../../modules/mod_jj_socializer/socializer/plurk.png) no-repeat 5px;}
+.favicons li.sociablePownce a{background:transparent url(../../../../../../modules/mod_jj_socializer/socializer/pownce.png) no-repeat 5px;}
+.favicons li.sociableFlickr a{background:transparent url(../../../../../../modules/mod_jj_socializer/socializer/flickr.png) no-repeat 5px;}
+.favicons li.sociableLastfm a{background:transparent url(../../../../../../modules/mod_jj_socializer/socializer/tumblr.png) no-repeat 5px;}
+.favicons li.sociableBrightkite a{background:transparent url(../../../../../../modules/mod_jj_socializer/socializer/brightkite.png) no-repeat 5px;}
+.favicons li.sociableDigg a{background:transparent url(../../../../../../modules/mod_jj_socializer/socializer/digg.png) no-repeat 5px;}
+.favicons li.sociableGreader a{background:transparent url(../../../../../../modules/mod_jj_socializer/socializer/greader.png) no-repeat 5px;}
+.favicons li.sociableWordpress a{background:transparent url(../../../../../../modules/mod_jj_socializer/socializer/wordpress.png) no-repeat 5px;}
+.favicons li.sociableBlogger a{background:transparent url(../../../../../../modules/mod_jj_socializer/socializer/blogger.png) no-repeat 5px;}
+.favicons li.sociableXanga a{background:transparent url(../../../../../../modules/mod_jj_socializer/socializer/xanga.png) no-repeat 5px;}
+.favicons li.sociableBlinklist a{background:transparent url(../../../../../../modules/mod_jj_socializer/socializer/blinklist.png) no-repeat 5px;}
+.favicons li.sociableDelicious a{background:transparent url(../../../../../../modules/mod_jj_socializer/socializer/delicious.png) no-repeat 5px;}
+.favicons li.sociableStumbleapon a{background:transparent url(../../../../../../modules/mod_jj_socializer/socializer/stumbleupon.png) no-repeat 5px;}
+.favicons li.sociablePicasaweb a{background:transparent url(../../../../../../modules/mod_jj_socializer/socializer/picasa.png) no-repeat 5px;}
+.favicons li.sociableLinkedin a{background:transparent url(../../../../../../modules/mod_jj_socializer/socializer/linkedin.png) no-repeat 5px;}
+.favicons li.sociablePlaxo a{background:transparent url(../../../../../../modules/mod_jj_socializer/socializer/plaxo.png) no-repeat 5px;}
+.favicons li.sociableApsense a{background:transparent url(../../../../../../modules/mod_jj_socializer/socializer/apsense.png) no-repeat 5px;}
+.favicons li.sociableFacebook a{background:transparent url(../../../../../../modules/mod_jj_socializer/socializer/facebook.png) no-repeat 5px;}
+.favicons li.sociableFriendster a{background:transparent url(../../../../../../modules/mod_jj_socializer/socializer/friendster.png) no-repeat 5px;}
+.favicons li.sociableMyspace a{background:transparent url(../../../../../../modules/mod_jj_socializer/socializer/myspace.png) no-repeat 5px;}
+.favicons li.sociableWayn a{background:transparent url(../../../../../../modules/mod_jj_socializer/socializer/wayn.png) no-repeat 5px;}
+.favicons li.sociableHifive a{background:transparent url(../../../../../../modules/mod_jj_socializer/socializer/hi5.png) no-repeat 5px;}
+.favicons li.sociableLastfm a{background:transparent url(../../../../../../modules/mod_jj_socializer/socializer/lastfm.png) no-repeat 5px;}
+.favicons li.sociableOdeo a{background:transparent url(../../../../../../modules/mod_jj_socializer/socializer/odeo.png) no-repeat 5px;}
+.favicons li.sociablePandora a{background:transparent url(../../../../../../modules/mod_jj_socializer/socializer/pandora.png) no-repeat 5px;}
+.favicons li.sociableYoutube a{background:transparent url(../../../../../../modules/mod_jj_socializer/socializer/youtube.png) no-repeat 5px;}
+.favicons li.sociableBebo a{background:transparent url(../../../../../../modules/mod_jj_socializer/socializer/bebo.png) no-repeat 5px;}
+.favicons li.sociableHulu a{background:transparent url(../../../../../../modules/mod_jj_socializer/socializer/hulu.png) no-repeat 5px;}
+.favicons li.sociableDigg a{background:transparent url(../../../../../../modules/mod_jj_socializer/socializer/digg.png) no-repeat 5px;}
+.favicons li.sociableReddit a{background:transparent url(../../../../../../modules/mod_jj_socializer/socializer/reddit.png) no-repeat 5px;}
+.favicons li.sociableNewsvine a{background:transparent url(../../../../../../modules/mod_jj_socializer/socializer/newsvine.png) no-repeat 5px;}
+.favicons li.sociableMixx a{background:transparent url(../../../../../../modules/mod_jj_socializer/socializer/mixx.png) no-repeat 5px;}
+.favicons li.sociableMashable a{background:transparent url(../../../../../../modules/mod_jj_socializer/socializer/mashable.png) no-repeat 5px;}
+/*Tweet Module */
+.tweet_list{list-style-type:none;clear:both;color:#888888;font-family:Helvetica,Arial;font-size:1.5em;font-style:normal;font-weight:300;line-height:1.8em;margin-top:1em;}
+#tweet_contianer li{list-style-type:none;}
+#tweet_usr{font-size:19px;}
+.tweet_username a{background:#161B1C;color:#6C6C6C;font-size:1em;padding:0.3em 0.8em 0.5em;}
+.tweetback{color:#555;}
+.tweet_username{margin:1.6em 0;}
+/* Polls Module*/
+form.polls h4{margin:-10px 0 5px 0;padding:0;font-size:13px;}
+form.polls ul,
+form.polls li{margin:0;padding:0;list-style:none;}
+form.polls ul{margin:0 0 5px 0;}
+
+/* search module in top2 */
+#top2{position:relative;}
+#top2 .mod{margin:0;padding:0;border:0;background:none;}
+#top2 .search{position:absolute;top:2.5em;right:0;border: 1px solid #ccc}
+#top2 .search #mod_search_searchword{width:290px;padding:.7em;background:#ddd url(../images/icon-search.gif) no-repeat 97%;}
+#topnav .search{float: right;padding-right: .6em;}
+#topnav .search .inputbox{width: 10em;}
+
+#bd .bannergroup ul,
+#bd .bannergroup li{
+margin: 0;
+padding: 0;
+list-style: none;
+}
+#bd .bannergroup li{
+border-bottom:1px solid #CCCCCC;
+border-top:1px solid #FFFFFF;
+margin:0;
+padding:10px 0;;
+}
+
+#bd .bannergroup li.first{
+border-top:none;
+}
+
+#bd .bannergroup li.last{
+border-bottom:  none;
+}

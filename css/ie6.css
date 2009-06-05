@@ -1,0 +1,22 @@
+#jjNavigation UL.menu LI,#jjNavigation UL#mainlevel-nav LI{float:left;}
+.module div div div,.module_menu div div div,.module_text div div div{display:inline-block;}
+div.modfx.module.roundedc H3{margin:0;}
+div.modfx.module.roundedc{border:none;}
+div.modfx.module.roundedc div div div{border:none;padding:0;}
+#user1.intelli.yui-gb .moduletable{margin:20px 5px 5px;}
+#user1 .jjmod.moduletable{height:100%;}
+#inset1.intelli.yui-gb .moduletable{margin:0 5px 5px;display:inline;}
+.module,.module-sfx,.module_menu,.module_text{height:1%;}
+#jjBtmShelf .moduletable,#jjUser1 .moduletable{margin:0;margin-top:20px;margin-bottom:20px;}
+hr{margin:1em 0;padding:0;border:none;background-image:none;color:#111;height:1px;}
+.main-nav UL.menu li,#main-nav ul#mainlevel-nav li{float:left;}
+.moduletable.rounded{margin:0;border:none;}
+.moduletable.rounded div{border:none;}
+.moduletable.rounded div div{border:none;}
+.moduletable.rounded div div div div{border:none;padding:0 5px 5px;}
+.moduletable.rounded div div div{border:none;padding:0;}
+.rounded div.jjmod-content{margin-top:10px;}
+#branding{height:1%;}
+.yui-t1 #yui-main .yui-b.no-left,.yui-t2 #yui-main .yui-b.no-left,.yui-t3 #yui-main .yui-b.no-left,.yui-t4 #yui-main .yui-b.no-left,.yui-t5 #yui-main .yui-b.no-left,.yui-t6 #yui-main .yui-b.no-left,.yui-t7 #yui-main .yui-b.no-left,.yui-t8 #yui-main .yui-b.no-left,.yui-t9 #yui-main .yui-b.no-left{margin-left:0;}
+#bottom{height:1%;clear:both;}
+.ui-tabs{zoom: 1;}
