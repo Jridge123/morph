@@ -297,6 +297,20 @@ form.polls ul{margin:0 0 5px 0;}
 #topnav .search{float: right;padding-right: .6em;}
 #topnav .search .inputbox{width: 10em;}
 
+/* search module in user4 without subtext enabled */
+#topnav .search .inputbox {
+width:10em;
+margin: .6em 0 0 0;
+border: 1px solid #ccc;
+}
+
+/* search module in user4 with subtext enabled */
+#topnav.subtext .search .inputbox {
+width:10em;
+margin: .5em 0 0 0;
+border: 1px solid #ccc;
+}
+
 #bd .bannergroup ul,
 #bd .bannergroup li{
 margin: 0;
