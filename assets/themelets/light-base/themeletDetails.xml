@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <install type="themelet">
-	<name>Light Base Draft</name>
+	<name>Light Base</name>
 	<shortname>light_base</shortname>
 	<foldername>light-base</foldername>
 	<version>0.01</version>
