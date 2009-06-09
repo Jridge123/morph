@@ -8,7 +8,9 @@
 			<li class="fl-left"><jdoc:include type="modules" name="footernav" style="none" /></li>
 			<li class="fl-right">
 				<ul>
-					<?php if ($footer_xhtml == "1") { ?><li class="w3c-valid-xhtml">
+					<?php if ($footer_morphlink == "1") { ?><li class="morph-link">
+					<a target="_blank" href="http://www.joomlajunkie.com/morph">morph inside</a></li>
+					<?php } if ($footer_xhtml == "1") { ?><li class="w3c-valid-xhtml">
 					<a target="_blank" href="http://validator.w3.org/check?uri=<?php echo JURI::root() ?>">xhtml</a></li>
 					<?php } if ($footer_css == "1") { ?>
 					<li class="w3c-valid-css"><a target="_blank" href="http://jigsaw.w3.org/css-validator/validator?uri=<?php echo JURI::root() ?>">css</a></li>
