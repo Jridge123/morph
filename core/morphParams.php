@@ -162,6 +162,7 @@ $footer_type = $MORPH->footer_type;
 $footer_credits = $MORPH->footer_credits;
 $footer_copyright = $MORPH->footer_copyright;
 $footer_swish = $MORPH->footer_swish;
+$footer_morphlink = $MORPH->footer_morphlink;
 $footer_xhtml = $MORPH->footer_xhtml;
 $footer_css = $MORPH->footer_css;
 $footer_rss = $MORPH->footer_rss;
