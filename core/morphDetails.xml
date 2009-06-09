@@ -60,7 +60,7 @@
 		<option value="0">Linked inline image</option>
 		<option value="1">Linked plain text</option>
 		<option value="2">Linked h1 text replacement</option>
-		<option value="3">Module position</option>
+		<option value="3">Module position (branding)</option>
 	</param>
 	<param name="logo_image" type="imagelist" default="logo.png" tooltip="inline" label="Logo image" directory="templates/morph/assets/logos" hide_none="false" hide_default="false" description="If you haven't already, upload your logo using the Installer tool on the right, then once you have done that, select the logo from the list."  />
 	<param name="logo_image_ie" type="imagelist" default="logo.gif" tooltip="inline" label="Logo image for IE6" directory="templates/morph/assets/logos" hide_none="false" hide_default="false" description="We have added the option to have an alternate logo to display in IE6. This is useful if you are using a transparent png for your logo and would like to have a gif displayed for people browsing your site in Internet Explorer 6." />
