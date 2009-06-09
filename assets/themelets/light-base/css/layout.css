@@ -15,15 +15,6 @@ border-top:1px solid #FFFFFF;
 padding-top:25px;
 }
 
-/*#bd {
-	background: white;
-	border: 1px solid #ddd;
-}*/
-
-/*.bd-inner {
-padding: 1em;
-}*/
-
 #topshelf-wrap {
 background:#F3F3F3 none repeat scroll 0 0;
 padding:0.3em 0;
@@ -81,7 +72,6 @@ margin:0 0 50px;
 text-align:center;
 }
 
-
 body{text-align:center;margin:0;padding:0;background:#0B0D0D;}
 #top{overflow:hidden;}
 #bottom{overflow:hidden;}
@@ -90,10 +80,17 @@ body{text-align:center;margin:0;padding:0;background:#0B0D0D;}
 **********************************/
 #branding h1{padding:0;margin: 0.3em 0;}
 #branding h1 a{display:block;position:relative;text-indent:-7887px;}
-.img-logo img{float:left;margin:0;padding:0;margin-top:20px;}
-.txt-logo .logo{display:block;float:left;text-decoration:none;padding-left:0.5em;}
+.img-logo img{float:left;margin:0;padding:0;font:bold 5em Arial;}
 .slogan .logo span{font-size:.5em;display:block;}
 .slogan .logo{line-height:.7em;height:auto;}
+.txt-logo .logo{display:block;float:left;text-decoration:none;font:normal 5em/2em Georgia,Times,serif;color:#CCC;}
+.slogan .logo span{color:#888;}
+.slogan .logo:hover{color:#FFF;}
+.txt-logo.slogan .logo{margin:.5em 0 .3em 0; font-size:4em;line-height:.8em;}
+.txt-logo.slogan .logo:hover{color:#666;}
+.txt-logo.slogan .logo span{font-size:.4em;}
+
+
 /* topbar */
 #toolbar-wrap{padding:0;z-index: 999;}
 #toolbar{padding:15px 0;}
@@ -103,9 +100,7 @@ body{text-align:center;margin:0;padding:0;background:#0B0D0D;}
 #toolbar-wrap .slider-close a{position:absolute;top:0px;right:0;width:auto;padding:5px 10px;background:#ccc;color:#666;font:bold 10px Arial;text-transform:uppercase;border:1px solid #222;border-top:0;display:block;cursor:pointer;}
 #toolbar-wrap .slider-close a:hover, #toolbar-wrap .slider-close a.active{background:#ccc;color:#fff;text-decoration:none;}
 .selected a{color:#eee;}
-.txt-logo .logo{font:normal 3em/1em Georgia,Times,serif;color:#CCC;}
-.slogan .logo span{color:#888;}
-.slogan .logo:hover{color:#FFF;}
+
 /*#footer{color:#FFF;}*/
 #topbar-wrap{background:#ccc;}
 .search.search-btn{}
