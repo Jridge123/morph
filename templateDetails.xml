@@ -7,13 +7,13 @@
 	<copyright>Commercial</copyright>
 	<authorEmail>noreply@joomlajunkie.com</authorEmail>
 	<authorUrl>htp://www.joomlajunkie.com</authorUrl>
-	<version>0.02</version>
+	<version>0.03</version>
 	<description>
 <![CDATA[
 <style type="text/css" media="screen">
 #templateWrap h2, #templateWrap h3, #templateWrap h4, #templateWrap dl, #templateWrap dt, 
 #templateWrap dd, #templateWrap ul, #templateWrap li, #templateWrap p{margin:0;padding:0;}
-#templateWrap{ background: url(../templates/morph/images/maskot.jpg) no-repeat bottom right; margin: 0 1em; font:normal 12px/160% Arial; overflow: hidden;}
+#templateWrap{ margin: 0 1em; font:normal 12px/160% Arial; overflow: hidden;}
 #templateWrap h2 a{margin-bottom: 1em;background: #fff url(../templates/morph/images/joomlajunkie-logo.png) 0 10px no-repeat;display:block;width:362px;height:60px;text-indent:-7998px;}
 #templateWrap #status{ display: none;margin:1.5em 0;}
 #templateWrap #status div{border:1px solid #fff;padding:10px 10px 10px 55px;}
@@ -46,11 +46,10 @@ h3.options_head{color:#CC6633;font-size:1.5em;}
 </style>
 				<div id="templateWrap">
 				<h2><a href="http://www.joomlajunkie.com" target="_blank" title="Free &amp; Commercial Joomla! Templates">JoomlaJunkie</a></h2>
-				<img src="../templates/morph/template_thumbnail.png" alt="Template Thumbnail">
 				<h4>Template Summary</h4>
 				<dl class="resources">
 					<dt>Template Version:</dt>
-					<dd>v0.02</dd>
+					<dd>v0.03</dd>
 					<dt>Additional Resources:</dt>
 					<dd><ul>
 						<li><a href="http://www.joomlajunkie.com/demo/2ndgen/morph" title="" target="_blank">Template Demo</a></li>
