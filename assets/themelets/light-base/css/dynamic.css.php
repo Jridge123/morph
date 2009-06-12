@@ -37,34 +37,31 @@ function isIE6(){
 	}
 }
 ?>
-body{<?php if ( $themelet_bgcolor && $themelet_bgcolor !== "default" ) { ?>background-color: <?php echo $themelet_bgcolor; ?>;<?php } if ( $themelet_bgimage && $themelet_bgimage !== "default" ) { ?>background-image: <?php echo $themelet_bgimage; ?>;<?php } if ( $themelet_bgrepeat && $themelet_bgrepeat !== "default" ) { ?>background-repeat: <?php echo $themelet_bgrepeat; ?>;<?php } if ( $themelet_bgposition && $themelet_bgposition !== "default" ) { ?>background-position: <?php echo $themelet_bgposition; ?>;<?php } ?>}
-
+body{
+<?php if ( $themelet_bgcolor && $themelet_bgcolor !== "#default" ) { ?>background-color: <?php echo $themelet_bgcolor; ?>;
+<?php } if ( $themelet_bgimage && $themelet_bgimage !== "default" ) { ?>background-image: url(../../../backgrounds/<?php echo $themelet_bgimage; ?>);
+<?php } if ( $themelet_bgrepeat && $themelet_bgrepeat !== "default" ) { ?>background-repeat: <?php echo $themelet_bgrepeat; ?>;
+<?php } if ( $themelet_bgposition && $themelet_bgposition !== "default" ) { ?>background-position: <?php echo $themelet_bgposition; ?>;<?php } ?>}
 <?php if ( $logo_type == 2 ) { ?>
 #branding h1{width:<?php echo $logo_width; ?>px;height:<?php echo $logo_height; ?>px;}
 #branding h1 a{width:<?php echo $logo_width; ?>px;height:<?php echo $logo_height; ?>px;background:transparent url(../../../logos/<?php if( isIE6() && $logo_image_ie !== ''){ echo $ie_logo_image; } else { echo $logo_image; } ?>) no-repeat 0;}
-<?php } 
-
+<?php }
 if ( $toolbar_slider == 1 ) { ?>
 #toolbar-wrap{position:absolute;top:0;width:100%;}
 #toolbar{position:relative;top:0;height:100%;}
 <?php } ?>
-
-<?php if ( $color_links && $color_links !== "default" ) { ?>
+<?php if ( $color_links && $color_links !== "#default" ) { ?>
 body a:link,body a:visited,body a:active{color: <?php echo $color_links; ?>;}
 <?php } ?>
-
-<?php if ( $color_linkshover && $color_linkshover !== "default" ) { ?>
+<?php if ( $color_linkshover && $color_linkshover !== "#default" ) { ?>
 body a:hover{color: <?php echo $color_linkshover; ?>;}
 <?php } ?>
-
-<?php if ( $color_h1 && $color_h1 !== "default" ) { ?>#primary-content h1{color:<?php echo $color_h1; ?>}<?php } ?>
-<?php if ( $color_h2 && $color_h2 !== "default" ) { ?>#primary-content h2{color:<?php echo $color_h2; ?>}<?php } ?>
-<?php if ( $color_h3 && $color_h3 !== "default" ) { ?>#primary-content h3{color:<?php echo $color_h3; ?>}<?php } ?>
-<?php if ( $color_h4 && $color_h4 !== "default" ) { ?>#primary-content h4{color:<?php echo $color_h4; ?>}<?php } ?>
-<?php if ( $color_h5 && $color_h5 !== "default" ) { ?>#primary-content h5{color:<?php echo $color_h5; ?>}<?php } ?>
-
-<?php if ( $color_bodytext && $color_bodytext !== "default" ) { ?>
+<?php if ( $color_h1 && $color_h1 !== "#default" ) { ?>#primary-content h1{color:<?php echo $color_h1; ?>}<?php } ?>
+<?php if ( $color_h2 && $color_h2 !== "#default" ) { ?>#primary-content h2{color:<?php echo $color_h2; ?>}<?php } ?>
+<?php if ( $color_h3 && $color_h3 !== "#default" ) { ?>#primary-content h3{color:<?php echo $color_h3; ?>}<?php } ?>
+<?php if ( $color_h4 && $color_h4 !== "#default" ) { ?>#primary-content h4{color:<?php echo $color_h4; ?>}<?php } ?>
+<?php if ( $color_h5 && $color_h5 !== "#default" ) { ?>#primary-content h5{color:<?php echo $color_h5; ?>}<?php } ?>
+<?php if ( $color_bodytext && $color_bodytext !== "#default" ) { ?>
 body{color: <?php echo $color_bodytext; ?>;}
 <?php } ?>
-
 <?php if ( $gzip_compression == 1 ) { ob_end_flush(); } ?>
