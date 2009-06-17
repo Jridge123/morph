@@ -116,21 +116,21 @@ header($expire);
 		$('.quote-author').corners("10px bottom");
 		$('.readon').corners("5px");
 
-<?php } if ( $topnav_type == 1 or 2 ) { ?>	
+<?php } if ( $sidefish >= 1 or $topfish >= 1  ) { ?>
 
-		$("#nav .menu")<?php if ($topnav_supersubs == "1" ) { ?>.supersubs({
-         minWidth: <?php echo $topnav_minwidth; ?>,
-         maxWidth: <?php echo $topnav_maxwidth; ?>,
-         extraWidth: 1
-        })<?php } ?>.superfish({
-         delay: <?php echo $topnav_delay; ?>,
-         animation: {opacity:'show'},
-         speed: '<?php echo $topnav_animation; ?>',
-         autoArrows: true,
-         dropShadows: false,
-         hoverClass: 'sfHover',
-         disableHI: false
-        })
+		$("#nav .menu")<?php if ($topnav_supersubs == 1 ) { ?>.supersubs({
+		 minWidth: <?php echo $topnav_minwidth; ?>,
+		 maxWidth: <?php echo $topnav_maxwidth; ?>,
+		 extraWidth: 1
+		})<?php } ?>.superfish({
+		 delay: <?php echo $topnav_delay; ?>,
+		 animation: {opacity:'show'},
+		 speed: '<?php echo $topnav_animation; ?>',
+		 autoArrows: true,
+		 dropShadows: false,
+		 hoverClass: 'sfHover',
+		 <?php if ($topnav_hoverintent == 0 ) { ?>disableHI: true<?php } else { ?>disableHI: false<?php } ?>
+		 })
 
 <?php } if ( $animate_left == 1 ) { ?>	
 		$('#secondary-content ul.menu.slide li:not(.active) a, #tertiary-content ul.menu.slide li:not(.active) a').hoverIntent(function() { //mouse in  
