@@ -51,8 +51,8 @@ header($expire);
 		$("#topnav.call-for-action li:last").prev("li").addClass("second-last")
 		$("body").removeClass("js-disabled").addClass("js-enabled"); 
 		$("input, textarea", $("form")).focus(function(){
-	    $(this).addClass("focus");
-	    $(this).parents(".form-field").addClass("cur");
+		$(this).addClass("focus");
+		$(this).parents(".form-field").addClass("cur");
 		});
 		$("input, textarea", $("form")).blur(function(){
 		    $(this).removeClass("focus");
