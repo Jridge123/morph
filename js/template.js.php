@@ -1,21 +1,26 @@
 <?php
-$jquery_core = $_GET['01'];
-$topfish = $_GET['02'];
-$superdrop = $_GET['03'];
-$topnav_supersubs = $_GET['04'];
-$topnav_hoverintent = $_GET['05'];
-$toolbar_slider = $_GET['06'];
-$topshelf_slider = $_GET['07'];
-$bottomshelf_slider = $_GET['08'];
-$topshelf_equalize = $_GET['09'];
-$bottomshelf_equalize = $_GET['10'];
-$user1_equalize = $_GET['11'];
-$user2_equalize = $_GET['12'];
-$tabscount = $_GET['13'];
-$image_captions = $_GET['14'];
-$rounded_corners = $_GET['15'];
-$gzip_compression = $_GET['16'];
-$topnav_type = $_GET['17'];
+$jquery_core = $_GET['A01'];
+
+$topfish = $_GET['B01'];
+$superdrop = $_GET['B02'];
+$topnav_supersubs = $_GET['B03'];
+$topnav_hoverintent = $_GET['B04'];
+
+$toolbar_slider = $_GET['C01'];
+$topshelf_slider = $_GET['C02'];
+$bottomshelf_slider = $_GET['C03'];
+
+$topshelf_equalize = $_GET['D01'];
+$bottomshelf_equalize = $_GET['D02'];
+$user1_equalize = $_GET['D03'];
+$user2_equalize = $_GET['D04'];
+
+$tabscount = $_GET['E01'];
+
+$image_captions = $_GET['F01'];
+$rounded_corners = $_GET['F02'];
+
+$gzip_compression = $_GET['Z01'];
 
 header("content-type: text/javascript; charset: UTF-8");
 if ( $gzip_compression == 1 ) {
@@ -43,7 +48,7 @@ if ( $topnav_hoverintent == 1 ) {
 include("jquery.superfish.hoverintent.js");
 }
 //if ( $superfish >= 1 or $superdrop >= 1  ) { 
-if ( $topnav_type = 1 or 2 or $sidefish >= 1 or $topfish >= 1  ) { 	
+if ( $sidefish >= 1 or $topfish >= 1  ) { 	
 include('jquery.superfish.js');
 }
 if ( $topnav_supersubs == 1 ) { 
