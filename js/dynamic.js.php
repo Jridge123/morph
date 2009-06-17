@@ -156,7 +156,7 @@ header($expire);
 	    initSlider('#bottomshelf', '<?php echo $bottomshelf_slider_text; ?>');	
 	    
 <?php } if ( $topnav_hoverfocus == 1 ) { ?>
-		$('#nav ul.menu li.parent').hover(
+		$('#nav ul.menu ul').hover(
 			function(){
 				$('#user1').fadeTo("fast", "0.1");
 			},
