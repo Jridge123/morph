@@ -171,8 +171,8 @@ header($expire);
 <?php } if ( $toolbar_slider or $topshelf_slider or $bottomshelf_slider ) {
 		include('jquery.slider.js'); ?>
 		
-<?php } if ( $tabs_count > 0 ) { 
-		for($n=1; $n <= $tabs_count; $n++){
+<?php } if ( $tabscount > 0 ) { 
+		for($n=1; $n <= $tabscount; $n++){
 		echo "\n\t\t$('#tabs$n').tabs({fx: {opacity: 'toggle', duration: 1}, cookie: {expires: 7, path: '/'}});";
 		}
 } ?>
