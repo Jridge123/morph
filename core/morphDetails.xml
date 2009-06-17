@@ -182,13 +182,7 @@
 
 
 <params group="menudata">
-	<param name="menu heading" type="heading" label=" " description="Morph gives you a number of different menus to choose from as well as the ability to customize how they work. We will be adding a full page to explain how to take advantange of the different menus that are available."  />	
-
-	<param name="topnav_type" type="list" default="0" label="Menu type" tooltip="inline" description="Which menu type would you like to use? Please note this will probably be revised before the stable release to work 100% with module suffixes.">
-		<option value="0">Module</option>
-		<option value="1">SuperFish</option>
-		<option value="2">SuperDrop</option>
-	</param>
+	<param name="menu heading" type="heading" label=" " description="Morph gives you a number of different menus to choose from as well as the ability to customize how they work. We will be adding a full page to explain how to take advantange of the different menus that are available."  />
 	<param name="topnav_hoverintent" type="radio" default="1" label="HoverIntent" tooltip="inline" description="HoverIntent is a plug-in that attempts to determine the user's intent... like a crystal ball, only with mouse movement! This generally improves the usability of your Superfish menu.">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
@@ -229,7 +223,7 @@
 		<option value="27">27em's</option>
 		<option value="28">28em's</option>
 		<option value="29">29em's</option>
-		<option value="30">20em's</option>
+		<option value="30">30em's</option>
 	</param>
 	<param name="topnav_delay" type="list" default="1000" label="Menu delay" tooltip="inline" description="How many seconds would you like the menu's animation to delay? IE, how long should the menu drop down stay after the user mouses off of it.">
 		<option value="1000">1 Second</option>
