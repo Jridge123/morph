@@ -30,9 +30,9 @@ $topnav_maxwidth = $_GET['F04'];
 $topnav_delay = $_GET['F05'];
 $topnav_animation = $_GET['F06'];
 $topnav_hoverintent = $_GET['F07'];
-
-$sidefish = $_GET['G01'];
-$animate_left = $_GET['G02'];
+$topfish = $_GET['F08'];
+$sidefish = $_GET['F09'];
+$animate_left = $_GET['F10'];
 
 $gzip_compression = $_GET['Z01'];
 
@@ -116,7 +116,7 @@ header($expire);
 		$('.quote-author').corners("10px bottom");
 		$('.readon').corners("5px");
 
-<?php } if ( $sidefish >= 1 or $topfish >= 1  ) { ?>
+<?php } if ( $topfish >= 1  ) { ?>
 
 		$("#nav .menu")<?php if ($topnav_supersubs == 1 ) { ?>.supersubs({
 		 minWidth: <?php echo $topnav_minwidth; ?>,
@@ -140,12 +140,10 @@ header($expire);
 		  });
 		  
 <?php } if ( $sidefish >= 1 ) { ?> 
-
 	        $(".mod.sidefish ul.menu").superfish({ 
 	            animation: {height:'show'},   // slide-down effect without fade-in 
 	            delay:     1200               // 1.2 second delay on mouseout 
-	        }); 
-	        
+	        });    
 <?php } if ( $toolbar_slider == 1 ) { ?>
    		initSlider('#toolbar', '<?php echo $toolbar_slider_text; ?>'); 
    		

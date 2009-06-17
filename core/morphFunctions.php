@@ -109,6 +109,14 @@ $query = "SELECT COUNT(*) FROM #__modules WHERE params LIKE '%moduleclass_sfx=si
 $db->setQuery( $query );
 $sidefish = $db->loadResult();
 
+$query = "SELECT COUNT(*) FROM #__modules WHERE position = 'left' AND module = 'mod_mainmenu' OR position = 'right' AND module = 'mod_mainmenu'";
+$db->setQuery( $query );
+$sidenav_count = $db->loadResult();
+
+$query = "SELECT COUNT(*) FROM #__modules WHERE position = 'user3' AND module = 'mod_mainmenu'";
+$db->setQuery( $query );
+$topnav_count = $db->loadResult();
+
 $query = "SELECT COUNT(*) FROM #__modules WHERE position = 'left' AND params LIKE '%moduleclass_sfx=animate%' OR position = 'left' AND  params LIKE '% animate%'";
 $db->setQuery( $query );
 $animate_left = $db->loadResult();
@@ -158,17 +166,20 @@ $dynamic_js =
 "F05=$topnav_delay" . '&amp;' . 
 "F06=$topnav_animation" . '&amp;' . 
 "F07=$topnav_hoverintent" . '&amp;' . 
-"G01=$sidefish" . '&amp;' . 
-"G02=$animate_left" . '&amp;' . 
+"F08=$topfish" . '&amp;' . 
+"F09=$sidefish" . '&amp;' . 
+"F10=$animate_left" . '&amp;' . 
 "Z01=$gzip_compression";
 
 $packed_css = 
-"01=$themelet" . '&amp;' . 
-"03=$topfish" . '&amp;' . 
-"04=$topdrop" . '&amp;' . 
-"05=$direction" . '&amp;' . 
-"06=$tabscount" . '&amp;' . 
-"07=$gzip_compression";
+"A01=$themelet" . '&amp;' . 
+"A02=$direction" . '&amp;' . 
+"B01=$topfish" . '&amp;' . 
+"B01=$topdrop" . '&amp;' . 
+"B03=$topnav_count" . '&amp;' . 
+"B04=$sidenav_count" . '&amp;' . 
+"C01=$tabscount" . '&amp;' .
+"Z01=$gzip_compression";
 
 if ($bg_image == "" ) { $bg_image = "default"; }
 
@@ -218,13 +229,13 @@ if ( $pack_js == 1 ) {
 	if ( $tabscount >= 1 or $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1  ) {
 	$document->addScript($templatepath .'/js/jquery.cookie.js');
 	}
-	if ( $topnav_hoverintent == 1 ) {
+	if ( $topfish >= 1 && $topnav_hoverintent == 1 ) {
 	$document->addScript($templatepath .'/js/jquery.superfish.hoverintent.js');
 	}
 	if ( $sidefish >= 1 or $topfish >= 1  ) { 	
 	$document->addScript($templatepath .'/js/jquery.superfish.js');
 	}
-	if ( $topnav_supersubs == 1 ) {
+	if ( $topfish >= 1 && $topnav_supersubs == 1 ) {
 	$document->addScript($templatepath .'/js/jquery.superfish.supersubs.js');
 	}
 	if ( $rounded_corners == 1 or $roundedcount !== 0 ) {
@@ -249,12 +260,26 @@ if ( $pack_css == 1 ) {
 	}
 } else {
 	$document->addStyleSheet($templatepath .'/css/yui.css');
-	$document->addStyleSheet($themeletpath .'/css/menus.css');
+	
+	// old menus.css reference - needs to be removed.
+	//$document->addStyleSheet($themeletpath .'/css/menus.css');
+	
+	// top navigation	
+	if ( $topnav_count >= 1 ) {
+	$document->addStyleSheet($themeletpath .'/css/topnav-default.css');
+	}
 	if ( $topfish >= 1 ) {	
 	$document->addStyleSheet($themeletpath .'/css/topnav-topfish.css');
 	}
 	if ( $topdrop >= 1 ) {	
 	$document->addStyleSheet($themeletpath .'/css/topnav-topdrop.css');
+	}
+	// side navigation
+	if ( $sidenav_count >= 1 ) {
+	$document->addStyleSheet($themeletpath .'/css/sidenav-default.css');
+	}
+	if ( $sidefish >= 1 ) {	
+	$document->addStyleSheet($themeletpath .'/css/sidenav-sidefish.css');
 	}
 	$document->addStyleSheet($themeletpath .'/css/layout.css');
 	$document->addStyleSheet($themeletpath .'/css/joomla.css');
