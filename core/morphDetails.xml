@@ -56,6 +56,7 @@
 
 <params group="logodata">		
 	<param name="logo heading" type="heading" label=" " description="We realize that everyone has different opinions about how your logo should be outputted, so with Morph we have gone ahead and given you option to choose for yourself." />	
+	<param name="logo options heading" type="heading" label="Logo" description="" />
 	<param name="logo_type" type="list" default="2" label="Logo type" tooltip="inline" description="How would you like your logo to be outputed? A full tutorial explaining each of the options listed here will be added soon.">
 		<option value="0">Linked inline image</option>
 		<option value="1">Linked plain text</option>
@@ -64,30 +65,82 @@
 	</param>
 	<param name="logo_image" type="imagelist" default="logo.png" tooltip="inline" label="Logo image" directory="templates/morph/assets/logos" hide_none="false" hide_default="false" description="If you haven't already, upload your logo using the Installer tool on the right, then once you have done that, select the logo from the list."  />
 	<param name="logo_image_ie" type="imagelist" default="logo.gif" tooltip="inline" label="Logo image for IE6" directory="templates/morph/assets/logos" hide_none="false" hide_default="false" description="We have added the option to have an alternate logo to display in IE6. This is useful if you are using a transparent png for your logo and would like to have a gif displayed for people browsing your site in Internet Explorer 6." />
-	<param name="logo_width" type="text" default="220" label="Logo width" tooltip="inline" description="Set your logos width here." />
-	<param name="logo_height" type="text" default="90" label="Logo height" tooltip="inline" description="Set your logos height here." />
-	<param name="logo_text" type="text" default="" label="Logo Text" tooltip="inline" description="" />
-	<param name="display_slogan" type="radio" default="0" label="Display slogan" tooltip="inline" description="If you are using the plain text logo type, you have the option of enabling the subtext option. You could probably enable this with the other logo types too, but they wont have preset styling. We will improve this in future releases.">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
+	<param name="logo_textcolor" type="text" default="default" label="Logo text color" tooltip="inline" description="" />
+	<param name="logo_fontsize" type="text" default="" label="Logo font size" tooltip="inline" description="" />
+	<param name="logo_fontfamily" type="list" default="" label="Logo font family" tooltip="inline" description="Choose which font family you would like to use.">
+	    <option value=""> </option>
+	    <option value="Arial, Helvetica, sans-serif">Arial</option>
+	    <option value="'Arial Black', Gadget, sans-serif">Arial Black</option>
+	    <option value="Impact, Charcoal, sans-serif">Impact</option>
+	    <option value="'MS Sans Serif', Geneva, sans-serif">MS Sans Serif</option>
+	    <option value="'MS Serif', 'New York', sans-serif">MS Serif</option>
+	    <option value="'Trebuchet MS', Helvetica, sans-serif">Trebuchet MS</option>
+	    <option value="Verdana, Geneva, sans-serif">Verdana</option>
+	    <option value="'Lucida Sans Unicode', 'Lucida Grande', sans-serif">Lucida Sans Unicode</option>
+	    <option value="Tahoma, Geneva, sans-serif">Tahoma</option>
+		<option value="'Bookman Old Style', serif">Bookman Old Style</option>
+		<option value="Garamond, serif">Garamond</option>
+		<option value="Georgia, serif">Georgia</option>
+		<option value="'Palatino Linotype', 'Book Antiqua', Palatino, serif">Palatino Linotype</option>
+		<option value="'Times New Roman', Times, serif">Times New Roman</option>
+	    <option value="Courier, monospace">Courier</option>
+	    <option value="'Courier New', Courier, monospace">Courier New</option>
+	    <option value="'Lucida Console', Monaco, monospace">Lucida Console</option>
+	    <option value="'Comic Sans MS', cursive">Comic Sans MS</option>
 	</param>
-	<param name="slogan_text" type="text" default="" tooltip="inline" label="Slogan text" description="Set the text to use for your sites slogan." />
+	
+	<param name="slogan heading" type="heading" label="Slogan" description="" />
+	<param name="slogan_text" type="textarea" rows="2" cols="10" default="" tooltip="inline" label="Slogan text" description="Set the text to use for your sites slogan." />
+	<param name="slogan_textcolor" type="text" default="default" label="Slogan text color" tooltip="inline" description="" />
+	<param name="slogan_fontsize" type="text" default="" label="Slogan font size" tooltip="inline" description="" />
+	<param name="slogan_fontfamily" type="list" default="" label="Slogan font family" tooltip="inline" description="Choose which font family you would like to use.">
+	    <option value=""> </option>
+	    <option value="Arial, Helvetica, sans-serif">Arial</option>
+	    <option value="'Arial Black', Gadget, sans-serif">Arial Black</option>
+	    <option value="Impact, Charcoal, sans-serif">Impact</option>
+	    <option value="'MS Sans Serif', Geneva, sans-serif">MS Sans Serif</option>
+	    <option value="'MS Serif', 'New York', sans-serif">MS Serif</option>
+	    <option value="'Trebuchet MS', Helvetica, sans-serif">Trebuchet MS</option>
+	    <option value="Verdana, Geneva, sans-serif">Verdana</option>
+	    <option value="'Lucida Sans Unicode', 'Lucida Grande', sans-serif">Lucida Sans Unicode</option>
+	    <option value="Tahoma, Geneva, sans-serif">Tahoma</option>
+		<option value="'Bookman Old Style', serif">Bookman Old Style</option>
+		<option value="Garamond, serif">Garamond</option>
+		<option value="Georgia, serif">Georgia</option>
+		<option value="'Palatino Linotype', 'Book Antiqua', Palatino, serif">Palatino Linotype</option>
+		<option value="'Times New Roman', Times, serif">Times New Roman</option>
+	    <option value="Courier, monospace">Courier</option>
+	    <option value="'Courier New', Courier, monospace">Courier New</option>
+	    <option value="'Lucida Console', Monaco, monospace">Lucida Console</option>
+	    <option value="'Comic Sans MS', cursive">Comic Sans MS</option>
+	</param>
 </params>
 
 <params group="backgrounddata">
 	<param name="bg summary heading" type="heading" label=" " description="These options allow you to easily customize your sites background." />
 	
-		<param name="themelet_bgimage" type="imagelist" default="default" tooltip="inline" label="Background image" description="Choose a background to use for your site. The backgrounds are located in your assets / backgrounds folder. You can upload new backgrounds using the Installer tool on the right." directory="templates/morph/assets/backgrounds" hide_none="true" />
-	<param name="themelet_bgcolor" type="text" default="default" label="Background color" tooltip="inline" description="Setting a color here will adjust your sites background color." />
-	<param name="themelet_bgrepeat" type="list" default="default" label="Background repeat" tooltip="inline" description="If a background image is set, how should it repeat?" exclude="" stripext="">
-		<option value="default">- Use Default -</option>	
+		<param name="bg_image" type="imagelist" default="default" tooltip="inline" label="Background image" description="Choose a background to use for your site. The backgrounds are located in your assets / backgrounds folder. You can upload new backgrounds using the Installer tool on the right." directory="templates/morph/assets/backgrounds" hide_none="true" />
+		
+	<param name="bg_color" type="text" default="default" label="Background color" tooltip="inline" description="Setting a color here will adjust your sites background color." />
+	
+	<param name="bg_repeat" type="list" default="repeat" label="Background repeat" tooltip="inline" description="If a background image is set, how should it repeat?" exclude="" stripext="">
 		<option value="none">None</option>
 		<option value="repeat">Repeat</option>
 		<option value="repeat-x">Repeat Horizontally</option>
 		<option value="repeat-y">Repeat Vertically</option>
 	</param>
-	<param name="themelet_bgposition" type="list" default="default" tooltip="inline" label="Background position" description="Should be the background be fixed or should it scroll">
-		<option value="default">- Use Default -</option>	
+	<param name="bg_position" type="list" default="top left" label="Background position" tooltip="inline" description="Set the backgrounds position">
+		<option value="top left">top left</option>
+		<option value="top center">top center</option>
+		<option value="top right">top right</option>
+		<option value="center left">center left</option>
+		<option value="center center">center center</option>
+		<option value="center right">center right</option>
+		<option value="bottom left">bottom left</option>
+		<option value="bottom center">bottom center</option>
+		<option value="bottom right">bottom right</option>
+	</param>
+	<param name="bg_attachment" type="list" default="scroll" tooltip="inline" label="Background attachment" description="Should be the background be fixed or should it scroll">
 		<option value="scroll">Scroll</option>
 		<option value="fixed">Fixed</option>
 	</param>
@@ -103,6 +156,7 @@
 	<param name="color_h5" type="text" default="default" tooltip="inline" label="Heading 5 color" description="" />	
 	<param name="color_links" type="text" default="default" tooltip="inline" label="Links color" description="" />	
 	<param name="color_linkshover" type="text" default="default" tooltip="inline" label="Links hover color" description="" />	
+	<param name="color_linksvisited" type="text" default="default" tooltip="inline" label="Links visited color" description="" />	
 	<param name="color_bodytext" type="text" default="default" tooltip="inline" label="Body text color" description="" />	
 </params>
 
@@ -692,6 +746,8 @@
 	</param>
 	<param name="footer_copyright" type="textarea" cols="40" rows="4" default="Copyright 2008 JoomlaJunkie.com - All Rights Reserved" label="Copyright" tooltip="inline" description="Add your own copyright here" />
 	<param name="footer_credits" type="textarea" cols="40" rows="4" default="Template Designed by &lt;a href=&quot;http://www.joomlajunkie.com&quot; title=&quot;professional joomla templates&quot;&gt;JoomlaJunkie&lt;/a&gt;" label="Credits" tooltip="inline" description="Add your own credits here" />
+	<param name="footer_textcolor" type="text" default="default" label="Text color" tooltip="inline" description="" />
+	<param name="footer_linkscolor" type="text" default="default" label="Links color" tooltip="inline" description="" />
 	<param name="footer_swish" type="radio" default="1" label="JoomlaJunkie swish" tooltip="inline" description="We would appreciate it if you kept the JoomlaJunkie swish logo at the bottom of the template, but we have added an option for you to remove it.">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
