@@ -27,6 +27,7 @@ $topnav_minwidth = $_GET['26'];
 $topnav_maxwidth = $_GET['27'];
 $topnav_delay = $_GET['28'];
 $topnav_animation = $_GET['29'];
+$roundedcount = $_GET['30'];
 
 header("content-type: text/javascript; charset: UTF-8");
 if ( $gzip_compression == 1 ) {
@@ -89,7 +90,7 @@ header($expire);
 <?php } if ( $btmshelfcount > 1 && $bottomshelf_equalize == 1 ) { ?>
 		$(function(){ $('#topshelf .mod').equalHeights(); });
 		
-<?php } if ( $rounded_corners == 1 ) { ?>
+<?php } if ( $rounded_corners == 1 or $roundedcount !== '0' ) { ?>
 		$('.mod.rounded h3').corners("10px top");
 		$('blockquote.rounded').corners("<?php echo $rounded_amount; ?>");
 		$('.mod.rounded').corners("<?php echo $rounded_amount; ?>");
@@ -102,7 +103,7 @@ header($expire);
 		$('.mod.rounded-top-left').corners("<?php echo $rounded_amount; ?> top left");
 		$('.mod.rounded-top-right').corners("<?php echo $rounded_amount; ?> top right");
 		$('.mod.rounded-bottom-left').corners("<?php echo $rounded_amount; ?> bottom left");
-		$('.mod.rounded-bottom').corners("<?php echo $rounded_amount; ?> bottom");
+		$('.mod.rounded-bottom-right').corners("<?php echo $rounded_amount; ?> bottom");
 		$('.left-pullquote').corners("10px");
 		$('.right-pullquote').corners("10px");
 		$('.quote-author').corners("10px bottom");
