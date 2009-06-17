@@ -6,10 +6,11 @@ $site_width = $MORPH->site_width;
 $themelet = $MORPH->themelet;
 
 // customization settings
-$themelet_bgimage = $MORPH->themelet_bgimage;
-$themelet_bgcolor = str_replace('#','',$MORPH->themelet_bgcolor);
-$themelet_bgrepeat = $MORPH->themelet_bgrepeat;
-$themelet_bgposition = $MORPH->themelet_bgposition;
+$bg_image = $MORPH->bg_image;
+$bg_color = str_replace('#','',$MORPH->bg_color);
+$bg_repeat = $MORPH->bg_repeat;
+$bg_position = $MORPH->bg_position;
+$bg_attachment = $MORPH->bg_attachment;
 $color_h1 = str_replace('#','',$MORPH->color_h1);
 $color_h2 = str_replace('#','',$MORPH->color_h2);
 $color_h3 = str_replace('#','',$MORPH->color_h3);
@@ -17,16 +18,21 @@ $color_h4 = str_replace('#','',$MORPH->color_h4);
 $color_h5 = str_replace('#','',$MORPH->color_h5);
 $color_links = str_replace('#','',$MORPH->color_links);
 $color_linkshover = str_replace('#','',$MORPH->color_linkshover);
+$color_linksvisited = str_replace('#','',$MORPH->color_linksvisited);
 $color_bodytext = str_replace('#','',$MORPH->color_bodytext);
 
 $logo_type = $MORPH->logo_type;
 $logo_image = $MORPH->logo_image;
 $logo_image_ie = $MORPH->logo_image_ie;
-$logo_width = $MORPH->logo_width;
-$logo_height = $MORPH->logo_height;
 $logo_text = $MORPH->logo_text;
-$display_slogan = $MORPH->display_slogan;
+$logo_textcolor = $MORPH->logo_textcolor;
+$logo_fontfamily = $MORPH->logo_fontfamily;
+$logo_fontsize = $MORPH->logo_fontsize;
+
 $slogan_text = $MORPH->slogan_text;
+$slogan_textcolor = $MORPH->slogan_textcolor;
+$slogan_fontfamily = $MORPH->slogan_fontfamily;
+$slogan_fontsize = $MORPH->slogan_fontsize;
 
 // progressive enhancements
 $rounded_corners = $MORPH->rounded_corners;
@@ -167,6 +173,8 @@ $footer_xhtml = $MORPH->footer_xhtml;
 $footer_css = $MORPH->footer_css;
 $footer_rss = $MORPH->footer_rss;
 $footer_show = $MORPH->footer_show;
+$footer_textcolor = $MORPH->footer_textcolor;
+$footer_linkscolor = $MORPH->footer_linkscolor;
 
 //    Do not edit this line.
 $sideBarsScheme = array (
