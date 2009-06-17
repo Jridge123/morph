@@ -113,11 +113,62 @@ $query = "SELECT COUNT(*) FROM #__modules WHERE position = 'left' AND params LIK
 $db->setQuery( $query );
 $animate_left = $db->loadResult();
 
-$packed_js = "01=$jquery_core" . '&amp;' . "02=$topfish" . '&amp;' . "03=$topdrop" . '&amp;' . "04=$topnav_supersubs" . '&amp;' . "05=$topnav_hoverintent" . '&amp;' . "06=$toolbar_slider" . '&amp;' . "07=$topshelf_slider". '&amp;' . "08=$bottomshelf_slider" . '&amp;' . "09=$topshelf_equalize". '&amp;' . "10=$bottomshelf_equalize". '&amp;' . "11=$user1_equalize" . '&amp;' . "12=$user2_equalize". '&amp;' . "13=$tabscount" . '&amp;' . "14=$image_captions". '&amp;' . "15=$rounded_corners" . '&amp;' . "16=$gzip_compression" . '&amp;' . "17=$topnav_type";
+$packed_js = 
+"A01=$jquery_core" . '&amp;' . 
+"B01=$topfish" . '&amp;' . 
+"B02=$topdrop" . '&amp;' . 
+"B03=$topnav_supersubs" . '&amp;' . 
+"B04=$topnav_hoverintent" . '&amp;' . 
+"C01=$toolbar_slider" . '&amp;' . 
+"C02=$topshelf_slider". '&amp;' . 
+"C03=$bottomshelf_slider" . '&amp;' . 
+"D01=$topshelf_equalize". '&amp;' . 
+"D02=$bottomshelf_equalize". '&amp;' . 
+"D03=$user1_equalize" . '&amp;' . 
+"D04=$user2_equalize". '&amp;' . 
+"E01=$tabscount" . '&amp;' . 
+"F01=$image_captions". '&amp;' . 
+"F02=$rounded_corners" . '&amp;' . 
+"Z01=$gzip_compression";
 
-$dynamic_js = "01=$topshelf_equalize" . '&amp;' . "02=$bottomshelf_equalize" . '&amp;' . "03=$user1_equalize" . '&amp;' . "04=$user2_equalize" . '&amp;' . "05=$topshelfcount" . '&amp;' . "06=$btmshelfcount" . '&amp;' . "07=$user1count". '&amp;' . "08=$user2count" . '&amp;' . "09=$sidefish" . '&amp;' . "10=$animate_left" . '&amp;' . "12=$rounded_corners" . '&amp;' . "13=$toolbar_slider" . '&amp;' . "14=$toolbar_slider_text" . '&amp;' . "15=$topshelf_slider" . '&amp;' . "16=$topshelf_slider_text" . '&amp;' . "17=$bottomshelf_slider" . '&amp;' . "18=$bottomshelf_slider_text" . '&amp;' . "19=$image_captions" . '&amp;' . "20=$topnav_hoverfocus" . '&amp;' . "21=$rounded_amount" . '&amp;' . "22=$gzip_compression" . '&amp;' . "23=$tabscount" . '&amp;' . "24=$topnav_type" . '&amp;' . "25=$topnav_supersubs" . '&amp;' . "26=$topnav_minwidth" . '&amp;' . "27=$topnav_maxwidth" . '&amp;' . "28=$topnav_delay" . '&amp;' . "29=$topnav_animation" . '&amp;' . "30=$roundedcount";
+$dynamic_js = 
+"A01=$topshelf_equalize" . '&amp;' . 
+"A02=$bottomshelf_equalize" . '&amp;' . 
+"A03=$user1_equalize" . '&amp;' . 
+"A04=$user2_equalize" . '&amp;' .
+"B01=$topshelfcount" . '&amp;' . 
+"B02=$btmshelfcount" . '&amp;' . 
+"B03=$user1count". '&amp;' . 
+"B04=$user2count" . '&amp;' . 
+"B05=$tabscount" . '&amp;' . 
+"B06=$roundedcount" . '&amp;' . 
+"C01=$rounded_corners" . '&amp;' . 
+"C02=$rounded_amount" . '&amp;' . 
+"D01=$toolbar_slider" . '&amp;' . 
+"D02=$toolbar_slider_text" . '&amp;' . 
+"D03=$topshelf_slider" . '&amp;' . 
+"D04=$topshelf_slider_text" . '&amp;' . 
+"D05=$bottomshelf_slider" . '&amp;' . 
+"D06=$bottomshelf_slider_text" . '&amp;' . 
+"E01=$image_captions" . '&amp;' . 
+"F01=$topnav_hoverfocus" . '&amp;' . 
+"F02=$topnav_supersubs" . '&amp;' . 
+"F03=$topnav_minwidth" . '&amp;' . 
+"F04=$topnav_maxwidth" . '&amp;' . 
+"F05=$topnav_delay" . '&amp;' . 
+"F06=$topnav_animation" . '&amp;' . 
+"F07=$topnav_hoverintent" . '&amp;' . 
+"G01=$sidefish" . '&amp;' . 
+"G02=$animate_left" . '&amp;' . 
+"Z01=$gzip_compression";
 
-$packed_css = "01=$themelet" . '&amp;' . "02=$topnav_type" . '&amp;' . "03=$topfish" . '&amp;' . "04=$topdrop" . '&amp;' . "05=$direction" . '&amp;' . "06=$tabscount" . '&amp;' . "07=$gzip_compression";
+$packed_css = 
+"01=$themelet" . '&amp;' . 
+"03=$topfish" . '&amp;' . 
+"04=$topdrop" . '&amp;' . 
+"05=$direction" . '&amp;' . 
+"06=$tabscount" . '&amp;' . 
+"07=$gzip_compression";
 
 if ($bg_image == "" ) { $bg_image = "default"; }
 
@@ -170,7 +221,7 @@ if ( $pack_js == 1 ) {
 	if ( $topnav_hoverintent == 1 ) {
 	$document->addScript($templatepath .'/js/jquery.superfish.hoverintent.js');
 	}
-	if ( $topnav_type = 1 or $topnav_type = 2 or $sidefish >= 1 or $topfish >= 1  ) { 	
+	if ( $sidefish >= 1 or $topfish >= 1  ) { 	
 	$document->addScript($templatepath .'/js/jquery.superfish.js');
 	}
 	if ( $topnav_supersubs == 1 ) {
@@ -199,10 +250,10 @@ if ( $pack_css == 1 ) {
 } else {
 	$document->addStyleSheet($templatepath .'/css/yui.css');
 	$document->addStyleSheet($themeletpath .'/css/menus.css');
-	if ( $topnav_type = 1 or $topfish >= 1 ) {	
+	if ( $topfish >= 1 ) {	
 	$document->addStyleSheet($themeletpath .'/css/topnav-topfish.css');
 	}
-	if ( $topnav_type = 2 or $topdrop >= 1 ) {	
+	if ( $topdrop >= 1 ) {	
 	$document->addStyleSheet($themeletpath .'/css/topnav-topdrop.css');
 	}
 	$document->addStyleSheet($themeletpath .'/css/layout.css');
