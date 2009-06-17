@@ -1,7 +1,6 @@
 <?php
 header("content-type: text/css; charset: UTF-8");
 $themelet = $_GET['01'];
-$topnav_type = $_GET['02'];
 $topfish = $_GET['03'];
 $topdrop = $_GET['04'];
 $direction = $_GET['05'];
@@ -29,10 +28,10 @@ include('tabs.css');
 include('chromes.css');
 include('menus.css');
 
-if ( $topnav_type = 1 or $topfish >= 1) {	
+if ( $topfish >= 1) {	
 include('topnav-topfish.css');
 }
-if ( $topnav_type = 2 or $topdrop >= 1) {	
+if ( $topdrop >= 1) {	
 include('topnav-topdrop.css');
 }
 if ( $gzip_compression == 1 ) { ob_end_flush(); } ?>
