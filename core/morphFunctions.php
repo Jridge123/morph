@@ -113,19 +113,46 @@ $query = "SELECT COUNT(*) FROM #__modules WHERE position = 'left' AND params LIK
 $db->setQuery( $query );
 $animate_left = $db->loadResult();
 
-$js_vars1 = "01=$jquery_core" . '&amp;' . "02=$topfish" . '&amp;' . "03=$topdrop" . '&amp;' . "04=$topnav_supersubs" . '&amp;' . "05=$topnav_hoverintent" . '&amp;' . "06=$toolbar_slider" . '&amp;' . "07=$topshelf_slider". '&amp;' . "08=$bottomshelf_slider" . '&amp;' . "09=$topshelf_equalize". '&amp;' . "10=$bottomshelf_equalize". '&amp;' . "11=$user1_equalize" . '&amp;' . "12=$user2_equalize". '&amp;' . "13=$tabscount" . '&amp;' . "14=$image_captions". '&amp;' . "15=$rounded_corners" . '&amp;' . "16=$gzip_compression" . '&amp;' . "17=$topnav_type";
+$packed_js = "01=$jquery_core" . '&amp;' . "02=$topfish" . '&amp;' . "03=$topdrop" . '&amp;' . "04=$topnav_supersubs" . '&amp;' . "05=$topnav_hoverintent" . '&amp;' . "06=$toolbar_slider" . '&amp;' . "07=$topshelf_slider". '&amp;' . "08=$bottomshelf_slider" . '&amp;' . "09=$topshelf_equalize". '&amp;' . "10=$bottomshelf_equalize". '&amp;' . "11=$user1_equalize" . '&amp;' . "12=$user2_equalize". '&amp;' . "13=$tabscount" . '&amp;' . "14=$image_captions". '&amp;' . "15=$rounded_corners" . '&amp;' . "16=$gzip_compression" . '&amp;' . "17=$topnav_type";
 
-$js_vars2 = "01=$topshelf_equalize" . '&amp;' . "02=$bottomshelf_equalize" . '&amp;' . "03=$user1_equalize" . '&amp;' . "04=$user2_equalize" . '&amp;' . "05=$topshelfcount" . '&amp;' . "06=$btmshelfcount" . '&amp;' . "07=$user1count". '&amp;' . "08=$user2count" . '&amp;' . "09=$sidefish" . '&amp;' . "10=$animate_left" . '&amp;' . "12=$rounded_corners" . '&amp;' . "13=$toolbar_slider" . '&amp;' . "14=$toolbar_slider_text" . '&amp;' . "15=$topshelf_slider" . '&amp;' . "16=$topshelf_slider_text" . '&amp;' . "17=$bottomshelf_slider" . '&amp;' . "18=$bottomshelf_slider_text" . '&amp;' . "19=$image_captions" . '&amp;' . "20=$topnav_hoverfocus" . '&amp;' . "21=$rounded_amount" . '&amp;' . "22=$gzip_compression" . '&amp;' . "23=$tabscount" . '&amp;' . "24=$topnav_type" . '&amp;' . "25=$topnav_supersubs" . '&amp;' . "26=$topnav_minwidth" . '&amp;' . "27=$topnav_maxwidth" . '&amp;' . "28=$topnav_delay" . '&amp;' . "29=$topnav_animation";
+$dynamic_js = "01=$topshelf_equalize" . '&amp;' . "02=$bottomshelf_equalize" . '&amp;' . "03=$user1_equalize" . '&amp;' . "04=$user2_equalize" . '&amp;' . "05=$topshelfcount" . '&amp;' . "06=$btmshelfcount" . '&amp;' . "07=$user1count". '&amp;' . "08=$user2count" . '&amp;' . "09=$sidefish" . '&amp;' . "10=$animate_left" . '&amp;' . "12=$rounded_corners" . '&amp;' . "13=$toolbar_slider" . '&amp;' . "14=$toolbar_slider_text" . '&amp;' . "15=$topshelf_slider" . '&amp;' . "16=$topshelf_slider_text" . '&amp;' . "17=$bottomshelf_slider" . '&amp;' . "18=$bottomshelf_slider_text" . '&amp;' . "19=$image_captions" . '&amp;' . "20=$topnav_hoverfocus" . '&amp;' . "21=$rounded_amount" . '&amp;' . "22=$gzip_compression" . '&amp;' . "23=$tabscount" . '&amp;' . "24=$topnav_type" . '&amp;' . "25=$topnav_supersubs" . '&amp;' . "26=$topnav_minwidth" . '&amp;' . "27=$topnav_maxwidth" . '&amp;' . "28=$topnav_delay" . '&amp;' . "29=$topnav_animation" . '&amp;' . "30=$roundedcount";
 
-$css_vars1 = "01=$themelet" . '&amp;' . "02=$topnav_type" . '&amp;' . "03=$topfish" . '&amp;' . "04=$topdrop" . '&amp;' . "05=$direction" . '&amp;' . "06=$tabscount" . '&amp;' . "07=$gzip_compression";
+$packed_css = "01=$themelet" . '&amp;' . "02=$topnav_type" . '&amp;' . "03=$topfish" . '&amp;' . "04=$topdrop" . '&amp;' . "05=$direction" . '&amp;' . "06=$tabscount" . '&amp;' . "07=$gzip_compression";
 
-if ($themelet_bgimage == "" ) { $themelet_bgimage = "default"; }
+if ($bg_image == "" ) { $bg_image = "default"; }
 
-$css_vars2 = "01=$logo_type" . '&amp;' . "02=$logo_width" . '&amp;' . "03=$logo_height" . '&amp;' . "04=$logo_image" . '&amp;' . "05=$logo_image_ie" . '&amp;' . "06=$toolbar_slider" . '&amp;' . "07=$themelet_bgcolor" . '&amp;' . "08=$themelet_bgimage" . '&amp;' . "09=$themelet_bgrepeat" . '&amp;' . "10=$themelet_bgposition" . '&amp;' . "11=$color_h1" . '&amp;' . "12=$color_h2" . '&amp;' . "13=$color_h3" . '&amp;' . "14=$color_h4" . '&amp;' . "15=$color_h5" . '&amp;' . "16=$color_links" . '&amp;' . "17=$color_linkshover" . '&amp;' . "18=$color_bodytext" . '&amp;' . "19=$gzip_compression";
+$dynamic_css = 
+"A01=$toolbar_slider" . '&amp;' . 
+"B01=$logo_type" . '&amp;' . 
+"B02=$logo_image" . '&amp;' . 
+"B03=$logo_image_ie" . '&amp;' . 
+"B04=$logo_textcolor" . '&amp;' . 
+"B05=".urlencode($logo_fontfamily) . '&amp;' . 
+"B06=$logo_fontsize" . '&amp;' . 
+"C01=$slogan_textcolor" . '&amp;' . 
+"C02=$slogan_fontfamily" . '&amp;' . 
+"C03=$slogan_fontsize" . '&amp;' . 
+"D01=$bg_color" . '&amp;' . 
+"D02=$bg_image" . '&amp;' . 
+"D03=$bg_repeat" . '&amp;' . 
+"D04=".urlencode($bg_position) . '&amp;' . 
+"D05=$bg_attachment" . '&amp;' . 
+"E01=$color_h1" . '&amp;' . 
+"E02=$color_h2" . '&amp;' . 
+"E03=$color_h3" . '&amp;' . 
+"E04=$color_h4" . '&amp;' . 
+"E05=$color_h5" . '&amp;' . 
+"E06=$color_links" . '&amp;' . 
+"E07=$color_linkshover" . '&amp;' . 
+"E08=$color_linksvisited" . '&amp;' . 
+"E09=$color_bodytext" . '&amp;' . 
+"F01=$footer_textcolor" . '&amp;' . 
+"F02=$footer_linkscolor" . '&amp;' . 
+"Z01=$gzip_compression";
 
 if ( $pack_js == 1 ) {
-	$document->addScript($templatepath .'/js/template.js.php?'.$js_vars1);
-	$document->addScript($templatepath .'/js/dynamic.js.php?'.$js_vars2);
+	$document->addScript($templatepath .'/js/template.js.php?'.$packed_js);
+	$document->addScript($templatepath .'/js/dynamic.js.php?'.$dynamic_js);
 	if(file_exists($customjs) && is_readable($customjs)){
 	$document->addScript($themeletpath .'/js/custom.js');
 	}
@@ -161,11 +188,11 @@ if ( $pack_js == 1 ) {
 	if(file_exists($customjs) && is_readable($customjs)){
 	$document->addScript($themeletpath .'/js/custom.js');
 	}
-	$document->addScript($templatepath .'/js/dynamic.js.php?'.$js_vars2);
+	$document->addScript($templatepath .'/js/dynamic.js.php?'.$dynamic_js);
 }
 if ( $pack_css == 1 ) {
-	$document->addStyleSheet($themeletpath .'/css/template.css.php?'.$css_vars1);
-	$document->addStyleSheet($themeletpath .'/css/dynamic.css.php?'.$css_vars2);
+	$document->addStyleSheet($themeletpath .'/css/template.css.php?'.$packed_css);
+	$document->addStyleSheet($themeletpath .'/css/dynamic.css.php?'.$dynamic_css);
 	if(file_exists($customcss) && is_readable($customcss)){
 	$document->addStyleSheet($themeletpath .'/css/custom.css');
 	}
@@ -184,7 +211,7 @@ if ( $pack_css == 1 ) {
 	$document->addStyleSheet($themeletpath .'/css/typo.css');
 	$document->addStyleSheet($themeletpath .'/css/tabs.css');
 	$document->addStyleSheet($themeletpath .'/css/chromes.css');
-	$document->addStyleSheet($themeletpath .'/css/dynamic.css.php?'.$css_vars2);	
+	$document->addStyleSheet($themeletpath .'/css/dynamic.css.php?'.$dynamic_css);	
 	if($this->direction == 'rtl') {
 	$document->addStyleSheet($templatepath .'/css/template_rtl.css');
 	}
