@@ -41,7 +41,6 @@ $image_captions = $MORPH->image_captions;
 $equal_heights = $MORPH->equal_heights;
 
 // menu settings
-$topnav_type = $MORPH->topnav_type;
 $topnav_supersubs = $MORPH->topnav_supersubs;
 $topnav_hoverintent = $MORPH->topnav_hoverintent;
 $topnav_hoverfocus = $MORPH->topnav_hoverfocus;
