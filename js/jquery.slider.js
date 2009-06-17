@@ -1,10 +1,4 @@
-// Original Author:     Matt Rossi
-// Website:             ifohdesigns.com
-// Article Source:      http://ifohdesigns.com/blog/tutorials/
-
-// Rewritten into a function by Byron Rode to allow for multiple
-// uses across the board
-
+// Based on slider script by Matt Rossi (ifohdesigns.com) & extended by Byron Rode (prothemer.com).
 function initSlider(elid, linktext){
 	
 	$(elid).hide();
@@ -18,18 +12,15 @@ function initSlider(elid, linktext){
 	if(showTop == 'collapsed' || showTop == null){
 		var btn = $('<div class="slider-'+elid_class+'"><a>'+opentext+"</a></div>").attr('href','#');
 		$(elid).after(btn);
-		
 		$(elid).hide();
 		$(elid).fadeTo('fast',0);
 		$('.slider-'+elid_class).addClass('slider-open');
 	}else{
 		var btn = $('<div class="slider-'+elid_class+'"><a>'+closetext+"</a></div>").attr('href','#');
 		$(elid).after(btn);
-		
 		$(elid).show();
 		$('.slider-'+elid_class).addClass('slider-close');
 	};
-	
 	
 	// On click function
 	$('.slider-'+elid_class).click(function(){
@@ -47,7 +38,5 @@ function initSlider(elid, linktext){
 			$('.slider-'+elid_class+' > a').text(opentext);
 			return false;
 		}
-	
 	});
-
 }
