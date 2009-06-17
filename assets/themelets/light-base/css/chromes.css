@@ -17,6 +17,31 @@
 #toolbar p{margin:0;padding:0;}
 #toolbar .mod{background:none;padding:0;margin:0;color:#666;}
 #top2 .bannergroup{float:right;margin-top:2em;}
-#inset1,#inset2,#inset3,#inset4{border:1px solid #ccc;margin-bottom:1em;}
-#inset1 .mod-basic,#inset2 .mod-basic,#inset3 .mod-basic,#inset4 .mod-basic{border:1px solid #fff;background:#eee;width:auto;}
+#inset1,#inset2,#inset3,#inset4{margin-bottom:1em;}
+
+#inset1 .mod-basic,
+#inset2 .mod-basic,
+#inset3 .mod-basic,
+#inset4 .mod-basic{border:1px solid #ccc;width:auto;}
+
+
 #inset4{clear:both;}
+.noborder{border:0!important}
+
+/* setting the foreground color of mod styles with a dark background color */
+body .mod.bgstyle-15,
+body .mod.bgstyle-16,
+body .mod.bgstyle-17,
+body .mod.bgstyle-18,
+body .mod.bgstyle-19{
+color: #fff;
+}
+/* setting the foreground color of mod headings with a dark background color */
+body .mod.h3style-14 h3,
+body .mod.h3style-15 h3,
+body .mod.h3style-16 h3,
+body .mod.h3style-17 h3,
+body .mod.h3style-18 h3,
+body .mod.h3style-19 h3{
+color: #fff;
+}
