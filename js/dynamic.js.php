@@ -47,7 +47,7 @@ header($expire);
 ?>
 (function($) {
 	$(document).ready(function(){
-		$("#nav .menu li:last").addClass("action-link");
+		$("#topnav.call-for-action li:last").addClass("action-link");
 		$("#topnav.call-for-action li:last").prev("li").addClass("second-last")
 		$("body").removeClass("js-disabled").addClass("js-enabled"); 
 		$("input, textarea", $("form")).focus(function(){
