@@ -1,4 +1,4 @@
-<?php if($this->countModules('left' )) { ?>
+<?php if ($this->countModules( 'splitleft or topleft or left or bottomleft' )) { ?>
 <div class="sidenav yui-b" id="secondary-content">
  <div class="inner">
     <?php if ($this->countMenuChildren()){ ?>
