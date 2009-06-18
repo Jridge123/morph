@@ -1,10 +1,9 @@
-.mod-basic{border:1px solid #000;background:#eee;padding:.8em;width:100%;float:none;}
+.mod-basic{border:1px solid #ccc;background:#eee;padding:.8em;margin:0 0 1em 0;float:none;}
 .mod-fx{margin:0 0 1em 0;padding:0;border:1px solid #ccc;background:#eee;}
 .mod-fx .modinner{padding:1em;border:1px solid #fff;}
 .mod h3{font-size:1.4em;margin:0;}
 #user1{margin:0 0 1em 0;overflow:hidden;float:none;width:100%;clear:both;}
-#secondary-content .mod.first,
-#tertiary-content .mod{width:100%;clear:both;float:none;}
+
 #user1{margin:0 0 1em 0;}
 #user2{clear:both;background:#eee;border:1px solid #ccc;}
 #user2 #user2-inner{padding:1em;overflow:hidden;border: 1px solid #fff;}
@@ -44,4 +43,11 @@ body .mod.h3style-17 h3,
 body .mod.h3style-18 h3,
 body .mod.h3style-19 h3{
 color: #fff;
+}
+
+#secondary-content .mod.yui-u,
+#tertiary-content .mod.yui-u{
+width: 99%;
+clear:both;
+float:none;
 }
