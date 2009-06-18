@@ -133,6 +133,25 @@ YUI Class creator for centering bottom shelf and footer*/
 /*OVERRIDE STYLES FROM GRID TO MAKE EXTRA COLUMN OPTIONS*/
 .yui-t8,.yui-t9{margin:auto;text-align:left;width:57.69em;min-width:750px;}
 .doc4.yui-t8,.doc4.yui-t9{width:74.923em;}
+.doc2.yui-t8,.doc2.yui-t9{width:73.076em;}
+.doc3.yui-t8,.doc3.yui-t9{width:98.5%;}
+.doc3 .yui-ge div.first, .doc3 .yui-gf .yui-u {width:75%;}
+
+/* topshelf when doc is enabled */
+.doc .yui-gb .yui-u,
+.doc .yui-g .yui-gb .yui-u,
+.doc .yui-gb .yui-g, 
+.doc .yui-gb .yui-gb, 
+.doc .yui-gb .yui-gc, 
+.doc .yui-gb .yui-gd, 
+.doc .yui-gb .yui-ge, 
+.doc .yui-gb .yui-gf, 
+.doc .yui-gc .yui-u, 
+.doc .yui-gc .yui-g, 
+.doc .yui-gd .yui-u {
+width:31.9%;
+}
+
 .yui-t1 #yui-main,.yui-t2 #yui-main,.yui-t3 #yui-main,.yui-t8 #yui-main{float:right;margin-left:-25em;/*IE:preserve layout at narrow widths*/}
 .yui-t4 #yui-main,.yui-t5 #yui-main,.yui-t6 #yui-main,.yui-t9 #yui-main{float:left;margin-right:-25em;/*IE:preserve layout at narrow widths*/}
 .yui-t8 .yui-b{float:left;width:16.38461em;}
