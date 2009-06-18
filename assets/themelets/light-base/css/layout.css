@@ -10,7 +10,9 @@ border:1px solid #ccc;
 .bd-inner{
 padding:1em;
 }
-
+.doc2 .primary-inner{
+padding: 0 1em 0 0;
+}
 /*Andys Styles*/
 #top-wrap {
 background: #0B0D0D;
