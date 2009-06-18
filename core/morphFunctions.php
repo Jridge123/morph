@@ -334,7 +334,6 @@ include_once('InnerLayout.php');
 include_once('OuterLayout.php');
 
 if (!$this->countModules('right')) $CurrentInnerScheme = 'no-grid';
-if (!$this->countModules('left')) $no_left = 'no-left';
 if (!$this->countModules('user4')) $no_search = 'no_search';
 
 // intelli mods array
