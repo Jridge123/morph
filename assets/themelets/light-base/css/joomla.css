@@ -44,9 +44,11 @@
 
 /* breadcrumbs
 *****************************/
-.breadcrumbs{font-size:1em;}
-.pathway a:link,.pathway a:visited,.pathway a:hover{font-size:1em;line-height:34px;margin-right:4px;padding:0 15px 0 5px;text-decoration:underline;}
-.pathway img{display:none;}
+#primary-content .pathway,#primary-content .pathway li{margin:0;padding:0;list-style:none;background:none;}
+#primary-content .pathway{font-size:1em;overflow:hidden;}
+#primary-content .pathway li{background:transparent url(../images/pathway.png) no-repeat scroll 100% 50%;display:block;float:left;margin-right:10px;padding-right:15px;}
+#primary-content .pathway a:link,#primary-content .pathway a:visited{font-size:1em;text-decoration:underline;}
+#primary-content .pathway li.pathway-current{background:none;}
 
 /* pagination
 ****************************/
@@ -146,7 +148,7 @@ table.pollstableborder{margin:0.5em 0 1em;width:100%;}
 h1.contentheading{margin:.5em 0 0 0;padding:0;}
 
 /* article separator */
-.pathway a:link,.pathway a:visited,#pathway a:hover{background:transparent url(../images/pathway_arrow_dark.png) no-repeat scroll right center;}
+
 
 /* pagination */
 .pagination-counter{color:#888;}
