@@ -5,7 +5,7 @@
    <?php if($this->countModules('user1')) { ?><?php include_once("user1.php") ?><?php } ?>
    
       <div id="yui-main">
-         <div class="yui-b <?php if (!$this->countModules('left')) echo $no_left ?>">
+         <div class="yui-b<?php if (!$this->countModules('splitleft or topleft or left or bottomleft')) { echo ' no-left'; } ?>">
 
             <?php if($this->countModules('inset1')) { ?>
             <div id="inset1" class="intelli <?php getYuiSuffix('inset1', $jj_const); ?> <?php echo $inset1_chrome ?>">
