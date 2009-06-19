@@ -7,7 +7,7 @@
 	<copyright>Commercial</copyright>
 	<authorEmail>noreply@joomlajunkie.com</authorEmail>
 	<authorUrl>htp://www.joomlajunkie.com</authorUrl>
-	<version>0.04</version>
+	<version>0.05</version>
 	<description>
 <![CDATA[
 <style type="text/css" media="screen">
@@ -49,7 +49,7 @@ h3.options_head{color:#CC6633;font-size:1.5em;}
 				<h4>Template Summary</h4>
 				<dl class="resources">
 					<dt>Template Version:</dt>
-					<dd>v0.03</dd>
+					<dd>v0.05</dd>
 					<dt>Additional Resources:</dt>
 					<dd><ul>
 						<li><a href="http://www.joomlajunkie.com/demo/2ndgen/morph" title="" target="_blank">Template Demo</a></li>
