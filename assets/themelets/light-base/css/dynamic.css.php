@@ -4,11 +4,12 @@ header("content-type: text/css; charset: UTF-8");
 $toolbar_slider = $_GET['A01'];
 
 $logo_type = $_GET['B01'];
-$logo_image = $_GET['B02'];
-$logo_image_ie = $_GET['B03'];
-$logo_textcolor = '#'.$_GET['B04'];
-$logo_fontfamily = stripslashes(urldecode($_GET['B05']));
-$logo_fontsize = $_GET['B06'];
+$logo = $_GET['B02'];
+$logo_width = $_GET['B03'];
+$logo_height = $_GET['B04'];
+$logo_textcolor = '#'.$_GET['B05'];
+$logo_fontfamily = stripslashes(urldecode($_GET['B06']));
+$logo_fontsize = $_GET['B07'];
 
 $slogan_textcolor = '#'.$_GET['C01'];
 $slogan_fontfamily = stripslashes(urldecode($_GET['C02']));
@@ -72,9 +73,8 @@ width:<?php echo $logo_width; ?>px;
 height:<?php echo $logo_height; ?>px;
 }
 #branding h1 a{
-background:transparent url(../../../logos/<?php if( isIE6() && $logo_image_ie !== ''){ echo $ie_logo_image; } else { echo $logo_image; } ?>) no-repeat 0;
+background:transparent url(<?php echo $logo; ?>) no-repeat 0;
 }
-
 <?php } if ( $logo_type == 1 ) { ?>
 #branding.txt-logo a{
 <?php if ( $logo_fontfamily !== "" ) { ?>

@@ -1,8 +1,3 @@
-<?php 
-if( isIE6() && $logo_image_ie !== ''){ $logo = $templatepath.'/assets/logos/'.$ie_logo_image; } else { $logo = $templatepath.'/assets/logos/'.$logo_image; }
-$size = getimagesize($logo);
-?>
-
 <?php if ( $masthead_show == 0 ) {
 	  if ( $masthead_wrap == 1 ) { ?><div id="top-wrap"><?php } ?>
 
@@ -11,7 +6,7 @@ $size = getimagesize($logo);
       <div id="branding" class="yui-u first<?php if ( $logo_type == "0" ) { ?> img-logo<?php } if ( $logo_type == "1" ) { ?> txt-logo<?php } if ( $logo_type == "2" ) { ?> h1-logo<?php } if ( $slogan_text !== "" ) { ?> slogan<?php } ?>">
          
          <?php if ( $logo_type == 0 ) { ?>
-         <a href="<?php echo JURI::root() ?>" title="<?php if ($slogan_text != ""){ echo $slogan_text; } else { echo $mainframe->getCfg('sitename'); } ?>"><img src="<?php echo $logo; ?>" width="<?php echo $size[0]; ?>" height="<?php echo $size[1]; ?>" alt="<?php if ( $logo_text != ""){ echo $logo_text; } else { echo $mainframe->getCfg('sitename'); } ?>" border="0" /></a>
+         <a href="<?php echo JURI::root() ?>" title="<?php if ($slogan_text != ""){ echo $slogan_text; } else { echo $mainframe->getCfg('sitename'); } ?>"><img src="<?php echo $logo_image; ?>" width="<?php echo $logo_size[0]; ?>" height="<?php echo $logo_size[1]; ?>" alt="<?php if ( $logo_text != ""){ echo $logo_text; } else { echo $mainframe->getCfg('sitename'); } ?>" border="0" /></a>
          <?php if ( $slogan_text !== "" ) { ?>
          <p class="slogan"><?php echo $slogan_text; ?></p>
          <?php } ?>

@@ -79,6 +79,9 @@ if(file_exists($themeletfunctions) && is_readable($themeletfunctions)){
 include_once($absolutepath.'/custom.php');
 }
 
+if( isIE6() && $logo_image_ie !== ''){ $logo = $templatepath.'/assets/logos/'.$ie_logo_image; } else { $logo = $templatepath.'/assets/logos/'.$logo_image; }
+$logo_size = getimagesize($logo);
+
 $db=& JFactory::getDBO();
 
 $query = "SELECT COUNT(*) FROM `#__configurator` WHERE `param_value` = 'tabs' ";
@@ -185,12 +188,16 @@ if ($bg_image == "" ) { $bg_image = "default"; }
 
 $dynamic_css = 
 "A01=$toolbar_slider" . '&amp;' . 
+
 "B01=$logo_type" . '&amp;' . 
-"B02=$logo_image" . '&amp;' . 
-"B03=$logo_image_ie" . '&amp;' . 
-"B04=$logo_textcolor" . '&amp;' . 
-"B05=".urlencode($logo_fontfamily) . '&amp;' . 
-"B06=$logo_fontsize" . '&amp;' . 
+"B02=$logo" . '&amp;' . 
+"B03=$logo_size[0]" . '&amp;' . 
+"B04=$logo_size[1]" . '&amp;' . 
+"B05=$logo_textcolor" . '&amp;' . 
+"B06=".urlencode($logo_fontfamily) . '&amp;' . 
+"B07=$logo_fontsize" . '&amp;' . 
+
+
 "C01=$slogan_textcolor" . '&amp;' . 
 "C02=$slogan_fontfamily" . '&amp;' . 
 "C03=$slogan_fontsize" . '&amp;' . 
