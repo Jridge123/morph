@@ -42,7 +42,7 @@ class JElementSpacer extends JElement
 		if ($value) {
 			return JText::_($value);
 		} else {
-			return '<hr />';
+			return '<li class="spacer"><hr /></li>';
 		}
 	}
 }

@@ -36,15 +36,17 @@ class JElementText extends JElement
 	function fetchTooltip($label, $description, &$node, $control_name='', $name='')
 	{
 		
-		$output = '<label class="to-label" id="'.$control_name.$name.'-lbl" for="'.$control_name.$name.'">'.JText::_( $label ).'</label>';
+		$output = '<li><label class="to-label" id="'.$control_name.$name.'-lbl" for="'.$control_name.$name.'">'.JText::_( $label ).'</label>';
 		$tooltip = $node->attributes('tooltip');
 		if($tooltip){
 			switch($tooltip){
 				case 'inline': 
-				$output .= '<span class="tt-inline" title="'.JText::_($label).'::'.JText::_($description).'">&nbsp;</span>';
+				$output .= '<span class="tooltip tt-inline" title="'.JText::_($label).'::'.JText::_($description).'">&nbsp;</span>';
 				break;
 				case 'modal':
-				$output .= '<span class="tt-modal" title="'.JText::_($label).'::'.JText::_($description).'"><b class="ttim" title="Click here for more information on '.JText::_($label).'">&nbsp;</b></span>';
+				$output .= '<span class="tt-modal tooltip">';
+				$output .= '<strong class="ttim" title="Click here for more information on '.JText::_( $label ).'">help</strong>';
+				$output .= '</span>';
 				break;
 			}
 		}
@@ -58,6 +60,6 @@ class JElementText extends JElement
 		$class = ( $node->attributes('class') ? 'class="'.$node->attributes('class').'"' : 'class="text_area"' );
         $value = htmlspecialchars(html_entity_decode($value, ENT_QUOTES), ENT_QUOTES);
 
-		return '<input type="text" name="'.$control_name.'['.$name.']" id="'.$control_name.$name.'" value="'.$value.'" '.$class.' '.$size.' />';
+		return '<input type="text" name="'.$control_name.'['.$name.']" id="'.$control_name.$name.'" value="'.$value.'" '.$class.' '.$size.' class="text-input" /></li>';
 	}
 }

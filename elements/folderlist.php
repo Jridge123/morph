@@ -36,15 +36,17 @@ class JElementFolderlist extends JElement
 	function fetchTooltip($label, $description, &$node, $control_name='', $name='')
 	{
 		
-		$output = '<label class="to-label" id="'.$control_name.$name.'-lbl" for="'.$control_name.$name.'">'.JText::_( $label ).'</label>';
+		$output = '<li><label class="to-label" id="'.$control_name.$name.'-lbl" for="'.$control_name.$name.'">'.JText::_( $label ).'</label>';
 		$tooltip = $node->attributes('tooltip');
 		if($tooltip){
 			switch($tooltip){
 				case 'inline': 
-				$output .= '<span class="tt-inline" title="'.JText::_($label).'::'.JText::_($description).'">&nbsp;</span>';
+				$output .= '<span class="tooltip tt-inline" title="'.JText::_($label).'::'.JText::_($description).'">&nbsp;</span>';
 				break;
 				case 'modal':
-				$output .= '<span class="tt-modal" title="'.JText::_($label).'::'.JText::_($description).'"><b class="ttim" title="Click here for more information on '.JText::_($label).'">&nbsp;</b></span>';
+				$output .= '<span class="tt-modal tooltip">';
+				$output .= '<strong class="ttim" title="Click here for more information on '.JText::_( $label ).'">help</strong>';
+				$output .= '</span>';
 				break;
 			}
 		}
@@ -82,6 +84,6 @@ class JElementFolderlist extends JElement
 			array_unshift($options, JHTML::_('select.option', '', '- '.JText::_('Use default').' -'));
 		}
 
-		return JHTML::_('select.genericlist',  $options, ''.$control_name.'['.$name.']', 'class="inputbox"', 'value', 'text', $value, $control_name.$name);
+		return JHTML::_('select.genericlist',  $options, ''.$control_name.'['.$name.']', 'class="inputbox"', 'value', 'text', $value, $control_name.$name).'</li>';
 	}
 }
