@@ -70,7 +70,7 @@
 </params>
 
 <params group="logodata">		
-	<param name="logo options heading" type="heading" label="Logo" description="" />
+	<param name="logo options heading" type="heading" label="Logo Settings" description="" />
 	<param name="logo_type" type="list" default="2" label="Logo type" tooltip="inline" description="How would you like your logo to be outputed? A full tutorial explaining each of the options listed here will be added soon.">
 		<option value="0">Linked inline image</option>
 		<option value="1">Linked plain text</option>
@@ -103,7 +103,7 @@
 	    <option value="'Comic Sans MS', cursive">Comic Sans MS</option>
 	</param>
 	
-	<param name="slogan heading" type="heading" label="Slogan" description="" />
+	<param name="slogan heading" type="heading" label="Slogan Settings" description="" />
 	<param name="slogan_text" type="textarea" rows="2" cols="42" default="" tooltip="inline" label="Slogan text" description="Set the text to use for your sites slogan." />
 	<param name="slogan_textcolor" type="text" default="default" label="Slogan text color" tooltip="inline" description="" />
 	<param name="slogan_fontsize" type="text" default="" label="Slogan font size" tooltip="inline" description="" />
