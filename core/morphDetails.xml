@@ -43,8 +43,6 @@
 </params>
 
 <params group="generaldata">
-	<param name="general heading" type="heading" label=" " description="This is where you set your sites width and which themelet you would like to use. Themelets (also known as child themes) handle the visual aspect of Morph. &lt;a class=&quot;modal-link&quot; href=&quot;blockinner.html&quot; title=&quot;What is a themelet?&quot;&gt;Click here to learn more&lt;/a&gt;" />
-
 		<param name="themelet" type="folderlist" label="Select themelet" directory="templates/morph/assets/themelets" hide_none="false" hide_default="false" tooltip="inline" description="Select which themelet you would like to use. The themelets are stored in your templates assets folder. Use the Installer tab on the right to install new themelets." />
 	<param name="site_width" type="list" default="doc4" label="Site width" tooltip="inline" description="Set your sites page width. The full width 100% option is a bit buggy at the moment - especially with the fixed 200px left and right sidebar layout defaults (ie, your inner and outer layouts).">
 		<option value="doc">750px</option>
@@ -55,7 +53,6 @@
 </params>
 
 <params group="logodata">		
-	<param name="logo heading" type="heading" label=" " description="We realize that everyone has different opinions about how your logo should be outputted, so with Morph we have gone ahead and given you option to choose for yourself." />	
 	<param name="logo options heading" type="heading" label="Logo" description="" />
 	<param name="logo_type" type="list" default="2" label="Logo type" tooltip="inline" description="How would you like your logo to be outputed? A full tutorial explaining each of the options listed here will be added soon.">
 		<option value="0">Linked inline image</option>
@@ -117,8 +114,6 @@
 </params>
 
 <params group="backgrounddata">
-	<param name="bg summary heading" type="heading" label=" " description="These options allow you to easily customize your sites background." />
-	
 		<param name="bg_image" type="imagelist" default="default" tooltip="inline" label="Background image" description="Choose a background to use for your site. The backgrounds are located in your assets / backgrounds folder. You can upload new backgrounds using the Installer tool on the right." directory="templates/morph/assets/backgrounds" hide_none="true" />
 		
 	<param name="bg_color" type="text" default="default" label="Background color" tooltip="inline" description="Setting a color here will adjust your sites background color." />
@@ -146,9 +141,7 @@
 	</param>
 </params>
 
-<params group="colordata">
-	<param name="customization summary heading" type="heading" label=" " description="We realize that not every themelet is ever going to be a 100% perfect fit for your business, so we have given you a couple of options to customize the colors to fit you own brand." />
-		
+<params group="colordata">	
 	<param name="color_h1" type="text" default="default" tooltip="inline" label="Heading 1 color" description="" />
 	<param name="color_h2" type="text" default="default" tooltip="inline" label="Heading 2 color" description="" />	
 	<param name="color_h3" type="text" default="default" tooltip="inline" label="Heading 3 color" description="" />
@@ -162,7 +155,6 @@
 
 
 <params group="progressivedata">
-	<param name="progressive heading" type="heading" label=" " description="These are the subtle enhancements that are layered onto your site, as browsers can support them. Morph has a number of these that take place automatically in the background."  />	
 	<param name="plugins heading" type="heading" label="jQuery Plugins:" />	
 	<param name="rounded_corners" type="radio" default="0" label="Enable rounded corners" tooltip="inline" description="Would you like to include the jQuery Rounded Corners plugin? This is automatically overridden if you add a module suffix of 'rounded' to any of your modules.">
 		<option value="1">Yes</option>
@@ -182,7 +174,6 @@
 
 
 <params group="menudata">
-	<param name="menu heading" type="heading" label=" " description="Morph gives you a number of different menus to choose from as well as the ability to customize how they work. We will be adding a full page to explain how to take advantange of the different menus that are available."  />
 	<param name="topnav_hoverintent" type="radio" default="1" label="HoverIntent" tooltip="inline" description="HoverIntent is a plug-in that attempts to determine the user's intent... like a crystal ball, only with mouse movement! This generally improves the usability of your Superfish menu.">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
@@ -246,8 +237,6 @@
 
 
 <params group="performancedata">
-	<param name="performance heading" type="heading" label=" " description="Our aim is to make Morph as optimized as possible &amp; though this is something we will constantly improve &amp; build on, there are already a number of ways you can take advantage of."  />	
-	
 	<param name="pack_css" type="radio" default="0" label="Enable css packing" tooltip="inline" description="CSS Packing (otherwise refered to as CSS Concatination) refers to the combining of multiple files into a single file. This boosts your sites performance as fewer http requests are needed.">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
