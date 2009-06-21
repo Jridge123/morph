@@ -57,7 +57,7 @@ class JElementText extends JElement
 	function fetchElement($name, $value, &$node, $control_name)
 	{
 		$size = ( $node->attributes('size') ? 'size="'.$node->attributes('size').'"' : '' );
-		$class = ( $node->attributes('class') ? 'class="'.$node->attributes('class').'"' : 'class="text_area"' );
+		$class = ( $node->attributes('class') ? 'class="'.$node->attributes('class').'"' : 'class="form-textarea"' );
         $value = htmlspecialchars(html_entity_decode($value, ENT_QUOTES), ENT_QUOTES);
 
 		return '<input type="text" name="'.$control_name.'['.$name.']" id="'.$control_name.$name.'" value="'.$value.'" '.$class.' '.$size.' class="text-input" /></li>';
