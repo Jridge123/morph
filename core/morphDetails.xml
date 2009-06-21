@@ -50,6 +50,23 @@
 		<option value="doc4">974px</option>
 		<option value="doc3">100%</option>
 	</param>
+	<param name="code_comments" type="radio" default="0" label="Enable code comments" tooltip="inline" description="Morph's code comments are currently in their infancy, but will be extensively improved before the stable release. The idea behind them is to make it super easy to find exactly where a section of code is being loaded from. Each comment will wrap around the specific section of code, include the filename in which it resides as well as the line number.">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
+	<param name="remove_generator" type="radio" default="0" label="Remove Joomla! generator" tooltip="inline" description="The Joomla! meta generator is tag that is outputted in your sites xhtml, which will tell anyone who looks at the code that you are using Joomla!. This in most cases is fine, except when it comes to security. Its recommended that you leave this turned off.">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
+	<param name="error_reporting" type="radio" default="0" label="Enable error reporting" tooltip="inline" description="This will enable all php errors and notices to be displayed.">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
+	<param name="ie6_warning" type="radio" default="0" label="Enable ie6 warning" tooltip="inline" description="This is not yet implemented yet, but it will allow you to optionally display an upgrade notice to anyone visiting your site in Internet Explorer 6. ">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
+	<param name="google_analytics" type="text" default="" label="Google Analytics ID" tooltip="inline" description="Entering your Google Analytics ID will automatically load the needed tracking javascript, just above the closing body tag of your site. We plan on extending this to use any tracking or related javascript in the future, but for now this will have to do :)" />
 </params>
 
 <params group="logodata">		
@@ -87,7 +104,7 @@
 	</param>
 	
 	<param name="slogan heading" type="heading" label="Slogan" description="" />
-	<param name="slogan_text" type="textarea" rows="2" cols="10" default="" tooltip="inline" label="Slogan text" description="Set the text to use for your sites slogan." />
+	<param name="slogan_text" type="textarea" rows="2" cols="42" default="" tooltip="inline" label="Slogan text" description="Set the text to use for your sites slogan." />
 	<param name="slogan_textcolor" type="text" default="default" label="Slogan text color" tooltip="inline" description="" />
 	<param name="slogan_fontsize" type="text" default="" label="Slogan font size" tooltip="inline" description="" />
 	<param name="slogan_fontfamily" type="list" default="" label="Slogan font family" tooltip="inline" description="Choose which font family you would like to use.">
@@ -260,27 +277,12 @@
 </params>
 	
 <params group="advanceddata">
-	<param name="code_comments" type="radio" default="0" label="Enable code comments" tooltip="inline" description="Morph's code comments are currently in their infancy, but will be extensively improved before the stable release. The idea behind them is to make it super easy to find exactly where a section of code is being loaded from. Each comment will wrap around the specific section of code, include the filename in which it resides as well as the line number.">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="remove_generator" type="radio" default="0" label="Remove Joomla! generator" tooltip="inline" description="The Joomla! meta generator is tag that is outputted in your sites xhtml, which will tell anyone who looks at the code that you are using Joomla!. This in most cases is fine, except when it comes to security. Its recommended that you leave this turned off.">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="error_reporting" type="radio" default="0" label="Enable error reporting" tooltip="inline" description="This will enable all php errors and notices to be displayed.">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
+
 	<param name="jquery_core" type="radio" default="0" label="Enable jQuery" tooltip="inline" description="Morph uses jQuery extensively, so this should generally be left enabled. We have added the option to disable more for testing / debugging purposes.">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="ie6_warning" type="radio" default="0" label="Enable ie6 warning" tooltip="inline" description="This is not yet implemented yet, but it will allow you to optionally display an upgrade notice to anyone visiting your site in Internet Explorer 6. ">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="google_analytics" type="text" default="" label="Google Analytics ID" tooltip="inline" description="Entering your Google Analytics ID will automatically load the needed tracking javascript, just above the closing body tag of your site. We plan on extending this to use any tracking or related javascript in the future, but for now this will have to do :)" />
+
 </params>
 
 <params group="toolbardata">
@@ -727,8 +729,8 @@
 		<option value="1">Copyright, credits and links</option>
 		<option value="0">Module position</option>
 	</param>
-	<param name="footer_copyright" type="textarea" cols="40" rows="4" default="Copyright 2008 JoomlaJunkie.com - All Rights Reserved" label="Copyright" tooltip="inline" description="Add your own copyright here" />
-	<param name="footer_credits" type="textarea" cols="40" rows="4" default="Template Designed by &lt;a href=&quot;http://www.joomlajunkie.com&quot; title=&quot;professional joomla templates&quot;&gt;JoomlaJunkie&lt;/a&gt;" label="Credits" tooltip="inline" description="Add your own credits here" />
+	<param name="footer_copyright" type="textarea" cols="42" rows="4" default="Copyright 2008 JoomlaJunkie.com - All Rights Reserved" label="Copyright" tooltip="inline" description="Add your own copyright here" />
+	<param name="footer_credits" type="textarea" cols="42" rows="4" default="Template Designed by &lt;a href=&quot;http://www.joomlajunkie.com&quot; title=&quot;professional joomla templates&quot;&gt;JoomlaJunkie&lt;/a&gt;" label="Credits" tooltip="inline" description="Add your own credits here" />
 	<param name="footer_textcolor" type="text" default="default" label="Text color" tooltip="inline" description="" />
 	<param name="footer_linkscolor" type="text" default="default" label="Links color" tooltip="inline" description="" />
 	<param name="footer_swish" type="radio" default="1" label="JoomlaJunkie swish" tooltip="inline" description="We would appreciate it if you kept the JoomlaJunkie swish logo at the bottom of the template, but we have added an option for you to remove it.">

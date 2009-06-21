@@ -36,7 +36,7 @@ class JElementTextarea extends JElement
 	function fetchTooltip($label, $description, &$node, $control_name='', $name='')
 	{
 		
-		$output = '<li><label class="to-label" id="'.$control_name.$name.'-lbl" for="'.$control_name.$name.'">'.JText::_( $label ).'</label>';
+		$output = '<li class="textarea"><label class="to-label" id="'.$control_name.$name.'-lbl" for="'.$control_name.$name.'">'.JText::_( $label ).'</label>';
 		$tooltip = $node->attributes('tooltip');
 		if($tooltip){
 			switch($tooltip){
