@@ -21,6 +21,7 @@
 <params addpath="/templates/morph/elements">
 	<param type="calendar" name="Calendar Param" default="" />
 	<param type="category" name="Category Param" default="" />
+	<param type="colorpicker" name="Color Picker Param" default="" />
 	<param type="editors" name="Editors Param" default="" />
 	<param type="filelist" name="Filelist Param" default="" />
 	<param type="folderlist" name="Folderlist Param" default="" />
@@ -79,7 +80,7 @@
 	</param>
 	<param name="logo_image" type="imagelist" default="logo.png" tooltip="inline" label="Logo image" directory="templates/morph/assets/logos" hide_none="false" hide_default="false" description="If you haven't already, upload your logo using the Installer tool on the right, then once you have done that, select the logo from the list."  />
 	<param name="logo_image_ie" type="imagelist" default="logo.gif" tooltip="inline" label="Logo image for IE6" directory="templates/morph/assets/logos" hide_none="false" hide_default="false" description="We have added the option to have an alternate logo to display in IE6. This is useful if you are using a transparent png for your logo and would like to have a gif displayed for people browsing your site in Internet Explorer 6." />
-	<param name="logo_textcolor" type="text" default="default" label="Logo text color" tooltip="inline" description="" />
+	<param name="logo_textcolor" type="colorpicker" default="default" label="Logo text color" tooltip="inline" description="" />
 	<param name="logo_fontsize" type="text" default="" label="Logo font size" tooltip="inline" description="" />
 	<param name="logo_fontfamily" type="list" default="" label="Logo font family" tooltip="inline" description="Choose which font family you would like to use.">
 	    <option value=""> </option>
@@ -105,7 +106,7 @@
 	
 	<param name="slogan heading" type="heading" label="Slogan Settings" description="" />
 	<param name="slogan_text" type="textarea" rows="2" cols="42" default="" tooltip="inline" label="Slogan text" description="Set the text to use for your sites slogan." />
-	<param name="slogan_textcolor" type="text" default="default" label="Slogan text color" tooltip="inline" description="" />
+	<param name="slogan_textcolor" type="colorpicker" default="default" label="Slogan text color" tooltip="inline" description="" />
 	<param name="slogan_fontsize" type="text" default="" label="Slogan font size" tooltip="inline" description="" />
 	<param name="slogan_fontfamily" type="list" default="" label="Slogan font family" tooltip="inline" description="Choose which font family you would like to use.">
 	    <option value=""> </option>
@@ -133,7 +134,7 @@
 <params group="backgrounddata">
 		<param name="bg_image" type="imagelist" default="default" tooltip="inline" label="Background image" description="Choose a background to use for your site. The backgrounds are located in your assets / backgrounds folder. You can upload new backgrounds using the Installer tool on the right." directory="templates/morph/assets/backgrounds" hide_none="true" />
 		
-	<param name="bg_color" type="text" default="default" label="Background color" tooltip="inline" description="Setting a color here will adjust your sites background color." />
+	<param name="bg_color" type="colorpicker" default="default" label="Background color" tooltip="inline" description="Setting a color here will adjust your sites background color." />
 	
 	<param name="bg_repeat" type="list" default="repeat" label="Background repeat" tooltip="inline" description="If a background image is set, how should it repeat?" exclude="" stripext="">
 		<option value="none">None</option>
@@ -159,15 +160,15 @@
 </params>
 
 <params group="colordata">	
-	<param name="color_h1" type="text" default="default" tooltip="inline" label="Heading 1 color" description="" />
-	<param name="color_h2" type="text" default="default" tooltip="inline" label="Heading 2 color" description="" />	
-	<param name="color_h3" type="text" default="default" tooltip="inline" label="Heading 3 color" description="" />
-	<param name="color_h4" type="text" default="default" tooltip="inline" label="Heading 4 color" description="" />
-	<param name="color_h5" type="text" default="default" tooltip="inline" label="Heading 5 color" description="" />	
-	<param name="color_links" type="text" default="default" tooltip="inline" label="Links color" description="" />	
-	<param name="color_linkshover" type="text" default="default" tooltip="inline" label="Links hover color" description="" />	
-	<param name="color_linksvisited" type="text" default="default" tooltip="inline" label="Links visited color" description="" />	
-	<param name="color_bodytext" type="text" default="default" tooltip="inline" label="Body text color" description="" />	
+	<param name="color_h1" type="colorpicker" default="default" tooltip="inline" label="Heading 1 color" description="" />
+	<param name="color_h2" type="colorpicker" default="default" tooltip="inline" label="Heading 2 color" description="" />	
+	<param name="color_h3" type="colorpicker" default="default" tooltip="inline" label="Heading 3 color" description="" />
+	<param name="color_h4" type="colorpicker" default="default" tooltip="inline" label="Heading 4 color" description="" />
+	<param name="color_h5" type="colorpicker" default="default" tooltip="inline" label="Heading 5 color" description="" />	
+	<param name="color_links" type="colorpicker" default="default" tooltip="inline" label="Links color" description="" />	
+	<param name="color_linkshover" type="colorpicker" default="default" tooltip="inline" label="Links hover color" description="" />	
+	<param name="color_linksvisited" type="colorpicker" default="default" tooltip="inline" label="Links visited color" description="" />	
+	<param name="color_bodytext" type="colorpicker" default="default" tooltip="inline" label="Body text color" description="" />	
 </params>
 
 
@@ -731,8 +732,8 @@
 	</param>
 	<param name="footer_copyright" type="textarea" cols="42" rows="4" default="Copyright 2008 JoomlaJunkie.com - All Rights Reserved" label="Copyright" tooltip="inline" description="Add your own copyright here" />
 	<param name="footer_credits" type="textarea" cols="42" rows="4" default="Template Designed by &lt;a href=&quot;http://www.joomlajunkie.com&quot; title=&quot;professional joomla templates&quot;&gt;JoomlaJunkie&lt;/a&gt;" label="Credits" tooltip="inline" description="Add your own credits here" />
-	<param name="footer_textcolor" type="text" default="default" label="Text color" tooltip="inline" description="" />
-	<param name="footer_linkscolor" type="text" default="default" label="Links color" tooltip="inline" description="" />
+	<param name="footer_textcolor" type="colorpicker" default="default" label="Text color" tooltip="inline" description="" />
+	<param name="footer_linkscolor" type="colorpicker" default="default" label="Links color" tooltip="inline" description="" />
 	<param name="footer_swish" type="radio" default="1" label="JoomlaJunkie swish" tooltip="inline" description="We would appreciate it if you kept the JoomlaJunkie swish logo at the bottom of the template, but we have added an option for you to remove it.">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
