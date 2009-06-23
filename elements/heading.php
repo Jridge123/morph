@@ -39,7 +39,7 @@ class JElementHeading extends JElement
 		if($label === ' '){
 			$output = '';
 		}else{
-			$output = '<li class="heading"><h3 id="'.$control_name.$name.'">'.JText::_($label).'</h3>' ."\n\t\t\t";
+			$output = '<li class="heading"><h3>'.JText::_($label).'</h3>' ."\n\t\t\t";
 		}
 		
 		if ($description) {

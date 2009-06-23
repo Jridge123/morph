@@ -57,9 +57,9 @@ class JElementColorpicker extends JElement
 	function fetchElement($name, $value, &$node, $control_name)
 	{
 		$size = ( $node->attributes('size') ? 'size="'.$node->attributes('size').'"' : '' );
-		$class = ( $node->attributes('class') ? 'class="'.$node->attributes('class').'"' : 'class="form-colorpicker text-input"' );
+		//$class = ( $node->attributes('class') ? 'class="'.$node->attributes('class').'"' : '' );
         $value = htmlspecialchars(html_entity_decode($value, ENT_QUOTES), ENT_QUOTES);
 
-		return '<input type="text" name="'.$control_name.'['.$name.']" id="'.$control_name.$name.'" value="'.$value.'" '.$class.' '.$size.' /><span class="color-preview">&nbsp;</span><a href="#" class="picker"><span>Choose</span></a></li>';
+		return '<input type="text" name="'.$control_name.'['.$name.']" id="'.$control_name.$name.'" value="'.$value.'" class="form-colorpicker text-input" '.$size.' /><span class="color-preview">&nbsp;</span><a href="#" class="picker"><span>Choose</span></a></li>';
 	}
 }
