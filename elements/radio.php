@@ -44,7 +44,7 @@ class JElementRadio extends JElement
 				$output .= '<span class="tooltip tt-inline" title="'.JText::_($label).'::'.JText::_($description).'">&nbsp;</span>';
 				break;
 				case 'modal':
-				$output .= '<span class="tt-modal tooltip">';
+				$output .= '<span class="tt-modal tooltip" title="'.JText::_($label).'::'.JText::_($description).'">';
 				$output .= '<strong class="ttim" title="Click here for more information on '.JText::_( $label ).'">help</strong>';
 				$output .= '</span>';
 				break;
