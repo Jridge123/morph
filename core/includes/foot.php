@@ -5,7 +5,7 @@
             <a title="JoomlaJunkie Commercial and free Joomla Templates" href="http://www.joomlajunkie.com" class="joomlajunkie-swish">Powered by Morph</a>
         <?php } ?>
         <ul id="footer-links"<?php if ( $footer_swish == "0" ) { ?>class="no-swish"<?php } ?>>
-			<li class="fl-left"><jdoc:include type="modules" name="footernav" style="none" /></li>
+			<li class="fl-left"><jdoc:include type="modules" name="footernav" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo 'none'; } ?>" /></li>
 			<li class="fl-right">
 				<ul>
 					<?php if ($footer_morphlink == "1") { ?><li class="morph-link">

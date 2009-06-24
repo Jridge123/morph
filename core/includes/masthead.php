@@ -26,7 +26,7 @@
          <?php } ?>
               
          <?php if ( $logo_type == 3 ) { ?>
-         <jdoc:include type="modules" name="branding" style="<?php echo $masthead_chrome ?>" />
+         <jdoc:include type="modules" name="branding" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo $masthead_chrome; } ?>" />
          <?php } ?>
        
        <ul id="skipto">
@@ -46,7 +46,7 @@
       </div>
       <?php if($this->countModules('top')) { ?>
       <div  id="top2" class="yui-u last">
-         <jdoc:include type="modules" name="top" style="<?php echo $masthead_chrome ?>" />
+         <jdoc:include type="modules" name="top" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo $masthead_chrome; } ?>" />
       </div>
       <?php } ?>
    </div>
