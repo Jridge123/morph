@@ -18,6 +18,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 <jdoc:include type="head" />
 </head>
 <body class="js-disabled <?php echo "$lcbrowser $lcbrowser$ver"; if ($pageclass != ""){ echo ' '.$pageclass; } ?>"<?php if ($themelet != ""){ echo ' id="'.$themelet.'"'; } ?>>
+<?php if ( isIE6() && $ie6_upgrade == 1 ) include_once("core/includes/ie6upgrade.php"); ?>
 <?php if($this->countModules('advert1')) { ?><div id="advert1"><jdoc:include type="modules" name="advert1" style="none" /></div><?php } ?>
 <?php
 // toolbar + topnav after toolbar

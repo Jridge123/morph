@@ -62,7 +62,8 @@ $code_comments = $MORPH->code_comments;
 $remove_generator = $MORPH->remove_generator;
 $error_reporting = $MORPH->error_reporting;
 $jquery_core = $MORPH->jquery_core;
-$ie6_warning = $MORPH->ie6_warning;
+$debug_modules = $MORPH->debug_modules;
+$ie6_upgrade = $MORPH->ie6_upgrade;
 $google_analytics = $MORPH->google_analytics;
 
 // top block
