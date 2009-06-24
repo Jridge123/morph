@@ -54,6 +54,7 @@ $thebrowser 				= ereg_replace("[^A-Za-z]", "", $browser->getBrowser());
 $ver 						= $browser->getVersion();
 $dots 						= ".";
 $dashes 					= "";
+$mod_chrome					= "";
 $ver 						= str_replace($dots , $dashes , $ver);
 $lcbrowser 					= strtolower($thebrowser);
 
@@ -78,6 +79,7 @@ $this->setGenerator(null);
 if(file_exists($themeletfunctions) && is_readable($themeletfunctions)){
 include_once($absolutepath.'/custom.php');
 }
+function debug_chrome($pt_debug, $pt_mod_chrome){	if( $pt_debug == 1 ){ 		return 'outline'; 	} else { 		return $pt_mod_chrome; 	}}
 
 if( isIE6() && $logo_image_ie !== ''){ $logo = $templatepath.'/assets/logos/'.$ie_logo_image; } else { $logo = $templatepath.'/assets/logos/'.$logo_image; }
 $logo_size = getimagesize($logo);
