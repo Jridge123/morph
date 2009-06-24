@@ -51,11 +51,11 @@
 		<option value="doc4">974px</option>
 		<option value="doc3">100%</option>
 	</param>
-	<param name="remove_generator" type="radio" default="0" label="Remove Joomla! generator" tooltip="inline" description="The Joomla! meta generator is tag that is outputted in your sites xhtml, which will tell anyone who looks at the code that you are using Joomla!. This in most cases is fine, except when it comes to security. Its recommended that you leave this turned off.">
+	<param name="remove_generator" type="radio" default="0" label="Remove Joomla! meta tag" tooltip="inline" description="The Joomla! meta generator is tag that is outputted in your sites xhtml, which will tell anyone who looks at the code that you are using Joomla!. This in most cases is fine, except when it comes to security. Its recommended that you leave this turned off.">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="ie6_upgrade" type="radio" default="0" label="Enable ie6 upgrade notice" tooltip="inline" description="This is not yet implemented yet, but it will allow you to optionally display an upgrade notice to anyone visiting your site in Internet Explorer 6. ">
+	<param name="ie6_upgrade" type="radio" default="0" label="Enable ie6 upgrade notice" tooltip="inline" description="This option will display an upgrade notice to anyone visiting your site in Internet Explorer 6. ">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
@@ -72,8 +72,8 @@
 	</param>
 	<param name="logo_image" type="imagelist" default="logo.png" tooltip="inline" label="Logo image" directory="templates/morph/assets/logos" hide_none="false" hide_default="false" description="If you haven't already, upload your logo using the Installer tool on the right, then once you have done that, select the logo from the list."  />
 	<param name="logo_image_ie" type="imagelist" default="logo.gif" tooltip="inline" label="Logo image for IE6" directory="templates/morph/assets/logos" hide_none="false" hide_default="false" description="We have added the option to have an alternate logo to display in IE6. This is useful if you are using a transparent png for your logo and would like to have a gif displayed for people browsing your site in Internet Explorer 6." />
-	<param name="logo_textcolor" type="colorpicker" default="default" label="Logo text color" tooltip="inline" description="" />
-	<param name="logo_fontsize" type="text" default="" label="Logo font size" tooltip="inline" description="" />
+	<param name="logo_textcolor" type="colorpicker" default="default" label="Logo text color" tooltip="inline" description="Set your logo text foreground color." />
+	<param name="logo_fontsize" type="text" default="" label="Logo font size" tooltip="inline" description="Adjust the font size of your custom logo text." />
 	<param name="logo_fontfamily" type="list" default="" label="Logo font family" tooltip="inline" description="Choose which font family you would like to use.">
 	    <option value=""> </option>
 	    <option value="Arial, Helvetica, sans-serif">Arial</option>
@@ -97,9 +97,9 @@
 	</param>
 	
 	<param name="slogan heading" type="heading" label="Slogan Settings" description="" />
-	<param name="slogan_text" type="textarea" rows="1" cols="43" default="" tooltip="inline" label="Slogan text" description="Set the text to use for your sites slogan." />
-	<param name="slogan_textcolor" type="colorpicker" default="default" label="Slogan text color" tooltip="inline" description="" />
-	<param name="slogan_fontsize" type="text" default="" label="Slogan font size" tooltip="inline" description="" />
+	<param name="slogan_text" type="textarea" rows="1" cols="43" default="" tooltip="inline" label="Slogan text" description="Set the text to use for your sites slogan. This box will automatically expand as needed." />
+	<param name="slogan_textcolor" type="colorpicker" default="default" label="Slogan text color" tooltip="inline" description="Set your slogans text foreground color." />
+	<param name="slogan_fontsize" type="text" default="" label="Slogan font size" tooltip="inline" description="Adjust the font size of your custom slogan text." />
 	<param name="slogan_fontfamily" type="list" default="" label="Slogan font family" tooltip="inline" description="Choose which font family you would like to use.">
 	    <option value=""> </option>
 	    <option value="Arial, Helvetica, sans-serif">Arial</option>
@@ -124,7 +124,7 @@
 </params>
 
 <params group="backgrounddata">
-		<param name="bg_image" type="imagelist" default="default" tooltip="inline" label="Background image" description="Choose a background to use for your site. The backgrounds are located in your assets / backgrounds folder. You can upload new backgrounds using the Installer tool on the right." directory="templates/morph/assets/backgrounds" hide_none="true" />
+		<param name="bg_image" type="imagelist" default="default" tooltip="inline" label="Background image" description="Choose a background to use for your site. The backgrounds are located in your assets / backgrounds folder. You can upload new backgrounds using the Universal Installer tool in the Toolbox tab." directory="templates/morph/assets/backgrounds" hide_none="true" />
 		
 	<param name="bg_color" type="colorpicker" default="default" label="Background color" tooltip="inline" description="Setting a color here will adjust your sites background color." />
 	
@@ -152,15 +152,15 @@
 </params>
 
 <params group="colordata">	
-	<param name="color_h1" type="colorpicker" default="default" tooltip="inline" label="Heading 1 color" description="" />
-	<param name="color_h2" type="colorpicker" default="default" tooltip="inline" label="Heading 2 color" description="" />	
-	<param name="color_h3" type="colorpicker" default="default" tooltip="inline" label="Heading 3 color" description="" />
-	<param name="color_h4" type="colorpicker" default="default" tooltip="inline" label="Heading 4 color" description="" />
-	<param name="color_h5" type="colorpicker" default="default" tooltip="inline" label="Heading 5 color" description="" />	
-	<param name="color_links" type="colorpicker" default="default" tooltip="inline" label="Links color" description="" />	
-	<param name="color_linkshover" type="colorpicker" default="default" tooltip="inline" label="Links hover color" description="" />	
-	<param name="color_linksvisited" type="colorpicker" default="default" tooltip="inline" label="Links visited color" description="" />	
-	<param name="color_bodytext" type="colorpicker" default="default" tooltip="inline" label="Body text color" description="" />	
+	<param name="color_h1" type="colorpicker" default="default" tooltip="inline" label="Heading 1 color" description="Set the foreground color of your H1 headings." />
+	<param name="color_h2" type="colorpicker" default="default" tooltip="inline" label="Heading 2 color" description="Set the foreground color of your H2 headings." />	
+	<param name="color_h3" type="colorpicker" default="default" tooltip="inline" label="Heading 3 color" description="Set the foreground color of your H3 headings." />
+	<param name="color_h4" type="colorpicker" default="default" tooltip="inline" label="Heading 4 color" description="Set the foreground color of your H4 headings." />
+	<param name="color_h5" type="colorpicker" default="default" tooltip="inline" label="Heading 5 color" description="Set the foreground color of your H5 headings." />	
+	<param name="color_links" type="colorpicker" default="default" tooltip="inline" label="Links color" description="Set the foreground color of your links text." />	
+	<param name="color_linkshover" type="colorpicker" default="default" tooltip="inline" label="Links hover color" description="Set the hover color of your links text." />	
+	<param name="color_linksvisited" type="colorpicker" default="default" tooltip="inline" label="Links visited color" description="Set the visited color of your links text." />	
+	<param name="color_bodytext" type="colorpicker" default="default" tooltip="inline" label="Body text color" description="Set the foreground color of your sites main body text." />	
 </params>
 
 
@@ -175,7 +175,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="image_captions" type="radio" default="0" label="Image captions" tooltip="inline" description="Would you like to enable the images captify plugin? &lt;br /&gt;&lt;br /&gt;
+	<param name="image_captions" type="radio" default="0" label="Image captions (coming)" tooltip="inline" description="Would you like to enable the images captify plugin? &lt;br /&gt;&lt;br /&gt;
 	&lt;strong&gt;NOTE:&lt;/strong&gt; This doesnt seem to be working anymore, but it will be fixed before the stable release.">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
@@ -282,7 +282,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="debug_modules" type="radio" default="0" label="Debug Modules" tooltip="inline" description="">
+	<param name="debug_modules" type="radio" default="0" label="Debug Modules" tooltip="inline" description="Enabling this option will globally override all module chromes to use the outline chrome option. This is good when you want to see which module positions are being used where.">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
