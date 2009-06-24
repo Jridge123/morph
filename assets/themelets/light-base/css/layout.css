@@ -119,7 +119,7 @@ body{text-align:center;margin:0;padding:0;background:#0B0D0D;}
 #tertiary-content #passwd{width:97%;}
 #footer-wrap{background:#eee;border-top:1px solid #111;}
 #footer{padding:0 0 1em 0;}
-#footer *{margin:0;padding:0;list-style:none;background:none;overflow:hidden;height:auto;}
+#footer *{margin:0;padding:0;list-style:none;overflow:hidden;height:auto;}
 #footer .joomlajunkie-swish{width:60px;height:50px;text-indent:-7998px;display:block;float:left;background: transparent url(../images/swish.png) no-repeat top;}
 #footer .joomlajunkie-swish:hover{background-position:bottom;}
 #footer #footer-links{padding-top:5px;text-transform:lowercase;}
