@@ -72,6 +72,8 @@
 	</param>
 	<param name="logo_image" type="imagelist" default="logo.png" tooltip="inline" label="Logo image" directory="templates/morph/assets/logos" hide_none="false" hide_default="false" description="If you haven't already, upload your logo using the Installer tool on the right, then once you have done that, select the logo from the list."  />
 	<param name="logo_image_ie" type="imagelist" default="logo.gif" tooltip="inline" label="Logo image for IE6" directory="templates/morph/assets/logos" hide_none="false" hide_default="false" description="We have added the option to have an alternate logo to display in IE6. This is useful if you are using a transparent png for your logo and would like to have a gif displayed for people browsing your site in Internet Explorer 6." />
+	<param name="logo_alttext" type="text" default="" label="Logo alt text" tooltip="inline" description="Set your logo image alt text" />
+	<param name="logo_linktitle" type="text" default="" label="Logo link title" tooltip="inline" description="Set your logo link title text" />
 	<param name="logo_textcolor" type="colorpicker" default="default" label="Logo text color" tooltip="inline" description="Set your logo text foreground color." />
 	<param name="logo_fontsize" type="text" default="" label="Logo font size" tooltip="inline" description="Adjust the font size of your custom logo text." />
 	<param name="logo_fontfamily" type="list" default="" label="Logo font family" tooltip="inline" description="Choose which font family you would like to use.">
@@ -124,7 +126,7 @@
 </params>
 
 <params group="backgrounddata">
-		<param name="bg_image" type="imagelist" default="default" tooltip="inline" label="Background image" description="Choose a background to use for your site. The backgrounds are located in your assets / backgrounds folder. You can upload new backgrounds using the Universal Installer tool in the Toolbox tab." directory="templates/morph/assets/backgrounds" hide_none="true" />
+		<param name="bg_image" type="imagelist" default="" tooltip="inline" label="Background image" description="Choose a background to use for your site. The backgrounds are located in your assets / backgrounds folder. You can upload new backgrounds using the Universal Installer tool in the Toolbox tab." directory="templates/morph/assets/backgrounds" hide_none="true" />
 		
 	<param name="bg_color" type="colorpicker" default="default" label="Background color" tooltip="inline" description="Setting a color here will adjust your sites background color." />
 	

@@ -25,10 +25,10 @@ $logo_type = $MORPH->logo_type;
 $logo_image = $MORPH->logo_image;
 $logo_image_ie = $MORPH->logo_image_ie;
 $logo_text = $MORPH->logo_text;
-$logo_textcolor = $MORPH->logo_textcolor;
+$logo_alttext = $MORPH->logo_alttext;
+$logo_linktitle = $MORPH->logo_linktitle;
 $logo_fontfamily = $MORPH->logo_fontfamily;
 $logo_fontsize = $MORPH->logo_fontsize;
-
 $slogan_text = $MORPH->slogan_text;
 $slogan_textcolor = $MORPH->slogan_textcolor;
 $slogan_fontfamily = $MORPH->slogan_fontfamily;
