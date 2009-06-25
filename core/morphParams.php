@@ -29,6 +29,8 @@ $logo_alttext = $MORPH->logo_alttext;
 $logo_linktitle = $MORPH->logo_linktitle;
 $logo_fontfamily = $MORPH->logo_fontfamily;
 $logo_fontsize = $MORPH->logo_fontsize;
+
+$display_slogan = $MORPH->display_slogan;
 $slogan_text = $MORPH->slogan_text;
 $slogan_textcolor = $MORPH->slogan_textcolor;
 $slogan_fontfamily = $MORPH->slogan_fontfamily;

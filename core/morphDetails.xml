@@ -98,6 +98,11 @@
 	    <option value="'Comic Sans MS', cursive">Comic Sans MS</option>
 	</param>
 	
+	
+	<param name="display_slogan" type="radio" default="0" label="Display slogan" tooltip="inline" description="Would you like to display a slogan.">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
 	<param name="slogan heading" type="heading" label="Slogan Settings" description="" />
 	<param name="slogan_text" type="textarea" rows="1" cols="43" default="" tooltip="inline" label="Slogan text" description="Set the text to use for your sites slogan. This box will automatically expand as needed." />
 	<param name="slogan_textcolor" type="colorpicker" default="default" label="Slogan text color" tooltip="inline" description="Set your slogans text foreground color." />
