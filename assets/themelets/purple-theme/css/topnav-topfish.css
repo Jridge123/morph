@@ -1,0 +1,57 @@
+/*----------------------------------------------------------------------------
+++ Top Navigation - Topfish
+++ Description goes here.
+----------------------------------------------------------------------------*/
+#topnav .menu ul{position:absolute;top:-999em;width:14em;/* left offset of submenus need to match (see below) */}
+#topnav .menu ul li{width:100%;}
+#topnav .menu li:hover{visibility:inherit;/* fixes IE7 'sticky bug' */}
+#topnav .menu li:hover ul,
+#topnav .menu li.sfHover ul{left:0;top:3.4em; /* match top ul list item height */ z-index:99;}
+#topnav .menu li:hover li ul,
+#topnav .menu li.sfHover li ul{top:-999em;}
+#topnav .menu li li:hover ul,
+#topnav .menu li li.sfHover ul{left:14em; /* match ul width */ top:0;}
+#topnav .menu li li:hover li ul,
+#topnav .menu li li.sfHover li ul{top:-999em;}
+#topnav .menu li li li:hover ul,
+#topnav .menu li li li.sfHover ul{left:14em;/* match ul width */top:0;}
+
+/*----------------------------------------------------------------------------
+++ Superfish Styling
+----------------------------------------------------------------------------*/
+/* set backgrounds */
+#topnav .menu li li{background:#eee;}
+#topnav .menu li li li{background:#eee;}
+#topnav .menu li:hover,
+#topnav .menu li.sfHover,
+#topnav .menu a:focus,
+#topnav .menu a:hover,
+#topnav .menu a:active{background:#ddd;outline:0;}
+#topnav .menu ul li:hover,
+#topnav .menu ul li.sfHover,
+#topnav .menu ul a:focus,
+#topnav .menu ul a:hover,
+#topnav .menu .active{background:#fff;}
+#topnav .menu .parent a{background:transparent url(../images/parent.gif) 50% 85% no-repeat;}
+#topnav .menu .parent ul a{background:none;}
+/* add seperator styling */
+#topnav .menu li span.separator{color:#333;white-space:nowrap;font-size:1.05em;padding:6px 19px 7px 13px;display:block;border-top:1px solid #fff;border-left:1px solid #fff;border-right:1px solid #ccc;border-bottom:1px solid #ccc;}
+/* now reset sub links size */
+#topnav .menu li ul li a,#topnav #topnav .menu li ul li a:link,#topnav #topnav .menu li ul li a:visited{font-size:0.9em;line-height:0.7em;padding:0.95em 1em;text-decoration:none;color:#333;border-top:1px solid #fff;border-bottom:1px solid #ccc;}
+
+/*----------------------------------------------------------------------------
+++ Superfish subchild indicators
+----------------------------------------------------------------------------*/
+/* set the second level child item indicator */
+#topnav .menu li li.parent a,
+#topnav .menu li li.parent span.separator{background:transparent url(../images/subchild.gif) no-repeat 96% 50%;}
+/* remove it from descendant anchors */
+#topnav .menu li li.parent li a,
+#topnav .menu li li.parent li span.separator{background:none;}
+/* set the third level child item indicator */
+#topnav .menu li li li.parent a,
+#topnav .menu li li li.parent span.separator{background:transparent url(../images/subchild.gif) no-repeat 96% 50%;}
+/* remove again from descendant anchors */
+#topnav .menu li li li.parent li a,
+#topnav .menu li li li.parent li span.separator{background:none;}
+
