@@ -20,6 +20,7 @@ $bg_image = $_GET['D02'];
 $bg_repeat = $_GET['D03'];
 $bg_position = urldecode($_GET['D04']);
 $bg_attachment = $_GET['D05'];
+$bg_type = $_GET['D06'];
 
 $color_h1 = '#'.$_GET['E01'];
 $color_h2 = '#'.$_GET['E02'];

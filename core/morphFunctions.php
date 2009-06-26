@@ -190,7 +190,6 @@ if ($bg_image == "" ) { $bg_image = "default"; }
 
 $dynamic_css = 
 "A01=$toolbar_slider" . '&amp;' . 
-
 "B01=$logo_type" . '&amp;' . 
 "B02=$logo" . '&amp;' . 
 "B03=$logo_size[0]" . '&amp;' . 
@@ -198,8 +197,6 @@ $dynamic_css =
 "B05=$logo_textcolor" . '&amp;' . 
 "B06=".urlencode($logo_fontfamily) . '&amp;' . 
 "B07=$logo_fontsize" . '&amp;' . 
-
-
 "C01=$slogan_textcolor" . '&amp;' . 
 "C02=$slogan_fontfamily" . '&amp;' . 
 "C03=$slogan_fontsize" . '&amp;' . 
@@ -208,6 +205,7 @@ $dynamic_css =
 "D03=$bg_repeat" . '&amp;' . 
 "D04=".urlencode($bg_position) . '&amp;' . 
 "D05=$bg_attachment" . '&amp;' . 
+"D06=$bg_type" . '&amp;' . 
 "E01=$color_h1" . '&amp;' . 
 "E02=$color_h2" . '&amp;' . 
 "E03=$color_h3" . '&amp;' . 
