@@ -6,21 +6,24 @@
       <div id="branding" class="yui-u first<?php if ( $logo_type == "0" ) { ?> img-logo<?php } if ( $logo_type == "1" ) { ?> txt-logo<?php } if ( $logo_type == "2" ) { ?> h1-logo<?php } if ( $slogan_text !== "" ) { ?> slogan<?php } ?>">
          
          <?php if ( $logo_type == 0 ) { ?>
-         <a href="<?php echo JURI::root() ?>" title="<?php if ($slogan_text != ""){ echo $slogan_text; } else { echo $mainframe->getCfg('sitename'); } ?>"><img src="<?php echo $logo_image; ?>" width="<?php echo $logo_size[0]; ?>" height="<?php echo $logo_size[1]; ?>" alt="<?php if ( $logo_text != ""){ echo $logo_text; } else { echo $mainframe->getCfg('sitename'); } ?>" border="0" /></a>
-         <?php if ( $slogan_text !== "" ) { ?>
+         
+         <a href="<?php echo JURI::root() ?>" title="<?php if ($logo_linktitle != ""){ echo $logo_linktitle; } else { echo $mainframe->getCfg('sitename'); } ?>">
+         <img src="<?php echo $logo_image; ?>" width="<?php echo $logo_size[0]; ?>" height="<?php echo $logo_size[1]; ?>" alt="<?php if ( $logo_alttext != ""){ echo $logo_alttext; } else { echo $mainframe->getCfg('sitename'); } ?>" border="0" /></a>
+         
+         <?php if ( $display_slogan == "1" ) { ?>
          <p class="slogan"><?php echo $slogan_text; ?></p>
          <?php } ?>
                   
          <?php } if ( $logo_type == 1 ) { ?>
-         <a href="<?php echo JURI::root() ?>" title="<?php if ($slogan_text != ""){ echo $slogan_text; } else { echo $mainframe->getCfg('sitename'); } ?>" class="logo">
+         <a href="<?php echo JURI::root() ?>" title="<?php if ($logo_linktitle != ""){ echo $logo_linktitle; } else { echo $mainframe->getCfg('sitename'); } ?>" class="logo">
          <?php if ($logo_text != ""){ echo $logo_text; } else { echo $mainframe->getCfg('sitename'); } ?>
          </a>
-         <?php if ( $slogan_text !== "" ) { ?>
+         <?php if ( $display_slogan == "1" ) { ?>
          <p class="slogan"><?php echo $slogan_text; ?></p>
          <?php } ?>
          
          <?php } if ( $logo_type == 2 ) { ?>
-         <h1><a href="<?php echo JURI::root() ?>" title="<?php if ($slogan_text != ""){ echo $slogan_text; } else { echo $mainframe->getCfg('sitename'); } ?>">
+         <h1><a href="<?php echo JURI::root() ?>" title="<?php if ($logo_linktitle != ""){ echo $logo_linktitle; } else { echo $mainframe->getCfg('sitename'); } ?>">
             <?php if ($logo_text != ""){ echo $logo_text; } else { echo $mainframe->getCfg('sitename'); } ?>
             </a></h1>
          <?php } ?>
