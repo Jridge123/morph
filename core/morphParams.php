@@ -11,6 +11,7 @@ $bg_color = str_replace('#','',$MORPH->bg_color);
 $bg_repeat = $MORPH->bg_repeat;
 $bg_position = $MORPH->bg_position;
 $bg_attachment = $MORPH->bg_attachment;
+
 $color_h1 = str_replace('#','',$MORPH->color_h1);
 $color_h2 = str_replace('#','',$MORPH->color_h2);
 $color_h3 = str_replace('#','',$MORPH->color_h3);
@@ -28,6 +29,7 @@ $logo_image_ie = $MORPH->logo_image_ie;
 $logo_text = $MORPH->logo_text;
 $logo_alttext = $MORPH->logo_alttext;
 $logo_linktitle = $MORPH->logo_linktitle;
+$logo_textcolor = $MORPH->logo_textcolor;
 $logo_fontfamily = $MORPH->logo_fontfamily;
 $logo_fontsize = $MORPH->logo_fontsize;
 

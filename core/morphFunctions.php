@@ -205,7 +205,6 @@ $dynamic_css =
 "D03=$bg_repeat" . '&amp;' . 
 "D04=".urlencode($bg_position) . '&amp;' . 
 "D05=$bg_attachment" . '&amp;' . 
-"D06=$bg_type" . '&amp;' . 
 "E01=$color_h1" . '&amp;' . 
 "E02=$color_h2" . '&amp;' . 
 "E03=$color_h3" . '&amp;' . 
