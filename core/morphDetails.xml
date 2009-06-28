@@ -107,7 +107,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="slogan_text" type="textarea" rows="1" cols="43" default="" tooltip="inline" label="Tagline text" description="Set the text to use for your sites slogan. This box will automatically expand as needed." />
+	<param name="slogan_text" type="textarea" rows="1" cols="32" default="" tooltip="inline" label="Tagline text" description="Set the text to use for your sites slogan. This box will automatically expand as needed." />
 	<param name="slogan_textcolor" type="colorpicker" default="default" label="Tagline text color" tooltip="inline" description="Set your slogans text foreground color." />
 	<param name="slogan_fontsize" type="text" default="" label="Tagline font size" tooltip="inline" description="Adjust the font size of your custom slogan text." />
 	<param name="slogan_fontfamily" type="list" default="" label="Tagline font family" tooltip="inline" description="Choose which font family you would like to use.">
@@ -765,8 +765,8 @@
 		<option value="1">Copyright, credits and links</option>
 		<option value="0">Module position</option>
 	</param>
-	<param name="footer_copyright" type="textarea" cols="42" rows="2" default="Copyright 2008 JoomlaJunkie.com - All Rights Reserved" label="Copyright" tooltip="inline" description="Add your own copyright here" />
-	<param name="footer_credits" type="textarea" cols="42" rows="2" default="Template Designed by &lt;a href=&quot;http://www.joomlajunkie.com&quot; title=&quot;professional joomla templates&quot;&gt;JoomlaJunkie&lt;/a&gt;" label="Credits" tooltip="inline" description="Add your own credits here" />
+	<param name="footer_copyright" type="textarea" cols="32" rows="2" default="Copyright 2008 JoomlaJunkie.com - All Rights Reserved" label="Copyright" tooltip="inline" description="Add your own copyright here" />
+	<param name="footer_credits" type="textarea" cols="32" rows="2" default="Template Designed by &lt;a href=&quot;http://www.joomlajunkie.com&quot; title=&quot;professional joomla templates&quot;&gt;JoomlaJunkie&lt;/a&gt;" label="Credits" tooltip="inline" description="Add your own credits here" />
 	<param name="footer_textcolor" type="colorpicker" default="default" label="Text color" tooltip="inline" description="" />
 	<param name="footer_linkscolor" type="colorpicker" default="default" label="Links color" tooltip="inline" description="" />
 	<param name="footer_swish" type="radio" default="1" label="JoomlaJunkie swish" tooltip="inline" description="We would appreciate it if you kept the JoomlaJunkie swish logo at the bottom of the template, but we have added an option for you to remove it.">
