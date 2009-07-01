@@ -282,9 +282,9 @@ class MainMenuTree extends JTree
 			$menu = &JSite::getMenu();
 			if ($newItem = $menu->getItem($item->query['Itemid'])) {
     			$tmp = clone($newItem);
-				if (preg_match('/\s#\s/',$item->name)) {
+				if (preg_match('/\s-\s/',$item->name)) {
 					$tmp->name = '<span class="mainmenu_item"><![CDATA['.
-						preg_replace('/\s#\s/',']]></span><span class="submenu_item"><![CDATA[',$item->name) . ']]></span>';
+						preg_replace('/\s-\s/',']]></span><span class="submenu_item"><![CDATA[',$item->name) . ']]></span>';
 				} else {
 					$tmp->name	 = '<![CDATA['.$item->name.']]>';
 				}
@@ -295,9 +295,9 @@ class MainMenuTree extends JTree
 			}
 		} else {
 			$tmp = clone($item);
-			if (preg_match('/\s#\s/',$item->name)) {
+			if (preg_match('/\s-\s/',$item->name)) {
 				$tmp->name = '<span class="mainmenu_item"><![CDATA['.
-					preg_replace('/\s#\s/',']]></span><span class="submenu_item"><![CDATA[',$item->name) . ']]></span>';
+					preg_replace('/\s-\s/',']]></span><span class="submenu_item"><![CDATA[',$item->name) . ']]></span>';
 			} else {
 				$tmp->name	 = '<![CDATA['.$item->name.']]>';
 			}

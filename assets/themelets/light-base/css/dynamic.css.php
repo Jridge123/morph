@@ -1,8 +1,6 @@
 <?php
 header("content-type: text/css; charset: UTF-8");
-
 $toolbar_slider = $_GET['A01'];
-
 $logo_type = $_GET['B01'];
 $logo = $_GET['B02'];
 $logo_width = $_GET['B03'];
@@ -10,18 +8,15 @@ $logo_height = $_GET['B04'];
 $logo_textcolor = '#'.$_GET['B05'];
 $logo_fontfamily = stripslashes(urldecode($_GET['B06']));
 $logo_fontsize = $_GET['B07'];
-
 $slogan_textcolor = '#'.$_GET['C01'];
 $slogan_fontfamily = stripslashes(urldecode($_GET['C02']));
 $slogan_fontsize = $_GET['C03'];
-
+$display_slogan = $_GET['C04'];
 $bg_color = '#'.$_GET['D01'];
 $bg_image = $_GET['D02'];
 $bg_repeat = $_GET['D03'];
 $bg_position = urldecode($_GET['D04']);
 $bg_attachment = $_GET['D05'];
-$bg_type = $_GET['D06'];
-
 $color_h1 = '#'.$_GET['E01'];
 $color_h2 = '#'.$_GET['E02'];
 $color_h3 = '#'.$_GET['E03'];
@@ -31,10 +26,8 @@ $color_links = '#'.$_GET['E06'];
 $color_linkshover = '#'.$_GET['E07'];
 $color_linksvisited = '#'.$_GET['E08'];
 $color_bodytext = '#'.$_GET['E09'];
-
 $footer_textcolor = '#'.$_GET['F01'];
 $footer_linkscolor = '#'.$_GET['F02'];
- 
 $gzip_compression = $_GET['Z01'];
 
 if ( $gzip_compression == 1 ) {
@@ -44,7 +37,6 @@ $offset = 60 * 60;
 $expire = "expires: " . gmdate ("D, d M Y H:i:s", time() + $offset) . " GMT";
 header($expire);
 }
-
 function isIE6(){
 	$user_agent = $_SERVER['HTTP_USER_AGENT'];
 	if(strpos($user_agent, 'MSIE 6 ')){
@@ -53,11 +45,6 @@ function isIE6(){
 		return false;
 	}
 }
-
-// 0 Linked inline image
-// 1 Linked plain text
-// 2 Linked h1 text replacement
-// 3 Module position (branding)
 ?>
 body{
 <?php if ( $bg_color && $bg_color !== "#default" ) { ?>
@@ -79,26 +66,21 @@ background:transparent url(<?php echo $logo; ?>) no-repeat 0;
 <?php } if ( $logo_type == 1 ) { ?>
 #branding.txt-logo a{
 <?php if ( $logo_fontfamily !== "" ) { ?>
-	font-family:<?php echo $logo_fontfamily; ?>;
+font-family:<?php echo $logo_fontfamily; ?>;
 <?php } if ( $logo_fontsize !== "" ) { ?>
-	font-size:<?php echo $logo_fontsize; ?>;
+font-size:<?php echo $logo_fontsize; ?>;
 <?php } if ( $logo_textcolor && $logo_textcolor !== "#default" ) { ?>
-	color:<?php echo $logo_textcolor; ?>;
+color:<?php echo $logo_textcolor; ?>;
 <?php } ?>
 }
-<?php } ?>
-
+<?php } if ( $display_slogan == 1 ) { ?>
 #branding.slogan .slogan{
 <?php if ( $slogan_fontfamily !== "" ) { ?>
-	font-family:<?php echo $slogan_fontfamily; ?>;
-<?php } ?>
-
-<?php if ( $slogan_fontsize !== "" ) { ?>
-	font-size:<?php echo $slogan_fontsize; ?>;
-<?php } ?>
-	
-<?php if ( $slogan_textcolor && $slogan_textcolor !== "#default" ) { ?>
-	color:<?php echo $slogan_textcolor; ?>;
+font-family:<?php echo $slogan_fontfamily; ?>;
+<?php } if ( $slogan_fontsize !== "" ) { ?>
+font-size:<?php echo $slogan_fontsize; ?>;
+<?php } if ( $slogan_textcolor && $slogan_textcolor !== "#default" ) { ?>
+color:<?php echo $slogan_textcolor; ?>;
 <?php } ?>
 }
 p.slogan{
@@ -108,7 +90,7 @@ padding:0;
 margin: 0 0 .5em 0;
 line-height: 1;
 }
-<?php if ( $toolbar_slider == 1 ) { ?>
+<?php } if ( $toolbar_slider == 1 ) { ?>
 #toolbar-wrap{position:absolute;top:0;width:100%;}
 #toolbar{position:relative;top:0;height:100%;}
 <?php } ?>

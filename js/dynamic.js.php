@@ -98,7 +98,7 @@ header($expire);
 		$(function(){ $('#topshelf .mod').equalHeights(); });
 		
 <?php } if ( $rounded_corners == 1 or $roundedcount !== '0' ) { ?>
-		$('.mod.rounded h3').corners("10px top");
+		$('.rounded h3').corners("10px top");
 		$('blockquote.rounded').corners("<?php echo $rounded_amount; ?>");
 		$('.mod.rounded').corners("<?php echo $rounded_amount; ?>");
 		$('.mod.rounded div').corners("<?php echo $rounded_amount; ?>");

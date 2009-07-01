@@ -2,9 +2,10 @@
 $jquery_core = $_GET['A01'];
 
 $topfish = $_GET['B01'];
-$superdrop = $_GET['B02'];
-$topnav_supersubs = $_GET['B03'];
-$topnav_hoverintent = $_GET['B04'];
+$sidefish = $_GET['B02'];
+$topdrop = $_GET['B03'];
+$topnav_supersubs = $_GET['B04'];
+$topnav_hoverintent = $_GET['B05'];
 
 $toolbar_slider = $_GET['C01'];
 $topshelf_slider = $_GET['C02'];
@@ -31,7 +32,7 @@ $expire = "expires: " . gmdate ("D, d M Y H:i:s", time() + $offset) . " GMT";
 header($expire);
 }
 
-if ( $jquery_core == 1 or $tabscount >= 1 ) {
+if ( $jquery_core == 1 ) {
 include('jquery-1.3.2.min.js');
 }
 if ( $tabscount >= 1 ) {
@@ -48,7 +49,7 @@ if ( $topnav_hoverintent == 1 ) {
 include("jquery.superfish.hoverintent.js");
 }
 //if ( $superfish >= 1 or $superdrop >= 1  ) { 
-if ( $sidefish >= 1 or $topfish >= 1  ) { 	
+if ( $sidefish >= 1 or $topfish >= 1 or $topdrop >= 1  ) { 	
 include('jquery.superfish.js');
 }
 if ( $topnav_supersubs == 1 ) { 

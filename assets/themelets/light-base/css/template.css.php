@@ -2,16 +2,12 @@
 header("content-type: text/css; charset: UTF-8");
 $themelet = $_GET['A01'];
 $direction = $_GET['A02'];
-
 $topfish = $_GET['B01'];
 $topdrop = $_GET['B02'];
 $topnav_count = $_GET['B03'];
 $sidenav_count = $_GET['B04'];
-
 $tabscount = $_GET['C01'];
-
 $gzip_compression = $_GET['Z01'];
-
 if ( $gzip_compression == 1 ) {
 ob_start("ob_gzhandler");
 header("cache-control: must-revalidate");

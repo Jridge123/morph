@@ -130,3 +130,9 @@ body{text-align:center;margin:0;padding:0;background:#0B0D0D;}
 #footer #footer-links .fl-left li{padding-right:10px;margin-right:10px;border-right:1px solid #999;}
 #footer #footer-links .fl-right li{padding-left:10px;margin-left:10px;border-left:1px solid #999;}
 #footer #footer-links .fl-left .fl-last,#footer #footer-links .fl-right .fl-last{margin:0;padding:0;border:0;}
+
+#secondary-content ul,
+#secondary-content ol{
+margin:0;
+padding:0;
+}
