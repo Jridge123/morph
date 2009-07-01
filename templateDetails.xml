@@ -7,7 +7,7 @@
 	<copyright>Commercial</copyright>
 	<authorEmail>noreply@joomlajunkie.com</authorEmail>
 	<authorUrl>htp://www.joomlajunkie.com</authorUrl>
-	<version>0.06</version>
+	<version>0.07</version>
 	<description>
 <![CDATA[
 <style type="text/css" media="screen">
@@ -46,20 +46,7 @@ h3.options_head{color:#CC6633;font-size:1.5em;}
 </style>
 				<div id="templateWrap">
 				<h2><a href="http://www.joomlajunkie.com" target="_blank" title="Free &amp; Commercial Joomla! Templates">JoomlaJunkie</a></h2>
-				<h4>Template Summary</h4>
-				<dl class="resources">
-					<dt>Template Version:</dt>
-					<dd>v0.06</dd>
-					<dt>Additional Resources:</dt>
-					<dd><ul>
-						<li><a href="http://www.joomlajunkie.com/demo/2ndgen/morph" title="" target="_blank">Template Demo</a></li>
-						<li><a href="http://www.joomlajunkie.com/morph" title="" target="_blank">Product Page</a></li>
-						<li><a href="http://www.joomlajunkie.com/morph/documentation" title="" target="_blank">Documentation</a></li>
-						<li><a href="http://www.joomlajunkie.com/member/morph" title="" target="_blank">Support Forum</a></li>
-						<li><a href="http://www.joomlajunkie.com/themelets" title="" target="_blank">Browse Themelets</a></li>
-					</ul>
-					</dd>
-				</dl>
+				<p>Looking for Morph's settings? <a href="index2.php?option=com_configurator&task=manage">Click here</a> to proceed to Configurator</p>
 				</div>
 		]]>
     </description>	
