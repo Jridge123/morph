@@ -1,5 +1,5 @@
 .mod-basic{border:1px solid #ccc;background:#eee;padding:.8em;margin:0 0 1em 0;float:none;}
-.mod-fx{margin:0 0 1em 0;padding:0;border:1px solid #ccc;background:#eee;}
+.mod-fx{margin:0 0 1em 0;padding:0;background:#eee;}
 .mod-fx .modinner{padding:1em;border:1px solid #fff;}
 .mod h3{font-size:1.4em;margin:0;}
 #user1{margin:0 0 1em 0;overflow:hidden;float:none;width:100%;clear:both;}
@@ -50,4 +50,22 @@ color: #fff;
 width: 99%;
 clear:both;
 float:none;
+}
+
+
+#bd .tabs .ui-tabs .ui-tabs-nav.ui-helper-reset,
+#bd .tabs .ui-tabs .ui-tabs-nav li.ui-state-default{
+margin:0;
+padding:0;
+list-style:none;
+background:none;
+}
+#bd .tabs .ui-tabs .ui-tabs-nav li.ui-state-default{
+margin-right:2px;
+}
+#bd .tabs .ui-tabs .ui-tabs-nav li.ui-state-default.ui-tabs-selected{
+margin-bottom:0;
+border-bottom:0;
+background:#eee;
+border-bottom: 1px solid #eee;
 }

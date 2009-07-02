@@ -179,17 +179,21 @@ width:73%;}
 .doc1.yui-t3 #yui-main .yui-b .yui-gh #primary-content.yui-u.first,.doc1.yui-t6 #yui-main .yui-b .yui-gh #primary-content.yui-u.first{width:52%;}
 .doc1.yui-t1 #yui-main .yui-b .yui-gh #primary-content.yui-u.first,.doc1.yui-t2 #yui-main .yui-b .yui-gh #primary-content.yui-u.first,.doc1.yui-t4 #yui-main .yui-b .yui-gh #primary-content.yui-u.first{width:63%;}
 /*adjust widths if full ModFX is used in user1 and inset positions*/
-.yui-gb .modfx.yui-u,
-.yui-g .yui-gb .modfx.yui-u,
+.yui-gb .mod-fx.yui-u,
+.yui-g .yui-gb .mod-fx.yui-u,
+.yui-gb .mod-grid.yui-u,
+.yui-g .yui-gb .mod-grid.yui-u,
 .yui-gb .yui-g,
 .yui-gb .yui-gb,
 .yui-gb .yui-gc,
 .yui-gb .yui-gd,
 .yui-gb .yui-ge,
 .yui-gb .yui-gf,
-.yui-gc .modfx.yui-u,
+.yui-gc .mod-fx.yui-u,
+.yui-gc .mod-grid.yui-u,
 .yui-gc .yui-g,
-.yui-gd .modfx.yui-u{margin-left:0;width:33.1%;}
+.yui-gd .mod-fx.yui-u,
+.yui-gd .mod-grid.yui-u{margin-left:0;width:33.1%;}
 /*YUI Modification to create another grid style "gs" 
 which is 160px on the right*/
 /*first we float and set
@@ -208,3 +212,8 @@ the % width on the left (first) block*/
 .doc2 .yui-gs .yui-u.first.no_search,
 .doc3 .yui-gs .yui-u.first.no_search,
 .doc4 .yui-gs .yui-u.first.no_search{width:100%;}
+
+/* Chris tweaks */
+#primary-content .yui-g {
+width:100%;
+}
