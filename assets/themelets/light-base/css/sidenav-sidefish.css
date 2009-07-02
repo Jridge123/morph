@@ -1,52 +1,10 @@
 /*----------------------------------------------------------------------------
 ++ Side Navigation - Sidefish
-++ Description goes here.
+++ Styling for side navigation flyout
 ----------------------------------------------------------------------------*/
 
-
-
-/*----------------------------------------------------------------------------
-++ Joomla core - First layer
-----------------------------------------------------------------------------*/
-/*First level*/
-.sidenav ul.menu,
-.sidenav ul{margin:0;}
-.sidenav ul.menu li{border-top:1px solid #fff;border-bottom:1px solid #ddd;list-style-type:none;}
-.sidenav ul.menu li a,
-.sidenav li .mod.sidefish span.separator{color:#333;text-decoration:none;font-size:1em;padding:0.7em .5em;height:100%;position:relative;display:block;}
-.sidenav ul.menu li a:hover{height:100%;display:block;background:#e3e3e3;}
-.sidenav ul.menu a.active{background:#999;}
-.sidenav ul.menu li.first{border-top:none;}
-.sidenav ul.menu li.last{border-bottom:none;}
-.sidenav .mod-fx ul.menu{margin:0 -6px;padding:0;}
-/*Sub level*/
-.sidenav ul.menu li li{border-top:1px solid #f6f6f6;border-bottom:1px solid #ddd;list-style-type:none;}
-.sidenav ul.menu ul{background:#e7e7e7;}
-.sidenav ul.menu ul a, .sidenav li span.separator {color:#555;}
-/*Sub level icon*/
-.sidenav .menu li li a,
-.sidenav .menu li li span.separator {background:url(../images/minus_small.gif) no-repeat 6% 48% ;}
-.sidenav .menu li li li a,
-.sidenav .menu li li li span.separator {background:url(../images/minus_small.gif) no-repeat 14% 48% ;}
-.sidenav .menu li li li li a,
-.sidenav .menu li li li li span.separator {background:url(../images/minus_small.gif) no-repeat 19% 48% ;}
-.sidenav .menu li li a:hover{background:#E3E3E3 url(../images/minus_small.gif) no-repeat 6% 48% ;}
-.sidenav .menu li li li a:hover{background:#E3E3E3 url(../images/minus_small.gif) no-repeat 14% 48% ;}
-.sidenav .menu li li li li a:hover{background:#E3E3E3 url(../images/minus_small.gif) no-repeat 19% 48% ;}
-/*Sub level indentation*/
-.sidenav .menu li li a, .sidenav li li span.separator{padding-left:2.5em;}
-.sidenav .menu li li li a, .sidenav li li span.separator{padding-left:3.5em;}
-.sidenav .menu li li li li a, .sidenav li li span.separator{padding-left:4.5em;}
-
-/*----------------------------------------------------------------------------
-++ Subtext layer (sidebar)
-----------------------------------------------------------------------------*/
-.sidenav .mod.subtext ul.menu .mainmenu_item{padding:0;display:block;text-transform:uppercase;font-size:1em;font-weight:normal;font-size:1em;padding:0;color:#222;line-height:1.9em;margin-bottom:-3px;}
-.sidenav .mod.subtext ul.menu .submenu_item{padding:0;display:block;line-height:1.9em;text-transform:none;font-weight:normal;font-size:0.9em;padding:0;color:#999}
-
-/*----------------------------------------------------------------------------
-++ Sidefish core layer - Dont change!
-----------------------------------------------------------------------------*/
+/* sidefish core layer - dont change!
+***************************************/
 .sidenav .mod.sidefish .menu,
 .sidenav .mod.sidefish .menu *{margin:0;padding:0;list-style:none;}
 .sidenav .mod.sidefish .menu{line-height:1.0;}

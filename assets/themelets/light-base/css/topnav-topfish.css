@@ -1,7 +1,10 @@
 /*----------------------------------------------------------------------------
-++ Top Navigation - Topfish
-++ Description goes here.
+++ Top Navigation - Superfish - Topfish 
+++ These are the styles that form the suprfish layer
 ----------------------------------------------------------------------------*/
+
+/* core superfish layer
+****************************************/
 #topnav .menu ul{position:absolute;top:-999em;width:14em;/* left offset of submenus need to match (see below) */}
 #topnav .menu ul li{width:100%;}
 #topnav .menu li:hover{visibility:inherit;/* fixes IE7 'sticky bug' */}
@@ -16,9 +19,8 @@
 #topnav .menu li li li:hover ul,
 #topnav .menu li li li.sfHover ul{left:14em;/* match ul width */top:0;}
 
-/*----------------------------------------------------------------------------
-++ Superfish Styling
-----------------------------------------------------------------------------*/
+/* superfish skin
+****************************************/
 /* set backgrounds */
 #topnav .menu li li{background:#eee;}
 #topnav .menu li li li{background:#eee;}
@@ -39,9 +41,8 @@
 /* now reset sub links size */
 #topnav .menu li ul li a,#topnav #topnav .menu li ul li a:link,#topnav #topnav .menu li ul li a:visited{font-size:0.9em;line-height:0.7em;padding:0.95em 1em;text-decoration:none;color:#333;border-top:1px solid #fff;border-bottom:1px solid #ccc;}
 
-/*----------------------------------------------------------------------------
-++ Superfish subchild indicators
-----------------------------------------------------------------------------*/
+/* superfish subchild indicators
+****************************************/
 /* set the second level child item indicator */
 #topnav .menu li li.parent a,
 #topnav .menu li li.parent span.separator{background:transparent url(../images/subchild.gif) no-repeat 96% 50%;}
