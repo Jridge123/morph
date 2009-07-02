@@ -173,8 +173,9 @@ $dynamic_js =
 "F06=$topnav_animation" . '&amp;' . 
 "F07=$topnav_hoverintent" . '&amp;' . 
 "F08=$topfish" . '&amp;' . 
-"F09=$sidefish" . '&amp;' . 
-"F10=$animate_left" . '&amp;' . 
+"F09=$topdrop" . '&amp;' . 
+"F10=$sidefish" . '&amp;' . 
+"F11=$animate_left" . '&amp;' . 
 "Z01=$gzip_compression";
 
 $packed_css = 
