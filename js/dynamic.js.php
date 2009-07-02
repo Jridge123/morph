@@ -113,9 +113,10 @@ header($expire);
 		 dropShadows: false,
 		 hoverClass: 'sfHover',
 		 <?php if ($topnav_hoverintent == 0 ) { ?>disableHI: true<?php } else { ?>disableHI: false<?php } ?>
-		 })
-<?php } if ( $topdrop >= 1  ) { ?>	 		$("#nav .menu").superfish({			pathClass:  'current'		});
-<?php } if ( $animate_left == 1 ) { ?>	
+		 });
+<?php } if ( $topdrop >= 1 ) { ?>		$("#nav .menu").superfish({			pathClass:  'current'		});
+<?php } ?>
+<?php if ( $animate_left == 1 ) { ?>	
 		$('#secondary-content ul.menu.slide li:not(.active) a, #tertiary-content ul.menu.slide li:not(.active) a').hoverIntent(function() { //mouse in  
 		    $(this).animate({backgroundColor: "#fff"}, 100).animate({ paddingLeft: '18px' }, "normal");
 			}, function() { // mouse out  
