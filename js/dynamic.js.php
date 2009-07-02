@@ -30,9 +30,7 @@ $topfish = $_GET['F08'];
 $topdrop = $_GET['F09'];
 $sidefish = $_GET['F10'];
 $animate_left = $_GET['F11'];
-
 $gzip_compression = $_GET['Z01'];
-
 header("content-type: text/javascript; charset: UTF-8");
 if ( $gzip_compression == 1 ) {
 ob_start("ob_gzhandler");

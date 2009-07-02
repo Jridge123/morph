@@ -13,6 +13,8 @@ padding:1em;
 .doc2 .primary-inner{
 padding: 0 1em 0 0;
 }
+p.slogan{clear:both;margin:0;padding:0;margin: 0 0 .5em 0;line-height: 1;}
+
 /*Andys Styles*/
 #top-wrap {
 background: #0B0D0D;
