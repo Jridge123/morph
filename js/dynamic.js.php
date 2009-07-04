@@ -71,7 +71,7 @@ header($expire);
 		$("#user1 .modinner").wrapInner("<div class='extra-border'></div>");
 		$(".ui-tabs-panel").wrapInner("<div class='extra-box-border'></div>");		$(".ui-tabs-nav li").wrapInner("<span class='extra-tab-border'></span>");		$("input#mod_search_searchword").wrapInner("<div class='extra-search-border'></div>");
 
-// #TODO		
+// TODO		
 //		var str = $(".mod h3:first").text();
 //	    $(".mod h3:last").html(str);
 		
