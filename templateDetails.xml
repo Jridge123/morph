@@ -46,18 +46,18 @@
 		<folder>assets</folder>
 		<folder>core</folder>  
 		<folder>css</folder>  
+		<folder>elements</folder>
 		<folder>html</folder>  
 		<folder>images</folder>
 		<folder>js</folder>
-		<folder>elements</folder>
 		<filename>index.php</filename>
+		<filename>index.html</filename>
 		<filename>component.php</filename>
 		<filename>error.php</filename>
 		<filename>offline.php</filename>
-		<filename>index.html</filename>
 		<filename>params.ini</filename>
-		<filename>templateDetails.xml</filename>
 		<filename>template_thumbnail.png</filename>		
+		<filename>templateDetails.xml</filename>
 	</files>
 	<positions>		
 		<position>banner</position>
