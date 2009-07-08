@@ -9,7 +9,7 @@
 #topnav .menu ul li{width:100%;}
 #topnav .menu li:hover{visibility:inherit;/* fixes IE7 'sticky bug' */}
 #topnav .menu li:hover ul,
-#topnav .menu li.sfHover ul{left:0;top:3.4em; /* match top ul list item height */ z-index:99;}
+#topnav .menu li.sfHover ul{left:0;top:3.2em; /* match top ul list item height */ z-index:99;}
 #topnav .menu li:hover li ul,
 #topnav .menu li.sfHover li ul{top:-999em;}
 #topnav .menu li li:hover ul,
@@ -55,4 +55,15 @@
 /* remove again from descendant anchors */
 #topnav .menu li li li.parent li a,
 #topnav .menu li li li.parent li span.separator{background:none;}
+
+/* subtext layer
+****************************************/
+#topnav.subtext #nav ul.menu li a,
+#topnav.subtext #nav ul.menu li span.separator{text-transform:uppercase;padding:16px 14px 10px;}
+#topnav.subtext #nav ul.menu li ul li a {text-transform:none;padding:12px 19px 12px 13px;}
+#topnav.subtext #nav ul.menu li ul li span.separator {text-transform:none;padding:10px 19px 10px 13px;}
+#topnav.subtext #nav .menu li:hover ul,
+#topnav.subtext #nav .menu li.sfHover ul {top:4.8em; /* match top ul list item height */ z-index:99;}
+#topnav.subtext #nav .menu li:hover ul ul,
+#topnav.subtext #nav .menu li.sfHover ul ul {top:0; /* match top ul list item height */ z-index:99;}
 
