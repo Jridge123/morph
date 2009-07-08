@@ -1,14 +1,14 @@
-.mod-basic{border:1px solid #ccc;background:#eee;padding:.8em;margin:0 0 1em 0;float:none;}
+.mod-basic{border:0px solid #ccc;background:#eee;padding:.8em;margin:0 0 1em 0;float:none;}
 .mod-fx{margin:0 0 1em 0;padding:0;background:#eee;}
-.mod-fx .modinner{padding:1em;border:1px solid #fff;}
+.mod-fx .modinner{padding:1em;border:0px solid #fff;}
 .mod h3{font-size:1.4em;margin:0;}
 #user1{margin:0 0 1em 0;overflow:hidden;float:none;width:100%;clear:both;}
 
 #user1{margin:0 0 1em 0;}
-#user2{clear:both;background:#eee;border:1px solid #ccc;}
-#user2 #user2-inner{padding:1em;overflow:hidden;border: 1px solid #fff;}
+#user2{clear:both;background:#eee;border:0px solid #ccc;}
+#user2 #user2-inner{padding:1em;overflow:hidden;border: 0px solid #fff;}
 #user1 .mod{margin:0;padding:0;}
-#user1 .yui-u{margin-left:1.670%;}
+/*#user1 .yui-u{margin-left:1.670%;}*/
 #user1 .first{margin-left:0;}
 #toolbar-wrap{background:#eee;border-bottom:1px solid #ccc;}
 #toolbar{margin:0 auto;padding:0;}
@@ -21,7 +21,7 @@
 #inset1 .mod-basic,
 #inset2 .mod-basic,
 #inset3 .mod-basic,
-#inset4 .mod-basic{border:1px solid #ccc;width:auto;}
+#inset4 .mod-basic{border:0px solid #ccc;width:auto;}
 
 
 #inset4{clear:both;}

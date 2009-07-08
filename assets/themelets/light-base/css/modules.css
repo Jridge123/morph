@@ -290,7 +290,7 @@ form.polls li{margin:0;padding:0;list-style:none;}
 form.polls ul{margin:0 0 5px 0;}
 
 /* search module in top2 */
-#top2 .search{margin:2em 0;overflow:hidden;}
+#top2 .search{margin:4em 0 0 0;overflow:hidden;}
 #top2 .search #mod_search_searchword{float:right;width:290px;padding:.7em;background:#ddd url(../images/icon-search.gif) no-repeat 97%;}
 
 #topnav .search{float: right;padding-right: .6em;}
