@@ -70,6 +70,11 @@ header($expire);
 		$("table tr:even").addClass("alt");
 		$("#user1 .modinner").wrapInner("<div class='extra-border'></div>");
 		$(".ui-tabs-panel").wrapInner("<div class='extra-box-border'></div>");		$(".ui-tabs-nav li").wrapInner("<span class='extra-tab-border'></span>");		$("input#mod_search_searchword").wrapInner("<div class='extra-search-border'></div>");
+
+// TODO: Wrap first word of module headings to allow for additional styling.		
+//		var str = $(".mod h3:first").text();
+//	    $(".mod h3:last").html(str);
+		
 <?php if ( $topshelf_equalize == 1 ) { ?>
 		$(function(){ $('#topshelf .mod-grid').equalHeights(); });
 <?php } if ( $bottomshelf_equalize == 1 ) { ?>
