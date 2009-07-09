@@ -10,8 +10,8 @@
 .sidenav ul{margin:0;}
 .sidenav ul.menu li{border-top:1px solid #fff;border-bottom:1px solid #ddd;list-style-type:none;}
 .sidenav ul.menu li a,
-.sidenav li .mod.sidefish span.separator{color:#333;text-decoration:none;font-size:1em;padding:0.7em .5em;height:100%;position:relative;display:block;}
-.sidenav ul.menu li a:hover{height:100%;display:block;background:#e3e3e3;}
+.sidenav li .mod.sidefish span.separator{color:#333;text-decoration:none;font-size:1em;padding:0.7em .5em;position:relative;display:block;}
+.sidenav ul.menu li a:hover{display:block;background:#e3e3e3;}
 .sidenav ul.menu a.active{background:#999;}
 .sidenav ul.menu li.first{border-top:none;}
 .sidenav ul.menu li.last{border-bottom:none;}
