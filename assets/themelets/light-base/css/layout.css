@@ -42,6 +42,9 @@ background: url(../images/nav-bg.png) repeat-x;
 background: url(../images/nav-bg.png) repeat-x;
 border:1px solid #ccc;
 }
+#nav{
+float:left;
+}
 
 #bottomshelf-wrap {
 background: #121212;

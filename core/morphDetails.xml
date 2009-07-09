@@ -349,7 +349,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="masthead_chrome" type="list" default="none" label="Module chrome" tooltip="modal" description="chromefx.html">
+	<param name="masthead_chrome" type="list" default="custom1" label="Module chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="custom1">Basic XHTML</option>
 		<option value="custom2">Basic Grid</option>
@@ -364,7 +364,7 @@
 		<option value="yui-ge">75/25 Split</option>
 		<option value="yui-gf">25/75 Split</option>
 	</param>
-	<param name="masthead_show" type="radio" default="1" label="Disable this block" tooltip="inline" description="Would you like to disable this block?">
+	<param name="masthead_show" type="radio" default="0" label="Disable this block" tooltip="inline" description="Would you like to disable this block?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
@@ -394,7 +394,7 @@
 		<option value="tabs">Module Tabs</option>			
 		<option value="outline">Outline</option>			
 	</param>
-	<param name="subhead_show" type="radio" default="1" label="Disable this block" tooltip="inline" description="Would you like to disable this block?">
+	<param name="subhead_show" type="radio" default="0" label="Disable this block" tooltip="inline" description="Would you like to disable this block?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
@@ -430,7 +430,7 @@
 		<option value="2">Above Top Shelf</option>
 		<option value="3">Below Top Shelf</option>
 	</param>
-	<param name="topnav_show" type="radio" default="1" label="Disable this block" tooltip="inline" description="Would you like to disable this block?">
+	<param name="topnav_show" type="radio" default="0" label="Disable this block" tooltip="inline" description="Would you like to disable this block?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
@@ -545,7 +545,7 @@
 	</param>
 
 	<param name="user2 heading" type="heading" label="User2 Settings:" />	
-	<param name="user2_inner" type="radio" default="0" label="Block inner" tooltip="modal" description="blockinner.html">
+	<param name="user2_inner" type="radio" default="1" label="Block inner" tooltip="modal" description="blockinner.html">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
@@ -568,7 +568,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="user2_show" type="radio" default="1" label="Disable this block" tooltip="inline" description="Would you like to disable this block?">
+	<param name="user2_show" type="radio" default="0" label="Disable this block" tooltip="inline" description="Would you like to disable this block?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
