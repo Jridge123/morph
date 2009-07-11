@@ -5,31 +5,31 @@
 
 /* joomla core - first layer
 ****************************************/
-#topnav .menu,
-#topnav .menu *{margin:0;padding:0;list-style:none;}
-#topnav .menu{line-height:1.0;}
-#topnav .menu li{float:left;position:relative;}
-#topnav .menu a{display:block;position:relative;}
-#topnav .menu a{font-size:  1em;border-left:1px solid #fff;border-right:1px solid #ccc;border-top:1px solid #fff;padding:1.03em 1em;text-decoration:none;}
-#topnav .menu a,
-#topnav .menu a:link,
-#topnav .menu a:visited{/* visited pseudo selector so IE6 applies text colour*/color:#333;}
-#topnav .menu a:hover {background: #eee;}
+#topnav ul,
+#topnav ul *{margin:0;padding:0;list-style:none;}
+#topnav ul{line-height:1.0;}
+#topnav ul li{float:left;position:relative;}
+#topnav ul a{display:block;position:relative;}
+#topnav ul a{font-size:  1em;border-left:1px solid #fff;border-right:1px solid #ccc;border-top:1px solid #fff;padding:1.03em 1em;text-decoration:none;}
+#topnav ul a,
+#topnav ul a:link,
+#topnav ul a:visited{/* visited pseudo selector so IE6 applies text colour*/color:#333;}
+#topnav ul a:hover {background: #eee;}
 
 /* subtext layer
 ****************************************/
-#topnav.subtext #nav .menu a{font-size: 1em;border-left:1px solid #fff;border-right:1px solid #ccc;border-top:1px solid #fff;padding:1.03em 1em;text-decoration:none;}
-#topnav.subtext #nav ul.menu .mainmenu_item{color:#333;}
-#topnav.subtext #nav ul.menu .submenu_item{color:  #999;padding:0;display:block;text-transform:none;font-weight:normal;font-size:0.8em;padding:0.5em 0;}
+#topnav.subtext #nav ul a{font-size: 1em;border-left:1px solid #fff;border-right:1px solid #ccc;border-top:1px solid #fff;padding:1.03em 1em;text-decoration:none;}
+#topnav.subtext #nav ulul .mainmenu_item{color:#333;}
+#topnav.subtext #nav ulul .submenu_item{color:  #999;padding:0;display:block;text-transform:none;font-weight:normal;font-size:0.8em;padding:0.5em 0;}
 #topnav.subtext .search{margin:.8em .7em 0 0;}
-#topnav.subtext #nav ul.menu li.action-link a .mainmenu_item{font-weight:bold;}
+#topnav.subtext #nav ulul li.action-link a .mainmenu_item{font-weight:bold;}
 
 /* call to action button
 ****************************************/
-#topnav.call-for-action #nav ul.menu{width:100%;border-right:0;}
-#topnav.call-for-action #nav ul.menu li.action-link{float:right;border:0;border-left:1px solid #ccc;padding:0;margin:0;}
-#topnav.call-for-action #nav ul.menu li.action-link a{border:0;border-right:1px solid #fff;border-bottom:1px solid #fff;border-left:1px solid #fff;border-top:1px solid #fff;background:#ddd;padding:1em;margin:0;}
-#topnav.call-for-action #nav ul.menu li.action-link a:hover {color:#D66258;}
+#topnav.call-for-action #nav ulul{width:100%;border-right:0;}
+#topnav.call-for-action #nav ulul li.action-link{float:right;border:0;border-left:1px solid #ccc;padding:0;margin:0;}
+#topnav.call-for-action #nav ulul li.action-link a{border:0;border-right:1px solid #fff;border-bottom:1px solid #fff;border-left:1px solid #fff;border-top:1px solid #fff;background:#ddd;padding:1em;margin:0;}
+#topnav.call-for-action #nav ulul li.action-link a:hover {color:#D66258;}
 /* add an ending border on the second last menu item when call to action link is enabled. */
 /*#topnav.call-for-action li.second-last{border-right: 1px solid #fff;}*/
 

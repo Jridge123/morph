@@ -334,7 +334,7 @@
 		<option value="0">No</option>
 	</param>
 	<param name="toolbar_slider_text" type="text" default="toggle" label="Toolbar slider text" tooltip="inline" description="Define the toggle button text. You can either display a single word like toggle, or set different text for each state, for example 'open,close'. Its important that there are no spaces between the two words and that you use a comma to seperate them." />	
-	<param name="toolbar_show" type="radio" default="1" label="Disable this block" tooltip="inline" description="Would you like to disable this block?">
+	<param name="toolbar_show" type="radio" default="0" label="Disable this block" tooltip="inline" description="Would you like to disable this block?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
