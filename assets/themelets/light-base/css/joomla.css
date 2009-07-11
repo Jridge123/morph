@@ -113,6 +113,7 @@ a.readon:hover{color:#fff;}
 .article_column{float:left;}
 .article_separator{margin-top:2.2em;height:2px;display:block;}
 .column_separator{padding-left:1em;margin-left:1em;float:left;}
+.contentdescription p {color:#999;font: normal 20px/28px arial;margin:0;}
 
 /* joomla default table styles
 ****************************/
