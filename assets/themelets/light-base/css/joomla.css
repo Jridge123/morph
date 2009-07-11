@@ -41,6 +41,7 @@
 .content p{margin-bottom:1em;}
 .article-body p.teaser{margin-top:1em;}
 .article-main{padding-bottom:2em;}
+table.pagenav{clear:both;}
 
 /* breadcrumbs
 *****************************/

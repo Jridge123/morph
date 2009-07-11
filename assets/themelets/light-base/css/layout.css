@@ -19,13 +19,11 @@ p.slogan{clear:both;margin:0;padding:0;margin: 0 0 .5em 0;line-height: 1;}
 #top-wrap {
 background: #0B0D0D;
 }
-
 #bd-wrap {
 background: url(../images/main-bg.jpg)repeat-x;
 border-top:1px solid #FFFFFF;
 padding-top:25px;
 }
-
 #topshelf-wrap {
 background:#F3F3F3 none repeat scroll 0 0;
 padding:0.3em 0;
@@ -33,11 +31,9 @@ color:  #333;
 text-align: center;
 border-bottom: 1px solid #ccc;
 }
-
 #topnav-wrap {
 background: url(../images/nav-bg.png) repeat-x;
 }
-
 #topnav {
 background: url(../images/nav-bg.png) repeat-x;
 border:1px solid #ccc;
@@ -45,12 +41,15 @@ border:1px solid #ccc;
 #nav{
 float:left;
 }
-
 #bottomshelf-wrap {
 background: #121212;
 color: #ccc;
 margin: 1em 0;
 padding: 1em 0;
+}
+#skipto{
+position:absolute;
+left:-9999px;
 }
 
 /* styles from subsite 
