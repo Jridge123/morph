@@ -117,7 +117,7 @@ a.readon:hover{color:#fff;}
 
 /* joomla default table styles
 ****************************/
-#primary-content tr.sectiontableentry1 td,#primary-content tr.sectiontableentry2 td,#primary-content tr td.sectiontableentry1,#primary-content tr td.sectiontableentry2{text-indent:5px;padding:4px 0;}
+#primary-content tr.sectiontableentry1 td,#primary-content tr.sectiontableentry2 td,#primary-content tr td.sectiontableentry1,#primary-content tr td.sectiontableentry2{text-indent:5px;padding:10px 0 0 0;}
 #primary-content .sectiontableentry1 a,#primary-content .sectiontableentry2 a{}
 #primary-content .sectiontableheader a{}
 #primary-content .sectiontableheader{text-align:left;font-size:1.3em;font-weight:bold;height:30px;}
@@ -185,8 +185,8 @@ a.readon{background:#eee;color:#666;}
 .column_separator{border-left:1px solid #ccc;}
 
 /* joomla default table styles */
-#primary-content .sectiontableentry1 a,#primary-content .sectiontableentry2 a{color:#FFF;}
-#primary-content .sectiontableheader a{color:white;}
+#primary-content .sectiontableentry1 a,#primary-content .sectiontableentry2 a{}
+#primary-content .sectiontableheader a{}
 #primary-content .sectiontableheader{background:transparent url(../images/table-header-bg.png) repeat-x scroll 0%;color:#FFFFFF;}
 
 /* polls */

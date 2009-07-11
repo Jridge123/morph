@@ -31,22 +31,25 @@ ul,ol{margin-left:1em;}
 #primary-content ul li{list-style:circle;}
 #primary-content ol li{list-style:decimal;}
 #primary-content dl dt{font-weight:bold;}
-#primary-content dl.listVertical dt{background:#1F2323;font-weight:bold;}
-#primary-content dl.listVertical dd{margin-bottom:1em;}
+#primary-content dl dd{margin-bottom:1em;}
+#primary-content dl.listVertical dt{background:#ccc;font-weight:bold;padding:.2em .4em;}
+#primary-content dl.listVertical dd{margin-bottom:1em;padding:.2em .4em;}
 #primary-content dl.zebra dt{padding:0.2em 0.5em;}
-#primary-content dl.zebra dd{background:#1A2022;margin-bottom:0;padding:0.2em 0.5em;}
-#primary-content dl.listHorizontal{border-top:1px solid #111;border-left:1px solid #111;border-right:1px solid #222;overflow:hidden;}
-#primary-content dl.listHorizontal dt{background:#1F2323;border-bottom:1px solid #111;display:block;width:50%;padding:4px 0;float:left;text-indent:5px;}
-#primary-content dl.listHorizontal dd{background:#1A2022;border-bottom:1px solid #111;float:left;display:block;width:50%;text-indent:5px;padding:4px 0;}
-#primary-content ol.fancyOL{font:italic 1.2em/0.2em Georgia,Times,serif;color:#ccc;margin:1.5em 3em 2em;}
+#primary-content dl.zebra dd{background:#eee;margin-bottom:0;padding:0.2em 0.5em;}
+#primary-content dl.listHorizontal{border-top:1px solid #ccc;border-left:1px solid #ccc;border-right:1px solid #ccc;overflow:hidden;}
+#primary-content dl.listHorizontal dt{background:#ddd;border-right:1px solid #ccc;border-bottom:1px solid #ccc;display:block;width:49.86%;padding:4px 0;float:left;text-indent:5px;}
+#primary-content dl.listHorizontal dd{margin:0;background:#eee;border-bottom:1px solid #ccc;float:left;display:block;width:50%;text-indent:5px;padding:4px 0;}
+#primary-content ol.fancyOL{font:italic 1.2em/0.2em Georgia,Times,serif;color:#444;margin:1.5em 3em 2em;}
+#primary-content ol.fancyOL li{margin:0;}
+#primary-content ol.fancyOL li p{margin:0;}
 
 /* tables styling
 ****************************************/
-#primary-content table.tbl-style1{border-left:1px solid #333;border-top:1px solid #333;background:#1A2022;margin:1em 0;}
-#primary-content table.tbl-style1 caption{color:#ccc;text-align:left;font-weight:bold;font-size:15px;padding-bottom:5px;}
-#primary-content table.tbl-style1 th{background:#1F2323;border-right:1px solid #111;border-bottom:1px solid #111;padding:2px 5px;text-align:left;}
-#primary-content table.tbl-style1 tr.alt{background:#1F2323;}
-#primary-content table.tbl-style1 td{border-right:1px solid #111;border-bottom:1px solid #111;}
+#primary-content table.tbl-style1{border-left:1px solid #ccc;border-top:1px solid #ccc;background:#fff;margin:1em 0;}
+#primary-content table.tbl-style1 caption{color:#999;text-align:left;font-weight:bold;font-size:15px;padding-bottom:5px;}
+#primary-content table.tbl-style1 th{background:#ddd;border-right:1px solid #ccc;border-bottom:1px solid #ccc;padding:2px 5px;text-align:left;}
+#primary-content table.tbl-style1 tr.alt{background:#eee;}
+#primary-content table.tbl-style1 td{border-right:1px solid #ccc;border-bottom:1px solid #ccc;}
 
 /* remove tables styling - use class nostyle
 ****************************************/
@@ -56,15 +59,16 @@ ul,ol{margin-left:1em;}
 
 /* quotes,blockquotes & code
 ****************************************/
-#primary-content pre,#primary-content .code{background:#1F2323;border-top:1px solid #191919;border-bottom:1px solid #191919;margin:10px 0px 15px;padding:1em 1em 1em 2em;}
-#primary-content blockquote{background:#111;font:normal 1.5em/1.4em Georgia,Times,serif;padding:1em 40px 1em 15px;}
+#primary-content pre,#primary-content .code{overflow:auto;background:#eee;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:10px 0px 15px;padding:1em 1em 1em 2em;}
+#primary-content blockquote{background:#eee;font:normal 1.5em/1.4em Georgia,Times,serif;padding:1em 40px 1em 15px;}
+#primary-content blockquote.quote{padding:1em;}
 blockquote{margin:1em 0;padding:20px 20px 0;}
 blockquote p{margin-bottom:0;}
 #primary-content .left-pullquote,#primary-content .right-pullquote{background:#CA6623;color:#fff;font:normal 1.5em/1.2em Georgia,Times,serif;width:200px;padding:20px;color:#FFF;margin:1em;}
 #primary-content .left-pullquote{float:left;margin-right:1.5em;}
 #primary-content .right-pullquote{float:right;margin-left:1em;}
-#primary-content .quote-author{background:#AF4600;border-top:1px solid #EF9E68;margin:20px -20px -20px;padding:0.5em 1em;font-size:0.7em;text-align:right;font-weight:bold;}
-#primary-content .quote-author a{color:#EF9E68;}
+#primary-content .quote-author{background:#ddd;border-top:1px solid #ccc;margin:20px -19px -20px -20px;padding:0.5em 1em;font-size:0.7em;text-align:right;font-weight:bold;}
+#primary-content .quote-author a{color:#666;}
 
 /* dropcap
 ****************************************/
