@@ -539,7 +539,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="user1_show" type="radio" default="1" label="Disable this block" tooltip="inline" description="Would you like to disable this block?">
+	<param name="user1_show" type="radio" default="0" label="Disable this block" tooltip="inline" description="Would you like to disable this block?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
@@ -790,7 +790,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="footer_show" type="radio" default="1" label="Disable this block" tooltip="inline" description="Would you like to disable this block?">
+	<param name="footer_show" type="radio" default="0" label="Disable this block" tooltip="inline" description="Would you like to disable this block?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
