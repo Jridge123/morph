@@ -349,7 +349,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="masthead_chrome" type="list" default="custom1" label="Module chrome" tooltip="modal" description="chromefx.html">
+	<param name="masthead_chrome" type="list" default="none" label="Module chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="custom1">Basic XHTML</option>
 		<option value="custom2">Basic Grid</option>
