@@ -330,7 +330,12 @@ border-top:none;
 #bd .bannergroup li.last{
 border-bottom:  none;
 }
-
+.class-name{
+background:#F9FFD0;
+padding:2px 5px;
+border:1px solid #FFDF80;
+color:#9F5B32;
+}
 /* debug mode css */
 body .mod-preview{border:5px solid #FFAE4F;position:relative;}
 body .mod-preview-info{background:#FFAE4F;position:absolute;bottom:0;right:0;font:bold 12px arial;padding:5px 5px 5px 10px;opacity:1;color:#CF4900;border:0;border-top:1px solid #CF7000; border-left: 1px solid #CF7000;}

@@ -142,3 +142,10 @@ body{text-align:center;margin:0;padding:0;background:#0B0D0D;}
 margin:0;
 padding:0;
 }
+
+table.docs-outer-table{font:normal 12px/160% Arial;width:100%;border:1px solid #ccc;border-right:0;margin:0 0 2em 0;}
+table.docs-outer-table table{width:99.5%;margin:5px 0 4px 2px;border:0;background:#fff;}
+table.docs-outer-table td{font:normal 13px/160% Arial;text-align:center;border-right:1px solid #ccc;background:#fff;color:#666;}
+table.docs-outer-table td td{border:1px solid #ccc;background:#eee;color:#666;}
+table.docs-outer-table td.docs-il-outer{padding:3px 0;border:1px solid #FF9C60!important;background:#FFE390;color:#BB5517;}
+table.docs-outer-table td.right{border-right:0;}
