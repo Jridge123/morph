@@ -6,6 +6,8 @@
 #bd{
 background:#fff;
 border:1px solid #ccc;
+-moz-border-radius:10px;
+-webkit-border-radius:10px;
 }
 .bd-inner{
 padding:1em;
