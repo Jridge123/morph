@@ -19,10 +19,10 @@
 /* subtext layer
 ****************************************/
 #topnav.subtext #nav ul a{font-size: 1em;border-left:1px solid #fff;border-right:1px solid #ccc;border-top:1px solid #fff;padding:1.03em 1em;text-decoration:none;}
-#topnav.subtext #nav ulul .mainmenu_item{color:#333;}
-#topnav.subtext #nav ulul .submenu_item{color:  #999;padding:0;display:block;text-transform:none;font-weight:normal;font-size:0.8em;padding:0.5em 0;}
+#topnav.subtext #nav ul .mainmenu_item{color:#333;}
+#topnav.subtext #nav ul .submenu_item{color:#999;padding:0;display:block;text-transform:none;font-weight:normal;font-size:0.8em;padding:0.5em 0;}
 #topnav.subtext .search{margin:.8em .7em 0 0;}
-#topnav.subtext #nav ulul li.action-link a .mainmenu_item{font-weight:bold;}
+#topnav.subtext #nav ul li.action-link a .mainmenu_item{font-weight:bold;}
 
 /* call to action button
 ****************************************/
