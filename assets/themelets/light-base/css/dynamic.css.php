@@ -46,7 +46,7 @@ function isIE6(){
 	}
 }
 ?>
-body{<?php if ( $bg_color && $bg_color !== "#default" ) { ?>background-color:<?php echo $bg_color; ?>;<?php } ?>
+html body{<?php if ( $bg_color && $bg_color !== "#default" ) { ?>background-color:<?php echo $bg_color; ?>;<?php } ?>
 <?php if ( $bg_image && $bg_image !== "default" ) { ?>
 background-image:url(../../../backgrounds/<?php echo $bg_image; ?>);
 <?php } ?>

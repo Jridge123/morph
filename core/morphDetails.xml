@@ -140,7 +140,7 @@
 	<param name="bg_color" type="colorpicker" default="default" label="Background color" tooltip="inline" description="Setting a color here will adjust your sites background color." />
 	
 	<param name="bg_repeat" type="list" default="repeat" label="Background repeat" tooltip="inline" description="If a background image is set, how should it repeat?" exclude="" stripext="">
-		<option value="none">None</option>
+		<option value="no-repeat">None</option>
 		<option value="repeat">Repeat</option>
 		<option value="repeat-x">Repeat Horizontally</option>
 		<option value="repeat-y">Repeat Vertically</option>
