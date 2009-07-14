@@ -8,6 +8,7 @@ $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $
 <?php endif; ?>
 
 <?php if ($this->item->params->get('show_title') || $this->item->params->get('show_pdf_icon') || $this->item->params->get('show_print_icon') || $this->item->params->get('show_email_icon')) : ?>
+	
 	<?php if ($this->item->params->get('show_title')) : ?>
 	<h2 class="contentheading <?php echo $this->item->params->get( 'pageclass_sfx' ); ?>">
 		<?php if ($this->item->params->get('link_titles') && $this->item->readmore_link != '') : ?>
@@ -19,7 +20,7 @@ $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $
 	</h2>
 	<?php endif; ?>
 
-	<?php if ($this->item->params->get('show_title') || $this->item->params->get('show_pdf_icon') || $this->item->params->get('show_print_icon') || $this->item->params->get('show_email_icon')) : ?>
+	<?php if ($this->item->params->get('show_pdf_icon') || $this->item->params->get('show_print_icon') || $this->item->params->get('show_email_icon')) : ?>
     <ul class="article-options">
     	<?php if ($this->item->params->get('show_pdf_icon')) : ?>
     		<li class="article-pdf"><?php echo JHTML::_('icon.pdf', $this->item, $this->item->params, $this->access); ?></li>
