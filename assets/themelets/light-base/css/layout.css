@@ -6,8 +6,6 @@
 #bd{
 background:#fff;
 border:1px solid #ccc;
--moz-border-radius:10px;
--webkit-border-radius:10px;
 }
 .bd-inner{
 padding:1em;
@@ -57,14 +55,9 @@ left:-9999px;
 /* styles from subsite 
 **********************************/
 h2.main-title {
--x-system-font:none;
 color:#525252;
 font-family:Arial;
 font-size:62px;
-font-size-adjust:none;
-font-stretch:normal;
-font-style:normal;
-font-variant:normal;
 font-weight:bold;
 letter-spacing:-0.05em;
 line-height:normal;
@@ -73,15 +66,9 @@ text-align:center;
 }
 
 p.intro {
--x-system-font:none;
 color:#999999;
 font-family:Arial;
 font-size:20px;
-font-size-adjust:none;
-font-stretch:normal;
-font-style:normal;
-font-variant:normal;
-font-weight:normal;
 line-height:28px;
 margin:0 0 50px;
 text-align:center;

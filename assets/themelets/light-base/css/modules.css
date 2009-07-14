@@ -338,5 +338,5 @@ color:#9F5B32;
 }
 /* debug mode css */
 body .mod-preview{border:5px solid #FFAE4F;position:relative;}
-body .mod-preview-info{background:#FFAE4F;position:absolute;bottom:0;right:0;font:bold 12px arial;padding:5px 5px 5px 10px;opacity:1;color:#CF4900;border:0;border-top:1px solid #CF7000; border-left: 1px solid #CF7000;}
-body .mod-preview-wrapper{overflow:hidden;color:#AF3E00;border:1px solid #CF7000;background-color:#FFF6CF;padding:10px;opacity:1;}
+body .mod-preview-info{background:#FFAE4F;position:absolute;bottom:0;right:0;font:bold 12px arial;padding:5px 5px 5px 10px;color:#CF4900;border:0;border-top:1px solid #CF7000; border-left: 1px solid #CF7000;}
+body .mod-preview-wrapper{overflow:hidden;color:#AF3E00;border:1px solid #CF7000;background-color:#FFF6CF;padding:10px;}
