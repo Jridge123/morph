@@ -115,13 +115,13 @@ body{text-align:center;margin:0;padding:0;background:#0B0D0D;}
 #footer *{margin:0;padding:0;list-style:none;overflow:hidden;height:auto;}
 #footer .joomlajunkie-swish{width:60px;height:50px;text-indent:-7998px;display:block;float:left;background: transparent url(../images/swish.png) no-repeat top;}
 #footer .joomlajunkie-swish:hover{background-position:bottom;}
-#footer #footer-links{padding-top:5px;text-transform:lowercase;}
+#footer #footer-links{padding-top:5px;}
 #footer #footer-text{padding-top:8px;}
 #footer #footer-links .fl-left,#footer #footer-text .ft-left,#footer #footer-links .fl-left .menu li{float:left;width:auto;}
 #footer #footer-text .ft-right,#footer #footer-links .fl-right,#footer #footer-links .fl-right ul li{float:right;text-align:right;width:auto;}
 #footer #footer-links .footer-rss img{display:none;}
-#footer #footer-links .fl-left li{padding-right:10px;margin-right:10px;border-right:1px solid #999;}
-#footer #footer-links .fl-right li{padding-left:10px;margin-left:10px;border-left:1px solid #999;}
+#footer #footer-links .fl-left li{padding-right:10px;margin-right:10px;border-right:1px solid #ccc;}
+#footer #footer-links .fl-right li{padding-left:10px;margin-left:10px;border-left:1px solid #ccc;}
 #footer #footer-links .fl-left .fl-last,#footer #footer-links .fl-right .fl-last{margin:0;padding:0;border:0;}
 
 #secondary-content ul,
