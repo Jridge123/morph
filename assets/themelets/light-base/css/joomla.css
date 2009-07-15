@@ -204,7 +204,7 @@ a.readon{background:#eee;color:#666;}
 
 /* joomla default table styles */
 #primary-content .sectiontableentry1 a,#primary-content .sectiontableentry2 a{}
-#primary-content .sectiontableheader a{}
+#primary-content .sectiontableheader a{color:#fff;}
 #primary-content .sectiontableheader{background:transparent url(../images/table-header-bg.png) repeat-x scroll 0%;color:#FFFFFF;}
 
 /* polls */
