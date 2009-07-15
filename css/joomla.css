@@ -2,18 +2,6 @@
 ++ JoomlaJunkie Joomla CSS
 ++ All Joomla! specific styling is kept here.
 ----------------------------------------------------------------------------*/
-
-
-/*----------------------------------------------------------------------------
-++ JoomlaJunkie Joomla CSS
-++ All Joomla! specific styling is kept here.
-++ !!Important - This is the master file and should not be modified
-++ you must use the joomla.css file in the themelet you are working on
-----------------------------------------------------------------------------*/
-
-/*----------------------------------------------------------------------------
-++ joomla css
-----------------------------------------------------------------------------*/
 /* frontend editing mode
 *****************************************/
 #bd.editmode #secondary-content,
@@ -24,19 +12,19 @@
 
 /* article info
 ****************************/
-#primary-content .article-options,
-#primary-content .article-options li{margin:0;margin:0 1.2em 0 0;overflow:hidden;list-style:none;}
-#primary-content .article-options{margin:.5em 0 1em 0;}
-#primary-content .article-options li{float:left;}
-#primary-content .article-options li.pdf,
-#primary-content .article-options li.email,
-#primary-content .article-options li.print{float:right;padding:0 0 0 5px;margin:0;}
-#primary-content .article-options li.author,
-#primary-content .article-options li.created,
-#primary-content .article-options li.modified{background:transparent url(../images/article-icons.png) no-repeat;display:block;height:20px;line-height:20px;font-size:0.9em;padding:0 0 0 20px;}
-#primary-content .article-options li.author{background-position: top left;}
-#primary-content .article-options li.created{background-position: center left;}
-#primary-content .article-options li.modified{background-position: bottom left;}
+.article-options,
+.article-options li{margin:0;margin:0 1.2em 0 0;overflow:hidden;list-style:none;}
+.article-options{margin:.5em 0 1em 0;}
+.article-options li{float:left;}
+.article-options li.pdf,
+.article-options li.email,
+.article-options li.print{float:right;padding:0 0 0 5px;margin:0;}
+.article-options li.author,
+.article-options li.created,
+.article-options li.modified{background:transparent url(../images/article-icons.png) no-repeat;display:block;height:20px;line-height:20px;font-size:0.9em;padding:0 0 0 20px;}
+.article-options li.author{background-position: top left;}
+.article-options li.created{background-position: center left;}
+.article-options li.modified{background-position: bottom left;}
 .content{clear:both;overflow:hidden;}
 .content p{margin-bottom:1em;}
 .article-body p.teaser{margin-top:1em;}
@@ -45,17 +33,17 @@ table.pagenav{clear:both;}
 
 /* breadcrumbs
 *****************************/
-#primary-content .pathway,#primary-content .pathway li{margin:0;padding:0;list-style:none;background:none;}
-#primary-content .pathway{font-size:1em;overflow:hidden;}
-#primary-content .pathway li{background:transparent url(../images/pathway.png) no-repeat scroll 100% 50%;display:block;float:left;margin-right:10px;padding-right:15px;}
-#primary-content .pathway a:link,#primary-content .pathway a:visited{font-size:1em;text-decoration:underline;}
-#primary-content .pathway li.pathway-current{background:none;}
+.pathway,.pathway li{margin:0;padding:0;list-style:none;background:none;}
+.pathway{font-size:1em;overflow:hidden;}
+.pathway li{background:transparent url(../images/pathway.png) no-repeat scroll 100% 50%;display:block;float:left;margin-right:10px;padding-right:15px;}
+.pathway a:link,#primary-content .pathway a:visited{font-size:1em;text-decoration:underline;}
+.pathway li.pathway-current{background:none;}
 
 /* pagination
 ****************************/
 .pagination-counter,.pagination-links{display:block;clear:both;width:100%;}
 .pagination-counter{text-align:center;margin:1em 0 0 0;}
-#primary-content .pagination{margin-bottom:2em;display:block;height:30px;}
+.pagination{margin-bottom:2em;display:block;height:30px;}
 .pagination-links{margin-top:1em;}
 .pagination-links .pagination li{display:inline;padding:2px 3px;margin:0 3px;}
 .article_separator.last{display:none;}
@@ -63,7 +51,7 @@ table.pagenav{clear:both;}
 /* table of contents
 ****************************/
 table.contentpane,table.contentpane td{border:0;padding:0;margin:0;}
-#primary-content .contenttoc{margin-left:1em;width:auto;float:right;}
+.contenttoc{margin-left:1em;width:auto;float:right;}
 
 /* system messages
 ****************************/
@@ -81,15 +69,15 @@ a.readon:hover{color:#fff;}
 
 /* search results
 ****************************/
-#primary-content ol.search-results{list-style:lower-roman;margin:0 1em 0 3.8em;padding:0;}
-#primary-content ol.search-results li{list-style:lower-roman;margin-bottom:1em;padding-bottom:0.5em;}
-#primary-content ol.search-results li a{text-decoration:none;}
-#primary-content ol.search-results li p{margin-bottom:1em;}
+ol.search-results{list-style:lower-roman;margin:0 1em 0 3.8em;padding:0;}
+ol.search-results li{list-style:lower-roman;margin-bottom:1em;padding-bottom:0.5em;}
+ol.search-results li a{text-decoration:none;}
+ol.search-results li p{margin-bottom:1em;}
 .search-section{padding:0.5em 0;display:block;}
 .search-description{font-size:0.8em;}
-#primary-content .pagination li{display:inline;}
-#primary-content .search-info{overflow:hidden;margin:0 0 1em;padding:0.5em;list-style:none;line-height:3em}
-#primary-content .search-info li{list-style:none;margin:0;padding:0 10px;}
+.pagination li{display:inline;}
+.search-info{overflow:hidden;margin:0 0 1em;padding:0.5em;list-style:none;line-height:3em}
+.search-info li{list-style:none;margin:0;padding:0 10px;}
 .search-counter{float:left;font-size:1.1em;}
 .search-limit{float:right;}
 .searchintro{font-size:1.2em;margin:1em 0;}
@@ -97,11 +85,11 @@ a.readon:hover{color:#fff;}
 
 /* blog view
 ****************************/
-#primary-content ul.blogview-info{margin:-0.6em 0 0.8em;padding:0 0 0.5em;list-style:none;overflow:hidden;}
-#primary-content ul.blogview-info li{list-style:none;font-size:0.9em;float:left;}
+ul.blogview-info{margin:-0.6em 0 0.8em;padding:0 0 0.5em;list-style:none;overflow:hidden;}
+ul.blogview-info li{list-style:none;font-size:0.9em;float:left;}
 .blog .article_separator{border:0;display:none;}
-#primary-content ul.blogview-info li.last{border-right:0;}
-#primary-content ul.blogview-info li.btn-pdf,#primary-content ul.blogview-info li.btn-email,#primary-content ul.blogview-info li.btn-print{float:right;}
+ul.blogview-info li.last{border-right:0;}
+ul.blogview-info li.btn-pdf,#primary-content ul.blogview-info li.btn-email,#primary-content ul.blogview-info li.btn-print{float:right;}
 .article_row{width:100%;float:left;}
 .blog .column1{float:left;padding:1em 1.5em 0 0;}
 .blog .column2{float:right;padding:1em 0 0;}
@@ -112,18 +100,22 @@ a.readon:hover{color:#fff;}
 .blog .featured .article_separator{}
 .blog .featured h2,.blog .featured h2 a{display:block;}
 .article_column{float:left;}
-/*.article_separator{margin-top:2.2em;height:2px;display:block;}*/
 .column_separator{padding-left:1em;margin-left:1em;float:left;}
 .contentdescription p {color:#999;font: normal 20px/28px arial;margin:0;}
 
 /* joomla default table styles
 ****************************/
-#primary-content tr.sectiontableentry1 td,#primary-content tr.sectiontableentry2 td,#primary-content tr td.sectiontableentry1,#primary-content tr td.sectiontableentry2{text-indent:5px;padding:10px 0 0 0;}
-#primary-content .sectiontableentry1 a,#primary-content .sectiontableentry2 a{}
-#primary-content .sectiontableheader a{}
-#primary-content .sectiontableheader{text-align:left;font-size:1.3em;font-weight:bold;height:30px;}
-#primary-content table td.sectiontableheader{border:none;}
-td.sectiontableentry1 input,td.sectiontableentry2 input{margin-top:4px;}
+tr.sectiontableentry1 td,
+tr.sectiontableentry2 td,
+tr td.sectiontableentry1,
+tr td.sectiontableentry2{text-indent:5px;padding:10px 0 0 0;}
+.sectiontableentry1 a,
+.sectiontableentry2 a{}
+.sectiontableheader a{}
+.sectiontableheader{text-align:left;font-size:1.3em;font-weight:bold;height:30px;}
+table td.sectiontableheader{border:none;}
+td.sectiontableentry1 input,
+td.sectiontableentry2 input{margin-top:4px;}
 
 /* polls*/
 #bd .poll{width:100%;margin:0;padding:0;}

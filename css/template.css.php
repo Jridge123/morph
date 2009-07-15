@@ -15,34 +15,31 @@ $offset = 60 * 60;
 $expire = "expires: " . gmdate ("D, d M Y H:i:s", time() + $offset) . " GMT";
 header($expire);
 }
-include('../../../../css/yui.css');
-if ( $direction == 'rtl' ) {
-include('../../../../template_rtl.css');
-}
-include('layout.css');
+include('yui.css');
 include('joomla.css');
 include('modules.css');
 include('typo.css');
-if ( $tabscount >= 1 ) {
-include('tabs.css');
-}
 include('chromes.css');
 include('menus.css');
-
-if ( $topnav_count >= 1) {	
-include('topnav-default.css');
+if ( $tabscount >= 1 ) {
+include('tabs.css');
 }
 if ( $topfish >= 1) {	
 include('topnav-topfish.css');
 }
-if ( $topdrop >= 1) {	
+elseif ( $topdrop >= 1) {	
 include('topnav-topdrop.css');
 }
-if ( $sidenav_count >= 1) {	
-include('sidenav-default.css');
+else ( $topnav_count >= 1) {	
+include('topnav-default.css');
 }
 if ( $sidefish >= 1) {	
 include('sidenav-sidefish.css');
 }
-
+elseif ( $sidenav_count >= 1) {	
+include('sidenav-default.css');
+}
+if ( $direction == 'rtl' ) {
+include('rtl.css');
+}
 if ( $gzip_compression == 1 ) { ob_end_flush(); } ?>

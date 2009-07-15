@@ -262,43 +262,38 @@ if ( $pack_js == 1 ) {
 	$document->addScript($templatepath .'/js/dynamic.js.php?'.$dynamic_js);
 }
 if ( $pack_css == 1 ) {
-	$document->addStyleSheet($themeletpath .'/css/template.css.php?'.$packed_css);
-	$document->addStyleSheet($themeletpath .'/css/dynamic.css.php?'.$dynamic_css);
+	$document->addStyleSheet($templatepath .'/css/template.css.php?'.$packed_css);
+	$document->addStyleSheet($templatepath .'/css/dynamic.css.php?'.$dynamic_css);
 	if(file_exists($customcss) && is_readable($customcss)){
 	$document->addStyleSheet($themeletpath .'/css/custom.css');
 	}
 } else {
 	$document->addStyleSheet($templatepath .'/css/yui.css');
-	
-	// old menus.css reference - needs to be removed.
-	//$document->addStyleSheet($themeletpath .'/css/menus.css');
-	
+	$document->addStyleSheet($templatepath .'/css/joomla.css');
+	$document->addStyleSheet($templatepath .'/css/modules.css');
+	$document->addStyleSheet($templatepath .'/css/typo.css');
+	$document->addStyleSheet($templatepath .'/css/tabs.css');
+	$document->addStyleSheet($templatepath .'/css/dynamic.css.php?'.$dynamic_css);	
+	$document->addStyleSheet($themeletpath .'/css/themelet.css');
 	// top navigation	
 	if ( $topnav_count >= 1 ) {
-	$document->addStyleSheet($themeletpath .'/css/topnav-default.css');
+	$document->addStyleSheet($templatepath .'/css/topnav-default.css');
 	}
 	if ( $topfish >= 1 ) {	
-	$document->addStyleSheet($themeletpath .'/css/topnav-topfish.css');
+	$document->addStyleSheet($templatepath .'/css/topnav-topfish.css');
 	}
 	if ( $topdrop >= 1 ) {	
-	$document->addStyleSheet($themeletpath .'/css/topnav-topdrop.css');
+	$document->addStyleSheet($templatepath .'/css/topnav-topdrop.css');
 	}
 	// side navigation
 	if ( $sidenav_count >= 1 ) {
-	$document->addStyleSheet($themeletpath .'/css/sidenav-default.css');
+	$document->addStyleSheet($templatepath .'/css/sidenav-default.css');
 	}
 	if ( $sidefish >= 1 ) {	
-	$document->addStyleSheet($themeletpath .'/css/sidenav-sidefish.css');
-	}
-	$document->addStyleSheet($themeletpath .'/css/layout.css');
-	$document->addStyleSheet($themeletpath .'/css/joomla.css');
-	$document->addStyleSheet($themeletpath .'/css/modules.css');
-	$document->addStyleSheet($themeletpath .'/css/typo.css');
-	$document->addStyleSheet($themeletpath .'/css/tabs.css');
-	$document->addStyleSheet($themeletpath .'/css/chromes.css');
-	$document->addStyleSheet($themeletpath .'/css/dynamic.css.php?'.$dynamic_css);	
+	$document->addStyleSheet($templatepath .'/css/sidenav-sidefish.css');
+	}	
 	if($this->direction == 'rtl') {
-	$document->addStyleSheet($templatepath .'/css/template_rtl.css');
+	$document->addStyleSheet($templatepath .'/css/rtl.css');
 	}
 	if(file_exists($customcss) && is_readable($customcss)){
 	$document->addStyleSheet($themeletpath .'/css/custom.css');

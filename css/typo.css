@@ -2,7 +2,7 @@
 ++ JoomlaJunkie - Typography CSS
 ++ All Typographical styling is kept here
 ---------------------------------------------------------------------------*/
-html{color:#fff;background:#F3F3F3;}
+html{}
 body{font:13px/1.231 arial,helvetica,clean,sans-serif;background:#F3F3F3;color:#333;}
 p{margin-bottom:1em;line-height:1.7em;}
 
@@ -27,7 +27,7 @@ a:hover,a:active{text-decoration:underline;}
 /* lists styling
 ****************************************/
 ul,ol{margin-left:1em;}
-#primary-content ul,#primary-content ol{margin:0 0 1.5em 3em;}
+ul,#primary-content ol{margin:0 0 1.5em 3em;}
 #primary-content ul li{list-style:circle;}
 #primary-content ol li{list-style:decimal;}
 #primary-content dl dt{font-weight:bold;}

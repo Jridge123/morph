@@ -1,0 +1,120 @@
+/*----------------------------------------------------------------------------
+++ Themelets layout css
+++ All the themelets layout specific css goes here.
+----------------------------------------------------------------------------*/
+#bd{background:#fff;border:1px solid #ccc;}
+.bd-inner{padding:1em;}
+.doc2 .primary-inner{padding:0 1em 0 0;}
+p.slogan{clear:both;margin:0;padding:0;margin:0 0 .5em 0;line-height:1;}
+/*Andys Styles*/
+#top-wrap{background:#0B0D0D;}
+#bd-wrap{background:url(../images/main-bg.jpg)repeat-x;border-top:1px solid #FFFFFF;padding-top:25px;}
+#topshelf-wrap{background:#F3F3F3 none repeat scroll 0 0;padding:0.3em 0;color:#333;text-align:center;border-bottom:1px solid #ccc;}
+#topnav-wrap{background:url(../images/nav-bg.png) repeat-x;}
+#topnav{background:url(../images/nav-bg.png) repeat-x;border:1px solid #ccc;}
+#nav{float:left;}
+#bottomshelf-wrap{background:#121212;color:#ccc;margin:1em 0;padding:1em 0;}
+#skipto{position:absolute;left:-9999px;}
+/* styles from subsite 
+**********************************/
+h2.main-title{color:#525252;font-family:Arial;font-size:62px;font-weight:bold;letter-spacing:-0.05em;line-height:normal;margin:30px 0 20px;text-align:center;}
+p.intro{color:#999999;font-family:Arial;font-size:20px;line-height:28px;margin:0 0 50px;text-align:center;}
+body{text-align:center;margin:0;padding:0;background:#F3F3F3;}
+#top{overflow:hidden;}
+#bottom{overflow:hidden;}
+#bd{margin:1em auto;}
+/* logo options 
+**********************************/
+#branding h1{padding:0;margin:0.3em 0;}
+#branding h1 a{display:block;position:relative;text-indent:-7887px;}
+.img-logo img{float:left;margin:0;padding:0;font:bold 5em Arial;}
+.slogan .logo span{font-size:.5em;display:block;}
+.slogan .logo{line-height:.7em;height:auto;}
+.txt-logo .logo{display:block;float:left;text-decoration:none;font:normal 5em/2em Georgia,Times,serif;color:#CCC;}
+.slogan .logo span{color:#888;}
+.slogan .logo:hover{color:#FFF;}
+.txt-logo.slogan .logo{margin:.5em 0 .3em 0;font-size:4em;line-height:.8em;}
+.txt-logo.slogan .logo:hover{color:#666;}
+.txt-logo.slogan .logo span{font-size:.4em;}
+/* topbar */
+#toolbar-wrap{padding:0;z-index:999;}
+#toolbar{padding:15px 0;}
+#toolbar-wrap .slider-toolbar{margin:0 auto;width:974px;position:relative;}
+#toolbar-wrap .slider-open a{position:absolute;top:0px;right:0;width:auto;padding:5px 10px;background:#ddd;color:#666;font:bold 12px Arial;text-transform:uppercase;border:1px solid #ccc;border-top:0;display:block;cursor:pointer;}
+#toolbar-wrap .slider-open a:hover,#toolbar-wrap .slider-open a.active{background:#ccc;color:#fff;text-decoration:none;}
+#toolbar-wrap .slider-close a{position:absolute;top:0px;right:0;width:auto;padding:5px 10px;background:#ccc;color:#666;font:bold 10px Arial;text-transform:uppercase;border:1px solid #222;border-top:0;display:block;cursor:pointer;}
+#toolbar-wrap .slider-close a:hover,#toolbar-wrap .slider-close a.active{background:#ccc;color:#fff;text-decoration:none;}
+.selected a{color:#eee;}
+/*#footer{color:#FFF;}
+*/
+#topbar-wrap{background:#ccc;}
+.search.search-btn{}
+#secondary-content #username,
+#tertiary-content #username,
+#secondary-content #passwd,
+#tertiary-content #passwd{width:97%;}
+#footer-wrap{background:#eee;border-top:1px solid #111;}
+#footer{padding:0 0 1em 0;}
+#footer *{margin:0;padding:0;list-style:none;overflow:hidden;height:auto;}
+#footer .joomlajunkie-swish{width:60px;height:50px;text-indent:-7998px;display:block;float:left;background:transparent url(../images/swish.png) no-repeat top;}
+#footer .joomlajunkie-swish:hover{background-position:bottom;}
+#footer #footer-links{padding-top:5px;}
+#footer #footer-text{padding-top:8px;}
+#footer #footer-links .fl-left,#footer #footer-text .ft-left,#footer #footer-links .fl-left .menu li{float:left;width:auto;}
+#footer #footer-text .ft-right,#footer #footer-links .fl-right,#footer #footer-links .fl-right ul li{float:right;text-align:right;width:auto;}
+#footer #footer-links .footer-rss img{display:none;}
+#footer #footer-links .fl-left li{padding-right:10px;margin-right:10px;border-right:1px solid #ccc;}
+#footer #footer-links .fl-right li{padding-left:10px;margin-left:10px;border-left:1px solid #ccc;}
+#footer #footer-links .fl-left .fl-last,#footer #footer-links .fl-right .fl-last{margin:0;padding:0;border:0;}
+#secondary-content ul,
+#secondary-content ol{margin:0;padding:0;}
+table.docs-outer-table{font:normal 12px/160% Arial;width:100%;border:1px solid #ccc;border-right:0;margin:0 0 2em 0;}
+table.docs-outer-table table{width:99.5%;margin:5px 0 4px 2px;border:0;background:#fff;}
+table.docs-outer-table td{font:normal 13px/160% Arial;text-align:center;border-right:1px solid #ccc;background:#fff;color:#666;}
+table.docs-outer-table td td{border:1px solid #ccc;background:#eee;color:#666;}
+table.docs-outer-table td.docs-il-outer{padding:3px 0;border:1px solid #FF9C60!important;background:#FFE390;color:#BB5517;}
+table.docs-outer-table td.right{border-right:0;}
+/* from the chromes.css */
+.mod-basic{border:0px solid #ccc;background:#eee;padding:.8em;margin:0 0 1em 0;float:none;}
+.mod-fx{margin:0 0 1em 0;padding:0;background:#eee;}
+.mod-fx .modinner{padding:1em;border:0px solid #fff;}
+.mod h3{font-size:1.4em;margin:0;}
+#user1{margin:0 0 1em 0;overflow:hidden;float:none;width:100%;clear:both;}
+#user1{margin:0 0 1em 0;}
+#user2{clear:both;background:#eee;border:0px solid #ccc;}
+#user2 #user2-inner{padding:1em;overflow:hidden;border:0px solid #fff;}
+#user1 .mod{margin:0;padding:0;}
+/*#user1 .yui-u{margin-left:1.670%;}*/
+#user1 .first{margin-left:0;}
+#toolbar-wrap{background:#eee;border-bottom:1px solid #ccc;}
+#toolbar{margin:0 auto;padding:0;}
+#toolbar div{margin:0;padding:1em 0;height:100%;}
+#toolbar p{margin:0;padding:0;}
+#toolbar .mod{background:none;padding:0;margin:0;color:#666;}
+#top2 .bannergroup{float:right;margin-top:2em;}
+#inset1,#inset2,#inset3,#inset4{margin-bottom:1em;}
+#inset1 .mod-basic,
+#inset2 .mod-basic,
+#inset3 .mod-basic,
+#inset4 .mod-basic{border:0px solid #ccc;width:auto;}
+#inset4{clear:both;}
+.noborder{border:0!important}
+/* setting the foreground color of mod styles with a dark background color */
+body .mod.bgstyle-15,
+body .mod.bgstyle-16,
+body .mod.bgstyle-17,
+body .mod.bgstyle-18,
+body .mod.bgstyle-19{color:#fff;}
+/* setting the foreground color of mod headings with a dark background color */
+body .mod.h3style-14 h3,
+body .mod.h3style-15 h3,
+body .mod.h3style-16 h3,
+body .mod.h3style-17 h3,
+body .mod.h3style-18 h3,
+body .mod.h3style-19 h3{color:#fff;}
+#secondary-content .mod.yui-u,
+#tertiary-content .mod.yui-u{width:99%;clear:both;float:none;}
+#bd .tabs .ui-tabs .ui-tabs-nav.ui-helper-reset,
+#bd .tabs .ui-tabs .ui-tabs-nav li.ui-state-default{margin:0;padding:0;list-style:none;background:none;}
+#bd .tabs .ui-tabs .ui-tabs-nav li.ui-state-default{margin-right:2px;}
+#bd .tabs .ui-tabs .ui-tabs-nav li.ui-state-default.ui-tabs-selected{margin-bottom:0;border-bottom:0;background:#eee;border-bottom:1px solid #eee;}

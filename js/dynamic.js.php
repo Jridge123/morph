@@ -54,6 +54,7 @@ header($expire);
 		    $(this).parents(".form-field").removeClass("cur");
 		});
 		$(".article-body p:first").addClass("teaser");
+		$(".module-previews .moduletable:odd").addClass("alt");		
 		$("#nav li:first").addClass("first");
 		$(".sidenav li:first-child").each(function(){
 			$(this).addClass("first");
@@ -69,7 +70,9 @@ header($expire);
 		$('img[align*=left]').addClass("img-left");
 		$("table tr:even").addClass("alt");
 		$("#user1 .modinner").wrapInner("<div class='extra-border'></div>");
-		$(".ui-tabs-panel").wrapInner("<div class='extra-box-border'></div>");		$(".ui-tabs-nav li").wrapInner("<span class='extra-tab-border'></span>");		$("input#mod_search_searchword").wrapInner("<div class='extra-search-border'></div>");
+		$(".ui-tabs-panel").wrapInner("<div class='extra-box-border'></div>");
+		$(".ui-tabs-nav li").wrapInner("<span class='extra-tab-border'></span>");
+		$("input#mod_search_searchword").wrapInner("<div class='extra-search-border'></div>");
 
 // TODO: Wrap first word of module headings to allow for additional styling.		
 //		var str = $(".mod h3:first").text();
@@ -119,7 +122,10 @@ header($expire);
 		 hoverClass: 'sfHover',
 		 <?php if ($topnav_hoverintent == 0 ) { ?>disableHI: true<?php } else { ?>disableHI: false<?php } ?>
 		 });
-<?php } if ( $topdrop >= 1 ) { ?>		$("#nav .menu").superfish({			pathClass:  'current'		});
+<?php } if ( $topdrop >= 1 ) { ?>
+		$("#nav .menu").superfish({
+			pathClass:  'current'
+		});
 <?php } ?>
 <?php if ( $animate_left == 1 ) { ?>	
 		$('#secondary-content ul.menu.slide li:not(.active) a, #tertiary-content ul.menu.slide li:not(.active) a').hoverIntent(function() { //mouse in  
