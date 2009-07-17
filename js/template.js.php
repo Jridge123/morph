@@ -115,11 +115,11 @@ include('jquery.captify.js');
 		$(".ui-tabs-panel").wrapInner("<div class='extra-box-border'></div>");
 		$(".ui-tabs-nav li").wrapInner("<span class='extra-tab-border'></span>");
 		$("input#mod_search_searchword").wrapInner("<div class='extra-search-border'></div>");
+		$("#footer-links .fl-left li:last").addClass("fl-last");
+		$("#footer-links .fl-right li:last").addClass("fl-last");	
 
-// TODO: Wrap first word of module headings to allow for additional styling.		
-//		var str = $(".mod h3:first").text();
-//	    $(".mod h3:last").html(str);
-		
+
+
 <?php if ( $topshelf_equalize == 1 ) { ?>
 		$(function(){ $('#topshelf .mod-grid').equalHeights(); });
 <?php } if ( $bottomshelf_equalize == 1 ) { ?>
@@ -204,8 +204,7 @@ include('jquery.captify.js');
 		echo "\n\t\t$('#tabs$n').tabs({fx: {opacity: 'toggle', duration: 1}, cookie: {expires: 7, path: '/'}});";
 		}
 } ?>
-		$("#footer-links .fl-left li:last").addClass("fl-last");
-		$("#footer-links .fl-right li:last").addClass("fl-last");	
+
     })
 })(jQuery);
 

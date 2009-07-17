@@ -163,22 +163,13 @@ $packed_js =
 "F02=$rounded_corners" . '&amp;' . 
 "Z01=$gzip_compression";
 
+if ($bg_image == "" ) { $bg_image = "default"; }
+
 $packed_css = 
 "A01=$themelet" . '&amp;' . 
 "A02=$direction" . '&amp;' . 
-"A03=$assetspath" . '&amp;' . 
-"B01=$topfish" . '&amp;' . 
-"B02=$topdrop" . '&amp;' . 
-"B03=$topnav_count" . '&amp;' . 
-"B04=$sidenav_count" . '&amp;' .
-"B05=$sidefish" . '&amp;' .  
-"C01=$tabscount" . '&amp;' .
-"Z01=$gzip_compression";
+"A03=$direction" . '&amp;' . 
 
-if ($bg_image == "" ) { $bg_image = "default"; }
-
-$dynamic_css = 
-"A01=$toolbar_slider" . '&amp;' . 
 "B01=$logo_type" . '&amp;' . 
 "B02=$logo" . '&amp;' . 
 "B03=$logo_size[0]" . '&amp;' . 
@@ -186,15 +177,18 @@ $dynamic_css =
 "B05=".urlencode($logo_textcolor) . '&amp;' . 
 "B06=".urlencode($logo_fontfamily) . '&amp;' . 
 "B07=$logo_fontsize" . '&amp;' . 
+
 "C01=".urlencode($slogan_textcolor) . '&amp;' . 
 "C02=".urlencode($slogan_fontfamily) . '&amp;' . 
 "C03=$slogan_fontsize" . '&amp;' . 
 "C04=$display_slogan" . '&amp;' . 
+
 "D01=".urlencode('#'.$bg_color) . '&amp;' . 
 "D02=$bg_image" . '&amp;' . 
 "D03=$bg_repeat" . '&amp;' . 
 "D04=".urlencode($bg_position) . '&amp;' . 
 "D05=$bg_attachment" . '&amp;' . 
+
 "E01=".urlencode('#'.$color_h1) . '&amp;' . 
 "E02=".urlencode('#'.$color_h2) . '&amp;' . 
 "E03=".urlencode('#'.$color_h3) . '&amp;' . 
@@ -204,12 +198,19 @@ $dynamic_css =
 "E07=".urlencode('#'.$color_linkshover) . '&amp;' . 
 "E08=".urlencode('#'.$color_linksvisited) . '&amp;' . 
 "E09=".urlencode('#'.$color_bodytext) . '&amp;' . 
+
 "F01=".urlencode('#'.$footer_textcolor) . '&amp;' . 
 "F02=".urlencode('#'.$footer_linkscolor) . '&amp;' . 
-"Z01=$assetspath" . '&amp;' . 
-"Z02=$gzip_compression";
 
+"G01=$topfish" . '&amp;' . 
+"G02=$topdrop" . '&amp;' . 
+"G03=$topnav_count" . '&amp;' . 
+"G04=$sidenav_count" . '&amp;' . 
+"G05=$sidefish" . '&amp;' . 
 
+"H01=$toolbar_slider" . '&amp;' .
+
+"Z01=$gzip_compression";
 
 if ( $pack_js == 1 ) {
 	$document->addScript($templatepath .'/js/template.js.php?'.$packed_js);
@@ -252,8 +253,6 @@ if ( $pack_js == 1 ) {
 }
 if ( $pack_css == 1 ) {
 	$document->addStyleSheet($templatepath .'/css/template.css.php?'.$packed_css);
-	$document->addStyleSheet($templatepath .'/css/dynamic.css.php?'.$dynamic_css);
-	$document->addStyleSheet($assetspath .'/packs/base/modfx.css');
 	if(file_exists($customcss) && is_readable($customcss)){
 	$document->addStyleSheet($themeletpath .'/css/custom.css');
 	}

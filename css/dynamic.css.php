@@ -49,7 +49,7 @@ function isIE6(){
 ?>
 html body{<?php if ( $bg_color && $bg_color !== "#default" ) { ?>background-color:<?php echo $bg_color; ?>;<?php } ?>
 <?php if ( $bg_image && $bg_image !== "default" ) { ?>
-background-image:url(<?php echo $assetspath; ?>/backgrounds/<?php echo $bg_image; ?>);
+background-image:url(<?php $_SERVER['DOCUMENT_ROOT']; ?>/morph_assets/backgrounds/<?php echo $bg_image; ?>);
 <?php } ?>
 background-repeat:<?php echo $bg_repeat; ?>;
 background-position:<?php echo $bg_position; ?>;
@@ -58,19 +58,14 @@ background-attachment:<?php echo $bg_attachment; ?>;
 <?php if ( $logo_type == 2 ) { ?>
 #branding h1,#branding h1 a{margin:0;padding:0;width:<?php echo $logo_width; ?>px;height:<?php echo $logo_height; ?>px;}
 #branding h1 a{background:transparent url(<?php echo $logo; ?>) no-repeat 0;}
-
 <?php } if ( $logo_type == 1 ) { ?>
-
 #branding.txt-logo a{
 <?php if ( $logo_fontfamily !== "" ) { ?>
 font-family:<?php echo $logo_fontfamily; ?>;
-
 <?php } if ( $logo_fontsize !== "" ) { ?>
 font-size:<?php echo $logo_fontsize; ?>;
-
 <?php } if ( $logo_textcolor && $logo_textcolor !== "#default" ) { ?>
 color:<?php echo $logo_textcolor; ?>;<?php } ?>}
-
 <?php } if ( $display_slogan == 1 ) { ?>
 #branding.slogan .slogan{<?php if ( $slogan_fontfamily !== "" ) { ?>font-family:<?php echo $slogan_fontfamily; ?>;<?php } if ( $slogan_fontsize !== "" ) { ?>font-size:<?php echo $slogan_fontsize; ?>;<?php } if ( $slogan_textcolor && $slogan_textcolor !== "#default" ) { ?>color:<?php echo $slogan_textcolor; ?>;<?php } ?>}
 <?php } if ( $toolbar_slider == 1 ) { ?>
