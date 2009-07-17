@@ -30,8 +30,6 @@
 #topnav.call-for-action #nav ulul li.action-link{float:right;border:0;border-left:1px solid #ccc;padding:0;margin:0;}
 #topnav.call-for-action #nav ulul li.action-link a{border:0;border-right:1px solid #fff;border-bottom:1px solid #fff;border-left:1px solid #fff;border-top:1px solid #fff;background:#ddd;padding:1em;margin:0;}
 #topnav.call-for-action #nav ulul li.action-link a:hover {color:#D66258;}
-/* add an ending border on the second last menu item when call to action link is enabled. */
-/*#topnav.call-for-action li.second-last{border-right: 1px solid #fff;}*/
 
 /* skip to menu
 ****************************************/

@@ -22,7 +22,6 @@
 #topnav.topdrop #nav .menu li.sfHover ul{left:0;top:3.55em;/* match top ul list item height */z-index:99;}
 #topnav.topdrop #nav .menu li:hover ul ul,
 #topnav.topdrop #nav .menu li.sfHover ul ul ul {left:0;top:2.82em;margin:0 0 0 -1px;}
-
 ul#topnav.topdrop #nav .menu li:hover li ul,
 ul#topnav.topdrop #nav .menu li.sfHover li ul{top:-999em;}
 ul#topnav.topdrop #nav .menu li li:hover ul,
@@ -31,7 +30,6 @@ ul#topnav.topdrop #nav .menu li li:hover li ul,
 ul#topnav.topdrop #nav .menu li li.sfHover li ul{top:-999em;}
 ul#topnav.topdrop #nav .menu li li li:hover ul,
 ul#topnav.topdrop #nav .menu li li li.sfHover ul{left:10em;/* match ul width */top:0;}
-
 #topnav.topdrop #nav .menu{float:left;}
 #topnav.topdrop #nav .menu a{padding:1.1em 1em;text-decoration:none;}
 #topnav.topdrop #nav .menu a,#topnav.topdrop #nav .menu a:visited{/* visited pseudo selector - IE6 applies txt colour*/color:#333;}

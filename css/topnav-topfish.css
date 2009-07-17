@@ -66,4 +66,3 @@
 #topnav.subtext #nav .menu li.sfHover ul {top:4.8em; /* match top ul list item height */ z-index:99;}
 #topnav.subtext #nav .menu li:hover ul ul,
 #topnav.subtext #nav .menu li.sfHover ul ul {top:0; /* match top ul list item height */ z-index:99;}
-
