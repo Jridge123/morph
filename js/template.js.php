@@ -1,6 +1,5 @@
 <?php
 $jquery_core = $_GET['A01'];
-
 $topfish = $_GET['B01'];
 $sidefish = $_GET['B02'];
 $topdrop = $_GET['B03'];
@@ -12,19 +11,16 @@ $topnav_maxwidth = $_GET['B08'];
 $topnav_delay = $_GET['B09'];
 $topnav_animation = $_GET['B10'];
 $animate_left = $_GET['B11'];
-
 $toolbar_slider = $_GET['C01'];
 $topshelf_slider = $_GET['C02'];
 $bottomshelf_slider = $_GET['C03'];
 $toolbar_slider_text = $_GET['C04'];
 $topshelf_slider_text = $_GET['C05'];
 $bottomshelf_slider_text = $_GET['C06'];
-
 $topshelf_equalize = $_GET['D01'];
 $bottomshelf_equalize = $_GET['D02'];
 $user1_equalize = $_GET['D03'];
 $user2_equalize = $_GET['D04'];
-
 $tabscount = $_GET['E01'];
 $topshelfcount = $_GET['E02'];
 $btmshelfcount = $_GET['E03'];
@@ -33,12 +29,9 @@ $user2count = $_GET['E05'];
 $roundedcount = $_GET['E06'];
 $rounded_corners = $_GET['E07'];
 $rounded_amount = $_GET['E08'];
-
 $image_captions = $_GET['F01'];
 $rounded_corners = $_GET['F02'];
-
 $gzip_compression = $_GET['Z01'];
-
 header("content-type: text/javascript; charset: UTF-8");
 if ( $gzip_compression == 1 ) {
 ob_start("ob_gzhandler");
@@ -47,79 +40,20 @@ $offset = 60 * 60;
 $expire = "expires: " . gmdate ("D, d M Y H:i:s", time() + $offset) . " GMT";
 header($expire);
 }
-
-if ( $jquery_core == 1 ) {
-include('jquery-1.3.2.min.js');
-}
-if ( $tabscount >= 1 ) {
-include('jquery.ui.core.js');
-include('jquery.ui.tabs.js');
-}
-if ( $tabscount >= 1 or $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1  ) {
-include('jquery.cookie.js');
-}
-if ( $rounded_corners == 1 ) { 
-include('jquery.corners.js');
-}
-if ( $topnav_hoverintent == 1 ) { 
-include("jquery.superfish.hoverintent.js");
-}
-//if ( $superfish >= 1 or $superdrop >= 1  ) { 
-if ( $sidefish >= 1 or $topfish >= 1 or $topdrop >= 1  ) { 	
-include('jquery.superfish.js');
-}
-if ( $topnav_supersubs == 1 ) { 
-include("jquery.superfish.supersubs.js");
-}
-if ( $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1 ) {
-include('jquery.slider.js');
-}
-if ( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1  ) {
-include('jquery.equalheights.js');
-}
-if ( $image_captions == 1 ) {
-include('jquery.captify.js');
-}
+if ( $jquery_core == 1 ) { include('jquery-1.3.2.min.js'); }
+if ( $tabscount >= 1 ) { include('jquery.ui.core.js'); include('jquery.ui.tabs.js'); }
+if ( $tabscount >= 1 or $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1  ) { include('jquery.cookie.js'); }
+if ( $rounded_corners == 1 ) { include('jquery.corners.js'); }
+if ( $topnav_hoverintent == 1 ) { include("jquery.superfish.hoverintent.js"); }
+if ( $sidefish >= 1 or $topfish >= 1 or $topdrop >= 1  ) { include('jquery.superfish.js'); }
+if ( $topnav_supersubs == 1 ) { include("jquery.superfish.supersubs.js"); }
+if ( $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1 ) { include('jquery.slider.js'); }
+if ( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1  ) { include('jquery.equalheights.js'); }
+if ( $image_captions == 1 ) { include('jquery.captify.js'); }
+include('template.js');
 ?>
-
 (function($) {
 	$(document).ready(function(){
-		$("#topnav.call-for-action li:last").addClass("action-link");
-		$("#topnav.call-for-action li:last").prev("li").addClass("second-last")
-		$("body").removeClass("js-disabled").addClass("js-enabled"); 
-		$("input, textarea", $("form")).focus(function(){
-		$(this).addClass("focus");
-		$(this).parents(".form-field").addClass("cur");
-		});
-		$("input, textarea", $("form")).blur(function(){
-		    $(this).removeClass("focus");
-		    $(this).parents(".form-field").removeClass("cur");
-		});
-		$(".article-body p:first").addClass("teaser");
-		$(".module-previews .mod:odd").addClass("alt");		
-		$("#nav li:first").addClass("first");
-		$(".sidenav li:first-child").each(function(){
-			$(this).addClass("first");
-		});
-		$(".sidenav li:last-child").each(function(){
-			$(this).addClass("last");
-		});
-		$("#secondary-content .module:first").addClass("firstmodule");
-		$("#secondary-content .module:last").addClass("lastmodule");
-		$("#tertiary-content .module:first").addClass("firstmodule");
-		$(".article_separator:last").addClass("last");
-		$('img[align*=right]').addClass("img-right");
-		$('img[align*=left]').addClass("img-left");
-		$("table tr:even").addClass("alt");
-		$("#user1 .modinner").wrapInner("<div class='extra-border'></div>");
-		$(".ui-tabs-panel").wrapInner("<div class='extra-box-border'></div>");
-		$(".ui-tabs-nav li").wrapInner("<span class='extra-tab-border'></span>");
-		$("input#mod_search_searchword").wrapInner("<div class='extra-search-border'></div>");
-		$("#footer-links .fl-left li:last").addClass("fl-last");
-		$("#footer-links .fl-right li:last").addClass("fl-last");	
-
-
-
 <?php if ( $topshelf_equalize == 1 ) { ?>
 		$(function(){ $('#topshelf .mod-grid').equalHeights(); });
 <?php } if ( $bottomshelf_equalize == 1 ) { ?>
@@ -204,15 +138,6 @@ include('jquery.captify.js');
 		echo "\n\t\t$('#tabs$n').tabs({fx: {opacity: 'toggle', duration: 1}, cookie: {expires: 7, path: '/'}});";
 		}
 } ?>
-
     })
 })(jQuery);
-
-
-
-
-
-
-
-
-if ( $gzip_compression == 1 ) { ob_end_flush(); } ?>
+<?php if ( $gzip_compression == 1 ) { ob_end_flush(); } ?>

@@ -47,8 +47,8 @@ $offset = 60 * 60;
 $expire = "expires: " . gmdate ("D, d M Y H:i:s", time() + $offset) . " GMT";
 header($expire);
 }
-include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/themelet.css');
-include(JPATH . 'morph_assets/packs/base/css/modfx.css');
+//include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/themelet.css');
+include(JPATH . 'morph_assets/packs/base/modfx.css');
 include('yui.css');
 include('joomla.css');
 include('modules.css');
@@ -116,6 +116,3 @@ body{color: <?php echo $color_bodytext; ?>;}
 <?php } if ( $footer_textcolor && $footer_textcolor !== "#default" ) { ?>#footer{color:<?php echo $footer_textcolor; ?>}
 <?php } if ( $footer_linkscolor && $footer_linkscolor !== "#default" ) { ?>#footer a,#footer a:link,#footer a:visited{color:<?php echo $footer_linkscolor; ?>}
 <?php } if ( $gzip_compression == 1 ) { ob_end_flush(); } ?>
-
-
-if ( $gzip_compression == 1 ) { ob_end_flush(); } ?>

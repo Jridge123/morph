@@ -87,6 +87,7 @@ p.color-blue{border-top:3px solid #7DB6FB;border-bottom:3px solid #7DB6FB;backgr
 p.color-orange{border-top:3px solid #F18B41;border-bottom:3px solid #F18B41;background:#FDF6E4;color:#010101;}
 p.color-pink{border-top:3px solid #D5688F;border-bottom:3px solid #D5688F;background:#FAE8E8;color:#010101;}
 p.color-grey{border-top:3px solid #CCCCCC;border-bottom:3px solid #CCCCCC;background:#FAFAFA;color:#010101;}
+
 /* system notices */
 #primary-content #system-message *{color:#000;margin:0;padding:0;}
 #primary-content #system-message{margin:1em 0;overflow:hidden;font-size:1.5em;}
@@ -96,7 +97,8 @@ p.color-grey{border-top:3px solid #CCCCCC;border-bottom:3px solid #CCCCCC;backgr
 
 /* highlight text
 ****************************************/
-#bd .highlight{background:#6CADBE;color:#fff;font-weight:bold;padding:1px 5px;}
+.highlight{background:#6CADBE;color:#fff;font-weight:bold;padding:1px 5px;}
+.class-name{background:#F9FFD0;padding:2px 5px;border:1px solid #FFDF80;color:#9F5B32;}
 
 /* image alignment
 ****************************************/

@@ -1,120 +1,29 @@
 /*----------------------------------------------------------------------------
 ++ JoomlaJunkie Module CSS
-++ All Joomla! module tyling is kept here.
+++ All Joomla! module styling is kept here.
 ----------------------------------------------------------------------------*/
-/*----------------------------------------------------------------------------
-++ modules css
-----------------------------------------------------------------------------*/
-/*#user1 .module.last,#inset1 .module.last{background:none;}
-#user1 .module.last div,#inset1 .module.last div{padding:0;}
-.module .modinner{padding:0 5px 0 0;}
-*/
 .mod-vert-seperator{height:12px;display:block;margin:5px 0 20px;}
-/* intelli module header styles
-*************************************/
 
-/* intelli module container styles
-*************************************/
-.moduletable{margin:13px 0;}
-#toolbar .moduletable{margin:0;}
-
-/* sidebars module header styles
-*************************************/
-
-/* sidebars module container styles
-*************************************/
-.module.nopadding .modinner div{padding:0;}
-.module.nopadding .modinner{padding:0;}
-
-/* this style fixes padding and border
-inconsistencies with nested divs
-*************************************/
-
-.module div div,.module_menu div div,.module_text div div,.module.rounded div div{padding:0px;border:none;}
-div.moduletable-sfx.nopadding{padding:0;width:auto;}
-
-/* footer shelf module adjustments
-*************************************/
-#btmshelf .module h3,#jjUser1 .module h3,#jjUser5 .module h3,#jjUser6 .moduletable h3,#jjUser7 .module h3,#jjUser8 .module h3{margin:0.2em 0;padding:0.5em 0;}
-#btmshelf .module,#jjUser1 .module{margin-bottom:10px;margin-top:15px;}
-
-/* List separator styles
-*************************************/
-#btmshelf .list-seperators ul,#user1 .list-seperators ul,#inset1 .list-seperators ul,#inset2 .list-seperators ul,#inset3 .list-seperators ul,#bottom .list-seperators ul,#header .list-seperators ul{border-bottom:1px solid #222;}
-#btmshelf .list-seperators ul li,#user1 .list-seperators ul li,#inset1 .list-seperators ul li,#inset2 .list-seperators ul li,#inset3 .list-seperators ul li,#bottom .list-seperators ul li,#header .list-seperators ul li{border-top:1px solid #222;border-bottom:1px solid #000;}
-#btmshelf .list-seperators ul li a:hover,#user1 .list-seperators ul li a:hover,#inset1 .list-seperators ul li a:hover,#inset2 .list-seperators ul li a:hover,#inset3 .list-seperators ul li a:hover,#bottom .list-seperators ul li a:hover,#header .list-seperators ul li a:hover{background:#111;}
-#btmshelf .list-seperators ul li a,
-#user1 .list-seperators ul li a,
-#inset1 .list-seperators ul li a,
-#inset2 .list-seperators ul li a,
-#header .list-seperators ul li a{display:block;padding:0.5em 0 0.5em 0.4em;}
-#shelf .list-seperators ul li.firstmodule,
-#user1 .list-seperators ul li.firstmodule,
-#inset1 .list-seperators ul li.firstmodule,
-#inset2 .list-seperators ul li.firstmodule,
-#header .list-seperators ul li.firstmodule{border-top:none;}
-.question{background:url(../images/question.gif) no-repeat left center;}
-.question p{padding-left:64px;}
-.moduletable-callout a{border-bottom:3px dotted #90A815;}
-.testamonial p{font-style:italic;font-size:1.2em;}
-.testamonial tr.alt{background:none;border:none;}
-.testamonial .jjmod-content{padding-left:55px;background-image:url(../images/quote.gif);background-repeat:no-repeat;margin-top:20px;}
-#btmshelf .testamonial .review-by{color:#999;font-size:1em;font-style:normal;margin-left:-50px;}
-#btmshelf .testamonial .review-by span{display:block;font-size:13px;color:#555;}
-
-/* Polls Module*/
+/* polls module*/
 form.polls h4{margin:-10px 0 5px 0;padding:0;font-size:13px;}
-form.polls ul,
-form.polls li{margin:0;padding:0;list-style:none;}
+form.polls ul,form.polls li{margin:0;padding:0;list-style:none;}
 form.polls ul{margin:0 0 5px 0;}
 
-/* search module in top2 */
+/* search module in the masthead */
 #top2 .search{margin:4em 0 0 0;overflow:hidden;}
 #top2 .search #mod_search_searchword{float:right;width:290px;padding:.7em;background:#ddd url(../images/icon-search.gif) no-repeat 97%;}
-
 #topnav .search{float: right;padding-right: .6em;}
 #topnav .search .inputbox{width: 10em;}
+#topnav .search .inputbox {width:10em;margin: .6em 0 0 0;border: 1px solid #ccc;}
+#topnav.subtext .search .inputbox {width:10em;margin: .5em 0 0 0;border: 1px solid #ccc;}
 
-/* search module in user4 without subtext enabled */
-#topnav .search .inputbox {
-width:10em;
-margin: .6em 0 0 0;
-border: 1px solid #ccc;
-}
+/* banners module*/
+#bd .bannergroup ul,#bd .bannergroup li{margin: 0;padding: 0;list-style: none;}
+#bd .bannergroup li{border-bottom:1px solid #ccc;border-top:1px solid #fff;margin:0;padding:10px 0;}
+#bd .bannergroup li.first{border-top:none;}
+#bd .bannergroup li.last{border-bottom:  none;}
+h4.bannerheader,form.polls h4{margin:0;font-size:14px;font-weight:bold;color:#999;}
 
-/* search module in user4 with subtext enabled */
-#topnav.subtext .search .inputbox {
-width:10em;
-margin: .5em 0 0 0;
-border: 1px solid #ccc;
-}
-
-#bd .bannergroup ul,
-#bd .bannergroup li{
-margin: 0;
-padding: 0;
-list-style: none;
-}
-#bd .bannergroup li{
-border-bottom:1px solid #CCCCCC;
-border-top:1px solid #FFFFFF;
-margin:0;
-padding:10px 0;;
-}
-
-#bd .bannergroup li.first{
-border-top:none;
-}
-
-#bd .bannergroup li.last{
-border-bottom:  none;
-}
-.class-name{
-background:#F9FFD0;
-padding:2px 5px;
-border:1px solid #FFDF80;
-color:#9F5B32;
-}
 /* debug mode css */
 body .mod-preview{border:5px solid #FFAE4F;position:relative;}
 body .mod-preview-info{background:#FFAE4F;position:absolute;bottom:0;right:0;font:bold 12px arial;padding:5px 5px 5px 10px;color:#CF4900;border:0;border-top:1px solid #CF7000; border-left: 1px solid #CF7000;}

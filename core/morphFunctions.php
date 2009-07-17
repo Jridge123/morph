@@ -89,44 +89,34 @@ $logo_size = getimagesize($logo);
 $db=& JFactory::getDBO();
 
 $query = "SELECT COUNT(*) FROM `#__configurator` WHERE `param_value` = 'tabs' ";
-$db->setQuery( $query );
-$tabscount = $db->loadResult();
+$db->setQuery( $query ); $tabscount = $db->loadResult();
 
 $query = "SELECT COUNT(*) FROM `#__modules` WHERE `params` LIKE '%moduleclass_sfx=rounded%' ";
-$db->setQuery( $query );
-$roundedcount = $db->loadResult();
+$db->setQuery( $query ); $roundedcount = $db->loadResult();
 
 $query = "SELECT COUNT(*) FROM #__modules WHERE position = 'user3' AND params LIKE '%moduleclass_sfx=topdrop%' OR position = 'user3' AND params LIKE '% topdrop%'";
-$db->setQuery( $query );
-$topdrop = $db->loadResult();
+$db->setQuery( $query ); $topdrop = $db->loadResult();
 
 $query = "SELECT COUNT(*) FROM #__modules WHERE position = 'user3' AND params LIKE '%moduleclass_sfx=topfish%' OR position = 'user3' AND params LIKE '% topfish%'";
-$db->setQuery( $query );
-$topfish = $db->loadResult();
+$db->setQuery( $query ); $topfish = $db->loadResult();
 
 $query = "SELECT COUNT(*) FROM #__modules WHERE position = 'user3' AND params LIKE '%moduleclass_sfx=subtext%' OR position = 'user3' AND params LIKE '% subtext%'";
-$db->setQuery( $query );
-$subtext_top = $db->loadResult();
+$db->setQuery( $query ); $subtext_top = $db->loadResult();
 
 $query = "SELECT COUNT(*) FROM #__modules WHERE position = 'user3' AND params LIKE '%moduleclass_sfx=animate%' OR position = 'user3' AND params LIKE '% animate%'";
-$db->setQuery( $query );
-$animate_top = $db->loadResult();
+$db->setQuery( $query ); $animate_top = $db->loadResult();
 
 $query = "SELECT COUNT(*) FROM #__modules WHERE params LIKE '%moduleclass_sfx=sidefish%' OR params LIKE '%sidefish%'";
-$db->setQuery( $query );
-$sidefish = $db->loadResult();
+$db->setQuery( $query ); $sidefish = $db->loadResult();
 
 $query = "SELECT COUNT(*) FROM #__modules WHERE position = 'left' AND module = 'mod_mainmenu' OR position = 'right' AND module = 'mod_mainmenu'";
-$db->setQuery( $query );
-$sidenav_count = $db->loadResult();
+$db->setQuery( $query ); $sidenav_count = $db->loadResult();
 
 $query = "SELECT COUNT(*) FROM #__modules WHERE position = 'user3' AND module = 'mod_mainmenu'";
-$db->setQuery( $query );
-$topnav_count = $db->loadResult();
+$db->setQuery( $query ); $topnav_count = $db->loadResult();
 
 $query = "SELECT COUNT(*) FROM #__modules WHERE position = 'left' AND params LIKE '%moduleclass_sfx=animate%' OR position = 'left' AND  params LIKE '% animate%'";
-$db->setQuery( $query );
-$animate_left = $db->loadResult();
+$db->setQuery( $query ); $animate_left = $db->loadResult();
 
 $packed_js = 
 "A01=$jquery_core" . '&amp;' . 
@@ -169,7 +159,6 @@ $packed_css =
 "A01=$themelet" . '&amp;' . 
 "A02=$direction" . '&amp;' . 
 "A03=$direction" . '&amp;' . 
-
 "B01=$logo_type" . '&amp;' . 
 "B02=$logo" . '&amp;' . 
 "B03=$logo_size[0]" . '&amp;' . 
@@ -177,18 +166,15 @@ $packed_css =
 "B05=".urlencode($logo_textcolor) . '&amp;' . 
 "B06=".urlencode($logo_fontfamily) . '&amp;' . 
 "B07=$logo_fontsize" . '&amp;' . 
-
 "C01=".urlencode($slogan_textcolor) . '&amp;' . 
 "C02=".urlencode($slogan_fontfamily) . '&amp;' . 
 "C03=$slogan_fontsize" . '&amp;' . 
 "C04=$display_slogan" . '&amp;' . 
-
 "D01=".urlencode('#'.$bg_color) . '&amp;' . 
 "D02=$bg_image" . '&amp;' . 
 "D03=$bg_repeat" . '&amp;' . 
 "D04=".urlencode($bg_position) . '&amp;' . 
 "D05=$bg_attachment" . '&amp;' . 
-
 "E01=".urlencode('#'.$color_h1) . '&amp;' . 
 "E02=".urlencode('#'.$color_h2) . '&amp;' . 
 "E03=".urlencode('#'.$color_h3) . '&amp;' . 
@@ -198,18 +184,14 @@ $packed_css =
 "E07=".urlencode('#'.$color_linkshover) . '&amp;' . 
 "E08=".urlencode('#'.$color_linksvisited) . '&amp;' . 
 "E09=".urlencode('#'.$color_bodytext) . '&amp;' . 
-
 "F01=".urlencode('#'.$footer_textcolor) . '&amp;' . 
 "F02=".urlencode('#'.$footer_linkscolor) . '&amp;' . 
-
 "G01=$topfish" . '&amp;' . 
 "G02=$topdrop" . '&amp;' . 
 "G03=$topnav_count" . '&amp;' . 
 "G04=$sidenav_count" . '&amp;' . 
 "G05=$sidefish" . '&amp;' . 
-
 "H01=$toolbar_slider" . '&amp;' .
-
 "Z01=$gzip_compression";
 
 if ( $pack_js == 1 ) {
@@ -226,33 +208,21 @@ if ( $pack_js == 1 ) {
 	$document->addScript($templatepath .'/js/jquery.ui.tabs.js');
 	}
 	if ( $tabscount >= 1 or $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1  ) {
-	$document->addScript($templatepath .'/js/jquery.cookie.js');
-	}
-	if ( $topfish >= 1 && $topnav_hoverintent == 1 ) {
-	$document->addScript($templatepath .'/js/jquery.superfish.hoverintent.js');
-	}
-	if ( $sidefish >= 1 or $topfish >= 1  ) { 	
-	$document->addScript($templatepath .'/js/jquery.superfish.js');
-	}
-	if ( $topfish >= 1 && $topnav_supersubs == 1 ) {
-	$document->addScript($templatepath .'/js/jquery.superfish.supersubs.js');
-	}
-	if ( $rounded_corners == 1 or $roundedcount !== 0 ) {
-	$document->addScript($templatepath .'/js/jquery.corners.js');
-	}
+	$document->addScript($templatepath .'/js/jquery.cookie.js'); }
+	if ( $topfish >= 1 && $topnav_hoverintent == 1 ) { $document->addScript($templatepath .'/js/jquery.superfish.hoverintent.js');}
+	if ( $sidefish >= 1 or $topfish >= 1  ) { $document->addScript($templatepath .'/js/jquery.superfish.js');	}
+	if ( $topfish >= 1 && $topnav_supersubs == 1 ) { $document->addScript($templatepath .'/js/jquery.superfish.supersubs.js'); }
+	if ( $rounded_corners == 1 or $roundedcount !== 0 ) { $document->addScript($templatepath .'/js/jquery.corners.js');	}
 	if ( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1  ) {
-	$document->addScript($templatepath .'/js/jquery.equalheights.js');
-	}
-	if ( $image_captions == 1 ) {
-	$document->addScript($templatepath .'/js/jquery.captify.js');
-	}
-	if(file_exists($customjs) && is_readable($customjs)){
-	$document->addScript($themeletpath .'/js/custom.js');
-	}
+	$document->addScript($templatepath .'/js/jquery.equalheights.js'); }
+	if ( $image_captions == 1 ) { $document->addScript($templatepath .'/js/jquery.captify.js'); }
+	if(file_exists($customjs) && is_readable($customjs)){ $document->addScript($themeletpath .'/js/custom.js'); }
 	$document->addScript($templatepath .'/js/dynamic.js.php?'.$dynamic_js);
+	$document->addScript($templatepath .'/js/template.js');
 }
 if ( $pack_css == 1 ) {
 	$document->addStyleSheet($templatepath .'/css/template.css.php?'.$packed_css);
+	$document->addStyleSheet($themeletpath .'/css/themelet.css');
 	if(file_exists($customcss) && is_readable($customcss)){
 	$document->addStyleSheet($themeletpath .'/css/custom.css');
 	}
@@ -265,30 +235,13 @@ if ( $pack_css == 1 ) {
 	$document->addStyleSheet($templatepath .'/css/dynamic.css.php?'.$dynamic_css);	
 	$document->addStyleSheet($themeletpath .'/css/themelet.css');
 	$document->addStyleSheet($assetspath .'/packs/base/modfx.css');
-
-	// top navigation	
-	if ( $topnav_count >= 1 ) {
-	$document->addStyleSheet($templatepath .'/css/topnav-default.css');
-	}
-	if ( $topfish >= 1 ) {	
-	$document->addStyleSheet($templatepath .'/css/topnav-topfish.css');
-	}
-	if ( $topdrop >= 1 ) {	
-	$document->addStyleSheet($templatepath .'/css/topnav-topdrop.css');
-	}
-	// side navigation
-	if ( $sidenav_count >= 1 ) {
-	$document->addStyleSheet($templatepath .'/css/sidenav-default.css');
-	}
-	if ( $sidefish >= 1 ) {	
-	$document->addStyleSheet($templatepath .'/css/sidenav-sidefish.css');
-	}	
-	if($this->direction == 'rtl') {
-	$document->addStyleSheet($templatepath .'/css/rtl.css');
-	}
-	if(file_exists($customcss) && is_readable($customcss)){
-	$document->addStyleSheet($themeletpath .'/css/custom.css');
-	}
+	if ( $topnav_count >= 1 ) { $document->addStyleSheet($templatepath .'/css/topnav-default.css');	}
+	if ( $topfish >= 1 ) {	$document->addStyleSheet($templatepath .'/css/topnav-topfish.css');	}
+	if ( $topdrop >= 1 ) {	$document->addStyleSheet($templatepath .'/css/topnav-topdrop.css');	}
+	if ( $sidenav_count >= 1 ) { $document->addStyleSheet($templatepath .'/css/sidenav-default.css'); }
+	if ( $sidefish >= 1 ) {	$document->addStyleSheet($templatepath .'/css/sidenav-sidefish.css'); }	
+	if($this->direction == 'rtl') {	$document->addStyleSheet($templatepath .'/css/rtl.css'); }
+	if(file_exists($customcss) && is_readable($customcss)){	$document->addStyleSheet($themeletpath .'/css/custom.css');	}
 }
 function isIE6(){
 	$user_agent = $_SERVER['HTTP_USER_AGENT'];
