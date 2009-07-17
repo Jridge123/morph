@@ -9,9 +9,10 @@ require_once('templates/morph/core/browser.php');
 
 // set the various paths:
 $templatepath = JURI::root() . 'templates/' . $this->template;
-$themeletpath = JURI::root() . 'templates/' . $this->template . '/assets/themelets/' . $themelet;
-$assetspath = JURI::root() . 'templates/' . $this->template . '/assets';
-$absolutepath = JPATH_SITE.DS.'templates'.DS.$this->template.DS.'assets'.DS.'themelets'.DS.$themelet;
+$themeletpath = JURI::root() . 'morph_assets/themelets/' . $themelet;
+$assetspath = JURI::root() . 'morph_assets';
+$imagespath = JURI::root() . 'morph_assets/themelets/' . $themelet.'/images/';
+$absolutepath = JPATH_SITE.DS.'morph_assets'.DS.'themelets'.DS.$themelet;
 
 // set the document parameters with what morph found:
 $MORPH_paramlist = get_object_vars($MORPH);
@@ -82,7 +83,7 @@ include_once($absolutepath.'/custom.php');
 }
 function debug_chrome($pt_debug, $pt_mod_chrome){	if( $pt_debug == 1 ){ 		return 'outline'; 	} else { 		return $pt_mod_chrome; 	}}
 
-if( isIE6() && $logo_image_ie !== ''){ $logo = $templatepath.'/assets/logos/'.$ie_logo_image; } else { $logo = $templatepath.'/assets/logos/'.$logo_image; }
+if( isIE6() && $logo_image_ie !== ''){ $logo = $assetspath.'/logos/'.$ie_logo_image; } else { $logo = $assetspath.'/logos/'.$logo_image; }
 $logo_size = getimagesize($logo);
 
 $db=& JFactory::getDBO();
@@ -134,58 +135,43 @@ $packed_js =
 "B03=$topdrop" . '&amp;' . 
 "B04=$topnav_supersubs" . '&amp;' . 
 "B05=$topnav_hoverintent" . '&amp;' . 
+"B06=$topnav_hoverfocus" . '&amp;' . 
+"B07=$topnav_minwidth" . '&amp;' . 
+"B08=$topnav_maxwidth" . '&amp;' . 
+"B09=$topnav_delay" . '&amp;' . 
+"B10=$topnav_animation" . '&amp;' . 
+"B11=$animate_left" . '&amp;' . 
 "C01=$toolbar_slider" . '&amp;' . 
 "C02=$topshelf_slider". '&amp;' . 
 "C03=$bottomshelf_slider" . '&amp;' . 
+"C04=$toolbar_slider_text" . '&amp;' . 
+"C05=$topshelf_slider_text" . '&amp;' . 
+"C06=$bottomshelf_slider_text" . '&amp;' . 
 "D01=$topshelf_equalize". '&amp;' . 
 "D02=$bottomshelf_equalize". '&amp;' . 
 "D03=$user1_equalize" . '&amp;' . 
 "D04=$user2_equalize". '&amp;' . 
 "E01=$tabscount" . '&amp;' . 
+"E02=$topshelfcount" . '&amp;' . 
+"E03=$btmshelfcount" . '&amp;' . 
+"E04=$user1count". '&amp;' . 
+"E05=$user2count" . '&amp;' . 
+"E06=$roundedcount" . '&amp;' . 
+"E07=$rounded_corners" . '&amp;' . 
+"E08=$rounded_amount" . '&amp;' . 
 "F01=$image_captions". '&amp;' . 
 "F02=$rounded_corners" . '&amp;' . 
-"Z01=$gzip_compression";
-
-$dynamic_js = 
-"A01=$topshelf_equalize" . '&amp;' . 
-"A02=$bottomshelf_equalize" . '&amp;' . 
-"A03=$user1_equalize" . '&amp;' . 
-"A04=$user2_equalize" . '&amp;' .
-"B01=$topshelfcount" . '&amp;' . 
-"B02=$btmshelfcount" . '&amp;' . 
-"B03=$user1count". '&amp;' . 
-"B04=$user2count" . '&amp;' . 
-"B05=$tabscount" . '&amp;' . 
-"B06=$roundedcount" . '&amp;' . 
-"C01=$rounded_corners" . '&amp;' . 
-"C02=$rounded_amount" . '&amp;' . 
-"D01=$toolbar_slider" . '&amp;' . 
-"D02=$toolbar_slider_text" . '&amp;' . 
-"D03=$topshelf_slider" . '&amp;' . 
-"D04=$topshelf_slider_text" . '&amp;' . 
-"D05=$bottomshelf_slider" . '&amp;' . 
-"D06=$bottomshelf_slider_text" . '&amp;' . 
-"E01=$image_captions" . '&amp;' . 
-"F01=$topnav_hoverfocus" . '&amp;' . 
-"F02=$topnav_supersubs" . '&amp;' . 
-"F03=$topnav_minwidth" . '&amp;' . 
-"F04=$topnav_maxwidth" . '&amp;' . 
-"F05=$topnav_delay" . '&amp;' . 
-"F06=$topnav_animation" . '&amp;' . 
-"F07=$topnav_hoverintent" . '&amp;' . 
-"F08=$topfish" . '&amp;' . 
-"F09=$topdrop" . '&amp;' . 
-"F10=$sidefish" . '&amp;' . 
-"F11=$animate_left" . '&amp;' . 
 "Z01=$gzip_compression";
 
 $packed_css = 
 "A01=$themelet" . '&amp;' . 
 "A02=$direction" . '&amp;' . 
+"A03=$assetspath" . '&amp;' . 
 "B01=$topfish" . '&amp;' . 
 "B02=$topdrop" . '&amp;' . 
 "B03=$topnav_count" . '&amp;' . 
-"B04=$sidenav_count" . '&amp;' . 
+"B04=$sidenav_count" . '&amp;' .
+"B05=$sidefish" . '&amp;' .  
 "C01=$tabscount" . '&amp;' .
 "Z01=$gzip_compression";
 
@@ -220,11 +206,13 @@ $dynamic_css =
 "E09=".urlencode('#'.$color_bodytext) . '&amp;' . 
 "F01=".urlencode('#'.$footer_textcolor) . '&amp;' . 
 "F02=".urlencode('#'.$footer_linkscolor) . '&amp;' . 
-"Z01=$gzip_compression";
+"Z01=$assetspath" . '&amp;' . 
+"Z02=$gzip_compression";
+
+
 
 if ( $pack_js == 1 ) {
 	$document->addScript($templatepath .'/js/template.js.php?'.$packed_js);
-	$document->addScript($templatepath .'/js/dynamic.js.php?'.$dynamic_js);
 	if(file_exists($customjs) && is_readable($customjs)){
 	$document->addScript($themeletpath .'/js/custom.js');
 	}

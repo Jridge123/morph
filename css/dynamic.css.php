@@ -28,7 +28,8 @@ $color_linksvisited = stripslashes(urldecode($_GET['E08']));
 $color_bodytext = stripslashes(urldecode($_GET['E09']));
 $footer_textcolor = stripslashes(urldecode($_GET['F01']));
 $footer_linkscolor = stripslashes(urldecode($_GET['F02']));
-$gzip_compression = $_GET['Z01'];
+$assetspath = $_GET['Z01'];
+$gzip_compression = $_GET['Z02'];
 
 if ( $gzip_compression == 1 ) {
 ob_start("ob_gzhandler");
@@ -48,7 +49,7 @@ function isIE6(){
 ?>
 html body{<?php if ( $bg_color && $bg_color !== "#default" ) { ?>background-color:<?php echo $bg_color; ?>;<?php } ?>
 <?php if ( $bg_image && $bg_image !== "default" ) { ?>
-background-image:url(../../../backgrounds/<?php echo $bg_image; ?>);
+background-image:url(<?php echo $assetspath; ?>/backgrounds/<?php echo $bg_image; ?>);
 <?php } ?>
 background-repeat:<?php echo $bg_repeat; ?>;
 background-position:<?php echo $bg_position; ?>;

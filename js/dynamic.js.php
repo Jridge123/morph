@@ -3,7 +3,6 @@ $topshelf_equalize = $_GET['A01'];
 $bottomshelf_equalize = $_GET['A02'];
 $user1_equalize = $_GET['A03'];
 $user2_equalize = $_GET['A04'];
-
 $topshelfcount = $_GET['B01'];
 $btmshelfcount = $_GET['B02'];
 $user1count = $_GET['B03'];
