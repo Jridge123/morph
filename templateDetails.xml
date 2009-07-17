@@ -91,5 +91,10 @@
 		<position>advert2</position>
 		<position>footernav</position>
 		<position>footer</position>
+		<position>modpreview1</position>
+		<position>modpreview2</position>
+		<position>modpreview3</position>
+		<position>modpreview4</position>
+		<position>modpreview5</position>
 	</positions>
 </install>

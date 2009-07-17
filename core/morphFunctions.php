@@ -10,6 +10,7 @@ require_once('templates/morph/core/browser.php');
 // set the various paths:
 $templatepath = JURI::root() . 'templates/' . $this->template;
 $themeletpath = JURI::root() . 'templates/' . $this->template . '/assets/themelets/' . $themelet;
+$assetspath = JURI::root() . 'templates/' . $this->template . '/assets';
 $absolutepath = JPATH_SITE.DS.'templates'.DS.$this->template.DS.'assets'.DS.'themelets'.DS.$themelet;
 
 // set the document parameters with what morph found:
@@ -264,6 +265,7 @@ if ( $pack_js == 1 ) {
 if ( $pack_css == 1 ) {
 	$document->addStyleSheet($templatepath .'/css/template.css.php?'.$packed_css);
 	$document->addStyleSheet($templatepath .'/css/dynamic.css.php?'.$dynamic_css);
+	$document->addStyleSheet($assetspath .'/packs/base/modfx.css');
 	if(file_exists($customcss) && is_readable($customcss)){
 	$document->addStyleSheet($themeletpath .'/css/custom.css');
 	}
@@ -275,6 +277,8 @@ if ( $pack_css == 1 ) {
 	$document->addStyleSheet($templatepath .'/css/tabs.css');
 	$document->addStyleSheet($templatepath .'/css/dynamic.css.php?'.$dynamic_css);	
 	$document->addStyleSheet($themeletpath .'/css/themelet.css');
+	$document->addStyleSheet($assetspath .'/packs/base/modfx.css');
+
 	// top navigation	
 	if ( $topnav_count >= 1 ) {
 	$document->addStyleSheet($templatepath .'/css/topnav-default.css');

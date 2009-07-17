@@ -54,7 +54,7 @@ header($expire);
 		    $(this).parents(".form-field").removeClass("cur");
 		});
 		$(".article-body p:first").addClass("teaser");
-		$(".module-previews .moduletable:odd").addClass("alt");		
+		$(".module-previews .mod:odd").addClass("alt");		
 		$("#nav li:first").addClass("first");
 		$(".sidenav li:first-child").each(function(){
 			$(this).addClass("first");

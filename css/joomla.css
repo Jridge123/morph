@@ -90,18 +90,18 @@ ul.blogview-info li{list-style:none;font-size:0.9em;float:left;}
 .blog .article_separator{border:0;display:none;}
 ul.blogview-info li.last{border-right:0;}
 ul.blogview-info li.btn-pdf,#primary-content ul.blogview-info li.btn-email,#primary-content ul.blogview-info li.btn-print{float:right;}
-.article_row{width:100%;float:left;}
-.blog .column1{float:left;padding:1em 1.5em 0 0;}
-.blog .column2{float:right;padding:1em 0 0;}
-.cols2{width:47%;vertical-align:top;}
+.article_row{width:100%;float:left;overflow:hidden;}
+.cols2{width:49%;background:#fff;vertical-align:top;padding:0;margin:0;float:left;}
+.blog .column1{}
+.blog .column2{float:right;}
 .blog_more{padding-top:1em;display:block;clear:both;}
 .blog{overflow:hidden;}
 .blog .featured{padding:1em 1em 0.3em;margin-bottom:2em;}
 .blog .featured .article_separator{}
-.blog .featured h2,.blog .featured h2 a{display:block;}
-.article_column{float:left;}
-.column_separator{padding-left:1em;margin-left:1em;float:left;}
-.contentdescription p {color:#999;font: normal 20px/28px arial;margin:0;}
+.blog .featured h2,
+.blog .featured h2 a{margin:0;padding:0;display:block;}
+.column_separator{}
+.contentdescription p{color:#999;font:normal 20px/28px arial;margin:0;}
 
 /* joomla default table styles
 ****************************/
@@ -157,9 +157,7 @@ padding:0;
 margin:0 0 1em 0;
 padding:0;
 }
-.column1{
-margin:0 2em 0 0;
-}
+
 /* pagination */
 .pagination-counter{color:#888;}
 .pagination-links{margin-top:1em;clear:both;display:block;width:100%;float:left;overflow:hidden;}

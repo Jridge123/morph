@@ -12,7 +12,7 @@
 .sidenav ul.menu li a,
 .sidenav li .mod.sidefish span.separator{color:#333;text-decoration:none;font-size:1em;padding:0.7em .5em;position:relative;display:block;}
 .sidenav ul.menu li a:hover{display:block;background:#e3e3e3;}
-.sidenav ul.menu a.active{background:#999;}
+.sidenav ul.menu li.active a{background:#ddd;}
 .sidenav ul.menu li.first{border-top:none;}
 .sidenav ul.menu li.last{border-bottom:none;}
 .sidenav .mod-fx ul.menu{margin:0 -6px;padding:0;}
