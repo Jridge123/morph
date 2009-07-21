@@ -1,6 +1,9 @@
 <?php if ( $footer_show == 0 ) { ?>
 <?php if ( $footer_wrap == 1 ) { ?><div id="footer-wrap"><?php } ?>
-	<div id="footer" class="<?php echo $site_width ?> <?php echo $footer_chrome ?>">
+
+<?php if ( $footer_type == 0 ) { ?>
+
+	<div id="footer" class="<?php echo $site_width ?>">
     	<?php if ( $footer_swish == "1" ) { ?>
             <a title="JoomlaJunkie Commercial and free Joomla Templates" href="http://www.joomlajunkie.com" class="joomlajunkie-swish">Powered by Morph</a>
         <?php } ?>
@@ -25,5 +28,14 @@
            	<li class="ft-right"><?php echo $footer_credits; ?></li>
 		</ul>
 	</div>
+	
+<?php } if ( $footer_type == 1 ) { ?>
+
+	<div id="footer" class="<?php echo $site_width ?> <?php echo $footer_chrome ?> <?php getYuiSuffix('footer', $jj_const); ?>">
+    	<jdoc:include type="modules" name="footer" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo $footer_chrome; } ?>" />
+	</div>
+	
+<?php } ?>
+
 <?php if ( $footer_wrap == 1 ) { ?></div><?php } ?>
 <?php } ?>
