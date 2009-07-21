@@ -32,13 +32,9 @@ $rounded_amount = $_GET['E08'];
 $image_captions = $_GET['F01'];
 $rounded_corners = $_GET['F02'];
 $gzip_compression = $_GET['Z01'];
-header("content-type: text/javascript; charset: UTF-8");
-if ( $gzip_compression == 1 ) {
+header("content-type: text/js; charset: UTF-8");if ( $gzip_compression == 1 ) {
 ob_start("ob_gzhandler");
-header("cache-control: must-revalidate");
-$offset = 60 * 60;
-$expire = "expires: " . gmdate ("D, d M Y H:i:s", time() + $offset) . " GMT";
-header($expire);
+header("cache-control: must-revalidate");$offset = 60 * 10000;$expire = "expires: " . gmdate("D, d M Y H:i:s", time() + $offset) . " GMT";header($expire);
 }
 if ( $jquery_core == 1 ) { include('jquery-1.3.2.min.js'); }
 if ( $tabscount >= 1 ) { include('jquery.ui.core.js'); include('jquery.ui.tabs.js'); }
