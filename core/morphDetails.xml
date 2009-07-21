@@ -747,6 +747,10 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
+	<param name="footer_type" type="list" default="1" label="Footer type" tooltip="modal" description="footer.html">
+		<option value="0">Copyright, credits and links</option>
+		<option value="1">Module position</option>
+	</param>	
 	<param name="footer_chrome" type="list" default="none" label="Module chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="custom1">Basic XHTML</option>
@@ -762,10 +766,7 @@
 		<option value="yui-ge">75/25 Split</option>
 		<option value="yui-gf">25/75 Split</option>
 	</param>
-	<param name="footer_type" type="list" default="1" label="Footer type" tooltip="modal" description="footer.html">
-		<option value="1">Copyright, credits and links</option>
-		<option value="0">Module position</option>
-	</param>
+
 	<param name="footer_copyright" type="textarea" cols="32" rows="2" default="Copyright 2008 JoomlaJunkie.com - All Rights Reserved" label="Copyright" tooltip="inline" description="Add your own copyright here" />
 	<param name="footer_credits" type="textarea" cols="32" rows="2" default="Template Designed by &lt;a href=&quot;http://www.joomlajunkie.com&quot; title=&quot;professional joomla templates&quot;&gt;JoomlaJunkie&lt;/a&gt;" label="Credits" tooltip="inline" description="Add your own credits here" />
 	<param name="footer_textcolor" type="colorpicker" default="default" label="Text color" tooltip="inline" description="" />
