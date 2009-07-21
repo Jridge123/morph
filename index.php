@@ -50,5 +50,6 @@ include_once("core/includes/foot.php");
 <?php if($this->countModules('advert2')) { ?><div id="advert2"><jdoc:include type="modules" name="advert2" style="none" /></div><?php } ?>
 <jdoc:include type="modules" name="debug" />
 <?php include_once("core/includes/ga-code.php"); ?>
+<a href="#top" id="top-link">Top of Page</a>
 </body>
 </html>

@@ -1,7 +1,6 @@
 <?php
-
 defined('_JEXEC') or die('Restricted access');
-
+(substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip') ? ob_start("ob_gzhandler") : ob_start() );
 // initiate morph
 include_once('templates/morph/core/morphLoader.php');
 include_once('templates/morph/core/morphParams.php');
@@ -222,7 +221,7 @@ if ( $pack_js == 1 ) {
 }
 if ( $pack_css == 1 ) {
 	$document->addStyleSheet($templatepath .'/css/template.css.php?'.$packed_css);
-	$document->addStyleSheet($themeletpath .'/css/themelet.css');
+	$document->addStyleSheet($themeletpath .'/css/themelet.css.php');
 	if(file_exists($customcss) && is_readable($customcss)){
 	$document->addStyleSheet($themeletpath .'/css/custom.css');
 	}
@@ -233,7 +232,7 @@ if ( $pack_css == 1 ) {
 	$document->addStyleSheet($templatepath .'/css/typo.css');
 	$document->addStyleSheet($templatepath .'/css/tabs.css');
 	$document->addStyleSheet($templatepath .'/css/dynamic.css.php?'.$dynamic_css);	
-	$document->addStyleSheet($themeletpath .'/css/themelet.css');
+	$document->addStyleSheet($themeletpath .'/css/themelet.css.php');
 	$document->addStyleSheet($assetspath .'/packs/base/modfx.css');
 	if ( $topnav_count >= 1 ) { $document->addStyleSheet($templatepath .'/css/topnav-default.css');	}
 	if ( $topfish >= 1 ) {	$document->addStyleSheet($templatepath .'/css/topnav-topfish.css');	}

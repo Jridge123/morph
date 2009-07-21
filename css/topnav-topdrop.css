@@ -49,7 +49,7 @@ a:focus > .sf-sub-indicator,
 a:hover > .sf-sub-indicator,
 a:active > .sf-sub-indicator,
 li:hover > a > .sf-sub-indicator,
-li.sfHover > a > .sf-sub-indicator{background-position:-10px -100px;/* arrow hovers for modern browsers*/}
+li.sfHover > a > .sf-sub-indicator{background-position:-10px -100px;}
 
 /* point right for anchors in subs */
 #topnav.topdrop #nav .menu ul .sf-sub-indicator{background-position:-10px 0;}
@@ -60,27 +60,20 @@ li.sfHover > a > .sf-sub-indicator{background-position:-10px -100px;/* arrow hov
 #topnav.topdrop #nav .menu ul a:hover > .sf-sub-indicator,
 #topnav.topdrop #nav .menu ul a:active > .sf-sub-indicator,
 #topnav.topdrop #nav .menu ul li:hover > a > .sf-sub-indicator,
-#topnav.topdrop #nav .menu ul li.sfHover > a > .sf-sub-indicator{background-position:-10px 0;/* arrow hovers for modern browsers*/}
-
-/* shadows for all but IE6 */
-.sf-shadow ul{background:url('../images/shadow.png') no-repeat bottom right;padding:0 8px 9px 0;-moz-border-radius-bottomleft:17px;-moz-border-radius-topright:17px;-webkit-border-top-right-radius:17px;-webkit-border-bottom-left-radius:17px;}
-.sf-shadow ul.sf-shadow-off{background:transparent;}
-
+#topnav.topdrop #nav .menu ul li.sfHover > a > .sf-sub-indicator{background-position:-10px 0;}
 
 /* dropline core and theme layer
 ****************************************/
-#topnav.topdrop #nav .menu{/* background:#EEE;*/
-height:3.5em;/* padding-bottom:3.4em;*/
-position:relative;}
+#topnav.topdrop #nav .menu{height:3.5em;position:relative;}
 #topnav.topdrop #nav .menu li{position:static;border-bottom:1px solid #ccc;border-right:1px solid #ddd;}
 #topnav.topdrop #nav .menu a{border-top:none;font-size:1.1em;display:block;position:relative;}
-#topnav.topdrop #nav .menu li ul{width:44em;/*IE6 soils itself without this*/}
+#topnav.topdrop #nav .menu li ul{width:44em;ß}
 #topnav.topdrop #nav .menu li li{background:none;position:relative;}
 #topnav.topdrop #nav .menu li li ul{width:13em;border-top:1px solid #ccc;}
 #topnav.topdrop #nav .menu li li li{width:100%;background:#ebebeb;border-left:1px solid #ccc;border-right:1px solid #ccc;border-bottom:1px solid #ccc;border-top:1px solid #fff;}
 #topnav.topdrop #nav .menu ul li{width:auto;float:left;}
 #topnav.topdrop #nav .menu a,#topnav.topdrop #nav .menu a:visited{border:none;}
-#topnav.topdrop #nav .menu li.current{background:#EEE;}
+#topnav.topdrop #nav .menu li.current{background:#eee;}
 
 /* highlight path hover */
 #topnav.topdrop #nav .menu li:hover,
@@ -105,7 +98,6 @@ ul#topnav.topdrop #nav .menu .current ul ul{top:-999em;}
 #topnav.topdrop #nav .menu li ul li a:link,
 #topnav.topdrop #nav .menu li ul li a:visited{font-size:0.95em;line-height:0.7em;text-decoration:none;color:#666;}
 
-
 /* point arrows down
 ****************************************/
 /* point right for anchors in subs */
@@ -116,18 +108,14 @@ ul#topnav.topdrop #nav .menu .current ul ul{top:-999em;}
 #topnav.topdrop #nav .menu ul a:hover > .sf-sub-indicator,
 #topnav.topdrop #nav .menu ul a:active > .sf-sub-indicator,
 #topnav.topdrop #nav .menu ul li:hover > a > .sf-sub-indicator,
-#topnav.topdrop #nav .menu ul li.sfHover > a > .sf-sub-indicator{background-position:-10px -100px;/* arrow hovers for modern browsers*/}
+#topnav.topdrop #nav .menu ul li.sfHover > a > .sf-sub-indicator{background-position:-10px -100px;}
 /* remove shadow on first submenu */
 #topnav.topdrop #nav .menu > li > ul{background:transparent;padding:0;-moz-border-radius-bottomleft:0;-moz-border-radius-topright:0;-webkit-border-top-right-radius:0;-webkit-border-bottom-left-radius:0;}
 
-
 /* subtext layer
 ****************************************/
-#topnav.subtext #nav ul.menu li a,
-#topnav.subtext #nav ul.menu li span.separator{text-transform:uppercase;padding:16px 14px 10px;}
+#topnav.subtext #nav ul.menu li a,#topnav.subtext #nav ul.menu li span.separator{text-transform:uppercase;padding:16px 14px 10px;}
 #topnav.subtext #nav ul.menu li ul li a {text-transform:none;padding:12px 19px 12px 13px;}
 #topnav.subtext #nav ul.menu li ul li span.separator {text-transform:none;padding:10px 19px 10px 13px;}
-#topnav.subtext #nav .menu li:hover ul,
-#topnav.subtext #nav .menu li.sfHover ul {top:4.8em; /* match top ul list item height */ z-index:99;}
-#topnav.subtext #nav .menu li:hover ul ul,
-#topnav.subtext #nav .menu li.sfHover ul ul {top:0; /* match top ul list item height */ z-index:99;}
+#topnav.subtext #nav .menu li:hover ul,#topnav.subtext #nav .menu li.sfHover ul {top:4.8em;z-index:99;}
+#topnav.subtext #nav .menu li:hover ul ul,#topnav.subtext #nav .menu li.sfHover ul ul {top:0;z-index:99;}

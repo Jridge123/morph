@@ -33,10 +33,7 @@ $gzip_compression = $_GET['Z02'];
 
 if ( $gzip_compression == 1 ) {
 ob_start("ob_gzhandler");
-header("cache-control: must-revalidate");
-$offset = 60 * 60;
-$expire = "expires: " . gmdate ("D, d M Y H:i:s", time() + $offset) . " GMT";
-header($expire);
+header("cache-control: must-revalidate");$offset = 60 * 10000;$expire = "expires: " . gmdate("D, d M Y H:i:s", time() + $offset) . " GMT";header($expire);
 }
 function isIE6(){
 	$user_agent = $_SERVER['HTTP_USER_AGENT'];

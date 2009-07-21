@@ -153,3 +153,7 @@ form.polls li.sectiontableentry1{background:#ddd;}
 #primary-content .search-info{background:#1F2323;border-bottom:3px solid #191919;}
 .search-counter{background:#171717;border:1px solid #222222;}
 .searchintro span{color:#999;}
+
+
+#top-link   { display:none; position:fixed; right:5px; bottom:5px; color:green; font-weight:bold; text-decoration:none; border:1px solid green; background:Lightgreen; padding:10px; }
+.internetexplorer6 #top-link,.internetexplorer7 #top-link{height:1.5%;}
