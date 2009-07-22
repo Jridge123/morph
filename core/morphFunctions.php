@@ -6,6 +6,23 @@ include_once('templates/morph/core/morphLoader.php');
 include_once('templates/morph/core/morphParams.php');
 require_once('templates/morph/core/browser.php');
 
+// CSS and JS Packing
+$curr_url = (!empty($_SERVER['HTTPS'])) ? "https://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'] : "http://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
+if(isset($_GET['packjs'])){
+	setcookie('packjs', 'true', 0);
+	header('Location: ' . str_replace('&packjs', '', $curr_url));
+}elseif(isset($_GET['unpackjs'])){
+	setcookie('packjs', 'true', time()-3600);
+	header('Location: ' . str_replace('&unpackjs', '', $curr_url));
+}
+if(isset($_GET['packcss'])){
+	setcookie('packcss', 'true', 0);
+	header('Location: ' . str_replace('&packcss', '', $curr_url));
+}elseif(isset($_GET['unpackcss'])){
+	setcookie('packcss', 'true', time()-3600);
+	header('Location: ' . str_replace('&unpackcss', '', $curr_url));
+}
+
 // set the various paths:
 $templatepath = JURI::root() . 'templates/' . $this->template;
 $themeletpath = JURI::root() . 'morph_assets/themelets/' . $themelet;
@@ -193,7 +210,7 @@ $packed_css =
 "H01=$toolbar_slider" . '&amp;' .
 "Z01=$gzip_compression";
 
-if ( $pack_js == 1 ) {
+if ( isset($_COOKIE['packjs']) && $pack_js == 1 || isset($_COOKIE['packjs']) && $pack_js == 0 ) {
 	$document->addScript($templatepath .'/js/template.js.php?'.$packed_js);
 	if(file_exists($customjs) && is_readable($customjs)){
 	$document->addScript($themeletpath .'/js/custom.js');
@@ -219,7 +236,7 @@ if ( $pack_js == 1 ) {
 	$document->addScript($templatepath .'/js/dynamic.js.php?'.$dynamic_js);
 	$document->addScript($templatepath .'/js/template.js');
 }
-if ( $pack_css == 1 ) {
+if ( isset($_COOKIE['packcss']) && $pack_css == 1 || isset($_COOKIE['packcss']) && $pack_css == 0 ) {
 	$document->addStyleSheet($templatepath .'/css/template.css.php?'.$packed_css);
 	$document->addStyleSheet($themeletpath .'/css/themelet.css.php');
 	if(file_exists($customcss) && is_readable($customcss)){
