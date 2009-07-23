@@ -201,7 +201,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="topnav_hoverfocus" type="radio" default="1" label="HoverFocus" tooltip="inline" description="HoverFocus is an experimental feature which fades out contents of the topshelf when you hover on to child items of the top navigation. This allows you to focus on the menu items rather than the underlying content.">
+	<param name="topnav_hoverfocus" type="radio" default="1" label="HoverFocus" tooltip="inline" description="HoverFocus is an experimental feature which fades out contents of the topshelf when you hover on to child items of the top navigation. This allows you to focus on the menu items rather than the underlying content. This feature is still a bit buggy.">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
@@ -209,7 +209,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="topnav_supersubs" type="radio" default="1" label="SuperSubs" tooltip="inline" description="Would you like the submenu's width to adjust automatically? (Supersubs)">
+	<param name="topnav_supersubs" type="radio" default="1" label="Auto width on sub items" tooltip="inline" description="Would you like the sub menu items width to adjust automatically?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
