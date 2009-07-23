@@ -3,12 +3,12 @@ defined('_JEXEC') or die('Restricted access');
 ?>
 
 <?php if ($this->params->get('show_page_title',1)) : ?>
-<h1 class="componentheading frontpage<?php echo $this->escape($this->params->get('pageclass_sfx')); ?>">
+<h1 class="componentheading frontpage <?php echo $this->escape($this->params->get('pageclass_sfx')); ?>">
 	<?php echo $this->escape($this->params->get('page_title')); ?>
 </h1>
 <?php endif; ?>
 
-<div class="frontpage-blog <?php echo $this->escape($this->params->get('pageclass_sfx')); ?>">
+<div class="frontpage-blog blog <?php echo $this->escape($this->params->get('pageclass_sfx')); ?>">
 
 	<?php $i = $this->pagination->limitstart;
 	$rowcount = $this->params->def('num_leading_articles', 1);
