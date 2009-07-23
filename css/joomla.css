@@ -108,6 +108,18 @@ a.readon{background:#eee;color:#666;}
 .frontpage-blog{margin-bottom: 2em;}
 .blog_more .more-link{margin:0 0 .5em 0;font-size:1.4em;}
 
+/* frontpage blog view
+****************************/
+.frontpage-blog{float:left;width:100%;}
+.frontpage-blog .contentheading{float:left;margin:0;padding:0;}
+.frontpage-blog .article-options,
+.frontpage-blog .article-options li{margin:0;padding:0;}
+.frontpage-blog .article-options{float:right;margin-top:7px;}
+.frontpage-blog .content,
+.frontpage-blog .article-info{margin:0;padding:0;}
+.frontpage-blog .article-info{font-size:1.2em;}
+.frontpage-blog .content{margin-bottom:1em;}
+
 /* article styling
 ****************************/
 .contentheading{margin:.5em 0 0 0;padding:0;}
