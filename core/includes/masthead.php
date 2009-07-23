@@ -1,37 +1,50 @@
 <?php if ( $masthead_show == 0 ) {
 	  if ( $masthead_wrap == 1 ) { ?><div id="top-wrap"><?php } ?>
+		
+   <div class="<?php echo $site_width; echo $masthead_gridsplit; echo $masthead_chrome; ?>" id="masthead">
 
-   <div class="<?php echo $site_width ?> <?php echo $masthead_gridsplit ?> <?php echo $masthead_chrome ?>" id="top">
+      <div id="branding" class="yui-u first
+      <?php if ( $logo_type == "0" ) { ?> h1-text<?php } if ( $logo_type == "1" ) { ?> h1-image<?php } if ( $logo_type == "2" ) { ?> plain-txt<?php } if ( $logo_type == "3" ) { ?> inline-img<?php } if ( $slogan_text !== "" ) { ?> slogan<?php } ?>">
+         
+   		<?php if ( $logo_type == 0 ) { ?>
+			<!-- h1 text logo -->
+			<h1><a href="<?php echo JURI::root() ?>" title="<?php if ($logo_linktitle != ""){ echo $logo_linktitle; } else { echo $mainframe->getCfg('sitename'); } ?>">
+			<?php if ($logo_text != ""){ echo $logo_text; } else { echo $mainframe->getCfg('sitename'); } ?>
+			</a></h1>
+		<?php } ?>
+  
+ 		<?php if ( $logo_type == 1 ) { ?>
+			<!-- h1 image logo -->
+			<h1><a href="<?php echo JURI::root() ?>" title="<?php if ($logo_linktitle != ""){ echo $logo_linktitle; } else { echo $mainframe->getCfg('sitename'); } ?>">
+			<?php if ($logo_text != ""){ echo $logo_text; } else { echo $mainframe->getCfg('sitename'); } ?>
+			</a></h1>
+		<?php } ?>
+  
+		<?php if ( $logo_type == 2 ) { ?>
+			<!-- plain text logo -->
+			<a href="<?php echo JURI::root() ?>" title="<?php if ($logo_linktitle != ""){ echo $logo_linktitle; } else { echo $mainframe->getCfg('sitename'); } ?>" class="logo">
+			<?php if ($logo_text != ""){ echo $logo_text; } else { echo $mainframe->getCfg('sitename'); } ?>
+			</a>
+			<?php if ( $display_slogan == "2" ) { ?>
+			<p class="slogan"><?php echo $slogan_text; ?></p>
+			<?php } ?>
+		<?php } ?>
 
-      <div id="branding" class="yui-u first<?php if ( $logo_type == "0" ) { ?> img-logo<?php } if ( $logo_type == "1" ) { ?> txt-logo<?php } if ( $logo_type == "2" ) { ?> h1-logo<?php } if ( $slogan_text !== "" ) { ?> slogan<?php } ?>">
-         
-         <?php if ( $logo_type == 0 ) { ?>
-         
-         <a href="<?php echo JURI::root() ?>" title="<?php if ($logo_linktitle != ""){ echo $logo_linktitle; } else { echo $mainframe->getCfg('sitename'); } ?>">
-         <img src="templates/morph/assets/logos/<?php echo $logo_image; ?>" width="<?php echo $logo_size[0]; ?>" height="<?php echo $logo_size[1]; ?>" alt="<?php if ( $logo_alttext != ""){ echo $logo_alttext; } else { echo $mainframe->getCfg('sitename'); } ?>" border="0" /></a>
-         
-         <?php if ( $display_slogan == "1" ) { ?>
-         <p class="slogan"><?php echo $slogan_text; ?></p>
-         <?php } ?>
-                  
-         <?php } if ( $logo_type == 1 ) { ?>
-         <a href="<?php echo JURI::root() ?>" title="<?php if ($logo_linktitle != ""){ echo $logo_linktitle; } else { echo $mainframe->getCfg('sitename'); } ?>" class="logo">
-         <?php if ($logo_text != ""){ echo $logo_text; } else { echo $mainframe->getCfg('sitename'); } ?>
-         </a>
-         <?php if ( $display_slogan == "1" ) { ?>
-         <p class="slogan"><?php echo $slogan_text; ?></p>
-         <?php } ?>
-         
-         <?php } if ( $logo_type == 2 ) { ?>
-         <h1><a href="<?php echo JURI::root() ?>" title="<?php if ($logo_linktitle != ""){ echo $logo_linktitle; } else { echo $mainframe->getCfg('sitename'); } ?>">
-            <?php if ($logo_text != ""){ echo $logo_text; } else { echo $mainframe->getCfg('sitename'); } ?>
-            </a></h1>
-         <?php } ?>
-              
-         <?php if ( $logo_type == 3 ) { ?>
-         <jdoc:include type="modules" name="branding" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo $masthead_chrome; } ?>" />
-         <?php } ?>
-       
+  		<?php if ( $logo_type == 3 ) { ?>
+			<!-- inline image logo -->
+			<a href="<?php echo JURI::root() ?>" title="<?php if ($logo_linktitle != ""){ echo $logo_linktitle; } else { echo $mainframe->getCfg('sitename'); } ?>">
+			<img src="templates/morph/assets/logos/<?php echo $logo_image; ?>" width="<?php echo $logo_size[0]; ?>" height="<?php echo $logo_size[1]; ?>" alt="<?php if ( $logo_alttext != ""){ echo $logo_alttext; } else { echo $mainframe->getCfg('sitename'); } ?>" border="0" /></a>
+			
+			<?php if ( $display_slogan == "1" ) { ?>
+			<p class="slogan"><?php echo $slogan_text; ?></p>
+			<?php } ?>
+		<?php } ?>
+
+  		<?php if ( $logo_type == 4 ) { ?>
+			<!-- inline image logo -->
+			<jdoc:include type="modules" name="branding" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo $masthead_chrome; } ?>" />
+		<?php } ?>
+
        <ul id="skipto">
 			<?php if ($this->countModules( 'user3' )) : ?>
 			<li><a title="Skip to menu" href="<?php JURI::root(); ?>#topnav"><?php echo JText::_('skip to menu'); ?></a></li>

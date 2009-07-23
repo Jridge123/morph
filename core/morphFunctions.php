@@ -233,7 +233,7 @@ if ( isset($_COOKIE['packjs']) && $pack_js == 1 || isset($_COOKIE['packjs']) && 
 	$document->addScript($templatepath .'/js/jquery.equalheights.js'); }
 	if ( $image_captions == 1 ) { $document->addScript($templatepath .'/js/jquery.captify.js'); }
 	if(file_exists($customjs) && is_readable($customjs)){ $document->addScript($themeletpath .'/js/custom.js'); }
-	$document->addScript($templatepath .'/js/dynamic.js.php?'.$dynamic_js);
+	$document->addScript($templatepath .'/js/dynamic.js.php');
 	$document->addScript($templatepath .'/js/template.js');
 }
 if ( isset($_COOKIE['packcss']) && $pack_css == 1 || isset($_COOKIE['packcss']) && $pack_css == 0 ) {
@@ -248,7 +248,7 @@ if ( isset($_COOKIE['packcss']) && $pack_css == 1 || isset($_COOKIE['packcss']) 
 	$document->addStyleSheet($templatepath .'/css/modules.css');
 	$document->addStyleSheet($templatepath .'/css/typo.css');
 	$document->addStyleSheet($templatepath .'/css/tabs.css');
-	$document->addStyleSheet($templatepath .'/css/dynamic.css.php?'.$dynamic_css);	
+	$document->addStyleSheet($templatepath .'/css/dynamic.css.php');	
 	$document->addStyleSheet($themeletpath .'/css/themelet.css.php');
 	$document->addStyleSheet($assetspath .'/packs/base/modfx.css');
 	if ( $topnav_count >= 1 ) { $document->addStyleSheet($templatepath .'/css/topnav-default.css');	}
