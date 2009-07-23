@@ -46,7 +46,7 @@ header("cache-control: must-revalidate");$offset = 60 * 10000;$expire = "expir
 }
 
 //include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/themelet.css');
-include(JPATH . 'morph_assets/packs/base/modfx.css');
+//include(JPATH . 'morph_assets/packs/base/modfx.css');
 include('yui.css');
 include('joomla.css');
 include('modules.css');

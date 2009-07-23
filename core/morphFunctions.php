@@ -99,8 +99,14 @@ include_once($absolutepath.'/custom.php');
 }
 function debug_chrome($pt_debug, $pt_mod_chrome){	if( $pt_debug == 1 ){ 		return 'outline'; 	} else { 		return $pt_mod_chrome; 	}}
 
-if( isIE6() && $logo_image_ie !== ''){ $logo = $assetspath.'/logos/'.$ie_logo_image; } else { $logo = $assetspath.'/logos/'.$logo_image; }
-$logo_size = getimagesize($logo);
+if ( $logo_type == 1 or $logo_type == 3 ) {
+	if( isIE6() && $logo_image_ie !== ''){ $logo = $assetspath.'/logos/'.$ie_logo_image; } else { $logo = $assetspath.'/logos/'.$logo_image; }
+	$logo_size = getimagesize($logo);
+} else {
+	$logo_size[0] = 'null';
+	$logo_size[1] = 'null';
+	$logo = 'null';
+}
 
 $db=& JFactory::getDBO();
 

@@ -65,7 +65,7 @@
 
 <params group="logodata">		
 	<param name="logo options heading" type="heading" label="Logo Settings" description="" />
-	<param name="logo_type" type="list" default="2" label="Logo type" tooltip="inline" description="How would you like your logo to be outputed? A full tutorial explaining each of the options listed here will be added soon.">
+	<param name="logo_type" type="list" default="0" label="Logo type" tooltip="inline" description="How would you like your logo to be outputed? A full tutorial explaining each of the options listed here will be added soon.">
 		<option value="0">Linked h1 text</option>
 		<option value="1">Linked h1 image replacement</option>
 		<option value="2">Linked plain text</option>
@@ -79,11 +79,11 @@
 	</param>	
 	<param name="logo_image_ie" type="imagelist" default="" tooltip="inline" label="Logo image for IE6" directory="morph_assets/logos" hide_none="false" hide_default="false" description="We have added the option to have an alternate logo to display in IE6. This is useful if you are using a transparent png for your logo and would like to have a gif displayed for people browsing your site in Internet Explorer 6." />
 	<param name="logo_text" type="text" default="Your logo text" label="Logo text" tooltip="inline" description="Set your logo text" />
-	<param name="logo_alttext" type="text" default="" label="Logo image alt text" tooltip="inline" description="Set your logo image alt text" />
-	<param name="logo_linktitle" type="text" default="" label="Logo link title text" tooltip="inline" description="Set your logo link title text" />
-	<param name="logo_textcolor" type="colorpicker" default="default" label="Logo text color" tooltip="inline" description="Set your logo text foreground color." />
-	<param name="logo_fontsize" type="text" default="" label="Logo font size" tooltip="inline" description="Adjust the font size of your custom logo text." />
-	<param name="logo_fontfamily" type="list" default="" label="Logo font family" tooltip="inline" description="Choose which font family you would like to use.">
+	<param name="logo_alttext" type="text" default="Your logo image alternate text" label="Logo image alt text" tooltip="inline" description="Set your logo image alt text" />
+	<param name="logo_linktitle" type="text" default="Your logo link title text" label="Logo link title text" tooltip="inline" description="Set your logo link title text" />
+	<param name="logo_textcolor" type="colorpicker" default="#111" label="Logo text color" tooltip="inline" description="Set your logo text foreground color." />
+	<param name="logo_fontsize" type="text" default="2em" label="Logo font size" tooltip="inline" description="Adjust the font size of your custom logo text." />
+	<param name="logo_fontfamily" type="list" default="Arial, Helvetica, sans-serif" label="Logo font family" tooltip="inline" description="Choose which font family you would like to use.">
 	    <option value=""> </option>
 	    <option value="Arial, Helvetica, sans-serif">Arial</option>
 	    <option value="'Arial Black', Gadget, sans-serif">Arial Black</option>

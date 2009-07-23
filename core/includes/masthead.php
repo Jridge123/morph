@@ -1,7 +1,7 @@
 <?php if ( $masthead_show == 0 ) {
-	  if ( $masthead_wrap == 1 ) { ?><div id="top-wrap"><?php } ?>
+	  if ( $masthead_wrap == 1 ) { ?><div id="masthead-wrap"><?php } ?>
 		
-   <div class="<?php echo $site_width; echo $masthead_gridsplit; echo $masthead_chrome; ?>" id="masthead">
+   <div class="<?php echo $site_width;?> <?php echo $masthead_gridsplit;?> <?php echo $masthead_chrome; ?>" id="masthead">
 
       <div id="branding" class="yui-u first
       <?php if ( $logo_type == "0" ) { ?> h1-text<?php } if ( $logo_type == "1" ) { ?> h1-image<?php } if ( $logo_type == "2" ) { ?> plain-txt<?php } if ( $logo_type == "3" ) { ?> inline-img<?php } if ( $slogan_text !== "" ) { ?> slogan<?php } ?>">
