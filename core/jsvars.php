@@ -32,4 +32,6 @@ $rounded_amount = $_GET['E08'];
 $image_captions = $_GET['F01'];
 $rounded_corners = $_GET['F02'];
 $gzip_compression = $_GET['Z01'];
+$pack_js = $_GET['Z02'];
+$custom_js = $_GET['Z03'];
 ?>

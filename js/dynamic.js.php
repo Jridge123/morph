@@ -1,35 +1,5 @@
 <?php
-$topshelf_equalize = $_GET['A01'];
-$bottomshelf_equalize = $_GET['A02'];
-$user1_equalize = $_GET['A03'];
-$user2_equalize = $_GET['A04'];
-$topshelfcount = $_GET['B01'];
-$btmshelfcount = $_GET['B02'];
-$user1count = $_GET['B03'];
-$user2count = $_GET['B04'];
-$tabscount = $_GET['B05'];
-$roundedcount = $_GET['B06'];
-$rounded_corners = $_GET['C01'];
-$rounded_amount = $_GET['C02'];
-$toolbar_slider = $_GET['D01'];
-$toolbar_slider_text = $_GET['D02'];
-$topshelf_slider = $_GET['D03'];
-$topshelf_slider_text = $_GET['D04'];
-$bottomshelf_slider = $_GET['D05'];
-$bottomshelf_slider_text = $_GET['D06'];
-$image_captions = $_GET['E01'];
-$topnav_hoverfocus = $_GET['F01'];
-$topnav_supersubs = $_GET['F02'];
-$topnav_minwidth = $_GET['F03'];
-$topnav_maxwidth = $_GET['F04'];
-$topnav_delay = $_GET['F05'];
-$topnav_animation = $_GET['F06'];
-$topnav_hoverintent = $_GET['F07'];
-$topfish = $_GET['F08'];
-$topdrop = $_GET['F09'];
-$sidefish = $_GET['F10'];
-$animate_left = $_GET['F11'];
-$gzip_compression = $_GET['Z01'];
+
 header("content-type: text/js; charset: UTF-8");if ( $gzip_compression == 1 ) {
 ob_start("ob_gzhandler");
 header("cache-control: must-revalidate");$offset = 60 * 10000;$expire = "expires: " . gmdate("D, d M Y H:i:s", time() + $offset) . " GMT";header($expire);

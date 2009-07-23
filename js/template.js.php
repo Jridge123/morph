@@ -1,26 +1,31 @@
 <?php
 include '../core/jsvars.php';
-header("content-type: text/js; charset: UTF-8");if ( $gzip_compression == 1 ) {
+header("content-type: text/javascript; charset: UTF-8");if ( $gzip_compression == 1 ) {
 ob_start("ob_gzhandler");
 header("cache-control: must-revalidate");$offset = 60 * 10000;$expire = "expires: " . gmdate("D, d M Y H:i:s", time() + $offset) . " GMT";header($expire);
 }
-
-if ( $jquery_core == 1 ) { include('jquery-1.3.2.min.js'); }
-if ( $tabscount >= 1 ) { include('jquery.ui.core.js'); include('jquery.ui.tabs.js'); }
-if ( $tabscount >= 1 or $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1  ) { include('jquery.cookie.js'); }
-if ( $rounded_corners == 1 ) { include('jquery.corners.js'); }
-if ( $topnav_hoverintent == 1 ) { include("jquery.superfish.hoverintent.js"); }
-if ( $sidefish >= 1 or $topfish >= 1 or $topdrop >= 1  ) { include('jquery.superfish.js'); }
-if ( $topnav_supersubs == 1 ) { include("jquery.superfish.supersubs.js"); }
-if ( $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1 ) { include('jquery.slider.js'); }
-if ( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1  ) { include('jquery.equalheights.js'); }
-if ( $image_captions == 1 ) { include('jquery.captify.js'); }
-include('jquery.scrollTo-1.4.2-min.js');
-include('template.js');
-
+if($pack_js == 1){
+	if ( $jquery_core == 1 ) { include('jquery-1.3.2.min.js'); }
+	if ( $tabscount >= 1 ) { include('jquery.ui.core.js'); include('jquery.ui.tabs.js'); }
+	if ( $tabscount >= 1 or $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1  ) { include('jquery.cookie.js'); }
+	if ( $rounded_corners == 1 ) { include('jquery.corners.js'); }
+	if ( $topnav_hoverintent == 1 ) { include("jquery.superfish.hoverintent.js"); }
+	if ( $sidefish >= 1 or $topfish >= 1 or $topdrop >= 1  ) { include('jquery.superfish.js'); }
+	if ( $topnav_supersubs == 1 ) { include("jquery.superfish.supersubs.js"); }
+	if ( $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1 ) { include('jquery.slider.js'); }
+	if ( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1  ) { include('jquery.equalheights.js'); }
+	if ( $image_captions == 1 ) { include('jquery.captify.js'); }
+	include('jquery.scrollTo-1.4.2-min.js');
+	include('template.js');
+}
 ?>
 (function($) {
 	$(document).ready(function(){
+	
+		// TODO: Wrap first word of module headings to allow for additional styling.		
+		// var str = $(".mod h3:first").text();
+		// $(".mod h3:last").html(str);
+		
 <?php if ( $topshelf_equalize == 1 ) { ?>
 		$(function(){ $('#topshelf .mod-grid').equalHeights(); });
 <?php } if ( $bottomshelf_equalize == 1 ) { ?>

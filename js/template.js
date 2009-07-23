@@ -1,4 +1,25 @@
 (function($) {
+	
+	$.fn.topLink = function(settings) {
+		settings = jQuery.extend({
+			min: 1,
+			fadeSpeed: 200
+		}, settings);
+		
+		return this.each(function() {
+			//listen for scroll
+			var el = $(this);
+			el.hide(); //in case the user forgot
+			$(window).scroll(function() {
+				if($(window).scrollTop() >= settings.min) {
+					el.fadeIn(settings.fadeSpeed);
+				}else{
+					el.fadeOut(settings.fadeSpeed);
+				}
+			});
+		});
+	};
+	
 	$(document).ready(function(){
 		$("#topnav.call-for-action li:last").addClass("action-link");
 		$("#topnav.call-for-action li:last").prev("li").addClass("second-last")
@@ -33,45 +54,16 @@
 		$("input#mod_search_searchword").wrapInner("<div class='extra-search-border'></div>");
 		$("#footer-links .fl-left li:last").addClass("fl-last");
 		$("#footer-links .fl-right li:last").addClass("fl-last");
-		
-//plugin
-jQuery.fn.topLink = function(settings) {
-	settings = jQuery.extend({
-		min: 1,
-		fadeSpeed: 200
-	}, settings);
-	return this.each(function() {
-		//listen for scroll
-		var el = $(this);
-		el.hide(); //in case the user forgot
-		$(window).scroll(function() {
-			if($(window).scrollTop() >= settings.min)
-			{
-				el.fadeIn(settings.fadeSpeed);
-			}
-			else
-			{
-				el.fadeOut(settings.fadeSpeed);
-			}
+
+		//usage w/ smoothscroll
+		$('#top-link').topLink({
+			min: 400,
+			fadeSpeed: 500
+		});
+		//smoothscroll
+		$('#top-link').click(function(e) {
+			$.scrollTo(0,300);
+			return false;
 		});
 	});
-};
-
-//usage w/ smoothscroll
-$(document).ready(function() {
-	//set the link
-	$('#top-link').topLink({
-		min: 400,
-		fadeSpeed: 500
-	});
-	//smoothscroll
-	$('#top-link').click(function(e) {
-		e.preventDefault();
-		$.scrollTo(0,300);
-	});
-});
-		
-		
-		
-    })
 })(jQuery);

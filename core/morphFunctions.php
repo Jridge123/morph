@@ -8,21 +8,32 @@ require_once('templates/morph/core/browser.php');
 
 // CSS and JS Packing
 $curr_url = (!empty($_SERVER['HTTPS'])) ? "https://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'] : "http://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
-if(isset($_GET['packjs'])){
-	setcookie('packjs', 'true', 0);
-	header('Location: ' . str_replace('&packjs', '', $curr_url));
-}elseif(isset($_GET['unpackjs'])){
-	setcookie('packjs', 'true', time()-3600);
-	header('Location: ' . str_replace('&unpackjs', '', $curr_url));
+if($pack_js == 1){
+	if(isset($_GET['unpackjs'])){
+		setcookie('unpackjs', 'true', 0);
+		header('Location: ' . str_replace(array('?unpackjs','&unpackjs'), '', $curr_url));
+	}elseif(isset($_GET['packjs'])){
+		setcookie('unpackjs', 'true', time()-3600);
+		header('Location: ' . str_replace(array('?packjs','&packjs'), '', $curr_url));
+	}
+}else{
+	if( isset($_GET['unpackjs']) || isset($_GET['packjs']) ){
+		header('Location: ' . str_replace(array('?unpackjs','&unpackjs','?packjs','&packjs'), '', $curr_url));
+	}
 }
-if(isset($_GET['packcss'])){
-	setcookie('packcss', 'true', 0);
-	header('Location: ' . str_replace('&packcss', '', $curr_url));
-}elseif(isset($_GET['unpackcss'])){
-	setcookie('packcss', 'true', time()-3600);
-	header('Location: ' . str_replace('&unpackcss', '', $curr_url));
+if($pack_css == 1){
+	if(isset($_GET['unpackcss'])){
+		setcookie('unpackcss', 'true', 0);
+		header('Location: ' . str_replace(array('?unpackcss','&unpackcss'), '', $curr_url));
+	}elseif(isset($_GET['packcss'])){
+		setcookie('unpackcss', 'true', time()-3600);
+		header('Location: ' . str_replace(array('?packcss','&packcss'), '', $curr_url));
+	}
+}else{
+	if(isset($_GET['unpackcss']) || isset($_GET['packcss'])){
+		header('Location: ' . str_replace(array('?unpackcss','&unpackcss','?packcss','&packcss'), '', $curr_url));
+	}
 }
-
 // set the various paths:
 $templatepath = JURI::root() . 'templates/' . $this->template;
 $themeletpath = JURI::root() . 'morph_assets/themelets/' . $themelet;
@@ -60,13 +71,13 @@ $topshelfcount 				= $this->countModules('topshelf');
 $btmshelfcount 				= $this->countModules('btmshelf');
 $stylelink 					= '';
 $direction  				= $this->direction;
-$ied 						= "$absolutepath/css/ie.css";
-$ie6 						= "$absolutepath/css/ie6.css";
-$ie7 						= "$absolutepath/css/ie7.css";
-$ie8 						= "$absolutepath/css/ie8.css";
-$customcss					= "$absolutepath/css/custom.css";
-$customjs					= "$absolutepath/js/custom.js";
-$themeletfunctions			= "$absolutepath/custom.php";
+$ied 						= $absolutepath."/css/ie.css";
+$ie6 						= $absolutepath."/css/ie6.css";
+$ie7 						= $absolutepath."/css/ie7.css";
+$ie8 						= $absolutepath."/css/ie8.css";
+$customcss					= $absolutepath."/css/custom.css";
+$customjs					= $absolutepath."/js/custom.js";
+$themeletfunctions			= $absolutepath."/custom.php";
 $browser 					= new Browser();
 $thebrowser 				= ereg_replace("[^A-Za-z]", "", $browser->getBrowser());
 $ver 						= $browser->getVersion();
@@ -99,172 +110,54 @@ include_once($absolutepath.'/custom.php');
 }
 function debug_chrome($pt_debug, $pt_mod_chrome){	if( $pt_debug == 1 ){ 		return 'outline'; 	} else { 		return $pt_mod_chrome; 	}}
 
-if ( $logo_type == 1 or $logo_type == 3 ) {
-	if( isIE6() && $logo_image_ie !== ''){ $logo = $assetspath.'/logos/'.$ie_logo_image; } else { $logo = $assetspath.'/logos/'.$logo_image; }
-	$logo_size = getimagesize($logo);
-} else {
-	$logo_size[0] = 'null';
-	$logo_size[1] = 'null';
-	$logo = 'null';
-}
+include 'morphVars.php';
 
-$db=& JFactory::getDBO();
-
-$query = "SELECT COUNT(*) FROM `#__configurator` WHERE `param_value` = 'tabs' ";
-$db->setQuery( $query ); $tabscount = $db->loadResult();
-
-$query = "SELECT COUNT(*) FROM `#__modules` WHERE `params` LIKE '%moduleclass_sfx=rounded%' ";
-$db->setQuery( $query ); $roundedcount = $db->loadResult();
-
-$query = "SELECT COUNT(*) FROM #__modules WHERE position = 'user3' AND params LIKE '%moduleclass_sfx=topdrop%' OR position = 'user3' AND params LIKE '% topdrop%'";
-$db->setQuery( $query ); $topdrop = $db->loadResult();
-
-$query = "SELECT COUNT(*) FROM #__modules WHERE position = 'user3' AND params LIKE '%moduleclass_sfx=topfish%' OR position = 'user3' AND params LIKE '% topfish%'";
-$db->setQuery( $query ); $topfish = $db->loadResult();
-
-$query = "SELECT COUNT(*) FROM #__modules WHERE position = 'user3' AND params LIKE '%moduleclass_sfx=subtext%' OR position = 'user3' AND params LIKE '% subtext%'";
-$db->setQuery( $query ); $subtext_top = $db->loadResult();
-
-$query = "SELECT COUNT(*) FROM #__modules WHERE position = 'user3' AND params LIKE '%moduleclass_sfx=animate%' OR position = 'user3' AND params LIKE '% animate%'";
-$db->setQuery( $query ); $animate_top = $db->loadResult();
-
-$query = "SELECT COUNT(*) FROM #__modules WHERE params LIKE '%moduleclass_sfx=sidefish%' OR params LIKE '%sidefish%'";
-$db->setQuery( $query ); $sidefish = $db->loadResult();
-
-$query = "SELECT COUNT(*) FROM #__modules WHERE position = 'left' AND module = 'mod_mainmenu' OR position = 'right' AND module = 'mod_mainmenu'";
-$db->setQuery( $query ); $sidenav_count = $db->loadResult();
-
-$query = "SELECT COUNT(*) FROM #__modules WHERE position = 'user3' AND module = 'mod_mainmenu'";
-$db->setQuery( $query ); $topnav_count = $db->loadResult();
-
-$query = "SELECT COUNT(*) FROM #__modules WHERE position = 'left' AND params LIKE '%moduleclass_sfx=animate%' OR position = 'left' AND  params LIKE '% animate%'";
-$db->setQuery( $query ); $animate_left = $db->loadResult();
-
-$packed_js = 
-"A01=$jquery_core" . '&amp;' . 
-"B01=$topfish" . '&amp;' . 
-"B02=$sidefish" . '&amp;' . 
-"B03=$topdrop" . '&amp;' . 
-"B04=$topnav_supersubs" . '&amp;' . 
-"B05=$topnav_hoverintent" . '&amp;' . 
-"B06=$topnav_hoverfocus" . '&amp;' . 
-"B07=$topnav_minwidth" . '&amp;' . 
-"B08=$topnav_maxwidth" . '&amp;' . 
-"B09=$topnav_delay" . '&amp;' . 
-"B10=$topnav_animation" . '&amp;' . 
-"B11=$animate_left" . '&amp;' . 
-"C01=$toolbar_slider" . '&amp;' . 
-"C02=$topshelf_slider". '&amp;' . 
-"C03=$bottomshelf_slider" . '&amp;' . 
-"C04=$toolbar_slider_text" . '&amp;' . 
-"C05=$topshelf_slider_text" . '&amp;' . 
-"C06=$bottomshelf_slider_text" . '&amp;' . 
-"D01=$topshelf_equalize". '&amp;' . 
-"D02=$bottomshelf_equalize". '&amp;' . 
-"D03=$user1_equalize" . '&amp;' . 
-"D04=$user2_equalize". '&amp;' . 
-"E01=$tabscount" . '&amp;' . 
-"E02=$topshelfcount" . '&amp;' . 
-"E03=$btmshelfcount" . '&amp;' . 
-"E04=$user1count". '&amp;' . 
-"E05=$user2count" . '&amp;' . 
-"E06=$roundedcount" . '&amp;' . 
-"E07=$rounded_corners" . '&amp;' . 
-"E08=$rounded_amount" . '&amp;' . 
-"F01=$image_captions". '&amp;' . 
-"F02=$rounded_corners" . '&amp;' . 
-"Z01=$gzip_compression";
-
-if ($bg_image == "" ) { $bg_image = "default"; }
-
-$packed_css = 
-"A01=$themelet" . '&amp;' . 
-"A02=$direction" . '&amp;' . 
-"A03=$direction" . '&amp;' . 
-"B01=$logo_type" . '&amp;' . 
-"B02=$logo" . '&amp;' . 
-"B03=$logo_size[0]" . '&amp;' . 
-"B04=$logo_size[1]" . '&amp;' . 
-"B05=".urlencode($logo_textcolor) . '&amp;' . 
-"B06=".urlencode($logo_fontfamily) . '&amp;' . 
-"B07=$logo_fontsize" . '&amp;' . 
-"C01=".urlencode($slogan_textcolor) . '&amp;' . 
-"C02=".urlencode($slogan_fontfamily) . '&amp;' . 
-"C03=$slogan_fontsize" . '&amp;' . 
-"C04=$display_slogan" . '&amp;' . 
-"D01=".urlencode('#'.$bg_color) . '&amp;' . 
-"D02=$bg_image" . '&amp;' . 
-"D03=$bg_repeat" . '&amp;' . 
-"D04=".urlencode($bg_position) . '&amp;' . 
-"D05=$bg_attachment" . '&amp;' . 
-"E01=".urlencode('#'.$color_h1) . '&amp;' . 
-"E02=".urlencode('#'.$color_h2) . '&amp;' . 
-"E03=".urlencode('#'.$color_h3) . '&amp;' . 
-"E04=".urlencode('#'.$color_h4) . '&amp;' . 
-"E05=".urlencode('#'.$color_h5) . '&amp;' . 
-"E06=".urlencode('#'.$color_links) . '&amp;' . 
-"E07=".urlencode('#'.$color_linkshover) . '&amp;' . 
-"E08=".urlencode('#'.$color_linksvisited) . '&amp;' . 
-"E09=".urlencode('#'.$color_bodytext) . '&amp;' . 
-"F01=".urlencode('#'.$footer_textcolor) . '&amp;' . 
-"F02=".urlencode('#'.$footer_linkscolor) . '&amp;' . 
-"G01=$topfish" . '&amp;' . 
-"G02=$topdrop" . '&amp;' . 
-"G03=$topnav_count" . '&amp;' . 
-"G04=$sidenav_count" . '&amp;' . 
-"G05=$sidefish" . '&amp;' . 
-"H01=$toolbar_slider" . '&amp;' .
-"Z01=$gzip_compression";
-
-if ( isset($_COOKIE['packjs']) && $pack_js == 1 || isset($_COOKIE['packjs']) && $pack_js == 0 ) {
-	$document->addScript($templatepath .'/js/template.js.php?'.$packed_js);
-	if(file_exists($customjs) && is_readable($customjs)){
-	$document->addScript($themeletpath .'/js/custom.js');
-	}
-} else {
-	if ( $jquery_core == 1 ) {
-	$document->addScript($templatepath .'/js/jquery-1.3.2.min.js');
-	}
+// JS Logic
+if ( isset($_COOKIE['unpackjs']) && $pack_js == 1 || isset($_COOKIE['unpackjs']) && $pack_js == 0 || !isset($_COOKIE['unpackjs']) && $pack_js == 0 ) {
+	if ( $jquery_core == 1 ) { $document->addScript($templatepath .'/js/jquery-1.3.2.min.js'); }
 	if ( $tabscount >= 1 ) {
-	$document->addScript($templatepath .'/js/jquery.ui.core.js');
-	$document->addScript($templatepath .'/js/jquery.ui.tabs.js');
+		$document->addScript($templatepath .'/js/jquery.ui.core.js');
+		$document->addScript($templatepath .'/js/jquery.ui.tabs.js');
 	}
-	if ( $tabscount >= 1 or $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1  ) {
-	$document->addScript($templatepath .'/js/jquery.cookie.js'); }
-	if ( $topfish >= 1 && $topnav_hoverintent == 1 ) { $document->addScript($templatepath .'/js/jquery.superfish.hoverintent.js');}
-	if ( $sidefish >= 1 or $topfish >= 1  ) { $document->addScript($templatepath .'/js/jquery.superfish.js');	}
-	if ( $topfish >= 1 && $topnav_supersubs == 1 ) { $document->addScript($templatepath .'/js/jquery.superfish.supersubs.js'); }
-	if ( $rounded_corners == 1 or $roundedcount !== 0 ) { $document->addScript($templatepath .'/js/jquery.corners.js');	}
-	if ( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1  ) {
-	$document->addScript($templatepath .'/js/jquery.equalheights.js'); }
-	if ( $image_captions == 1 ) { $document->addScript($templatepath .'/js/jquery.captify.js'); }
-	if(file_exists($customjs) && is_readable($customjs)){ $document->addScript($themeletpath .'/js/custom.js'); }
-	$document->addScript($templatepath .'/js/dynamic.js.php');
+	if( $tabscount >= 1 or $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1 ) { $document->addScript($templatepath .'/js/jquery.cookie.js'); }
+	if( $topfish >= 1 && $topnav_hoverintent == 1 ) { $document->addScript($templatepath .'/js/jquery.superfish.hoverintent.js');}
+	if( $sidefish >= 1 or $topfish >= 1  ) { $document->addScript($templatepath .'/js/jquery.superfish.js');	}
+	if( $topfish >= 1 && $topnav_supersubs == 1 ) { $document->addScript($templatepath .'/js/jquery.superfish.supersubs.js'); }
+	if( $rounded_corners == 1 or $roundedcount !== 0 ) { $document->addScript($templatepath .'/js/jquery.corners.js');	}
+	if( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1  ) { $document->addScript($templatepath .'/js/jquery.equalheights.js'); }
+	if( $image_captions == 1 ) { $document->addScript($templatepath .'/js/jquery.captify.js'); }
+	$document->addScript($templatepath .'/js/jquery.scrollTo-1.4.2-min.js');
 	$document->addScript($templatepath .'/js/template.js');
+	$document->addScript($templatepath .'/js/template.js.php'.$packed_js);
+	if( $custom_js == 1 ){ $document->addScript($themeletpath .'/js/custom.js'); }
+}else{
+	$document->addScript($templatepath .'/js/template.js.php'.$packed_js);
+	if( $custom_js == 1 ){ $document->addScript($themeletpath .'/js/custom.js'); }
 }
-if ( isset($_COOKIE['packcss']) && $pack_css == 1 || isset($_COOKIE['packcss']) && $pack_css == 0 ) {
-	$document->addStyleSheet($templatepath .'/css/template.css.php?'.$packed_css);
-	$document->addStyleSheet($themeletpath .'/css/themelet.css.php');
-	if(file_exists($customcss) && is_readable($customcss)){
-	$document->addStyleSheet($themeletpath .'/css/custom.css');
-	}
-} else {
+
+// CSS Logic
+if ( isset($_COOKIE['unpackcss']) && $pack_css == 1 || isset($_COOKIE['unpackcss']) && $pack_css == 0 || !isset($_COOKIE['unpackcss']) && $pack_css == 0 ) {
 	$document->addStyleSheet($templatepath .'/css/yui.css');
 	$document->addStyleSheet($templatepath .'/css/joomla.css');
 	$document->addStyleSheet($templatepath .'/css/modules.css');
 	$document->addStyleSheet($templatepath .'/css/typo.css');
 	$document->addStyleSheet($templatepath .'/css/tabs.css');
-	$document->addStyleSheet($templatepath .'/css/dynamic.css.php');	
-	$document->addStyleSheet($themeletpath .'/css/themelet.css.php');
+	$document->addStyleSheet($templatepath .'/css/template.css.php'.$packed_css);
 	$document->addStyleSheet($assetspath .'/packs/base/modfx.css');
-	if ( $topnav_count >= 1 ) { $document->addStyleSheet($templatepath .'/css/topnav-default.css');	}
-	if ( $topfish >= 1 ) {	$document->addStyleSheet($templatepath .'/css/topnav-topfish.css');	}
-	if ( $topdrop >= 1 ) {	$document->addStyleSheet($templatepath .'/css/topnav-topdrop.css');	}
-	if ( $sidenav_count >= 1 ) { $document->addStyleSheet($templatepath .'/css/sidenav-default.css'); }
-	if ( $sidefish >= 1 ) {	$document->addStyleSheet($templatepath .'/css/sidenav-sidefish.css'); }	
-	if($this->direction == 'rtl') {	$document->addStyleSheet($templatepath .'/css/rtl.css'); }
-	if(file_exists($customcss) && is_readable($customcss)){	$document->addStyleSheet($themeletpath .'/css/custom.css');	}
+	if( $topnav_count >= 1 ) { $document->addStyleSheet($templatepath .'/css/topnav-default.css');	}
+	if( $topfish >= 1 ) { $document->addStyleSheet($templatepath .'/css/topnav-topfish.css');	}
+	if( $topdrop >= 1 ) { $document->addStyleSheet($templatepath .'/css/topnav-topdrop.css');	}
+	if( $sidenav_count >= 1 ) { $document->addStyleSheet($templatepath .'/css/sidenav-default.css'); }
+	if( $sidefish >= 1 ) { $document->addStyleSheet($templatepath .'/css/sidenav-sidefish.css'); }	
+	if($this->direction == 'rtl') { $document->addStyleSheet($templatepath .'/css/rtl.css'); }
+	if( $custom_css == 1 ){ $document->addStyleSheet($themeletpath .'/css/custom.css');	}
+	$document->addStyleSheet($themeletpath .'/css/themelet.css');
+}else{
+	$document->addStyleSheet($templatepath .'/css/template.css.php'.$packed_css);
+	if( $custom_css == 1 ){ $document->addStyleSheet($themeletpath .'/css/custom.css');	}
 }
+
+
 function isIE6(){
 	$user_agent = $_SERVER['HTTP_USER_AGENT'];
 	if(strpos($user_agent, 'MSIE 6 ')){

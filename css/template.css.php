@@ -1,76 +1,27 @@
 <?php
+include '../core/cssvars.php';
 header("content-type: text/css; charset: UTF-8");
 define('JPATH', str_replace('templates/morph/css', '', dirname(__FILE__)) . '/' );
-
-$themelet = $_GET['A01'];
-$direction = $_GET['A02'];
-$tabscount = $_GET['C03'];
-$logo_type = $_GET['B01'];
-$logo = $_GET['B02'];
-$logo_width = $_GET['B03'];
-$logo_height = $_GET['B04'];
-$logo_textcolor = stripslashes(urldecode($_GET['B05']));
-$logo_fontfamily = stripslashes(urldecode($_GET['B06']));
-$logo_fontsize = $_GET['B07'];
-$slogan_textcolor = stripslashes(urldecode($_GET['C01']));
-$slogan_fontfamily = stripslashes(urldecode($_GET['C02']));
-$slogan_fontsize = $_GET['C03'];
-$display_slogan = $_GET['C04'];
-$bg_color = stripslashes(urldecode($_GET['D01']));
-$bg_image = $_GET['D02'];
-$bg_repeat = $_GET['D03'];
-$bg_position = urldecode($_GET['D04']);
-$bg_attachment = $_GET['D05'];
-$color_h1 = stripslashes(urldecode($_GET['E01']));
-$color_h2 = stripslashes(urldecode($_GET['E02']));
-$color_h3 = stripslashes(urldecode($_GET['E03']));
-$color_h4 = stripslashes(urldecode($_GET['E04']));
-$color_h5 = stripslashes(urldecode($_GET['E05']));
-$color_links = stripslashes(urldecode($_GET['E06']));
-$color_linkshover = stripslashes(urldecode($_GET['E07']));
-$color_linksvisited = stripslashes(urldecode($_GET['E08']));
-$color_bodytext = stripslashes(urldecode($_GET['E09']));
-$footer_textcolor = stripslashes(urldecode($_GET['F01']));
-$footer_linkscolor = stripslashes(urldecode($_GET['F02']));
-$topfish = $_GET['G01'];
-$topdrop = $_GET['G02'];
-$topnav_count = $_GET['G03'];
-$sidenav_count = $_GET['G04'];
-$sidefish = $_GET['G05'];
-$toolbar_slider = $_GET['H01'];
-$gzip_compression = $_GET['Z01'];
 
 if ( $gzip_compression == 1 ) {
 ob_start("ob_gzhandler");
 header("cache-control: must-revalidate");$offset = 60 * 10000;$expire = "expires: " . gmdate("D, d M Y H:i:s", time() + $offset) . " GMT";header($expire);
 }
 
-//include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/themelet.css');
 //include(JPATH . 'morph_assets/packs/base/modfx.css');
-include('yui.css');
-include('joomla.css');
-include('modules.css');
-include('typo.css');
-if ( $tabscount >= 1 ) {
-include('tabs.css');
-}
-if ( $topfish >= 1) {	
-include('topnav-topfish.css');
-}
-if ( $topdrop >= 1) {	
-include('topnav-topdrop.css');
-}
-if ( $topnav_count >= 1) {	
-include('topnav-default.css');
-}
-if ( $sidefish >= 1) {	
-include('sidenav-sidefish.css');
-}
-if ( $sidenav_count >= 1) {	
-include('sidenav-default.css');
-}
-if ( $direction == 'rtl' ) {
-include('rtl.css');
+if($pack_css == 1){
+	include('yui.css');
+	include('joomla.css');
+	include('modules.css');
+	include('typo.css');
+	if( $tabscount >= 1 ) { include('tabs.css'); }
+	if( $topfish >= 1) { include('topnav-topfish.css'); }
+	if( $topdrop >= 1) { include('topnav-topdrop.css'); }
+	if( $topnav_count >= 1) { include('topnav-default.css'); }
+	if( $sidefish >= 1) { include('sidenav-sidefish.css'); }
+	if( $sidenav_count >= 1) { include('sidenav-default.css'); }
+	if( $direction == 'rtl' ) { include('rtl.css'); }
+	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/themelet.css');
 }
 ?>
 <!-- dynamic css starts here: -->
