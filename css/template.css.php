@@ -32,8 +32,9 @@ if( $pack_css == 1 ){
 	if(file_exists($css_tabs) && is_readable($css_tabs)){
 		include($_SERVER['DOCUMENT_ROOT'] . '/' . $themeletpath . '/css/tabs.css');
 	} else {
-		include($_SERVER['DOCUMENT_ROOT'] . '/' . $themeletpath . '/css/tabs.css');
+		include('tabs.css');
 	}
+	
 	if(file_exists($css_tnav_default) && is_readable($css_tnav_default) && $topnav_count >= 1 ){
 		include($_SERVER['DOCUMENT_ROOT'] . '/' . $themeletpath . '/css/topnav_default.css');
 	} elseif ( $topnav_count >= 1 ) {
@@ -69,14 +70,7 @@ if( $pack_css == 1 ){
 }
 ?>
 <!-- dynamic css starts here: -->
-html body{<?php if ( $bg_color && $bg_color !== "#default" ) { ?>background-color:<?php echo $bg_color; ?>;<?php } ?>
-<?php if ( $bg_image && $bg_image !== "default" ) { ?>
-background-image:url(<?php $_SERVER['DOCUMENT_ROOT']; ?>/morph_assets/backgrounds/<?php echo $bg_image; ?>);
-<?php } ?>
-background-repeat:<?php echo $bg_repeat; ?>;
-background-position:<?php echo $bg_position; ?>;
-background-attachment:<?php echo $bg_attachment; ?>;
-}
+html body{<?php if ( $bg_color && $bg_color !== "#default" ) { ?>background-color:<?php echo $bg_color; ?>;<?php }; if ( $bg_image && $bg_image !== "Use themelets background" ) { ?>background-image:url(<?php $_SERVER['DOCUMENT_ROOT']; ?>/morph_assets/backgrounds/<?php echo $bg_image; ?>);<?php } ?>background-repeat:<?php echo $bg_repeat; ?>;background-position:<?php echo $bg_position; ?>;background-attachment:<?php echo $bg_attachment; ?>;}
 <?php if ( $logo_type == 2 ) { ?>
 #branding h1,#branding h1 a{margin:0;padding:0;width:<?php echo $logo_width; ?>px;height:<?php echo $logo_height; ?>px;}
 #branding h1 a{background:transparent url(<?php echo $logo; ?>) no-repeat 0;}
