@@ -10,58 +10,58 @@ header("cache-control: must-revalidate");$offset = 60 * 10000;$expire = "expir
 
 if( $pack_css == 1 ){
 	if(file_exists($css_yui) && is_readable($css_yui)){
-		include($_SERVER['DOCUMENT_ROOT'].$themeletpath.'/css/yui.css');
+		include($_SERVER['DOCUMENT_ROOT'] . '/' . $themeletpath.'/css/yui.css');
 	} else {
 		include('yui.css');
 	}
 	if(file_exists($css_joomla) && is_readable($css_joomla)){
-		include($_SERVER['DOCUMENT_ROOT'] . $themeletpath . '/css/joomla.css');
+		include($_SERVER['DOCUMENT_ROOT'] . '/' . $themeletpath . '/css/joomla.css');
 	} else {
 		include('joomla.css');
 	}
 	if(file_exists($css_modules) && is_readable($css_modules)){
-		include($_SERVER['DOCUMENT_ROOT'] . $themeletpath . '/css/modules.css');
+		include($_SERVER['DOCUMENT_ROOT'] . '/' . $themeletpath . '/css/modules.css');
 	} else {
 		include('modules.css');
 	}
 	if(file_exists($css_typo) && is_readable($css_typo)){
-		include($_SERVER['DOCUMENT_ROOT'] . $themeletpath . '/css/typo.css');
+		include($_SERVER['DOCUMENT_ROOT'] . '/' . $themeletpath . '/css/typo.css');
 	} else {
 		include('typo.css');
 	}
 	if(file_exists($css_tabs) && is_readable($css_tabs)){
-		include($_SERVER['DOCUMENT_ROOT'] . $themeletpath . '/css/tabs.css');
+		include($_SERVER['DOCUMENT_ROOT'] . '/' . $themeletpath . '/css/tabs.css');
 	} else {
-		include($_SERVER['DOCUMENT_ROOT'] . $themeletpath . '/css/tabs.css');
+		include($_SERVER['DOCUMENT_ROOT'] . '/' . $themeletpath . '/css/tabs.css');
 	}
 	if(file_exists($css_tnav_default) && is_readable($css_tnav_default) && $topnav_count >= 1 ){
-		include($_SERVER['DOCUMENT_ROOT'] . $themeletpath . '/css/topnav_default.css');
+		include($_SERVER['DOCUMENT_ROOT'] . '/' . $themeletpath . '/css/topnav_default.css');
 	} elseif ( $topnav_count >= 1 ) {
 		include('topnav_default.css');
 	}
 	if(file_exists($css_tnav_topfish) && is_readable($css_tnav_topfish) && $topfish >= 1 ){
-		include($_SERVER['DOCUMENT_ROOT'] . $themeletpath . '/css/topnav_topfish.css');
+		include($_SERVER['DOCUMENT_ROOT'] . '/' . $themeletpath . '/css/topnav_topfish.css');
 	} elseif ( $topfish >= 1 ) {
 		include('topnav_topfish.css');
 	}
 	if(file_exists($css_tnav_topdrop) && is_readable($css_tnav_topdrop) && $topdrop >= 1 ){
-		include($_SERVER['DOCUMENT_ROOT'] . $themeletpath . '/css/topnav_topdrop.css');
+		include($_SERVER['DOCUMENT_ROOT'] . '/' . $themeletpath . '/css/topnav_topdrop.css');
 	} elseif ( $topdrop >= 1 ) {
 		include('topnav_topdrop.css');
 	}
 	if(file_exists($css_snav_default) && is_readable($css_snav_default) && $sidenav_count >= 1 ){
-		include($_SERVER['DOCUMENT_ROOT'] . $themeletpath . '/css/sidenav_default.css');
+		include($_SERVER['DOCUMENT_ROOT'] . '/' . $themeletpath . '/css/sidenav_default.css');
 	} elseif ( $sidenav_count >= 1 ) {
 		include('sidenav_default.css');
 	}
 	if(file_exists($css_snav_sidefish) && is_readable($css_snav_sidefish) && $sidefish >= 1 ){
-		include($_SERVER['DOCUMENT_ROOT'] . $themeletpath . '/css/sidenav_sidefish.css');
+		include($_SERVER['DOCUMENT_ROOT'] . '/' . $themeletpath . '/css/sidenav_sidefish.css');
 	} elseif ( $sidefish >= 1 ) {
 		include('sidenav_sidefish.css');
 	}
-	if(file_exists($css_snav_sidefish) && is_readable($css_snav_sidefish) && $this->direction == 'rtl' ){
-		include($_SERVER['DOCUMENT_ROOT'] . $themeletpath . '/css/rtl.css');
-	} elseif ( $this->direction == 'rtl' ) {
+	if(file_exists($css_rtl) && is_readable($css_rtl) ){
+		include($_SERVER['DOCUMENT_ROOT'] . '/' . $themeletpath . '/css/rtl.css');
+	} else {
 		include('rtl.css');
 	}
 	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/themelet.css');

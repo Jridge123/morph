@@ -50,4 +50,5 @@ $css_tnav_topfish 			= $_SERVER['DOCUMENT_ROOT'] . $themeletpath . "/css/topnav_
 $css_tpnav_topdrop 			= $_SERVER['DOCUMENT_ROOT'] . $themeletpath . "/css/topnav_topdrop.css";
 $css_snav_default 			= $_SERVER['DOCUMENT_ROOT'] . $themeletpath . "/css/sidenav_default.css";
 $css_snav_sidefish 			= $_SERVER['DOCUMENT_ROOT'] . $themeletpath . "/css/sidenav_sidefish.css";
+$css_rtl					= $_SERVER['DOCUMENT_ROOT'] . $themeletpath . "/css/rtl.css";
 ?>
