@@ -71,13 +71,7 @@ $topshelfcount 				= $this->countModules('topshelf');
 $btmshelfcount 				= $this->countModules('btmshelf');
 $stylelink 					= '';
 $direction  				= $this->direction;
-$ied 						= $absolutepath."/css/ie.css";
-$ie6 						= $absolutepath."/css/ie6.css";
-$ie7 						= $absolutepath."/css/ie7.css";
-$ie8 						= $absolutepath."/css/ie8.css";
-$customcss					= $absolutepath."/css/custom.css";
-$customjs					= $absolutepath."/js/custom.js";
-$themeletfunctions			= $absolutepath."/custom.php";
+// Browser info
 $browser 					= new Browser();
 $thebrowser 				= ereg_replace("[^A-Za-z]", "", $browser->getBrowser());
 $ver 						= $browser->getVersion();
@@ -86,6 +80,23 @@ $dashes 					= "";
 $mod_chrome					= "";
 $ver 						= str_replace($dots , $dashes , $ver);
 $lcbrowser 					= strtolower($thebrowser);
+$css_yui					= $absolutepath."/css/yui.css";
+$css_joomla 				= $absolutepath."/css/joomla.css";
+$css_modules 				= $absolutepath."/css/modules.css";
+$css_typo 					= $absolutepath."/css/typo.css";
+$css_tabs 					= $absolutepath."/css/tabs.css";
+$css_tnav_default 			= $absolutepath."/css/topnav_default.css";
+$css_tnav_topfish 			= $absolutepath."/css/topnav_topfish.css";
+$css_tnav_topdrop 			= $absolutepath."/css/topnav_topdrop.css";
+$css_snav_default 			= $absolutepath."/css/sidenav_default.css";
+$css_snav_sidefish 			= $absolutepath."/css/sidenav_sidefish.css";
+$ie 						= $absolutepath."/css/ie.css";
+$ie6 						= $absolutepath."/css/ie6.css";
+$ie7 						= $absolutepath."/css/ie7.css";
+$ie8 						= $absolutepath."/css/ie8.css";
+$customcss					= $absolutepath."/css/custom.css";
+$customjs					= $absolutepath."/js/custom.js";
+$themeletfunctions			= $absolutepath."/custom.php";
 
 if($option !== 'com_user') {
 	if($user->get('guest') == 1 or $user->usertype == 'Registered' && $load_mootools == "0") {
@@ -104,15 +115,15 @@ if($user->get('guest') == 1 or $user->usertype == 'Registered' && $load_caption 
 if ( $remove_generator == 1 ) {
 $this->setGenerator(null);
 }
-
-if(file_exists($themeletfunctions) && is_readable($themeletfunctions)){
-include_once($absolutepath.'/custom.php');
-}
 function debug_chrome($pt_debug, $pt_mod_chrome){	if( $pt_debug == 1 ){ 		return 'outline'; 	} else { 		return $pt_mod_chrome; 	}}
 
 include 'morphVars.php';
 
-// JS Logic
+if(file_exists($themeletfunctions) && is_readable($themeletfunctions)){
+include_once($absolutepath.'/custom.php');
+}
+
+// JS Packing
 if ( isset($_COOKIE['unpackjs']) && $pack_js == 1 || isset($_COOKIE['unpackjs']) && $pack_js == 0 || !isset($_COOKIE['unpackjs']) && $pack_js == 0 ) {
 	if ( $jquery_core == 1 ) { $document->addScript($templatepath .'/js/jquery-1.3.2.min.js'); }
 	if ( $tabscount >= 1 ) {
@@ -135,23 +146,70 @@ if ( isset($_COOKIE['unpackjs']) && $pack_js == 1 || isset($_COOKIE['unpackjs'])
 	if( $custom_js == 1 ){ $document->addScript($themeletpath .'/js/custom.js'); }
 }
 
-// CSS Logic
+// CSS Packing
 if ( isset($_COOKIE['unpackcss']) && $pack_css == 1 || isset($_COOKIE['unpackcss']) && $pack_css == 0 || !isset($_COOKIE['unpackcss']) && $pack_css == 0 ) {
-	$document->addStyleSheet($templatepath .'/css/yui.css');
-	$document->addStyleSheet($templatepath .'/css/joomla.css');
-	$document->addStyleSheet($templatepath .'/css/modules.css');
-	$document->addStyleSheet($templatepath .'/css/typo.css');
-	$document->addStyleSheet($templatepath .'/css/tabs.css');
+
 	$document->addStyleSheet($templatepath .'/css/template.css.php'.$packed_css);
-	$document->addStyleSheet($assetspath .'/packs/base/modfx.css');
-	if( $topnav_count >= 1 ) { $document->addStyleSheet($templatepath .'/css/topnav-default.css');	}
-	if( $topfish >= 1 ) { $document->addStyleSheet($templatepath .'/css/topnav-topfish.css');	}
-	if( $topdrop >= 1 ) { $document->addStyleSheet($templatepath .'/css/topnav-topdrop.css');	}
-	if( $sidenav_count >= 1 ) { $document->addStyleSheet($templatepath .'/css/sidenav-default.css'); }
-	if( $sidefish >= 1 ) { $document->addStyleSheet($templatepath .'/css/sidenav-sidefish.css'); }	
-	if($this->direction == 'rtl') { $document->addStyleSheet($templatepath .'/css/rtl.css'); }
+
+	if(file_exists($css_yui) && is_readable($css_yui)){
+		$document->addStyleSheet($themeletpath .'/css/yui.css');
+	} else {
+		$document->addStyleSheet($templatepath .'/css/yui.css');
+	}
+	if(file_exists($css_joomla) && is_readable($css_joomla)){
+		$document->addStyleSheet($themeletpath .'/css/joomla.css');
+	} else {
+		$document->addStyleSheet($templatepath .'/css/joomla.css');
+	}
+	if(file_exists($css_modules) && is_readable($css_modules)){
+		$document->addStyleSheet($themeletpath .'/css/modules.css');
+	} else {
+		$document->addStyleSheet($templatepath .'/css/modules.css');
+	}
+	if(file_exists($css_typo) && is_readable($css_typo)){
+		$document->addStyleSheet($themeletpath .'/css/typo.css');
+	} else {
+		$document->addStyleSheet($templatepath .'/css/typo.css');
+	}
+	if(file_exists($css_tabs) && is_readable($css_tabs)){
+		$document->addStyleSheet($themeletpath .'/css/tabs.css');
+	} else {
+		$document->addStyleSheet($templatepath .'/css/tabs.css');
+	}
+	if(file_exists($css_tnav_default) && is_readable($css_tnav_default) && $topnav_count >= 1 ){
+		$document->addStyleSheet($themeletpath .'/css/topnav-default.css');
+	} elseif ( $topnav_count >= 1 ) {
+		$document->addStyleSheet($templatepath .'/css/topnav-default.css');
+	}
+	if(file_exists($css_tnav_topfish) && is_readable($css_tnav_topfish) && $topfish >= 1 ){
+		$document->addStyleSheet($themeletpath .'/css/topnav-topfish.css');
+	} elseif ( $topfish >= 1 ) {
+		$document->addStyleSheet($templatepath .'/css/topnav-topfish.css');
+	}
+	if(file_exists($css_tnav_topdrop) && is_readable($css_tnav_topdrop) && $topdrop >= 1 ){
+		$document->addStyleSheet($themeletpath .'/css/topnav-topdrop.css');
+	} elseif ( $topdrop >= 1 ) {
+		$document->addStyleSheet($templatepath .'/css/topnav-topdrop.css');
+	}
+	if(file_exists($css_snav_default) && is_readable($css_snav_default) && $sidenav_count >= 1 ){
+		$document->addStyleSheet($themeletpath .'/css/sidenav-default.css');
+	} elseif ( $sidenav_count >= 1 ) {
+		$document->addStyleSheet($templatepath .'/css/sidenav-default.css');
+	}
+	if(file_exists($css_snav_sidefish) && is_readable($css_snav_sidefish) && $sidefish >= 1 ){
+		$document->addStyleSheet($themeletpath .'/css/sidenav-sidefish.css');
+	} elseif ( $sidefish >= 1 ) {
+		$document->addStyleSheet($templatepath .'/css/sidenav-sidefish.css');
+	}
+	if(file_exists($css_snav_sidefish) && is_readable($css_snav_sidefish) && $this->direction == 'rtl' ){
+		$document->addStyleSheet($themeletpath .'/css/rtl.css');
+	} elseif ( $this->direction == 'rtl' ) {
+		$document->addStyleSheet($templatepath .'/css/rtl.css');
+	}
 	if( $custom_css == 1 ){ $document->addStyleSheet($themeletpath .'/css/custom.css');	}
 	$document->addStyleSheet($themeletpath .'/css/themelet.css');
+	$document->addStyleSheet($themeletpath .'/css/modfx.css');	
+
 }else{
 	$document->addStyleSheet($templatepath .'/css/template.css.php'.$packed_css);
 	if( $custom_css == 1 ){ $document->addStyleSheet($themeletpath .'/css/custom.css');	}
