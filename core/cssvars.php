@@ -45,10 +45,10 @@ $css_joomla 				= $_SERVER['DOCUMENT_ROOT'] . $themeletpath . "/css/joomla.css";
 $css_modules 				= $_SERVER['DOCUMENT_ROOT'] . $themeletpath . "/css/modules.css";
 $css_typo 					= $_SERVER['DOCUMENT_ROOT'] . $themeletpath . "/css/typo.css";
 $css_tabs 					= $_SERVER['DOCUMENT_ROOT'] . $themeletpath . "/css/tabs.css";
-$css_tnav_default 			= $_SERVER['DOCUMENT_ROOT'] . $themeletpath . "/css/topnav_default.css";
-$css_tnav_topfish 			= $_SERVER['DOCUMENT_ROOT'] . $themeletpath . "/css/topnav_topfish.css";
-$css_tpnav_topdrop 			= $_SERVER['DOCUMENT_ROOT'] . $themeletpath . "/css/topnav_topdrop.css";
-$css_snav_default 			= $_SERVER['DOCUMENT_ROOT'] . $themeletpath . "/css/sidenav_default.css";
-$css_snav_sidefish 			= $_SERVER['DOCUMENT_ROOT'] . $themeletpath . "/css/sidenav_sidefish.css";
+$css_tnav_default 			= $_SERVER['DOCUMENT_ROOT'] . $themeletpath . "/css/topnav-default.css";
+$css_tnav_topfish 			= $_SERVER['DOCUMENT_ROOT'] . $themeletpath . "/css/topnav-topfish.css";
+$css_tpnav_topdrop 			= $_SERVER['DOCUMENT_ROOT'] . $themeletpath . "/css/topnav-topdrop.css";
+$css_snav_default 			= $_SERVER['DOCUMENT_ROOT'] . $themeletpath . "/css/sidenav-default.css";
+$css_snav_sidefish 			= $_SERVER['DOCUMENT_ROOT'] . $themeletpath . "/css/sidenav-sidefish.css";
 $css_rtl					= $_SERVER['DOCUMENT_ROOT'] . $themeletpath . "/css/rtl.css";
 ?>
