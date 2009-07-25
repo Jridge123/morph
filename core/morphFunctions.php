@@ -65,10 +65,10 @@ $params 					= new JParameter( $menu->params );
 $pageclass 					= $params->get( 'pageclass_sfx' );
 endif;
 $user 						=& JFactory::getUser();
-$user1count 				= JDocument::countModule('user1');
-$user2count 				= JDocument::countModule('user2');
-$topshelfcount 				= JDocument::countModule('topshelf');
-$btmshelfcount 				= JDocument::countModule('bottomshelf');
+$user1count 				= JDocumentHTML::countModules('user1');
+$user2count 				= JDocumentHTML::countModules('user2');
+$topshelfcount 				= JDocumentHTML::countModules('topshelf');
+$btmshelfcount 				= JDocumentHTML::countModules('bottomshelf');
 $stylelink 					= '';
 
 $direction  				= $this->direction;
