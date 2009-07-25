@@ -38,7 +38,6 @@ $slogan_text = $MORPH->slogan_text;
 $slogan_textcolor = $MORPH->slogan_textcolor;
 $slogan_fontfamily = $MORPH->slogan_fontfamily;
 $slogan_fontsize = $MORPH->slogan_fontsize;
-$display_skipto = $MORPH->display_skipto;
 
 // progressive enhancements
 $rounded_corners = $MORPH->rounded_corners;
@@ -87,6 +86,7 @@ $masthead_wrap = $MORPH->masthead_wrap;
 $masthead_inner = $MORPH->masthead_inner;
 $masthead_chrome = $MORPH->masthead_chrome;
 $masthead_gridsplit = $MORPH->masthead_gridsplit;
+$display_skipto = $MORPH->display_skipto;
 $masthead_show = $MORPH->masthead_show;
 
 // subhead block

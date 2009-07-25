@@ -134,10 +134,6 @@
 	    <option value="'Lucida Console', Monaco, monospace">Lucida Console</option>
 	    <option value="'Comic Sans MS', cursive">Comic Sans MS</option>
 	</param>
-	<param name="display_skipto" type="radio" default="0" label="Display skip to menu" tooltip="inline" description="Would you like to display a skip to content menu?">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
 </params>
 
 <params group="backgrounddata">
@@ -369,6 +365,10 @@
 		<option value="yui-gd">33/66 Split</option>
 		<option value="yui-ge">75/25 Split</option>
 		<option value="yui-gf">25/75 Split</option>
+	</param>
+	<param name="display_skipto" type="radio" default="0" label="Display skip to menu" tooltip="inline" description="Would you like to display a skip to content menu?">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
 	</param>
 	<param name="masthead_show" type="radio" default="0" label="Disable this block" tooltip="inline" description="Would you like to disable this block?">
 		<option value="1">Yes</option>
