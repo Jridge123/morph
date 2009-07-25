@@ -75,7 +75,9 @@ if( $pack_css == 1 ){
 <!-- dynamic css starts here: -->
 html body{<?php if ( $bg_color && $bg_color !== "#default" ) { ?>background-color:<?php echo $bg_color; ?>;<?php }; if ( $bg_image && $bg_image !== "Use themelets background" ) { ?>background-image:url(<?php $_SERVER['DOCUMENT_ROOT']; ?>/morph_assets/backgrounds/<?php echo $bg_image; ?>);<?php } ?>background-repeat:<?php echo $bg_repeat; ?>;background-position:<?php echo $bg_position; ?>;background-attachment:<?php echo $bg_attachment; ?>;}
 
-
+.breadcrumbs.pathway li a{background:transparent url(../../../morph_assets/themelets/<?php echo $themelet; ?>/images/pathway.png) no-repeat scroll 100% 50%;}
+#topnav .menu .parent a{background:transparent url(../../../morph_assets/themelets/<?php echo $themelet; ?>/images/parent.gif) 50% 85% no-repeat;}
+.article-options li.author,.article-options li.created{background:transparent url(../../../morph_assets/themelets/<?php echo $themelet; ?>/images/article-icons.png) no-repeat;}
 
 
 <?php if ( $logo_type == 0 ) { ?>
@@ -100,7 +102,7 @@ html body{<?php if ( $bg_color && $bg_color !== "#default" ) { ?>background-colo
 
 
 <?php } if ( $logo_type == 2 ) { ?>
-#branding.txt-logo a{
+#branding.logotype-2 a{
 <?php if ( $logo_fontfamily !== "" ) { ?>
 	font-family:<?php echo $logo_fontfamily; ?>;
 <?php } if ( $logo_fontsize !== "" ) { ?>

@@ -3,8 +3,7 @@
 		
    <div class="<?php echo $site_width;?> <?php echo $masthead_gridsplit;?> <?php echo $masthead_chrome; ?>" id="masthead">
 
-      <div id="branding" class="yui-u first
-      <?php if ( $logo_type == "0" ) { ?> h1-text<?php } if ( $logo_type == "1" ) { ?> h1-image<?php } if ( $logo_type == "2" ) { ?> plain-txt<?php } if ( $logo_type == "3" ) { ?> inline-img<?php } if ( $slogan_text !== "" ) { ?> slogan<?php } ?>">
+      <div id="branding" class="yui-u first logotype-<?php echo $logo_type; ?><?php if ( $slogan_text !== "" ) { ' slogan'; } ?>">
          
    		<?php if ( $logo_type == 0 ) { ?>
 			<!-- h1 text logo -->
