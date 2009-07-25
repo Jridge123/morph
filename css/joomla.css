@@ -35,8 +35,9 @@ table.pagenav{clear:both;}
 *****************************/
 .pathway,.pathway li{margin:0;padding:0;list-style:none;background:none;}
 .pathway{font-size:1em;overflow:hidden;}
-.pathway a:link,#primary-content .pathway a:visited{font-size:1em;text-decoration:underline;}
+.pathway a:link,#primary-content .pathway a:visited{padding-right:20px;font-size:1em;text-decoration:underline;}
 .pathway li.pathway-current{background:none;}
+#bd .pathway li{float:left;list-style:none;margin-right:10px;}
 
 /* pagination
 ****************************/
