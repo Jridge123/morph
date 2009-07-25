@@ -11,7 +11,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 <?php if ($canEdit || $this->params->get('show_title') || $this->params->get('show_pdf_icon') || $this->params->get('show_print_icon') || $this->params->get('show_email_icon')) : ?>
 <div class="contentpaneopen article-top <?php echo $this->params->get( 'pageclass_sfx' ); ?>">
 	<?php if ($this->params->get('show_title')) : ?>
-	<h1 class="contentheading <?php echo $this->params->get( 'pageclass_sfx' ); ?>" width="100%">
+	<h1 class="contentheading <?php echo $this->params->get( 'pageclass_sfx' ); ?>">
 		<?php if ($this->params->get('link_titles') && $this->article->readmore_link != '') : ?>
 		<a href="<?php echo $this->article->readmore_link; ?>" class="contentpagetitle <?php echo $this->params->get( 'pageclass_sfx' ); ?>">
 			<?php echo $this->escape($this->article->title); ?></a>

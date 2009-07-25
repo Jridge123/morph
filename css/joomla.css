@@ -166,5 +166,5 @@ form.polls li.sectiontableentry1{background:#ddd;}
 .searchintro span{color:#999;}
 
 
-#top-link   { display:none; position:fixed; right:5px; bottom:5px; color:green; font-weight:bold; text-decoration:none; border:1px solid green; background:Lightgreen; padding:10px; }
+#top-link{display:none;position:fixed;right:5px;bottom:5px;color:green;font-weight:bold;text-decoration:none;border:1px solid green;background:#90EE90;padding:10px;}
 .internetexplorer6 #top-link,.internetexplorer7 #top-link{height:1.5%;}
