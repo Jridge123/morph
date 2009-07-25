@@ -66,7 +66,7 @@ $pageclass 					= $params->get( 'pageclass_sfx' );
 endif;
 $user 						=& JFactory::getUser();
 $user1count 				= JDocument::countModule('user1');
-$user2count 				= JDocument::countModule('user2')
+$user2count 				= JDocument::countModule('user2');
 $topshelfcount 				= JDocument::countModule('topshelf');
 $btmshelfcount 				= JDocument::countModule('bottomshelf');
 $stylelink 					= '';
