@@ -38,6 +38,7 @@ $slogan_text = $MORPH->slogan_text;
 $slogan_textcolor = $MORPH->slogan_textcolor;
 $slogan_fontfamily = $MORPH->slogan_fontfamily;
 $slogan_fontsize = $MORPH->slogan_fontsize;
+$display_skipto = $MORPH->display_skipto;
 
 // progressive enhancements
 $rounded_corners = $MORPH->rounded_corners;

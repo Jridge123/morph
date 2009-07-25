@@ -134,6 +134,10 @@
 	    <option value="'Lucida Console', Monaco, monospace">Lucida Console</option>
 	    <option value="'Comic Sans MS', cursive">Comic Sans MS</option>
 	</param>
+	<param name="display_skipto" type="radio" default="0" label="Display skip to menu" tooltip="inline" description="Would you like to display a skip to content menu?">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
 </params>
 
 <params group="backgrounddata">

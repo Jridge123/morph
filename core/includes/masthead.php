@@ -45,8 +45,9 @@
 		<?php if ( $display_slogan == "1" ) { ?>
 			<p class="slogan"><?php echo $slogan_text; ?></p>
 		<?php } ?>
-
-       <ul id="skipto">
+		
+		<?php if ( $display_skipto == "1" ) { ?>
+		<ul id="skipto">
 			<?php if ($this->countModules( 'user3' )) : ?>
 			<li><a title="Skip to menu" href="<?php JURI::root(); ?>#topnav"><?php echo JText::_('skip to menu'); ?></a></li>
 			<?php endif; ?>
@@ -59,6 +60,7 @@
 			<li><a title="Skip to search" href="<?php JURI::root(); ?>#mod_search_searchword"><?php echo JText::_('skip to search'); ?></a></li>
 			<?php endif; ?>
 		</ul>
+		<?php } ?>
          
       </div>
       <?php if($this->countModules('top')) { ?>
