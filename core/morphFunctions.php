@@ -255,8 +255,8 @@ switch($ua){
 include_once('InnerLayout.php');
 include_once('OuterLayout.php');
 
-if (!$this->countModules('right')) $CurrentInnerScheme = 'no-grid';
-if (!$this->countModules('user4')) $no_search = 'no_search';
+if (!JDocumentHTML::countModules('right')) $CurrentInnerScheme = 'no-grid';
+if (!JDocumentHTML::countModules('user4')) $no_search = 'no_search';
 
 // intelli mods array
 $jj_const = array(
