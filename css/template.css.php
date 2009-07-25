@@ -84,7 +84,7 @@ html body{<?php if ( $bg_color && $bg_color !== "#default" ) { ?>background-colo
 	font-family:<?php echo $logo_fontfamily; ?>;
 	font-size:<?php echo $logo_fontsize; ?>;
 	<?php if ( $logo_textcolor !== "#default" ) { ?>color:<?php echo $logo_textcolor; ?>;<?php } ?>
-	padding:.7em 0 0 0;
+	padding:.6em 0 0 0;
 	display:block;
 }
 <?php } ?>

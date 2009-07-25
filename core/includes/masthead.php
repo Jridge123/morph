@@ -25,9 +25,6 @@
 			<a href="<?php echo JURI::root() ?>" title="<?php if ($logo_linktitle != ""){ echo $logo_linktitle; } else { echo $mainframe->getCfg('sitename'); } ?>" class="logo">
 			<?php if ($logo_text != ""){ echo $logo_text; } else { echo $mainframe->getCfg('sitename'); } ?>
 			</a>
-			<?php if ( $display_slogan == "2" ) { ?>
-			<p class="slogan"><?php echo $slogan_text; ?></p>
-			<?php } ?>
 		<?php } ?>
 
   		<?php if ( $logo_type == 3 ) { ?>
@@ -43,6 +40,10 @@
   		<?php if ( $logo_type == 4 ) { ?>
 			<!-- inline image logo -->
 			<jdoc:include type="modules" name="branding" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo $masthead_chrome; } ?>" />
+		<?php } ?>
+
+		<?php if ( $display_slogan == "1" ) { ?>
+			<p class="slogan"><?php echo $slogan_text; ?></p>
 		<?php } ?>
 
        <ul id="skipto">

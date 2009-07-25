@@ -34,7 +34,6 @@
 #topnav .menu ul a:focus,
 #topnav .menu ul a:hover,
 #topnav .menu .active{background:#fff;}
-#topnav .menu .parent a{background:transparent url(../images/parent.gif) 50% 85% no-repeat;}
 #topnav .menu .parent ul a{background:none;}
 /* add seperator styling */
 #topnav .menu li span.separator{color:#333;white-space:nowrap;font-size:1.05em;padding:6px 19px 7px 13px;display:block;border-top:1px solid #fff;border-left:1px solid #fff;border-right:1px solid #ccc;border-bottom:1px solid #ccc;}

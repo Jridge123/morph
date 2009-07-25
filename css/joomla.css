@@ -21,7 +21,7 @@
 .article-options li.print{float:right;padding:0 0 0 5px;margin:0;}
 .article-options li.author,
 .article-options li.created,
-.article-options li.modified{background:transparent url(../images/article-icons.png) no-repeat;display:block;height:20px;line-height:20px;font-size:0.9em;padding:0 0 0 20px;}
+.article-options li.modified{display:block;height:20px;line-height:20px;font-size:0.9em;padding:0 0 0 20px;}
 .article-options li.author{background-position: top left;}
 .article-options li.created{background-position: center left;}
 .article-options li.modified{background-position: bottom left;}
@@ -35,7 +35,6 @@ table.pagenav{clear:both;}
 *****************************/
 .pathway,.pathway li{margin:0;padding:0;list-style:none;background:none;}
 .pathway{font-size:1em;overflow:hidden;}
-.pathway li{background:transparent url(../images/pathway.png) no-repeat scroll 100% 50%;display:block;float:left;margin-right:10px;padding-right:15px;}
 .pathway a:link,#primary-content .pathway a:visited{font-size:1em;text-decoration:underline;}
 .pathway li.pathway-current{background:none;}
 
