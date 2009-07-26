@@ -23,7 +23,9 @@
 					<?php } ?>
 
 					<?php if ((JRequest::getVar( 'view' ) != 'frontpage') && ($this->countModules('breadcrumb'))) { ?>
-				   		<jdoc:include type="modules" name="breadcrumb"/>
+					<div id="breadcrumbs">
+				   		<span>You are here: </span><jdoc:include type="modules" name="breadcrumb"/>
+				   	</div>
 			    	<?php } ?>
 			    
                  		<jdoc:include type="message" />

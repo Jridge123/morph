@@ -34,7 +34,9 @@ table.pagenav{clear:both;}
 /* breadcrumbs
 *****************************/
 .pathway,.pathway li{margin:0;padding:0;list-style:none;background:none;}
-.pathway{font-size:1em;overflow:hidden;}
+.pathway{font-size:1em;overflow:hidden;float:left;}
+#breadcrumbs{overflow:hidden;}
+#breadcrumbs span{display:block;float:left;padding-right:1em;color:#666;}
 .pathway a:link,#primary-content .pathway a:visited{display:block;float:left;padding-right:1em;font-size:1em;text-decoration:underline;}
 .pathway li.pathway-current{background:none;}
 #bd .pathway.breadcrumbs li{float:left;list-style:none;margin-right:10px;color:#999;}
