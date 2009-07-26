@@ -68,12 +68,15 @@ if( $pack_css == 1 ){
 	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/themelet.css');
 	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/modfx.css');
 }
-?>	
-html body{<?php if ( $bg_color && $bg_color !== "#default" ) { ?>background-color:<?php echo $bg_color; ?>;<?php }; if ( $bg_image && $bg_image !== "Use themelets background" ) { ?>background-image:url(../../../morph_assets/backgrounds/<?php echo $bg_image; ?>);<?php } ?>background-repeat:<?php echo $bg_repeat; ?>;background-position:<?php echo $bg_position; ?>;background-attachment:<?php echo $bg_attachment; ?>;}
+?>
 
+<?php if ( $bg_image !== "Use themelets background") { ?>
+html body{<?php if ( $bg_color && $bg_color !== "#default" ) { ?>background-color:<?php echo $bg_color; ?>;<?php }; if ( $bg_image !== "default") { ?>background-image:url(../../../morph_assets/backgrounds/<?php echo $bg_image; ?>);<?php } ?>background-repeat:<?php echo $bg_repeat; ?>;background-position:<?php echo $bg_position; ?>;background-attachment:<?php echo $bg_attachment; ?>;}
+<?php } ?>
 .breadcrumbs.pathway li a{background:transparent url(../../../morph_assets/themelets/<?php echo $themelet; ?>/images/pathway.png) no-repeat scroll 100% 50%;}
 #topnav .menu .parent a{background:transparent url(../../../morph_assets/themelets/<?php echo $themelet; ?>/images/parent.gif) 50% 85% no-repeat;}
 .article-options li.author,.article-options li.created{background:transparent url(../../../morph_assets/themelets/<?php echo $themelet; ?>/images/article-icons.png) no-repeat;}
+#topnav{background:url(../../../morph_assets/themelets/<?php echo $themelet; ?>/images/nav-bg.png) repeat-x;border:1px solid #ccc;}
 
 <?php if ( $logo_type == 0 ) { ?>
 #branding h1,#branding h1 a{margin:0;padding:0;}
