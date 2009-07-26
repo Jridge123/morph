@@ -35,18 +35,17 @@ table.pagenav{clear:both;}
 *****************************/
 .pathway,.pathway li{margin:0;padding:0;list-style:none;background:none;}
 .pathway{font-size:1em;overflow:hidden;}
-.pathway a:link,#primary-content .pathway a:visited{padding-right:20px;font-size:1em;text-decoration:underline;}
+.pathway a:link,#primary-content .pathway a:visited{display:block;float:left;padding-right:1em;font-size:1em;text-decoration:underline;}
 .pathway li.pathway-current{background:none;}
-#bd .pathway li{float:left;list-style:none;margin-right:10px;}
+#bd .pathway.breadcrumbs li{float:left;list-style:none;margin-right:10px;color:#999;}
 
 /* pagination
 ****************************/
-.pagination-counter,.pagination-links{display:block;clear:both;width:100%;}
-.pagination-counter{text-align:center;margin:1em 0 0 0;color:#888;}
-.pagination{margin-bottom:2em;display:block;height:30px;}
-.pagination-links{margin-top:1em;clear:both;display:block;width:100%;float:left;overflow:hidden;}
-.pagination-links .pagination li{display:inline;padding:2px 3px;margin:0 3px;color:#666;border:1px solid;border-color:#ddd #ccc;}
-.pagination-links .pagination li a{color:#6CADBE;}
+#pagination-wrap{overflow:hidden;background:#eee;padding:.5em;border-top:1px solid #ddd;}
+#pagination-wrap .pagination-links{float:left;color:#777;padding:.2em .5em;}
+#pagination-wrap .pagination,#pagination-wrap .pagination li{margin:0;padding:0;}
+#pagination-wrap .pagination{float:right;}
+#pagination-wrap .pagination li{float:left;display:block;padding:.2em .1em;margin-left:.5em;color:#999;}
 
 /* system messages
 ****************************/
