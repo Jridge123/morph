@@ -51,15 +51,15 @@ defined('_JEXEC') or die('Restricted access');
 	<?php endif; ?>
 
 	<?php if ($this->params->def('show_pagination', 2) == 1  || ($this->params->get('show_pagination') == 2 && $this->pagination->get('pages.total') > 1)) : ?>
+	<div id="pagination-wrap">
 		<?php if( $this->pagination->get('pages.total') > 1 ) : ?>
-		<p class="pagination-links">
+		<div class="pagination-links">
 			<?php echo $this->pagination->getPagesCounter(); ?>
-		</p>
+		</div>
 		<?php endif; ?>
 		<?php if ($this->params->def('show_pagination_results', 1)) : ?>
-		<p class="pagination-counter">
 			<?php echo $this->pagination->getPagesLinks(); ?>
-		</p>			
 		<?php endif; ?>
+	</div>
 	<?php endif; ?>
 </div>

@@ -28,7 +28,7 @@
 #topnav .menu li.sfHover,
 #topnav .menu a:focus,
 #topnav .menu a:hover,
-#topnav .menu a:active{background:#ddd;outline:0;}
+#topnav .menu a:active{background-color:#ddd;outline:0;}
 #topnav .menu ul li:hover,
 #topnav .menu ul li.sfHover,
 #topnav .menu ul a:focus,

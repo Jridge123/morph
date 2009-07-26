@@ -148,10 +148,10 @@ function pagination_list_render($list)
 }
 
 function pagination_item_active(&$item) {
-	return "<li>&nbsp;<strong><a href=\"".$item->link."\" title=\"".$item->text."\">".$item->text."</a></strong>&nbsp;</li>";
+	return "<li class=\"active\"><strong><a href=\"".$item->link."\" title=\"".$item->text."\">".$item->text."</a></strong></li>";
 }
 
 function pagination_item_inactive(&$item) {
-	return "<li>&nbsp;<span>".$item->text."</span>&nbsp;</li>";
+	return "<li><span>".$item->text."</span></li>";
 }
 ?>

@@ -13,8 +13,7 @@ form.polls ul{margin:0 0 5px 0;}
 #top2 .search{margin:4em 0 0 0;overflow:hidden;}
 #top2 .search #mod_search_searchword{float:right;width:290px;padding:.7em;background:#ddd url(../images/icon-search.gif) no-repeat 97%;}
 #topnav .search{float: right;padding-right: .6em;}
-#topnav .search .inputbox{width: 10em;}
-#topnav .search .inputbox {width:10em;margin: .6em 0 0 0;border: 1px solid #ccc;}
+#topnav .search .inputbox {width:11.3em;margin: .5em 0 0 0;padding:.25em;border: 1px solid #ccc;}
 #topnav.subtext .search .inputbox {width:10em;margin: .5em 0 0 0;border: 1px solid #ccc;}
 
 /* banners module*/
