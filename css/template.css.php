@@ -83,6 +83,7 @@ html body{<?php if ( $bg_color && $bg_color !== "#default" ) { ?>background-colo
 	<?php if ( $logo_textcolor !== "#default" ) { ?>color:<?php echo $logo_textcolor; ?>;<?php } ?>
 	padding:.6em 0 0 0;
 	display:block;
+	font-weight:bold;
 }
 <?php } ?>
 
@@ -102,7 +103,7 @@ html body{<?php if ( $bg_color && $bg_color !== "#default" ) { ?>background-colo
 <?php } ?>
 
 <?php if ( $display_slogan == 1 ) { ?>
-#branding.slogan .slogan{<?php if ( $slogan_fontfamily !== "" ) { ?>font-family:<?php echo $slogan_fontfamily; ?>;<?php } if ( $slogan_fontsize !== "" ) { ?>font-size:<?php echo $slogan_fontsize; ?>;<?php } if ( $slogan_textcolor && $slogan_textcolor !== "#default" ) { ?>color:<?php echo $slogan_textcolor; ?>;<?php } ?>}
+#branding .slogan{<?php if ( $slogan_fontfamily !== "" ) { ?>font-family:<?php echo $slogan_fontfamily; ?>;<?php } if ( $slogan_fontsize !== "" ) { ?>font-size:<?php echo $slogan_fontsize; ?>;<?php } if ( $slogan_textcolor && $slogan_textcolor !== "#default" ) { ?>color:<?php echo $slogan_textcolor; ?>;<?php } ?>}
 <?php } if ( $toolbar_slider == 1 ) { ?>
 #toolbar-wrap{position:absolute;top:0;width:100%;}
 #toolbar{position:relative;top:0;height:100%;}
