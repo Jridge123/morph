@@ -3,6 +3,7 @@
 ++ All Joomla! module styling is kept here.
 ----------------------------------------------------------------------------*/
 .mod-vert-seperator{height:12px;display:block;margin:5px 0 20px;}
+.mod ul,.mod li{margin:0;padding:0;}
 
 /* polls module*/
 form.polls h4{margin:-10px 0 5px 0;padding:0;font-size:13px;}
