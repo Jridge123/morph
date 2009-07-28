@@ -1,6 +1,10 @@
 <?php
 defined('_JEXEC') or die('Restricted access');
-(substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip') ? ob_start("ob_gzhandler") : ob_start() );
+if(extension_loaded('zlib') && !ini_get('zlib.output_compression')){
+	if(!ob_start("ob_gzhandler")) ob_start();
+}else{
+	ob_start();
+}
 // initiate morph
 include_once('templates/morph/core/morphLoader.php');
 include_once('templates/morph/core/morphParams.php');
