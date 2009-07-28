@@ -40,8 +40,8 @@ if ($pub_modules[0]->id == $module->id) {
 	$posSuffix = $params->get('moduleclass_sfx');
 } ?>
 <div class="mod mod-basic <?php echo $params->get('moduleclass_sfx'); ?>" id="mod<?php echo $module->id; ?>">
-	<?php if ($module->showtitle != 0) : ?><h3><?php echo $module->title; ?></h3><?php endif; ?>
-	<?php echo $module->content; ?>
+	<?php if ($module->showtitle != 0) : ?><h3><span class="icon"></span><?php echo $module->title; ?></h3><?php endif; ?>
+	<div class="modinner"><?php echo $module->content; ?></div>
 </div>
 <?php }
 	
@@ -56,7 +56,7 @@ if ($pub_modules[0]->id == $module->id) {
 } 
 ?>
 <div class="mod mod-grid yui-u <?php echo $posSuffix; ?>" id="mod<?php echo $module->id; ?>">
-	<?php if ($module->showtitle != 0) : ?><h3><?php echo $module->title; ?></h3><?php endif; ?>
+	<?php if ($module->showtitle != 0) : ?><h3><span class="icon"></span><?php echo $module->title; ?></h3><?php endif; ?>
 	<?php echo $module->content; ?>
 </div>
 <?php }
