@@ -69,6 +69,7 @@ endif; ?>
 		<?php endif; ?>
 <?php endif; ?>
 
+<?php if ($this->item->params->get('show_author') || $this->item->params->get('show_create_date')) : ?>
 <p class="article-info">
 <?php if (($this->item->params->get('show_author')) && ($this->item->author != "")) : ?>
 <span class="author"><?php JText::printf( 'Written by', ($this->item->created_by_alias ? $this->item->created_by_alias : $this->item->author) ); ?></span>
@@ -77,6 +78,8 @@ endif; ?>
 <span class="created"><?php echo JHTML::_('date', $this->item->created, JText::_('DATE_FORMAT_LC2')); ?></span>
 <?php endif; ?>
 </p>
+<?php endif; ?>
+
 <?php if ($this->item->params->get('show_url') && $this->item->urls) : ?>
 	<a href="http://<?php echo $this->item->urls ; ?>" target="_blank">
 	<?php echo $this->item->urls; ?></a>

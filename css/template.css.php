@@ -76,7 +76,12 @@ html body{<?php if ( $bg_color && $bg_color !== "#default" ) { ?>background-colo
 .breadcrumbs.pathway li a{background:transparent url(../../../morph_assets/themelets/<?php echo $themelet; ?>/images/pathway.png) no-repeat scroll 100% 50%;}
 #topnav .menu .parent a{background:transparent url(../../../morph_assets/themelets/<?php echo $themelet; ?>/images/parent.gif) 50% 85% no-repeat;}
 .article-options li.author,.article-options li.created{background:transparent url(../../../morph_assets/themelets/<?php echo $themelet; ?>/images/article-icons.png) no-repeat;}
-#topnav{background:url(../../../morph_assets/themelets/<?php echo $themelet; ?>/images/nav-bg.png) repeat-x;border:1px solid #ccc;}
+#topnav{background:url(../../../morph_assets/themelets/<?php echo $themelet; ?>/images/nav-bg.jpg) repeat-x;border:1px solid #ccc;}
+
+.mod h3 span{background-image:url(../../../morph_assets/themelets/<?php echo $themelet; ?>/images/modfx-h3icon-sprite.png);background-repeat:no-repeat;}
+<!--.mod{background-image:url(../../../morph_assets/themelets/<?php echo $themelet; ?>/images/mod-bgimage-sprite.png);}-->
+
+
 
 <?php if ( $logo_type == 0 ) { ?>
 #branding h1,#branding h1 a{margin:0;padding:0;}
