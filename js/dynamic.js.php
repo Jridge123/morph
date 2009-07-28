@@ -14,8 +14,8 @@ header("content-type: text/js; charset: UTF-8");
 		$("#topnav.call-for-action li:last").prev("li").addClass("second-last")
 		$("body").removeClass("js-disabled").addClass("js-enabled"); 
 		$("input, textarea", $("form")).focus(function(){
-		$(this).addClass("focus");
-		$(this).parents(".form-field").addClass("cur");
+			$(this).addClass("focus");
+			$(this).parents(".form-field").addClass("cur");
 		});
 		$("input, textarea", $("form")).blur(function(){
 		    $(this).removeClass("focus");
@@ -24,12 +24,8 @@ header("content-type: text/js; charset: UTF-8");
 		$(".article-body p:first").addClass("teaser");
 		$(".module-previews .mod:odd").addClass("alt");		
 		$("#nav li:first").addClass("first");
-		$(".sidenav li:first-child").each(function(){
-			$(this).addClass("first");
-		});
-		$(".sidenav li:last-child").each(function(){
-			$(this).addClass("last");
-		});
+		$(".sidenav li:first-child").each(function(){ $(this).addClass("first"); });
+		$(".sidenav li:last-child").each(function(){ $(this).addClass("last"); });
 		$("#secondary-content .module:first").addClass("firstmodule");
 		$("#secondary-content .module:last").addClass("lastmodule");
 		$("#tertiary-content .module:first").addClass("firstmodule");
@@ -42,9 +38,9 @@ header("content-type: text/js; charset: UTF-8");
 		$(".ui-tabs-nav li").wrapInner("<span class='extra-tab-border'></span>");
 		$("input#mod_search_searchword").wrapInner("<div class='extra-search-border'></div>");
 
-// TODO: Wrap first word of module headings to allow for additional styling.		
-//		var str = $(".mod h3:first").text();
-//	    $(".mod h3:last").html(str);
+		// TODO: Wrap first word of module headings to allow for additional styling.		
+		//		var str = $(".mod h3:first").text();
+		//	    $(".mod h3:last").html(str);
 		
 <?php if ( $topshelf_equalize == 1 ) { ?>
 		$(function(){ $('#topshelf .mod-grid').equalHeights(); });

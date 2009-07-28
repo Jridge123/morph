@@ -25,8 +25,8 @@
 		$("#topnav.call-for-action li:last").prev("li").addClass("second-last")
 		$("body").removeClass("js-disabled").addClass("js-enabled"); 
 		$("input, textarea", $("form")).focus(function(){
-		$(this).addClass("focus");
-		$(this).parents(".form-field").addClass("cur");
+			$(this).addClass("focus");
+			$(this).parents(".form-field").addClass("cur");
 		});
 		$("input, textarea", $("form")).blur(function(){
 		    $(this).removeClass("focus");
@@ -35,12 +35,8 @@
 		$(".article-body p:first").addClass("teaser");
 		$(".module-previews .mod:odd").addClass("alt");		
 		$("#nav li:first").addClass("first");
-		$(".sidenav li:first-child").each(function(){
-			$(this).addClass("first");
-		});
-		$(".sidenav li:last-child").each(function(){
-			$(this).addClass("last");
-		});
+		$(".sidenav li:first-child").each(function(){ $(this).addClass("first"); });
+		$(".sidenav li:last-child").each(function(){ $(this).addClass("last"); });
 		$("#secondary-content .module:first").addClass("firstmodule");
 		$("#secondary-content .module:last").addClass("lastmodule");
 		$("#tertiary-content .module:first").addClass("firstmodule");
@@ -56,14 +52,7 @@
 		$("#footer-links .fl-right li:last").addClass("fl-last");
 
 		//usage w/ smoothscroll
-		$('#top-link').topLink({
-			min: 400,
-			fadeSpeed: 500
-		});
-		//smoothscroll
-		$('#top-link').click(function(e) {
-			$.scrollTo(0,300);
-			return false;
-		});
+		$('#top-link').topLink({ min: 400, fadeSpeed: 500 });
+		$('#top-link').click(function(e){ $.scrollTo(0,300); return false; });
 	});
 })(jQuery);
