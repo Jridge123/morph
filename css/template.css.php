@@ -6,11 +6,12 @@ if ( $gzip_compression == 1 ) {
 	}else{
 		ob_start();
 	}
-	header("cache-control: must-revalidate");	$offset = 60 * 10000;	$expire = "expires: " . gmdate("D, d M Y H:i:s", time() + $offset) . " GMT";	header($expire);
+header("cache-control: must-revalidate");$offset = 60 * 10000;$expire = "expires: " . gmdate("D, d M Y H:i:s", time() + $offset) . " GMT";header($expire);
 }
 header("content-type: text/css; charset: UTF-8");
 define('JPATH', str_replace('templates/morph/css', '', dirname(__FILE__)) . '/' );
 
+if( $pack_css == 1 ){
 	if(file_exists($css_yui) && is_readable($css_yui)){
 		include($_SERVER['DOCUMENT_ROOT'] . '/' . $themeletpath.'/css/yui.css');
 	} else {
