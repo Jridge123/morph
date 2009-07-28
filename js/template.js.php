@@ -1,9 +1,13 @@
 <?php
-include '../core/jsvars.php';
-header("content-type: text/javascript; charset: UTF-8");if ( $gzip_compression == 1 ) {
-ob_start("ob_gzhandler");
-header("cache-control: must-revalidate");$offset = 60 * 10000;$expire = "expires: " . gmdate("D, d M Y H:i:s", time() + $offset) . " GMT";header($expire);
+include '../core/jsvars.php';if ( $gzip_compression == 1 ) {
+	if(extension_loaded('zlib') && !ini_get('zlib.output_compression')){
+		if(!ob_start("ob_gzhandler")) ob_start();
+	}else{
+		ob_start();
+	}
+	header("cache-control: must-revalidate");	$offset = 60 * 10000;	$expire = "expires: " . gmdate("D, d M Y H:i:s", time() + $offset) . " GMT";	header($expire);
 }
+header("content-type: text/javascript; charset: UTF-8");
 if($pack_js == 1){
 	if ( $jquery_core == 1 ) { include('jquery-1.3.2.min.js'); }
 	if ( $tabscount >= 1 ) { include('jquery.ui.core.js'); include('jquery.ui.tabs.js'); }
