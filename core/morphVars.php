@@ -89,7 +89,7 @@ foreach($packed_js_vars as $key => $val){
 }
 
 // CSS Variables
-if ($bg_image == "" ) { $bg_image = "default"; }
+if ($bg_image == "" ) $bg_image = "default";
 
 $packed_css_vars = array();
 $packed_css_vars["A01"]=$themelet;

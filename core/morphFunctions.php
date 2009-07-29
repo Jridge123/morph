@@ -10,34 +10,6 @@ include_once('templates/morph/core/morphLoader.php');
 include_once('templates/morph/core/morphParams.php');
 require_once('templates/morph/core/browser.php');
 
-// CSS and JS Packing
-$curr_url = (!empty($_SERVER['HTTPS'])) ? "https://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'] : "http://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
-if($pack_js == 1){
-	if(isset($_GET['unpackjs'])){
-		setcookie('unpackjs', 'true', 0);
-		header('Location: ' . str_replace(array('?unpackjs','&unpackjs'), '', $curr_url));
-	}elseif(isset($_GET['packjs'])){
-		setcookie('unpackjs', 'true', time()-3600);
-		header('Location: ' . str_replace(array('?packjs','&packjs'), '', $curr_url));
-	}
-}else{
-	if( isset($_GET['unpackjs']) || isset($_GET['packjs']) ){
-		header('Location: ' . str_replace(array('?unpackjs','&unpackjs','?packjs','&packjs'), '', $curr_url));
-	}
-}
-if($pack_css == 1){
-	if(isset($_GET['unpackcss'])){
-		setcookie('unpackcss', 'true', 0);
-		header('Location: ' . str_replace(array('?unpackcss','&unpackcss'), '', $curr_url));
-	}elseif(isset($_GET['packcss'])){
-		setcookie('unpackcss', 'true', time()-3600);
-		header('Location: ' . str_replace(array('?packcss','&packcss'), '', $curr_url));
-	}
-}else{
-	if(isset($_GET['unpackcss']) || isset($_GET['packcss'])){
-		header('Location: ' . str_replace(array('?unpackcss','&unpackcss','?packcss','&packcss'), '', $curr_url));
-	}
-}
 // set the various paths:
 $templatepath = JURI::root() . 'templates/' . $this->template;
 $themeletpath = JURI::root() . 'morph_assets/themelets/' . $themelet;
@@ -61,14 +33,14 @@ $secid 						= JRequest::getCmd('secid');
 $catid 						= JRequest::getCmd('catid');
 $itemid 					= JRequest::getCmd('Itemid');
 $pageclass   				= "";
-$document 					= &Jfactory::getDocument();  
-$menus      				= &JSite::getMenu();
+$document 					= Jfactory::getDocument();  
+$menus      				= JSite::getMenu();
 $menu      					= $menus->getActive();
 if (is_object( $menu )) :
 $params 					= new JParameter( $menu->params );
 $pageclass 					= $params->get( 'pageclass_sfx' );
 endif;
-$user 						=& JFactory::getUser();
+$user 						= JFactory::getUser();
 $user1count 				= JDocumentHTML::countModules('user1');
 $user2count 				= JDocumentHTML::countModules('user2');
 $topshelfcount 				= JDocumentHTML::countModules('topshelf');
@@ -110,22 +82,48 @@ if($option !== 'com_user') {
 		$this->setHeadData($headerstuff);
 	}
 }
-
 if($user->get('guest') == 1 or $user->usertype == 'Registered' && $load_caption == "0") {
 	$headerstuff = $this->getHeadData();
 	unset($headerstuff['scripts'][$this->baseurl.'/media/system/js/caption.js']);
 	$this->setHeadData($headerstuff);
 }
-
 if ( $remove_generator == 1 ) {
 $this->setGenerator(null);
-}
-function debug_chrome($pt_debug, $pt_mod_chrome){	if( $pt_debug == 1 ){ 		return 'outline'; 	} else { 		return $pt_mod_chrome; 	}}
+}function debug_chrome($pt_debug, $pt_mod_chrome){	if( $pt_debug == 1 ){ 		return 'outline'; 	} else { 		return $pt_mod_chrome; 	}}
 
 include 'morphVars.php';
 
 if(file_exists($themeletfunctions) && is_readable($themeletfunctions)){
 include_once($absolutepath.'/custom.php');
+}
+
+// CSS and JS URL Packing
+$curr_url = (!empty($_SERVER['HTTPS'])) ? "https://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'] : "http://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
+if($pack_js == 1){
+	if(isset($_GET['unpackjs'])){
+		setcookie('unpackjs', 'true', 0);
+		header('Location: ' . str_replace(array('?unpackjs','&unpackjs'), '', $curr_url));
+	}elseif(isset($_GET['packjs'])){
+		setcookie('unpackjs', 'true', time()-3600);
+		header('Location: ' . str_replace(array('?packjs','&packjs'), '', $curr_url));
+	}
+}else{
+	if( isset($_GET['unpackjs']) || isset($_GET['packjs']) ){
+		header('Location: ' . str_replace(array('?unpackjs','&unpackjs','?packjs','&packjs'), '', $curr_url));
+	}
+}
+if($pack_css == 1){
+	if(isset($_GET['unpackcss'])){
+		setcookie('unpackcss', 'true', 0);
+		header('Location: ' . str_replace(array('?unpackcss','&unpackcss'), '', $curr_url));
+	}elseif(isset($_GET['packcss'])){
+		setcookie('unpackcss', 'true', time()-3600);
+		header('Location: ' . str_replace(array('?packcss','&packcss'), '', $curr_url));
+	}
+}else{
+	if(isset($_GET['unpackcss']) || isset($_GET['packcss'])){
+		header('Location: ' . str_replace(array('?unpackcss','&unpackcss','?packcss','&packcss'), '', $curr_url));
+	}
 }
 
 // JS Packing
@@ -154,72 +152,71 @@ if ( isset($_COOKIE['unpackjs']) && $pack_js == 1 || isset($_COOKIE['unpackjs'])
 // CSS Packing
 if ( isset($_COOKIE['unpackcss']) && $pack_css == 1 || isset($_COOKIE['unpackcss']) && $pack_css == 0 || !isset($_COOKIE['unpackcss']) && $pack_css == 0 ) {
 
-	$document->addStyleSheet($templatepath .'/css/template.css.php'.$packed_css);
+	$document->addStyleSheet($templatepath .'/core/css/template.css.php'.$packed_css);
 
 	if(file_exists($css_yui) && is_readable($css_yui)){
-		$document->addStyleSheet($themeletpath .'/css/yui.css');
+		$document->addStyleSheet($themeletpath .'/core/css/yui.css');
 	} else {
-		$document->addStyleSheet($templatepath .'/css/yui.css');
+		$document->addStyleSheet($templatepath .'/core/css/yui.css');
 	}
 	if(file_exists($css_joomla) && is_readable($css_joomla)){
-		$document->addStyleSheet($themeletpath .'/css/joomla.css');
+		$document->addStyleSheet($themeletpath .'/core/css/joomla.css');
 	} else {
-		$document->addStyleSheet($templatepath .'/css/joomla.css');
+		$document->addStyleSheet($templatepath .'/core/css/joomla.css');
 	}
 	if(file_exists($css_modules) && is_readable($css_modules)){
-		$document->addStyleSheet($themeletpath .'/css/modules.css');
+		$document->addStyleSheet($themeletpath .'/core/css/modules.css');
 	} else {
-		$document->addStyleSheet($templatepath .'/css/modules.css');
+		$document->addStyleSheet($templatepath .'/core/css/modules.css');
 	}
 	if(file_exists($css_typo) && is_readable($css_typo)){
-		$document->addStyleSheet($themeletpath .'/css/typo.css');
+		$document->addStyleSheet($themeletpath .'/core/css/typo.css');
 	} else {
-		$document->addStyleSheet($templatepath .'/css/typo.css');
+		$document->addStyleSheet($templatepath .'/core/css/typo.css');
 	}
 	if(file_exists($css_tabs) && is_readable($css_tabs)){
-		$document->addStyleSheet($themeletpath .'/css/tabs.css');
+		$document->addStyleSheet($themeletpath .'/core/css/tabs.css');
 	} else {
-		$document->addStyleSheet($templatepath .'/css/tabs.css');
+		$document->addStyleSheet($templatepath .'/core/css/tabs.css');
 	}
 	if(file_exists($css_tnav_default) && is_readable($css_tnav_default) && $topnav_count >= 1 ){
-		$document->addStyleSheet($themeletpath .'/css/topnav-default.css');
+		$document->addStyleSheet($themeletpath .'/core/css/topnav-default.css');
 	} elseif ( $topnav_count >= 1 ) {
-		$document->addStyleSheet($templatepath .'/css/topnav-default.css');
+		$document->addStyleSheet($templatepath .'/core/css/topnav-default.css');
 	}
 	if(file_exists($css_tnav_topfish) && is_readable($css_tnav_topfish) && $topfish >= 1 ){
-		$document->addStyleSheet($themeletpath .'/css/topnav-topfish.css');
+		$document->addStyleSheet($themeletpath .'/core/css/topnav-topfish.css');
 	} elseif ( $topfish >= 1 ) {
-		$document->addStyleSheet($templatepath .'/css/topnav-topfish.css');
+		$document->addStyleSheet($templatepath .'/core/css/topnav-topfish.css');
 	}
 	if(file_exists($css_tnav_topdrop) && is_readable($css_tnav_topdrop) && $topdrop >= 1 ){
-		$document->addStyleSheet($themeletpath .'/css/topnav-topdrop.css');
+		$document->addStyleSheet($themeletpath .'/core/css/topnav-topdrop.css');
 	} elseif ( $topdrop >= 1 ) {
-		$document->addStyleSheet($templatepath .'/css/topnav-topdrop.css');
+		$document->addStyleSheet($templatepath .'/core/css/topnav-topdrop.css');
 	}
 	if(file_exists($css_snav_default) && is_readable($css_snav_default) && $sidenav_count >= 1 ){
-		$document->addStyleSheet($themeletpath .'/css/sidenav-default.css');
+		$document->addStyleSheet($themeletpath .'/core/css/sidenav-default.css');
 	} elseif ( $sidenav_count >= 1 ) {
-		$document->addStyleSheet($templatepath .'/css/sidenav-default.css');
+		$document->addStyleSheet($templatepath .'/core/css/sidenav-default.css');
 	}
 	if(file_exists($css_snav_sidefish) && is_readable($css_snav_sidefish) && $sidefish >= 1 ){
-		$document->addStyleSheet($themeletpath .'/css/sidenav-sidefish.css');
+		$document->addStyleSheet($themeletpath .'/core/css/sidenav-sidefish.css');
 	} elseif ( $sidefish >= 1 ) {
-		$document->addStyleSheet($templatepath .'/css/sidenav-sidefish.css');
+		$document->addStyleSheet($templatepath .'/core/css/sidenav-sidefish.css');
 	}
 	if(file_exists($css_snav_sidefish) && is_readable($css_snav_sidefish) && $this->direction == 'rtl' ){
-		$document->addStyleSheet($themeletpath .'/css/rtl.css');
+		$document->addStyleSheet($themeletpath .'/core/css/rtl.css');
 	} elseif ( $this->direction == 'rtl' ) {
-		$document->addStyleSheet($templatepath .'/css/rtl.css');
+		$document->addStyleSheet($templatepath .'/core/css/rtl.css');
 	}
 	if( $custom_css == 1 ){ $document->addStyleSheet($themeletpath .'/css/custom.css');	}
 	$document->addStyleSheet($themeletpath .'/css/themelet.css');
 	$document->addStyleSheet($themeletpath .'/css/modfx.css');	
 
 }else{
-	$document->addStyleSheet($templatepath .'/css/template.css.php'.$packed_css);
+	$document->addStyleSheet($templatepath .'/core/css/template.css.php'.$packed_css);
 	if( $custom_css == 1 ){ $document->addStyleSheet($themeletpath .'/css/custom.css');	}
 }
-
 
 function isIE6(){
 	$user_agent = $_SERVER['HTTP_USER_AGENT'];
@@ -230,31 +227,21 @@ function isIE6(){
 	}
 }
 
-$ua = $_SERVER['HTTP_USER_AGENT'];
-switch($ua){
-	case strpos($ua, 'MSIE'):
-		if(file_exists($ie) && is_readable($ie)){
-			echo $document->addStyleSheet($ie);
-		}
+switch($_SERVER['HTTP_USER_AGENT']){
+	case strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE'):
+	if(file_exists($ie) && is_readable($ie)) $document->addStyleSheet($ie);
 	break;
-	case (strpos($ua, 'MSIE 6')):
-		echo 'test';
-		if(file_exists($ie6) && is_readable($ie6)){
-			echo $document->addStyleSheet($ie6);
-		}
+	case (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 6')):
+	if(file_exists($ie6) && is_readable($ie6)) $document->addStyleSheet($ie6);
 	break;
-	case strpos($ua, 'MSIE 7'):
-		if(file_exists($ie7) && is_readable($ie7)){
-			echo $document->addStyleSheet($ie7);
-		}
+	case strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 7'):
+	if(file_exists($ie7) && is_readable($ie7)) $document->addStyleSheet($ie7);
 	break;
-	case strpos($ua, 'MSIE 8'):
-		if(file_exists($ie8) && is_readable($ie8)){
-			echo $document->addStyleSheet($ie8);
-		}
+	case strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 8'):
+	if(file_exists($ie8) && is_readable($ie8)) $document->addStyleSheet($ie8);
 	break;
 }
-	
+
 // get layout functions
 include_once('InnerLayout.php');
 include_once('OuterLayout.php');
@@ -296,5 +283,4 @@ function getYuiSuffix ($moduleName, $jj_const){
 	}
 	echo $yuiModuleSuffix;
 }
-
 ?>
