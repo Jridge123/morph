@@ -1,12 +1,15 @@
 <?php
-include '../core/cssvars.php';
-header("content-type: text/css; charset: UTF-8");
-define('JPATH', str_replace('templates/morph/css', '', dirname(__FILE__)) . '/' );
-
+include '../cssvars.php';
 if ( $gzip_compression == 1 ) {
-ob_start("ob_gzhandler");
+	if(extension_loaded('zlib') && !ini_get('zlib.output_compression')){
+		if(!ob_start("ob_gzhandler")) ob_start();
+	}else{
+		ob_start();
+	}
 header("cache-control: must-revalidate");$offset = 60 * 10000;$expire = "expires: " . gmdate("D, d M Y H:i:s", time() + $offset) . " GMT";header($expire);
 }
+header("content-type: text/css; charset: UTF-8");
+define('JPATH', str_replace('templates/morph/core/css', '', dirname(__FILE__)) . '/' );
 
 if( $pack_css == 1 ){
 	if(file_exists($css_yui) && is_readable($css_yui)){
@@ -76,7 +79,12 @@ html body{<?php if ( $bg_color && $bg_color !== "#default" ) { ?>background-colo
 .breadcrumbs.pathway li a{background:transparent url(../../../morph_assets/themelets/<?php echo $themelet; ?>/images/pathway.png) no-repeat scroll 100% 50%;}
 #topnav .menu .parent a{background:transparent url(../../../morph_assets/themelets/<?php echo $themelet; ?>/images/parent.gif) 50% 85% no-repeat;}
 .article-options li.author,.article-options li.created{background:transparent url(../../../morph_assets/themelets/<?php echo $themelet; ?>/images/article-icons.png) no-repeat;}
-#topnav{background:url(../../../morph_assets/themelets/<?php echo $themelet; ?>/images/nav-bg.png) repeat-x;border:1px solid #ccc;}
+#topnav{background:url(../../../../morph_assets/themelets/<?php echo $themelet; ?>/images/nav-bg.png) repeat-x;border:1px solid #ccc;}
+
+.mod h3 span{background-image:url(../../../morph_assets/themelets/<?php echo $themelet; ?>/images/modfx-h3icon-sprite.png);background-repeat:no-repeat;}
+<!--.mod{background-image:url(../../../morph_assets/themelets/<?php echo $themelet; ?>/images/mod-bgimage-sprite.png);}-->
+
+
 
 <?php if ( $logo_type == 0 ) { ?>
 #branding h1,#branding h1 a{margin:0;padding:0;}

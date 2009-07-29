@@ -89,7 +89,7 @@ foreach($packed_js_vars as $key => $val){
 }
 
 // CSS Variables
-if ($bg_image == "" ) { $bg_image = "default"; }
+if ($bg_image == "" ) $bg_image = "default";
 
 $packed_css_vars = array();
 $packed_css_vars["A01"]=$themelet;
@@ -105,22 +105,22 @@ $packed_css_vars["C01"]=urlencode($slogan_textcolor);
 $packed_css_vars["C02"]=urlencode($slogan_fontfamily);
 $packed_css_vars["C03"]=$slogan_fontsize;
 $packed_css_vars["C04"]=$display_slogan;
-$packed_css_vars["D01"]=urlencode('#'.$bg_color);
+$packed_css_vars["D01"]=urlencode($bg_color);
 $packed_css_vars["D02"]=$bg_image;
 $packed_css_vars["D03"]=$bg_repeat;
 $packed_css_vars["D04"]=urlencode($bg_position);
 $packed_css_vars["D05"]=$bg_attachment;
-$packed_css_vars["E01"]=urlencode('#'.$color_h1);
-$packed_css_vars["E02"]=urlencode('#'.$color_h2);
-$packed_css_vars["E03"]=urlencode('#'.$color_h3);
-$packed_css_vars["E04"]=urlencode('#'.$color_h4);
-$packed_css_vars["E05"]=urlencode('#'.$color_h5);
-$packed_css_vars["E06"]=urlencode('#'.$color_links);
-$packed_css_vars["E07"]=urlencode('#'.$color_linkshover);
-$packed_css_vars["E08"]=urlencode('#'.$color_linksvisited);
-$packed_css_vars["E09"]=urlencode('#'.$color_bodytext);
-$packed_css_vars["F01"]=urlencode('#'.$footer_textcolor);
-$packed_css_vars["F02"]=urlencode('#'.$footer_linkscolor);
+$packed_css_vars["E01"]=urlencode($color_h1);
+$packed_css_vars["E02"]=urlencode($color_h2);
+$packed_css_vars["E03"]=urlencode($color_h3);
+$packed_css_vars["E04"]=urlencode($color_h4);
+$packed_css_vars["E05"]=urlencode($color_h5);
+$packed_css_vars["E06"]=urlencode($color_links);
+$packed_css_vars["E07"]=urlencode($color_linkshover);
+$packed_css_vars["E08"]=urlencode($color_linksvisited);
+$packed_css_vars["E09"]=urlencode($color_bodytext);
+$packed_css_vars["F01"]=urlencode($footer_textcolor);
+$packed_css_vars["F02"]=urlencode($footer_linkscolor);
 $packed_css_vars["G01"]=$topfish;
 $packed_css_vars["G02"]=$topdrop;
 $packed_css_vars["G03"]=$topnav_count;
