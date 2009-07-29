@@ -23,10 +23,6 @@ if($pack_js == 1){
 }
 ?>
 (function($) {
-<<<<<<< HEAD:js/template.js.php
-	$(document).ready(function(){	
-<?php if ( $topshelf_equalize == 1 ) { ?>
-=======
 	$(document).ready(function(){
 	
 		// TODO: Wrap first word of module headings to allow for additional styling.		
@@ -34,7 +30,6 @@ if($pack_js == 1){
 		// $(".mod h3:last").html(str);
 		
 		<?php if ( $topshelf_equalize == 1 ) { ?>
->>>>>>> 8dac39b0b6746434c0e30b59ee690b892033230f:js/template.js.php
 		$(function(){ $('#topshelf .mod-grid').equalHeights(); });
 		<?php } if ( $bottomshelf_equalize == 1 ) { ?>
 		$(function(){ $('#bottomshelf .mod-grid').equalHeights(); });
