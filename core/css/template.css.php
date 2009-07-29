@@ -17,52 +17,7 @@ if( $pack_css == 1 ){
 	} else {
 		include('yui.css');
 	}
-	if(file_exists($css_joomla) && is_readable($css_joomla)){
-		include($_SERVER['DOCUMENT_ROOT'] . '/' . $themeletpath . '/css/joomla.css');
-	} else {
-		include('joomla.css');
-	}
-	if(file_exists($css_modules) && is_readable($css_modules)){
-		include($_SERVER['DOCUMENT_ROOT'] . '/' . $themeletpath . '/css/modules.css');
-	} else {
-		include('modules.css');
-	}
-	if(file_exists($css_typo) && is_readable($css_typo)){
-		include($_SERVER['DOCUMENT_ROOT'] . '/' . $themeletpath . '/css/typo.css');
-	} else {
-		include('typo.css');
-	}
-	if(file_exists($css_tabs) && is_readable($css_tabs)){
-		include($_SERVER['DOCUMENT_ROOT'] . '/' . $themeletpath . '/css/tabs.css');
-	} else {
-		include('tabs.css');
-	}
-	
-	if(file_exists($css_tnav_default) && is_readable($css_tnav_default) && $topnav_count >= 1 ){
-		include($_SERVER['DOCUMENT_ROOT'] . '/' . $themeletpath . '/css/topnav_default.css');
-	} elseif ( $topnav_count >= 1 ) {
-		include('topnav-default.css');
-	}
-	if(file_exists($css_tnav_topfish) && is_readable($css_tnav_topfish) && $topfish >= 1 ){
-		include($_SERVER['DOCUMENT_ROOT'] . '/' . $themeletpath . '/css/topnav-topfish.css');
-	} elseif ( $topfish >= 1 ) {
-		include('topnav-topfish.css');
-	}
-	if(file_exists($css_tnav_topdrop) && is_readable($css_tnav_topdrop) && $topdrop >= 1 ){
-		include($_SERVER['DOCUMENT_ROOT'] . '/' . $themeletpath . '/css/topnav-topdrop.css');
-	} elseif ( $topdrop >= 1 ) {
-		include('topnav-topdrop.css');
-	}
-	if(file_exists($css_snav_default) && is_readable($css_snav_default) && $sidenav_count >= 1 ){
-		include($_SERVER['DOCUMENT_ROOT'] . '/' . $themeletpath . '/css/sidenav-default.css');
-	} elseif ( $sidenav_count >= 1 ) {
-		include('sidenav-default.css');
-	}
-	if(file_exists($css_snav_sidefish) && is_readable($css_snav_sidefish) && $sidefish >= 1 ){
-		include($_SERVER['DOCUMENT_ROOT'] . '/' . $themeletpath . '/css/sidenav-sidefish.css');
-	} elseif ( $sidefish >= 1 ) {
-		include('sidenav-sidefish.css');
-	}
+
 //	if(file_exists($css_rtl) && is_readable($css_rtl) ){
 //		include($_SERVER['DOCUMENT_ROOT'] . '/' . $themeletpath . '/css/rtl.css');
 //	} else {
@@ -70,21 +25,21 @@ if( $pack_css == 1 ){
 //	}
 	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/themelet.css');
 	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/modfx.css');
+	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/joomla.css');
+	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/modules.css');
+	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/typo.css');
+	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/tabs.css');
+	if( $topnav_count >= 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/topnav-default.css');}
+	if( $topfish >= 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/topnav-topfish.css');}
+	if( $topdrop >= 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/topnav-topdrop.css');}
+	if( $sidenav_count >= 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/sidenav-default.css');}
+	if( $sidefish >= 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/sidenav-sidefish.css');}
 }
 ?>
 
 <?php if ( $bg_image !== "Use themelets background") { ?>
 html body{<?php if ( $bg_color && $bg_color !== "#default" ) { ?>background-color:<?php echo $bg_color; ?>;<?php }; if ( $bg_image !== "default") { ?>background-image:url(../../../morph_assets/backgrounds/<?php echo $bg_image; ?>);<?php } ?>background-repeat:<?php echo $bg_repeat; ?>;background-position:<?php echo $bg_position; ?>;background-attachment:<?php echo $bg_attachment; ?>;}
 <?php } ?>
-.breadcrumbs.pathway li a{background:transparent url(../../../morph_assets/themelets/<?php echo $themelet; ?>/images/pathway.png) no-repeat scroll 100% 50%;}
-#topnav .menu .parent a{background:transparent url(../../../morph_assets/themelets/<?php echo $themelet; ?>/images/parent.gif) 50% 85% no-repeat;}
-.article-options li.author,.article-options li.created{background:transparent url(../../../morph_assets/themelets/<?php echo $themelet; ?>/images/article-icons.png) no-repeat;}
-#topnav{background:url(../../../../morph_assets/themelets/<?php echo $themelet; ?>/images/nav-bg.png) repeat-x;border:1px solid #ccc;}
-
-.mod h3 span{background-image:url(../../../morph_assets/themelets/<?php echo $themelet; ?>/images/modfx-h3icon-sprite.png);background-repeat:no-repeat;}
-<!--.mod{background-image:url(../../../morph_assets/themelets/<?php echo $themelet; ?>/images/mod-bgimage-sprite.png);}-->
-
-
 
 <?php if ( $logo_type == 0 ) { ?>
 #branding h1,#branding h1 a{margin:0;padding:0;}

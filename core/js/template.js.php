@@ -18,7 +18,6 @@ if($pack_js == 1){
 	if ( $topnav_supersubs == 1 ) { include("jquery.superfish.supersubs.js"); }
 	if ( $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1 ) { include('jquery.slider.js'); }
 	if ( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1  ) { include('jquery.equalheights.js'); }
-	if ( $image_captions == 1 ) { include('jquery.captify.js'); }
 	include('jquery.scrollTo-1.4.2-min.js');
 	include('template.js');
 }

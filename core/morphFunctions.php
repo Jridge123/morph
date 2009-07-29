@@ -159,56 +159,32 @@ if ( isset($_COOKIE['unpackcss']) && $pack_css == 1 || isset($_COOKIE['unpackcss
 	} else {
 		$document->addStyleSheet($templatepath .'/core/css/yui.css');
 	}
-	if(file_exists($css_joomla) && is_readable($css_joomla)){
-		$document->addStyleSheet($themeletpath .'/core/css/joomla.css');
-	} else {
-		$document->addStyleSheet($templatepath .'/core/css/joomla.css');
-	}
-	if(file_exists($css_modules) && is_readable($css_modules)){
-		$document->addStyleSheet($themeletpath .'/core/css/modules.css');
-	} else {
-		$document->addStyleSheet($templatepath .'/core/css/modules.css');
-	}
-	if(file_exists($css_typo) && is_readable($css_typo)){
-		$document->addStyleSheet($themeletpath .'/core/css/typo.css');
-	} else {
-		$document->addStyleSheet($templatepath .'/core/css/typo.css');
-	}
-	if(file_exists($css_tabs) && is_readable($css_tabs)){
-		$document->addStyleSheet($themeletpath .'/core/css/tabs.css');
-	} else {
-		$document->addStyleSheet($templatepath .'/core/css/tabs.css');
-	}
-	if(file_exists($css_tnav_default) && is_readable($css_tnav_default) && $topnav_count >= 1 ){
-		$document->addStyleSheet($themeletpath .'/core/css/topnav-default.css');
-	} elseif ( $topnav_count >= 1 ) {
-		$document->addStyleSheet($templatepath .'/core/css/topnav-default.css');
-	}
-	if(file_exists($css_tnav_topfish) && is_readable($css_tnav_topfish) && $topfish >= 1 ){
-		$document->addStyleSheet($themeletpath .'/core/css/topnav-topfish.css');
-	} elseif ( $topfish >= 1 ) {
-		$document->addStyleSheet($templatepath .'/core/css/topnav-topfish.css');
-	}
-	if(file_exists($css_tnav_topdrop) && is_readable($css_tnav_topdrop) && $topdrop >= 1 ){
-		$document->addStyleSheet($themeletpath .'/core/css/topnav-topdrop.css');
-	} elseif ( $topdrop >= 1 ) {
-		$document->addStyleSheet($templatepath .'/core/css/topnav-topdrop.css');
-	}
-	if(file_exists($css_snav_default) && is_readable($css_snav_default) && $sidenav_count >= 1 ){
-		$document->addStyleSheet($themeletpath .'/core/css/sidenav-default.css');
-	} elseif ( $sidenav_count >= 1 ) {
-		$document->addStyleSheet($templatepath .'/core/css/sidenav-default.css');
-	}
-	if(file_exists($css_snav_sidefish) && is_readable($css_snav_sidefish) && $sidefish >= 1 ){
-		$document->addStyleSheet($themeletpath .'/core/css/sidenav-sidefish.css');
-	} elseif ( $sidefish >= 1 ) {
-		$document->addStyleSheet($templatepath .'/core/css/sidenav-sidefish.css');
-	}
-	if(file_exists($css_snav_sidefish) && is_readable($css_snav_sidefish) && $this->direction == 'rtl' ){
+	if($this->direction == 'rtl' ){
 		$document->addStyleSheet($themeletpath .'/core/css/rtl.css');
-	} elseif ( $this->direction == 'rtl' ) {
-		$document->addStyleSheet($templatepath .'/core/css/rtl.css');
+	}	
+	
+	
+	
+	$document->addStyleSheet($themeletpath .'/css/joomla.css');
+	$document->addStyleSheet($themeletpath .'/css/modules.css');
+	$document->addStyleSheet($themeletpath .'/css/typo.css');
+	$document->addStyleSheet($themeletpath .'/css/tabs.css');
+	if($topnav_count >= 1 ){
+		$document->addStyleSheet($themeletpath .'/css/topnav-default.css');
 	}
+	if($topfish >= 1 ){
+		$document->addStyleSheet($themeletpath .'/css/topnav-topfish.css');
+	}
+	if($topdrop >= 1 ){
+		$document->addStyleSheet($themeletpath .'/css/topnav-topdrop.css');
+	}
+	if($sidenav_count >= 1 ){
+		$document->addStyleSheet($themeletpath .'/css/sidenav-default.css');
+	}
+	if($sidefish >= 1 ){
+		$document->addStyleSheet($themeletpath .'/css/sidenav-sidefish.css');
+	}
+
 	if( $custom_css == 1 ){ $document->addStyleSheet($themeletpath .'/css/custom.css');	}
 	$document->addStyleSheet($themeletpath .'/css/themelet.css');
 	$document->addStyleSheet($themeletpath .'/css/modfx.css');	
