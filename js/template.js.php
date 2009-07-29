@@ -14,18 +14,12 @@ if($pack_js == 1){
 	if ( $topnav_supersubs == 1 ) { include("jquery.superfish.supersubs.js"); }
 	if ( $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1 ) { include('jquery.slider.js'); }
 	if ( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1  ) { include('jquery.equalheights.js'); }
-	if ( $image_captions == 1 ) { include('jquery.captify.js'); }
 	include('jquery.scrollTo-1.4.2-min.js');
 	include('template.js');
 }
 ?>
 (function($) {
-	$(document).ready(function(){
-	
-		// TODO: Wrap first word of module headings to allow for additional styling.		
-		// var str = $(".mod h3:first").text();
-		// $(".mod h3:last").html(str);
-		
+	$(document).ready(function(){	
 <?php if ( $topshelf_equalize == 1 ) { ?>
 		$(function(){ $('#topshelf .mod-grid').equalHeights(); });
 <?php } if ( $bottomshelf_equalize == 1 ) { ?>
