@@ -128,24 +128,24 @@ if($pack_css == 1){
 
 // JS Packing
 if ( isset($_COOKIE['unpackjs']) && $pack_js == 1 || isset($_COOKIE['unpackjs']) && $pack_js == 0 || !isset($_COOKIE['unpackjs']) && $pack_js == 0 ) {
-	if ( $jquery_core == 1 ) { $document->addScript($templatepath .'/js/jquery-1.3.2.min.js'); }
+	if ( $jquery_core == 1 ) { $document->addScript($templatepath .'/core/js/jquery-1.3.2.min.js'); }
 	if ( $tabscount >= 1 ) {
-		$document->addScript($templatepath .'/js/jquery.ui.core.js');
-		$document->addScript($templatepath .'/js/jquery.ui.tabs.js');
+		$document->addScript($templatepath .'/core/js/jquery.ui.core.js');
+		$document->addScript($templatepath .'/core/js/jquery.ui.tabs.js');
 	}
-	if( $tabscount >= 1 or $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1 ) { $document->addScript($templatepath .'/js/jquery.cookie.js'); }
-	if( $topfish >= 1 && $topnav_hoverintent == 1 ) { $document->addScript($templatepath .'/js/jquery.superfish.hoverintent.js');}
-	if( $sidefish >= 1 or $topfish >= 1  ) { $document->addScript($templatepath .'/js/jquery.superfish.js');	}
-	if( $topfish >= 1 && $topnav_supersubs == 1 ) { $document->addScript($templatepath .'/js/jquery.superfish.supersubs.js'); }
-	if( $rounded_corners == 1 or $roundedcount !== 0 ) { $document->addScript($templatepath .'/js/jquery.corners.js');	}
-	if( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1  ) { $document->addScript($templatepath .'/js/jquery.equalheights.js'); }
-	if( $image_captions == 1 ) { $document->addScript($templatepath .'/js/jquery.captify.js'); }
-	$document->addScript($templatepath .'/js/jquery.scrollTo-1.4.2-min.js');
-	$document->addScript($templatepath .'/js/template.js');
-	$document->addScript($templatepath .'/js/template.js.php'.$packed_js);
+	if( $tabscount >= 1 or $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1 ) { $document->addScript($templatepath .'/core/js/jquery.cookie.js'); }
+	if( $topfish >= 1 && $topnav_hoverintent == 1 ) { $document->addScript($templatepath .'/core/js/jquery.superfish.hoverintent.js');}
+	if( $sidefish >= 1 or $topfish >= 1  ) { $document->addScript($templatepath .'/core/js/jquery.superfish.js');	}
+	if( $topfish >= 1 && $topnav_supersubs == 1 ) { $document->addScript($templatepath .'/core/js/jquery.superfish.supersubs.js'); }
+	if( $rounded_corners == 1 or $roundedcount !== 0 ) { $document->addScript($templatepath .'/core/js/jquery.corners.js');	}
+	if( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1  ) { $document->addScript($templatepath .'/core/js/jquery.equalheights.js'); }
+	if( $image_captions == 1 ) { $document->addScript($templatepath .'/core/js/jquery.captify.js'); }
+	$document->addScript($templatepath .'/core/js/jquery.scrollTo-1.4.2-min.js');
+	$document->addScript($templatepath .'/core/js/template.js');
+	$document->addScript($templatepath .'/core/js/template.js.php'.$packed_js);
 	if( $custom_js == 1 ){ $document->addScript($themeletpath .'/js/custom.js'); }
 }else{
-	$document->addScript($templatepath .'/js/template.js.php'.$packed_js);
+	$document->addScript($templatepath .'/core/js/template.js.php'.$packed_js);
 	if( $custom_js == 1 ){ $document->addScript($themeletpath .'/js/custom.js'); }
 }
 

@@ -1,5 +1,5 @@
 <?php
-include '../core/jsvars.php';if ( $gzip_compression == 1 ) {
+include '../jsvars.php';if ( $gzip_compression == 1 ) {
 	if(extension_loaded('zlib') && !ini_get('zlib.output_compression')){
 		if(!ob_start("ob_gzhandler")) ob_start();
 	}else{
