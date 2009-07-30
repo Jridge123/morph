@@ -5,6 +5,6 @@
 	<?php } ?>
 	<jdoc:include type="modules" name="topright" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo $topright_chrome; } ?>" />
 	<jdoc:include type="modules" name="right" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo $right_chrome; } ?>" />
-	<jdoc:include type="modules" name="bottomright" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo $btmright_chrome; } ?>" />
+	<jdoc:include type="modules" name="btmright" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo $btmright_chrome; } ?>" />
 </div>
 <?php } ?>

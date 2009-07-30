@@ -6,7 +6,7 @@
     <?php } ?>
     <jdoc:include type="modules" name="topleft" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo $topleft_chrome; } ?>" />
     <jdoc:include type="modules" name="left" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo $left_chrome; } ?>" />
-    <jdoc:include type="modules" name="bottomleft" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo $btmleft_chrome; } ?>" />
+    <jdoc:include type="modules" name="btmleft" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo $btmleft_chrome; } ?>" />
  </div>
 </div>
 <?php } ?>
