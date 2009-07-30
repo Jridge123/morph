@@ -31,8 +31,8 @@ jimport('joomla.application.module.helper');
  
  function moduleHeadings($modtitle){
 	// splitters
-	$pretext = '<';
-	$subtext = '>';
+	$pretext = '\\';
+	$subtext = '/';
 	$twotone = '|';
 	
 	$spaces = array('<span class="mod-tone1"> ', '<span class="mod-tone2"> ', '<span class="mod-pretext"> ', '<span class="mod-subtext"> ', ' </span>');
@@ -79,6 +79,10 @@ jimport('joomla.application.module.helper');
 		$str_subtext = $subtext_arr[0].'<span class="mod-subtext">'.$subtext_arr[1].'</span>';
 		
 		return str_replace($spaces, $nospaces, $str_subtext);
+	}
+	
+	if(!strstr($modtitle, $subtext) && !strstr($modtitle, $twotone)){
+		return $modtitle;
 	}
 }
 
@@ -131,7 +135,6 @@ if ($pub_modules[0]->id == $module->id) {
 	</div>
 <?php }
 
-
 function modChrome_tabs($module, &$params, &$attribs) {
 global $morph_tabs,$tabscount,$loadtabs,$istabsload;	
 
@@ -170,6 +173,49 @@ global $morph_tabs,$tabscount,$loadtabs,$istabsload;
 			} ?>
 			</ul>
 		<?php echo $tabs_contents; ?>
+		</div>
+<?php }
+}
+
+function modChrome_accordion($module, &$params, &$attribs) {
+global $morph_accordions,$accordionscount,$loadaccordions,$isaccordionsload;
+
+echo $accordionscount;
+
+	$themodules = JModuleHelper::getModules($module->position);
+	$countmodules = count($themodules);
+	$db=& JFactory::getDBO();
+	$query = "SELECT COUNT(*) FROM `#__morph` WHERE `param_value` = 'accordion' ";
+	$db->setQuery( $query );
+	$theaccordioncount = $db->loadResult();
+		
+	foreach ($themodules as $mod){
+		if ($mod->content){	
+			$currmod = new stdClass();
+			$currmod->position = $attribs['name'];	
+			$currmod->title = $mod->title;	
+			$currmod->content = $mod->content;
+			$morph_accordions[$attribs['name']][] = $currmod;
+		}
+	}
+	
+	if ($countmodules == count($morph_accordions[ $attribs['name'] ] ) ){ $accordionscount++; ?>
+		<div id="accordions<?php echo $accordionscount; ?>">
+			<?php
+			$curr_accordion = 1;
+			$accordions_contents = '';
+			foreach ( $morph_accordions[$attribs['name']] as $modul ){ 
+				$curr_accordion++;
+				if ($curr_accordion == 1) { ?>
+					<h3 class="ui-state-default ui-accordion-selected"><a href="#accordion<?php echo $curr_accordion.'-'.$modul->position; ?>"><?php echo moduleHeadings($modul->title);?></a></h3>
+				<?php } else { ?>
+					<h3 class="ui-state-default"><a href="#accordion<?php echo $curr_accordion.'-'.$modul->position; ?>"><?php echo moduleHeadings($modul->title);?></a></h3>
+				<?php 
+				}
+				echo '<div id="accordion'.$curr_accordion.'-'.$modul->position.'">'.$modul->content.'</div>';	
+			}
+			//echo $accordions_contents; 
+			?>
 		</div>
 <?php }
 }

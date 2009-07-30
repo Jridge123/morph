@@ -62,6 +62,7 @@ $css_joomla 				= $absolutepath."/css/joomla.css";
 $css_modules 				= $absolutepath."/css/modules.css";
 $css_typo 					= $absolutepath."/css/typo.css";
 $css_tabs 					= $absolutepath."/css/tabs.css";
+$css_accordions				= $absolutepath."/css/accordions.css";
 $css_tnav_default 			= $absolutepath."/css/topnav_default.css";
 $css_tnav_topfish 			= $absolutepath."/css/topnav_topfish.css";
 $css_tnav_topdrop 			= $absolutepath."/css/topnav_topdrop.css";
@@ -133,7 +134,11 @@ if ( isset($_COOKIE['unpackjs']) && $pack_js == 1 || isset($_COOKIE['unpackjs'])
 		$document->addScript($templatepath .'/core/js/jquery.ui.core.js');
 		$document->addScript($templatepath .'/core/js/jquery.ui.tabs.js');
 	}
-	if( $tabscount >= 1 or $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1 ) { $document->addScript($templatepath .'/core/js/jquery.cookie.js'); }
+	if ( $accordionscount >= 1 ) {
+		$document->addScript($templatepath .'/core/js/jquery.ui.core.js');
+		$document->addScript($templatepath .'/core/js/jquery.ui.accordion.js');
+	}
+	if( $tabscount >= 1 or $accordionscount >= 1 or $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1 ) { $document->addScript($templatepath .'/core/js/jquery.cookie.js'); }
 	if( $topfish >= 1 && $topnav_hoverintent == 1 ) { $document->addScript($templatepath .'/core/js/jquery.superfish.hoverintent.js');}
 	if( $sidefish >= 1 or $topfish >= 1  ) { $document->addScript($templatepath .'/core/js/jquery.superfish.js');	}
 	if( $topfish >= 1 && $topnav_supersubs == 1 ) { $document->addScript($templatepath .'/core/js/jquery.superfish.supersubs.js'); }
@@ -169,6 +174,7 @@ if ( isset($_COOKIE['unpackcss']) && $pack_css == 1 || isset($_COOKIE['unpackcss
 	$document->addStyleSheet($themeletpath .'/css/modules.css');
 	$document->addStyleSheet($themeletpath .'/css/typo.css');
 	$document->addStyleSheet($themeletpath .'/css/tabs.css');
+	$document->addStyleSheet($themeletpath .'/css/accordions.css');
 	if($topnav_count >= 1 ){
 		$document->addStyleSheet($themeletpath .'/css/topnav-default.css');
 	}

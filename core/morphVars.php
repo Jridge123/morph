@@ -14,6 +14,9 @@ $db=& JFactory::getDBO();
 $query = "SELECT COUNT(*) FROM `#__configurator` WHERE `param_value` = 'tabs' ";
 $db->setQuery( $query ); $tabscount = $db->loadResult();
 
+$query = "SELECT COUNT(*) FROM `#__configurator` WHERE `param_value` = 'accordion' ";
+$db->setQuery( $query ); $accordionscount = $db->loadResult();
+
 $query = "SELECT COUNT(*) FROM `#__modules` WHERE `params` LIKE '%moduleclass_sfx=rounded%' ";
 $db->setQuery( $query ); $roundedcount = $db->loadResult();
 
@@ -76,6 +79,7 @@ $packed_js_vars["E05"]=$user2count;
 $packed_js_vars["E06"]=$roundedcount;
 $packed_js_vars["E07"]=$rounded_corners;
 $packed_js_vars["E08"]=$rounded_amount;
+$packed_js_vars["E09"]=$accordionscount;
 $packed_js_vars["F01"]=$image_captions;
 $packed_js_vars["F02"]=$rounded_corners;
 $packed_js_vars["Z01"]=$gzip_compression;

@@ -29,6 +29,7 @@ if( $pack_css == 1 ){
 	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/modules.css');
 	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/typo.css');
 	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/tabs.css');
+	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/accordions.css');
 	if( $topnav_count >= 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/topnav-default.css');}
 	if( $topfish >= 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/topnav-topfish.css');}
 	if( $topdrop >= 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/topnav-topdrop.css');}

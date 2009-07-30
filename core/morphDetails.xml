@@ -321,7 +321,8 @@
 		<option value="custom1">Basic XHTML</option>
 		<option value="custom2">Basic Grid</option>
 		<option value="custom3">ModFX Grid</option>
-		<option value="tabs">Module Tabs</option>			
+		<option value="tabs">Module Tabs</option>
+		<option value="accordion">Module Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
 	<param name="toolbar_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
@@ -356,7 +357,8 @@
 		<option value="custom1">Basic XHTML</option>
 		<option value="custom2">Basic Grid</option>
 		<option value="custom3">ModFX Grid</option>
-		<option value="tabs">Module Tabs</option>			
+		<option value="tabs">Module Tabs</option>
+		<option value="accordion">Module Accordion</option>			
 		<option value="outline">Outline</option>			
 	</param>
 	<param name="masthead_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
@@ -397,7 +399,8 @@
 		<option value="custom1">Basic XHTML</option>
 		<option value="custom2">Basic Grid</option>
 		<option value="custom3">ModFX Grid</option>
-		<option value="tabs">Module Tabs</option>			
+		<option value="tabs">Module Tabs</option>
+		<option value="accordion">Module Accordion</option>			
 		<option value="outline">Outline</option>			
 	</param>
 	<param name="subhead_show" type="radio" default="0" label="Disable this block" tooltip="inline" description="Would you like to disable this block?">
@@ -427,7 +430,8 @@
 		<option value="custom1">Basic XHTML</option>
 		<option value="custom2">Basic Grid</option>
 		<option value="custom3">ModFX Grid</option>
-		<option value="tabs">Module Tabs</option>			
+		<option value="tabs">Module Tabs</option>
+		<option value="accordion">Module Accordion</option>			
 		<option value="outline">Outline</option>			
 	</param>
 	<param name="topnav_position" type="list" default="2" label="Top menu position" tooltip="inline" description="Where would you like the top menu to be displayed.">
@@ -457,7 +461,8 @@
 		<option value="custom1">Basic XHTML</option>
 		<option value="custom2">Basic Grid</option>
 		<option value="custom3">ModFX Grid</option>
-		<option value="tabs">Module Tabs</option>			
+		<option value="tabs">Module Tabs</option>
+		<option value="accordion">Module Accordion</option>			
 		<option value="outline">Outline</option>		
 	</param>
 	<param name="topshelf_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
@@ -495,7 +500,8 @@
 		<option value="custom1">Basic XHTML</option>
 		<option value="custom2">Basic Grid</option>
 		<option value="custom3">ModFX Grid</option>
-		<option value="tabs">Module Tabs</option>			
+		<option value="tabs">Module Tabs</option>
+		<option value="accordion">Module Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
 	<param name="bottomshelf_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
@@ -531,7 +537,8 @@
 		<option value="custom1">Basic XHTML</option>
 		<option value="custom2">Basic Grid</option>
 		<option value="custom3">ModFX Grid</option>
-		<option value="tabs">Module Tabs</option>			
+		<option value="tabs">Module Tabs</option>
+		<option value="accordion">Module Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
 	<param name="user1_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
@@ -560,7 +567,8 @@
 		<option value="custom1">Basic XHTML</option>
 		<option value="custom2">Basic Grid</option>
 		<option value="custom3">ModFX Grid</option>
-		<option value="tabs">Module Tabs</option>			
+		<option value="tabs">Module Tabs</option>
+		<option value="accordion">Module Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
 	<param name="user2_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
@@ -587,7 +595,8 @@
 		<option value="custom1">Basic XHTML</option>
 		<option value="custom2">Basic Grid</option>
 		<option value="custom3">ModFX Grid</option>
-		<option value="tabs">Module Tabs</option>			
+		<option value="tabs">Module Tabs</option>
+		<option value="accordion">Module Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
 	<param name="inset1_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
@@ -604,7 +613,8 @@
 		<option value="custom1">Basic XHTML</option>
 		<option value="custom2">Basic Grid</option>
 		<option value="custom3">ModFX Grid</option>
-		<option value="tabs">Module Tabs</option>			
+		<option value="tabs">Module Tabs</option>
+		<option value="accordion">Module Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
 	<param name="inset2_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
@@ -621,7 +631,8 @@
 		<option value="custom1">Basic XHTML</option>
 		<option value="custom2">Basic Grid</option>
 		<option value="custom3">ModFX Grid</option>
-		<option value="tabs">Module Tabs</option>			
+		<option value="tabs">Module Tabs</option>
+		<option value="accordion">Module Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
 	<param name="inset3_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
@@ -638,7 +649,8 @@
 		<option value="custom1">Basic XHTML</option>
 		<option value="custom2">Basic Grid</option>
 		<option value="custom3">ModFX Grid</option>
-		<option value="tabs">Module Tabs</option>			
+		<option value="tabs">Module Tabs</option>
+		<option value="accordion">Module Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
 	<param name="inset4_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
@@ -679,7 +691,9 @@
 		<option value="custom1">Basic XHTML</option>
 		<option value="custom2">Basic Grid</option>
 		<option value="custom3">ModFX Grid</option>
-		<option value="tabs">Module Tabs</option>			
+		<option value="tabs">Module Tabs</option>
+		<option value="accordion">Module Accordion</option>
+		<option value="accordion">Module Accordion</option>		
 		<option value="outline">Outline</option>
 	</param>
 	<param name="topleft_chrome" type="list" default="none" label="Top left chrome" tooltip="modal" description="chromefx.html">
@@ -687,7 +701,8 @@
 		<option value="custom1">Basic XHTML</option>
 		<option value="custom2">Basic Grid</option>
 		<option value="custom3">ModFX Grid</option>
-		<option value="tabs">Module Tabs</option>			
+		<option value="tabs">Module Tabs</option>
+		<option value="accordion">Module Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
 	<param name="left_chrome" type="list" default="custom1" label="Left chrome" tooltip="modal" description="chromefx.html">
@@ -695,7 +710,8 @@
 		<option value="custom1">Basic XHTML</option>
 		<option value="custom2">Basic Grid</option>
 		<option value="custom3">ModFX Grid</option>
-		<option value="tabs">Module Tabs</option>			
+		<option value="tabs">Module Tabs</option>
+		<option value="accordion">Module Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
 	<param name="btmleft_chrome" type="list" default="none" label="Bottom left chrome" tooltip="modal" description="chromefx.html">
@@ -703,7 +719,8 @@
 		<option value="custom1">Basic XHTML</option>
 		<option value="custom2">Basic Grid</option>
 		<option value="custom3">ModFX Grid</option>
-		<option value="tabs">Module Tabs</option>			
+		<option value="tabs">Module Tabs</option>
+		<option value="accordion">Module Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
 	<param name="inner heading" type="heading" label="Inner Layout (Right Sidebar) Settings:" />	
@@ -719,7 +736,8 @@
 		<option value="custom1">Basic XHTML</option>
 		<option value="custom2">Basic Grid</option>
 		<option value="custom3">ModFX Grid</option>
-		<option value="tabs">Module Tabs</option>			
+		<option value="tabs">Module Tabs</option>
+		<option value="accordion">Module Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
 	<param name="topright_chrome" type="list" default="none" label="Top right chrome" tooltip="modal" description="chromefx.html">
@@ -727,7 +745,8 @@
 		<option value="custom1">Basic XHTML</option>
 		<option value="custom2">Basic Grid</option>
 		<option value="custom3">ModFX Grid</option>
-		<option value="tabs">Module Tabs</option>			
+		<option value="tabs">Module Tabs</option>
+		<option value="accordion">Module Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
 	<param name="right_chrome" type="list" default="custom1" label="Right chrome" tooltip="modal" description="chromefx.html">
@@ -735,7 +754,8 @@
 		<option value="custom1">Basic XHTML</option>
 		<option value="custom2">Basic Grid</option>
 		<option value="custom3">ModFX Grid</option>
-		<option value="tabs">Module Tabs</option>			
+		<option value="tabs">Module Tabs</option>
+		<option value="accordion">Module Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
 	<param name="btmright_chrome" type="list" default="none" label="Bottom right chrome" tooltip="modal" description="chromefx.html">
@@ -743,7 +763,8 @@
 		<option value="custom1">Basic XHTML</option>
 		<option value="custom2">Basic Grid</option>
 		<option value="custom3">ModFX Grid</option>
-		<option value="tabs">Module Tabs</option>			
+		<option value="tabs">Module Tabs</option>
+		<option value="accordion">Module Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
 </params>
@@ -762,7 +783,8 @@
 		<option value="custom1">Basic XHTML</option>
 		<option value="custom2">Basic Grid</option>
 		<option value="custom3">ModFX Grid</option>
-		<option value="tabs">Module Tabs</option>			
+		<option value="tabs">Module Tabs</option>
+		<option value="accordion">Module Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
 	<param name="footer_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
