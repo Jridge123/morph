@@ -178,14 +178,16 @@ global $morph_tabs,$tabscount,$loadtabs,$istabsload;
 }
 
 function modChrome_accordion($module, &$params, &$attribs) {
-global $morph_tabs,$tabscount,$loadtabs,$istabsload;	
+global $morph_accordions,$accordionscount,$loadaccordions,$isaccordionsload;
+
+echo $accordionscount;
 
 	$themodules = JModuleHelper::getModules($module->position);
 	$countmodules = count($themodules);
 	$db=& JFactory::getDBO();
 	$query = "SELECT COUNT(*) FROM `#__morph` WHERE `param_value` = 'accordion' ";
 	$db->setQuery( $query );
-	$thetabscount = $db->loadResult();
+	$theaccordioncount = $db->loadResult();
 		
 	foreach ($themodules as $mod){
 		if ($mod->content){	
@@ -193,28 +195,27 @@ global $morph_tabs,$tabscount,$loadtabs,$istabsload;
 			$currmod->position = $attribs['name'];	
 			$currmod->title = $mod->title;	
 			$currmod->content = $mod->content;
-			$morph_tabs[$attribs['name']][] = $currmod;
+			$morph_accordions[$attribs['name']][] = $currmod;
 		}
 	}
 	
-	if ($countmodules == count($morph_tabs[ $attribs['name'] ] ) ){ $tabscount++; ?>
-		<div id="tabs<?php echo $tabscount; ?>">
-			<ul class="ui-tabs-nav">
+	if ($countmodules == count($morph_accordions[ $attribs['name'] ] ) ){ $accordionscount++; ?>
+		<div id="accordions<?php echo $accordionscount; ?>">
 			<?php
-			$curr_tab = 1;
-			$tabs_contents = '';
-			foreach ( $morph_tabs[$attribs['name']] as $modul ){
-				if ($curr_tab == 1) { ?>
-					<li class="ui-state-default ui-tabs-selected"><a href="#tab<?php echo $curr_tab.'-'.$modul->position; ?>"><?php echo moduleHeadings($modul->title);?></a></li>
+			$curr_accordion = 1;
+			$accordions_contents = '';
+			foreach ( $morph_accordions[$attribs['name']] as $modul ){ 
+				$curr_accordion++;
+				if ($curr_accordion == 1) { ?>
+					<a class="ui-state-default ui-accordion-selected" href="#accordion<?php echo $curr_accordion.'-'.$modul->position; ?>"><?php echo moduleHeadings($modul->title);?></a>
 				<?php } else { ?>
-					<li class="ui-state-default"><a href="#tab<?php echo $curr_tab.'-'.$modul->position; ?>"><?php echo moduleHeadings($modul->title);?></a></li>
+					<a class="ui-state-default" href="#accordion<?php echo $curr_accordion.'-'.$modul->position; ?>"><?php echo moduleHeadings($modul->title);?></a>
 				<?php 
 				}
-				$tabs_contents .= '<div id="tab'.$curr_tab.'-'.$modul->position.'" class="ui-tabs-panel">'.$modul->content.'</div>';
-				$curr_tab++;
-			} ?>
-			</ul>
-		<?php echo $tabs_contents; ?>
+				echo '<div id="accordion'.$curr_accordion.'-'.$modul->position.'">'.$modul->content.'</div>';	
+			}
+			//echo $accordions_contents; 
+			?>
 		</div>
 <?php }
 }

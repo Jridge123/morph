@@ -29,6 +29,7 @@ $user2count = $_GET['E05'];
 $roundedcount = $_GET['E06'];
 $rounded_corners = $_GET['E07'];
 $rounded_amount = $_GET['E08'];
+$accordionscount = $_GET['E09'];
 $image_captions = $_GET['F01'];
 $rounded_corners = $_GET['F02'];
 $gzip_compression = $_GET['Z01'];

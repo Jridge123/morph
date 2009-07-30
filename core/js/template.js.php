@@ -11,6 +11,7 @@ header("content-type: text/javascript; charset: UTF-8");
 if($pack_js == 1){
 	if ( $jquery_core == 1 ) { include('jquery-1.3.2.min.js'); }
 	if ( $tabscount >= 1 ) { include('jquery.ui.core.js'); include('jquery.ui.tabs.js'); }
+	if ( $accordionscount >= 1 ) { include('jquery.ui.core.js'); include('jquery.ui.accordion.js'); }
 	if ( $tabscount >= 1 or $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1  ) { include('jquery.cookie.js'); }
 	if ( $rounded_corners == 1 ) { include('jquery.corners.js'); }
 	if ( $topnav_hoverintent == 1 ) { include("jquery.superfish.hoverintent.js"); }
@@ -105,6 +106,10 @@ if($pack_js == 1){
 		<?php } if ( $tabscount > 0 ) { 
 		for($n=1; $n <= $tabscount; $n++){
 		echo "\n\t\t$('#tabs$n').tabs({fx: {opacity: 'toggle', duration: 1}, cookie: {expires: 7, path: '/'}});";
+		}
+		} if ( $accordionscount > 0 ) { 
+		for($n=1; $n <= $accordionscount; $n++){
+		echo "\n\t\t$('#accordions$n').accordion({fx: {opacity: 'toggle', duration: 1}, cookie: {expires: 7, path: '/'}});";
 		}
 		}?>
     })
