@@ -131,7 +131,6 @@ if ($pub_modules[0]->id == $module->id) {
 	</div>
 <?php }
 
-
 function modChrome_tabs($module, &$params, &$attribs) {
 global $morph_tabs,$tabscount,$loadtabs,$istabsload;	
 
