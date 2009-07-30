@@ -693,7 +693,6 @@
 		<option value="custom3">ModFX Grid</option>
 		<option value="tabs">Module Tabs</option>
 		<option value="accordion">Module Accordion</option>
-		<option value="accordion">Module Accordion</option>		
 		<option value="outline">Outline</option>
 	</param>
 	<param name="topleft_chrome" type="list" default="none" label="Top left chrome" tooltip="modal" description="chromefx.html">
