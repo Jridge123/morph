@@ -176,4 +176,46 @@ global $morph_tabs,$tabscount,$loadtabs,$istabsload;
 		</div>
 <?php }
 }
+
+function modChrome_accordion($module, &$params, &$attribs) {
+global $morph_tabs,$tabscount,$loadtabs,$istabsload;	
+
+	$themodules = JModuleHelper::getModules($module->position);
+	$countmodules = count($themodules);
+	$db=& JFactory::getDBO();
+	$query = "SELECT COUNT(*) FROM `#__morph` WHERE `param_value` = 'accordion' ";
+	$db->setQuery( $query );
+	$thetabscount = $db->loadResult();
+		
+	foreach ($themodules as $mod){
+		if ($mod->content){	
+			$currmod = new stdClass();
+			$currmod->position = $attribs['name'];	
+			$currmod->title = $mod->title;	
+			$currmod->content = $mod->content;
+			$morph_tabs[$attribs['name']][] = $currmod;
+		}
+	}
+	
+	if ($countmodules == count($morph_tabs[ $attribs['name'] ] ) ){ $tabscount++; ?>
+		<div id="tabs<?php echo $tabscount; ?>">
+			<ul class="ui-tabs-nav">
+			<?php
+			$curr_tab = 1;
+			$tabs_contents = '';
+			foreach ( $morph_tabs[$attribs['name']] as $modul ){
+				if ($curr_tab == 1) { ?>
+					<li class="ui-state-default ui-tabs-selected"><a href="#tab<?php echo $curr_tab.'-'.$modul->position; ?>"><?php echo moduleHeadings($modul->title);?></a></li>
+				<?php } else { ?>
+					<li class="ui-state-default"><a href="#tab<?php echo $curr_tab.'-'.$modul->position; ?>"><?php echo moduleHeadings($modul->title);?></a></li>
+				<?php 
+				}
+				$tabs_contents .= '<div id="tab'.$curr_tab.'-'.$modul->position.'" class="ui-tabs-panel">'.$modul->content.'</div>';
+				$curr_tab++;
+			} ?>
+			</ul>
+		<?php echo $tabs_contents; ?>
+		</div>
+<?php }
+}
 ?>
