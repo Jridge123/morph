@@ -109,7 +109,21 @@ if($pack_js == 1){
 		}
 		} if ( $accordionscount > 0 ) { 
 		for($n=1; $n <= $accordionscount; $n++){
-		echo "\n\t\t$('#accordions$n').accordion({fx: {opacity: 'toggle', duration: 1}, cookie: {expires: 7, path: '/'}});";
+			//echo "\n\t\t$('#accordions$n').accordion({fx: {opacity: 'toggle', duration: 1}});";
+			echo "\n\t\t".'
+			var index'.$n.' = $.cookie("accordion'.$n.'");
+        	var active'.$n.';
+        	if (index'.$n.' !== undefined) {
+                active'.$n.' = $("#accordions'.$n.'").find("h3:eq(" + index'.$n.' + ")");
+        	}			
+			$("#accordions'.$n.'").accordion({
+			    header: "h3",
+			    active: active'.$n.',
+			    change: function(event, ui) {
+		            var index'.$n.' = $(this).find("h3").index ( ui.newHeader[0] );
+		           	$.cookie("accordion1", index'.$n.');
+			    }
+			}); '; 
 		}
 		}?>
     })
