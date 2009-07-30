@@ -207,9 +207,9 @@ echo $accordionscount;
 			foreach ( $morph_accordions[$attribs['name']] as $modul ){ 
 				$curr_accordion++;
 				if ($curr_accordion == 1) { ?>
-					<a class="ui-state-default ui-accordion-selected" href="#accordion<?php echo $curr_accordion.'-'.$modul->position; ?>"><?php echo moduleHeadings($modul->title);?></a>
+					<h3 class="ui-state-default ui-accordion-selected"><a href="#accordion<?php echo $curr_accordion.'-'.$modul->position; ?>"><?php echo moduleHeadings($modul->title);?></a></h3>
 				<?php } else { ?>
-					<a class="ui-state-default" href="#accordion<?php echo $curr_accordion.'-'.$modul->position; ?>"><?php echo moduleHeadings($modul->title);?></a>
+					<h3 class="ui-state-default"><a href="#accordion<?php echo $curr_accordion.'-'.$modul->position; ?>"><?php echo moduleHeadings($modul->title);?></a></h3>
 				<?php 
 				}
 				echo '<div id="accordion'.$curr_accordion.'-'.$modul->position.'">'.$modul->content.'</div>';	
