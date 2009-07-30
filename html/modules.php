@@ -31,8 +31,8 @@ jimport('joomla.application.module.helper');
  
  function moduleHeadings($modtitle){
 	// splitters
-	$pretext = '<';
-	$subtext = '>';
+	$pretext = '\\';
+	$subtext = '/';
 	$twotone = '|';
 	
 	$spaces = array('<span class="mod-tone1"> ', '<span class="mod-tone2"> ', '<span class="mod-pretext"> ', '<span class="mod-subtext"> ', ' </span>');
@@ -79,6 +79,10 @@ jimport('joomla.application.module.helper');
 		$str_subtext = $subtext_arr[0].'<span class="mod-subtext">'.$subtext_arr[1].'</span>';
 		
 		return str_replace($spaces, $nospaces, $str_subtext);
+	}
+	
+	if(!strstr($modtitle, $subtext) && !strstr($modtitle, $twotone)){
+		return $modtitle;
 	}
 }
 
