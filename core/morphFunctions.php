@@ -192,10 +192,9 @@ if ( isset($_COOKIE['unpackcss']) && $pack_css == 1 || isset($_COOKIE['unpackcss
 	if($sidefish >= 1 ){
 		$document->addStyleSheet($themeletpath .'/css/sidenav-sidefish.css');
 	}
-
-	if( $custom_css == 1 ){ $document->addStyleSheet($themeletpath .'/css/custom.css');	}
 	$document->addStyleSheet($themeletpath .'/css/themelet.css');
 	$document->addStyleSheet($themeletpath .'/css/modfx.css');	
+	if( $custom_css == 1 ){ $document->addStyleSheet($themeletpath .'/css/custom.css');	}
 
 }else{
 	$document->addStyleSheet($templatepath .'/core/css/template.css.php'.$packed_css);
