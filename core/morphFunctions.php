@@ -239,7 +239,9 @@ $jj_const = array(
 		0				=> "",			// no suffix since no modules present
 		1				=> "no-grid",	// no-grid since only 1 module present
 		2				=> "yui-g",		// yui-g for 2 blocks in a grid
-		3				=> "yui-gb"		// yui-gb for 3 blocks in a grid
+		3				=> "yui-gb",		// yui-gb for 3 blocks in a grid
+		4				=> "yui-g4",		// yui-gb for 4 blocks in a grid
+		5				=> "yui-g5"		// yui-gb for 5 blocks in a grid
 		),
 	"mod_suffix" => array(
 		"toolbar"		=>$this->params->get('toolbar_gridsplit'),	
