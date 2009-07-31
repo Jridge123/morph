@@ -188,7 +188,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="plugin_scrollto" type="radio" default="0" label="Scroll to top" tooltip="inline" description="">
+	<param name="plugin_scrollto" type="radio" default="0" label="Scroll to top" tooltip="inline" description="This plugin will show a scroll-to-top link when you scroll to the bottom of your page.">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
