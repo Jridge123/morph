@@ -24,6 +24,9 @@ $color_bodytext = str_replace('#','',$MORPH->color_bodytext);
 
 $logo_type = $MORPH->logo_type;
 $logo_image = $MORPH->logo_image;
+$logo_autodimensions = $MORPH->logo_autodimensions;
+$logo_width = $MORPH->logo_width;
+$logo_height = $MORPH->logo_height;
 $display_ie_logo = $MORPH->display_ie_logo;
 $logo_image_ie = $MORPH->logo_image_ie;
 $logo_text = $MORPH->logo_text;

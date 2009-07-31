@@ -1,12 +1,21 @@
 <?php
-
 if ( $logo_type == 1 or $logo_type == 3 ) {
 	if( isIE6() && $logo_image_ie !== ''){ 
 		$logo = $assetspath.'/logos/'.$ie_logo_image; 
-		$logo_size = getimagesize($assetsroot.'/logos/'.$ie_logo_image);
+		if($logo_autodimensions == 1) {
+			$logo_size = getimagesize($assetsroot.'/logos/'.$ie_logo_image);
+		}else{
+			$logo_size[0] = $logo_width;
+			$logo_size[1] = $logo_height;
+		}	
 	} else { 
 		$logo = $assetspath.'/logos/'.$logo_image; 
-		$logo_size = getimagesize($assetsroot.'/logos/'.$logo_image);
+		if($logo_autodimensions == 1) {
+			$logo_size = getimagesize($assetsroot.'/logos/'.$logo_image);
+		}else{
+			$logo_size[0] = $logo_width;
+			$logo_size[1] = $logo_height;
+		}
 	}
 } else {
 	$logo_size[0] = 'null';
