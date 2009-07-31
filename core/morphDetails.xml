@@ -188,8 +188,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="image_captions" type="radio" default="0" label="Image captions" tooltip="inline" description="Would you like to enable the images captify plugin? &lt;br /&gt;&lt;br /&gt;
-	&lt;strong&gt;NOTE:&lt;/strong&gt; This doesnt seem to be working anymore, but it will be fixed before the stable release.">
+	<param name="plugin_scrollto" type="radio" default="0" label="Scroll to top" tooltip="inline" description="">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
