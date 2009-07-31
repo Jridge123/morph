@@ -14,6 +14,7 @@ require_once('templates/morph/core/browser.php');
 $templatepath = JURI::root() . 'templates/' . $this->template;
 $themeletpath = JURI::root() . 'morph_assets/themelets/' . $themelet;
 $assetspath = JURI::root() . 'morph_assets';
+$assetsroot = JPATH_SITE.DS.'morph_assets';
 $imagespath = JURI::root() . 'morph_assets/themelets/' . $themelet.'/images/';
 $absolutepath = JPATH_SITE.DS.'morph_assets'.DS.'themelets'.DS.$themelet;
 

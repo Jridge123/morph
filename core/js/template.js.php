@@ -10,9 +10,10 @@ include '../jsvars.php';if ( $gzip_compression == 1 ) {
 header("content-type: text/javascript; charset: UTF-8");
 if($pack_js == 1){
 	if ( $jquery_core == 1 ) { include('jquery-1.3.2.min.js'); }
-	if ( $tabscount >= 1 ) { include('jquery.ui.core.js'); include('jquery.ui.tabs.js'); }
-	if ( $accordionscount >= 1 ) { include('jquery.ui.core.js'); include('jquery.ui.accordion.js'); }
-	if ( $tabscount >= 1 or $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1  ) { include('jquery.cookie.js'); }
+	if ( $tabscount >= 1 or $accordionscount >= 1 ) { include('jquery.ui.core.js'); }
+	if ( $tabscount >= 1 ) { include('jquery.ui.tabs.js'); }
+	if ( $accordionscount >= 1 ) { include('jquery.ui.accordion.js'); }
+	if ( $tabscount >= 1 or $accordionscount >= 1 or $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1  ) { include('jquery.cookie.js'); }
 	if ( $rounded_corners == 1 ) { include('jquery.corners.js'); }
 	if ( $topnav_hoverintent == 1 ) { include("jquery.superfish.hoverintent.js"); }
 	if ( $sidefish >= 1 or $topfish >= 1 or $topdrop >= 1  ) { include('jquery.superfish.js'); }
@@ -23,6 +24,7 @@ if($pack_js == 1){
 	include('template.js');
 }
 ?>
+jQuery.noConflict();
 (function($) {
 	$(document).ready(function(){
 	
