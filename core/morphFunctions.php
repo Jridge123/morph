@@ -243,7 +243,8 @@ $jj_const = array(
 		5				=> "yui-g5"		// yui-gb for 5 blocks in a grid
 		),
 	"mod_suffix" => array(
-		"toolbar"		=>$this->params->get('toolbar_gridsplit'),	
+		"toolbar"		=>$this->params->get('toolbar_gridsplit'),
+      	"topshelf"      =>$this->params->get('toolbar_gridsplit'), 
 		"top"			=>$this->params->get('top_gridsplit'),
 		"topnav"		=>$this->params->get('topnav_gridsplit'),
 		"user1"			=>$this->params->get('topshelf_gridsplit'),
