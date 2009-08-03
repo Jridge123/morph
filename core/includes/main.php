@@ -13,7 +13,7 @@
             <?php } ?>
                 
 			<!-- apply inner scheme -->
-            <div class="yui-<?php echo $CurrentInnerScheme ?>">
+            <div class="yui-<?php echo $CurrentInnerScheme ?>" id="inner-wrap">
                <div class="yui-u first" id="primary-content">
                 	<div class="primary-inner">
 					<?php if($this->countModules('inset2')) { ?>
