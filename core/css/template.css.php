@@ -74,16 +74,16 @@ html body{<?php if ( $bg_color && $bg_color !== "#default" ) { ?>background-colo
 <?php } if ( $color_links && $color_links !== "#default" ) { ?>
 body a:link,body a:visited,body a:active{color:<?php echo $color_links; ?>;}
 <?php } if ( $color_linkshover && $color_linkshover !== "#default" ) { ?>
-body a:hover{color:<?php echo $color_linkshover; ?>;}
+body a:hover{color:#<?php echo $color_linkshover; ?>;}
 <?php } if ( $color_linksvisited && $color_linksvisited !== "#default" ) { ?>
 body a:visited{color:<?php echo $color_linksvisited; ?>;}
-<?php } if ( $color_h1 && $color_h1 !== "#default" ) { ?>#primary-content h1{color:<?php echo $color_h1; ?>}
-<?php } if ( $color_h2 && $color_h2 !== "#default" ) { ?>#primary-content h2{color:<?php echo $color_h2; ?>}
-<?php } if ( $color_h3 && $color_h3 !== "#default" ) { ?>#primary-content h3{color:<?php echo $color_h3; ?>}
-<?php } if ( $color_h4 && $color_h4 !== "#default" ) { ?>#primary-content h4{color:<?php echo $color_h4; ?>}
-<?php } if ( $color_h5 && $color_h5 !== "#default" ) { ?>#primary-content h5{color:<?php echo $color_h5; ?>}
+<?php } if ( $color_h1 && $color_h1 !== "#default" ) { ?>#primary-content h1{color:#<?php echo $color_h1; ?>}
+<?php } if ( $color_h2 && $color_h2 !== "#default" ) { ?>#primary-content h2{color:#<?php echo $color_h2; ?>}
+<?php } if ( $color_h3 && $color_h3 !== "#default" ) { ?>#primary-content h3{color:#<?php echo $color_h3; ?>}
+<?php } if ( $color_h4 && $color_h4 !== "#default" ) { ?>#primary-content h4{color:#<?php echo $color_h4; ?>}
+<?php } if ( $color_h5 && $color_h5 !== "#default" ) { ?>#primary-content h5{color:#<?php echo $color_h5; ?>}
 <?php } if ( $color_bodytext && $color_bodytext !== "#default" ) { ?>
-body{color: <?php echo $color_bodytext; ?>;}
+body{color:#<?php echo $color_bodytext; ?>;}
 <?php } if ( $footer_textcolor && $footer_textcolor !== "#default" ) { ?>#footer{color:<?php echo $footer_textcolor; ?>}
 <?php } if ( $footer_linkscolor && $footer_linkscolor !== "#default" ) { ?>#footer a,#footer a:link,#footer a:visited{color:<?php echo $footer_linkscolor; ?>}
 <?php } if ( $gzip_compression == 1 ) { ob_end_flush(); } ?>
