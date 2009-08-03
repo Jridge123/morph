@@ -300,7 +300,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="topnav_minwidth" type="list" default="12" label="Child items min width" tooltip="inline" description="Set the minimum width of child menu items - please note this only works when SuperSubs is enabled.">
+	<param name="topnav_minwidth" type="list" default="12" label="Child items min width" tooltip="inline" description="Set the minimum width of child menu items.">
 		<option value="10">10em's</option>
 		<option value="11">11em's</option>
 		<option value="12">12em's</option>
@@ -313,7 +313,7 @@
 		<option value="19">19em's</option>
 		<option value="20">20em's</option>
 	</param>
-	<param name="topnav_maxwidth" type="list" default="27" label="Child items max width" tooltip="inline" description="Set the maximum width of child menu items - please note this only works when SuperSubs is enabled.">
+	<param name="topnav_maxwidth" type="list" default="27" label="Child items max width" tooltip="inline" description="Set the maximum width of child menu items.">
 		<option value="20">20em's</option>
 		<option value="21">21em's</option>
 		<option value="22">22em's</option>
