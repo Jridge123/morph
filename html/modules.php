@@ -14,7 +14,6 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.module.helper');
-
 /**
  * This is a file to add template specific chrome to module rendering.  To use it you would
  * set the style attribute for the given module(s) include in your template to use the style
@@ -89,6 +88,11 @@ jimport('joomla.application.module.helper');
 /* module chrome that allows for rounded corners by wrapping in nested div tags and adds extra hooks for ModFX styles */
 function modChrome_basic($module, &$params, &$attribs) {
 $pub_modules = JModuleHelper::getModules($module->position);
+
+$db = JFactory::getDBO();
+$query = "SELECT param_value FROM `#__configurator` WHERE `param_name` = '".$module->position."_chrome_inner';";
+$db->setQuery( $query ); $innerwrap = $db->loadResult();
+
 if ($pub_modules[0]->id == $module->id) {
 	$posSuffix = ' '.$params->get('moduleclass_sfx') . ' first';
 } elseif ($pub_modules[count($pub_modules)-1]->id == $module->id) {
@@ -97,13 +101,23 @@ if ($pub_modules[0]->id == $module->id) {
 	$posSuffix = ' '.$params->get('moduleclass_sfx');
 } ?>
 <div class="<?php if ($module->showtitle == 0) { ?>noheading <?php } ?>mod mod-basic<?php echo $posSuffix; ?>" id="mod<?php echo $module->id; ?>">
+	<?php if(isset($innerwrap) && $innerwrap == 'inner'){ ?><div class="modinner"><?php } ?>
 	<?php if ($module->showtitle != 0) : ?><h3 class="modhead"><span class="icon"></span><?php echo moduleHeadings($module->title); ?></h3><?php endif; ?>
-	<div class="modinner"><?php echo $module->content; ?></div>
+	<?php if(isset($innerwrap) && $innerwrap == 'none' || !isset($innerwrap)){ ?><div class="modinner"><?php } ?>
+		<?php echo $module->content; ?>
+	</div>
 </div>
 <?php }
 
 function modChrome_grid($module, &$params, &$attribs) {
 $pub_modules = JModuleHelper::getModules($module->position);
+
+$db = JFactory::getDBO();
+$query = "SELECT param_value FROM `#__configurator` WHERE `param_name` = '".$module->position."_chrome_inner';";
+$db->setQuery( $query ); $innerwrap = $db->loadResult();
+
+echo $innerwrap;
+
 if ($pub_modules[0]->id == $module->id) {
 	$posSuffix = ' '.$params->get('moduleclass_sfx') . ' first';
 } elseif ($pub_modules[count($pub_modules)-1]->id == $module->id) {
@@ -112,9 +126,9 @@ if ($pub_modules[0]->id == $module->id) {
 	$posSuffix = ' '.$params->get('moduleclass_sfx');
 } ?>
 	<div class="mod mod-grid yui-u<?php echo $posSuffix; ?>" id="mod<?php echo $module->id; ?>">
-	
+		<?php if(isset($innerwrap) && $innerwrap == 'inner'){ ?><div class="modinner"><?php } ?>
 		<?php if ($module->showtitle != 0) : ?><h3 class="modhead"><span class="icon"></span><?php echo moduleHeadings($module->title); ?></h3><?php endif; ?>
-		<div class="modinner">
+		<?php if(isset($innerwrap) && $innerwrap == 'none' || !isset($innerwrap)){ ?><div class="modinner"><?php } ?>
 			<?php echo $module->content; ?>
 		</div>
 	</div>

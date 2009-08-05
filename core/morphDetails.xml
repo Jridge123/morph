@@ -784,6 +784,10 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
+	<param name="left_chrome_inner" type="radio" default="none" label="Left Chrome Wrap" tooltip="inline" description="add me...">
+		<option value="none">None</option>
+		<option value="inner">Inner</option>
+	</param>
 	<param name="btmleft_chrome" type="list" default="none" label="Bottom left chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>

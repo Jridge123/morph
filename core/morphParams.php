@@ -159,6 +159,7 @@ $main_inner = $MORPH->main_inner;
 $splitleft_chrome = $MORPH->splitleft_chrome;
 $topleft_chrome = $MORPH->topleft_chrome;
 $left_chrome = $MORPH->left_chrome;
+$left_chrome_inner = $MORPH->left_chrome_inner;
 $btmleft_chrome = $MORPH->btmleft_chrome;
 $outer_default = $MORPH->outer_default;
 
