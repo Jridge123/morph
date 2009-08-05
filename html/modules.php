@@ -116,8 +116,6 @@ $db = JFactory::getDBO();
 $query = "SELECT param_value FROM `#__configurator` WHERE `param_name` = '".$module->position."_chrome_inner';";
 $db->setQuery( $query ); $innerwrap = $db->loadResult();
 
-echo $innerwrap;
-
 if ($pub_modules[0]->id == $module->id) {
 	$posSuffix = ' '.$params->get('moduleclass_sfx') . ' first';
 } elseif ($pub_modules[count($pub_modules)-1]->id == $module->id) {
