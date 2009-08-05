@@ -538,7 +538,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="topshelf_chrome" type="list" default="custom2" label="Module chrome" tooltip="modal" description="chromefx.html">
+	<param name="topshelf_chrome" type="list" default="grid" label="Module chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
 		<option value="grid">Grid</option>
@@ -576,7 +576,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="bottomshelf_chrome" type="list" default="custom2" label="Module chrome" tooltip="modal" description="chromefx.html">
+	<param name="bottomshelf_chrome" type="list" default="grid" label="Module chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
 		<option value="grid">Grid</option>
@@ -612,7 +612,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="user1_chrome" type="list" default="custom2" label="User1 chrome" tooltip="modal" description="chromefx.html">
+	<param name="user1_chrome" type="list" default="grid" label="User1 chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
 		<option value="grid">Grid</option>
@@ -641,7 +641,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="user2_chrome" type="list" default="custom2" label="User2 chrome" tooltip="modal" description="chromefx.html">
+	<param name="user2_chrome" type="list" default="grid" label="User2 chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
 		<option value="grid">Grid</option>
@@ -668,7 +668,7 @@
 
 <params group="insetsdata">	
 	<param name="inset1 heading" type="heading" label="Inset1 Settings:" />	
-	<param name="inset1_chrome" type="list" default="custom1" label="Inset1 chrome" tooltip="modal" description="chromefx.html">
+	<param name="inset1_chrome" type="list" default="basic" label="Inset1 chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
 		<option value="grid">Grid</option>
@@ -685,7 +685,7 @@
 	</param>
 	
 	<param name="inset2 heading" type="heading" label="Inset2 Settings:" />	
-	<param name="inset2_chrome" type="list" default="custom1" label="Inset2 chrome" tooltip="modal" description="chromefx.html">
+	<param name="inset2_chrome" type="list" default="basic" label="Inset2 chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
 		<option value="grid">Grid</option>
@@ -702,7 +702,7 @@
 	</param>
 	
 	<param name="inset3 heading" type="heading" label="Inset3 Settings:" />	
-	<param name="inset3_chrome" type="list" default="custom1" label="Inset3 chrome" tooltip="modal" description="chromefx.html">
+	<param name="inset3_chrome" type="list" default="basic" label="Inset3 chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
 		<option value="grid">Grid</option>
@@ -719,7 +719,7 @@
 	</param>
 	
 	<param name="inset4 heading" type="heading" label="Inset4 Settings:" />	
-	<param name="inset4_chrome" type="list" default="custom1" label="Inset4 chrome" tooltip="modal" description="chromefx.html">
+	<param name="inset4_chrome" type="list" default="basic" label="Inset4 chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
 		<option value="grid">Grid</option>
@@ -760,7 +760,7 @@
 		<option value="5">240px Right</option>
 		<option value="6">300px Right</option>
 	</param>
-	<param name="splitleft_chrome" type="list" default="none" label="Split left chrome" tooltip="modal" description="chromefx.html">
+	<param name="splitleft_chrome" type="list" default="basic" label="Split left chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
 		<option value="grid">Grid</option>
@@ -768,7 +768,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="topleft_chrome" type="list" default="none" label="Top left chrome" tooltip="modal" description="chromefx.html">
+	<param name="topleft_chrome" type="list" default="basic" label="Top left chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
 		<option value="grid">Grid</option>
@@ -776,7 +776,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="left_chrome" type="list" default="custom1" label="Left chrome" tooltip="modal" description="chromefx.html">
+	<param name="left_chrome" type="list" default="basic" label="Left chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
 		<option value="grid">Grid</option>
@@ -784,11 +784,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="left_chrome_inner" type="radio" default="none" label="Left Chrome Wrap" tooltip="inline" description="add me...">
-		<option value="none">None</option>
-		<option value="inner">Inner</option>
-	</param>
-	<param name="btmleft_chrome" type="list" default="none" label="Bottom left chrome" tooltip="modal" description="chromefx.html">
+	<param name="btmleft_chrome" type="list" default="basic" label="Bottom left chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
 		<option value="grid">Grid</option>
@@ -804,7 +800,7 @@
 		<option value="gi">200px Left</option>
 		<option value="gh">200px Right</option>
 	</param>
-	<param name="splitright_chrome" type="list" default="none" label="Split right chrome" tooltip="modal" description="chromefx.html">
+	<param name="splitright_chrome" type="list" default="basic" label="Split right chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
 		<option value="grid">Grid</option>
@@ -812,7 +808,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="topright_chrome" type="list" default="none" label="Top right chrome" tooltip="modal" description="chromefx.html">
+	<param name="topright_chrome" type="list" default="basic" label="Top right chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
 		<option value="grid">Grid</option>
@@ -820,7 +816,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="right_chrome" type="list" default="custom1" label="Right chrome" tooltip="modal" description="chromefx.html">
+	<param name="right_chrome" type="list" default="basic" label="Right chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
 		<option value="grid">Grid</option>
@@ -828,7 +824,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="btmright_chrome" type="list" default="none" label="Bottom right chrome" tooltip="modal" description="chromefx.html">
+	<param name="btmright_chrome" type="list" default="basic" label="Bottom right chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
 		<option value="grid">Grid</option>
