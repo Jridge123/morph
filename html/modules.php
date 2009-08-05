@@ -35,15 +35,15 @@ jimport('joomla.application.module.helper');
 	$subtext = '/';
 	$twotone = '|';
 	
-	$spaces = array('<span class="mod-tone1"> ', '<span class="mod-tone2"> ', '<span class="mod-pretext"> ', '<span class="mod-subtext"> ', ' </span>');
-	$nospaces = array('<span class="mod-tone1">', '<span class="mod-tone2">', '<span class="mod-pretext">', '<span class="mod-subtext">', '</span>');
+	$spaces = array('<span class="twotone"> ', '<span class="pretext"> ', '<span class="subtext"> ', ' </span>');
+	$nospaces = array('<span class="twotone">', '<span class="pretext">', '<span class="subtext">', '</span>');
 	
 	// subtext & twotone
 	if(strstr($modtitle, $subtext) && strstr($modtitle, $twotone)){
 		$twotone_arr = explode($twotone, $modtitle);
 		$subtext_arr = explode($subtext, $twotone_arr[1]);
-		$str_twotone = '<span class="mod-tone1">'.$twotone_arr[0].'</span> <span class="mod-tone2">'.$subtext_arr[0].'</span>';
-		$str_subtext = '<span class="mod-subtext">'.$subtext_arr[1].'</span>';
+		$str_twotone = $twotone_arr[0].' <span class="twotone">'.$subtext_arr[0].'</span>';
+		$str_subtext = '<span class="subtext">'.$subtext_arr[1].'</span>';
 		
 		$string = $str_twotone .' '. $str_subtext;
 		return str_replace($spaces, $nospaces, $string);
@@ -53,8 +53,8 @@ jimport('joomla.application.module.helper');
 	if(strstr($modtitle, $pretext) && strstr($modtitle, $twotone)){
 		$pretext_arr = explode($pretext, $modtitle);
 		$twotone_arr = explode($twotone, $pretext_arr[1]);
-		$str_pretext = '<span class="mod-pretext">'.$pretext_arr[0].'</span>';
-		$str_twotone = '<span class="mod-tone1">'.$twotone_arr[0].'</span> <span class="mod-tone2">'.$twotone_arr[1].'</span>';
+		$str_pretext = '<span class="pretext">'.$pretext_arr[0].'</span>';
+		$str_twotone = $twotone_arr[0].' <span class="twotone">'.$twotone_arr[1].'</span>';
 		
 		$string = $str_pretext .' '. $str_twotone;
 		return str_replace($spaces, $nospaces, $string);
@@ -62,21 +62,21 @@ jimport('joomla.application.module.helper');
 	
 	if(strstr($modtitle, $twotone) && !strstr($modtitle, $pretext)){
 		$twotone_arr = explode($twotone, $modtitle);
-		$str_twotone = '<span class="mod-tone1">'.$twotone_arr[0].'</span> <span class="mod-tone2">'.$twotone_arr[1].'</span>';
+		$str_twotone = $twotone_arr[0].' <span class="twotone">'.$twotone_arr[1].'</span>';
 		
 		return str_replace($spaces, $nospaces, $str_twotone);
 	}
 	
 	if(strstr($modtitle, $pretext) && !strstr($modtitle, $twotone)){
 		$pretext_arr = explode($pretext, $modtitle);
-		$str_pretext = '<span class="mod-pretext">'.$pretext_arr[0].'</span>'.$pretext_arr[1];
+		$str_pretext = '<span class="pretext">'.$pretext_arr[0].'</span> '.$pretext_arr[1];
 		
 		return str_replace($spaces, $nospaces, $str_pretext);
 	}
 	
 	if(strstr($modtitle, $subtext) && !strstr($modtitle, $twotone)){
 		$subtext_arr = explode($subtext, $modtitle);
-		$str_subtext = $subtext_arr[0].'<span class="mod-subtext">'.$subtext_arr[1].'</span>';
+		$str_subtext = $subtext_arr[0].'<span class="subtext">'.$subtext_arr[1].'</span>';
 		
 		return str_replace($spaces, $nospaces, $str_subtext);
 	}
@@ -86,50 +86,35 @@ jimport('joomla.application.module.helper');
 	}
 }
 
-/* Module chrome that allows for rounded corners by wrapping in nested div tags and adds extra hooks for ModFX styles */
-function modChrome_custom1($module, &$params, &$attribs) {
+/* module chrome that allows for rounded corners by wrapping in nested div tags and adds extra hooks for ModFX styles */
+function modChrome_basic($module, &$params, &$attribs) {
 $pub_modules = JModuleHelper::getModules($module->position);
 if ($pub_modules[0]->id == $module->id) {
-	$posSuffix = $params->get('moduleclass_sfx') . ' first';
+	$posSuffix = ' '.$params->get('moduleclass_sfx') . ' first';
 } elseif ($pub_modules[count($pub_modules)-1]->id == $module->id) {
-	$posSuffix = $params->get('moduleclass_sfx') . ' last';
+	$posSuffix = ' '.$params->get('moduleclass_sfx') . ' last';
 } else {
-	$posSuffix = $params->get('moduleclass_sfx');
+	$posSuffix = ' '.$params->get('moduleclass_sfx');
 } ?>
-<div class="mod mod-basic <?php echo $params->get('moduleclass_sfx'); ?>" id="mod<?php echo $module->id; ?>">
-	<?php if ($module->showtitle != 0) : ?><h3><span class="icon"></span><?php echo moduleHeadings($module->title); ?></h3><?php endif; ?>
+<div class="<?php if ($module->showtitle == 0) { ?>noheading <?php } ?>mod mod-basic<?php echo $posSuffix; ?>" id="mod<?php echo $module->id; ?>">
+	<?php if ($module->showtitle != 0) : ?><h3 class="modhead"><span class="icon"></span><?php echo moduleHeadings($module->title); ?></h3><?php endif; ?>
 	<div class="modinner"><?php echo $module->content; ?></div>
 </div>
 <?php }
-	
-function modChrome_custom2($module, &$params, &$attribs) {
-$pub_modules = JModuleHelper::getModules($module->position);
-if ($pub_modules[0]->id == $module->id) {
-	$posSuffix = $params->get('moduleclass_sfx') . ' first';
-} elseif ($pub_modules[count($pub_modules)-1]->id == $module->id) {
-	$posSuffix = $params->get('moduleclass_sfx') . ' last';
-} else {
-	$posSuffix = $params->get('moduleclass_sfx');
-} 
-?>
-<div class="mod mod-grid yui-u <?php echo $posSuffix; ?>" id="mod<?php echo $module->id; ?>">
-	<?php if ($module->showtitle != 0) : ?><h3><span class="icon"></span><?php echo moduleHeadings($module->title); ?></h3><?php endif; ?>
-	<?php echo $module->content; ?>
-</div>
-<?php }
 
-function modChrome_custom3($module, &$params, &$attribs) {
+function modChrome_grid($module, &$params, &$attribs) {
 $pub_modules = JModuleHelper::getModules($module->position);
 if ($pub_modules[0]->id == $module->id) {
-	$posSuffix = $params->get('moduleclass_sfx') . ' first';
+	$posSuffix = ' '.$params->get('moduleclass_sfx') . ' first';
 } elseif ($pub_modules[count($pub_modules)-1]->id == $module->id) {
-	$posSuffix = $params->get('moduleclass_sfx') . ' last';
+	$posSuffix = ' '.$params->get('moduleclass_sfx') . ' last';
 } else {
-	$posSuffix = $params->get('moduleclass_sfx');
+	$posSuffix = ' '.$params->get('moduleclass_sfx');
 } ?>
-	<div class="mod mod-fx yui-u <?php echo $posSuffix; ?>" id="mod<?php echo $module->id; ?>">
+	<div class="mod mod-grid yui-u<?php echo $posSuffix; ?>" id="mod<?php echo $module->id; ?>">
+	
+		<?php if ($module->showtitle != 0) : ?><h3 class="modhead"><span class="icon"></span><?php echo moduleHeadings($module->title); ?></h3><?php endif; ?>
 		<div class="modinner">
-			<?php if ($module->showtitle != 0) : ?><h3><span class="icon"></span><?php echo moduleHeadings($module->title); ?></h3><?php endif; ?>
 			<?php echo $module->content; ?>
 		</div>
 	</div>
