@@ -241,7 +241,7 @@ $jj_const = array(
 		3				=> "yui-gb",		// yui-gb for 3 blocks in a grid
 		4				=> "yui-g4",		// yui-gb for 4 blocks in a grid
 		5				=> "yui-g5"		// yui-gb for 5 blocks in a grid
-		),
+	),
 	"mod_suffix" => array(
 		"toolbar"		=>$this->params->get('toolbar_gridsplit'),
       	"topshelf"      =>$this->params->get('toolbar_gridsplit'), 
@@ -256,17 +256,43 @@ $jj_const = array(
 		"user2"			=>$this->params->get('user2_gridsplit'),
 		"bottomshelf"	=>$this->params->get('bottomshelf_gridsplit'),
 		"footer"		=>$this->params->get('footer_gridsplit'),
-		)
-	);
+	),
+	"left_right_pos" => array(
+		"splitleft", 
+		"topleft", 
+		"left", 
+		"btmleft", 
+		"splitright", 
+		"topright", 
+		"right", 
+		"btmright"
+	)
+);
 
 function getYuiSuffix ($moduleName, $jj_const){
 	$myJdoc = new JDocumentHTML();
 	$moduleCount = $myJdoc->countModules($moduleName); 
-	if ($moduleCount == 2) {
-		$yuiModuleSuffix = $jj_const["mod_suffix"][$moduleName];
-	} else {
+	if(in_array($moduleName, $jj_const['left_right_pos'])){
 		$yuiModuleSuffix = $jj_const["yui_suffix"][$moduleCount];
+	}else{
+		if ($moduleCount == 2) {
+			$yuiModuleSuffix = $jj_const["mod_suffix"][$moduleName];
+		} else {
+			$yuiModuleSuffix = $jj_const["yui_suffix"][$moduleCount];
+		}
 	}
 	echo $yuiModuleSuffix;
 }
+
+function sidebar_module($chrome, $position, $jj_const){
+	global $debug_modules;
+	if ($chrome == 'grid') { ?>
+		<div id="<?php echo $position; ?>-grid" class="intelli <?php getYuiSuffix($position, $jj_const); ?> <?php echo $chrome ?>">
+	<?php } ?>
+    	<jdoc:include type="modules" name="<?php echo $position; ?>" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo $chrome; } ?>" />
+    <?php if ($chrome == 'grid') { ?>
+    	</div>
+    <?php }
+}
+
 ?>
