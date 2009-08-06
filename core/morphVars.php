@@ -34,29 +34,32 @@ $db->setQuery( $query ); $accordionscount = $db->loadResult();
 $query = "SELECT COUNT(*) FROM `#__modules` WHERE `params` LIKE '%moduleclass_sfx=rounded%' ";
 $db->setQuery( $query ); $roundedcount = $db->loadResult();
 
-$query = "SELECT COUNT(*) FROM #__modules WHERE position = 'user3' AND params LIKE '%moduleclass_sfx=topdrop%' OR position = 'user3' AND params LIKE '% topdrop%'";
+$query = "SELECT COUNT(*) FROM `#__modules` WHERE `position` = 'user3' AND `params` LIKE '%moduleclass_sfx=topdrop%' OR `position` = 'user3' AND `params` LIKE '% topdrop%'";
 $db->setQuery( $query ); $topdrop = $db->loadResult();
 
-$query = "SELECT COUNT(*) FROM #__modules WHERE position = 'user3' AND params LIKE '%moduleclass_sfx=topfish%' OR position = 'user3' AND params LIKE '% topfish%'";
+$query = "SELECT COUNT(*) FROM `#__modules` WHERE `position` = 'user3' AND `params` LIKE '%moduleclass_sfx=topfish%' OR `position` = 'user3' AND `params` LIKE '% topfish%'";
 $db->setQuery( $query ); $topfish = $db->loadResult();
 
-$query = "SELECT COUNT(*) FROM #__modules WHERE position = 'user3' AND params LIKE '%moduleclass_sfx=subtext%' OR position = 'user3' AND params LIKE '% subtext%'";
+$query = "SELECT COUNT(*) FROM `#__modules` WHERE `position` = 'user3' AND `params` LIKE '%moduleclass_sfx=subtext%' OR `position` = 'user3' AND `params` LIKE '% subtext%'";
 $db->setQuery( $query ); $subtext_top = $db->loadResult();
 
-$query = "SELECT COUNT(*) FROM #__modules WHERE position = 'user3' AND params LIKE '%moduleclass_sfx=animate%' OR position = 'user3' AND params LIKE '% animate%'";
+$query = "SELECT COUNT(*) FROM `#__modules` WHERE `position` = 'user3' AND `params` LIKE '%moduleclass_sfx=animate%' OR `position` = 'user3' AND `params` LIKE '% animate%'";
 $db->setQuery( $query ); $animate_top = $db->loadResult();
 
-$query = "SELECT COUNT(*) FROM #__modules WHERE params LIKE '%moduleclass_sfx=sidefish%' OR params LIKE '%sidefish%'";
+$query = "SELECT COUNT(*) FROM `#__modules` WHERE `params` LIKE '%moduleclass_sfx=sidefish%' OR `params` LIKE '%sidefish%'";
 $db->setQuery( $query ); $sidefish = $db->loadResult();
 
-$query = "SELECT COUNT(*) FROM #__modules WHERE position = 'left' AND module = 'mod_mainmenu' OR position = 'right' AND module = 'mod_mainmenu'";
+$query = "SELECT COUNT(*) FROM `#__modules` WHERE `position` = 'left' AND `module` = 'mod_mainmenu' OR `position` = 'right' AND `module` = 'mod_mainmenu'";
 $db->setQuery( $query ); $sidenav_count = $db->loadResult();
 
-$query = "SELECT COUNT(*) FROM #__modules WHERE position = 'user3' AND module = 'mod_mainmenu'";
+$query = "SELECT COUNT(*) FROM `#__modules` WHERE `position` = 'user3' AND `module` = 'mod_mainmenu'";
 $db->setQuery( $query ); $topnav_count = $db->loadResult();
 
-$query = "SELECT COUNT(*) FROM #__modules WHERE position = 'left' AND params LIKE '%moduleclass_sfx=animate%' OR position = 'left' AND  params LIKE '% animate%'";
+$query = "SELECT COUNT(*) FROM `#__modules` WHERE `position` = 'left' AND `params` LIKE '%moduleclass_sfx=animate%' OR `position` = 'left' AND  `params` LIKE '% animate%'";
 $db->setQuery( $query ); $animate_left = $db->loadResult();
+
+$query = "SELECT COUNT(*) FROM `#__modules` WHERE `module` = 'mod_simpleticker' AND `published` = '1'";
+$db->setQuery( $query ); $simpleticker = $db->loadResult();
 
 (file_exists($customjs) && is_readable($customjs)) ? $custom_js = 1 : $custom_js = 0;
 (file_exists($customcss) && is_readable($customcss)) ? $custom_css = 1 : $custom_css = 0;
