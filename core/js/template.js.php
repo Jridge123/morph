@@ -21,7 +21,7 @@ if($pack_js == 1){
 	if ( $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1 ) { include('jquery.slider.js'); }
 	if ( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1  ) { include('jquery.equalheights.js'); }
 	if ( $plugin_scrollto == 1 ) { include('jquery.scrollTo-1.4.2-min.js'); }
-	if ( $simpleticker == 1 ) { include(JPATH . 'modules/mod_simpleticker/simpleticker/simpleticker.js');}
+	if ( $simpleticker == 1 ) { include('../../../../modules/mod_simpleticker/simpleticker/simpleticker.js');}
 }
 ?>
 jQuery.noConflict();
@@ -142,7 +142,7 @@ jQuery.noConflict();
 	    	delay:     1200               // 1.2 second delay on mouseout 
 	    });
 	    <?php } if ( $simpleticker == 1 ) { ?>
-	    
+	    $("#news").newsTicker();
 		<?php } if ( $toolbar_slider == 1 ) { ?>
    		initSlider('#toolbar', '<?php echo $toolbar_slider_text; ?>'); 
 		<?php } if ( $topshelf_slider == 1 ) { ?>
