@@ -101,9 +101,9 @@ if ($pub_modules[0]->id == $module->id) {
 	$posSuffix = ' '.$params->get('moduleclass_sfx');
 } ?>
 <div class="<?php if ($module->showtitle == 0) { ?>noheading <?php } ?>mod mod-basic<?php echo $posSuffix; ?>" id="mod<?php echo $module->id; ?>">
-	<?php if(isset($innerwrap) && $innerwrap == 'inner'){ ?><div class="modinner"><?php } ?>
+	<?php if(isset($innerwrap) && $innerwrap == 'content'){ ?><div class="modinner"><?php } ?>
 	<?php if ($module->showtitle != 0) : ?><h3 class="modhead"><span class="icon"></span><?php echo moduleHeadings($module->title); ?></h3><?php endif; ?>
-	<?php if(isset($innerwrap) && $innerwrap == 'none' || !isset($innerwrap)){ ?><div class="modinner"><?php } ?>
+	<?php if(isset($innerwrap) && $innerwrap == 'both' || !isset($innerwrap)){ ?><div class="modinner"><?php } ?>
 		<?php echo $module->content; ?>
 	</div>
 </div>
@@ -124,9 +124,9 @@ if ($pub_modules[0]->id == $module->id) {
 	$posSuffix = ' '.$params->get('moduleclass_sfx');
 } ?>
 	<div class="mod mod-grid yui-u<?php echo $posSuffix; ?>" id="mod<?php echo $module->id; ?>">
-		<?php if(isset($innerwrap) && $innerwrap == 'inner'){ ?><div class="modinner"><?php } ?>
+		<?php if(isset($innerwrap) && $innerwrap == 'content'){ ?><div class="modinner"><?php } ?>
 		<?php if ($module->showtitle != 0) : ?><h3 class="modhead"><span class="icon"></span><?php echo moduleHeadings($module->title); ?></h3><?php endif; ?>
-		<?php if(isset($innerwrap) && $innerwrap == 'none' || !isset($innerwrap)){ ?><div class="modinner"><?php } ?>
+		<?php if(isset($innerwrap) && $innerwrap == 'both' || !isset($innerwrap)){ ?><div class="modinner"><?php } ?>
 			<?php echo $module->content; ?>
 		</div>
 	</div>
