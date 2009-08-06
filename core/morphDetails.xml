@@ -748,8 +748,7 @@
 	</param>
 </params>
 
-<params group="sidebarsdata">	
-	<param name="outer heading" type="heading" label="Outer Layout (Left Sidebar) Settings:" />	
+<params group="outer-sidebardata">	
 	<param name="outer_default" type="list" default="8" label="Outer layout default" tooltip="modal" description="outerlayout.html">
 		<option value="1">160px Left</option>
 		<option value="2">180px Left</option>
@@ -760,7 +759,12 @@
 		<option value="5">240px Right</option>
 		<option value="6">300px Right</option>
 	</param>
-	<param name="splitleft_chrome" type="list" default="basic" label="Split left chrome" tooltip="modal" description="chromefx.html">
+	<param name="secondary_inner" type="radio" default="0" label="Inner wrapping" tooltip="inline" description="Would you like the secondary content sidebar to have an inner wrap div? This is useful if you need to add padding to the contents of the sidebar.">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
+	<param name="split left heading" type="heading" label="Split left module position" />			
+	<param name="splitleft_chrome" type="list" default="basic" label="Module chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
 		<option value="grid">Grid</option>
@@ -768,7 +772,12 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="topleft_chrome" type="list" default="basic" label="Top left chrome" tooltip="modal" description="chromefx.html">
+	<param name="splitleft_chrome_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
+		<option value="both">Wrap heading &amp; content</option>
+		<option value="content">Wrap content only</option>
+	</param>
+	<param name="top left heading" type="heading" label="Top left module position" />			
+	<param name="topleft_chrome" type="list" default="basic" label="Module chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
 		<option value="grid">Grid</option>
@@ -776,7 +785,12 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="left_chrome" type="list" default="basic" label="Left chrome" tooltip="modal" description="chromefx.html">
+	<param name="topleft_chrome_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
+		<option value="both">Wrap heading &amp; content</option>
+		<option value="content">Wrap content only</option>
+	</param>
+	<param name="left heading" type="heading" label="Left module position" />			
+	<param name="left_chrome" type="list" default="basic" label="Module chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
 		<option value="grid">Grid</option>
@@ -784,11 +798,12 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="left_chrome_inner" type="radio" default="none" label="Left Chrome Wrap" tooltip="inline" description="add me...">
-		<option value="none">None</option>
-		<option value="inner">Inner</option>
+	<param name="left_chrome_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
+		<option value="both">Wrap heading &amp; content</option>
+		<option value="content">Wrap content only</option>
 	</param>
-	<param name="btmleft_chrome" type="list" default="basic" label="Bottom left chrome" tooltip="modal" description="chromefx.html">
+	<param name="btmleft heading" type="heading" label="Bottom left module position" />		
+	<param name="btmleft_chrome" type="list" default="basic" label="Module chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
 		<option value="grid">Grid</option>
@@ -796,6 +811,13 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
+	<param name="btmleft_chrome_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
+		<option value="both">Wrap heading &amp; content</option>
+		<option value="content">Wrap content only</option>
+	</param>
+</params>
+
+<params group="inner-sidebardata">	
 	<param name="inner heading" type="heading" label="Inner Layout (Right Sidebar) Settings:" />	
 	<param name="inner_default" type="list" default="gh" label="Inner layout default" tooltip="modal" description="innerlayout.html">
 		<option value="g">50% Right</option>
@@ -804,6 +826,11 @@
 		<option value="gi">200px Left</option>
 		<option value="gh">200px Right</option>
 	</param>
+	<param name="tertiary_inner" type="radio" default="0" label="Inner wrapping" tooltip="inline" description="Would you like the secondary content sidebar to have an inner wrap div? This is useful if you need to add padding to the contents of the sidebar.">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
+	<param name="splitright heading" type="heading" label="Split right module position" />		
 	<param name="splitright_chrome" type="list" default="basic" label="Split right chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
@@ -812,6 +839,11 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
+	<param name="splitright_chrome_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
+		<option value="both">Wrap heading &amp; content</option>
+		<option value="content">Wrap content only</option>
+	</param>
+	<param name="topright heading" type="heading" label="Top right module position" />
 	<param name="topright_chrome" type="list" default="basic" label="Top right chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
@@ -820,6 +852,11 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
+	<param name="topright_chrome_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
+		<option value="both">Wrap heading &amp; content</option>
+		<option value="content">Wrap content only</option>
+	</param>
+	<param name="right heading" type="heading" label="Right module position" />		
 	<param name="right_chrome" type="list" default="basic" label="Right chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
@@ -828,6 +865,11 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
+	<param name="right_chrome_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
+		<option value="both">Wrap heading &amp; content</option>
+		<option value="content">Wrap content only</option>
+	</param>
+	<param name="btmright heading" type="heading" label="Bottom right module position" />		
 	<param name="btmright_chrome" type="list" default="basic" label="Bottom right chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
@@ -836,7 +878,16 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
+	<param name="btmright_chrome_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
+		<option value="both">Wrap heading &amp; content</option>
+		<option value="content">Wrap content only</option>
+	</param>
 </params>
+
+
+
+
+
 
 <params group="footerdata">	
 	<param name="footer_wrap" type="radio" default="0" label="Block wrapping" tooltip="modal" description="blockwrap.html">
