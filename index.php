@@ -17,7 +17,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 <head>
 <jdoc:include type="head" />
 </head>
-<body class="js-disabled <?php echo "$lcbrowser $lcbrowser$ver"; if ($pageclass != ""){ echo ' '.$pageclass; } ?>"<?php if ($themelet != ""){ echo ' id="'.$themelet.'"'; } ?>>
+<body class="js-disabled morph <?php echo "$lcbrowser $lcbrowser$ver"; if ($pageclass != ""){ echo ' '.$pageclass; } ?>"<?php if ($themelet != ""){ echo ' id="'.$themelet.'"'; } ?>>
 <?php $browser = new Browser();
 if( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
 	include_once("core/includes/iphone.php");
