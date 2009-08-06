@@ -1,10 +1,12 @@
-<?php if($this->countModules('right')) { ?>
+<?php if ($this->countModules( 'splitright or topright or right or btmright' )) { ?>
 <div class="sidenav yui-u" id="tertiary-content">
+ <?php if ( $tertiary_inner == 1 ) { ?><div class="tertiary-inner"><?php } ?>
     <?php if ($this->countMenuChildren() || $this->countModules( 'splitright' ) > 0 ) { ?>
-	<jdoc:include type="modules" name="splitright" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo $splitleft_chrome; } ?>" />
+    <?php sidebar_module($splitright_chrome, 'splitright', $jj_const); ?>
 	<?php } ?>
-	<jdoc:include type="modules" name="topright" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo $topright_chrome; } ?>" />
-	<jdoc:include type="modules" name="right" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo $right_chrome; } ?>" />
-	<jdoc:include type="modules" name="btmright" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo $btmright_chrome; } ?>" />
-</div>
+    <?php sidebar_module($topright_chrome, 'topright', $jj_const); ?>
+	<?php sidebar_module($right_chrome, 'right', $jj_const); ?>
+	<?php sidebar_module($btmright_chrome, 'btmright', $jj_const); ?>
+ </div>
+ <?php if ( $tertiary_inner == 1 ) { ?></div><?php } ?>
 <?php } ?>

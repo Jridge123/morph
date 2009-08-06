@@ -1,12 +1,13 @@
-<?php if ($this->countModules( 'splitleft or topleft or left or bottomleft' )) { ?>
+<?php if ($this->countModules( 'splitleft or topleft or left or btmleft' )) { ?>
 <div class="sidenav yui-b" id="secondary-content">
- <div class="inner">
+ <?php if ( $secondary_inner == 1 ) { ?><div class="secondary-inner"><?php } ?>
     <?php if ($this->countMenuChildren() || $this->countModules( 'splitleft' ) > 0 ) { ?>
-    <jdoc:include type="modules" name="splitleft" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo $splitleft_chrome; } ?>" />
+    <?php sidebar_module($splitleft_chrome, 'splitleft', $jj_const); ?>
     <?php } ?>
-    <jdoc:include type="modules" name="topleft" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo $topleft_chrome; } ?>" />
-    <jdoc:include type="modules" name="left" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo $left_chrome; } ?>" />
-    <jdoc:include type="modules" name="btmleft" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo $btmleft_chrome; } ?>" />
+    <?php sidebar_module($topleft_chrome, 'topleft', $jj_const); ?>
+	<?php sidebar_module($left_chrome, 'left', $jj_const); ?>
+	<?php sidebar_module($btmleft_chrome, 'btmleft', $jj_const); ?>
  </div>
-</div>
+ <?php if ( $secondary_inner == 1 ) { ?></div><?php } ?>
 <?php } ?>
+
