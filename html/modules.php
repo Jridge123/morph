@@ -177,7 +177,7 @@ global $morph_tabs,$tabscount,$loadtabs,$istabsload;
 function modChrome_accordion($module, &$params, &$attribs) {
 global $morph_accordions,$accordionscount,$loadaccordions,$isaccordionsload;
 
-echo $accordionscount;
+//echo $accordionscount;
 
 	$themodules = JModuleHelper::getModules($module->position);
 	$countmodules = count($themodules);
