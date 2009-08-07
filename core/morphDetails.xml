@@ -799,6 +799,10 @@
 		<option value="both">Wrap heading &amp; content</option>
 		<option value="content">Wrap content only</option>
 	</param>
+	<param name="topleft_equalize" type="radio" default="1" label="Equalize modules" tooltip="modal" description="equalize.html">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
 	<param name="left heading" type="heading" label="Left module position" />			
 	<param name="left_chrome" type="list" default="basic" label="Module chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
