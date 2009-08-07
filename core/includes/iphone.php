@@ -1,6 +1,7 @@
 <div id="iphone-wrap">
 	<a href="<?php echo JURI::root() ?>" title="<?php if ($logo_linktitle != ""){ echo $logo_linktitle; } else { echo $mainframe->getCfg('sitename'); } ?>">
-	<img src="morph_assets/logos/<?php echo $logo_image; ?>" width="<?php echo $logo_size[0]; ?>" height="<?php echo $logo_size[1]; ?>" alt="<?php if ( $logo_alttext != ""){ echo $logo_alttext; } else { echo $mainframe->getCfg('sitename'); } ?>" border="0" /></a>
+	<img src="morph_assets/iphone/<?php echo $iphone_header; ?>" alt="<?php if ( $logo_alttext != ""){ echo $logo_alttext; } else { echo $mainframe->getCfg('sitename'); } ?>" border="0" /></a>
+	<div class="iphone-inner">
 				
 	<?php if($this->countModules('iphone1')) { ?>
 		<div id="iphone1">
@@ -24,4 +25,5 @@
 			<jdoc:include type="modules" name="iphone4" style="basic" />
 		</div>
 	<?php } ?>
+</div>
 </div>
