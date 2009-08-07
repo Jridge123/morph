@@ -21,6 +21,7 @@ $topshelf_equalize = $_GET['D01'];
 $bottomshelf_equalize = $_GET['D02'];
 $user1_equalize = $_GET['D03'];
 $user2_equalize = $_GET['D04'];
+$topleft_equalize = $_GET['D05'];
 $tabscount = $_GET['E01'];
 $topshelfcount = $_GET['E02'];
 $btmshelfcount = $_GET['E03'];
@@ -36,4 +37,5 @@ $gzip_compression = $_GET['Z01'];
 $pack_js = $_GET['Z02'];
 $custom_js = $_GET['Z03'];
 $simpleticker = $_GET['Z04'];
+$tickerdelay = $_GET['Z05'];
 ?>
