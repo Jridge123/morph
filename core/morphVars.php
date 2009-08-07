@@ -64,6 +64,8 @@ $db->setQuery( $query ); $simpleticker = $db->loadResult();
 (file_exists($customjs) && is_readable($customjs)) ? $custom_js = 1 : $custom_js = 0;
 (file_exists($customcss) && is_readable($customcss)) ? $custom_css = 1 : $custom_css = 0;
 
+$pt_mod = getModuleParams('mod_simpleticker');
+
 // JS Variables
 $packed_js_vars = array();
 $packed_js_vars["A01"]=$jquery_core;
@@ -88,6 +90,7 @@ $packed_js_vars["D01"]=$topshelf_equalize;
 $packed_js_vars["D02"]=$bottomshelf_equalize;
 $packed_js_vars["D03"]=$user1_equalize;
 $packed_js_vars["D04"]=$user2_equalize;
+$packed_js_vars["D05"]=$topleft_equalize;
 $packed_js_vars["E01"]=$tabscount;
 $packed_js_vars["E02"]=$topshelfcount;
 $packed_js_vars["E03"]=$btmshelfcount;
@@ -103,6 +106,7 @@ $packed_js_vars["Z01"]=$gzip_compression;
 $packed_js_vars["Z02"]=$pack_js;
 $packed_js_vars["Z03"]=$custom_js;
 $packed_js_vars["Z04"]=$simpleticker;
+$packed_js_vars["Z05"]=$pt_mod['pt_delay'];
 
 $packed_js = '';
 foreach($packed_js_vars as $key => $val){
@@ -152,6 +156,7 @@ $packed_css_vars["H01"]=$toolbar_slider;
 $packed_css_vars["Z01"]=$gzip_compression;
 $packed_css_vars["Z02"]=$pack_css;
 $packed_css_vars["Z03"]=$custom_css;
+$packed_css_vars["Z04"]=$simpleticker;
 
 $packed_css = '';
 foreach($packed_css_vars as $key => $val){

@@ -167,6 +167,7 @@ $splitleft_chrome = $MORPH->splitleft_chrome;
 $splitleft_chrome_inner = $MORPH->splitleft_chrome_inner;
 $topleft_chrome = $MORPH->topleft_chrome;
 $topleft_chrome_inner = $MORPH->topleft_chrome_inner;
+$topleft_equalize = $MORPH->topleft_equalize;
 $left_chrome = $MORPH->left_chrome;
 $left_chrome_inner = $MORPH->left_chrome_inner;
 $btmleft_chrome = $MORPH->btmleft_chrome;
