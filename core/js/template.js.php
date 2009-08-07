@@ -128,7 +128,7 @@ jQuery.noConflict();
  			<?php if ($topnav_hoverintent == 0 ) { ?>disableHI: true<?php } else { ?>disableHI: false<?php } ?>
 		});
 		<?php } if ( $topdrop >= 1 ) { ?>
-		$("#nav .menu").superfish({ pathClass:  'current' });
+		$("#nav .menu").superfish({ pathClass:  'active' });
 		<?php } ?>
 		<?php if ( $animate_left == 1 ) { ?>	
 		$('#secondary-content ul.menu.slide li:not(.active) a, #tertiary-content ul.menu.slide li:not(.active) a').hoverIntent(function() { //mouse in  
