@@ -19,9 +19,10 @@ if($pack_js == 1){
 	if ( $sidefish >= 1 or $topfish >= 1 or $topdrop >= 1  ) { include('jquery.superfish.js'); }
 	if ( $topnav_supersubs == 1 ) { include("jquery.superfish.supersubs.js"); }
 	if ( $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1 ) { include('jquery.slider.js'); }
-	if ( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1  ) { include('jquery.equalheights.js'); }
+	if ( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1 or $$topleft_equalize == 1 ) { include('jquery.equalheights.js'); }
 	if ( $plugin_scrollto == 1 ) { include('jquery.scrollTo-1.4.2-min.js'); }
-	if ( $simpleticker == 1 ) { include('../../../../modules/mod_simpleticker/simpleticker/simpleticker.js');}
+	if ( $simpleticker == 1 ) { include('jquery.innerfade.js'); }
+	//if ( $simpleticker == 1 ) { include('../../../../modules/mod_simpleticker/simpleticker/simpleticker.js'); }
 }
 ?>
 jQuery.noConflict();
