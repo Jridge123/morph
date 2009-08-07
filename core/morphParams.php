@@ -58,6 +58,11 @@ $topnav_maxwidth = $MORPH->topnav_maxwidth;
 $topnav_delay = $MORPH->topnav_delay;
 $topnav_animation = $MORPH->topnav_animation;
 
+// iphone settings
+$iphone_mode = $MORPH->iphone_mode;
+$iphone_header = $MORPH->iphone_header;
+$iphone_webclip = $MORPH->iphone_webclip;
+
 // performance
 $pack_css = $MORPH->pack_css;
 $pack_js = $MORPH->pack_js;

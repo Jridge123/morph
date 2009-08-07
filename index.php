@@ -16,10 +16,14 @@ error_reporting(E_ALL ^ E_NOTICE);
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>">
 <head>
 <jdoc:include type="head" />
+<?php if( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) { ?>
+<meta name="viewport" content="width=320" />
+<?php } ?>
 </head>
 <body class="js-disabled morph <?php echo "$lcbrowser $lcbrowser$ver"; if ($pageclass != ""){ echo ' '.$pageclass; } ?>"<?php if ($themelet != ""){ echo ' id="'.$themelet.'"'; } ?>>
-<?php $browser = new Browser();
-if( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
+<?php echo $simpleticker; ?>
+
+<?php if( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
 	include_once("core/includes/iphone.php");
 } else { ?>
 	<?php if ( isIE6() && $ie6_upgrade == 1 ) include_once("core/includes/ie6upgrade.php"); ?>

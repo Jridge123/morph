@@ -345,6 +345,16 @@
 	</param>
 </params>
 
+<params group="iphonedata">
+	<param name="iphone_mode" type="radio" default="1" label="iPhone compatibility" tooltip="inline" description="Would you like your site to automatically be iPhone compatible?">
+		<option value="1">On</option>
+		<option value="0">Off</option>
+	</param>
+	<param name="iphone_header" type="imagelist" default="" tooltip="inline" label="iPhone header" description="Select a 320px width header to use on your iPhone optimized site." directory="morph_assets/iphone" hide_none="true" />
+	<param name="iphone_webclip" type="imagelist" default="" tooltip="inline" label="iPhone webclip" description="Select a 57px by 57px image to use for your webclip bookmark." directory="morph_assets/iphone" hide_none="true" />
+
+</params>
+	
 <params group="performancedata">
 	<param name="pack_css" type="radio" default="1" label="Enable css packing" tooltip="inline" description="CSS Packing (otherwise refered to as CSS Concatination) refers to the combining of multiple files into a single file. This boosts your sites performance as fewer http requests are needed.">
 		<option value="1">Yes</option>
