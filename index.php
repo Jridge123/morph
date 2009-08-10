@@ -21,7 +21,6 @@ error_reporting(E_ALL ^ E_NOTICE);
 <?php } ?>
 </head>
 <body class="js-disabled morph <?php echo "$lcbrowser $lcbrowser$ver"; if ($pageclass != ""){ echo ' '.$pageclass; } ?>"<?php if ($themelet != ""){ echo ' id="'.$themelet.'"'; } ?>>
-
 <?php if( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
 	include_once("core/includes/iphone.php");
 } else { ?>
