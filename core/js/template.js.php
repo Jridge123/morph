@@ -14,7 +14,7 @@ if($pack_js == 1){
 	if ( $tabscount >= 1 ) { include('jquery.ui.tabs.js'); }
 	if ( $accordionscount >= 1 ) { include('jquery.ui.accordion.js'); }
 	if ( $tabscount >= 1 or $accordionscount >= 1 or $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1  ) { include('jquery.cookie.js'); }
-	if ( $rounded_corners == 1 ) { include('jquery.corners.js'); }
+	if ( $rounded_corners == 1 or $roundedcount !== '0' ) { include('jquery.corners.js'); }
 	if ( $topnav_hoverintent == 1 ) { include("jquery.superfish.hoverintent.js"); }
 	if ( $sidefish >= 1 or $topfish >= 1 or $topdrop >= 1  ) { include('jquery.superfish.js'); }
 	if ( $topnav_supersubs == 1 ) { include("jquery.superfish.supersubs.js"); }
@@ -22,7 +22,6 @@ if($pack_js == 1){
 	if ( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1 or $topleft_equalize == 1 ) { include('jquery.equalheights.js'); }
 	if ( $plugin_scrollto == 1 ) { include('jquery.scrollTo-1.4.2-min.js'); }
 	if ( $simpleticker == 1 ) { include('jquery.innerfade.js'); }
-	//if ( $simpleticker == 1 ) { include('../../../../modules/mod_simpleticker/simpleticker/simpleticker.js'); }
 }
 ?>
 jQuery.noConflict();
@@ -116,14 +115,17 @@ jQuery.noConflict();
 		$('.right-pullquote').corners("10px");
 		$('.quote-author').corners("10px bottom");
 		$('.readon').corners("5px");
+		
 		<?php } if ( $topfish >= 1  ) { ?>
 		$("#nav .menu")
+		
 		<?php if ($topnav_supersubs == 1 ) { ?>
 		.supersubs({
 			minWidth: <?php echo $topnav_minwidth; ?>,
 		 	maxWidth: <?php echo $topnav_maxwidth; ?>,
 		 	extraWidth: 1
 		})<?php } ?>
+		
 		.superfish({
 			delay: <?php echo $topnav_delay; ?>,
 			animation: {opacity:'show'},
@@ -147,6 +149,7 @@ jQuery.noConflict();
 	    	animation: {height:'show'},   // slide-down effect without fade-in 
 	    	delay:     1200               // 1.2 second delay on mouseout 
 	    });
+	    
 	    <?php } if ( $simpleticker == 1 ) { ?>
 	    <!--$("#news").newsTicker('<?php echo $tickerdelay; ?>');-->
 	     $('#news').innerfade({ animationtype: 'slide', speed: 750, timeout: 2000, type: 'random', containerheight: '1em' }); 
