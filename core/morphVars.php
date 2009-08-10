@@ -23,6 +23,10 @@ if ( $logo_type == 1 or $logo_type == 3 ) {
 	$logo = 'null';
 }
 
+// css and js packing variables
+(isset($_COOKIE['unpackjs'])) ? $pack_js = 0 : $pack_js = $pack_js;
+(isset($_COOKIE['unpackcss'])) ? $pack_css = 0 : $pack_css = $pack_css;
+
 $db=& JFactory::getDBO();
 
 $query = "SELECT COUNT(*) FROM `#__configurator` WHERE `param_value` = 'tabs' ";
