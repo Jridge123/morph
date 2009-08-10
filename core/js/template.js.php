@@ -27,8 +27,6 @@ if($pack_js == 1){
 jQuery.noConflict();
 (function($) {
 	$(document).ready(function(){
-			$('#topleft-grid .modinner').equalHeights();	
-
 		$("#topnav.call-for-action li:last").addClass("action-link");
 		$("#topnav.call-for-action li:last").prev("li").addClass("second-last")
 		$("body").removeClass("js-disabled").addClass("js-enabled"); 
@@ -103,8 +101,7 @@ jQuery.noConflict();
 		<?php } if ( $topleft_equalize == 1 ) { ?>
 		$('#topleft-grid .modinner').equalHeights();	
 		
-		
-		<?php } if ( $rounded_corners == 1 or $roundedcount !== '0' ) { ?>
+		<?php } if ( $rounded_corners == 1 or $roundedcount !== 0 ) { ?>
 		$('.rounded h3').corners("10px top");
 		$('blockquote.rounded').corners("<?php echo $rounded_amount; ?>");
 		$('.mod.rounded').corners("<?php echo $rounded_amount; ?>");
@@ -129,7 +126,6 @@ jQuery.noConflict();
 		 	maxWidth: <?php echo $topnav_maxwidth; ?>,
 		 	extraWidth: 1
 		})<?php } ?>
-		
 		.superfish({
 			delay: <?php echo $topnav_delay; ?>,
 			animation: {opacity:'show'},
