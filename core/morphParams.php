@@ -121,6 +121,7 @@ $topshelf_gridsplit = $MORPH->topshelf_gridsplit;
 $topshelf_slider = $MORPH->topshelf_slider;
 $topshelf_slider_text = $MORPH->topshelf_slider_text;
 $topshelf_show = $MORPH->topshelf_show;
+$topshelf_modfx = $MORPH->topshelf_modfx;
 
 // bottom shelf block
 $bottomshelf_inner = $MORPH->bottomshelf_inner;

@@ -576,6 +576,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
+	<param name="topshelf_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />
 		
 	<param name="bottom heading" type="heading" label="Bottom Shelf Settings:" />	
 	<param name="bottomshelf_wrap" type="radio" default="0" label="Block wrapping" tooltip="modal" description="blockwrap.html">
