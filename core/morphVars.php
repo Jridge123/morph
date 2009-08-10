@@ -106,7 +106,9 @@ $packed_js_vars["Z01"]=$gzip_compression;
 $packed_js_vars["Z02"]=$pack_js;
 $packed_js_vars["Z03"]=$custom_js;
 $packed_js_vars["Z04"]=$simpleticker;
-$packed_js_vars["Z05"]=$pt_mod['pt_delay'];
+if(!empty($pt_mod)){
+	$packed_js_vars["Z05"]=$pt_mod['pt_delay'];
+}
 
 $packed_js = '';
 foreach($packed_js_vars as $key => $val){
