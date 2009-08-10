@@ -102,31 +102,19 @@ include_once($absolutepath.'/custom.php');
 
 // CSS and JS URL Packing
 $curr_url = (!empty($_SERVER['HTTPS'])) ? "https://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'] : "http://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
-if($pack_js == 1){
-	if(isset($_GET['unpackjs'])){
-		setcookie('unpackjs', 'true', 0);
-		header('Location: ' . str_replace(array('?unpackjs','&unpackjs'), '', $curr_url));
-	}elseif(isset($_GET['packjs'])){
-		setcookie('unpackjs', 'true', time()-3600);
-		header('Location: ' . str_replace(array('?packjs','&packjs'), '', $curr_url));
-	}
-}else{
-	if( isset($_GET['unpackjs']) || isset($_GET['packjs']) ){
-		header('Location: ' . str_replace(array('?unpackjs','&unpackjs','?packjs','&packjs'), '', $curr_url));
-	}
+if(isset($_GET['unpackjs'])){
+	setcookie('unpackjs', 'true', 0);
+	header('Location: ' . str_replace(array('?unpackjs','&unpackjs'), '', $curr_url));
+}elseif(isset($_GET['packjs'])){
+	setcookie('unpackjs', 'true', time()-3600);
+	header('Location: ' . str_replace(array('?packjs','&packjs'), '', $curr_url));
 }
-if($pack_css == 1){
-	if(isset($_GET['unpackcss'])){
-		setcookie('unpackcss', 'true', 0);
-		header('Location: ' . str_replace(array('?unpackcss','&unpackcss'), '', $curr_url));
-	}elseif(isset($_GET['packcss'])){
-		setcookie('unpackcss', 'true', time()-3600);
-		header('Location: ' . str_replace(array('?packcss','&packcss'), '', $curr_url));
-	}
-}else{
-	if(isset($_GET['unpackcss']) || isset($_GET['packcss'])){
-		header('Location: ' . str_replace(array('?unpackcss','&unpackcss','?packcss','&packcss'), '', $curr_url));
-	}
+if(isset($_GET['unpackcss'])){
+	setcookie('unpackcss', 'true', 0);
+	header('Location: ' . str_replace(array('?unpackcss','&unpackcss'), '', $curr_url));
+}elseif(isset($_GET['packcss'])){
+	setcookie('unpackcss', 'true', time()-3600);
+	header('Location: ' . str_replace(array('?packcss','&packcss'), '', $curr_url));
 }
 
 // JS Packing
