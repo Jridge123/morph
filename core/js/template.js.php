@@ -27,6 +27,8 @@ if($pack_js == 1){
 jQuery.noConflict();
 (function($) {
 	$(document).ready(function(){
+			$('#topleft-grid .modinner').equalHeights();	
+
 		$("#topnav.call-for-action li:last").addClass("action-link");
 		$("#topnav.call-for-action li:last").prev("li").addClass("second-last")
 		$("body").removeClass("js-disabled").addClass("js-enabled"); 
@@ -81,20 +83,25 @@ jQuery.noConflict();
 		$('#top-link').click(function(e){ $.scrollTo(0,300); return false; });
 		
 		<?php } if ( $topshelf_equalize == 1 ) { ?>
-		$(function(){ $('#topshelf .mod-grid').equalHeights(); });
+		$('#topshelf .mod-grid').equalHeights();
+		
 		<?php } if ( $bottomshelf_equalize == 1 ) { ?>
-		$(function(){ $('#bottomshelf .mod-grid').equalHeights(); });
+		$('#bottomshelf .mod-grid').equalHeights();
+		
 		<?php } if ( $user1count > 1 && $user1_equalize == 1 ) { ?>
-		$(function(){ $('#user1 .modinner').equalHeights(); });
+		$('#user1 .modinner').equalHeights();
+		
 		<?php } if ( $user2count > 1 && $user2_equalize == 1 ) { ?>
-		$(function(){ $('#user2 .mod').equalHeights(); });
+		$('#user2 .mod').equalHeights();
+		
 		<?php } if ( $topshelfcount > 1 && $topshelf_equalize == 1 ) { ?>
-		$(function(){ $('#topshelf .modinner').equalHeights(); });
+		$('#topshelf .modinner').equalHeights();
+		
 		<?php } if ( $btmshelfcount > 1 && $bottomshelf_equalize == 1 ) { ?>
-		$(function(){ $('#topshelf .mod').equalHeights(); });
+		$('#topshelf .mod').equalHeights();
 		
 		<?php } if ( $topleft_equalize == 1 ) { ?>
-		$(function(){ $('#topleft-grid .mod-grid').equalHeights(); });		
+		$('#topleft-grid .modinner').equalHeights();	
 		
 		
 		<?php } if ( $rounded_corners == 1 or $roundedcount !== '0' ) { ?>
@@ -117,10 +124,7 @@ jQuery.noConflict();
 		$('.readon').corners("5px");
 		
 		<?php } if ( $topfish >= 1  ) { ?>
-		$("#nav .menu")
-		
-		<?php if ($topnav_supersubs == 1 ) { ?>
-		.supersubs({
+		$("#nav .menu")<?php if ($topnav_supersubs == 1 ) { ?>.supersubs({
 			minWidth: <?php echo $topnav_minwidth; ?>,
 		 	maxWidth: <?php echo $topnav_maxwidth; ?>,
 		 	extraWidth: 1
