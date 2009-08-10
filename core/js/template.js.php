@@ -19,7 +19,7 @@ if($pack_js == 1){
 	if ( $sidefish >= 1 or $topfish >= 1 or $topdrop >= 1  ) { include('jquery.superfish.js'); }
 	if ( $topnav_supersubs == 1 ) { include("jquery.superfish.supersubs.js"); }
 	if ( $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1 ) { include('jquery.slider.js'); }
-	if ( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1 or $topleft_equalize == 1 ) { include('jquery.equalheights.js'); }
+	//if ( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1 or $topleft_equalize == 1 ) { include('jquery.equalheights.js'); }
 	if ( $plugin_scrollto == 1 ) { include('jquery.scrollTo-1.4.2-min.js'); }
 	if ( $simpleticker == 1 ) { include('jquery.innerfade.js'); }
 }
@@ -81,25 +81,25 @@ jQuery.noConflict();
 		$('#top-link').click(function(e){ $.scrollTo(0,300); return false; });
 		
 		<?php } if ( $topshelf_equalize == 1 ) { ?>
-		$('#topshelf .mod-grid').equalHeights();
+		<!--$('#topshelf .mod-grid').equalHeights();-->
 		
 		<?php } if ( $bottomshelf_equalize == 1 ) { ?>
-		$('#bottomshelf .mod-grid').equalHeights();
+		<!--$('#bottomshelf .mod-grid').equalHeights();-->
 		
 		<?php } if ( $user1count > 1 && $user1_equalize == 1 ) { ?>
-		$('#user1 .modinner').equalHeights();
+		<!--$('#user1 .modinner').equalHeights();-->
 		
 		<?php } if ( $user2count > 1 && $user2_equalize == 1 ) { ?>
-		$('#user2 .mod').equalHeights();
+		<!--$('#user2 .mod').equalHeights();-->
 		
 		<?php } if ( $topshelfcount > 1 && $topshelf_equalize == 1 ) { ?>
-		$('#topshelf .modinner').equalHeights();
+		<!--$('#topshelf .modinner').equalHeights();-->
 		
 		<?php } if ( $btmshelfcount > 1 && $bottomshelf_equalize == 1 ) { ?>
-		$('#topshelf .mod').equalHeights();
+		<!--$('#topshelf .mod').equalHeights();-->
 		
 		<?php } if ( $topleft_equalize == 1 ) { ?>
-		$('#topleft-grid .modinner').equalHeights();	
+		<!--$('#topleft-grid .modinner').equalHeights();-->
 		
 		<?php } if ( $rounded_corners == 1 or $roundedcount !== 0 ) { ?>
 		$('.rounded h3').corners("10px top");

@@ -135,9 +135,9 @@ if ( isset($_COOKIE['unpackjs']) && $pack_js == 1 || isset($_COOKIE['unpackjs'])
 	if( $sidefish >= 1 or $topfish >= 1  ) { $document->addScript($templatepath .'/core/js/jquery.superfish.js');	}
 	if( $topfish >= 1 && $topnav_supersubs == 1 ) { $document->addScript($templatepath .'/core/js/jquery.superfish.supersubs.js'); }
 	if( $rounded_corners == 1 or $roundedcount !== 0 ) { $document->addScript($templatepath .'/core/js/jquery.corners.js');	}
-	if( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1  or $topleft_equalize == 1  ) { 
-	$document->addScript($templatepath .'/core/js/jquery.equalheights.js'); 
-	}
+	//if( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1  or $topleft_equalize == 1  ) { 
+	//$document->addScript($templatepath .'/core/js/jquery.equalheights.js'); 
+	//}
 	if ( $plugin_scrollto == 1 ) { 
 	$document->addScript($templatepath .'/core/js/jquery.scrollTo-1.4.2-min.js');
 	}
