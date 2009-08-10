@@ -58,6 +58,11 @@ $topnav_maxwidth = $MORPH->topnav_maxwidth;
 $topnav_delay = $MORPH->topnav_delay;
 $topnav_animation = $MORPH->topnav_animation;
 
+// iphone settings
+$iphone_mode = $MORPH->iphone_mode;
+$iphone_header = $MORPH->iphone_header;
+$iphone_webclip = $MORPH->iphone_webclip;
+
 // performance
 $pack_css = $MORPH->pack_css;
 $pack_js = $MORPH->pack_js;
@@ -156,19 +161,29 @@ $main_wrap = $MORPH->main_wrap;
 $main_inner = $MORPH->main_inner;
 
 // secondary content
+$outer_default = $MORPH->outer_default;
+$secondary_inner = $MORPH->secondary_inner;
 $splitleft_chrome = $MORPH->splitleft_chrome;
+$splitleft_chrome_inner = $MORPH->splitleft_chrome_inner;
 $topleft_chrome = $MORPH->topleft_chrome;
+$topleft_chrome_inner = $MORPH->topleft_chrome_inner;
+$topleft_equalize = $MORPH->topleft_equalize;
 $left_chrome = $MORPH->left_chrome;
 $left_chrome_inner = $MORPH->left_chrome_inner;
 $btmleft_chrome = $MORPH->btmleft_chrome;
-$outer_default = $MORPH->outer_default;
+$btmleft_chrome_inner = $MORPH->btmleft_chrome_inner;
 
 // tertiary content
-$splitright_chrome = $MORPH->splitright_chrome;
-$topright_chrome = $MORPH->topright_chrome;
-$right_chrome = $MORPH->right_chrome;
-$btmright_chrome = $MORPH->btmright_chrome;
 $inner_default = $MORPH->inner_default;
+$tertiary_inner = $MORPH->tertiary_inner;
+$splitright_chrome = $MORPH->splitright_chrome;
+$splitright_chrome_inner = $MORPH->splitright_chrome_inner;
+$topright_chrome = $MORPH->topright_chrome;
+$topright_chrome_inner = $MORPH->topright_chrome_inner;
+$right_chrome = $MORPH->right_chrome;
+$right_chrome_inner = $MORPH->right_chrome_inner;
+$btmright_chrome = $MORPH->btmright_chrome;
+$btmright_chrome_inner = $MORPH->btmright_chrome_inner;
 
 // Footer Block
 $footer_wrap = $MORPH->footer_wrap;

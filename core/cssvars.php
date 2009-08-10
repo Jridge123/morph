@@ -38,6 +38,7 @@ $toolbar_slider = $_GET['H01'];
 $gzip_compression = $_GET['Z01'];
 $pack_css = $_GET['Z02'];
 $custom_css = $_GET['Z03'];
+$simpleticker = $_GET['Z04'];
 define ('DS', '/');
 $themeletpath 				= 'morph_assets'.DS.'themelets'.DS.$themelet;
 $css_yui					= $_SERVER['DOCUMENT_ROOT'] . $themeletpath . "/css/yui.css";

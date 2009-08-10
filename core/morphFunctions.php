@@ -62,6 +62,7 @@ $css_yui					= $absolutepath."/css/yui.css";
 $css_joomla 				= $absolutepath."/css/joomla.css";
 $css_modules 				= $absolutepath."/css/modules.css";
 $css_typo 					= $absolutepath."/css/typo.css";
+$css_iphone					= $absolutepath."/css/iphone.css";
 $css_tabs 					= $absolutepath."/css/tabs.css";
 $css_accordions				= $absolutepath."/css/accordions.css";
 $css_tnav_default 			= $absolutepath."/css/topnav_default.css";
@@ -150,7 +151,10 @@ if ( isset($_COOKIE['unpackjs']) && $pack_js == 1 || isset($_COOKIE['unpackjs'])
 	$document->addScript($templatepath .'/core/js/jquery.equalheights.js'); 
 	}
 	if ( $plugin_scrollto == 1 ) { 
-	$document->addScript($templatepath .'/js/jquery.scrollTo-1.4.2-min.js');
+	$document->addScript($templatepath .'/core/js/jquery.scrollTo-1.4.2-min.js');
+	}
+	if ( $simpleticker == 1 ) { 
+	$document->addScript($templatepath .'/core/js/jquery.innerfade.js');
 	}
 	$document->addScript($templatepath .'/core/js/template.js.php'.$packed_js);
 	if( $custom_js == 1 ){ $document->addScript($themeletpath .'/js/custom.js'); }
@@ -159,46 +163,54 @@ if ( isset($_COOKIE['unpackjs']) && $pack_js == 1 || isset($_COOKIE['unpackjs'])
 	if( $custom_js == 1 ){ $document->addScript($themeletpath .'/js/custom.js'); }
 }
 
-// CSS Packing
-if ( isset($_COOKIE['unpackcss']) && $pack_css == 1 || isset($_COOKIE['unpackcss']) && $pack_css == 0 || !isset($_COOKIE['unpackcss']) && $pack_css == 0 ) {
-
-	$document->addStyleSheet($templatepath .'/core/css/template.css.php'.$packed_css);
-
-	if(file_exists($css_yui) && is_readable($css_yui)){
-		$document->addStyleSheet($themeletpath .'/core/css/yui.css');
+if( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
+	if(file_exists($css_iphone) && is_readable($css_iphone)){
+		$document->addStyleSheet($themeletpath .'/css/iphone.css');
 	} else {
-		$document->addStyleSheet($templatepath .'/core/css/yui.css');
-	}
-	if($this->direction == 'rtl' ){
-		$document->addStyleSheet($themeletpath .'/core/css/rtl.css');
+		$document->addStyleSheet($templatepath .'/core/css/iphone.css');
 	}	
-	$document->addStyleSheet($themeletpath .'/css/joomla.css');
-	$document->addStyleSheet($themeletpath .'/css/modules.css');
-	$document->addStyleSheet($themeletpath .'/css/typo.css');
-	$document->addStyleSheet($themeletpath .'/css/tabs.css');
-	$document->addStyleSheet($themeletpath .'/css/accordions.css');
-	if($topnav_count >= 1 ){
-		$document->addStyleSheet($themeletpath .'/css/topnav-default.css');
+} else {
+	// CSS Packing
+	if ( isset($_COOKIE['unpackcss']) && $pack_css == 1 || isset($_COOKIE['unpackcss']) && $pack_css == 0 || !isset($_COOKIE['unpackcss']) && $pack_css == 0 ) {
+	
+		$document->addStyleSheet($templatepath .'/core/css/template.css.php'.$packed_css);
+	
+		if(file_exists($css_yui) && is_readable($css_yui)){
+			$document->addStyleSheet($themeletpath .'/css/yui.css');
+		} else {
+			$document->addStyleSheet($templatepath .'/core/css/yui.css');
+		}
+		if($this->direction == 'rtl' ){
+			$document->addStyleSheet($themeletpath .'/core/css/rtl.css');
+		}	
+		$document->addStyleSheet($themeletpath .'/css/joomla.css');
+		$document->addStyleSheet($themeletpath .'/css/modules.css');
+		$document->addStyleSheet($themeletpath .'/css/typo.css');
+		$document->addStyleSheet($themeletpath .'/css/tabs.css');
+		$document->addStyleSheet($themeletpath .'/css/accordions.css');
+		if($topnav_count >= 1 ){
+			$document->addStyleSheet($themeletpath .'/css/topnav-default.css');
+		}
+		if($topfish >= 1 ){
+			$document->addStyleSheet($themeletpath .'/css/topnav-topfish.css');
+		}
+		if($topdrop >= 1 ){
+			$document->addStyleSheet($themeletpath .'/css/topnav-topdrop.css');
+		}
+		if($sidenav_count >= 1 ){
+			$document->addStyleSheet($themeletpath .'/css/sidenav-default.css');
+		}
+		if($sidefish >= 1 ){
+			$document->addStyleSheet($themeletpath .'/css/sidenav-sidefish.css');
+		}
+		$document->addStyleSheet($themeletpath .'/css/themelet.css');
+		$document->addStyleSheet($themeletpath .'/css/modfx.css');	
+		if( $custom_css == 1 ){ $document->addStyleSheet($themeletpath .'/css/custom.css');	}
+	
+	}else{
+		$document->addStyleSheet($templatepath .'/core/css/template.css.php'.$packed_css);
+		if( $custom_css == 1 ){ $document->addStyleSheet($themeletpath .'/css/custom.css');	}
 	}
-	if($topfish >= 1 ){
-		$document->addStyleSheet($themeletpath .'/css/topnav-topfish.css');
-	}
-	if($topdrop >= 1 ){
-		$document->addStyleSheet($themeletpath .'/css/topnav-topdrop.css');
-	}
-	if($sidenav_count >= 1 ){
-		$document->addStyleSheet($themeletpath .'/css/sidenav-default.css');
-	}
-	if($sidefish >= 1 ){
-		$document->addStyleSheet($themeletpath .'/css/sidenav-sidefish.css');
-	}
-	$document->addStyleSheet($themeletpath .'/css/themelet.css');
-	$document->addStyleSheet($themeletpath .'/css/modfx.css');	
-	if( $custom_css == 1 ){ $document->addStyleSheet($themeletpath .'/css/custom.css');	}
-
-}else{
-	$document->addStyleSheet($templatepath .'/core/css/template.css.php'.$packed_css);
-	if( $custom_css == 1 ){ $document->addStyleSheet($themeletpath .'/css/custom.css');	}
 }
 
 function isIE6(){
@@ -241,10 +253,10 @@ $jj_const = array(
 		3				=> "yui-gb",		// yui-gb for 3 blocks in a grid
 		4				=> "yui-g4",		// yui-gb for 4 blocks in a grid
 		5				=> "yui-g5"		// yui-gb for 5 blocks in a grid
-		),
+	),
 	"mod_suffix" => array(
 		"toolbar"		=>$this->params->get('toolbar_gridsplit'),
-      	"topshelf"      =>$this->params->get('toolbar_gridsplit'), 
+      	"topshelf"      =>$this->params->get('topshelf_gridsplit'), 
 		"top"			=>$this->params->get('top_gridsplit'),
 		"topnav"		=>$this->params->get('topnav_gridsplit'),
 		"user1"			=>$this->params->get('topshelf_gridsplit'),
@@ -256,17 +268,58 @@ $jj_const = array(
 		"user2"			=>$this->params->get('user2_gridsplit'),
 		"bottomshelf"	=>$this->params->get('bottomshelf_gridsplit'),
 		"footer"		=>$this->params->get('footer_gridsplit'),
-		)
-	);
+	),
+	"left_right_pos" => array(
+		"splitleft", 
+		"topleft", 
+		"left", 
+		"btmleft", 
+		"splitright", 
+		"topright", 
+		"right", 
+		"btmright"
+	)
+);
 
 function getYuiSuffix ($moduleName, $jj_const){
 	$myJdoc = new JDocumentHTML();
 	$moduleCount = $myJdoc->countModules($moduleName); 
-	if ($moduleCount == 2) {
-		$yuiModuleSuffix = $jj_const["mod_suffix"][$moduleName];
-	} else {
+	if(in_array($moduleName, $jj_const['left_right_pos'])){
 		$yuiModuleSuffix = $jj_const["yui_suffix"][$moduleCount];
+	}else{
+		if ($moduleCount == 2) {
+			$yuiModuleSuffix = $jj_const["mod_suffix"][$moduleName];
+		} else {
+			$yuiModuleSuffix = $jj_const["yui_suffix"][$moduleCount];
+		}
 	}
 	echo $yuiModuleSuffix;
+}
+
+function sidebar_module($chrome, $position, $jj_const){
+	global $debug_modules;
+	if ($chrome == 'grid') { ?>
+		<div id="<?php echo $position; ?>-grid" class="intelli <?php getYuiSuffix($position, $jj_const); ?> <?php echo $chrome ?>">
+	<?php } ?>
+    	<jdoc:include type="modules" name="<?php echo $position; ?>" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo $chrome; } ?>" />
+    <?php if ($chrome == 'grid') { ?>
+    	</div>
+    <?php }
+}
+
+function getModuleParams($mod_name){
+	$db = JFactory::getDBO();
+	$query = "select params from jos_modules where module = '".$mod_name."'";
+	$db->setQuery( $query ); 
+	$params = explode("\n", $db->loadResult());
+	$param = array();
+
+	foreach($params as $pm){ $p[] = explode("=", $pm); }
+	foreach ($p as $n){
+		if(!empty($n[0])){
+			$param[$n[0]] = $n[1];
+		}
+	}
+	return $param;
 }
 ?>

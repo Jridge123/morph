@@ -1,0 +1,7 @@
+#iphone-wrap{margin:0;padding:0;}
+#iphone-wrap .iphone-inner{text-align:left!important;padding:0 1em 1em 1em!important;}
+#iphone-wrap .content p{font:normal 17px arial!important;}
+#iphone-wrap .article-options,#iphone-wrap .article-info,#iphone-wrap .modified{display:none!important;}
+#iphone-wrap .componentheading{width:100%!important;font-family:'Arial Rounded MT Bold'}
+#iphone-wrap .blog .cols2{float:none;width:100%;}
+#iphone-wrap h2.contentheading{margin-bottom:.5em;}

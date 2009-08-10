@@ -19,8 +19,10 @@ if($pack_js == 1){
 	if ( $sidefish >= 1 or $topfish >= 1 or $topdrop >= 1  ) { include('jquery.superfish.js'); }
 	if ( $topnav_supersubs == 1 ) { include("jquery.superfish.supersubs.js"); }
 	if ( $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1 ) { include('jquery.slider.js'); }
-	if ( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1  ) { include('jquery.equalheights.js'); }
+	if ( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1 or $topleft_equalize == 1 ) { include('jquery.equalheights.js'); }
 	if ( $plugin_scrollto == 1 ) { include('jquery.scrollTo-1.4.2-min.js'); }
+	if ( $simpleticker == 1 ) { include('jquery.innerfade.js'); }
+	//if ( $simpleticker == 1 ) { include('../../../../modules/mod_simpleticker/simpleticker/simpleticker.js'); }
 }
 ?>
 jQuery.noConflict();
@@ -91,6 +93,11 @@ jQuery.noConflict();
 		$(function(){ $('#topshelf .modinner').equalHeights(); });
 		<?php } if ( $btmshelfcount > 1 && $bottomshelf_equalize == 1 ) { ?>
 		$(function(){ $('#topshelf .mod').equalHeights(); });
+		
+		<?php } if ( $topleft_equalize == 1 ) { ?>
+		$(function(){ $('#topleft-grid .mod-grid').equalHeights(); });		
+		
+		
 		<?php } if ( $rounded_corners == 1 or $roundedcount !== '0' ) { ?>
 		$('.rounded h3').corners("10px top");
 		$('blockquote.rounded').corners("<?php echo $rounded_amount; ?>");
@@ -127,7 +134,7 @@ jQuery.noConflict();
  			<?php if ($topnav_hoverintent == 0 ) { ?>disableHI: true<?php } else { ?>disableHI: false<?php } ?>
 		});
 		<?php } if ( $topdrop >= 1 ) { ?>
-		$("#nav .menu").superfish({ pathClass:  'current' });
+		$("#nav .menu").superfish({ pathClass:  'active' });
 		<?php } ?>
 		<?php if ( $animate_left == 1 ) { ?>	
 		$('#secondary-content ul.menu.slide li:not(.active) a, #tertiary-content ul.menu.slide li:not(.active) a').hoverIntent(function() { //mouse in  
@@ -139,7 +146,11 @@ jQuery.noConflict();
 	    $(".mod.sidefish ul.menu").superfish({ 
 	    	animation: {height:'show'},   // slide-down effect without fade-in 
 	    	delay:     1200               // 1.2 second delay on mouseout 
-	    });    
+	    });
+	    <?php } if ( $simpleticker == 1 ) { ?>
+	    <!--$("#news").newsTicker('<?php echo $tickerdelay; ?>');-->
+	     $('#news').innerfade({ animationtype: 'slide', speed: 750, timeout: 2000, type: 'random', containerheight: '1em' }); 
+	    
 		<?php } if ( $toolbar_slider == 1 ) { ?>
    		initSlider('#toolbar', '<?php echo $toolbar_slider_text; ?>'); 
 		<?php } if ( $topshelf_slider == 1 ) { ?>
