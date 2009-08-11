@@ -63,6 +63,7 @@
 		<position>subhead</position>
 		<position>top</position>
 		<position>topshelf</position>
+		<position>bottomshelf</position>		
 		<position>inset1</position>
 		<position>inset2</position>
 		<position>inset3</position>
@@ -77,12 +78,11 @@
 		<position>splitleft</position>
 		<position>topleft</position>
 		<position>left</position>
-		<position>btmleft</position>
+		<position>bottomleft</position>
 		<position>splitright</position>
 		<position>topright</position>
 		<position>right</position>
-		<position>btmright</position>
-		<position>bottomshelf</position>
+		<position>bottomright</position>
 		<position>advert1</position>
 		<position>advert2</position>
 		<position>footernav</position>
@@ -92,5 +92,9 @@
 		<position>modpreview3</position>
 		<position>modpreview4</position>
 		<position>modpreview5</position>
+		<position>iphone1</position>
+		<position>iphone2</position>
+		<position>iphone3</position>
+		<position>iphone4</position>
 	</positions>
 </install>
