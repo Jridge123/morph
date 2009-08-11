@@ -79,46 +79,28 @@ jQuery.noConflict();
 		//usage w/ smoothscroll
 		$('#top-link').topLink({ min: 400, fadeSpeed: 500 });
 		$('#top-link').click(function(e){ $.scrollTo(0,300); return false; });
-		
-		<?php } if ( $topshelf_equalize == 1 ) { ?>
-		<!--$('#topshelf .mod-grid').equalHeights();-->
-		
-		<?php } if ( $bottomshelf_equalize == 1 ) { ?>
-		$('#bottomshelf .mod-grid').equalHeights();
-		
-		<?php } if ( $user1count > 1 && $user1_equalize == 1 ) { ?>
-		$('#user1 .modinner').equalHeights();
-		
-		<?php } if ( $user2count > 1 && $user2_equalize == 1 ) { ?>
-		$('#user2 .modinner').equalHeights();
-		
-		<?php } if ( $topshelfcount > 1 && $topshelf_equalize == 1 ) { ?>
-		$('#topshelf .modinner').equalHeights();
-		
-		<?php } if ( $btmshelfcount > 1 && $bottomshelf_equalize == 1 ) { ?>
-		$('#btmshelf .modinner').equalHeights();
-		
-		<?php } if ( $topleft_equalize == 1 ) { ?>
-		$('#topleft-grid div.modinner').equalHeights();
-		
-		<?php } if ( $rounded_corners == 1 or $roundedcount !== 0 ) { ?>
-		$('.rounded h3').corners("10px top");
-		$('blockquote.rounded').corners("<?php echo $rounded_amount; ?>");
-		$('.mod.rounded').corners("<?php echo $rounded_amount; ?>");
-		$('.mod.rounded div').corners("<?php echo $rounded_amount; ?>");
-		$('.mod.rounded').corners("<?php echo $rounded_amount; ?>");
-		$('.mod.rounded-top').corners("<?php echo $rounded_amount; ?> top");
-		$('.mod.rounded-right').corners("<?php echo $rounded_amount; ?> right");
-		$('.mod.rounded-bottom').corners("<?php echo $rounded_amount; ?> bottom");
-		$('.mod.rounded-left').corners("<?php echo $rounded_amount; ?> left");
-		$('.mod.rounded-top-left').corners("<?php echo $rounded_amount; ?> top left");
-		$('.mod.rounded-top-right').corners("<?php echo $rounded_amount; ?> top right");
-		$('.mod.rounded-bottom-left').corners("<?php echo $rounded_amount; ?> bottom left");
-		$('.mod.rounded-bottom-right').corners("<?php echo $rounded_amount; ?> bottom");
-		$('.left-pullquote').corners("10px");
-		$('.right-pullquote').corners("10px");
-		$('.quote-author').corners("10px bottom");
-		$('.readon').corners("5px");
+
+		<?php } if ( $toolbar_equalize == 1 ) { ?>$('#toolbar .modinner').equalHeights();
+		<?php } if ( $masthead_equalize == 1 ) { ?>$('#masthead .modinner').equalHeights();
+		<?php } if ( $subhead_equalize == 1 ) { ?>$('#subhead .modinner').equalHeights();
+		<?php } if ( $topnav_equalize == 1 ) { ?>$('#topnav .modinner').equalHeights();
+		<?php } if ( $topshelf_equalize == 1 ) { ?>$('#topshelf .mod-grid').equalHeights();
+		<?php } if ( $bottomshelf_equalize == 1 ) { ?>$('#bottomshelf .mod-grid').equalHeights();
+		<?php } if ( $user1_equalize == 1 ) { ?>$('#user1 .modinner').equalHeights();
+		<?php } if ( $user2_equalize == 1 ) { ?>$('#user2 .modinner').equalHeights();
+		<?php } if ( $inset1_equalize == 1 ) { ?>$('#inset1 .modinner').equalHeights();
+		<?php } if ( $inset2_equalize == 1 ) { ?>$('#inset2 .modinner').equalHeights();
+		<?php } if ( $inset3_equalize == 1 ) { ?>$('#inset3 .mod-grid').equalHeights();
+		<?php } if ( $inset4_equalize == 1 ) { ?>$('#inset4 .mod-grid').equalHeights();
+		<?php } if ( $splitleft_equalize == 1 ) { ?>$('#splitleft-grid div.modinner').equalHeights();
+		<?php } if ( $topleft_equalize == 1 ) { ?>$('#topleft-grid div.modinner').equalHeights();
+		<?php } if ( $left_equalize == 1 ) { ?>$('#left-grid div.modinner').equalHeights();
+		<?php } if ( $bottomleft_equalize == 1 ) { ?>$('#bottomleft-grid div.modinner').equalHeights();
+		<?php } if ( $splitright_equalize == 1 ) { ?>$('#splitright-grid div.modinner').equalHeights();
+		<?php } if ( $topright_equalize == 1 ) { ?>$('#topright-grid div.modinner').equalHeights();
+		<?php } if ( $right_equalize == 1 ) { ?>$('#right-grid div.modinner').equalHeights();
+		<?php } if ( $bottomright_equalize == 1 ) { ?>$('#bottomright-grid div.modinner').equalHeights();
+		<?php } if ( $footer_equalize == 1 ) { ?>$('#footer-grid div.modinner').equalHeights();
 		
 		<?php } if ( $topfish >= 1  ) { ?>
 		$("#nav .menu")<?php if ($topnav_supersubs == 1 ) { ?>.supersubs({
