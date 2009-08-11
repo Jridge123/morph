@@ -138,9 +138,13 @@ global $morph_tabs,$tabscount,$loadtabs,$istabsload;
 	$themodules = JModuleHelper::getModules($module->position);
 	$countmodules = count($themodules);
 	$db=& JFactory::getDBO();
-	$query = "SELECT COUNT(*) FROM `#__morph` WHERE `param_value` = 'tabs' ";
+	$query = "SELECT COUNT(*) FROM `#__configurator` WHERE `param_value` = 'tabs' ";
 	$db->setQuery( $query );
 	$thetabscount = $db->loadResult();
+	
+	$query = "SELECT param_value FROM `#__configurator` WHERE `param_name` = '".$attribs['name']."_modfx';";
+	$db->setQuery( $query );
+	$tabs_modfx = $db->loadResult();
 		
 	foreach ($themodules as $mod){
 		if ($mod->content){	
@@ -153,7 +157,7 @@ global $morph_tabs,$tabscount,$loadtabs,$istabsload;
 	}
 	
 	if ($countmodules == count($morph_tabs[ $attribs['name'] ] ) ){ $tabscount++; ?>
-		<div id="tabs<?php echo $tabscount; ?>">
+		<div id="tabs<?php echo $tabscount; ?>"<?php if($tabs_modfx !== ''){ ?>class="<?php echo $tabs_modfx; ?><?php } ?>">
 			<ul class="ui-tabs-nav">
 			<?php
 			$curr_tab = 1;
@@ -180,22 +184,26 @@ global $morph_accordions,$accordionscount,$loadaccordions,$isaccordionsload;
 	$themodules = JModuleHelper::getModules($module->position);
 	$countmodules = count($themodules);
 	$db=& JFactory::getDBO();
-	$query = "SELECT COUNT(*) FROM `#__morph` WHERE `param_value` = 'accordion' ";
+	$query = "SELECT COUNT(*) FROM `#__configurator` WHERE `param_value` = 'accordion' ";
 	$db->setQuery( $query );
 	$theaccordioncount = $db->loadResult();
-		
+	
+	$query = "SELECT param_value FROM `#__configurator` WHERE `param_name` = '".$attribs['name']."_modfx';";
+	$db->setQuery( $query );
+	$accordion_modfx = $db->loadResult();
+	
 	foreach ($themodules as $mod){
 		if ($mod->content){	
 			$currmod = new stdClass();
-			$currmod->position = $attribs['name'];	
+			$currmod->position = $attribs['name'];
 			$currmod->title = $mod->title;	
 			$currmod->content = $mod->content;
 			$morph_accordions[$attribs['name']][] = $currmod;
 		}
 	}
-	
+
 	if ($countmodules == count($morph_accordions[ $attribs['name'] ] ) ){ $accordionscount++; ?>
-		<div id="accordions<?php echo $accordionscount; ?>">
+		<div id="accordions<?php echo $accordionscount; ?>"<?php if($accordion_modfx !== ''){ ?>class="<?php echo $accordion_modfx; ?><?php } ?>">
 			<?php
 			$curr_accordion = 1;
 			$accordions_contents = '';
