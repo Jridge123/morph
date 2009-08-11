@@ -199,10 +199,8 @@ if( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
 		$document->addStyleSheet($themeletpath .'/css/themelet.css');
 		$document->addStyleSheet($themeletpath .'/css/modfx.css');	
 		if( $custom_css == 1 ){ $document->addStyleSheet($themeletpath .'/css/custom.css');	}
-	
 	}else{
 		$document->addStyleSheet($templatepath .'/core/css/template.css.php'.$packed_css);
-		if( $custom_css == 1 ){ $document->addStyleSheet($themeletpath .'/css/custom.css');	}
 	}
 }
 
