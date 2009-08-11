@@ -81,7 +81,7 @@ jQuery.noConflict();
 		$('#top-link').click(function(e){ $.scrollTo(0,300); return false; });
 		
 		<?php } if ( $topshelf_equalize == 1 ) { ?>
-		$('#topshelf .mod-grid').equalHeights();
+		<!--$('#topshelf .mod-grid').equalHeights();-->
 		
 		<?php } if ( $bottomshelf_equalize == 1 ) { ?>
 		$('#bottomshelf .mod-grid').equalHeights();
