@@ -90,7 +90,7 @@ function modChrome_basic($module, &$params, &$attribs) {
 $pub_modules = JModuleHelper::getModules($module->position);
 
 $db = JFactory::getDBO();
-$query = "SELECT param_value FROM `#__configurator` WHERE `param_name` = '".$module->position."_chrome_inner';";
+$query = "SELECT param_value FROM `#__configurator` WHERE `param_name` = '".$module->position."_module_inner';";
 $db->setQuery( $query ); $innerwrap = $db->loadResult();
 
 if ($pub_modules[0]->id == $module->id) {
@@ -176,8 +176,6 @@ global $morph_tabs,$tabscount,$loadtabs,$istabsload;
 
 function modChrome_accordion($module, &$params, &$attribs) {
 global $morph_accordions,$accordionscount,$loadaccordions,$isaccordionsload;
-
-//echo $accordionscount;
 
 	$themodules = JModuleHelper::getModules($module->position);
 	$countmodules = count($themodules);
