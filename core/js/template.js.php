@@ -87,19 +87,19 @@ jQuery.noConflict();
 		$('#bottomshelf .mod-grid').equalHeights();
 		
 		<?php } if ( $user1count > 1 && $user1_equalize == 1 ) { ?>
-		<!--$('#user1 .modinner').equalHeights();-->
+		$('#user1 .modinner').equalHeights();
 		
 		<?php } if ( $user2count > 1 && $user2_equalize == 1 ) { ?>
-		<!--$('#user2 .mod').equalHeights();-->
+		$('#user2 .modinner').equalHeights();
 		
 		<?php } if ( $topshelfcount > 1 && $topshelf_equalize == 1 ) { ?>
-		<!--$('#topshelf .modinner').equalHeights();-->
+		$('#topshelf .modinner').equalHeights();
 		
 		<?php } if ( $btmshelfcount > 1 && $bottomshelf_equalize == 1 ) { ?>
-		<!--$('#topshelf .mod').equalHeights();-->
+		$('#btmshelf .modinner').equalHeights();
 		
 		<?php } if ( $topleft_equalize == 1 ) { ?>
-		$('#topleft-grid .modinner').equalHeights();
+		$('#topleft-grid div.modinner').equalHeights();
 		
 		<?php } if ( $rounded_corners == 1 or $roundedcount !== 0 ) { ?>
 		$('.rounded h3').corners("10px top");
