@@ -432,6 +432,7 @@
 		<option value="0">No</option>
 	</param>
 	<param name="toolbar_slider_text" type="text" default="toggle" label="Toolbar slider text" tooltip="inline" description="Define the toggle button text. You can either display a single word like toggle, or set different text for each state, for example 'open,close'. Its important that there are no spaces between the two words and that you use a comma to seperate them." />	
+	<param name="toolbar_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
 	<param name="toolbar_show" type="radio" default="0" label="Disable this block" tooltip="inline" description="Would you like to disable this block?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
@@ -455,6 +456,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>			
 	</param>
+	<param name="masthead_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
 	<param name="masthead_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
 		<option value="yui-g">Default (50/50)</option>
 		<option value="yui-gc">66/33 Split</option>
@@ -496,6 +498,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>			
 	</param>
+	<param name="subhead_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
 	<param name="subhead_show" type="radio" default="0" label="Disable this block" tooltip="inline" description="Would you like to disable this block?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
@@ -526,6 +529,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>			
 	</param>
+	<param name="topnav_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
 	<param name="topnav_position" type="list" default="2" label="Top menu position" tooltip="inline" description="Where would you like the top menu to be displayed.">
 		<option value="0">Above Master Head</option>
 		<option value="1">Above Sub Head</option>
@@ -556,6 +560,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>		
 	</param>
+	<param name="topshelf_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />
 	<param name="topshelf_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
 		<option value="yui-g">Default (50/50)</option>
 		<option value="yui-gc">66/33 Split</option>
@@ -576,7 +581,6 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="topshelf_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />
 		
 	<param name="bottom heading" type="heading" label="Bottom Shelf Settings:" />	
 	<param name="bottomshelf_wrap" type="radio" default="0" label="Block wrapping" tooltip="modal" description="blockwrap.html">
@@ -595,6 +599,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
+	<param name="bottomshelf_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
 	<param name="bottomshelf_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
 		<option value="yui-g">Default (50/50)</option>
 		<option value="yui-gc">66/33 Split</option>
@@ -631,6 +636,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
+	<param name="user1_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
 	<param name="user1_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
 		<option value="yui-g">Default (50/50)</option>
 		<option value="yui-gc">66/33 Split</option>
@@ -660,6 +666,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
+	<param name="user2_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
 	<param name="user2_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
 		<option value="yui-g">Default (50/50)</option>
 		<option value="yui-gc">66/33 Split</option>
@@ -687,6 +694,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
+	<param name="inset1_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
 	<param name="inset1_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
 		<option value="yui-g">Default (50/50)</option>
 		<option value="yui-gc">66/33 Split</option>
@@ -704,6 +712,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
+	<param name="inset2_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
 	<param name="inset2_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
 		<option value="yui-g">Default (50/50)</option>
 		<option value="yui-gc">66/33 Split</option>
@@ -721,6 +730,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
+	<param name="inset3_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
 	<param name="inset3_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
 		<option value="yui-g">Default (50/50)</option>
 		<option value="yui-gc">66/33 Split</option>
@@ -738,6 +748,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
+	<param name="inset4_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
 	<param name="inset4_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
 		<option value="yui-g">Default (50/50)</option>
 		<option value="yui-gc">66/33 Split</option>
@@ -783,10 +794,12 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
+	<param name="splitleft_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
 	<param name="splitleft_chrome_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
 		<option value="both">Wrap heading &amp; content</option>
 		<option value="content">Wrap content only</option>
 	</param>
+
 	<param name="top left heading" type="heading" label="Top left module position" />			
 	<param name="topleft_chrome" type="list" default="basic" label="Module chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
@@ -796,6 +809,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
+	<param name="topleft_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
 	<param name="topleft_chrome_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
 		<option value="both">Wrap heading &amp; content</option>
 		<option value="content">Wrap content only</option>
@@ -804,6 +818,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
+	
 	<param name="left heading" type="heading" label="Left module position" />			
 	<param name="left_chrome" type="list" default="basic" label="Module chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
@@ -813,10 +828,12 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
+	<param name="left_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
 	<param name="left_chrome_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
 		<option value="both">Wrap heading &amp; content</option>
 		<option value="content">Wrap content only</option>
 	</param>
+	
 	<param name="btmleft heading" type="heading" label="Bottom left module position" />		
 	<param name="btmleft_chrome" type="list" default="basic" label="Module chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
@@ -826,6 +843,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
+	<param name="btmleft_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
 	<param name="btmleft_chrome_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
 		<option value="both">Wrap heading &amp; content</option>
 		<option value="content">Wrap content only</option>
@@ -845,6 +863,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
+	
 	<param name="splitright heading" type="heading" label="Split right module position" />		
 	<param name="splitright_chrome" type="list" default="basic" label="Split right chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
@@ -854,10 +873,12 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
+	<param name="splitright_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
 	<param name="splitright_chrome_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
 		<option value="both">Wrap heading &amp; content</option>
 		<option value="content">Wrap content only</option>
 	</param>
+	
 	<param name="topright heading" type="heading" label="Top right module position" />
 	<param name="topright_chrome" type="list" default="basic" label="Top right chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
@@ -867,10 +888,12 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
+	<param name="topright_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
 	<param name="topright_chrome_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
 		<option value="both">Wrap heading &amp; content</option>
 		<option value="content">Wrap content only</option>
 	</param>
+	
 	<param name="right heading" type="heading" label="Right module position" />		
 	<param name="right_chrome" type="list" default="basic" label="Right chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
@@ -880,10 +903,12 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
+	<param name="right_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
 	<param name="right_chrome_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
 		<option value="both">Wrap heading &amp; content</option>
 		<option value="content">Wrap content only</option>
 	</param>
+	
 	<param name="btmright heading" type="heading" label="Bottom right module position" />		
 	<param name="btmright_chrome" type="list" default="basic" label="Bottom right chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
@@ -893,6 +918,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
+	<param name="btmright_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
 	<param name="btmright_chrome_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
 		<option value="both">Wrap heading &amp; content</option>
 		<option value="content">Wrap content only</option>
@@ -921,6 +947,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
+	<param name="footer_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
 	<param name="footer_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
 		<option value="yui-g">Default (50/50)</option>
 		<option value="yui-gc">66/33 Split</option>
