@@ -406,12 +406,6 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="toolbar_position" type="list" default="0" label="Toolbar position" tooltip="inline" description="Where would you like the toolbar to be displayed.">
-		<option value="0">Above Master Head</option>
-		<option value="1">Above Sub Head</option>
-		<option value="1">Above Top Shelf</option>
-		<option value="2">Below Top Shelf</option>
-	</param>
 	<param name="toolbar_chrome" type="list" default="none" label="Module chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
@@ -420,12 +414,26 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
+	<param name="toolbar_module_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
+		<option value="both">Wrap heading &amp; content</option>
+		<option value="content">Wrap content only</option>
+	</param>
 	<param name="toolbar_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
 		<option value="yui-g">Default (50/50)</option>
 		<option value="yui-gc">66/33 Split</option>
 		<option value="yui-gd">33/66 Split</option>
 		<option value="yui-ge">75/25 Split</option>
 		<option value="yui-gf">25/75 Split</option>
+	</param>
+	<param name="toolbar_equalize" type="radio" default="1" label="Equalize modules" tooltip="modal" description="equalize.html">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
+	<param name="toolbar_position" type="list" default="0" label="Toolbar position" tooltip="inline" description="Where would you like the toolbar to be displayed.">
+		<option value="0">Above Master Head</option>
+		<option value="1">Above Sub Head</option>
+		<option value="1">Above Top Shelf</option>
+		<option value="2">Below Top Shelf</option>
 	</param>
 	<param name="toolbar_slider" type="radio" default="1" label="Toolbar slider" tooltip="modal" description="slider.html">
 		<option value="1">Yes</option>
@@ -456,7 +464,10 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>			
 	</param>
-	<param name="masthead_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
+	<param name="masthead_module_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
+		<option value="both">Wrap heading &amp; content</option>
+		<option value="content">Wrap content only</option>
+	</param>
 	<param name="masthead_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
 		<option value="yui-g">Default (50/50)</option>
 		<option value="yui-gc">66/33 Split</option>
@@ -464,6 +475,11 @@
 		<option value="yui-ge">75/25 Split</option>
 		<option value="yui-gf">25/75 Split</option>
 	</param>
+	<param name="masthead_equalize" type="radio" default="1" label="Equalize modules" tooltip="modal" description="equalize.html">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
+	<param name="masthead_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
 	<param name="display_skipto" type="radio" default="0" label="Display skip to menu" tooltip="inline" description="Would you like to display a skip to content menu?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
@@ -483,13 +499,6 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="subhead_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
-		<option value="yui-g">Default (50/50)</option>
-		<option value="yui-gc">66/33 Split</option>
-		<option value="yui-gd">33/66 Split</option>
-		<option value="yui-ge">75/25 Split</option>
-		<option value="yui-gf">25/75 Split</option>
-	</param>
 	<param name="subhead_chrome" type="list" default="none" label="Module chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
@@ -497,6 +506,21 @@
 		<option value="tabs">Tabs</option>
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>			
+	</param>
+	<param name="subhead_module_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
+		<option value="both">Wrap heading &amp; content</option>
+		<option value="content">Wrap content only</option>
+	</param>
+	<param name="subhead_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
+		<option value="yui-g">Default (50/50)</option>
+		<option value="yui-gc">66/33 Split</option>
+		<option value="yui-gd">33/66 Split</option>
+		<option value="yui-ge">75/25 Split</option>
+		<option value="yui-gf">25/75 Split</option>
+	</param>
+	<param name="subhead_equalize" type="radio" default="1" label="Equalize modules" tooltip="modal" description="equalize.html">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
 	</param>
 	<param name="subhead_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
 	<param name="subhead_show" type="radio" default="0" label="Disable this block" tooltip="inline" description="Would you like to disable this block?">
@@ -514,13 +538,6 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="topnav_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
-		<option value="yui-g">Default (50/50)</option>
-		<option value="yui-gc">66/33 Split</option>
-		<option value="yui-gd">33/66 Split</option>
-		<option value="yui-ge">75/25 Split</option>
-		<option value="yui-gf">25/75 Split</option>
-	</param>
 	<param name="topnav_chrome" type="list" default="none" label="Module chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
@@ -528,6 +545,21 @@
 		<option value="tabs">Tabs</option>
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>			
+	</param>
+	<param name="topnav_module_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
+		<option value="both">Wrap heading &amp; content</option>
+		<option value="content">Wrap content only</option>
+	</param>
+	<param name="topnav_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
+		<option value="yui-g">Default (50/50)</option>
+		<option value="yui-gc">66/33 Split</option>
+		<option value="yui-gd">33/66 Split</option>
+		<option value="yui-ge">75/25 Split</option>
+		<option value="yui-gf">25/75 Split</option>
+	</param>
+	<param name="topnav_equalize" type="radio" default="1" label="Equalize modules" tooltip="modal" description="equalize.html">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
 	</param>
 	<param name="topnav_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
 	<param name="topnav_position" type="list" default="2" label="Top menu position" tooltip="inline" description="Where would you like the top menu to be displayed.">
@@ -560,7 +592,10 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>		
 	</param>
-	<param name="topshelf_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />
+	<param name="topshelf_module_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
+		<option value="both">Wrap heading &amp; content</option>
+		<option value="content">Wrap content only</option>
+	</param>
 	<param name="topshelf_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
 		<option value="yui-g">Default (50/50)</option>
 		<option value="yui-gc">66/33 Split</option>
@@ -572,6 +607,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
+	<param name="topshelf_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />
 	<param name="topshelf_slider" type="radio" default="0" label="Topbar slider" tooltip="modal" description="slider.html">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
@@ -599,7 +635,10 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="bottomshelf_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
+	<param name="bottomshelf_module_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
+		<option value="both">Wrap heading &amp; content</option>
+		<option value="content">Wrap content only</option>
+	</param>
 	<param name="bottomshelf_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
 		<option value="yui-g">Default (50/50)</option>
 		<option value="yui-gc">66/33 Split</option>
@@ -611,6 +650,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
+	<param name="bottomshelf_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
 	<param name="bottomshelf_slider" type="radio" default="0" label="Topbar slider" tooltip="modal" description="slider.html">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
@@ -636,7 +676,10 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="user1_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
+	<param name="user1_module_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
+		<option value="both">Wrap heading &amp; content</option>
+		<option value="content">Wrap content only</option>
+	</param>
 	<param name="user1_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
 		<option value="yui-g">Default (50/50)</option>
 		<option value="yui-gc">66/33 Split</option>
@@ -648,6 +691,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
+	<param name="user1_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
 	<param name="user1_show" type="radio" default="0" label="Disable this block" tooltip="inline" description="Would you like to disable this block?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
@@ -666,7 +710,10 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="user2_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
+	<param name="user2_module_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
+		<option value="both">Wrap heading &amp; content</option>
+		<option value="content">Wrap content only</option>
+	</param>
 	<param name="user2_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
 		<option value="yui-g">Default (50/50)</option>
 		<option value="yui-gc">66/33 Split</option>
@@ -678,6 +725,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
+	<param name="user2_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
 	<param name="user2_show" type="radio" default="0" label="Disable this block" tooltip="inline" description="Would you like to disable this block?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
@@ -694,7 +742,10 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="inset1_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
+	<param name="inset1_module_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
+		<option value="both">Wrap heading &amp; content</option>
+		<option value="content">Wrap content only</option>
+	</param>
 	<param name="inset1_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
 		<option value="yui-g">Default (50/50)</option>
 		<option value="yui-gc">66/33 Split</option>
@@ -702,6 +753,11 @@
 		<option value="yui-ge">75/25 Split</option>
 		<option value="yui-gf">25/75 Split</option>
 	</param>
+	<param name="inset1_equalize" type="radio" default="0" label="Equalize modules" tooltip="modal" description="equalize.html">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
+	<param name="inset1_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
 	
 	<param name="inset2 heading" type="heading" label="Inset2 Settings:" />	
 	<param name="inset2_chrome" type="list" default="basic" label="Inset2 chrome" tooltip="modal" description="chromefx.html">
@@ -712,7 +768,10 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="inset2_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
+	<param name="inset2_module_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
+		<option value="both">Wrap heading &amp; content</option>
+		<option value="content">Wrap content only</option>
+	</param>
 	<param name="inset2_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
 		<option value="yui-g">Default (50/50)</option>
 		<option value="yui-gc">66/33 Split</option>
@@ -720,6 +779,11 @@
 		<option value="yui-ge">75/25 Split</option>
 		<option value="yui-gf">25/75 Split</option>
 	</param>
+	<param name="inset2_equalize" type="radio" default="0" label="Equalize modules" tooltip="modal" description="equalize.html">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
+	<param name="inset2_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
 	
 	<param name="inset3 heading" type="heading" label="Inset3 Settings:" />	
 	<param name="inset3_chrome" type="list" default="basic" label="Inset3 chrome" tooltip="modal" description="chromefx.html">
@@ -730,7 +794,10 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="inset3_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
+	<param name="inset3_module_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
+		<option value="both">Wrap heading &amp; content</option>
+		<option value="content">Wrap content only</option>
+	</param>
 	<param name="inset3_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
 		<option value="yui-g">Default (50/50)</option>
 		<option value="yui-gc">66/33 Split</option>
@@ -738,7 +805,12 @@
 		<option value="yui-ge">75/25 Split</option>
 		<option value="yui-gf">25/75 Split</option>
 	</param>
-	
+	<param name="inset3_equalize" type="radio" default="0" label="Equalize modules" tooltip="modal" description="equalize.html">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
+	<param name="inset3_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
+		
 	<param name="inset4 heading" type="heading" label="Inset4 Settings:" />	
 	<param name="inset4_chrome" type="list" default="basic" label="Inset4 chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
@@ -748,14 +820,22 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="inset4_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
+	<param name="inset4_module_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
+		<option value="both">Wrap heading &amp; content</option>
+		<option value="content">Wrap content only</option>
+	</param>
 	<param name="inset4_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
 		<option value="yui-g">Default (50/50)</option>
 		<option value="yui-gc">66/33 Split</option>
 		<option value="yui-gd">33/66 Split</option>
 		<option value="yui-ge">75/25 Split</option>
 		<option value="yui-gf">25/75 Split</option>
-	</param>	
+	</param>
+	<param name="inset4_equalize" type="radio" default="0" label="Equalize modules" tooltip="modal" description="equalize.html">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
+	<param name="inset4_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
 </params>
 
 <params group="maindata">	
@@ -794,11 +874,16 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="splitleft_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
-	<param name="splitleft_chrome_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
+	<param name="splitleft_module_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
 		<option value="both">Wrap heading &amp; content</option>
 		<option value="content">Wrap content only</option>
 	</param>
+	<param name="splitleft_equalize" type="radio" default="1" label="Equalize modules" tooltip="modal" description="equalize.html">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
+	<param name="splitleft_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
+
 
 	<param name="top left heading" type="heading" label="Top left module position" />			
 	<param name="topleft_chrome" type="list" default="basic" label="Module chrome" tooltip="modal" description="chromefx.html">
@@ -809,8 +894,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="topleft_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
-	<param name="topleft_chrome_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
+	<param name="topleft_module_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
 		<option value="both">Wrap heading &amp; content</option>
 		<option value="content">Wrap content only</option>
 	</param>
@@ -818,6 +902,8 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
+	<param name="topleft_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
+	
 	
 	<param name="left heading" type="heading" label="Left module position" />			
 	<param name="left_chrome" type="list" default="basic" label="Module chrome" tooltip="modal" description="chromefx.html">
@@ -828,11 +914,15 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="left_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
-	<param name="left_chrome_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
+	<param name="left_module_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
 		<option value="both">Wrap heading &amp; content</option>
 		<option value="content">Wrap content only</option>
 	</param>
+	<param name="left_equalize" type="radio" default="1" label="Equalize modules" tooltip="modal" description="equalize.html">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
+	<param name="left_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
 	
 	<param name="btmleft heading" type="heading" label="Bottom left module position" />		
 	<param name="btmleft_chrome" type="list" default="basic" label="Module chrome" tooltip="modal" description="chromefx.html">
@@ -843,11 +933,15 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="btmleft_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
-	<param name="btmleft_chrome_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
+	<param name="btmleft_module_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
 		<option value="both">Wrap heading &amp; content</option>
 		<option value="content">Wrap content only</option>
 	</param>
+	<param name="btmleft_equalize" type="radio" default="1" label="Equalize modules" tooltip="modal" description="equalize.html">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
+	<param name="btmleft_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
 </params>
 
 <params group="inner-sidebardata">	
@@ -864,6 +958,7 @@
 		<option value="0">No</option>
 	</param>
 	
+	
 	<param name="splitright heading" type="heading" label="Split right module position" />		
 	<param name="splitright_chrome" type="list" default="basic" label="Split right chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
@@ -873,11 +968,16 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="splitright_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
-	<param name="splitright_chrome_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
+	<param name="splitright_module_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
 		<option value="both">Wrap heading &amp; content</option>
 		<option value="content">Wrap content only</option>
 	</param>
+	<param name="splitright_equalize" type="radio" default="1" label="Equalize modules" tooltip="modal" description="equalize.html">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
+	<param name="splitright_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
+	
 	
 	<param name="topright heading" type="heading" label="Top right module position" />
 	<param name="topright_chrome" type="list" default="basic" label="Top right chrome" tooltip="modal" description="chromefx.html">
@@ -888,11 +988,16 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="topright_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
-	<param name="topright_chrome_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
+	<param name="topright_module_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
 		<option value="both">Wrap heading &amp; content</option>
 		<option value="content">Wrap content only</option>
 	</param>
+	<param name="topright_equalize" type="radio" default="1" label="Equalize modules" tooltip="modal" description="equalize.html">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
+	<param name="topright_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
+	
 	
 	<param name="right heading" type="heading" label="Right module position" />		
 	<param name="right_chrome" type="list" default="basic" label="Right chrome" tooltip="modal" description="chromefx.html">
@@ -903,11 +1008,16 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="right_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
-	<param name="right_chrome_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
+	<param name="right_module_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
 		<option value="both">Wrap heading &amp; content</option>
 		<option value="content">Wrap content only</option>
 	</param>
+	<param name="right_equalize" type="radio" default="1" label="Equalize modules" tooltip="modal" description="equalize.html">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
+	<param name="right_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
+
 	
 	<param name="btmright heading" type="heading" label="Bottom right module position" />		
 	<param name="btmright_chrome" type="list" default="basic" label="Bottom right chrome" tooltip="modal" description="chromefx.html">
@@ -918,11 +1028,15 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="btmright_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
-	<param name="btmright_chrome_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
+	<param name="btmright_module_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
 		<option value="both">Wrap heading &amp; content</option>
 		<option value="content">Wrap content only</option>
 	</param>
+	<param name="btmright_equalize" type="radio" default="1" label="Equalize modules" tooltip="modal" description="equalize.html">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
+	<param name="btmright_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
 </params>
 
 
@@ -947,7 +1061,10 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="footer_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
+	<param name="footer_module_inner" type="list" default="none" label="Module inner wrap" tooltip="inline" description="You can choose whether to add an inner wrap around a modules heading and contents or just the contents. This is useful when you need to add padding to your modules in different ways. This is most applicable to grid positions, but can apply to the basic module chromes too.">
+		<option value="both">Wrap heading &amp; content</option>
+		<option value="content">Wrap content only</option>
+	</param>
 	<param name="footer_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
 		<option value="yui-g">Default (50/50)</option>
 		<option value="yui-gc">66/33 Split</option>
@@ -955,6 +1072,11 @@
 		<option value="yui-ge">75/25 Split</option>
 		<option value="yui-gf">25/75 Split</option>
 	</param>
+	<param name="footer_equalize" type="radio" default="1" label="Equalize modules" tooltip="modal" description="equalize.html">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
+	<param name="footer_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
 
 	<param name="footer_copyright" type="textarea" cols="32" rows="2" default="Copyright 2008 JoomlaJunkie.com - All Rights Reserved" label="Copyright" tooltip="inline" description="Add your own copyright here" />
 	<param name="footer_credits" type="textarea" cols="32" rows="2" default="Template Designed by &lt;a href=&quot;http://www.joomlajunkie.com&quot; title=&quot;professional joomla templates&quot;&gt;JoomlaJunkie&lt;/a&gt;" label="Credits" tooltip="inline" description="Add your own credits here" />
