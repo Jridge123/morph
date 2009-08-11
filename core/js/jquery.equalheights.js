@@ -17,16 +17,16 @@
  *  07.24.2008 v 2.0 - added support for widths
 --------------------------------------------------------------------*/
 
-$.fn.equalHeights = function(px) {
-	$(this).each(function(){
+jQuery.fn.equalHeights = function(px) {
+	jQuery(this).each(function(){
 		var currentTallest = 0;
-		$(this).children().each(function(i){
-			if ($(this).height() > currentTallest) { currentTallest = $(this).height(); }
+		jQuery(this).children().each(function(i){
+			if (jQuery(this).height() > currentTallest) { currentTallest = jQuery(this).height(); }
 		});
 		if (!px || !Number.prototype.pxToEm) currentTallest = currentTallest.pxToEm(); //use ems unless px is specified
 		// for ie6, set height since min-height isn't supported
-		if ($.browser.msie && $.browser.version == 6.0) { $(this).children().css({'height': currentTallest}); }
-		$(this).children().css({'min-height': currentTallest}); 
+		if (jQuery.browser.msie && jQuery.browser.version == 6.0) { jQuery(this).children().css({'height': currentTallest}); }
+		jQuery(this).children().css({'min-height': currentTallest}); 
 	});
 	return this;
 };
