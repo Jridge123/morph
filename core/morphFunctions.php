@@ -82,6 +82,19 @@ $ie8 						= $absolutepath."/css/ie8.css";
 $customcss					= $absolutepath."/css/custom.css";
 $customjs					= $absolutepath."/js/custom.js";
 $themeletfunctions			= $absolutepath."/custom.php";
+$toolbar_override			= $absolutepath."/html/toolbar.php";
+$masthead_override			= $absolutepath."/html/masthead.php";
+$subhead_override			= $absolutepath."/html/subhead.php";
+$topnav_override			= $absolutepath."/html/topnav.php";
+$topshelf_override			= $absolutepath."/html/topshelf.php";
+$bottomshelf_override		= $absolutepath."/html/bottomshelf.php";
+$user1_override				= $absolutepath."/html/user1.php";
+$user2_override				= $absolutepath."/html/user2.php";
+$iphone_override			= $absolutepath."/html/iphone.php";
+$main_override				= $absolutepath."/html/main.php";
+$secondary_override			= $absolutepath."/html/secondary.php";
+$tertiary_override			= $absolutepath."/html/tertiary.php";
+$foot_override				= $absolutepath."/html/foot.php";
 
 if($option !== 'com_user') {
 	if($user->get('guest') == 1 or $user->usertype == 'Registered' && $load_mootools == "0") {
