@@ -47,7 +47,7 @@ $masthead_count 			= JDocumentHTML::countModules('masthead');
 $subhead_count 				= JDocumentHTML::countModules('subhead');
 $topnav_count 				= JDocumentHTML::countModules('topnav');
 $topshelf_count 			= JDocumentHTML::countModules('topshelf');
-$btmshelf_count 			= JDocumentHTML::countModules('bottomshelf');
+$bottomshelf_count 			= JDocumentHTML::countModules('bottomshelf');
 $user1_count 				= JDocumentHTML::countModules('user1');
 $user2_count 				= JDocumentHTML::countModules('user2');
 $inset1_count 				= JDocumentHTML::countModules('inset1');
@@ -57,11 +57,11 @@ $inset4_count 				= JDocumentHTML::countModules('inset4');
 $splitleft_count 			= JDocumentHTML::countModules('splitleft');
 $topleft_count 				= JDocumentHTML::countModules('topleft');
 $left_count 				= JDocumentHTML::countModules('left');
-$btmleft_count 				= JDocumentHTML::countModules('btmleft');
+$bottomleft_count 			= JDocumentHTML::countModules('bottomleft');
 $splitright_count 			= JDocumentHTML::countModules('splitright');
 $topright_count 			= JDocumentHTML::countModules('topright');
 $right_count 				= JDocumentHTML::countModules('right');
-$btmright_count 			= JDocumentHTML::countModules('btmright');
+$bottomright_count 			= JDocumentHTML::countModules('bottomright');
 $footer_count 				= JDocumentHTML::countModules('footer');
 $stylelink 					= '';
 $direction  				= $this->direction;
@@ -264,11 +264,11 @@ $jj_const = array(
 		"splitleft", 
 		"topleft", 
 		"left", 
-		"btmleft", 
+		"bottomleft", 
 		"splitright", 
 		"topright", 
 		"right", 
-		"btmright"
+		"bottomright"
 	)
 );
 

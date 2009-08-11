@@ -240,10 +240,10 @@ $left_module_inner = $MORPH->left_module_inner;
 $left_equalize = $MORPH->left_equalize;
 $left_modfx = $MORPH->left_modfx;
 
-$btmleft_chrome = $MORPH->btmleft_chrome;
-$btmleft_module_inner = $MORPH->btmleft_module_inner;
-$btmleft_equalize = $MORPH->btmleft_equalize;
-$btmleft_modfx = $MORPH->btmleft_modfx;
+$bottomleft_chrome = $MORPH->bottomleft_chrome;
+$bottomleft_module_inner = $MORPH->bottomleft_module_inner;
+$bottomleft_equalize = $MORPH->bottomleft_equalize;
+$bottomleft_modfx = $MORPH->bottomleft_modfx;
 
 
 
@@ -266,10 +266,10 @@ $right_module_inner = $MORPH->right_module_inner;
 $right_modfx = $MORPH->right_modfx;
 $right_equalize = $MORPH->right_equalize;
 
-$btmright_chrome = $MORPH->btmright_chrome;
-$btmright_chrome_inner = $MORPH->btmright_chrome_inner;
-$btmright_modfx = $MORPH->btmright_modfx;
-$btmright_equalize = $MORPH->btmright_equalize;
+$bottomright_chrome = $MORPH->bottomright_chrome;
+$bottomright_module_inner = $MORPH->bottomright_module_inner;
+$bottomright_modfx = $MORPH->bottomright_modfx;
+$bottomright_equalize = $MORPH->bottomright_equalize;
 
 
 
