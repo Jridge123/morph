@@ -18,24 +18,20 @@
 			<?php if ($logo_text != ""){ echo $logo_text; } else { echo $mainframe->getCfg('sitename'); } ?>
 			</a></h1>
 		<?php } ?>
-  
-		<?php if ( $logo_type == 2 ) { ?>
-			<!-- plain text logo -->
-			<a href="<?php echo JURI::root() ?>" title="<?php if ($logo_linktitle != ""){ echo $logo_linktitle; } else { echo $mainframe->getCfg('sitename'); } ?>" class="logo">
-			<?php if ($logo_text != ""){ echo $logo_text; } else { echo $mainframe->getCfg('sitename'); } ?>
-			</a>
+
+  		<?php if ( $logo_type == 2 ) { ?>
+			<!-- inline image logo -->
+			<a class="logo-img" href="<?php echo JURI::root() ?>" title="<?php if ($logo_linktitle != ""){ echo $logo_linktitle; } else { echo $mainframe->getCfg('sitename'); } ?>">
+			<img src="morph_assets/logos/<?php echo $logo_image; ?>" width="<?php echo $logo_size[0]; ?>" height="<?php echo $logo_size[1]; ?>" alt="<?php if ( $logo_alttext != ""){ echo $logo_alttext; } else { echo $mainframe->getCfg('sitename'); } ?>" border="0" /></a>
 		<?php } ?>
 
   		<?php if ( $logo_type == 3 ) { ?>
 			<!-- inline image logo -->
-			<a href="<?php echo JURI::root() ?>" title="<?php if ($logo_linktitle != ""){ echo $logo_linktitle; } else { echo $mainframe->getCfg('sitename'); } ?>">
-			<img src="morph_assets/logos/<?php echo $logo_image; ?>" width="<?php echo $logo_size[0]; ?>" height="<?php echo $logo_size[1]; ?>" alt="<?php if ( $logo_alttext != ""){ echo $logo_alttext; } else { echo $mainframe->getCfg('sitename'); } ?>" border="0" /></a>
+			<div id="logo"><jdoc:include type="modules" name="branding" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo $masthead_chrome; } ?>" /></div>
 		<?php } ?>
 
-  		<?php if ( $logo_type == 4 ) { ?>
-			<!-- inline image logo -->
-			<jdoc:include type="modules" name="branding" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo $masthead_chrome; } ?>" />
-		<?php } ?>
+
+
 
 		<?php if ( $display_slogan == "1" ) { ?>
 			<p class="slogan"><?php echo $slogan_text; ?></p>

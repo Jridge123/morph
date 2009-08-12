@@ -68,9 +68,8 @@
 	<param name="logo_type" type="list" default="0" label="Logo type" tooltip="inline" description="How would you like your logo to be outputed? A full tutorial explaining each of the options listed here will be added soon.">
 		<option value="0">Linked h1 text</option>
 		<option value="1">Linked h1 image replacement</option>
-		<option value="2">Linked plain text</option>
-		<option value="3">Linked inline image</option>
-		<option value="4">Module position (branding)</option>
+		<option value="2">Linked inline image</option>
+		<option value="3">Module position (branding)</option>
 	</param>
 	<param name="logo_image" type="imagelist" default="logo.png" tooltip="inline" label="Logo image" directory="morph_assets/logos" hide_none="false" hide_default="false" description="If you haven't already, upload your logo using the Installer tool on the right, then once you have done that, select the logo from the list."  />
 	<param name="logo_autodimensions" default="1" type="radio" label="Logo dimensions" tooltip="inline" description="Select whether you would like Configurator to automatically determine your chosen image's dimensions. Using this with the 'Linked inline image' logo option will actually change the dimensions of the logo image, where as with the Linked h1 image replacement, it will just change the width and height of the linked h1 element.">
