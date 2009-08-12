@@ -54,7 +54,7 @@ $cparams = JComponentHelper::getParams ('com_media');
 						<?php $this->item =& $this->getItem($i, $this->params);
 						echo $this->loadTemplate('item'); ?>
 					</div>
-					<span class="article_separator">&nbsp;</span>
+					
 				<?php endfor; ?>
 				<span class="row_separator <?php echo $this->params->get('pageclass_sfx'); ?>">&nbsp;</span>
 			</div>

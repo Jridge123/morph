@@ -164,9 +164,9 @@ global $morph_tabs,$tabscount,$loadtabs,$istabsload;
 			$tabs_contents = '';
 			foreach ( $morph_tabs[$attribs['name']] as $modul ){
 				if ($curr_tab == 1) { ?>
-					<li class="ui-state-default ui-tabs-selected"><a href="#tab<?php echo $curr_tab.'-'.$modul->position; ?>"><?php echo moduleHeadings($modul->title);?></a></li>
+					<li class="ui-state-default ui-tabs-selected"><a href="#tab<?php echo $curr_tab.'-'.$modul->position; ?>"><span class="icon"></span><?php echo moduleHeadings($modul->title);?></a></li>
 				<?php } else { ?>
-					<li class="ui-state-default"><a href="#tab<?php echo $curr_tab.'-'.$modul->position; ?>"><?php echo moduleHeadings($modul->title);?></a></li>
+					<li class="ui-state-default"><a href="#tab<?php echo $curr_tab.'-'.$modul->position; ?>"><span class="icon"></span><?php echo moduleHeadings($modul->title);?></a></li>
 				<?php 
 				}
 				$tabs_contents .= '<div id="tab'.$curr_tab.'-'.$modul->position.'" class="ui-tabs-panel">'.$modul->content.'</div>';
