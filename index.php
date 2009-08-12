@@ -34,15 +34,15 @@ if( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
 	} else {
 		 include_once('core/includes/toolbar.php');
 	}
-	if(file_exists($topnav_overrides) && is_readable($topnav_overrides) && $topnav_position == 0){
-		 include_once('morph_assets/themelets/'.$themelet.'/html/topnav.php');
-	} else {
-		 include_once('core/includes/topnav.php');
-	}
 	if(file_exists($masthead_overrides) && is_readable($masthead_overrides)){
 		 include_once('morph_assets/themelets/'.$themelet.'/html/masthead.php');
 	} else {
 		 include_once('core/includes/masthead.php');
+	}
+	if(file_exists($topnav_overrides) && is_readable($topnav_overrides) && $topnav_position == 0){
+		 include_once('morph_assets/themelets/'.$themelet.'/html/topnav.php');
+	} else {
+		 include_once('core/includes/topnav.php');
 	}
 	if(file_exists($toolbar_overrides) && is_readable($toolbar_overrides) && $toolbar_position == 1){
 		 include_once('morph_assets/themelets/'.$themelet.'/html/toolbar.php');
