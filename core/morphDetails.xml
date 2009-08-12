@@ -78,8 +78,8 @@
 	</param>
 	<param name="logo_width" type="text" default="0" label="Logo width" tooltip="inline" description="Set your logo width" />
 	<param name="logo_height" type="text" default="0" label="Logo height" tooltip="inline" description="Set your logo height" />
-	<param name="logo_top" type="text" default="" label="Logo position x" tooltip="inline" description="Set your logos x-coordinate (ie, the number of pixels it should be positioned from the top." />
-	<param name="logo_left" type="text" default="" label="Logo position y" tooltip="inline" description="Set your logos y-coordinate (ie, the number of pixels it should be positioned from the left." />
+	<param name="logo_top" type="text" default="30px" label="Logo position x" tooltip="inline" description="Set your logos x-coordinate (ie, the number of pixels it should be positioned from the top." />
+	<param name="logo_left" type="text" default="0" label="Logo position y" tooltip="inline" description="Set your logos y-coordinate (ie, the number of pixels it should be positioned from the left." />
 	<param name="display_ie_logo" type="radio" default="0" label="Display ie6 logo" tooltip="inline" description="Would you like to alternate logo displayed to Internet Explorer 6? This option is useful when you want to use a transparent png image for all standards compliant browsers and a less smooth transparent logo for ie6, which doesnt handle image transparency.">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
@@ -225,8 +225,8 @@
 	    <option value="'Lucida Console', Monaco, monospace">Lucida Console</option>
 	    <option value="'Comic Sans MS', cursive">Comic Sans MS</option>
 	</param>
-	<param name="slogan_top" type="text" default="" label="Slogan position x" tooltip="inline" description="Set your slogan's x-coordinate (ie, the number of pixels it should be positioned from the top." />
-	<param name="slogan_left" type="text" default="" label="Slogan position y" tooltip="inline" description="Set your slogan's y-coordinate (ie, the number of pixels it should be positioned from the left." />
+	<param name="slogan_top" type="text" default="60px" label="Slogan position x" tooltip="inline" description="Set your slogan's x-coordinate (ie, the number of pixels it should be positioned from the top." />
+	<param name="slogan_left" type="text" default="0" label="Slogan position y" tooltip="inline" description="Set your slogan's y-coordinate (ie, the number of pixels it should be positioned from the left." />
 </params>
 
 <params group="backgrounddata">
@@ -854,7 +854,7 @@
 </params>
 
 <params group="outer-sidebardata">	
-	<param name="outer_default" type="list" default="8" label="Outer layout default" tooltip="modal" description="outerlayout.html">
+	<param name="outer_default" type="list" default="6" label="Outer layout default" tooltip="modal" description="outerlayout.html">
 		<option value="1">160px Left</option>
 		<option value="2">180px Left</option>
 		<option value="8">200px Left</option>
