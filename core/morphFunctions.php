@@ -1,15 +1,17 @@
 <?php
 defined('_JEXEC') or die('Restricted access');
-if(extension_loaded('zlib') && !ini_get('zlib.output_compression')){
-	if(!ob_start("ob_gzhandler")) ob_start();
-}else{
-	ob_start();
-}
+
 // initiate morph
 include_once('templates/morph/core/morphLoader.php');
 include_once('templates/morph/core/morphParams.php');
 require_once('templates/morph/core/browser.php');
-
+if ( $gzip_compression == 1 ) {
+	if(extension_loaded('zlib') && !ini_get('zlib.output_compression')){
+		if(!ob_start("ob_gzhandler")) ob_start();
+	}else{
+		ob_start();
+	}
+}
 // set the various paths:
 $templatepath = JURI::root() . 'templates/' . $this->template;
 $themeletpath = JURI::root() . 'morph_assets/themelets/' . $themelet;
