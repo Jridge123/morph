@@ -305,7 +305,7 @@ function getYuiSuffix ($moduleName, $jj_const){
 function sidebar_module($chrome, $position, $jj_const){
 	global $debug_modules;
 	if ($chrome == 'grid') { ?>
-		<div id="<?php echo $position; ?>-grid" class="intelli <?php getYuiSuffix($position, $jj_const); ?> <?php echo $chrome ?>">
+		<div id="<?php echo $position; ?>-grid" class="<?php getYuiSuffix($position, $jj_const); ?> <?php echo $chrome ?>">
 	<?php } ?>
     	<jdoc:include type="modules" name="<?php echo $position; ?>" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo $chrome; } ?>" />
     <?php if ($chrome == 'grid') { ?>
