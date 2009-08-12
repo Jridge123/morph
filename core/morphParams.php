@@ -37,7 +37,7 @@ $logo_fontfamily = $MORPH->logo_fontfamily;
 $logo_fontsize = $MORPH->logo_fontsize;
 $logo_top = $MORPH->logo_top;
 $logo_left = $MORPH->logo_left;
-
+$masthead_height = $MORPH->masthead_height;
 $display_slogan = $MORPH->display_slogan;
 $slogan_text = $MORPH->slogan_text;
 $slogan_textcolor = $MORPH->slogan_textcolor;

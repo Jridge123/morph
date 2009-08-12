@@ -11,6 +11,7 @@ $logo_fontfamily = stripslashes(urldecode($_GET['B06']));
 $logo_fontsize = $_GET['B07'];
 $logo_top = $_GET['B08'];
 $logo_left = $_GET['B09'];
+$masthead_height = $_GET['B10'];
 $slogan_textcolor = stripslashes(urldecode($_GET['C01']));
 $slogan_fontfamily = stripslashes(urldecode($_GET['C02']));
 $slogan_fontsize = $_GET['C03'];

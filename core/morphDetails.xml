@@ -77,6 +77,7 @@
 		<option value="0">Manual</option>
 	</param>
 	<param name="logo_width" type="text" default="0" label="Logo width" tooltip="inline" description="Set your logo width" />
+	<param name="masthead_height" type="text" default="100px" label="Masthead block height" tooltip="inline" description="Set the height of your Master head block." />
 	<param name="logo_height" type="text" default="0" label="Logo height" tooltip="inline" description="Set your logo height" />
 	<param name="logo_top" type="text" default="" label="Logo position x" tooltip="inline" description="Set your logos x-coordinate (ie, the number of pixels it should be positioned from the top." />
 	<param name="logo_left" type="text" default="" label="Logo position y" tooltip="inline" description="Set your logos y-coordinate (ie, the number of pixels it should be positioned from the left." />
