@@ -111,10 +111,6 @@ top:<?php echo $slogan_top; ?>;
 left:<?php echo $slogan_left; ?>;
 }
 
-
-<?php } if ( $toolbar_slider == 1 ) { ?>
-#toolbar-wrap{position:absolute;top:0;width:100%;}
-#toolbar{position:relative;top:0;height:100%;}
 <?php } if ( $color_links && $color_links !== "#default" ) { ?>
 body a:link,body a:visited,body a:active{color:<?php echo $color_links; ?>;}
 <?php } if ( $color_linkshover && $color_linkshover !== "#default" ) { ?>
