@@ -313,4 +313,22 @@ function getModuleParams($mod_name){
 	}
 	return $param;
 }
+
+function blocks($position, $glob, $jj_const, $classes, $site_width, $debug_modules){
+	
+	foreach($classes as $key => $val){
+		${$key} = $val;
+	}
+	
+	if($glob->countModules($position) && ${$position.'_show'} == 0 ){
+		if ( ${$position.'_wrap'} == 1 ) { ?><div id="<?php echo $position; ?>-wrap"><?php } ?>
+			<div id="<?php echo $position; ?>" class="<?php echo $site_width ?> intelli <?php getYuiSuffix($position, $jj_const); ?> clearer modcount<?php echo ${$position . 'count'}.' '.${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }?>">
+			<?php if ( ${$position.'_inner'} == 1 ) { ?><div id="<?php echo $position; ?>-inner"><?php } ?>
+			<jdoc:include type="modules" name="<?php echo $position; ?>" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo ${$position.'_chrome'}; } ?>" />
+			<?php if ( ${$position.'_inner'} == 1 ) { ?></div><?php } ?>
+			</div>
+		<?php if ( ${$position.'_wrap'} == 1 ) { ?></div><?php }
+	}
+}
+
 ?>
