@@ -38,21 +38,12 @@ if( $pack_css == 1 ){
 	if( $simpleticker == 1 ) { include(JPATH . 'modules/mod_simpleticker/simpleticker/simpleticker.css');}
 }
 ?>
-
-<!--0 Linked h1 text
-1 Linked h1 image replacement
-2 Linked plain text
-3 Linked inline image
-4 Module position (branding)-->
-
-
 <?php if ( $bg_image !== "Use themelets background") { ?>
 html body{<?php if ( $bg_color && $bg_color !== "default" ) { ?>background-color:#<?php echo $bg_color; ?>;<?php }; if ( $bg_image !== "default") { ?>background-image:url(../../../../morph_assets/backgrounds/<?php echo $bg_image; ?>);<?php } ?>background-repeat:<?php echo $bg_repeat; ?>;background-position:<?php echo $bg_position; ?>;background-attachment:<?php echo $bg_attachment; ?>;}
 <?php } ?>
 
 #branding{
 position:relative;
-height:<?php echo $masthead_height; ?>;
 }
 <?php if ( $logo_type == 0 ) { ?>
 #branding h1{

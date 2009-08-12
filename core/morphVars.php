@@ -168,7 +168,6 @@ $packed_css_vars["B06"]=urlencode($logo_fontfamily);
 $packed_css_vars["B07"]=$logo_fontsize;
 $packed_css_vars["B08"]=$logo_top;
 $packed_css_vars["B09"]=$logo_left;
-$packed_css_vars["B10"]=$masthead_height;
 $packed_css_vars["C01"]=urlencode($slogan_textcolor);
 $packed_css_vars["C02"]=urlencode($slogan_fontfamily);
 $packed_css_vars["C03"]=$slogan_fontsize;
