@@ -302,15 +302,20 @@ function getYuiSuffix ($moduleName, $jj_const){
 	echo $yuiModuleSuffix;
 }
 
-function sidebar_module($chrome, $position, $jj_const){
+function sidebar_module($chrome, $position, $jj_const, $modfx, $glob){
 	global $debug_modules;
-	if ($chrome == 'grid') { ?>
-		<div id="<?php echo $position; ?>-grid" class="intelli <?php getYuiSuffix($position, $jj_const); ?> <?php echo $chrome ?>">
-	<?php } ?>
-    	<jdoc:include type="modules" name="<?php echo $position; ?>" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo $chrome; } ?>" />
-    <?php if ($chrome == 'grid') { ?>
-    	</div>
-    <?php }
+	if($glob->countModules($position) > 0){	
+		if ($modfx <> '' && $chrome !== 'accordion' or $modfx <> '' && $chrome <> 'tabs' or $modfx <> '' && $chrome <> 'grid') { ?>
+			<?php echo $chrome; ?>
+			<div class="<?php echo $modfx ?>">
+		<?php }elseif ($chrome == 'grid' || $modfx && $chrome == 'grid') { ?>
+			<div id="<?php echo $position; ?>-grid" class="intelli <?php getYuiSuffix($position, $jj_const); ?> <?php echo $chrome; if ($modfx){ echo ' '. $modfx; } ?>">
+		<?php } ?>
+	    <jdoc:include type="modules" name="<?php echo $position; ?>" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo $chrome; } ?>" />
+	    <?php if ($chrome == 'grid' || $modfx && $chrome == 'grid') { ?>
+	    	</div>
+	    <?php }
+	}
 }
 
 function getModuleParams($mod_name){
