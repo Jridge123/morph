@@ -414,7 +414,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="toolbar_module_inner" type="list" default="content" label="Module inner wrap" tooltip="tooltip" description="modinner.html">
+	<param name="toolbar_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="both">Wrap heading &amp; content</option>
 		<option value="content">Wrap content only</option>
 	</param>
@@ -440,7 +440,7 @@
 		<option value="0">No</option>
 	</param>
 	<param name="toolbar_slider_text" type="text" default="toggle" label="Toolbar slider text" tooltip="inline" description="Define the toggle button text. You can either display a single word like toggle, or set different text for each state, for example 'open,close'. Its important that there are no spaces between the two words and that you use a comma to seperate them." />	
-	<param name="toolbar_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
+	<param name="toolbar_modfx" type="textarea" default="" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
 	<param name="toolbar_show" type="radio" default="0" label="Disable this block" tooltip="inline" description="Would you like to disable this block?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
@@ -464,7 +464,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>			
 	</param>
-	<param name="masthead_module_inner" type="list" default="content" label="Module inner wrap" tooltip="tooltip" description="modinner.html">
+	<param name="masthead_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="both">Wrap heading &amp; content</option>
 		<option value="content">Wrap content only</option>
 	</param>
@@ -479,7 +479,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="masthead_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
+	<param name="masthead_modfx" type="textarea" default="" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
 	<param name="display_skipto" type="radio" default="0" label="Display skip to menu" tooltip="inline" description="Would you like to display a skip to content menu?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
@@ -507,7 +507,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>			
 	</param>
-	<param name="subhead_module_inner" type="list" default="content" label="Module inner wrap" tooltip="tooltip" description="modinner.html">
+	<param name="subhead_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="both">Wrap heading &amp; content</option>
 		<option value="content">Wrap content only</option>
 	</param>
@@ -522,7 +522,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="subhead_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
+	<param name="subhead_modfx" type="textarea" default="" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
 	<param name="subhead_show" type="radio" default="0" label="Disable this block" tooltip="inline" description="Would you like to disable this block?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
@@ -546,7 +546,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>			
 	</param>
-	<param name="topnav_module_inner" type="list" default="content" label="Module inner wrap" tooltip="tooltip" description="modinner.html">
+	<param name="topnav_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="both">Wrap heading &amp; content</option>
 		<option value="content">Wrap content only</option>
 	</param>
@@ -561,7 +561,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="topnav_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
+	<param name="topnav_modfx" type="textarea" default="" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
 	<param name="topnav_position" type="list" default="2" label="Top menu position" tooltip="inline" description="Where would you like the top menu to be displayed.">
 		<option value="0">Above Master Head</option>
 		<option value="1">Above Sub Head</option>
@@ -592,7 +592,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>		
 	</param>
-	<param name="topshelf_module_inner" type="list" default="content" label="Module inner wrap" tooltip="tooltip" description="modinner.html">
+	<param name="topshelf_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="both">Wrap heading &amp; content</option>
 		<option value="content">Wrap content only</option>
 	</param>
@@ -607,7 +607,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="topshelf_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />
+	<param name="topshelf_modfx" type="textarea" default="" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />
 	<param name="topshelf_slider" type="radio" default="0" label="Topbar slider" tooltip="modal" description="slider.html">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
@@ -635,7 +635,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="bottomshelf_module_inner" type="list" default="content" label="Module inner wrap" tooltip="tooltip" description="modinner.html">
+	<param name="bottomshelf_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="both">Wrap heading &amp; content</option>
 		<option value="content">Wrap content only</option>
 	</param>
@@ -650,7 +650,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="bottomshelf_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
+	<param name="bottomshelf_modfx" type="textarea" default="" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
 	<param name="bottomshelf_slider" type="radio" default="0" label="Topbar slider" tooltip="modal" description="slider.html">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
@@ -676,7 +676,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="user1_module_inner" type="list" default="content" label="Module inner wrap" tooltip="tooltip" description="modinner.html">
+	<param name="user1_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="both">Wrap heading &amp; content</option>
 		<option value="content">Wrap content only</option>
 	</param>
@@ -691,7 +691,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="user1_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
+	<param name="user1_modfx" type="textarea" default="" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
 	<param name="user1_show" type="radio" default="0" label="Disable this block" tooltip="inline" description="Would you like to disable this block?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
@@ -710,7 +710,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="user2_module_inner" type="list" default="content" label="Module inner wrap" tooltip="tooltip" description="modinner.html">
+	<param name="user2_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="both">Wrap heading &amp; content</option>
 		<option value="content">Wrap content only</option>
 	</param>
@@ -725,7 +725,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="user2_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
+	<param name="user2_modfx" type="textarea" default="" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
 	<param name="user2_show" type="radio" default="0" label="Disable this block" tooltip="inline" description="Would you like to disable this block?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
@@ -742,7 +742,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="inset1_module_inner" type="list" default="content" label="Module inner wrap" tooltip="tooltip" description="modinner.html">
+	<param name="inset1_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="both">Wrap heading &amp; content</option>
 		<option value="content">Wrap content only</option>
 	</param>
@@ -757,7 +757,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="inset1_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
+	<param name="inset1_modfx" type="textarea" default="" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
 	
 	<param name="inset2 heading" type="heading" label="Inset2 Settings:" />	
 	<param name="inset2_chrome" type="list" default="basic" label="Inset2 chrome" tooltip="modal" description="chromefx.html">
@@ -768,7 +768,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="inset2_module_inner" type="list" default="content" label="Module inner wrap" tooltip="tooltip" description="modinner.html">
+	<param name="inset2_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="both">Wrap heading &amp; content</option>
 		<option value="content">Wrap content only</option>
 	</param>
@@ -783,7 +783,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="inset2_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
+	<param name="inset2_modfx" type="textarea" default="" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
 	
 	<param name="inset3 heading" type="heading" label="Inset3 Settings:" />	
 	<param name="inset3_chrome" type="list" default="basic" label="Inset3 chrome" tooltip="modal" description="chromefx.html">
@@ -794,7 +794,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="inset3_module_inner" type="list" default="content" label="Module inner wrap" tooltip="tooltip" description="modinner.html">
+	<param name="inset3_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="both">Wrap heading &amp; content</option>
 		<option value="content">Wrap content only</option>
 	</param>
@@ -809,7 +809,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="inset3_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
+	<param name="inset3_modfx" type="textarea" default="" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
 		
 	<param name="inset4 heading" type="heading" label="Inset4 Settings:" />	
 	<param name="inset4_chrome" type="list" default="basic" label="Inset4 chrome" tooltip="modal" description="chromefx.html">
@@ -820,7 +820,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="inset4_module_inner" type="list" default="content" label="Module inner wrap" tooltip="tooltip" description="modinner.html">
+	<param name="inset4_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="both">Wrap heading &amp; content</option>
 		<option value="content">Wrap content only</option>
 	</param>
@@ -835,7 +835,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="inset4_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
+	<param name="inset4_modfx" type="textarea" default="" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
 </params>
 
 <params group="maindata">	
@@ -874,7 +874,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="splitleft_module_inner" type="list" default="content" label="Module inner wrap" tooltip="tooltip" description="modinner.html">
+	<param name="splitleft_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="both">Wrap heading &amp; content</option>
 		<option value="content">Wrap content only</option>
 	</param>
@@ -882,7 +882,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="splitleft_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
+	<param name="splitleft_modfx" type="textarea" default="" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
 
 
 	<param name="top left heading" type="heading" label="Top left module position" />			
@@ -894,7 +894,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="topleft_module_inner" type="list" default="content" label="Module inner wrap" tooltip="tooltip" description="modinner.html">
+	<param name="topleft_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="both">Wrap heading &amp; content</option>
 		<option value="content">Wrap content only</option>
 	</param>
@@ -902,7 +902,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="topleft_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
+	<param name="topleft_modfx" type="textarea" default="" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
 	
 	
 	<param name="left heading" type="heading" label="Left module position" />			
@@ -914,7 +914,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="left_module_inner" type="list" default="content" label="Module inner wrap" tooltip="tooltip" description="modinner.html">
+	<param name="left_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="both">Wrap heading &amp; content</option>
 		<option value="content">Wrap content only</option>
 	</param>
@@ -922,7 +922,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="left_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
+	<param name="left_modfx" type="textarea" default="" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
 	
 	<param name="bottomleft heading" type="heading" label="Bottom left module position" />		
 	<param name="bottomleft_chrome" type="list" default="basic" label="Module chrome" tooltip="modal" description="chromefx.html">
@@ -933,7 +933,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="bottomleft_module_inner" type="list" default="content" label="Module inner wrap" tooltip="tooltip" description="modinner.html">
+	<param name="bottomleft_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="both">Wrap heading &amp; content</option>
 		<option value="content">Wrap content only</option>
 	</param>
@@ -941,7 +941,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="bottomleft_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
+	<param name="bottomleft_modfx" type="textarea" default="" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
 </params>
 
 <params group="inner-sidebardata">	
@@ -968,7 +968,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="splitright_module_inner" type="list" default="content" label="Module inner wrap" tooltip="tooltip" description="modinner.html">
+	<param name="splitright_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="both">Wrap heading &amp; content</option>
 		<option value="content">Wrap content only</option>
 	</param>
@@ -976,7 +976,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="splitright_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
+	<param name="splitright_modfx" type="textarea" default="" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
 	
 	
 	<param name="topright heading" type="heading" label="Top right module position" />
@@ -988,7 +988,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="topright_module_inner" type="list" default="content" label="Module inner wrap" tooltip="tooltip" description="modinner.html">
+	<param name="topright_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="both">Wrap heading &amp; content</option>
 		<option value="content">Wrap content only</option>
 	</param>
@@ -996,7 +996,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="topright_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
+	<param name="topright_modfx" type="textarea" default="" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
 	
 	
 	<param name="right heading" type="heading" label="Right module position" />		
@@ -1008,7 +1008,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="right_module_inner" type="list" default="content" label="Module inner wrap" tooltip="tooltip" description="modinner.html">
+	<param name="right_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="both">Wrap heading &amp; content</option>
 		<option value="content">Wrap content only</option>
 	</param>
@@ -1016,7 +1016,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="right_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
+	<param name="right_modfx" type="textarea" default="" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
 
 	
 	<param name="bottomright heading" type="heading" label="Bottom right module position" />		
@@ -1028,7 +1028,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="bottomright_module_inner" type="list" default="content" label="Module inner wrap" tooltip="tooltip" description="modinner.html">
+	<param name="bottomright_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="both">Wrap heading &amp; content</option>
 		<option value="content">Wrap content only</option>
 	</param>
@@ -1036,7 +1036,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="bottomright_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
+	<param name="bottomright_modfx" type="textarea" default="" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
 </params>
 
 
@@ -1061,7 +1061,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="footer_module_inner" type="list" default="content" label="Module inner wrap" tooltip="tooltip" description="modinner.html">
+	<param name="footer_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="both">Wrap heading &amp; content</option>
 		<option value="content">Wrap content only</option>
 	</param>
@@ -1076,7 +1076,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="footer_modfx" type="text" default="" tooltip="inline" label="Default module style" description="" />	
+	<param name="footer_modfx" type="textarea" default="" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
 
 	<param name="footer_copyright" type="textarea" cols="32" rows="2" default="Copyright 2008 JoomlaJunkie.com - All Rights Reserved" label="Copyright" tooltip="inline" description="Add your own copyright here" />
 	<param name="footer_credits" type="textarea" cols="32" rows="2" default="Template Designed by &lt;a href=&quot;http://www.joomlajunkie.com&quot; title=&quot;professional joomla templates&quot;&gt;JoomlaJunkie&lt;/a&gt;" label="Credits" tooltip="inline" description="Add your own credits here" />
