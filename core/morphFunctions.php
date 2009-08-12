@@ -1,15 +1,17 @@
 <?php
 defined('_JEXEC') or die('Restricted access');
-if(extension_loaded('zlib') && !ini_get('zlib.output_compression')){
-	if(!ob_start("ob_gzhandler")) ob_start();
-}else{
-	ob_start();
-}
+
 // initiate morph
 include_once('templates/morph/core/morphLoader.php');
 include_once('templates/morph/core/morphParams.php');
 require_once('templates/morph/core/browser.php');
-
+if ( $gzip_compression == 1 ) {
+	if(extension_loaded('zlib') && !ini_get('zlib.output_compression')){
+		if(!ob_start("ob_gzhandler")) ob_start();
+	}else{
+		ob_start();
+	}
+}
 // set the various paths:
 $templatepath = JURI::root() . 'templates/' . $this->template;
 $themeletpath = JURI::root() . 'morph_assets/themelets/' . $themelet;
@@ -335,7 +337,7 @@ function blocks($position, $glob, $jj_const, $classes, $site_width, $debug_modul
 	
 	if($glob->countModules($position) && ${$position.'_show'} == 0 ){
 		if ( ${$position.'_wrap'} == 1 ) { ?><div id="<?php echo $position; ?>-wrap"><?php } ?>
-			<div id="<?php echo $position; ?>" class="<?php echo $site_width ?> intelli <?php getYuiSuffix($position, $jj_const); ?> clearer modcount<?php echo ${$position . '_count'}.' '.${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }?>">
+			<div id="<?php echo $position; ?>" class="<?php echo $site_width ?> <?php getYuiSuffix($position, $jj_const); ?> clearer modcount<?php echo ${$position . 'count'}.' '.${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }?>">
 			<?php if ( ${$position.'_inner'} == 1 ) { ?><div id="<?php echo $position; ?>-inner"><?php } ?>
 			<jdoc:include type="modules" name="<?php echo $position; ?>" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo ${$position.'_chrome'}; } ?>" />
 			<?php if ( ${$position.'_inner'} == 1 ) { ?></div><?php } ?>
