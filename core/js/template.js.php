@@ -161,6 +161,7 @@ jQuery.noConflict();
         	}			
 			$("#accordions'.$n.'").accordion({
 			    header: "h3",
+			    collapsible: true,
 			    active: active'.$n.',
 			    change: function(event, ui) {
 		            var index'.$n.' = $(this).find("h3").index ( ui.newHeader[0] );
