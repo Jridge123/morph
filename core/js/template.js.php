@@ -22,6 +22,7 @@ if($pack_js == 1){
 	if ( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1 or $topleft_equalize == 1 ) { include('jquery.equalheights.js'); }
 	if ( $plugin_scrollto == 1 ) { include('jquery.scrollTo-1.4.2-min.js'); }
 	if ( $simpleticker == 1 ) { include('jquery.innerfade.js'); }
+	if( $custom_js == 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/js/custom.js');}
 }
 ?>
 jQuery.noConflict();
