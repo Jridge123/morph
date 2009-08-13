@@ -5,7 +5,7 @@
     if($this->countMenuChildren() || $this->countModules( 'splitright' ) > 0 ) sidebar_module($splitright_chrome, 'splitright', $jj_const, $splitright_modfx, $this);
     sidebar_module($topright_chrome, 'topright', $jj_const, $topright_modfx, $this);
 	sidebar_module($right_chrome, 'right', $jj_const, $right_modfx, $this);
-	sidebar_module($bottomleft_chrome, 'bottomright', $jj_const, $bottomright_modfx, $this);
+	sidebar_module($bottomright_chrome, 'bottomright', $jj_const, $bottomright_modfx, $this);
 	?>
  </div>
  <?php if ( $tertiary_inner == 1 ) { ?></div><?php } ?>
