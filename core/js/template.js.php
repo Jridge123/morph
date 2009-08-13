@@ -8,6 +8,8 @@ include '../jsvars.php';if ( $gzip_compression == 1 ) {
 	header("cache-control: must-revalidate");	$offset = 60 * 10000;	$expire = "expires: " . gmdate("D, d M Y H:i:s", time() + $offset) . " GMT";	header($expire);
 }
 header("content-type: text/javascript; charset: UTF-8");
+define('JPATH', str_replace('templates/morph/core/js', '', dirname(__FILE__)) . '/' );
+
 if($pack_js == 1){
 	if ( $jquery_core == 1 ) { include('jquery-1.3.2.min.js'); }
 	if ( $tabscount >= 1 or $accordionscount >= 1 ) { include('jquery.ui.core.js'); }
@@ -22,7 +24,7 @@ if($pack_js == 1){
 	if ( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1 or $topleft_equalize == 1 ) { include('jquery.equalheights.js'); }
 	if ( $plugin_scrollto == 1 ) { include('jquery.scrollTo-1.4.2-min.js'); }
 	if ( $simpleticker == 1 ) { include('jquery.innerfade.js'); }
-	if( $custom_js == 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/js/custom.js');}
+	if ( $custom_js == 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/js/custom.js');}
 }
 ?>
 jQuery.noConflict();

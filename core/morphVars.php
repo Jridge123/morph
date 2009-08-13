@@ -73,6 +73,7 @@ $pt_mod = getModuleParams('mod_simpleticker');
 // JS Variables
 $packed_js_vars = array();
 $packed_js_vars["A01"]=$jquery_core;
+$packed_js_vars["A02"]=$themelet;
 $packed_js_vars["B01"]=$topfish;
 $packed_js_vars["B02"]=$sidefish;
 $packed_js_vars["B03"]=$topdrop;

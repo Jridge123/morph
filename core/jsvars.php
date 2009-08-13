@@ -1,5 +1,6 @@
 <?php
 $jquery_core = $_GET['A01'];
+$themelet = $_GET['A02'];
 $topfish = $_GET['B01'];
 $sidefish = $_GET['B02'];
 $topdrop = $_GET['B03'];
