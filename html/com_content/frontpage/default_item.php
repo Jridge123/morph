@@ -8,9 +8,7 @@ $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $
 <div class="system-unpublished">
 <?php endif; ?>
 
-
-
-
+<!-- filed under -->
 	<?php if (($this->item->params->get('show_section') && $this->item->sectionid) || ($this->item->params->get('show_category') && $this->item->catid)) : ?>
 		<?php if ($this->item->params->get('show_section') && $this->item->sectionid && isset($this->item->section)) : ?>
 		<p class="filed-as">
@@ -48,18 +46,11 @@ $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $
 			
 		</p>
 	<?php endif; ?>
-
-
-
+	
+	
 <?php if ($this->item->params->get('show_title') || $this->item->params->get('show_pdf_icon') || $this->item->params->get('show_print_icon') || $this->item->params->get('show_email_icon')) : ?>
 
-
-
-
-
-
-
-
+<!-- article heading -->
 	<?php if ($this->item->params->get('show_title')) : ?>
 	<h2 class="contentheading<?php echo $this->item->params->get( ' pageclass_sfx' ); ?>">
 		<?php if ($this->item->params->get('link_titles') && $this->item->readmore_link != '') : ?>
@@ -72,10 +63,7 @@ $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $
 	</h2>
 	<?php endif; ?>
 
-
-
-
-
+<!-- article options -->
 	<?php if ($this->item->params->get('show_pdf_icon') || $this->item->params->get('show_print_icon') || $this->item->params->get('show_email_icon')) : ?>
 	<ul class="article-options">
 		<?php if ($this->item->params->get('show_pdf_icon')) : ?>
@@ -91,31 +79,15 @@ $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $
 	<?php endif; ?>
 
 
-
-
-
 <?php endif; ?>
 
 
-
-
-
+<!-- after display title -->
 <?php  if (!$this->item->params->get('show_intro')) :
 	echo $this->item->event->afterDisplayTitle;
 endif; ?>
 
 <?php echo $this->item->event->beforeDisplayContent; ?>
-
-
-
-
-
-
-<div class="content<?php echo $this->item->params->get( ' pageclass_sfx' ); ?>">
-
-
-
-
 
 <!-- created date and author -->
 <?php if ($this->item->params->get('show_author') || $this->item->params->get('show_create_date')) : ?>
@@ -130,35 +102,19 @@ endif; ?>
 	</p>
 <?php endif; ?>
 
-
-
-
-
 <!-- show url -->
 <?php if ($this->item->params->get('show_url') && $this->item->urls) : ?>
 	<a href="http://<?php echo $this->item->urls ; ?>" target="_blank">
 	<?php echo $this->item->urls; ?></a>
 <?php endif; ?>
 
-
-
-
-
 <!-- table of contents -->
 <?php if (isset ($this->item->toc)) : ?>
 	<?php echo $this->item->toc; ?>
 <?php endif; ?>
 
-
-
-
-
 <!-- teaser text -->
 <?php echo $this->item->text; ?>
-
-
-
-
 
 <!-- date modified -->
 <?php if ( intval($this->item->modified) != 0 && $this->item->params->get('show_modify_date')) : ?>
@@ -166,10 +122,6 @@ endif; ?>
 		<?php echo JText::_( 'Last Updated' ); ?>: <?php echo JHTML::_('date', $this->item->modified, JText::_('%a, %d %b %y')); ?>
 	</p>
 <?php endif; ?>
-
-
-
-
 
 <!-- readon link -->
 <?php if ($this->item->params->get('show_readmore') && $this->item->readmore) : ?>
@@ -183,13 +135,6 @@ endif; ?>
 		endif; ?>
 	</a>
 <?php endif; ?>
-
-
-
-
-
-</div>
-
 
 <?php if ($this->item->state == 0) : ?>
 </div>
