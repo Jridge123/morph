@@ -3,7 +3,7 @@
 		
    <div class="<?php echo $site_width;?> <?php echo $masthead_gridsplit;?> <?php echo $masthead_chrome; ?>" id="masthead">
 
-      <div id="branding" class="yui-u first logotype-<?php echo $logo_type; ?><?php if ( $slogan_text !== "" ) { ' slogan'; } ?>">
+      <div id="branding" class="logotype-<?php echo $logo_type; ?><?php if ( $slogan_text !== "" ) { ' slogan'; } ?>">
          
    		<?php if ( $logo_type == 0 ) { ?>
 			<!-- h1 text logo -->
@@ -55,7 +55,7 @@
          
       </div>
       <?php if($this->countModules('top')) { ?>
-      <div  id="top2" class="yui-u last">
+      <div  id="top">
          <jdoc:include type="modules" name="top" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo $masthead_chrome; } ?>" />
       </div>
       <?php } ?>

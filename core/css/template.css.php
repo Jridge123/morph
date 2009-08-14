@@ -42,10 +42,6 @@ if( $pack_css == 1 ){
 <?php if ( $bg_image !== "Use themelets background") { ?>
 html body{<?php if ( $bg_color && $bg_color !== "default" ) { ?>background-color:#<?php echo $bg_color; ?>;<?php }; if ( $bg_image !== "default") { ?>background-image:url(../../../../morph_assets/backgrounds/<?php echo $bg_image; ?>);<?php } ?>background-repeat:<?php echo $bg_repeat; ?>;background-position:<?php echo $bg_position; ?>;background-attachment:<?php echo $bg_attachment; ?>;}
 <?php } ?>
-
-#branding{
-position:relative;
-}
 <?php if ( $logo_type == 0 ) { ?>
 #branding h1{
 position:absolute;
