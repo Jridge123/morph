@@ -327,6 +327,27 @@ function sidebar_module($chrome, $position, $jj_const, $modfx, $glob){
 	}
 }
 
+function myComments($position, $comment, $location='', $linenumber='') {
+
+   $show_comments = '0';
+   $haslocation = '';
+   $haslinenumber = '';
+
+   if ($location !== '')
+   $haslocation = ' | '.$location;
+
+   if ($linenumber !== '')
+   $haslinenumber = ' | '.$linenumber;
+
+   if ( $show_comments == '0' ){
+       if ( $position == 's' ) {
+           return "<!-- START: $comment | Located in: $location | Starting on line: $linenumber -->\n"; 
+       } else {
+           return "<!-- END: $comment$haslocation$haslinenumber -->\n";
+       }
+   }
+}
+
 function getModuleParams($mod_name){
 	$db = JFactory::getDBO();
 	$query = "select params from jos_modules where module = '".$mod_name."'";
