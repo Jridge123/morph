@@ -4,6 +4,7 @@ defined('_JEXEC') or die('Restricted access');
 // general settings
 $site_width = $MORPH->site_width;
 $themelet = $MORPH->themelet;
+$nojs = $MORPH->nojs;
 
 // customization settings
 $bg_image = $MORPH->bg_image;
