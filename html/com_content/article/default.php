@@ -1,5 +1,7 @@
 <?php // no direct access
-defined('_JEXEC') or die('Restricted access'); ?>
+defined('_JEXEC') or die('Restricted access');
+include_once('templates/morph/core/overrideFunctions.php');
+?>
 <div class="article-page">
 <?php $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $this->user->authorize('com_content', 'edit', 'content', 'own')); ?>
 
@@ -26,7 +28,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 	
 	
 	
-<!-- start -->		
+<?php echo codeComments('s','Show Article Options','html/article/default.php','32', $code_comments); ?>
 <?php if (!$this->print) : ?>
 
     <ul class="article-options">
@@ -58,6 +60,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 		<?php endif; ?>
 
 	</ul>
+<?php echo codeComments('e','Footer Block', '', '', $code_comments); ?>
 
 <!-- middle -->		
 <?php else : ?>
