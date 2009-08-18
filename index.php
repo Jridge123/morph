@@ -15,7 +15,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>">
 <head>
 <jdoc:include type="head" />
-<?php if( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) { '<meta name="viewport" content="width=320" />'; } ?>
+<?php if( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) { ?><meta name="viewport" content="width=320" /><?php } ?>
 </head>
 <body class="js-disabled morph <?php echo "$lcbrowser $lcbrowser$ver"; if ($pageclass != ""){ echo ' '.$pageclass; } ?>"<?php if ($themelet != ""){ echo ' id="'.$themelet.'"'; } ?>>
 <?php 
