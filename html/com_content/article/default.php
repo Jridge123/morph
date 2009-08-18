@@ -6,16 +6,18 @@ include_once('templates/morph/core/overrideFunctions.php');
 <?php $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $this->user->authorize('com_content', 'edit', 'content', 'own')); ?>
 
 <?php if ($this->params->get('show_page_title', 1) && $this->params->get('page_title') != $this->article->title) : ?>
-	<h1 class="componentheading <?php echo $this->params->get('pageclass_sfx')?>">
+	<h1 class="article-title">
 		<?php echo $this->escape($this->params->get('page_title')); ?>
 	</h1>
 <?php endif; ?>
+
 <?php if ($canEdit || $this->params->get('show_title') || $this->params->get('show_pdf_icon') || $this->params->get('show_print_icon') || $this->params->get('show_email_icon')) : ?>
-<div class="contentpaneopen article-top <?php echo $this->params->get( 'pageclass_sfx' ); ?>">
+
+<div class="article-top">
 	<?php if ($this->params->get('show_title')) : ?>
-	<h1 class="contentheading <?php echo $this->params->get( 'pageclass_sfx' ); ?>">
+	<h1 class="article-title">
 		<?php if ($this->params->get('link_titles') && $this->article->readmore_link != '') : ?>
-		<a href="<?php echo $this->article->readmore_link; ?>" class="contentpagetitle <?php echo $this->params->get( 'pageclass_sfx' ); ?>">
+		<a href="<?php echo $this->article->readmore_link; ?>">
 			<?php echo $this->escape($this->article->title); ?></a>
 		<?php else : ?>
 			<?php echo $this->escape($this->article->title); ?>
@@ -23,14 +25,8 @@ include_once('templates/morph/core/overrideFunctions.php');
 	</h1>
 	<?php endif; ?>
 	
-	
-	
-	
-	
-	
-<?php echo codeComments('s','Show Article Options','html/article/default.php','32', $code_comments); ?>
 <?php if (!$this->print) : ?>
-
+<?php echo codecomments('s','Show Article Options','html/article/default.php','32', '', $code_comments); ?>
     <ul class="article-options">
     
 		<?php if (($this->params->get('show_author')) && ($this->article->author != "")) : ?>
@@ -60,7 +56,7 @@ include_once('templates/morph/core/overrideFunctions.php');
 		<?php endif; ?>
 
 	</ul>
-<?php echo codeComments('e','Footer Block', '', '', $code_comments); ?>
+<?php echo codecomments('e','Footer Block', '', '', '', $code_comments); ?>
 
 <!-- middle -->		
 <?php else : ?>

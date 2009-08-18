@@ -319,7 +319,7 @@ function sidebar_module($chrome, $position, $jj_const, $modfx, $glob, $nojs){
 			<div id="<?php echo $position; ?>-grid" class="intelli <?php getYuiSuffix($position, $jj_const); ?> <?php echo $chrome; if ($modfx){ echo ' '. $modfx; } ?>">
 		<?php } ?>
 		<?php if($chrome === 'tabs' or $chrome === 'accordion' ){ ?>
-				<jdoc:include type="modules" name="<?php echo $position; ?>" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } elseif($isset($nojs) && $nojs == 1) { echo 'basic'; } else { echo $chrome; } ?>" />
+				<jdoc:include type="modules" name="<?php echo $position; ?>" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } elseif(isset($nojs) && $nojs == 1) { echo 'basic'; } else { echo $chrome; } ?>" />
 			<?php } else { ?>
 				<jdoc:include type="modules" name="<?php echo $position; ?>" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo $chrome; } ?>" />
 			<?php } ?>
@@ -340,14 +340,16 @@ function sidebar_module($chrome, $position, $jj_const, $modfx, $glob, $nojs){
 function codeComments($position, $comment, $location='', $linenumber='', $show_comments) {
 	$haslocation = '';
    	$haslinenumber = '';
+   	$hasrelatedcss = '';
 	if ($location !== '') $haslocation = ' | ' . $location;
 	if ($linenumber !== '') $haslinenumber = ' | '.$linenumber;
+	if ($relatedcss !== '') $hasrelatedcss = ' | '.$relatedcss;
 
-	if ( $show_comments == '1' ){
+	if ( $show_comments == 1 ){
 	   if ( $position == 's' ) {
-	       return "<!-- START: $comment | Located in: $location | Starting on line: $linenumber -->\n"; 
+	       return "<!-- START: $comment | Located in: $location | Starting on line: $linenumber | Related css files: $relatedcss -->\n"; 
 	   } else {
-	       return "<!-- END: $comment$haslocation$haslinenumber -->\n";
+	       return "<!-- END: $comment$haslocation$haslinenumber$hasrelatedcss -->\n";
 	   }
 	}
 }
