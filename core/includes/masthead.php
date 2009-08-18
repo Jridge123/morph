@@ -56,8 +56,8 @@
       </div>
       <?php if($this->countModules('top')) { ?>
       <div  id="top">
-         <jdoc:include type="modules" name="top" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo $masthead_chrome; } ?>" />
-      </div>
+         <jdoc:include type="modules" name="top" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } elseif(isset($nojs) && $nojs == 1) { echo 'basic'; } else { echo $masthead_chrome; } ?>" />
+	 </div>
       <?php } ?>
    </div>
    

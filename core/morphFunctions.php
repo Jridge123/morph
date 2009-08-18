@@ -307,7 +307,7 @@ function getYuiSuffix ($moduleName, $jj_const){
 	echo $yuiModuleSuffix;
 }
 
-function sidebar_module($chrome, $position, $jj_const, $modfx, $glob){
+function sidebar_module($chrome, $position, $jj_const, $modfx, $glob, $nojs){
 	global $debug_modules;
 	if($glob->countModules($position) > 0){
 		if($chrome === 'basic' or $chrome === 'outline' or $chrome === ''){ 
@@ -318,7 +318,11 @@ function sidebar_module($chrome, $position, $jj_const, $modfx, $glob){
 		} elseif($chrome === 'grid'){ ?>
 			<div id="<?php echo $position; ?>-grid" class="intelli <?php getYuiSuffix($position, $jj_const); ?> <?php echo $chrome; if ($modfx){ echo ' '. $modfx; } ?>">
 		<?php } ?>
-		<jdoc:include type="modules" name="<?php echo $position; ?>" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo $chrome; } ?>" />
+		<?php if($chrome === 'tabs' or $chrome === 'accordion' ){ ?>
+				<jdoc:include type="modules" name="<?php echo $position; ?>" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } elseif($isset($nojs) && $nojs == 1) { echo 'basic'; } else { echo $chrome; } ?>" />
+			<?php } else { ?>
+				<jdoc:include type="modules" name="<?php echo $position; ?>" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo $chrome; } ?>" />
+			<?php } ?>
 	<?php 
 		if($chrome === 'basic' or $chrome === 'outline' or $chrome === ''){ 
 			if ($modfx){ ?>
@@ -333,25 +337,19 @@ function sidebar_module($chrome, $position, $jj_const, $modfx, $glob){
 	}
 }
 
-function myComments($position, $comment, $location='', $linenumber='') {
+function codeComments($position, $comment, $location='', $linenumber='', $show_comments) {
+	$haslocation = '';
+   	$haslinenumber = '';
+	if ($location !== '') $haslocation = ' | ' . $location;
+	if ($linenumber !== '') $haslinenumber = ' | '.$linenumber;
 
-   $show_comments = '0';
-   $haslocation = '';
-   $haslinenumber = '';
-
-   if ($location !== '')
-   $haslocation = ' | '.$location;
-
-   if ($linenumber !== '')
-   $haslinenumber = ' | '.$linenumber;
-
-   if ( $show_comments == '0' ){
-       if ( $position == 's' ) {
-           return "<!-- START: $comment | Located in: $location | Starting on line: $linenumber -->\n"; 
-       } else {
-           return "<!-- END: $comment$haslocation$haslinenumber -->\n";
-       }
-   }
+	if ( $show_comments == '1' ){
+	   if ( $position == 's' ) {
+	       return "<!-- START: $comment | Located in: $location | Starting on line: $linenumber -->\n"; 
+	   } else {
+	       return "<!-- END: $comment$haslocation$haslinenumber -->\n";
+	   }
+	}
 }
 
 function getModuleParams($mod_name){
@@ -370,7 +368,8 @@ function getModuleParams($mod_name){
 	return $param;
 }
 
-function blocks($position, $glob, $jj_const, $classes, $site_width, $debug_modules, $nojs=''){	
+function blocks($position, $glob, $jj_const, $classes, $site_width, $debug_modules, $nojs=''){
+	
 	foreach($classes as $key => $val){
 		${$key} = $val;
 	}
@@ -379,7 +378,11 @@ function blocks($position, $glob, $jj_const, $classes, $site_width, $debug_modul
 		if ( ${$position.'_wrap'} == 1 ) { ?><div id="<?php echo $position; ?>-wrap"><?php } ?>
 			<div id="<?php echo $position; ?>" class="<?php echo $site_width ?> <?php getYuiSuffix($position, $jj_const); ?> clearer modcount<?php echo ${$position . '_count'}.' '.${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }?>">
 			<?php if ( ${$position.'_inner'} == 1 ) { ?><div id="<?php echo $position; ?>-inner"><?php } ?>
-			<jdoc:include type="modules" name="<?php echo $position; ?>" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } elseif(isset($nojs) && $nojs == 1) { echo 'basic'; } else { echo ${$position.'_chrome'}; } ?>" />
+			<?php if(${$position . '_chrome'} === 'tabs' or ${$position . '_chrome'} === 'accordion' ){ ?>
+				<jdoc:include type="modules" name="<?php echo $position; ?>" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } elseif($isset($nojs) && $nojs == 1) { echo 'basic'; } else { echo ${$position.'_chrome'}; } ?>" />
+			<?php } else { ?>
+				<jdoc:include type="modules" name="<?php echo $position; ?>" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo ${$position.'_chrome'}; } ?>" />
+			<?php } ?>
 			<?php if ( ${$position.'_inner'} == 1 ) { ?></div><?php } ?>
 			</div>
 		<?php if ( ${$position.'_wrap'} == 1 ) { ?></div><?php }

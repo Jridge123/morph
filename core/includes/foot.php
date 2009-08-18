@@ -2,9 +2,9 @@
 <?php if ( $footer_wrap == 1 ) { ?><div id="footer-wrap"><?php } ?>
 
 <?php if ( $footer_type == 0 ) { ?>
-<?php if ( $code_comments == 1 ) { echo myComments('s','Footer Block','includes/foot.php','5'); } ?>
+<?php echo codeComments('s','Footer Block','includes/foot.php','5', $code_comments); ?>
 	<div id="footer" class="<?php echo $site_width ?>">
-    	<?php if ( $footer_swish == "1" ) { ?>
+    	<?php if ( $footer_swish == 1 ) { ?>
             <a title="JoomlaJunkie Commercial and free Joomla Templates" href="http://www.joomlajunkie.com" class="joomlajunkie-swish">Powered by Morph</a>
         <?php } ?>
         <ul id="footer-links"<?php if ( $footer_swish == "0" ) { ?>class="no-swish"<?php } ?>>
@@ -28,11 +28,12 @@
            	<li class="ft-right"><?php echo $footer_credits; ?></li>
 		</ul>
 	</div>
-<?php if ( $code_comments == 1 ) { echo myComments('e','Footer Block'); } ?>	
+<?php echo codeComments('e','Footer Block', '', '', $code_comments); ?>
 <?php } if ( $footer_type == 1 ) { ?>
 
 	<div id="footer" class="<?php echo $site_width ?> <?php echo $footer_chrome ?> <?php getYuiSuffix('footer', $jj_const); ?>">
-    	<jdoc:include type="modules" name="footer" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo $footer_chrome; } ?>" />
+    	<jdoc:include type="modules" name="footer" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } elseif(isset($nojs) && $nojs == 1) { echo 'basic'; } else { echo $footer_chrome; } ?>" />
+
 	</div>
 	
 <?php } ?>
