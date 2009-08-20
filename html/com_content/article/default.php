@@ -16,7 +16,7 @@ $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $
 
 	<?php if ($this->params->get('show_title') || $this->params->get('show_pdf_icon') || $this->params->get('show_print_icon') || $this->params->get('show_email_icon')) : ?>
 
-	<div class="article-top">
+	<div class="article-top clearer">
 	<!-- start article top -->
 		<?php if ($this->params->get('show_title')) : ?>
 		<h1 class="article-title">
