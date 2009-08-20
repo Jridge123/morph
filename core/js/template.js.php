@@ -25,6 +25,7 @@ if($pack_js == 1){
 	if ( $plugin_scrollto == 1 ) { include('jquery.scrollTo-1.4.2-min.js'); }
 	if ( $simpleticker == 1 ) { include('jquery.innerfade.js'); }
 	if ( $custom_js == 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/js/custom.js');}
+	include('jquery.fontsizer.js');
 }
 ?>
 jQuery.noConflict();
@@ -59,6 +60,63 @@ jQuery.noConflict();
 		$("input#mod_search_searchword").wrapInner("<div class='extra-search-border'></div>");
 		$("#footer-links .fl-left li:last").addClass("fl-last");
 		$("#footer-links .fl-right li:last").addClass("fl-last");	
+		
+	//grab all the anchor tag with rel set to shareit
+	$('a[rel=shareit], #shareit-box').mouseenter(function() {		
+		
+		//get the height, top and calculate the left value for the sharebox
+		var height = $(this).height();
+		var top = $(this).offset().top;
+		
+		//get the left and find the center value
+		var left = $(this).offset().left + ($(this).width() /2) - ($('#shareit-box').width() / 2);		
+		
+		//grab the href value and explode the bar symbol to grab the url and title
+		//the content should be in this format url|title
+		var value = $(this).attr('href').split('|');
+		
+		//assign the value to variables and encode it to url friendly
+		var field = value[0];
+		var url = encodeURIComponent(value[0]);
+		var title = encodeURIComponent(value[1]);
+		
+		//assign the height for the header, so that the link is cover
+		$('#shareit-header').height(height);
+		
+		//display the box
+		$('#shareit-box').show();
+		
+		//set the position, the box should appear under the link and centered
+		$('#shareit-box').css({'top':top, 'left':left});
+		
+		//assign the url to the textfield
+		$('#shareit-field').val(field);
+		
+		//make the bookmark media open in new tab/window
+		$('a.shareit-sm').attr('target','_blank');
+		
+		//Setup the bookmark media url and title
+		$('a[rel=shareit-mail]').attr('href', 'http://mailto:?subject=' + title);
+		$('a[rel=shareit-delicious]').attr('href', 'http://del.icio.us/post?v=4&amp;noui&amp;jump=close&amp;url=' + url + '&title=' + title);
+		$('a[rel=shareit-designfloat]').attr('href', 'http://www.designfloat.com/submit.php?url='  + url + '&amp;title=' + title);
+		$('a[rel=shareit-digg]').attr('href', 'http://digg.com/submit?phase=2&amp;url=' + url + '&amp;title=' + title);
+		$('a[rel=shareit-stumbleupon]').attr('href', 'http://www.stumbleupon.com/submit?url=' + url + '&title=' + title);
+		$('a[rel=shareit-twitter]').attr('href', 'http://twitter.com/home?status=' + url + '%20-%20' + title);
+		
+	});
+
+	//onmouse out hide the shareit box
+	$('#shareit-box').mouseleave(function () {
+		$('#shareit-field').val('');
+		$(this).hide();
+	});
+	
+	//hightlight the textfield on click event
+	$('#shareit-field').click(function () {
+		$(this).select();
+	});
+		
+		
 	<?php if ( $plugin_scrollto == 1 ) { ?>
 		$.fn.topLink = function(settings) {
 			settings = jQuery.extend({
@@ -82,8 +140,12 @@ jQuery.noConflict();
 		//usage w/ smoothscroll
 		$('#top-link').topLink({ min: 400, fadeSpeed: 500 });
 		$('#top-link').click(function(e){ $.scrollTo(0,300); return false; });
+	<?php } ?>	
+		
+fontSize(".article-body", 9, 12, 20);
 
-		<?php } if ( $toolbar_equalize == 1 ) { ?>$('#toolbar .modinner').equalHeights();
+		
+		<?php if ( $toolbar_equalize == 1 ) { ?>$('#toolbar .modinner').equalHeights();
 		<?php } if ( $masthead_equalize == 1 ) { ?>$('#masthead .modinner').equalHeights();
 		<?php } if ( $subhead_equalize == 1 ) { ?>$('#subhead .modinner').equalHeights();
 		<?php } if ( $topnav_equalize == 1 ) { ?>$('#topnav .modinner').equalHeights();
