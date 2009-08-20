@@ -78,11 +78,7 @@ $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $
 				<span class="sep">&nbsp;|&nbsp;</span>
 				<a href="<?php echo $this->article->readmore_link; ?>|<?php echo $this->escape($this->article->title); ?>" rel="shareit">Share Article</a>
 				<span class="sep">&nbsp;|&nbsp;</span>
-
-<a id="small" href="#">-</a>
-<a id="default" href="#">0</a>
-<a id="large" href="#">+</a>
-
+				<span id="fontsizer"></span>
 		</p>
 		<?php endif; ?>
 			
@@ -95,7 +91,7 @@ $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $
 
 	<!-- article body -->
 	<?php echo $this->article->event->beforeDisplayContent; ?>
-	<div class="article-body">
+	<div class="article-body" id="article">
 		<?php if (isset ($this->article->toc)) : ?>
 		<!-- article table of contents -->
 		<div class="article-toc">

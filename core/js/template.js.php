@@ -142,7 +142,7 @@ jQuery.noConflict();
 		$('#top-link').click(function(e){ $.scrollTo(0,300); return false; });
 	<?php } ?>	
 		
-fontSize(".article-body", 9, 12, 20);
+	fontSize("#fontsizer", "#article", 9, 12, 20);
 
 		
 		<?php if ( $toolbar_equalize == 1 ) { ?>$('#toolbar .modinner').equalHeights();
