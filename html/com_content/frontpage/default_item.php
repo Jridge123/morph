@@ -102,11 +102,6 @@ endif; ?>
 	</p>
 <?php endif; ?>
 
-<!-- show url -->
-<?php if ($this->item->params->get('show_url') && $this->item->urls) : ?>
-	<a href="http://<?php echo $this->item->urls ; ?>" target="_blank">
-	<?php echo $this->item->urls; ?></a>
-<?php endif; ?>
 
 <!-- table of contents -->
 <?php if (isset ($this->item->toc)) : ?>
