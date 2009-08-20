@@ -16,7 +16,7 @@ $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $
 
 	<?php if ($this->params->get('show_title') || $this->params->get('show_pdf_icon') || $this->params->get('show_print_icon') || $this->params->get('show_email_icon')) : ?>
 
-	<div class="article-top">
+	<div class="article-top clearer">
 	<!-- start article top -->
 		<?php if ($this->params->get('show_title')) : ?>
 		<h1 class="article-title">
@@ -56,8 +56,14 @@ $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $
 				<span class="created"><?php echo JHTML::_('date', $this->article->created, JText::_('Posted on <strong>%a, %d %b %y</strong>')) ?></span>
 			<?php endif; ?>
 
-<span class="sep">&nbsp;|&nbsp;</span> Filed under: 
-
+				<span class="sep">&nbsp;|&nbsp;</span>
+				<a href="<?php echo $this->article->readmore_link; ?>|<?php echo $this->escape($this->article->title); ?>" rel="shareit">Share Article</a>
+				<span class="sep">&nbsp;|&nbsp;</span><span id="fontsizer"></span>
+				
+			<?php if ($this->params->get('show_section') && $this->article->sectionid && isset($this->article->section) or $this->params->get('show_category') && $this->article->catid) : ?>
+			<br />Filed under: 
+			<?php endif; ?>
+			
 			<?php if ($this->params->get('show_section') && $this->article->sectionid && isset($this->article->section)) : ?>
 			<?php if ($this->params->get('link_section')) : ?><?php echo '<a href="'.JRoute::_(ContentHelperRoute::getSectionRoute($this->article->sectionid)).'">'; ?><?php endif; ?>
 				<span class="article-section"><strong><?php echo $this->article->section; ?></strong></span>
@@ -75,10 +81,6 @@ $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $
 					<?php echo '</a>'; ?>
 					<?php endif; ?>
 			<?php endif; ?>
-				<span class="sep">&nbsp;|&nbsp;</span>
-				<a href="<?php echo $this->article->readmore_link; ?>|<?php echo $this->escape($this->article->title); ?>" rel="shareit">Share Article</a>
-				<span class="sep">&nbsp;|&nbsp;</span>
-				<span id="fontsizer"></span>
 		</p>
 		<?php endif; ?>
 			
@@ -91,7 +93,7 @@ $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $
 
 	<!-- article body -->
 	<?php echo $this->article->event->beforeDisplayContent; ?>
-	<div class="article-body" id="article">
+	<div class="article-body clearer" id="article">
 		<?php if (isset ($this->article->toc)) : ?>
 		<!-- article table of contents -->
 		<div class="article-toc">
