@@ -2,7 +2,7 @@
 <?php if ( $footer_wrap == 1 ) { ?><div id="footer-wrap"><?php } ?>
 
 <?php if ( $footer_type == 0 ) { ?>
-<?php echo codeComments('s','Footer Block','includes/foot.php','5', '', $code_comments); ?>
+<?php echo codeComments('s','Footer Block','includes/foot.php','5', $code_comments); ?>
 	<div id="footer" class="<?php echo $site_width ?>">
     	<?php if ( $footer_swish == 1 ) { ?>
             <a title="JoomlaJunkie Commercial and free Joomla Templates" href="http://www.joomlajunkie.com" class="joomlajunkie-swish">Powered by Morph</a>
@@ -28,7 +28,7 @@
            	<li class="ft-right"><?php echo $footer_credits; ?></li>
 		</ul>
 	</div>
-<?php echo codeComments('e','Footer Block', '', '', '', $code_comments); ?>
+<?php echo codeComments('e','Footer Block', '', '', $code_comments); ?>
 <?php } if ( $footer_type == 1 ) { ?>
 
 	<div id="footer" class="<?php echo $site_width ?> <?php echo $footer_chrome ?> <?php getYuiSuffix('footer', $jj_const); ?>">
