@@ -421,7 +421,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="toolbar_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
+	<param name="toolbar_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
 	</param>
@@ -471,7 +471,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>			
 	</param>
-	<param name="masthead_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
+	<param name="masthead_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
 	</param>
@@ -514,7 +514,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>			
 	</param>
-	<param name="subhead_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
+	<param name="subhead_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
 	</param>
@@ -553,7 +553,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>			
 	</param>
-	<param name="topnav_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
+	<param name="topnav_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
 	</param>
@@ -599,7 +599,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>		
 	</param>
-	<param name="topshelf_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
+	<param name="topshelf_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
 	</param>
@@ -642,7 +642,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="bottomshelf_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
+	<param name="bottomshelf_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
 	</param>
@@ -683,7 +683,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="user1_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
+	<param name="user1_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
 	</param>
@@ -717,7 +717,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="user2_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
+	<param name="user2_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
 	</param>
@@ -749,7 +749,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="inset1_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
+	<param name="inset1_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
 	</param>
@@ -775,7 +775,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="inset2_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
+	<param name="inset2_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
 	</param>
@@ -801,7 +801,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="inset3_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
+	<param name="inset3_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
 	</param>
@@ -827,7 +827,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="inset4_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
+	<param name="inset4_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
 	</param>
@@ -881,7 +881,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="splitleft_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
+	<param name="splitleft_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
 	</param>
@@ -901,7 +901,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="topleft_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
+	<param name="topleft_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
 	</param>
@@ -921,7 +921,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="left_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
+	<param name="left_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
 	</param>
@@ -940,7 +940,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="bottomleft_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
+	<param name="bottomleft_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
 	</param>
@@ -975,7 +975,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="splitright_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
+	<param name="splitright_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
 	</param>
@@ -995,7 +995,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="topright_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
+	<param name="topright_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
 	</param>
@@ -1015,7 +1015,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="right_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
+	<param name="right_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
 	</param>
@@ -1035,7 +1035,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="bottomright_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
+	<param name="bottomright_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
 	</param>
@@ -1068,7 +1068,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="footer_module_inner" type="list" default="content" label="Module inner wrap" tooltip="modal" description="modinner.html">
+	<param name="footer_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
 	</param>
