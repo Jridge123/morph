@@ -28,10 +28,10 @@ function fontSize(container, target, minSize, defSize, maxSize) {
 	
 	
 	//Now we'll add the font size changer interface in container
-	smallFontHtml = "<a href='javascript:void(0);' class='smallFont' title='" + minCaption +"'>-</a> ";
-	defFontHtml = "<a href='javascript:void(0);' class='defaultFont' title='" + defCaption +"'>#</a> ";
-	largeFontHtml = "<a href='javascript:void(0);' class='largeFont' title='" + maxCaption +"'>+</a> ";
-	jQuery(container).html(smallFontHtml + defFontHtml + largeFontHtml);
+	smallFontHtml = "<a href='javascript:void(0);' class='smallFont' title='" + minCaption +"'>Decrease</a> ";
+	defFontHtml = "<a href='javascript:void(0);' class='defaultFont' title='" + defCaption +"'>Reset</a> ";
+	largeFontHtml = "<a href='javascript:void(0);' class='largeFont' title='" + maxCaption +"'>Increase</a> ";
+	jQuery(container).html('Text size' + smallFontHtml + defFontHtml + largeFontHtml);
 	
 	//Read cookie & sets the fontsize
 	if (jQuery.cookie != undefined) {
