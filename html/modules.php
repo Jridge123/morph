@@ -101,9 +101,9 @@ if ($pub_modules[0]->id == $module->id) {
 	$posSuffix = ' '.$params->get('moduleclass_sfx');
 } ?>
 <div class="<?php if ($module->showtitle == 0) { ?>noheading <?php } ?>mod mod-basic<?php echo $posSuffix; ?>" id="mod<?php echo $module->id; ?>">
-	<?php if(isset($innerwrap) && $innerwrap == 'both'){ ?><div class="modinner"><?php } ?>
+	<?php if(isset($innerwrap) && $innerwrap == 1){ ?><div class="modinner"><?php } ?>
 	<?php if ($module->showtitle != 0) : ?><h3 class="modhead"><span class="icon"></span><?php echo moduleHeadings($module->title); ?></h3><?php endif; ?>
-	<?php if(isset($innerwrap) && $innerwrap == 'content' || !isset($innerwrap)){ ?><div class="modinner"><?php } ?>
+	<?php if(isset($innerwrap) && $innerwrap == 2 || !isset($innerwrap)){ ?><div class="modinner"><?php } ?>
 		<?php echo $module->content; ?>
 	</div>
 </div>
@@ -113,7 +113,7 @@ function modChrome_grid($module, &$params, &$attribs) {
 $pub_modules = JModuleHelper::getModules($module->position);
 
 $db = JFactory::getDBO();
-$query = "SELECT param_value FROM `#__configurator` WHERE `param_name` = '".$module->position."_chrome_inner';";
+$query = "SELECT param_value FROM `#__configurator` WHERE `param_name` = '".$module->position."_module_inner';";
 $db->setQuery( $query ); $innerwrap = $db->loadResult();
 
 if ($pub_modules[0]->id == $module->id) {
@@ -124,9 +124,9 @@ if ($pub_modules[0]->id == $module->id) {
 	$posSuffix = ' '.$params->get('moduleclass_sfx');
 } ?>
 	<div class="mod mod-grid yui-u<?php echo $posSuffix; ?>" id="mod<?php echo $module->id; ?>">
-		<?php if(isset($innerwrap) && $innerwrap == 'both'){ ?><div class="modinner"><?php } ?>
+		<?php if(isset($innerwrap) && $innerwrap == 1){ ?><div class="modinner"><?php } ?>
 		<?php if ($module->showtitle != 0) : ?><h3 class="modhead"><span class="icon"></span><?php echo moduleHeadings($module->title); ?></h3><?php endif; ?>
-		<?php if(isset($innerwrap) && $innerwrap == 'content' || !isset($innerwrap)){ ?><div class="modinner"><?php } ?>
+		<?php if(isset($innerwrap) && $innerwrap == 2 || !isset($innerwrap)){ ?><div class="modinner"><?php } ?>
 			<?php echo $module->content; ?>
 		</div>
 	</div>
