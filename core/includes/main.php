@@ -19,12 +19,12 @@
 						<?php $position = 'inset3'; include dirname(__FILE__) . '/../morphBlockClasses.php'; echo blocks($position, $this, $jj_const, $classes, '', $debug_modules, $nojs); ?>
 					</div>
 				</div>
-				<?php include_once("tertiary.php") ?>
+				<?php if($CurrentInnerScheme !== "gg") { include_once("tertiary.php"); ?><?php } ?>
 				<?php $position = 'inset4'; include dirname(__FILE__) . '/../morphBlockClasses.php'; echo blocks($position, $this, $jj_const, $classes, '', $debug_modules, $nojs); ?>
 			</div>
 		</div>
 	</div>
-	<?php include_once("secondary.php") ?>
+	<?php if($CurrentOuterScheme !== "10") { include_once("secondary.php"); ?><?php } ?>
 	<?php if($this->countModules('user2')) { ?><?php include_once("user2.php") ?><?php } ?>
 	</div>
 </div>

@@ -44,7 +44,8 @@ $innerPageSuffix = array (
 	'2' => 'gc',
 	'3' => 'gd',
 	'4' => 'ge',
-	'5' => 'gf'
+	'5' => 'gf',
+	'6' => 'gg'
 	);
 $innerSfxArr = (explode("inner",$pageclass));
 if (array_key_exists(1,$innerSfxArr)) {
