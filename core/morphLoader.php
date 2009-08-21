@@ -27,15 +27,12 @@ class morphLoader {
 
 		if( $template == null ) return;
 		
+		
 		// themelet settings
 		$db->setQuery("select param_value from #__configurator where param_name = 'themelet'");
 		$themelet_name = $db->loadResult();
-
-		if(isset($themelet_name)){
+		$themelet_params = array();
 		
-		}else{
-			$themelet_params = array();
-		}
 		
 		$db->setQuery( "SHOW TABLES LIKE '%configurator'" );
 		$morph_installed = $db->loadResult();
@@ -48,29 +45,36 @@ class morphLoader {
 			$params = array();
 		}
 
-// Get the parameters and their default values from the XML file.
-$xml_params = getTemplateParamList( dirname(__FILE__).DS.'morphDetails.xml', TRUE );
-// Convert to a associative array.
-foreach ($xml_params as $param) {
-$param = explode( '=', $param );
-$default_params[$param[0]] = $param[1];
-}
-// Replace default settings with any settings found in the DB.
-foreach( (array) $params as $param ) {
-$default_params[$param->param_name] = $param->param_value;
-}
-// Create class members dynamically to be used by template.
-foreach( $default_params as $key => $value ) {
-$this->$key = $value;
-}
-}
-
-function get($param_name=null) {
-if(!isset($param_name)) return null;
-return $this->$param_name;
-}
-
-}
-
+		
+		if(isset($themelet_name)) $themelet_params = getTemplateParamList( dirname(__FILE__).DS.'../../../morph_assets/themelets/'.$themelet_name.'/themeletDetails.xml', TRUE );
+		$xml_params = getTemplateParamList( dirname(__FILE__).DS.'morphDetails.xml', TRUE );
+		
+		foreach ($xml_params as $param) {
+		$param = explode( '=', $param );
+		$default_params[$param[0]] = $param[1];
+		}
+		
+		foreach ($themelet_params as $param) {
+		$param = explode( '=', $param );
+		$default_params[$param[0]] = $param[1];
+		}
+		
+		// Replace default settings with any settings found in the DB.
+		foreach( (array) $params as $param ) {
+		$default_params[$param->param_name] = $param->param_value;
+		}
+		// Create class members dynamically to be used by template.
+		foreach( $default_params as $key => $value ) {
+		$this->$key = $value;
+		}
+		}
+		
+		function get($param_name=null) {
+		if(!isset($param_name)) return null;
+		return $this->$param_name;
+		}
+		
+		}
+		
 $MORPH = new morphLoader( getTemplateName( dirname(__FILE__).DS.'morphDetails.xml' ) );
 ?>
