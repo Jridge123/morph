@@ -47,6 +47,7 @@ jQuery.noConflict();
 		$("#nav li:first").addClass("first");
 		$(".sidenav li:first-child").each(function(){ $(this).addClass("first"); });
 		$(".sidenav li:last-child").each(function(){ $(this).addClass("last"); });
+		$(".ui-tabs-nav li:first-child").each(function(){ $(this).addClass("first"); });
 		$("#secondary-content .module:first").addClass("firstmodule");
 		$("#secondary-content .module:last").addClass("lastmodule");
 		$("#tertiary-content .module:first").addClass("firstmodule");
