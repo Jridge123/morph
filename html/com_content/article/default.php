@@ -92,23 +92,25 @@ $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $
 	<?php  if (!$this->params->get('show_intro')) :	echo $this->article->event->afterDisplayTitle; endif; ?>
 
 	<!-- article body -->
-	<?php echo $this->article->event->beforeDisplayContent; ?>
 	<div class="article-body clearer" id="article">
+		<?php echo $this->article->event->beforeDisplayContent; ?>
+
 		<?php if (isset ($this->article->toc)) : ?>
 		<!-- article table of contents -->
-		<div class="article-toc">
-			<?php echo $this->article->toc; ?>
-		</div>
+		<?php echo $this->article->toc; ?>
 		<?php endif; ?>
 		
 		<!-- start content output -->
+		<div id="article-content">
 		<?php echo $this->article->text; ?>
-
+		
 		<?php if ( intval($this->article->modified) !=0 && $this->params->get('show_modify_date')) : ?>
 		<p class="modified"><?php echo JText::_( 'Last updated on:' ); ?> <?php echo JHTML::_('date', $this->article->modified, JText::_('%a, %d %b %y')); ?></p>
 		<?php endif; ?>
+		</div>
+		
+		<?php echo $this->article->event->afterDisplayContent; ?>
 	</div>
-	<?php echo $this->article->event->afterDisplayContent; ?>
 
 <div id="shareit-box">
 	<div id="shareit-header"></div>
