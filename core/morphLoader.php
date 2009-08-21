@@ -21,47 +21,60 @@ include_once ($morph_component_path . DS . "configurator.common.php");
 include_once ($morph_component_path . DS . "configurator.class.php");
 
 class morphLoader {
-  
-  function morphLoader( $template=null ) {
-      $database = JFactory::getDBO();
-      
-      if( !isset( $template ) ) return;
-      // Check if the Morph DB table exists (Morph installed).
-      $database->setQuery( "SHOW TABLES LIKE '%configurator'" );
-      $morph_installed = $database->loadResult();
-      if ( isset( $morph_installed ) ) {
-          // Load any saved settings.
-          $query = "SELECT * FROM #__configurator WHERE `template_name` = '{$template}'";
-          $database->setQuery( $query );
-          $params = $database->loadObjectList();
-      } else {
-          // Morph not installed or DB missing.
-          $params = array();
-      }
-      
-      // Get the parameters and their default values from the XML file.
-      $xml_params = getTemplateParamList( dirname(__FILE__).DS.'morphDetails.xml', TRUE );
-      // Convert to a associative array.
-      foreach ($xml_params as $param) {
-          $param = explode( '=', $param );
-          $default_params[$param[0]] = $param[1];
-      }
-      // Replace default settings with any settings found in the DB.
-      foreach( (array) $params as $param ) {
-          $default_params[$param->param_name] = $param->param_value;
-      }
-      // Create class members dynamically to be used by template.
-      foreach( $default_params as $key => $value ) {
-          $this->$key = $value;
-      }
-  }
-  
-  function get($param_name=null) {
-      if(!isset($param_name)) return null;
-      return $this->$param_name;
-  }
-  
-}
 
+	function morphLoader( $template=null ) {
+		$db = JFactory::getDBO();
+
+		if( $template == null ) return;
+		
+		
+		// themelet settings
+		$db->setQuery("select param_value from #__configurator where param_name = 'themelet'");
+		$themelet_name = $db->loadResult();
+		$themelet_params = array();
+		
+		
+		$db->setQuery( "SHOW TABLES LIKE '%configurator'" );
+		$morph_installed = $db->loadResult();
+
+		if ( isset( $morph_installed ) ) {
+			$query = "SELECT * FROM #__configurator WHERE `template_name` = '{$template}'";
+			$db->setQuery( $query );
+			$params = $db->loadObjectList();
+		} else {
+			$params = array();
+		}
+
+		
+		if(isset($themelet_name)) $themelet_params = getTemplateParamList( dirname(__FILE__).DS.'../../../morph_assets/themelets/'.$themelet_name.'/themeletDetails.xml', TRUE );
+		$xml_params = getTemplateParamList( dirname(__FILE__).DS.'morphDetails.xml', TRUE );
+		
+		foreach ($xml_params as $param) {
+		$param = explode( '=', $param );
+		$default_params[$param[0]] = $param[1];
+		}
+		
+		foreach ($themelet_params as $param) {
+		$param = explode( '=', $param );
+		$default_params[$param[0]] = $param[1];
+		}
+		
+		// Replace default settings with any settings found in the DB.
+		foreach( (array) $params as $param ) {
+		$default_params[$param->param_name] = $param->param_value;
+		}
+		// Create class members dynamically to be used by template.
+		foreach( $default_params as $key => $value ) {
+		$this->$key = $value;
+		}
+		}
+		
+		function get($param_name=null) {
+		if(!isset($param_name)) return null;
+		return $this->$param_name;
+		}
+		
+		}
+		
 $MORPH = new morphLoader( getTemplateName( dirname(__FILE__).DS.'morphDetails.xml' ) );
 ?>

@@ -19,33 +19,21 @@
 </params>
 
 <params addpath="/templates/morph/elements">
-	<param type="calendar" name="Calendar Param" default="" />
-	<param type="category" name="Category Param" default="" />
 	<param type="colorpicker" name="Color Picker Param" default="" />
-	<param type="editors" name="Editors Param" default="" />
 	<param type="filelist" name="Filelist Param" default="" />
 	<param type="folderlist" name="Folderlist Param" default="" />
-	<param type="themelet" name="Themelet Param" default="" />
-	<param type="helpsites" name="Helpsites Param" default="" />
 	<param type="heading" name="Heading Param" default="" />
 	<param type="imagelist" name="Imagelist Param" default="" />
-	<param type="languages" name="Languages Param" default="" />
 	<param type="list" name="List Param" default="" />
-	<param type="menu" name="Menu Param" default="" />
-	<param type="menuitem" name="Menuitem Param" default="" />
-	<param type="password" name="Password Param" default="" />
 	<param type="radio" name="Radio Param" default="" />
-	<param type="section" name="Section Param" default="" />
 	<param type="spacer" name="Spacer Param" default="" />
-	<param type="sql" name="SQL Param" default="" />
 	<param type="text" name="Text Param" default="" />
 	<param type="textarea" name="Textarea Param" default="" />
-	<param type="timezones" name="Timezones Param" default="" />
-	<param type="usergroup" name="Usergroup Param" default="" />
+	<param type="themelet" name="Themelet Param" default="" />
 </params>
 
 <params group="generaldata">
-	 <param name="themelet" type="themelet" default="light-base" label="Select themelet" directory="morph_assets/themelets" hide_none="false" hide_default="false" tooltip="inline" description="Select which themelet you would like to use. The themelets are stored in your templates assets folder. Use the Installer tab on the right to install new themelets." />
+	<param name="themelet" type="themelet" default="light-base" label="Select themelet" directory="morph_assets/themelets" hide_none="false" hide_default="false" tooltip="inline" description="Select which themelet you would like to use. The themelets are stored in your templates assets folder. Use the Installer tab on the right to install new themelets." />
 	<param name="site_width" type="list" default="doc4" label="Site width" tooltip="inline" description="Set your sites page width. The full width 100% option is a bit buggy at the moment - especially with the fixed 200px left and right sidebar layout defaults (ie, your inner and outer layouts).">
 		<option value="doc">750px</option>
 		<option value="doc2">950px</option>
