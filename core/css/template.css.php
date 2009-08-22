@@ -23,8 +23,8 @@ if( $pack_css == 1 ){
 //	} else {
 //		include('rtl.css');
 //	}
-	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/themelet.css');
 	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/modfx.css');
+	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/themelet.css');
 	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/joomla.css');
 	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/modules.css');
 	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/typo.css');
