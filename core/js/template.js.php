@@ -42,6 +42,7 @@ jQuery.noConflict();
 		    $(this).removeClass("focus");
 		    $(this).parents(".form-field").removeClass("cur");
 		});
+		$(".search-results li:odd").addClass("alt");		
 		$(".article-body p:first").addClass("teaser");
 		$(".module-previews .mod:odd").addClass("alt");		
 		$("#nav li:first").addClass("first");
