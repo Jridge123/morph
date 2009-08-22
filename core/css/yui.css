@@ -158,7 +158,7 @@ width:31.9%;
 .yui-t9 .yui-b{float:right;width:16.38461em;}
 .yui-t8 #yui-main .yui-b{margin-left:17.38461em;}
 .yui-t9 #yui-main .yui-b{margin-right:17.38461em;}
-.yui-t10 #yui-main .yui-b{margin-right:17.38461em;}
+.yui-t10 #yui-main .yui-b{margin:0;}
 
 /*YUI Modification to make inner layout fixed for doc1,doc2,doc4
 This adds new grid options gh & gi
