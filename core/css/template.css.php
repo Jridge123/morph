@@ -42,11 +42,17 @@ if( $pack_css == 1 ){
 <?php if ( $bg_image !== "Use themelets background") { ?>
 html body{<?php if ( $bg_color && $bg_color !== "default" ) { ?>background-color:#<?php echo $bg_color; ?>;<?php }; if ( $bg_image !== "default") { ?>background-image:url(../../../../morph_assets/backgrounds/<?php echo $bg_image; ?>);<?php } ?>background-repeat:<?php echo $bg_repeat; ?>;background-position:<?php echo $bg_position; ?>;background-attachment:<?php echo $bg_attachment; ?>;}
 <?php } ?>
+<?php if ( $masthead_height ) { ?>
+body #masthead{
+height:<?php echo $masthead_height; ?>;
+}
+<?php } ?>
 <?php if ( $logo_type == 0 ) { ?>
 #branding h1{
 position:absolute;
 top:<?php echo $logo_top; ?>;
 left:<?php echo $logo_left; ?>;
+z-index:<?php echo $logo_stack; ?>;
 margin:0;
 padding:0;
 font-weight:bold;
@@ -65,6 +71,7 @@ display:block;
 position:absolute;
 top:<?php echo $logo_top; ?>;
 left:<?php echo $logo_left; ?>;
+z-index:<?php echo $logo_stack; ?>;
 margin:0;
 padding:0;
 }
@@ -84,6 +91,7 @@ text-indent:-7998em;
 position:absolute;
 top:<?php echo $logo_top; ?>;
 left:<?php echo $logo_left; ?>;
+z-index:<?php echo $logo_stack; ?>;
 }
 <?php } ?>
 
@@ -94,6 +102,7 @@ left:<?php echo $logo_left; ?>;
 position:absolute;
 top:<?php echo $logo_top; ?>;
 left:<?php echo $logo_left; ?>;
+z-index:<?php echo $logo_stack; ?>;
 }
 <?php } ?>
 
@@ -106,6 +115,7 @@ left:<?php echo $logo_left; ?>;
 position:absolute;
 top:<?php echo $slogan_top; ?>;
 left:<?php echo $slogan_left; ?>;
+z-index:<?php echo $slogan_stack; ?>;
 }
 
 <?php } if ( $color_links && $color_links !== "#default" ) { ?>

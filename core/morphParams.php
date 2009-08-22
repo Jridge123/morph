@@ -38,6 +38,7 @@ $logo_fontfamily = $MORPH->logo_fontfamily;
 $logo_fontsize = $MORPH->logo_fontsize;
 $logo_top = $MORPH->logo_top;
 $logo_left = $MORPH->logo_left;
+$logo_stack = $MORPH->logo_stack;
 $display_slogan = $MORPH->display_slogan;
 $slogan_text = $MORPH->slogan_text;
 $slogan_textcolor = $MORPH->slogan_textcolor;
@@ -45,6 +46,7 @@ $slogan_fontfamily = $MORPH->slogan_fontfamily;
 $slogan_fontsize = $MORPH->slogan_fontsize;
 $slogan_top = $MORPH->slogan_top;
 $slogan_left = $MORPH->slogan_left;
+$slogan_stack = $MORPH->slogan_stack;
 
 // progressive enhancements
 $rounded_corners = $MORPH->rounded_corners;
@@ -107,6 +109,7 @@ $toolbar_modfx = $MORPH->toolbar_modfx;
 // masthead block
 $masthead_wrap = $MORPH->masthead_wrap;
 $masthead_inner = $MORPH->masthead_inner;
+$masthead_height = $MORPH->masthead_height;
 $masthead_chrome = $MORPH->masthead_chrome;
 $masthead_module_inner = $MORPH->masthead_module_inner;
 $masthead_gridsplit = $MORPH->masthead_gridsplit;
