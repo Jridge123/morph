@@ -1,7 +1,7 @@
 <?php defined('_JEXEC') or die('Restricted access'); ?>
 
 <?php if ( $this->params->get( 'show_page_title', 1 ) ) : ?>
-<h1 class="componentheading<?php echo $this->params->get( 'pageclass_sfx' ); ?>">
+<h1 class="componentheading">
 	<?php echo $this->params->get( 'page_title' ); ?>
 </h1>
 <?php endif; ?>

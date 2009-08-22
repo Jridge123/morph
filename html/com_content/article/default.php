@@ -49,7 +49,7 @@ $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $
 			<?php if (($this->params->get('show_author')) && ($this->article->author != "")) : ?>
 				<span class="author">Written by <strong><?php JText::printf($this->article->created_by_alias ? $this->article->created_by_alias : $this->article->author); ?></strong></span>
 			<?php endif; ?>
-			<?php if ($this->params->get('show_create_date')) : ?>
+			<?php if ($this->params->get('show_create_date') && $this->params->get('show_author')) : ?>
 				<span class="sep">&nbsp;|&nbsp;</span>
 			<?php endif; ?>
 			<?php if ($this->params->get('show_create_date')) : ?>

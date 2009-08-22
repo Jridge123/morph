@@ -34,11 +34,11 @@ class articleIcons{
 		$url .= '&id='.$article->slug.'&format=pdf';
 		$status = 'status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=640,height=480,directories=no,location=no';
 		if ($params->get('show_icons')) {
-			$text = '<span class="pdf-icon">'.JText::_('PDF').'</span>';
+			$text = '<span class="pdf-icon">'.JText::_('Pdf').'</span>';
 		} else {
-			$text = JText::_('PDF');
+			$text = JText::_('Pdf');
 		}
-		$attribs['title']	= JText::_( 'PDF' );
+		$attribs['title']	= JText::_( 'Pdf' );
 		$attribs['onclick'] = "window.open(this.href,'win2','".$status."'); return false;";
 		$attribs['rel']     = 'nofollow';
 
