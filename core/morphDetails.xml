@@ -415,6 +415,7 @@
 	<param name="toolbar_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
+		<option value="0">None</option>
 	</param>
 	<param name="toolbar_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
 		<option value="yui-g">Default (50/50)</option>
@@ -466,6 +467,7 @@
 	<param name="masthead_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
+		<option value="0">None</option>
 	</param>
 	<param name="masthead_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
 		<option value="yui-g">Default (50/50)</option>
@@ -509,6 +511,7 @@
 	<param name="subhead_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
+		<option value="0">None</option>
 	</param>
 	<param name="subhead_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
 		<option value="yui-g">Default (50/50)</option>
@@ -548,6 +551,7 @@
 	<param name="topnav_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
+		<option value="0">None</option>
 	</param>
 	<param name="topnav_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
 		<option value="yui-g">Default (50/50)</option>
@@ -594,6 +598,7 @@
 	<param name="topshelf_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
+		<option value="0">None</option>
 	</param>
 	<param name="topshelf_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
 		<option value="yui-g">Default (50/50)</option>
@@ -637,6 +642,7 @@
 	<param name="bottomshelf_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
+		<option value="0">None</option>
 	</param>
 	<param name="bottomshelf_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
 		<option value="yui-g">Default (50/50)</option>
@@ -678,6 +684,7 @@
 	<param name="user1_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
+		<option value="0">None</option>
 	</param>
 	<param name="user1_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
 		<option value="yui-g">Default (50/50)</option>
@@ -712,6 +719,7 @@
 	<param name="user2_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
+		<option value="0">None</option>
 	</param>
 	<param name="user2_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
 		<option value="yui-g">Default (50/50)</option>
@@ -744,6 +752,7 @@
 	<param name="inset1_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
+		<option value="0">None</option>
 	</param>
 	<param name="inset1_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
 		<option value="yui-g">Default (50/50)</option>
@@ -770,6 +779,7 @@
 	<param name="inset2_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
+		<option value="0">None</option>
 	</param>
 	<param name="inset2_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
 		<option value="yui-g">Default (50/50)</option>
@@ -796,6 +806,7 @@
 	<param name="inset3_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
+		<option value="0">None</option>
 	</param>
 	<param name="inset3_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
 		<option value="yui-g">Default (50/50)</option>
@@ -822,6 +833,7 @@
 	<param name="inset4_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
+		<option value="0">None</option>
 	</param>
 	<param name="inset4_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
 		<option value="yui-g">Default (50/50)</option>
@@ -877,6 +889,7 @@
 	<param name="splitleft_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
+		<option value="0">None</option>
 	</param>
 	<param name="splitleft_equalize" type="radio" default="0" label="Equalize modules" tooltip="modal" description="equalize.html">
 		<option value="1">Yes</option>
@@ -897,6 +910,7 @@
 	<param name="topleft_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
+		<option value="0">None</option>
 	</param>
 	<param name="topleft_equalize" type="radio" default="0" label="Equalize modules" tooltip="modal" description="equalize.html">
 		<option value="1">Yes</option>
@@ -917,6 +931,7 @@
 	<param name="left_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
+		<option value="0">None</option>
 	</param>
 	<param name="left_equalize" type="radio" default="0" label="Equalize modules" tooltip="modal" description="equalize.html">
 		<option value="1">Yes</option>
@@ -936,6 +951,7 @@
 	<param name="bottomleft_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
+		<option value="0">None</option>
 	</param>
 	<param name="bottomleft_equalize" type="radio" default="0" label="Equalize modules" tooltip="modal" description="equalize.html">
 		<option value="1">Yes</option>
@@ -972,6 +988,7 @@
 	<param name="splitright_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
+		<option value="0">None</option>
 	</param>
 	<param name="splitright_equalize" type="radio" default="0" label="Equalize modules" tooltip="modal" description="equalize.html">
 		<option value="1">Yes</option>
@@ -992,6 +1009,7 @@
 	<param name="topright_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
+		<option value="0">None</option>
 	</param>
 	<param name="topright_equalize" type="radio" default="0" label="Equalize modules" tooltip="modal" description="equalize.html">
 		<option value="1">Yes</option>
@@ -1012,6 +1030,7 @@
 	<param name="right_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
+		<option value="0">None</option>
 	</param>
 	<param name="right_equalize" type="radio" default="0" label="Equalize modules" tooltip="modal" description="equalize.html">
 		<option value="1">Yes</option>
@@ -1032,6 +1051,7 @@
 	<param name="bottomright_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
+		<option value="0">None</option>
 	</param>
 	<param name="bottomright_equalize" type="radio" default="0" label="Equalize modules" tooltip="modal" description="equalize.html">
 		<option value="1">Yes</option>
@@ -1065,6 +1085,7 @@
 	<param name="footer_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
+		<option value="0">None</option>
 	</param>
 	<param name="footer_gridsplit" type="list" default="yui-g" label="Grid split" tooltip="modal" description="gridsplit.html">
 		<option value="yui-g">Default (50/50)</option>
