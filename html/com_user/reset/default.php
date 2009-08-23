@@ -15,3 +15,4 @@
 </ul>
 	<?php echo JHTML::_( 'form.token' ); ?>
 </form>
+</div>

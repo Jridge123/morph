@@ -1,5 +1,5 @@
 <?php defined('_JEXEC') or die; ?>
-
+<div id="login-wrap">
 <h1><?php echo JText::_('Reset your Password'); ?></h1>
 <p><?php echo JText::_('RESET_PASSWORD_COMPLETE_DESCRIPTION'); ?></p>
 
@@ -17,3 +17,4 @@
 		</ul>
 	<?php echo JHTML::_( 'form.token' ); ?>
 </form>
+</div>
