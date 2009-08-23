@@ -4,15 +4,15 @@ $cparams = JComponentHelper::getParams ('com_media');
 ?>
 
 <?php if ($this->params->get('show_page_title',1)) : ?>
-<h1 class="componentheading<?php echo $this->params->get('pageclass_sfx'); ?>">
+<h1 class="componentheading">
 	<?php echo $this->escape($this->params->get('page_title')); ?>
 </h1>
 <?php endif; ?>
 
 <?php if ($this->params->def('show_description', 1) || $this->params->def('show_description_image', 1)) : ?>
-<div class="contentdescription<?php echo $this->params->get('pageclass_sfx'); ?>">
+<div class="contentdescription">
 	<?php if ($this->params->get('show_description_image') && $this->section->image) : ?>
-	<img src="<?php echo $this->baseurl . '/' . $cparams->get('image_path').'/'.$this->section->image; ?>" class="image_<?php echo $this->section->image_position; ?>" />
+	<img src="<?php echo $this->baseurl . '/' . $cparams->get('image_path').'/'.$this->section->image; ?>" class="img-<?php echo $this->section->image_position; ?>" />
 	<?php endif; ?>
 
 	<?php if ($this->params->get('show_description') && $this->section->description) :

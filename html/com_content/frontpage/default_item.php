@@ -1,4 +1,4 @@
-<?php // no direct access
+<?php
 defined('_JEXEC') or die('Restricted access');
 include_once(dirname(__FILE__).DS.'..'.DS.'icon.php');
 

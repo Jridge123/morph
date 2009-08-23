@@ -4,18 +4,18 @@ $cparams = JComponentHelper::getParams ('com_media');
 ?>
 
 <?php if ($this->params->get('show_page_title')) : ?>
-<h1 class="componentheading <?php echo $this->params->get('pageclass_sfx'); ?>">
+<h1 class="componentheading">
 	<?php echo $this->escape($this->params->get('page_title')); ?>
 </h1>
 <?php endif; ?>
 
-<div class="blog <?php echo $this->params->get('pageclass_sfx'); ?>">
+<div class="blog">
 
 	<?php if ($this->params->def('show_description', 1) || $this->params->def('show_description_image', 1)) : ?>
-	<div class="contentdescription <?php echo $this->params->get('pageclass_sfx'); ?>">
+	<div class="content-description">
 
 		<?php if ($this->params->get('show_description_image') && $this->category->image) : ?>
-		<img src="<?php echo $this->baseurl . $cparams->get('image_path') . '/' . $this->category->image; ?>" class="image_<?php echo $this->category->image_position; ?>" />
+		<img src="<?php echo $this->baseurl . $cparams->get('image_path') . '/' . $this->category->image; ?>" class="image-<?php echo $this->category->image_position; ?>" />
 		<?php endif; ?>
 
 		<?php if ($this->params->get('show_description') && $this->category->description) :
@@ -32,11 +32,11 @@ $cparams = JComponentHelper::getParams ('com_media');
 	<?php $i = $this->pagination->limitstart;
 	$rowcount = $this->params->def('num_leading_articles', 1);
 	for ($y = 0; $y < $rowcount && $i < $this->total; $y++, $i++) : ?>
-		<div class="leading <?php echo $this->params->get('pageclass_sfx'); ?>">
+		<div class="leading">
 			<?php $this->item =& $this->getItem($i, $this->params);
 			echo $this->loadTemplate('item'); ?>
 		</div>
-		<span class="leading_separator <?php echo $this->params->get('pageclass_sfx'); ?>">&nbsp;</span>
+		<span class="leading-separator">&nbsp;</span>
 	<?php endfor; ?>
 
 	<?php $introcount = $this->params->def('num_intro_articles', 4);
@@ -48,36 +48,40 @@ $cparams = JComponentHelper::getParams ('com_media');
 		$rowcount = (int) $introcount / $colcount;
 		$ii = 0;
 		for ($y = 0; $y < $rowcount && $i < $this->total; $y++) : ?>
-			<div class="article_row <?php echo $this->params->get('pageclass_sfx'); ?>">
+			<div class="article-row">
 				<?php for ($z = 0; $z < $colcount && $ii < $introcount && $i < $this->total; $z++, $i++, $ii++) : ?>
-					<div class="article_column column<?php echo $z + 1; ?> cols<?php echo $colcount; ?>" >
+					<div class="article-column column<?php echo $z + 1; ?> cols<?php echo $colcount; ?>" >
 						<?php $this->item =& $this->getItem($i, $this->params);
 						echo $this->loadTemplate('item'); ?>
 					</div>
 					
 				<?php endfor; ?>
-				<span class="row_separator <?php echo $this->params->get('pageclass_sfx'); ?>">&nbsp;</span>
+				<span class="row-separator">&nbsp;</span>
 			</div>
 		<?php endfor;
 	endif; ?>
 
 	<?php $numlinks = $this->params->def('num_links', 4);
 	if ($numlinks && $i < $this->total) : ?>
-	<div class="blog_more <?php echo $this->params->get('pageclass_sfx'); ?>">
+	<div class="blog-more">
 		<?php $this->links = array_slice($this->items, $i - $this->pagination->limitstart, $i - $this->pagination->limitstart + $numlinks);
 		echo $this->loadTemplate('links'); ?>
 	</div>
 	<?php endif; ?>
 
+
+
 	<?php if ($this->params->def('show_pagination', 2) == 1  || ($this->params->get('show_pagination') == 2 && $this->pagination->get('pages.total') > 1)) : ?>
+	<div id="pagination-wrap">
 		<?php if( $this->pagination->get('pages.total') > 1 ) : ?>
-		<p class="counter">
+		<div class="pagination-links">
 			<?php echo $this->pagination->getPagesCounter(); ?>
-		</p>
+		</div>
 		<?php endif; ?>
 		<?php if ($this->params->def('show_pagination_results', 1)) : ?>
 			<?php echo $this->pagination->getPagesLinks(); ?>
 		<?php endif; ?>
+	</div>		
 	<?php endif; ?>
 
 </div>

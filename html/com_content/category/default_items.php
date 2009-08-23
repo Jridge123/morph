@@ -70,7 +70,7 @@ document.adminForm.submit( task );
 	<?php endif; ?>
 	<tbody>
 	<?php foreach ($this->items as $item) : ?>
-	<tr class="sectiontableentry<?php echo ($item->odd + 1) . $this->params->get('pageclass_sfx'); ?>">
+	<tr class="sectiontableentry<?php echo ($item->odd + 1); ?>">
 		<td headers="ct-count" class="ct-count">
 			<?php echo $this->pagination->getRowOffset($item->count); ?>
 		</td>
@@ -113,11 +113,13 @@ document.adminForm.submit( task );
 </table>
 
 <?php if ($this->params->get('show_pagination')) : ?>
-<p class="counter">
-	<?php echo $this->pagination->getPagesCounter(); ?>
-</p>
-<?php echo $this->pagination->getPagesLinks();
-endif; ?>
+<div id="pagination-wrap">
+	<div class="pagination-links">
+		<?php echo $this->pagination->getPagesCounter(); ?>
+	</div>
+	<?php echo $this->pagination->getPagesLinks(); ?>
+</div>
+<?php endif; ?>
 
 <input type="hidden" name="id" value="<?php echo $this->category->id; ?>" />
 <input type="hidden" name="sectionid" value="<?php echo $this->category->sectionid; ?>" />
