@@ -26,6 +26,6 @@
 	</div>
 	<?php if($CurrentOuterScheme !== "10") { include_once("secondary.php"); } ?>
 	<?php if($this->countModules('user2')) { include_once("user2.php"); } ?>
-	<?php if ( $main_inner == 1 ) { '</div>'; } ?>
+	<?php if ( $main_inner == 1 ) { ?></div><?php } ?>
 </div>
-<?php if ( $main_wrap == "1" ) { ?></div><?php } ?>
+<?php if ( $main_wrap == 1 ) { ?></div><?php } ?>
