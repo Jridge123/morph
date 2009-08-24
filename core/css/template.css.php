@@ -23,8 +23,6 @@ if( $pack_css == 1 ){
 //	} else {
 //		include('rtl.css');
 //	}
-	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/modfx.css');
-	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/themelet.css');
 	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/joomla.css');
 	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/modules.css');
 	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/typo.css');
@@ -36,6 +34,8 @@ if( $pack_css == 1 ){
 	if( $sidenav_count >= 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/sidenav-default.css');}
 	if( $sidefish >= 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/sidenav-sidefish.css');}
 	if( $simpleticker == 1 ) { include(JPATH . 'modules/mod_simpleticker/simpleticker/simpleticker.css');}
+	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/modfx.css');
+	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/themelet.css');
 	if( $custom_css == 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/custom.css');}
 }
 ?>
