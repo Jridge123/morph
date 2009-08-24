@@ -143,11 +143,11 @@
 	    <option value="'Lucida Console', Monaco, monospace">Lucida Console</option>
 	    <option value="'Comic Sans MS', cursive">Comic Sans MS</option>
 	</param>
-	<param name="logo_top" type="text" default="30px" label="Logo top position" tooltip="inline" description="Set your logos x-coordinate (ie, the number of pixels it should be positioned from the top." />
-	<param name="logo_left" type="text" default="0px" label="Logo left position" tooltip="inline" description="Set your logos y-coordinate (ie, the number of pixels it should be positioned from the left." />
+	<param name="logo_top" type="text" default="30px" label="Logo top position" tooltip="inline" description="Set your logos x-coordinate (ie, the number of pixels it should be positioned from the top.  You can set the amount as either pixels, em's or a percentage. For example 10px, 10em or 10%. Please note that no spaces should be used." />
+	<param name="logo_left" type="text" default="0px" label="Logo left position" tooltip="inline" description="Set your logos y-coordinate (ie, the number of pixels it should be positioned from the left.  You can set the amount as either pixels, em's or a percentage. For example 10px, 10em or 10%. Please note that no spaces should be used." />
 	<param name="logo_stack" type="text" default="2" label="Logo stacking order" tooltip="inline" description="Set the stacking order (z-index) of your sites logo." />	
 	
-	<param name="slogan heading" type="heading" label="Tagline Settings" description="" />
+	<param name="tagline heading" type="heading" label="Tagline Settings" description="" />
 	<param name="display_slogan" type="radio" default="1" label="Display tagline" tooltip="inline" description="Would you like to display a slogan.">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
@@ -218,8 +218,8 @@
 	    <option value="'Lucida Console', Monaco, monospace">Lucida Console</option>
 	    <option value="'Comic Sans MS', cursive">Comic Sans MS</option>
 	</param>
-	<param name="slogan_top" type="text" default="60px" label="Tagline top position" tooltip="inline" description="Set your slogan's x-coordinate (ie, the number of pixels it should be positioned from the top." />
-	<param name="slogan_left" type="text" default="0px" label="Tagline left position" tooltip="inline" description="Set your slogan's y-coordinate (ie, the number of pixels it should be positioned from the left." />
+	<param name="slogan_top" type="text" default="60px" label="Tagline top position" tooltip="inline" description="Set your slogan's x-coordinate (ie, the number of pixels it should be positioned from the top. You can set the amount as either pixels, em's or a percentage. For example 10px, 10em or 10%. Please note that no spaces should be used." />
+	<param name="slogan_left" type="text" default="0px" label="Tagline left position" tooltip="inline" description="Set your slogan's y-coordinate (ie, the number of pixels it should be positioned from the left. You can set the amount as either pixels, em's or a percentage. For example 10px, 10em or 10%. Please note that no spaces should be used." />
 	<param name="slogan_stack" type="text" default="1" label="Tagline stacking order" tooltip="inline" description="Set the stacking order (z-index) of your sites tagline." />	
 
 </params>
@@ -859,6 +859,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
+	<param name="pathway_text" type="textarea" default="You are here:" cols="32" rows="1" tooltip="inline" label="Pathway text" description="" />		
 </params>
 
 <params group="outer-sidebardata">	
