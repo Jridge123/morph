@@ -1071,7 +1071,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="footer_type" type="list" default="1" label="Footer type" tooltip="modal" description="footer.html">
+	<param name="footer_type" type="list" default="0" label="Footer type" tooltip="modal" description="footer.html">
 		<option value="0">Copyright, credits and links</option>
 		<option value="1">Module position</option>
 	</param>	
@@ -1083,7 +1083,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="footer_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
+	<param name="footer_module_inner" type="list" default="0" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
 		<option value="0">None</option>
