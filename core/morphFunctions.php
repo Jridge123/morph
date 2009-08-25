@@ -164,6 +164,9 @@ if($nojs != 1) {
 		if ( $simpleticker == 1 ) { 
 		$document->addScript($templatepath .'/core/js/jquery.innerfade.js');
 		}
+		if ( $google_analytics !== '' ) { 
+		$document->addScript($templatepath .'/core/js/jquery.googleanalytics.js');
+		}
 		$document->addScript($templatepath .'/core/js/template.js.php'.$packed_js);
 		if( $custom_js == 1 ){ $document->addScript($themeletpath .'/js/custom.js'); }
 	}else{

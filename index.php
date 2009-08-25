@@ -15,6 +15,11 @@ error_reporting(E_ALL ^ E_NOTICE);
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>">
 <head>
 <jdoc:include type="head" />
+<?php if ( $google_analytics !== "" ) { ?>
+<script type="text/javascript">
+$.trackPage('<?php echo $google_analytics; ?>')
+</script>
+<?php } ?>
 <?php if( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) { ?><meta name="viewport" content="width=320" /><?php } ?>
 <?php if(isIE6() && $hide_ie6toolbar == 1 ){ ?><meta http-equiv="imagetoolbar" content="no" /><?php } ?>
 </head>

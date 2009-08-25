@@ -25,6 +25,7 @@ if($pack_js == 1){
 	if ( $plugin_scrollto == 1 ) { include('jquery.scrollTo-1.4.2-min.js'); }
 	if ( $simpleticker == 1 ) { include('jquery.innerfade.js'); }
 	if ( $custom_js == 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/js/custom.js');}
+	if ( $google_analytics !== '' ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/js/jquery.googleanalytics.js');}
 	include('jquery.fontsizer.js');
 }
 ?>
