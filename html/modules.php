@@ -105,7 +105,7 @@ if ($pub_modules[0]->id == $module->id) {
 	<?php if ($module->showtitle != 0) : ?><h3 class="modhead"><span class="icon"></span><?php echo moduleHeadings($module->title); ?></h3><?php endif; ?>
 	<?php if(isset($innerwrap) && $innerwrap == 2 || !isset($innerwrap)){ ?><div class="modinner"><?php } ?>
 	<?php echo $module->content; ?>
-	<?php if(isset($innerwrap) && $innerwrap == 1 or $innerwrap == 2 ){ ?></div><?php } ?>
+	<?php if(isset($innerwrap) && $innerwrap == 1 || !isset($innerwrap)){ ?></div><?php } ?>
 </div>
 <?php }
 
@@ -128,7 +128,7 @@ if ($pub_modules[0]->id == $module->id) {
 		<?php if ($module->showtitle != 0) : ?><h3 class="modhead"><span class="icon"></span><?php echo moduleHeadings($module->title); ?></h3><?php endif; ?>
 		<?php if(isset($innerwrap) && $innerwrap == 2 || !isset($innerwrap)){ ?><div class="modinner"><?php } ?>
 		<?php echo $module->content; ?>
-		<?php if(isset($innerwrap) && $innerwrap == 1 or $innerwrap == 2 ){ ?></div><?php } ?>
+		<?php if(isset($innerwrap) && $innerwrap == 1 || !isset($innerwrap)){ ?></div><?php } ?>
 	</div>
 <?php }
 
