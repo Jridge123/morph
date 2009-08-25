@@ -70,16 +70,12 @@ $iphone_mode = $MORPH->iphone_mode;
 $iphone_header = $MORPH->iphone_header;
 $iphone_webclip = $MORPH->iphone_webclip;
 
-
-
 // performance
 $pack_css = $MORPH->pack_css;
 $pack_js = $MORPH->pack_js;
 $gzip_compression = $MORPH->gzip_compression;
 $load_mootools = $MORPH->load_mootools;
 $load_caption = $MORPH->load_caption;
-
-
 
 // Advanced Options
 $code_comments = $MORPH->code_comments;
@@ -89,8 +85,6 @@ $jquery_core = $MORPH->jquery_core;
 $debug_modules = $MORPH->debug_modules;
 $ie6_upgrade = $MORPH->ie6_upgrade;
 $google_analytics = $MORPH->google_analytics;
-
-
 
 // top block
 $toolbar_wrap = $MORPH->toolbar_wrap;
@@ -105,8 +99,6 @@ $toolbar_slider_text = $MORPH->toolbar_slider_text;
 $toolbar_show = $MORPH->toolbar_show;
 $toolbar_modfx = $MORPH->toolbar_modfx;
 
-
-
 // masthead block
 $masthead_wrap = $MORPH->masthead_wrap;
 $masthead_inner = $MORPH->masthead_inner;
@@ -119,8 +111,6 @@ $display_skipto = $MORPH->display_skipto;
 $masthead_modfx = $MORPH->masthead_modfx;
 $masthead_show = $MORPH->masthead_show;
 
-
-
 // subhead block
 $subhead_wrap = $MORPH->subhead_wrap;
 $subhead_inner = $MORPH->subhead_inner;
@@ -130,8 +120,6 @@ $subhead_gridsplit = $MORPH->subhead_gridsplit;
 $subhead_equalize = $MORPH->subhead_equalize;
 $subhead_modfx = $MORPH->subhead_modfx;
 $subhead_show = $MORPH->subhead_show;
-
-
 
 // navigation block
 $topnav_wrap = $MORPH->topnav_wrap;
@@ -143,8 +131,6 @@ $topnav_equalize = $MORPH->topnav_equalize;
 $topnav_modfx = $MORPH->topnav_modfx;
 $topnav_position = $MORPH->topnav_position;
 $topnav_show = $MORPH->topnav_show;
-
-
 
 // topshelf block
 $topshelf_wrap = $MORPH->topshelf_wrap;
@@ -158,8 +144,6 @@ $topshelf_slider_text = $MORPH->topshelf_slider_text;
 $topshelf_modfx = $MORPH->topshelf_modfx;
 $topshelf_show = $MORPH->topshelf_show;
 
-
-
 // bottom shelf block
 $bottomshelf_wrap = $MORPH->bottomshelf_wrap;
 $bottomshelf_inner = $MORPH->bottomshelf_inner;
@@ -172,8 +156,6 @@ $bottomshelf_slider_text = $MORPH->bottomshelf_slider_text;
 $bottomshelf_show = $MORPH->bottomshelf_show;
 $bottomshelf_modfx = $MORPH->bottomshelf_modfx;
 
-
-
 // user1 block
 $user1_inner = $MORPH->user1_inner;
 $user1_chrome = $MORPH->user1_chrome;
@@ -183,8 +165,6 @@ $user1_equalize = $MORPH->user1_equalize;
 $user1_show = $MORPH->user1_show;
 $user1_modfx = $MORPH->user1_modfx;
 
-
-
 // user2 block
 $user2_inner = $MORPH->user2_inner;
 $user2_chrome = $MORPH->user2_chrome;
@@ -193,8 +173,6 @@ $user2_gridsplit = $MORPH->user2_gridsplit;
 $user2_equalize = $MORPH->user2_equalize;
 $user2_show = $MORPH->user2_show;
 $user2_modfx = $MORPH->user2_modfx;
-
-
 
 // inset blocks
 $inset1_chrome = $MORPH->inset1_chrome;
@@ -221,14 +199,10 @@ $inset4_gridsplit = $MORPH->inset4_gridsplit;
 $inset4_equalize = $MORPH->inset4_equalize;
 $inset4_modfx = $MORPH->inset4_modfx;
 
-
-
 // main block
 $main_wrap = $MORPH->main_wrap;
 $main_inner = $MORPH->main_inner;
 $pathway_text = $MORPH->pathway_text;
-
-
 
 // secondary content
 $outer_default = $MORPH->outer_default;
@@ -254,8 +228,6 @@ $bottomleft_module_inner = $MORPH->bottomleft_module_inner;
 $bottomleft_equalize = $MORPH->bottomleft_equalize;
 $bottomleft_modfx = $MORPH->bottomleft_modfx;
 
-
-
 // tertiary content
 $inner_default = $MORPH->inner_default;
 $tertiary_inner = $MORPH->tertiary_inner;
@@ -280,8 +252,6 @@ $bottomright_module_inner = $MORPH->bottomright_module_inner;
 $bottomright_modfx = $MORPH->bottomright_modfx;
 $bottomright_equalize = $MORPH->bottomright_equalize;
 
-
-
 // Footer Block
 $footer_wrap = $MORPH->footer_wrap;
 $footer_type = $MORPH->footer_type;
@@ -300,8 +270,6 @@ $footer_rss = $MORPH->footer_rss;
 $footer_textcolor = $MORPH->footer_textcolor;
 $footer_linkscolor = $MORPH->footer_linkscolor;
 $footer_show = $MORPH->footer_show;
-
-
 
 //    Do not edit this line.
 $sideBarsScheme = array (
