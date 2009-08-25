@@ -48,7 +48,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="nojs" type="radio" default="0" label="Zero javascript mode" tooltip="inline" description="">
+	<param name="hide_ie6toolbar" type="radio" default="0" label="Disable ie6 image toolbar" tooltip="inline" description="">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
@@ -371,6 +371,10 @@
 		<option value="0">No</option>
 	</param>
 	<param name="load_caption" type="radio" default="0" label="Enable caption.js" tooltip="inline" description="Like the Mootools explaination above (hover over the Mootools tooltip), the caption.js is a file that is loaded by default in Joomla! 1.5, irrespective of whether it is actually being used. We have removed this from loading to improve the overall performance of your site.">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
+	<param name="nojs" type="radio" default="0" label="Zero javascript mode" tooltip="inline" description="">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>

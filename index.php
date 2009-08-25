@@ -16,6 +16,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 <head>
 <jdoc:include type="head" />
 <?php if( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) { ?><meta name="viewport" content="width=320" /><?php } ?>
+<?php if(isIE6() && $hide_ie6toolbar == 1 ){ ?><meta http-equiv="imagetoolbar" content="no" /><?php } ?>
 </head>
 <body class="js-disabled morph <?php echo "$lcbrowser $lcbrowser$ver"; if ($pageclass != ""){ echo ' '.$pageclass; } ?>"<?php if ($themelet != ""){ echo ' id="'.$themelet.'"'; } ?>>
 <?php 

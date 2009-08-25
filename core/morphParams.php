@@ -5,6 +5,7 @@ defined('_JEXEC') or die('Restricted access');
 $site_width = $MORPH->site_width;
 $themelet = $MORPH->themelet;
 $nojs = $MORPH->nojs;
+$hide_ie6toolbar = $MORPH->hide_ie6toolbar;
 
 // customization settings
 $bg_image = $MORPH->bg_image;
