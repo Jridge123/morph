@@ -104,8 +104,8 @@ if ($pub_modules[0]->id == $module->id) {
 	<?php if(isset($innerwrap) && $innerwrap == 1){ ?><div class="modinner"><?php } ?>
 	<?php if ($module->showtitle != 0) : ?><h3 class="modhead"><span class="icon"></span><?php echo moduleHeadings($module->title); ?></h3><?php endif; ?>
 	<?php if(isset($innerwrap) && $innerwrap == 2 || !isset($innerwrap)){ ?><div class="modinner"><?php } ?>
-		<?php echo $module->content; ?>
-	<?php if(isset($innerwrap) && $innerwrap !== 0 ){ ?></div><?php } ?>
+	<?php echo $module->content; ?>
+	<?php if(isset($innerwrap) && $innerwrap == 1 or $innerwrap == 2 ){ ?></div><?php } ?>
 </div>
 <?php }
 
@@ -127,8 +127,8 @@ if ($pub_modules[0]->id == $module->id) {
 		<?php if(isset($innerwrap) && $innerwrap == 1){ ?><div class="modinner"><?php } ?>
 		<?php if ($module->showtitle != 0) : ?><h3 class="modhead"><span class="icon"></span><?php echo moduleHeadings($module->title); ?></h3><?php endif; ?>
 		<?php if(isset($innerwrap) && $innerwrap == 2 || !isset($innerwrap)){ ?><div class="modinner"><?php } ?>
-			<?php echo $module->content; ?>
-		</div>
+		<?php echo $module->content; ?>
+		<?php if(isset($innerwrap) && $innerwrap == 1 or $innerwrap == 2 ){ ?></div><?php } ?>
 	</div>
 <?php }
 
