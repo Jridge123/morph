@@ -1,5 +1,5 @@
 <?php if ($this->countModules( 'splitleft or topleft or left or bottomleft' ) > 0) { ?>
-<div class="sidenav yui-b" id="secondary-content">
+<div class="sidebar yui-b" id="secondary-content">
  <?php if ( $secondary_inner == 1 ) { ?><div class="secondary-inner"><?php } ?>
     <?php
     if($this->countMenuChildren() || $this->countModules( 'splitleft' ) > 0 ) sidebar_module($splitleft_chrome, 'splitleft', $jj_const, $splitleft_modfx, $this, $nojs);
