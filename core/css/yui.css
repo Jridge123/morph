@@ -181,6 +181,9 @@ width:73%;}
 .doc1.yui-t3 #yui-main .yui-b .yui-gh #primary-content.yui-u.first,.doc1.yui-t6 #yui-main .yui-b .yui-gh #primary-content.yui-u.first{width:52%;}
 .doc1.yui-t1 #yui-main .yui-b .yui-gh #primary-content.yui-u.first,.doc1.yui-t2 #yui-main .yui-b .yui-gh #primary-content.yui-u.first,.doc1.yui-t4 #yui-main .yui-b .yui-gh #primary-content.yui-u.first{width:63%;}
 /*adjust widths if full ModFX is used in user1 and inset positions*/
+
+/* still being used or take out ??? - 
+
 .yui-gb .mod-fx.yui-u,
 .yui-g .yui-gb .mod-fx.yui-u,
 .yui-gb .mod-grid.yui-u,
@@ -195,25 +198,8 @@ width:73%;}
 .yui-gc .mod-grid.yui-u,
 .yui-gc .yui-g,
 .yui-gd .mod-fx.yui-u,
-.yui-gd .mod-grid.yui-u{margin-left:0;width:33.1%;}
-/*YUI Modification to create another grid style "gs" 
-which is 160px on the right*/
-/*first we float and set
-the exact width on the right block*/
-.yui-gs .yui-u{float:right;}
-.yui-gs .yui-u{width:13.4615em;}
-/*then we float and set
-the % width on the left (first) block*/
-.yui-gs .yui-u.first{float:left;}
-.doc.yui-gs .yui-u.first{width:76%;}
-.doc2.yui-gs .yui-u.first,
-.doc4.yui-gs .yui-u.first{width:81%;}
-.doc3.yui-gs .yui-u.first{width:82%;}
-/*if no search is published use full width*/
-.doc .yui-gs .yui-u.first.no_search,
-.doc2 .yui-gs .yui-u.first.no_search,
-.doc3 .yui-gs .yui-u.first.no_search,
-.doc4 .yui-gs .yui-u.first.no_search{width:100%;}
+.yui-gd .mod-grid.yui-u{margin-left:0;width:33.1%;}*/
+
 
 /* Chris tweaks */
 #primary-content .yui-g {
@@ -221,13 +207,13 @@ width:100%;
 }
 
 /* additional layout for 4 grids side by side */
-.yui-g4 .mod-fx.yui-u, .yui-g .yui-g4 .mod-fx.yui-u, .yui-g4 .mod-grid.yui-u, .yui-g .yui-g4 .mod-grid.yui-u, .yui-g4 .yui-g, .yui-g4 .yui-g4, .yui-g4 .yui-gc, .yui-g4 .yui-gd, .yui-g4 .yui-ge, .yui-g4 .yui-gf, .yui-gc .mod-fx.yui-u, .yui-gc .mod-grid.yui-u, .yui-gc .yui-g, .yui-gd .mod-fx.yui-u, .yui-gd .mod-grid.yui-u {
+.yui-g4 .mod-fx.yui-u, .yui-g .yui-g4 .mod-fx.yui-u, .yui-g4 .mod-grid.yui-u, .yui-g .yui-g4 .mod-grid.yui-u, .yui-g4 .yui-g, .yui-g4 .yui-g4, .yui-g4 .yui-gc, .yui-g4 .yui-gd, .yui-g4 .yui-ge, .yui-g4 .yui-gf {
 margin-left:0;
 width:24.3%;
 }
 
 /* additional layout for 5 grids side by side */
-.yui-g5 .mod-fx.yui-u, .yui-g .yui-g5 .mod-fx.yui-u, .yui-g5 .mod-grid.yui-u, .yui-g .yui-g5 .mod-grid.yui-u, .yui-g5 .yui-g, .yui-g5 .yui-g5, .yui-g5 .yui-gc, .yui-g5 .yui-gd, .yui-g5 .yui-ge, .yui-g5 .yui-gf, .yui-gc .mod-fx.yui-u, .yui-gc .mod-grid.yui-u, .yui-gc .yui-g, .yui-gd .mod-fx.yui-u, .yui-gd .mod-grid.yui-u {
+.yui-g5 .mod-fx.yui-u, .yui-g .yui-g5 .mod-fx.yui-u, .yui-g5 .mod-grid.yui-u, .yui-g .yui-g5 .mod-grid.yui-u, .yui-g5 .yui-g, .yui-g5 .yui-g5, .yui-g5 .yui-gc, .yui-g5 .yui-gd, .yui-g5 .yui-ge, .yui-g5 .yui-gf{
 margin-left:0;
 width:19.5%;
 }
