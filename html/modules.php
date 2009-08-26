@@ -101,10 +101,12 @@ if ($pub_modules[0]->id == $module->id) {
 	$posSuffix = ' '.$params->get('moduleclass_sfx');
 } ?>
 <div class="<?php if ($module->showtitle == 0) { ?>noheading <?php } ?>mod mod-basic<?php echo $posSuffix; ?>" id="mod<?php echo $module->id; ?>">
+	<?php if(isset($innerwrap) && $innerwrap == 1){ ?><div class="modinner"><?php } ?>
 	<?php if ($module->showtitle != 0) : ?><h3 class="modhead"><span class="icon"></span><?php echo moduleHeadings($module->title); ?></h3><?php endif; ?>
+	<?php if(isset($innerwrap) && $innerwrap == 2){ ?><div class="modinner"><?php } ?>
 		<div class="modinner">
 	<?php echo $module->content; ?>
-	</div>
+	<?php if(isset($innerwrap) && $innerwrap !== 0 ){ ?></div><?php } ?>
 </div>
 <?php }
 
@@ -122,13 +124,14 @@ if ($pub_modules[0]->id == $module->id) {
 } else {
 	$posSuffix = ' '.$params->get('moduleclass_sfx');
 } ?>
-	<div class="mod mod-grid yui-u<?php echo $posSuffix; ?>" id="mod<?php echo $module->id; ?>">
-		<?php if(isset($innerwrap) && $innerwrap == 1){ ?><div class="modinner"><?php } ?>
-		<?php if ($module->showtitle != 0) : ?><h3 class="modhead"><span class="icon"></span><?php echo moduleHeadings($module->title); ?></h3><?php endif; ?>
-		<div class="modinner">
-		<?php echo $module->content; ?>
-		</div>
-	</div>
+<div class="mod mod-grid yui-u<?php echo $posSuffix; ?>" id="mod<?php echo $module->id; ?>">
+	<?php if(isset($innerwrap) && $innerwrap == 1){ ?><div class="modinner"><?php } ?>
+	<?php if ($module->showtitle != 0) : ?><h3 class="modhead"><span class="icon"></span><?php echo moduleHeadings($module->title); ?></h3><?php endif; ?>
+	<?php if(isset($innerwrap) && $innerwrap == 2){ ?><div class="modinner"><?php } ?>
+	<div class="modinner">
+	<?php echo $module->content; ?>
+<?php if(isset($innerwrap) && $innerwrap !== 0 ){ ?></div><?php } ?>
+</div>
 <?php }
 
 function modChrome_tabs($module, &$params, &$attribs) {
