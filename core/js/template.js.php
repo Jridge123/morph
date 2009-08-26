@@ -47,8 +47,8 @@ jQuery.noConflict();
 		$(".article-body p:first").addClass("teaser");
 		$(".module-previews .mod:odd").addClass("alt");		
 		$("#nav li:first").addClass("first");
-		$(".sidenav li:first-child").each(function(){ $(this).addClass("first"); });
-		$(".sidenav li:last-child").each(function(){ $(this).addClass("last"); });
+		$(".sidebar li:first-child").each(function(){ $(this).addClass("first"); });
+		$(".sidebar li:last-child").each(function(){ $(this).addClass("last"); });
 
 		$("#footer-links .fl-left li:last").addClass("fl-last");
 		$("#footer-links .fl-right li:first").addClass("fl-first");		
