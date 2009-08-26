@@ -93,13 +93,14 @@ $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $
 	
 	<!-- date modified -->
 	<?php if ( intval($this->item->modified) != 0 && $this->item->params->get('show_modify_date')) : ?>
-		<span class="modified"><?php echo JText::_( 'Last Updated' ); ?>: <strong><?php echo JHTML::_('date', $this->item->modified, JText::_('%a, %d %b %y')); ?></strong></span>
+		<p class="modified"><?php echo JText::_( 'Last Updated' ); ?>: <strong><?php echo JHTML::_('date', $this->item->modified, JText::_('%a, %d %b %y')); ?></strong></p>
 	<?php endif; ?>
 	
 	
 	<!-- readon link -->
 	<?php if ($this->item->params->get('show_readmore') && $this->item->readmore) : ?>
-		<a href="<?php echo $this->item->readmore_link; ?>" class="readon">
+		<p class="readon">
+		<a href="<?php echo $this->item->readmore_link; ?>">
 			<?php if ($this->item->readmore_register) :
 				echo JText::_('Register to read more...');
 			elseif ($readmore = $this->item->params->get('readmore')) :
@@ -108,6 +109,7 @@ $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $
 				echo JText::sprintf('<span>Read</span> more');
 			endif; ?>
 		</a>
+		</p>
 	<?php endif; ?>
 
 <?php if ($this->item->state == 0) : ?>
