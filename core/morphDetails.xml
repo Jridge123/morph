@@ -753,7 +753,7 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="inset1_module_inner" type="list" default="2" label="Module inner wrap" tooltip="modal" description="modinner.html">
+	<param name="inset1_module_inner" type="list" default="0" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
 		<option value="0">None</option>
@@ -1122,10 +1122,6 @@
 		<option value="0">No</option>
 	</param>
 	<param name="footer_css" type="radio" default="1" label="Footer css validation link" tooltip="inline" description="Should the css validation link be displayed in the footer?">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="footer_rss" type="radio" default="1" label="Footer rss link" tooltip="inline" description="Should the dynamic rss link be displayed in the footer?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>

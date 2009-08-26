@@ -11,14 +11,12 @@
 			<li class="fl-left"><jdoc:include type="modules" name="footernav" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo 'none'; } ?>" /></li>
 			<li class="fl-right">
 				<ul>
-					<?php if ($footer_morphlink == "1") { ?><li class="morph-link">
+					<?php if ($footer_morphlink == 1) { ?><li class="morph-link">
 					<a target="_blank" href="http://www.joomlajunkie.com/morph">morph inside</a></li>
-					<?php } if ($footer_xhtml == "1") { ?><li class="w3c-valid-xhtml">
+					<?php } if ($footer_xhtml == 1) { ?><li class="w3c-valid-xhtml">
 					<a target="_blank" href="http://validator.w3.org/check?uri=<?php echo JURI::root() ?>">xhtml</a></li>
-					<?php } if ($footer_css == "1") { ?>
+					<?php } if ($footer_css == 1) { ?>
 					<li class="w3c-valid-css"><a target="_blank" href="http://jigsaw.w3.org/css-validator/validator?uri=<?php echo JURI::root() ?>">css</a></li>
-					<?php } if ($footer_rss == "1") { ?>
-					<li class="footer-rss"><jdoc:include type="modules" name="syndicate" /></li>
 					<?php } ?>
 				</ul>
 			</li>
@@ -33,7 +31,6 @@
 
 	<div id="footer" class="<?php echo $site_width ?> <?php echo $footer_chrome ?> <?php getYuiSuffix('footer', $jj_const); ?>">
     	<jdoc:include type="modules" name="footer" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } elseif(isset($nojs) && $nojs == 1) { echo 'basic'; } else { echo $footer_chrome; } ?>" />
-
 	</div>
 	
 <?php } ?>

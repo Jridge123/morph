@@ -101,11 +101,10 @@ if ($pub_modules[0]->id == $module->id) {
 	$posSuffix = ' '.$params->get('moduleclass_sfx');
 } ?>
 <div class="<?php if ($module->showtitle == 0) { ?>noheading <?php } ?>mod mod-basic<?php echo $posSuffix; ?>" id="mod<?php echo $module->id; ?>">
-	<?php if(isset($innerwrap) && $innerwrap == 1){ ?><div class="modinner"><?php } ?>
 	<?php if ($module->showtitle != 0) : ?><h3 class="modhead"><span class="icon"></span><?php echo moduleHeadings($module->title); ?></h3><?php endif; ?>
-	<?php if(isset($innerwrap) && $innerwrap == 2 || !isset($innerwrap)){ ?><div class="modinner"><?php } ?>
+		<div class="modinner">
 	<?php echo $module->content; ?>
-	<?php if($innerwrap == 1 || $innerwrap == 2) { ?></div><?php } ?>
+	</div>
 </div>
 <?php }
 
@@ -126,9 +125,9 @@ if ($pub_modules[0]->id == $module->id) {
 	<div class="mod mod-grid yui-u<?php echo $posSuffix; ?>" id="mod<?php echo $module->id; ?>">
 		<?php if(isset($innerwrap) && $innerwrap == 1){ ?><div class="modinner"><?php } ?>
 		<?php if ($module->showtitle != 0) : ?><h3 class="modhead"><span class="icon"></span><?php echo moduleHeadings($module->title); ?></h3><?php endif; ?>
-		<?php if(isset($innerwrap) && $innerwrap == 2){ ?><div class="modinner"><?php } ?>
+		<div class="modinner">
 		<?php echo $module->content; ?>
-		<?php if($innerwrap == 1 || $innerwrap == 2) { ?></div><?php } ?>
+		</div>
 	</div>
 <?php }
 

@@ -49,6 +49,11 @@ jQuery.noConflict();
 		$("#nav li:first").addClass("first");
 		$(".sidenav li:first-child").each(function(){ $(this).addClass("first"); });
 		$(".sidenav li:last-child").each(function(){ $(this).addClass("last"); });
+
+		$("#footer-links .fl-left li:last").addClass("fl-last");
+		$("#footer-links .fl-right li:first").addClass("fl-first");		
+		$("#footer-links .fl-right li:last").addClass("fl-last");		
+		
 		$(".ui-tabs-nav li:first-child").each(function(){ $(this).addClass("first"); });
 		$("#secondary-content .module:first").addClass("firstmodule");
 		$("#secondary-content .module:last").addClass("lastmodule");
@@ -61,8 +66,7 @@ jQuery.noConflict();
 		$(".ui-tabs-panel").wrapInner("<div class='extra-box-border'></div>");
 		$(".ui-tabs-nav li").wrapInner("<span class='extra-tab-border'></span>");
 		$("input#mod_search_searchword").wrapInner("<div class='extra-search-border'></div>");
-		$("#footer-links .fl-left li:last").addClass("fl-last");
-		$("#footer-links .fl-right li:last").addClass("fl-last");	
+	
 		
 	//grab all the anchor tag with rel set to shareit
 	$('a[rel=shareit], #shareit-box').mouseenter(function() {		

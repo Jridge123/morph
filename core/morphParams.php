@@ -266,7 +266,6 @@ $footer_swish = $MORPH->footer_swish;
 $footer_morphlink = $MORPH->footer_morphlink;
 $footer_xhtml = $MORPH->footer_xhtml;
 $footer_css = $MORPH->footer_css;
-$footer_rss = $MORPH->footer_rss;
 $footer_textcolor = $MORPH->footer_textcolor;
 $footer_linkscolor = $MORPH->footer_linkscolor;
 $footer_show = $MORPH->footer_show;
