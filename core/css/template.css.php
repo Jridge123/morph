@@ -119,11 +119,11 @@ z-index:<?php echo $slogan_stack; ?>;
 }
 
 <?php } if ( $color_links && $color_links !== "#default" ) { ?>
-body a:link,body a:visited,body a:active{color:<?php echo $color_links; ?>;}
+body a:link,body a:visited,body a:active{color:#<?php echo $color_links; ?>;}
 <?php } if ( $color_linkshover && $color_linkshover !== "#default" ) { ?>
 body a:hover{color:#<?php echo $color_linkshover; ?>;}
 <?php } if ( $color_linksvisited && $color_linksvisited !== "#default" ) { ?>
-body a:visited{color:<?php echo $color_linksvisited; ?>;}
+body a:visited{color:#<?php echo $color_linksvisited; ?>;}
 <?php } if ( $color_h1 && $color_h1 !== "#default" ) { ?>#primary-content h1{color:#<?php echo $color_h1; ?>}
 <?php } if ( $color_h2 && $color_h2 !== "#default" ) { ?>#primary-content h2{color:#<?php echo $color_h2; ?>}
 <?php } if ( $color_h3 && $color_h3 !== "#default" ) { ?>#primary-content h3{color:#<?php echo $color_h3; ?>}
