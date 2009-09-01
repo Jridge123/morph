@@ -99,17 +99,19 @@ $tertiary_override			= $absolutepath."/html/tertiary.php";
 $foot_override				= $absolutepath."/html/foot.php";
 
 if($option !== 'com_user') {
-	if($user->get('guest') == 1 or $user->usertype == 'Registered' && $load_mootools == "0") {
+	if($user->get('guest') == 1 or $user->usertype == 'Registered' or $load_mootools == 0) {
 		$headerstuff = $this->getHeadData();
 		unset($headerstuff['scripts'][$this->baseurl.'/media/system/js/mootools.js']);
 		$this->setHeadData($headerstuff);
 	}
 }
-if($user->get('guest') == 1 or $user->usertype == 'Registered' && $load_caption == "0") {
+
+if($user->get('guest') == 1 or $user->usertype == 'Registered' && $load_caption == 0) {
 	$headerstuff = $this->getHeadData();
 	unset($headerstuff['scripts'][$this->baseurl.'/media/system/js/caption.js']);
 	$this->setHeadData($headerstuff);
 }
+
 if ( $remove_generator == 1 ) {
 $this->setGenerator(null);
 }function debug_chrome($pt_debug, $pt_mod_chrome){	if( $pt_debug == 1 ){ 		return 'outline'; 	} else { 		return $pt_mod_chrome; 	}}
