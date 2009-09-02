@@ -99,17 +99,19 @@ $tertiary_override			= $absolutepath."/html/tertiary.php";
 $foot_override				= $absolutepath."/html/foot.php";
 
 if($option !== 'com_user') {
-	if($user->get('guest') == 1 or $user->usertype == 'Registered' && $load_mootools == "0") {
+	if($user->get('guest') == 1 or $user->usertype == 'Registered' or $load_mootools == 0) {
 		$headerstuff = $this->getHeadData();
 		unset($headerstuff['scripts'][$this->baseurl.'/media/system/js/mootools.js']);
 		$this->setHeadData($headerstuff);
 	}
 }
-if($user->get('guest') == 1 or $user->usertype == 'Registered' && $load_caption == "0") {
+
+if($user->get('guest') == 1 or $user->usertype == 'Registered' && $load_caption == 0) {
 	$headerstuff = $this->getHeadData();
 	unset($headerstuff['scripts'][$this->baseurl.'/media/system/js/caption.js']);
 	$this->setHeadData($headerstuff);
 }
+
 if ( $remove_generator == 1 ) {
 $this->setGenerator(null);
 }function debug_chrome($pt_debug, $pt_mod_chrome){	if( $pt_debug == 1 ){ 		return 'outline'; 	} else { 		return $pt_mod_chrome; 	}}
@@ -378,13 +380,14 @@ function blocks($position, $glob, $jj_const, $classes, $site_width, $debug_modul
 	foreach($classes as $key => $val){
 		${$key} = $val;
 	}
+	$position_class = str_replace(array(1,2,3,4,5,6,7,8,9,10), '', $position);
 	
 	if($glob->countModules($position) && ${$position.'_show'} == 0 ){
 		if ( ${$position.'_wrap'} == 1 ) { ?><div id="<?php echo $position; ?>-wrap"><?php } ?>
 			<?php if ( ${$position.'_chrome'} == 'grid' ) { ?>
-			<div id="<?php echo $position; ?>" class="<?php echo $site_width ?> <?php getYuiSuffix($position, $jj_const); ?> clearer modcount<?php echo ${$position . '_count'}.' '.${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }?>">
+			<div id="<?php echo $position; ?>" class="<?php echo $position_class; ?> <?php echo $site_width ?> <?php getYuiSuffix($position, $jj_const); ?> clearer modcount<?php echo ${$position . '_count'}.' '.${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }?>">
 			<?php } else { ?>	
-			<div id="<?php echo $position; ?>" class="<?php echo $site_width ?> clearer modcount<?php echo ${$position . '_count'}.' '.${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }?>">
+			<div id="<?php echo $position; ?>" class="<?php echo $position_class; ?> <?php echo $site_width ?> clearer modcount<?php echo ${$position . '_count'}.' '.${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }?>">
 			<?php } ?>
 			<?php if ( ${$position.'_inner'} == 1 ) { ?><div id="<?php echo $position; ?>-inner"><?php } ?>
 			<?php if(${$position . '_chrome'} === 'tabs' or ${$position . '_chrome'} === 'accordion' ){ ?>

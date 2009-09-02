@@ -20,8 +20,8 @@
 						</div>
 					</div>
 					<?php if($CurrentInnerScheme !== "gg") { include_once("tertiary.php"); ?><?php } ?>
-					<?php $position = 'inset4'; include dirname(__FILE__) . '/../morphBlockClasses.php'; echo blocks($position, $this, $jj_const, $classes, '', $debug_modules, $nojs); ?>
 				</div>
+				<?php $position = 'inset4'; include dirname(__FILE__) . '/../morphBlockClasses.php'; echo blocks($position, $this, $jj_const, $classes, '', $debug_modules, $nojs); ?>
 			</div>
 		</div>
 		<?php if($CurrentOuterScheme !== "10") { include_once("secondary.php"); } ?>

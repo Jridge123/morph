@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<install version="1.5" type="template">
+<install version="1.5" type="template" method="upgrade">
 	<name>Morph</name>
 	<foldername>morph</foldername>
 	<creationDate>28 May 2009</creationDate>
@@ -7,7 +7,7 @@
 	<copyright>Commercial</copyright>
 	<authorEmail>noreply@joomlajunkie.com</authorEmail>
 	<authorUrl>htp://www.joomlajunkie.com</authorUrl>
-	<version>0.14</version>
+	<version>0.15</version>
 	<description>
 		<![CDATA[
 		<style type="text/css" media="screen">
