@@ -35,14 +35,14 @@ function modNewMainMenuXMLCallback(&$node, $args)
 	    	if($i == count($node->children())-1) {
 	    		$child->addAttribute('class', $node->attributes('class').' last');
 	    	}
-	    	$child->addAttribute('class', $node->attributes('class').' level'.$child->_attributes['level']);
+	    	//$child->addAttribute('class', $node->attributes('class').' level'.$child->_attributes['level']);
 	    	$i++;
 	 	}
 	}
 
 	if (($node->name() == 'li') && isset($node->ul)) {
 		$node->addAttribute('class', 'parent');
-		$node->addAttribute('class', $node->attributes('class').' level'.$node->_attributes['level']);
+		//$node->addAttribute('class', $node->attributes('class').' level'.$node->_attributes['level']);
 	}
 
 	if (isset($path) && in_array($node->attributes('id'), $path))
@@ -68,10 +68,16 @@ function modNewMainMenuXMLCallback(&$node, $args)
 	}
 
 	if (($node->name() == 'li') && ($id = $node->attributes('id'))) {
+	
 		if ($node->attributes('class')) {
 			$node->addAttribute('class', $node->attributes('class').' item'.$id);
 		} else {
 			$node->addAttribute('class', 'item'.$id);
+		}
+		foreach($node->children() as $child){
+			if($child->_level == '2' && $child->_name == 'a'){
+				$child->addAttribute('class', $node->attributes('class').' top-level');
+			}
 		}
 	}
 
@@ -87,3 +93,4 @@ function modNewMainMenuXMLCallback(&$node, $args)
 }
 
 modNewMainMenuHelper::render($params, 'modNewMainMenuXMLCallback');
+?>
