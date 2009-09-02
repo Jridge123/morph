@@ -54,8 +54,8 @@ jQuery.noConflict();
 		$("#footer-links .fl-right li:last").addClass("fl-last");		
 		
 		$(".ui-tabs-nav li:first-child").each(function(){ $(this).addClass("first"); });
-		$("#secondary-content .module:first").addClass("firstmodule");
-		$("#secondary-content .module:last").addClass("lastmodule");
+		$("#secondary-content .mod:first").addClass("firstmodule");
+		$("#secondary-content .mod:last").addClass("lastmodule");
 		$("#tertiary-content .module:first").addClass("firstmodule");
 		$(".article_separator:last").addClass("last");
 		$('img[align*=right]').addClass("img-right");
