@@ -55,6 +55,19 @@ $rounded_amount = $MORPH->rounded_amount;
 $equal_heights = $MORPH->equal_heights;
 $plugin_scrollto = $MORPH->plugin_scrollto;
 
+$captions_enabled = $MORPH->captions_enabled;
+$captions_speedover = $MORPH->captions_speedover;
+$captions_speedout = $MORPH->captions_speedout;
+$captions_delay = $MORPH->captions_delay;
+$captions_animation = $MORPH->captions_animation;
+$captions_prefix = $MORPH->captions_prefix;
+$captions_opacity = $MORPH->captions_opacity;
+$captions_position = $MORPH->captions_position;
+$captions_bgcolor = $MORPH->captions_bgcolor;
+$captions_bordercolor = $MORPH->captions_bordercolor;
+$captions_borderheight = $MORPH->captions_borderheight;
+$captions_textcolor = $MORPH->captions_textcolor;
+
 // menu settings
 $topnav_supersubs = $MORPH->topnav_supersubs;
 $topnav_hoverintent = $MORPH->topnav_hoverintent;
