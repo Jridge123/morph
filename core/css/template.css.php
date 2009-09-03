@@ -94,6 +94,7 @@ position:absolute;
 top:<?php echo $slogan_top; ?>;
 left:<?php echo $slogan_left; ?>;
 z-index:<?php echo $slogan_stack; ?>;
+margin:0;
 }
 <?php } if ( $color_links && $color_links !== "#default" ) { ?>
 body a:link,body a:visited,body a:active{color:#<?php echo $color_links; ?>;}
