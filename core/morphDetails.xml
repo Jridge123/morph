@@ -285,7 +285,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="captions_animation" type="radio" default="slide" label="Mouseout delay" tooltip="inline" description="Choose whether to animate the caption or have it always displayed.">
+	<param name="captions_animation" type="radio" default="slide" label="Caption animation" tooltip="inline" description="Choose whether to animate the caption or have it always displayed.">
 		<option value="slide">Slide effect</option>
 		<option value="always-on">Always show</option>
 	</param>
@@ -323,7 +323,7 @@
 		<option value="0.9">90%</option>
 		<option value="1">100%</option>
 	</param>	
-	<param name="captions_position" type="list" default="bottom" label="Captions position" tooltip="inline" description="Set the captions position to top or bottom.">
+	<param name="captions_position" type="list" default="bottom" label="Caption position" tooltip="inline" description="Set the captions position to top or bottom.">
 		<option value="top">Top</option>
 		<option value="bottom">Bottom</option>
 	</param>
