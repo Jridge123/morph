@@ -26,6 +26,7 @@ if($pack_js == 1){
 	if ( $simpleticker == 1 ) { include('jquery.innerfade.js'); }
 	if ( $google_analytics !== '' ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/js/jquery.googleanalytics.js');}
 	include('jquery.fontsizer.js');
+	include('captify.tiny.js');	
 }
 ?>
 jQuery.noConflict();
@@ -60,12 +61,39 @@ jQuery.noConflict();
 		$(".article_separator:last").addClass("last");
 		$('img[align*=right]').addClass("img-right");
 		$('img[align*=left]').addClass("img-left");
+		
 		$("table tr:even").addClass("alt");
 		$("#user1 .modinner").wrapInner("<div class='extra-border'></div>");
 		$(".ui-tabs-panel").wrapInner("<div class='extra-box-border'></div>");
 		$(".ui-tabs-nav li").wrapInner("<span class='extra-tab-border'></span>");
 		$("input#mod_search_searchword").wrapInner("<div class='extra-search-border'></div>");
-	
+    
+    	$('img.caption').captify({
+    		// all of these options are... optional
+    		// ---
+    		// speed of the mouseover effect
+    		speedOver: 'fast',
+    		// speed of the mouseout effect
+    		speedOut: 'normal',
+    		// how long to delay the hiding of the caption after mouseout (ms)
+    		hideDelay: 500,	
+    		// 'fade', 'slide', 'always-on'
+    		animation: 'slide',		
+    		// text/html to be placed at the beginning of every caption
+    		prefix: '',		
+    		// opacity of the caption on mouse over
+    		opacity: '0.7',					
+    		// the name of the CSS class to apply to the caption box
+    		className: 'caption-bottom',	
+    		// position of the caption (top or bottom)
+    		position: 'bottom',
+    		// caption span % of the image
+            //spanWidth: '10%'
+    	});
+		
+		$('.caption-wrapper img[align*=right]').removeAttr('align').parent().addClass('img-right').css('float','right');
+		$('.caption-wrapper img[align*=left]').removeAttr('align').parent().addClass('img-left').css('float','left');	
+		
 		
 	//grab all the anchor tag with rel set to shareit
 	$('a[rel=shareit], #shareit-box').mouseenter(function() {		

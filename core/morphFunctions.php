@@ -75,12 +75,14 @@ $dashes 					= "";
 $mod_chrome					= "";
 $ver 						= str_replace($dots , $dashes , $ver);
 $lcbrowser 					= strtolower($thebrowser);
+$css_firefox				= $absolutepath."/css/firefox.css";
+$css_safari					= $absolutepath."/css/safari.css";
+$css_opera					= $absolutepath."/css/opera.css";
+$css_chrome					= $absolutepath."/css/chrome.css";
+$css_ie					    = $absolutepath."/css/ie.css";
+$css_browsers				= $absolutepath."/css/browsers.css";
 $css_yui					= $absolutepath."/css/yui.css";
 $css_iphone					= $absolutepath."/css/iphone.css";
-$ie 						= $absolutepath."/css/ie.css";
-$ie6 						= $absolutepath."/css/ie6.css";
-$ie7 						= $absolutepath."/css/ie7.css";
-$ie8 						= $absolutepath."/css/ie8.css";
 $customcss					= $absolutepath."/css/custom.css";
 $customjs					= $absolutepath."/js/custom.js";
 $themeletfunctions			= $absolutepath."/custom.php";
@@ -224,6 +226,32 @@ if( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
 		$document->addStyleSheet($themeletpath .'/css/modfx.css');	
 		$document->addStyleSheet($themeletpath .'/css/themelet.css');
 		if( $custom_css == 1 ){ $document->addStyleSheet($themeletpath .'/css/custom.css');	}
+		
+		
+		
+		
+		
+		if( $lcbrowser == 'firefox' && file_exists($css_firefox) && is_readable($css_firefox) ) {
+		$document->addStyleSheet($themeletpath .'/css/themelet.css');
+		}
+		if( $lcbrowser == 'safari' && file_exists($css_safari) && is_readable($css_safari) ) {
+		$document->addStyleSheet($themeletpath .'/css/safari.css');
+		}
+		if( $lcbrowser == 'opera' && file_exists($css_opera) && is_readable($css_opera) ) {
+		$document->addStyleSheet($themeletpath .'/css/opera.css');
+		}
+		if( $lcbrowser == 'chrome' && file_exists($css_chrome) && is_readable($css_chrome) ) {
+		$document->addStyleSheet($themeletpath .'/css/chrome.css');
+		}
+		if( $lcbrowser == 'internetexplorer' && file_exists($css_ie) && is_readable($css_ie) ) {
+		$document->addStyleSheet($themeletpath .'/css/ie.css');
+		}
+		if( file_exists($css_browsers) && is_readable($css_browsers) ) {
+		$document->addStyleSheet($themeletpath .'/css/browsers.css');
+		}
+		
+		
+		
 	}else{
 		$document->addStyleSheet($templatepath .'/core/css/template.css.php'.$packed_css);
 	}
