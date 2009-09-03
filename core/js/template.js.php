@@ -11,29 +11,29 @@ header("content-type: text/javascript; charset: UTF-8");
 define('JPATH', str_replace('templates/morph/core/js', '', dirname(__FILE__)) . '/' );
 
 if($pack_js == 1){
-	if ( $jquery_core == 1 ) { include('jquery-1.3.2.min.js'); }
-	if ( $tabscount >= 1 or $accordionscount >= 1 ) { include('jquery.ui.core.js'); }
-	if ( $tabscount >= 1 ) { include('jquery.ui.tabs.js'); }
-	if ( $accordionscount >= 1 ) { include('jquery.ui.accordion.js'); }
-	if ( $tabscount >= 1 or $accordionscount >= 1 or $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1  ) { include('jquery.cookie.js'); }
-	if ( $rounded_corners == 1 or $roundedcount !== '0' ) { include('jquery.corners.js'); }
-	if ( $topnav_hoverintent == 1 ) { include("jquery.superfish.hoverintent.js"); }
-	if ( $sidefish >= 1 or $topfish >= 1 or $topdrop >= 1  ) { include('jquery.superfish.js'); }
-	if ( $topnav_supersubs == 1 ) { include("jquery.superfish.supersubs.js"); }
-	if ( $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1 ) { include('jquery.slider.js'); }
-	if ( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1 or $topleft_equalize == 1 ) { include('jquery.equalheights.js'); }
-	if ( $plugin_scrollto == 1 ) { include('jquery.scrollTo-1.4.2-min.js'); }
-	if ( $simpleticker == 1 ) { include('jquery.innerfade.js'); }
-	if ( $google_analytics !== '' ) { include('jquery.googleanalytics.js');}
-	if ( $captions_enabled == 1 ) { include('captify.tiny.js');	}
-	include('jquery.fontsizer.js');
+	if ( $jquery_core == 1 ) { include('jquery.js'); }
+	if ( $tabscount >= 1 or $accordionscount >= 1 ) { include('ui.js'); }
+	if ( $tabscount >= 1 ) { include('tabs.js'); }
+	if ( $accordionscount >= 1 ) { include('accordion.js'); }
+	if ( $tabscount >= 1 or $accordionscount >= 1 or $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1  ) { include('cookie.js'); }
+	if ( $rounded_corners == 1 or $roundedcount !== '0' ) { include('corners.js'); }
+	if ( $topnav_hoverintent == 1 ) { include("hoverintent.js"); }
+	if ( $sidefish >= 1 or $topfish >= 1 or $topdrop >= 1  ) { include('superfish.js'); }
+	if ( $topnav_supersubs == 1 ) { include("supersubs.js"); }
+	if ( $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1 ) { include('slider.js'); }
+	if ( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1 or $topleft_equalize == 1 ) { include('equalheights.js'); }
+	if ( $plugin_scrollto == 1 ) { include('scrollto.js'); }
+	if ( $simpleticker == 1 ) { include('innerfade.js'); }
+	if ( $google_analytics !== '' ) { include('googleanalytics.js');}
+	if ( $captions_enabled == 1 ) { include('captify.js');	}
+	include('fontsizer.js');
 }
 ?>
 jQuery.noConflict();
 (function($) {
 	$(document).ready(function(){
 		$("#topnav.call-for-action li:last").addClass("action-link");
-		$("#topnav.call-for-action li:last").prev("li").addClass("second-last")
+		$("#topnav.call-for-action li:last").prev("li").addClass("second-last");
 		$("body").removeClass("js-disabled").addClass("js-enabled"); 
 		$("input, textarea", $("form")).focus(function(){
 			$(this).addClass("focus");
@@ -164,7 +164,7 @@ jQuery.noConflict();
 		$('#top-link').click(function(e){ $.scrollTo(0,300); return false; });
 	<?php } ?>	
 		
-	fontSize("#fontsizer", "#article", 9, 12, 20);
+	    fontSize("#fontsizer", "#article", 9, 12, 20);
 
 		<?php if ( $toolbar_equalize == 1 ) { ?>$('#toolbar .modinner').equalHeights();
 		<?php } if ( $masthead_equalize == 1 ) { ?>$('#masthead .modinner').equalHeights();
@@ -231,7 +231,7 @@ jQuery.noConflict();
 		<?php } if ( $topnav_hoverfocus == 1 ) { ?>
 		$('#nav ul.menu ul').hover( function(){ $('#user1').fadeTo("fast", "0.1");},function(){	$('#user1').fadeTo("fast", "1"); } );
 		<?php } if ( $toolbar_slider or $topshelf_slider or $bottomshelf_slider ) {
-		include('jquery.slider.js'); ?>
+		include('slider.js'); ?>
 		<?php } if ( $tabscount > 0 ) { 
 		for($n=1; $n <= $tabscount; $n++){
 		echo "\n\t\t$('#tabs$n').tabs({fx: {opacity: 'toggle', duration: 1}, cookie: {expires: 7, path: '/'}});";
@@ -258,7 +258,7 @@ jQuery.noConflict();
 		}?>
 			
 			<?php if($pack_js == 1){
-			if ( $custom_js == 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/js/custom.js');}
+			if ( $custom_js == 1 ) { include($custom_js);}
 			}
 			?>
 

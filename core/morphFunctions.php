@@ -144,46 +144,47 @@ if(isset($_GET['unpackcss'])){
 if($nojs != 1) {
 	if ( isset($_COOKIE['unpackjs']) && $pack_js == 1 || isset($_COOKIE['unpackjs']) && $pack_js == 0 || !isset($_COOKIE['unpackjs']) && $pack_js == 0 ) {
 		if ( $jquery_core == 1 ) { 
-		    $document->addScript($templatepath .'/core/js/jquery-1.3.2.min.js');
+		    $document->addScript($templatepath .'/core/js/jquery.js');
 		}
 		if ( $tabscount >= 1 ) {
-			$document->addScript($templatepath .'/core/js/jquery.ui.core.js');
-			$document->addScript($templatepath .'/core/js/jquery.ui.tabs.js');
+			$document->addScript($templatepath .'/core/js/core.js');
+			$document->addScript($templatepath .'/core/js/tabs.js');
 		}
 		if ( $accordionscount >= 1 ) {
-			$document->addScript($templatepath .'/core/js/jquery.ui.core.js');
-			$document->addScript($templatepath .'/core/js/jquery.ui.accordion.js');
+			$document->addScript($templatepath .'/core/js/ui.js');
+			$document->addScript($templatepath .'/core/js/accordion.js');
 		}
 		if( $tabscount >= 1 or $accordionscount >= 1 or $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1 ) { 
-		    $document->addScript($templatepath .'/core/js/jquery.cookie.js'); 
+		    $document->addScript($templatepath .'/core/js/cookie.js'); 
 		}
 		if( $topfish >= 1 && $topnav_hoverintent == 1 ) { 
-		    $document->addScript($templatepath .'/core/js/jquery.superfish.hoverintent.js');
+		    $document->addScript($templatepath .'/core/js/hoverintent.js');
 		}
 		if( $sidefish >= 1 or $topfish >= 1  ) { 
-		    $document->addScript($templatepath .'/core/js/jquery.superfish.js');
+		    $document->addScript($templatepath .'/core/js/superfish.js');
 		}
 		if( $topfish >= 1 && $topnav_supersubs == 1 ) { 
-		    $document->addScript($templatepath .'/core/js/jquery.superfish.supersubs.js');
+		    $document->addScript($templatepath .'/core/js/supersubs.js');
 		}
 		if( $rounded_corners == 1 or $roundedcount !== 0 ) { 
-		    $document->addScript($templatepath .'/core/js/jquery.corners.js');
+		    $document->addScript($templatepath .'/core/js/corners.js');
 		}
 		if( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1  or $topleft_equalize == 1  ) { 
-		    $document->addScript($templatepath .'/core/js/jquery.equalheights.js'); 
+		    $document->addScript($templatepath .'/core/js/equalheights.js'); 
 		}
 		if ( $plugin_scrollto == 1 ) { 
-		    $document->addScript($templatepath .'/core/js/jquery.scrollTo-1.4.2-min.js');
+		    $document->addScript($templatepath .'/core/js/scrollto.js');
 		}
 		if ( $simpleticker == 1 ) { 
-		    $document->addScript($templatepath .'/core/js/jquery.innerfade.js');
+		    $document->addScript($templatepath .'/core/js/innerfade.js');
 		}
 		if ( $captions_enabled == 1 ) { 
-		    $document->addScript($templatepath .'/core/js/captify.tiny.js');
+		    $document->addScript($templatepath .'/core/js/captify.js');
 		}
 		if ( $google_analytics !== '' ) { 
-		    $document->addScript($templatepath .'/core/js/jquery.googleanalytics.js');
+		    $document->addScript($templatepath .'/core/js/googleanalytics.js');
 		}
+		    $document->addScript($templatepath .'/core/js/fontsizer.js');
 		    $document->addScript($templatepath .'/core/js/template.js.php'.$packed_js);
 		    
 		if( $custom_js == 1 ){ 
