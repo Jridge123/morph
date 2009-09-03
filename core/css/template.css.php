@@ -12,42 +12,37 @@ header("content-type: text/css; charset: UTF-8");
 define('JPATH', str_replace('templates/morph/core/css', '', dirname(__FILE__)) . '/' );
 
 if( $pack_css == 1 ){
-	if(file_exists($css_yui) && is_readable($css_yui)){
-		include($_SERVER['DOCUMENT_ROOT'] . '/' . $themeletpath.'/css/yui.css');
-	} else {
-		include('yui.css');
-	}
-
-//	if(file_exists($css_rtl) && is_readable($css_rtl) ){
-//		include($_SERVER['DOCUMENT_ROOT'] . '/' . $themeletpath . '/css/rtl.css');
-//	} else {
-//		include('rtl.css');
-//	}
+	if(file_exists($css_yui)){ include($css_yui); } else { include('yui.css'); }
 	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/joomla.css');
 	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/modules.css');
 	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/typo.css');
-	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/tabs.css');
-	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/accordions.css');
 	if( $topnav_count >= 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/topnav-default.css');}
 	if( $topfish >= 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/topnav-topfish.css');}
 	if( $topdrop >= 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/topnav-topdrop.css');}
 	if( $sidenav_count >= 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/sidenav-default.css');}
 	if( $sidefish >= 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/sidenav-sidefish.css');}
 	if( $simpleticker == 1 ) { include(JPATH . 'modules/mod_simpleticker/simpleticker/simpleticker.css');}
+	if($tabscount >= 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/tabs.css'); }
+	if($accordionscount >= 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/accordions.css'); }
 	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/modfx.css');
 	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/themelet.css');
-	if( $custom_css == 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/custom.css');}
+	if($direction == 'rtl' && file_exists($css_rtl)){ include($css_rtl); } elseif ($direction == 'rtl') { include('rtl.css'); }
+	if( $custom_css == 1 ){include($custom_css);}
+	if( $lcbrowser == 'firefox' && file_exists($css_firefox)) {include($css_firefox);}
+	if( $lcbrowser == 'safari' && file_exists($css_safari)) {include($css_safari);}
+	if( $lcbrowser == 'opera' && file_exists($css_opera)) {include($css_opera);}
+	if( $lcbrowser == 'chrome' && file_exists($css_chrome)) {include($css_chrome);}
+	if( $lcbrowser == 'internetexplorer' && file_exists($css_ie)) {include($css_ie);}
+	if(file_exists($css_browsers)){include($css_browsers);}
 }
 ?>
 <?php if ( $bg_image !== "Use themelets background") { ?>
 html body{<?php if ( $bg_color && $bg_color !== "default" ) { ?>background-color:#<?php echo $bg_color; ?>;<?php }; if ( $bg_image !== "default") { ?>background-image:url(../../../../morph_assets/backgrounds/<?php echo $bg_image; ?>);<?php } ?>background-repeat:<?php echo $bg_repeat; ?>;background-position:<?php echo $bg_position; ?>;background-attachment:<?php echo $bg_attachment; ?>;}
-<?php } ?>
-<?php if ( $masthead_height ) { ?>
+<?php } if ( $masthead_height ) { ?>
 body #masthead{
 height:<?php echo $masthead_height; ?>;
 }
-<?php } ?>
-<?php if ( $logo_type == 0 ) { ?>
+<?php } if ( $logo_type == 0 ) { ?>
 #branding h1{
 position:absolute;
 top:<?php echo $logo_top; ?>;
@@ -55,6 +50,8 @@ left:<?php echo $logo_left; ?>;
 z-index:<?php echo $logo_stack; ?>;
 margin:0;
 padding:0;
+width:<?php echo $logo_width; ?>px;
+height:<?php echo $logo_height; ?>px;
 font-weight:bold;
 }
 #branding h1 a{
@@ -63,10 +60,7 @@ font-size:<?php echo $logo_fontsize; ?>;
 <?php if ( $logo_textcolor !== "#default" ) { ?>color:<?php echo $logo_textcolor; ?>;<?php } ?>
 display:block;
 }
-<?php } ?>
-
-
-<?php if ( $logo_type == 1 ) { ?>
+<?php } if ( $logo_type == 1 ) { ?>
 #branding h1{
 position:absolute;
 top:<?php echo $logo_top; ?>;
@@ -83,31 +77,21 @@ background:transparent url(<?php echo $logo; ?>) no-repeat 0;
 display:block;
 text-indent:-7998em;
 }
-<?php } ?>
-
-
-<?php if ( $logo_type == 2 ) { ?>
+<?php } if ( $logo_type == 2 ) { ?>
 #branding.logotype-2 a.logo-img{
 position:absolute;
 top:<?php echo $logo_top; ?>;
 left:<?php echo $logo_left; ?>;
 z-index:<?php echo $logo_stack; ?>;
 }
-<?php } ?>
-
-
-
-<?php if ( $logo_type == 3 ) { ?>
+<?php } if ( $logo_type == 3 ) { ?>
 #branding #logo{
 position:absolute;
 top:<?php echo $logo_top; ?>;
 left:<?php echo $logo_left; ?>;
 z-index:<?php echo $logo_stack; ?>;
 }
-<?php } ?>
-
-
-<?php if ( $display_slogan == 1 ) { ?>
+<?php } if ( $display_slogan == 1 ) { ?>
 #branding .slogan{
 <?php if ( $slogan_fontfamily !== "" ) { ?>font-family:<?php echo $slogan_fontfamily; ?>;
 <?php } if ( $slogan_fontsize !== "" ) { ?>font-size:<?php echo $slogan_fontsize; ?>;
@@ -117,7 +101,6 @@ top:<?php echo $slogan_top; ?>;
 left:<?php echo $slogan_left; ?>;
 z-index:<?php echo $slogan_stack; ?>;
 }
-
 <?php } if ( $color_links && $color_links !== "#default" ) { ?>
 body a:link,body a:visited,body a:active{color:#<?php echo $color_links; ?>;}
 <?php } if ( $color_linkshover && $color_linkshover !== "#default" ) { ?>
