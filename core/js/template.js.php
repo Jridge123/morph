@@ -24,9 +24,9 @@ if($pack_js == 1){
 	if ( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1 or $topleft_equalize == 1 ) { include('jquery.equalheights.js'); }
 	if ( $plugin_scrollto == 1 ) { include('jquery.scrollTo-1.4.2-min.js'); }
 	if ( $simpleticker == 1 ) { include('jquery.innerfade.js'); }
-	if ( $google_analytics !== '' ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/js/jquery.googleanalytics.js');}
+	if ( $google_analytics !== '' ) { include('jquery.googleanalytics.js');}
+	if ( $captions_enabled == 1 ) { include('captify.tiny.js');	}
 	include('jquery.fontsizer.js');
-	include('captify.tiny.js');	
 }
 ?>
 jQuery.noConflict();
@@ -68,32 +68,20 @@ jQuery.noConflict();
 		$(".ui-tabs-nav li").wrapInner("<span class='extra-tab-border'></span>");
 		$("input#mod_search_searchword").wrapInner("<div class='extra-search-border'></div>");
     
+    
+    	<?php if ( $captions_enabled == 1 ) { ?>
     	$('img.caption').captify({
-    		// all of these options are... optional
-    		// ---
-    		// speed of the mouseover effect
-    		speedOver: 'fast',
-    		// speed of the mouseout effect
-    		speedOut: 'normal',
-    		// how long to delay the hiding of the caption after mouseout (ms)
-    		hideDelay: 500,	
-    		// 'fade', 'slide', 'always-on'
-    		animation: 'slide',		
-    		// text/html to be placed at the beginning of every caption
-    		prefix: '',		
-    		// opacity of the caption on mouse over
-    		opacity: '0.7',					
-    		// the name of the CSS class to apply to the caption box
-    		className: 'caption-bottom',	
-    		// position of the caption (top or bottom)
-    		position: 'bottom',
-    		// caption span % of the image
-            //spanWidth: '10%'
+    		speedOver: '<?php echo $captions_speedover; ?>',
+    		speedOut: '<?php echo $captions_speedout; ?>',
+    		hideDelay: '<?php echo $captions_delay; ?>',	
+    		animation: '<?php echo $captions_animation; ?>',		
+    		prefix: '<?php echo $captions_prefix; ?>',		
+    		opacity: '<?php echo $captions_opacity; ?>',					
+    		position: '<?php echo $captions_position; ?>',
     	});
-		
-		$('.caption-wrapper img[align*=right]').removeAttr('align').parent().addClass('img-right').css('float','right');
-		$('.caption-wrapper img[align*=left]').removeAttr('align').parent().addClass('img-left').css('float','left');	
-		
+    	$('.caption-wrapper img[align*=right]').removeAttr('align').parent().addClass('img-right').css('float','right');
+		$('.caption-wrapper img[align*=left]').removeAttr('align').parent().addClass('img-left').css('float','left');
+		<?php } ?>			
 		
 	//grab all the anchor tag with rel set to shareit
 	$('a[rel=shareit], #shareit-box').mouseenter(function() {		
@@ -178,7 +166,6 @@ jQuery.noConflict();
 		
 	fontSize("#fontsizer", "#article", 9, 12, 20);
 
-		
 		<?php if ( $toolbar_equalize == 1 ) { ?>$('#toolbar .modinner').equalHeights();
 		<?php } if ( $masthead_equalize == 1 ) { ?>$('#masthead .modinner').equalHeights();
 		<?php } if ( $subhead_equalize == 1 ) { ?>$('#subhead .modinner').equalHeights();

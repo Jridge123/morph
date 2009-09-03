@@ -1,5 +1,6 @@
 <?php
 include '../cssvars.php';
+header("content-type: text/css; charset: UTF-8");
 if ( $gzip_compression == 1 ) {
 	if(extension_loaded('zlib') && !ini_get('zlib.output_compression')){
 		if(!ob_start("ob_gzhandler")) ob_start();
@@ -8,34 +9,27 @@ if ( $gzip_compression == 1 ) {
 	}
 	header("cache-control: must-revalidate");	$offset = 60 * 10000;	$expire = "expires: " . gmdate("D, d M Y H:i:s", time() + $offset) . " GMT";	header($expire);
 }
-header("content-type: text/css; charset: UTF-8");
 define('JPATH', str_replace('templates/morph/core/css', '', dirname(__FILE__)) . '/' );
 
 if( $pack_css == 1 ){
 	if(file_exists($css_yui)){ include($css_yui); } else { include('yui.css'); }
-	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/joomla.css');
-	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/modules.css');
+    if( $topnav_count >= 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/topnav-default.css'); }
+    if( $topfish >= 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/topnav-topfish.css'); }
+    if( $topdrop >= 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/topnav-topdrop.css'); }
+    if( $sidenav_count >= 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/sidenav-default.css'); }
+    if( $sidefish >= 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/sidenav-sidefish.css'); }
+	if( $tabscount >= 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/tabs.css'); }
+    if( $accordionscount >= 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/accordions.css'); }
 	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/typo.css');
-	if( $topnav_count >= 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/topnav-default.css');}
-	if( $topfish >= 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/topnav-topfish.css');}
-	if( $topdrop >= 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/topnav-topdrop.css');}
-	if( $sidenav_count >= 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/sidenav-default.css');}
-	if( $sidefish >= 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/sidenav-sidefish.css');}
-	if( $simpleticker == 1 ) { include(JPATH . 'modules/mod_simpleticker/simpleticker/simpleticker.css');}
-	if($tabscount >= 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/tabs.css'); }
-	if($accordionscount >= 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/accordions.css'); }
-	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/modfx.css');
-	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/themelet.css');
-	if($direction == 'rtl' && file_exists($css_rtl)){ include($css_rtl); } elseif ($direction == 'rtl') { include('rtl.css'); }
-	if( $custom_css == 1 ){include($custom_css);}
-	if( $lcbrowser == 'firefox' && file_exists($css_firefox)) {include($css_firefox);}
-	if( $lcbrowser == 'safari' && file_exists($css_safari)) {include($css_safari);}
-	if( $lcbrowser == 'opera' && file_exists($css_opera)) {include($css_opera);}
-	if( $lcbrowser == 'chrome' && file_exists($css_chrome)) {include($css_chrome);}
-	if( $lcbrowser == 'internetexplorer' && file_exists($css_ie)) {include($css_ie);}
-	if(file_exists($css_browsers)){include($css_browsers);}
-}
-?>
+	include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/joomla.css');
+    include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/modules.css');
+    include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/modfx.css');
+    include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/themelet.css');
+   	if( $simpleticker == 1 ) { include(JPATH . 'modules/mod_simpleticker/simpleticker/simpleticker.css'); }
+} ?>
+
+<!-- dynamic css starts -->
+
 <?php if ( $bg_image !== "Use themelets background") { ?>
 html body{<?php if ( $bg_color && $bg_color !== "default" ) { ?>background-color:#<?php echo $bg_color; ?>;<?php }; if ( $bg_image !== "default") { ?>background-image:url(../../../../morph_assets/backgrounds/<?php echo $bg_image; ?>);<?php } ?>background-repeat:<?php echo $bg_repeat; ?>;background-position:<?php echo $bg_position; ?>;background-attachment:<?php echo $bg_attachment; ?>;}
 <?php } if ( $masthead_height ) { ?>
@@ -116,4 +110,21 @@ body a:visited{color:#<?php echo $color_linksvisited; ?>;}
 body{color:#<?php echo $color_bodytext; ?>;}
 <?php } if ( $footer_textcolor && $footer_textcolor !== "#default" ) { ?>#footer{color:<?php echo $footer_textcolor; ?>}
 <?php } if ( $footer_linkscolor && $footer_linkscolor !== "#default" ) { ?>#footer a,#footer a:link,#footer a:visited{color:<?php echo $footer_linkscolor; ?>}
-<?php } if ( $gzip_compression == 1 ) { ob_end_flush(); } ?>
+<?php } if ( $captions_enabled ) { ?>
+.caption-top,.caption-bottom{background:<?php echo $captions_bgcolor; ?>;color:<?php echo $captions_textcolor; ?>;}
+.caption-top{border-bottom:<?php echo $captions_borderheight; ?> solid <?php echo $captions_bordercolor; ?>;}
+.caption-bottom{border-top:<?php echo $captions_borderheight; ?> solid <?php echo $captions_bordercolor; ?>;}
+
+<!-- dynamic css ends -->
+
+<?php } if( $pack_css == 1 ){
+    if( $direction == 'rtl' && file_exists($css_rtl)){ include($css_rtl); } elseif ($direction == 'rtl') { include('rtl.css'); }
+    if( $custom_css == 1 ){ include($custom_css); }
+	if(file_exists($css_browsers)){ include($css_browsers); }
+    if( $lcbrowser == 'firefox' && file_exists($css_firefox)) { include($css_firefox); }
+    if( $lcbrowser == 'safari' && file_exists($css_safari)) { include($css_safari); }
+    if( $lcbrowser == 'opera' && file_exists($css_opera)) { include($css_opera); }
+    if( $lcbrowser == 'chrome' && file_exists($css_chrome)) { include($css_chrome); }
+    if( $lcbrowser == 'internetexplorer' && file_exists($css_ie)) { include($css_ie); }
+} 
+if ( $gzip_compression == 1 ) { ob_end_flush(); } ?>

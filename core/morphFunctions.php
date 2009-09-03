@@ -143,7 +143,9 @@ if(isset($_GET['unpackcss'])){
 
 if($nojs != 1) {
 	if ( isset($_COOKIE['unpackjs']) && $pack_js == 1 || isset($_COOKIE['unpackjs']) && $pack_js == 0 || !isset($_COOKIE['unpackjs']) && $pack_js == 0 ) {
-		if ( $jquery_core == 1 ) { $document->addScript($templatepath .'/core/js/jquery-1.3.2.min.js'); }
+		if ( $jquery_core == 1 ) { 
+		    $document->addScript($templatepath .'/core/js/jquery-1.3.2.min.js');
+		}
 		if ( $tabscount >= 1 ) {
 			$document->addScript($templatepath .'/core/js/jquery.ui.core.js');
 			$document->addScript($templatepath .'/core/js/jquery.ui.tabs.js');
@@ -153,26 +155,40 @@ if($nojs != 1) {
 			$document->addScript($templatepath .'/core/js/jquery.ui.accordion.js');
 		}
 		if( $tabscount >= 1 or $accordionscount >= 1 or $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1 ) { 
-		$document->addScript($templatepath .'/core/js/jquery.cookie.js'); 
+		    $document->addScript($templatepath .'/core/js/jquery.cookie.js'); 
 		}
-		if( $topfish >= 1 && $topnav_hoverintent == 1 ) { $document->addScript($templatepath .'/core/js/jquery.superfish.hoverintent.js');}
-		if( $sidefish >= 1 or $topfish >= 1  ) { $document->addScript($templatepath .'/core/js/jquery.superfish.js');	}
-		if( $topfish >= 1 && $topnav_supersubs == 1 ) { $document->addScript($templatepath .'/core/js/jquery.superfish.supersubs.js'); }
-		if( $rounded_corners == 1 or $roundedcount !== 0 ) { $document->addScript($templatepath .'/core/js/jquery.corners.js');	}
+		if( $topfish >= 1 && $topnav_hoverintent == 1 ) { 
+		    $document->addScript($templatepath .'/core/js/jquery.superfish.hoverintent.js');
+		}
+		if( $sidefish >= 1 or $topfish >= 1  ) { 
+		    $document->addScript($templatepath .'/core/js/jquery.superfish.js');
+		}
+		if( $topfish >= 1 && $topnav_supersubs == 1 ) { 
+		    $document->addScript($templatepath .'/core/js/jquery.superfish.supersubs.js');
+		}
+		if( $rounded_corners == 1 or $roundedcount !== 0 ) { 
+		    $document->addScript($templatepath .'/core/js/jquery.corners.js');
+		}
 		if( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1  or $topleft_equalize == 1  ) { 
-		$document->addScript($templatepath .'/core/js/jquery.equalheights.js'); 
+		    $document->addScript($templatepath .'/core/js/jquery.equalheights.js'); 
 		}
 		if ( $plugin_scrollto == 1 ) { 
-		$document->addScript($templatepath .'/core/js/jquery.scrollTo-1.4.2-min.js');
+		    $document->addScript($templatepath .'/core/js/jquery.scrollTo-1.4.2-min.js');
 		}
 		if ( $simpleticker == 1 ) { 
-		$document->addScript($templatepath .'/core/js/jquery.innerfade.js');
+		    $document->addScript($templatepath .'/core/js/jquery.innerfade.js');
+		}
+		if ( $captions_enabled == 1 ) { 
+		    $document->addScript($templatepath .'/core/js/captify.tiny.js');
 		}
 		if ( $google_analytics !== '' ) { 
-		$document->addScript($templatepath .'/core/js/jquery.googleanalytics.js');
+		    $document->addScript($templatepath .'/core/js/jquery.googleanalytics.js');
 		}
-		$document->addScript($templatepath .'/core/js/template.js.php'.$packed_js);
-		if( $custom_js == 1 ){ $document->addScript($themeletpath .'/js/custom.js'); }
+		    $document->addScript($templatepath .'/core/js/template.js.php'.$packed_js);
+		    
+		if( $custom_js == 1 ){ 
+		    $document->addScript($themeletpath .'/js/custom.js');
+		}
 	}else{
 		$document->addScript($templatepath .'/core/js/template.js.php'.$packed_js);
 	}
@@ -182,77 +198,34 @@ if($nojs != 1) {
 	}
 }
 
-
-if( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
-	if(file_exists($css_iphone) && is_readable($css_iphone)){
-		$document->addStyleSheet($themeletpath .'/css/iphone.css');
-	} else {
-		$document->addStyleSheet($templatepath .'/core/css/iphone.css');
-	}	
+if ( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
+	if ( file_exists($css_iphone)) { $document->addStyleSheet($css_iphone); } else { $document->addStyleSheet($templatepath .'/core/css/iphone.css'); }	
 } else {
-	// CSS Packing
 	if ( isset($_COOKIE['unpackcss']) && $pack_css == 1 || isset($_COOKIE['unpackcss']) && $pack_css == 0 || !isset($_COOKIE['unpackcss']) && $pack_css == 0 ) {
-	
-		$document->addStyleSheet($templatepath .'/core/css/template.css.php'.$packed_css);
-	
-		if(file_exists($css_yui) && is_readable($css_yui)){
-			$document->addStyleSheet($themeletpath .'/css/yui.css');
-		} else {
-			$document->addStyleSheet($templatepath .'/core/css/yui.css');
-		}
-		if($this->direction == 'rtl' ){
-			$document->addStyleSheet($themeletpath .'/core/css/rtl.css');
-		}	
+		if ( file_exists($css_yui)) { $document->addStyleSheet($css_yui); } else { $document->addStyleSheet($templatepath .'/core/css/yui.css'); }
+		if ( $topnav_count >= 1 ) { $document->addStyleSheet($themeletpath .'/css/topnav-default.css'); }
+		if ( $topfish >= 1 ) { $document->addStyleSheet($themeletpath .'/css/topnav-topfish.css'); }
+		if ( $topdrop >= 1 ) { $document->addStyleSheet($themeletpath .'/css/topnav-topdrop.css'); }
+		if ( $sidenav_count >= 1 ) { $document->addStyleSheet($themeletpath .'/css/sidenav-default.css'); }
+		if ( $sidefish >= 1 ) { $document->addStyleSheet($themeletpath .'/css/sidenav-sidefish.css'); }
+		if ( $tabscount >= 1 ) { $document->addStyleSheet($themeletpath .'/css/tabs.css'); }
+		if ( $accordionscount >= 1 ) { $document->addStyleSheet($themeletpath .'/css/accordions.css'); }
+		$document->addStyleSheet($themeletpath .'/css/typo.css');
 		$document->addStyleSheet($themeletpath .'/css/joomla.css');
 		$document->addStyleSheet($themeletpath .'/css/modules.css');
-		$document->addStyleSheet($themeletpath .'/css/typo.css');
-		$document->addStyleSheet($themeletpath .'/css/tabs.css');
-		$document->addStyleSheet($themeletpath .'/css/accordions.css');
-		if($topnav_count >= 1 ){
-			$document->addStyleSheet($themeletpath .'/css/topnav-default.css');
-		}
-		if($topfish >= 1 ){
-			$document->addStyleSheet($themeletpath .'/css/topnav-topfish.css');
-		}
-		if($topdrop >= 1 ){
-			$document->addStyleSheet($themeletpath .'/css/topnav-topdrop.css');
-		}
-		if($sidenav_count >= 1 ){
-			$document->addStyleSheet($themeletpath .'/css/sidenav-default.css');
-		}
-		if($sidefish >= 1 ){
-			$document->addStyleSheet($themeletpath .'/css/sidenav-sidefish.css');
-		}
 		$document->addStyleSheet($themeletpath .'/css/modfx.css');	
 		$document->addStyleSheet($themeletpath .'/css/themelet.css');
-		if( $custom_css == 1 ){ $document->addStyleSheet($themeletpath .'/css/custom.css');	}
-		
-		
-		
-		
-		
-		if( $lcbrowser == 'firefox' && file_exists($css_firefox) && is_readable($css_firefox) ) {
-		$document->addStyleSheet($themeletpath .'/css/themelet.css');
-		}
-		if( $lcbrowser == 'safari' && file_exists($css_safari) && is_readable($css_safari) ) {
-		$document->addStyleSheet($themeletpath .'/css/safari.css');
-		}
-		if( $lcbrowser == 'opera' && file_exists($css_opera) && is_readable($css_opera) ) {
-		$document->addStyleSheet($themeletpath .'/css/opera.css');
-		}
-		if( $lcbrowser == 'chrome' && file_exists($css_chrome) && is_readable($css_chrome) ) {
-		$document->addStyleSheet($themeletpath .'/css/chrome.css');
-		}
-		if( $lcbrowser == 'internetexplorer' && file_exists($css_ie) && is_readable($css_ie) ) {
-		$document->addStyleSheet($themeletpath .'/css/ie.css');
-		}
-		if( file_exists($css_browsers) && is_readable($css_browsers) ) {
-		$document->addStyleSheet($themeletpath .'/css/browsers.css');
-		}
-		
-		
-		
-	}else{
+		if ( $simpleticker == 1 ) { $document->addStyleSheet(JPATH . 'modules/mod_simpleticker/simpleticker/simpleticker.css'); }
+		$document->addStyleSheet($templatepath .'/core/css/template.css.php'.$packed_css);
+		if ( $direction == 'rtl' && file_exists($css_rtl)){ $document->addStyleSheet($css_rtl); } elseif ($direction == 'rtl') { $document->addStyleSheet($themeletpath .'/core/css/rtl.css'); }
+		if ( file_exists($custom_css)) { $document->addStyleSheet($custom_css); }
+		if ( file_exists($css_browsers)) { $document->addStyleSheet($css_browsers); }		
+		if ( $lcbrowser == 'firefox' && file_exists($css_firefox)) {	$document->addStyleSheet($css_firefox);	}
+		if ( $lcbrowser == 'safari' && file_exists($css_safari)) { $document->addStyleSheet($css_safari); }
+		if ( $lcbrowser == 'opera' && file_exists($css_opera)) {	$document->addStyleSheet($css_opera); }
+		if ( $lcbrowser == 'chrome' && file_exists($css_chrome)) { $document->addStyleSheet($css_chrome); }
+		if ( $lcbrowser == 'internetexplorer' && file_exists($css_ie)) { $document->addStyleSheet($css_ie); }
+	} else {
 		$document->addStyleSheet($templatepath .'/core/css/template.css.php'.$packed_css);
 	}
 }
