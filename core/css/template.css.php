@@ -2,17 +2,16 @@
 include '../cssvars.php';
 header("content-type: text/css; charset: UTF-8");
 if ( $gzip_compression == 1 ) {
-	if(extension_loaded('zlib') && !ini_get('zlib.output_compression')){
-		if(!ob_start("ob_gzhandler")) ob_start();
-	}else{
-		ob_start();
-	}
-	header("cache-control: must-revalidate");	$offset = 60 * 10000;	$expire = "expires: " . gmdate("D, d M Y H:i:s", time() + $offset) . " GMT";	header($expire);
+if(extension_loaded('zlib') && !ini_get('zlib.output_compression')){
+if(!ob_start("ob_gzhandler")) ob_start();
+}else{
+ob_start();
+}
+header("cache-control: must-revalidate");$offset = 60 * 10000;$expire = "expires: " . gmdate("D, d M Y H:i:s", time() + $offset) . " GMT";header($expire);
 }
 define('JPATH', str_replace('templates/morph/core/css', '', dirname(__FILE__)) . '/' );
-
 if( $pack_css == 1 ){
-	if(file_exists($css_yui)){ include($css_yui); } else { include('yui.css'); }
+    if(file_exists($css_yui)){ include($css_yui); } else { include('yui.css'); }
     if( $topnav_count >= 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/topnav-default.css'); }
     if( $topfish >= 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/topnav-topfish.css'); }
     if( $topdrop >= 1 ) { include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/topnav-topdrop.css'); }
@@ -29,7 +28,6 @@ if( $pack_css == 1 ){
 } ?>
 
 <!-- dynamic css starts -->
-
 <?php if ( $bg_image !== "Use themelets background") { ?>
 html body{<?php if ( $bg_color && $bg_color !== "default" ) { ?>background-color:#<?php echo $bg_color; ?>;<?php }; if ( $bg_image !== "default") { ?>background-image:url(../../../../morph_assets/backgrounds/<?php echo $bg_image; ?>);<?php } ?>background-repeat:<?php echo $bg_repeat; ?>;background-position:<?php echo $bg_position; ?>;background-attachment:<?php echo $bg_attachment; ?>;}
 <?php } if ( $masthead_height ) { ?>
@@ -115,7 +113,6 @@ body{color:#<?php echo $color_bodytext; ?>;}
 .caption-top,.caption-bottom{background:<?php echo $captions_bgcolor; ?>;color:<?php echo $captions_textcolor; ?>;}
 .caption-top{border-bottom:<?php echo $captions_borderheight; ?> solid <?php echo $captions_bordercolor; ?>;}
 .caption-bottom{border-top:<?php echo $captions_borderheight; ?> solid <?php echo $captions_bordercolor; ?>;}
-
 <!-- dynamic css ends -->
 
 <?php } if( $pack_css == 1 ){
