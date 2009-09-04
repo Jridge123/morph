@@ -82,10 +82,10 @@ jQuery.noConflict();
     		speedOut: '<?php echo $captions_speedout; ?>',
     		hideDelay: '<?php echo $captions_delay; ?>',	
     		animation: '<?php echo $captions_animation; ?>',		
-    		prefix: '<?php echo $captions_prefix; ?>',		
     		opacity: '<?php echo $captions_opacity; ?>',					
     		position: '<?php echo $captions_position; ?>',
-    	});
+    		spanWidth: '100%'
+    		<?php if($captions_prefix) { ?>prefix: '<?php echo $captions_prefix; ?>',<?php } ?>});
     	$('.caption-wrapper img[align*=right]').removeAttr('align').parent().addClass('img-right').css('float','right');
 		$('.caption-wrapper img[align*=left]').removeAttr('align').parent().addClass('img-left').css('float','left');
 		<?php } ?>			
