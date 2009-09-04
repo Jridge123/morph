@@ -65,8 +65,8 @@ $db->setQuery( $query ); $animate_left = $db->loadResult();
 $query = "SELECT COUNT(*) FROM `#__modules` WHERE `module` = 'mod_simpleticker' AND `published` = '1'";
 $db->setQuery( $query ); $simpleticker = $db->loadResult();
 
-(file_exists($customjs) && is_readable($customjs)) ? $custom_js = 1 : $custom_js = 0;
-(file_exists($customcss) && is_readable($customcss)) ? $custom_css = 1 : $custom_css = 0;
+(file_exists($customjs)) ? $custom_js = 1 : $custom_js = 0;
+(file_exists($customcss)) ? $custom_css = 1 : $custom_css = 0;
 
 $pt_mod = getModuleParams('mod_simpleticker');
 
