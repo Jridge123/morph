@@ -2,6 +2,7 @@
 	  if ( $masthead_wrap == 1 ) { ?><div id="masthead-wrap"><?php } ?>
 		
    <div class="<?php echo $site_width;?> <?php echo $masthead_gridsplit;?> <?php echo $masthead_chrome; ?>" id="masthead">
+	  <?php if ( $masthead_inner == 1 ) { ?><div id="masthead-inner"><?php } ?>
 
       <div id="branding" class="logotype-<?php echo $logo_type; ?><?php if ( $slogan_text !== "" ) { ' slogan'; } ?>">
          
@@ -59,6 +60,7 @@
          <jdoc:include type="modules" name="top" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } elseif(isset($nojs) && $nojs == 1) { echo 'basic'; } else { echo $masthead_chrome; } ?>" />
 	 </div>
       <?php } ?>
+    <?php if ( $masthead_inner == 1 ) { ?></div><?php } ?>
    </div>
    
 <?php if ( $masthead_wrap == 1 ) { ?></div><?php } ?>
