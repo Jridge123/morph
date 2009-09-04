@@ -371,7 +371,7 @@ function codeComments($position, $comment, $location='', $linenumber='', $show_c
 
 function getModuleParams($mod_name){
 	$db = JFactory::getDBO();
-	$query = "select params from jos_modules where module = '".$mod_name."'";
+	$query = "select params from #__modules where module = '".$mod_name."'";
 	$db->setQuery( $query ); 
 	$params = explode("\n", $db->loadResult());
 	$param = array();
@@ -399,7 +399,7 @@ function blocks($position, $glob, $jj_const, $classes, $site_width, $debug_modul
 			<?php } else { ?>	
 			<div id="<?php echo $position; ?>" class="<?php echo $position_class; ?> <?php echo $site_width ?> clearer modcount<?php echo ${$position . '_count'}.' '.${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }?>">
 			<?php } ?>
-			<?php if ( ${$position.'_inner'} == 1 ) { ?><div id="<?php echo $position; ?>-inner"><?php } ?>
+			<?php if ( ${$position.'_inner'} == 1 ) { ?><div id="<?php echo $position; ?>-inner" class="clearer"><?php } ?>
 			<?php if(${$position . '_chrome'} === 'tabs' or ${$position . '_chrome'} === 'accordion' ){ ?>
 				<jdoc:include type="modules" name="<?php echo $position; ?>" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } elseif(isset($nojs) && $nojs == 1) { echo 'basic'; } else { echo ${$position.'_chrome'}; } ?>" />
 			<?php } else { ?>
