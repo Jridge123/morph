@@ -266,6 +266,10 @@ body{text-align:center;}
 #inset4 .mod-basic{width:auto;}
 #inset4{clear:both;}
 
+/* remove margin from first module in sidebar */
+.sidebar .lastmodule {margin-top:0;}
+/* add margin to last module in sidebar */
+.sidebar .lastmodule {margin-bottom:1em;}
 
 #footer *{margin:0;padding:0;list-style:none;overflow:hidden;height:auto;}
 #footer{margin:1em auto;}
