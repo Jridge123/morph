@@ -20,7 +20,10 @@ error_reporting(E_ALL ^ E_NOTICE);
 $.trackPage('<?php echo $google_analytics; ?>')
 </script>
 <?php } ?>
-<?php if( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) { ?><meta name="viewport" content="width=320" /><?php } ?>
+<?php if( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) { ?>
+<meta name="viewport" content="width=320" />
+<link rel="apple-touch-icon" href="<?php echo $assetspath; ?>/iphone/<?php echo $iphone_webclip; ?>" />
+<?php } ?>
 <?php if(isIE6() && $hide_ie6toolbar == 1 ){ ?><meta http-equiv="imagetoolbar" content="no" /><?php } ?>
 </head>
 <body class="js-disabled morph <?php echo "$lcbrowser $lcbrowser$ver"; if ($pageclass != ""){ echo ' '.$pageclass; } ?>"<?php if ($themelet != ""){ echo ' id="'.$themelet.'"'; } ?>>
