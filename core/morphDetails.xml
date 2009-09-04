@@ -400,14 +400,13 @@
 </params>
 
 <params group="captifydata">
-	<param name="captions heading" type="heading" label="Fancy Captions" />		
 	<param name="captions_enabled" type="radio" default="1" label="Enable fancy captions" tooltip="inline" description="Would you like to enable the fancy captions plugin?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
 	<param name="captions_animation" type="radio" default="slide" label="Caption animation" tooltip="inline" description="Choose whether to animate the caption or have it always displayed.">
-		<option value="slide">Slide effect</option>
-		<option value="always-on">Always show</option>
+		<option value="slide">On</option>
+		<option value="always-on">Off</option>
 	</param>
 	<param name="captions_speedover" type="list" default="fast" label="Mouseover speed" tooltip="inline" description="Set the speed of the mouseover effect">
 		<option value="slow">Slow</option>
