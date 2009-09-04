@@ -28,7 +28,7 @@ $.trackPage('<?php echo $google_analytics; ?>')
 </head>
 <body class="js-disabled morph <?php echo "$lcbrowser $lcbrowser$ver"; if ($pageclass != ""){ echo ' '.$pageclass; } ?>"<?php if ($themelet != ""){ echo ' id="'.$themelet.'"'; } ?>>
 <?php 
-if( $browser->getBrowser() == Browser::PLATFORM_IPHONE ){
+if( $browser->getBrowser() == Browser::PLATFORM_IPHONE && $iphone_mode == 1 ){
 include_once('core/includes/iphone.php');
 } else{
 if(isIE6() && $ie6_upgrade == 1){include_once('core/includes/ie6upgrade.php');}
@@ -51,7 +51,7 @@ if($this->countModules('advert2')) {'<div id="advert2"><jdoc:include type="modul
 ?>
 <jdoc:include type="modules" name="debug" />
 <?php include_once("core/includes/ga-code.php"); ?>
-<?php if ( $plugin_scrollto == 1 ) { ?><a href="#top" id="top-link">Top of Page</a><?php } ?>
+<?php if ( $plugin_scrollto == 1 && $browser->getBrowser() !== Browser::PLATFORM_IPHONE ) { ?><a href="#top" id="top-link">Top of Page</a><?php } ?>
 <?php } ?>
 </body>
 </html>

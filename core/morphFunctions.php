@@ -205,7 +205,7 @@ if ( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
     	}
     }
 }
-if ( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
+if( $browser->getBrowser() == Browser::PLATFORM_IPHONE && $iphone_mode == 1 ){
 	if ( file_exists($css_iphone)) { $document->addStyleSheet($css_iphone); } else { $document->addStyleSheet($templatepath .'/core/css/iphone.css'); }	
 //	if ( file_exists($css_iphone)) { $document->addStyleSheet($css_iphone); } else { $document->addStyleSheet($templatepath .'/core/css/jqtouch.css'); }	
 } else {
