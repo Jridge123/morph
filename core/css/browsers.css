@@ -1,0 +1,96 @@
+
+
+/* @group Cross Browser fixes - MUST MOVE TO BROWSER.CSS */
+
+	/* @group IE7 grid supporting styles */
+	
+/* user1 */
+.internetexplorer70 #user1.grid.modcount3 .mod-grid.yui-u{width:32.38%;}
+.internetexplorer70 #user2.grid.modcount3 .mod-grid.yui-u{width:32.38%;}
+
+/* grid adjustments for 3 modules */
+.internetexplorer70 .grid.modcount3 .yui-u {width:32.45%;}
+
+/* width adustments for 5 modules */
+.internetexplorer70 #inset2.grid.modcount5 .yui-u,
+.internetexplorer70 #inset3.grid.modcount5 .yui-u {width:18.94%;}
+
+	/* @end */
+
+	/* @group IE7 control styles */
+
+.internetexplorer70 .clearer,
+.internetexplorer70 .ui-tabs {display: inline-block;}
+/* fix for IE7 no btm margin on floats */
+.internetexplorer70 .sidebar{padding-bottom:1em;}
+.internetexplorer70 #primary-content {padding-bottom: 1em;}
+
+.internetexplorer70 .doc4.yui-t3 #yui-main .yui-b .yui-gd #primary-content.yui-u.first{width:31.5%;}
+.internetexplorer70 #login-wrap .input-wrap .form-input{float: left;width:95.3%;}
+.internetexplorer70 .search-input {width:85%;float: left;}
+.internetexplorer70 #branding h1 a {padding: 0.2em 0 0.5em; }
+.internetexplorer70 #footer {padding-bottom:1em;}
+
+/* re position sub items for subtext option */
+
+.internetexplorer70 #topnav.subtext #nav ul .submenu_item {padding-top: 0.7em;;}
+
+/* topdrop modifications */
+.internetexplorer70 #topnav.topdrop #nav .menu a,
+.internetexplorer70 #topnav.topdrop #nav span.separator {padding-bottom: 1.2em; padding-top: 1.2em;}
+.internetexplorer70 #topnav.topdrop #nav .menu ul a,
+.internetexplorer70 #topnav.topdrop #nav ul ul span.separator {padding-bottom: 1.12em; padding-top: 1.1em;}
+
+	/* @end */
+
+/* search in navbar adjustment */
+.internetexplorer80 #topnav .search {margin: 0.52em 0em 0.1em 0em;}
+#topnav.topdrop #nav .menu{z-index: 1000;}
+#topnav.topfish #nav .menu{z-index: 1000;}
+#topnav .menu li {z-index: 1000!important;}
+
+	/* @group safari & chrome adjustments */
+
+/* adjustment for 3 grids */
+.chrome .grid.modcount3 .mod-grid.yui-u,
+.safari .grid.modcount3 .mod-grid.yui-u {width:32.54%;}
+
+.chrome #inset1 .grid.modcount3 .mod-grid.yui-u,
+.safari #inset1 .grid.modcount3 .mod-grid.yui-u {width:32.65%;}
+
+.chrome #inset2 .grid.modcount3 .mod-grid.yui-u,
+.safari #inset2 .grid.modcount3 .mod-grid.yui-u {width:32.65%;}
+
+/* user1 */
+.chrome #user1.grid.modcount3 .mod-grid.yui-u,
+.safari #user1.grid.modcount3 .mod-grid.yui-u {width:32.5%;}
+.chrome #user1.grid.modcount5 .mod-grid.yui-u,
+.safari #user1.grid.modcount5 .mod-grid.yui-u {width:18.9%;}
+
+
+/* move search box down just a little to make it same as other browsers */
+.chrome #topnav .search .inputbox,
+.safari #topnav .search .inputbox {
+	margin-top: 0.14em;
+}
+/* topdrop modofocations */
+.chrome #topnav.topdrop #nav .menu li:hover ul,
+.chrome #topnav.topdrop #nav .menu li.sfHover ul {top:102%;}
+
+
+.chrome #topnav.topdrop #nav .menu a,
+.chrome #topnav.topdrop #nav span.separator {padding-bottom: 1.15em; padding-top: 1.1em;}
+
+.safari #topnav.topdrop #nav .menu a,
+.safari #topnav.topdrop #nav span.separator {padding-bottom: 1.168em; padding-top: 1.2em;}
+
+	/* @end */
+
+	/* @group opera */
+
+.opera #user1.grid.modcount5 .mod-grid.yui-u,
+.opera #user2.grid.modcount5 .mod-grid.yui-u {width:18.9%;}
+
+	/* @end */
+
+/* @end */
