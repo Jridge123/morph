@@ -117,7 +117,7 @@ body{color:#<?php echo $color_bodytext; ?>;}
 
 <?php } if( $pack_css == 1 ){
     if( $direction == 'rtl' && file_exists($css_rtl)){ include($css_rtl); } elseif ($direction == 'rtl') { include('rtl.css'); }
-	if(file_exists($custom_css)){ include($custom_css); }
+	if($custom_css == 1){ include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/custom.css'); }
     include('templates/morph/core/css/browsers.css');
 	if(file_exists($css_browsers)){ include($css_browsers); }
     if( $lcbrowser == 'firefox' && file_exists($css_firefox)) { include($css_firefox); }
@@ -125,5 +125,5 @@ body{color:#<?php echo $color_bodytext; ?>;}
     if( $lcbrowser == 'opera' && file_exists($css_opera)) { include($css_opera); }
     if( $lcbrowser == 'chrome' && file_exists($css_chrome)) { include($css_chrome); }
     if( $lcbrowser == 'internetexplorer' && file_exists($css_ie)) { include($css_ie); }
-} 
+}
 if ( $gzip_compression == 1 ) { ob_end_flush(); } ?>
