@@ -1,10 +1,18 @@
+
 <div id="iphone-wrap">
-	<div id="iphone-header">
+	<div id="iphone-header"<?php if($iphone_header){ ?> style="background-image:url(<?php echo $assetspath; ?>/iphone/<?php echo $iphone_header; ?>);"<?php } ?><?php if($iphone_webclip){ ?> class="webclip"<?php } ?>>
 	<a href="<?php echo JURI::root() ?>" title="<?php if ($logo_linktitle != ""){ echo $logo_linktitle; } else { echo $mainframe->getCfg('sitename'); } ?>">
-	<?php if($iphone_header){ ?>
-		<img src="morph_assets/iphone/<?php echo $iphone_header; ?>" alt="<?php if ( $logo_alttext != ""){ echo $logo_alttext; } else { echo $mainframe->getCfg('sitename'); } ?>" border="0" />
-	<?php } else { echo $mainframe->getCfg('sitename'); } ?></a>
+	    <?php if($iphone_webclip){ ?><img src="<?php echo $assetspath; ?>/iphone/<?php echo $iphone_webclip; ?>" width="30px" border="0" /><?php } ?>
+		<span><?php echo $logo_text; ?></a>
+	</a>
 	</div>
+	
+	<?php if($this->countModules('iphonenav')) { ?>
+	<div id="iphone-nav">
+		<jdoc:include type="modules" name="iphonenav" style="basic" />
+	</div>
+	<?php } ?>	
+
 	<div class="iphone-inner">			
 	<?php if($this->countModules('iphone1')) { ?>
 		<div id="iphone1"><jdoc:include type="modules" name="iphone1" style="basic" /></div>

@@ -141,66 +141,73 @@ if(isset($_GET['unpackcss'])){
 	header('Location: ' . str_replace(array('?packcss','&packcss'), '', $curr_url));
 }
 
-if($nojs != 1) {
-	if ( isset($_COOKIE['unpackjs']) && $pack_js == 1 || isset($_COOKIE['unpackjs']) && $pack_js == 0 || !isset($_COOKIE['unpackjs']) && $pack_js == 0 ) {
-		if ( $jquery_core == 1 ) { 
-		    $document->addScript($templatepath .'/core/js/jquery.js');
-		}
-		if ( $tabscount >= 1 ) {
-			$document->addScript($templatepath .'/core/js/core.js');
-			$document->addScript($templatepath .'/core/js/tabs.js');
-		}
-		if ( $accordionscount >= 1 ) {
-			$document->addScript($templatepath .'/core/js/ui.js');
-			$document->addScript($templatepath .'/core/js/accordion.js');
-		}
-		if( $tabscount >= 1 or $accordionscount >= 1 or $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1 ) { 
-		    $document->addScript($templatepath .'/core/js/cookie.js'); 
-		}
-		if( $topfish >= 1 && $topnav_hoverintent == 1 ) { 
-		    $document->addScript($templatepath .'/core/js/hoverintent.js');
-		}
-		if( $sidefish >= 1 or $topfish >= 1  ) { 
-		    $document->addScript($templatepath .'/core/js/superfish.js');
-		}
-		if( $topfish >= 1 && $topnav_supersubs == 1 ) { 
-		    $document->addScript($templatepath .'/core/js/supersubs.js');
-		}
-		if( $rounded_corners == 1 or $roundedcount !== 0 ) { 
-		    $document->addScript($templatepath .'/core/js/corners.js');
-		}
-		if( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1  or $topleft_equalize == 1  ) { 
-		    $document->addScript($templatepath .'/core/js/equalheights.js'); 
-		}
-		if ( $plugin_scrollto == 1 ) { 
-		    $document->addScript($templatepath .'/core/js/scrollto.js');
-		}
-		if ( $simpleticker == 1 ) { 
-		    $document->addScript($templatepath .'/core/js/innerfade.js');
-		}
-		if ( $captions_enabled == 1 ) { 
-		    $document->addScript($templatepath .'/core/js/captify.js');
-		}
-		if ( $google_analytics !== '' ) { 
-		    $document->addScript($templatepath .'/core/js/googleanalytics.js');
-		}
-		    $document->addScript($templatepath .'/core/js/fontsizer.js');
-		    $document->addScript($templatepath .'/core/js/template.js.php'.$packed_js);
-		    
-		if( $custom_js == 1 ){ 
-		    $document->addScript($themeletpath .'/js/custom.js');
-		}
-	}else{
-		$document->addScript($templatepath .'/core/js/template.js.php'.$packed_js);
-	}
-}else{
-	if(isIE6()){ 
-		$document->addScript($templatepath .'/core/js/ie6.js');
-	}
+if ( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
+//	$document->addScript($templatepath .'/core/js/jquery.js');	
+//	$document->addScript($templatepath .'/core/js/jqtouch.js');
+//	$document->addScript($templatepath .'/core/js/iphone.js');
+} else {
+    if($nojs != 1) {
+    	if ( isset($_COOKIE['unpackjs']) && $pack_js == 1 || isset($_COOKIE['unpackjs']) && $pack_js == 0 || !isset($_COOKIE['unpackjs']) && $pack_js == 0 ) {
+    		if ( $jquery_core == 1 ) { 
+    		    $document->addScript($templatepath .'/core/js/jquery.js');
+    		}
+    		if ( $tabscount >= 1 ) {
+    			$document->addScript($templatepath .'/core/js/core.js');
+    			$document->addScript($templatepath .'/core/js/tabs.js');
+    		}
+    		if ( $accordionscount >= 1 ) {
+    			$document->addScript($templatepath .'/core/js/ui.js');
+    			$document->addScript($templatepath .'/core/js/accordion.js');
+    		}
+    		if( $tabscount >= 1 or $accordionscount >= 1 or $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1 ) { 
+    		    $document->addScript($templatepath .'/core/js/cookie.js'); 
+    		}
+    		if( $topfish >= 1 && $topnav_hoverintent == 1 ) { 
+    		    $document->addScript($templatepath .'/core/js/hoverintent.js');
+    		}
+    		if( $sidefish >= 1 or $topfish >= 1  ) { 
+    		    $document->addScript($templatepath .'/core/js/superfish.js');
+    		}
+    		if( $topfish >= 1 && $topnav_supersubs == 1 ) { 
+    		    $document->addScript($templatepath .'/core/js/supersubs.js');
+    		}
+    		if( $rounded_corners == 1 or $roundedcount !== 0 ) { 
+    		    $document->addScript($templatepath .'/core/js/corners.js');
+    		}
+    		if( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1  or $topleft_equalize == 1  ) { 
+    		    $document->addScript($templatepath .'/core/js/equalheights.js'); 
+    		}
+    		if ( $plugin_scrollto == 1 ) { 
+    		    $document->addScript($templatepath .'/core/js/scrollto.js');
+    		}
+    		if ( $simpleticker == 1 ) { 
+    		    $document->addScript($templatepath .'/core/js/innerfade.js');
+    		}
+    		if ( $captions_enabled == 1 ) { 
+    		    $document->addScript($templatepath .'/core/js/captify.js');
+    		}
+    		if ( $google_analytics !== '' ) { 
+    		    $document->addScript($templatepath .'/core/js/googleanalytics.js');
+    		}
+    		    $document->addScript($templatepath .'/core/js/fontsizer.js');
+    		    $document->addScript($templatepath .'/core/js/template.js.php'.$packed_js);
+    		    
+    		if( $custom_js == 1 ){ 
+    		    $document->addScript($themeletpath .'/js/custom.js');
+    		}
+    	}else{
+    		$document->addScript($templatepath .'/core/js/template.js.php'.$packed_js);
+    	}
+    
+    }else{
+    	if(isIE6()){ 
+    		$document->addScript($templatepath .'/core/js/ie6.js');
+    	}
+    }
 }
-
 if ( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
 	if ( file_exists($css_iphone)) { $document->addStyleSheet($css_iphone); } else { $document->addStyleSheet($templatepath .'/core/css/iphone.css'); }	
+//	if ( file_exists($css_iphone)) { $document->addStyleSheet($css_iphone); } else { $document->addStyleSheet($templatepath .'/core/css/jqtouch.css'); }	
 } else {
 	if ( isset($_COOKIE['unpackcss']) && $pack_css == 1 || isset($_COOKIE['unpackcss']) && $pack_css == 0 || !isset($_COOKIE['unpackcss']) && $pack_css == 0 ) {
 		if ( file_exists($css_yui)) { $document->addStyleSheet($css_yui); } else { $document->addStyleSheet($templatepath .'/core/css/yui.css'); }
