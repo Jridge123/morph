@@ -229,9 +229,9 @@ if ( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
 		if ( file_exists($custom_css)) { $document->addStyleSheet($custom_css); }
 		$document->addStyleSheet($templatepath .'/core/css/browsers.css');
 		if ( file_exists($css_browsers)) { $document->addStyleSheet($css_browsers); }		
-		if ( $lcbrowser == 'firefox' && file_exists($css_firefox)) {	$document->addStyleSheet($css_firefox);	}
+		if ( $lcbrowser == 'firefox' && file_exists($css_firefox)) { $document->addStyleSheet($css_firefox);	}
 		if ( $lcbrowser == 'safari' && file_exists($css_safari)) { $document->addStyleSheet($css_safari); }
-		if ( $lcbrowser == 'opera' && file_exists($css_opera)) {	$document->addStyleSheet($css_opera); }
+		if ( $lcbrowser == 'opera' && file_exists($css_opera)) { $document->addStyleSheet($css_opera); }
 		if ( $lcbrowser == 'chrome' && file_exists($css_chrome)) { $document->addStyleSheet($css_chrome); }
 		if ( $lcbrowser == 'internetexplorer' && file_exists($css_ie)) { $document->addStyleSheet($css_ie); }
 	} else {
