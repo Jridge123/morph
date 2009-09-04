@@ -1,4 +1,3 @@
-
 <div id="iphone-wrap">
 	<div id="iphone-header"<?php if($iphone_header){ ?> style="background-image:url(<?php echo $assetspath; ?>/iphone/<?php echo $iphone_header; ?>);"<?php } ?><?php if($iphone_webclip){ ?> class="webclip"<?php } ?>>
 	<a href="<?php echo JURI::root() ?>" title="<?php if ($logo_linktitle != ""){ echo $logo_linktitle; } else { echo $mainframe->getCfg('sitename'); } ?>">
