@@ -61,9 +61,12 @@ jQuery.noConflict();
 		
 		$(".ui-tabs-nav li:first-child").each(function(){ $(this).addClass("first"); });
 		
-		$(".sidebar .mod:first").addClass("firstmodule");
-		$(".sidebar .mod:last").addClass("lastmodule");
-		
+		$("#secondary-content.sidebar .mod:first").addClass("firstmodule");
+		$("#tertiary-content.sidebar .mod:first").addClass("firstmodule");
+
+		$("#secondary-content.sidebar .mod:last").addClass("lastmodule");
+		$("#tertiary-content.sidebar .mod:last").addClass("lastmodule");
+
 		$(".article_separator:last").addClass("last");
 		
 		$('img[align*=right]').addClass("img-right");
