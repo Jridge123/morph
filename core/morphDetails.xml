@@ -75,9 +75,9 @@
 		<option value="0">No</option>
 	</param>	
 	<param name="logo_image_ie" type="imagelist" default="" tooltip="inline" label="Logo image for IE6" directory="morph_assets/logos" hide_none="false" hide_default="false" description="We have added the option to have an alternate logo to display in IE6. This is useful if you are using a transparent png for your logo and would like to have a gif displayed for people browsing your site in Internet Explorer 6." />
-	<param name="logo_text" type="text" default="Morph" label="Logo text" tooltip="inline" description="Set your logo text" />
-	<param name="logo_alttext" type="text" default="Your logo image alternate text" label="Logo image alt text" tooltip="inline" description="Set your logo image alt text" />
-	<param name="logo_linktitle" type="text" default="Your logo link title text" label="Logo link title text" tooltip="inline" description="Set your logo link title text" />
+	<param name="logo_text" type="text" default="" label="Logo text" tooltip="inline" description="Set your logo text" />
+	<param name="logo_alttext" type="text" default="" label="Logo image alt text" tooltip="inline" description="Set your logo image alt text" />
+	<param name="logo_linktitle" type="text" default="" label="Logo link title text" tooltip="inline" description="Set your logo link title text" />
 	<param name="logo_textcolor" type="colorpicker" default="#666161" label="Logo text color" tooltip="inline" description="Set your logo text foreground color." />
 	<param name="logo_fontsize" type="list" default="2.5em" label="Logo font size" tooltip="inline" description="Adjust the font size of your custom logo text.">
 	    <option value="1em">1em</option>
