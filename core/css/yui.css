@@ -239,7 +239,7 @@ body{text-align:center;}
 
 	/* @group First we need resets, clears, margin for all blocks blocks */
 
-#masthead{clear:both;overflow:hidden;position:relative;}
+#masthead{clear:both;position:relative;}
 
 #skipto{position:absolute;left:-9999px;}
 
@@ -271,6 +271,7 @@ body{text-align:center;}
 /* add margin to last module in sidebar */
 .sidebar .lastmodule {margin-bottom:1em;}
 
+#footer-wrap {overflow: hidden;}
 #footer *{margin:0;padding:0;list-style:none;overflow:hidden;height:auto;}
 #footer{margin:1em auto;}
 #footer #footer-links{padding-top:5px;}
