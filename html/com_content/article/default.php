@@ -10,42 +10,26 @@ $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $
 	<h1 class="article-title">
 		<?php echo $this->escape($this->params->get('page_title')); ?>
 	</h1>
-	<?php endif; ?>
-
-				
+	<?php endif; ?>		
 
 	<?php if ($this->params->get('show_title') || $this->params->get('show_pdf_icon') || $this->params->get('show_print_icon') || $this->params->get('show_email_icon')) : ?>
 
 	<div class="article-top clearer">
-	<!-- start article top -->
+	    <!-- start article top -->
 		<?php if ($this->params->get('show_title')) : ?>
 		<h1 class="article-title">
 		<?php if ($this->params->get('link_titles') && $this->article->readmore_link != '') : ?>
-			<a href="<?php echo $this->article->readmore_link; ?>"><?php echo $this->escape($this->article->title); ?><?php if ($canEdit) : ?><span class="edit"> <?php echo JHTML::_('icon.edit', $this->article, $this->params, $this->access); ?></span><?php endif; ?></a>
+			<a href="<?php echo $this->article->readmore_link; ?>"><?php echo $this->escape($this->article->title); ?><?php if ($canEdit) : ?><span class="edit"> 
+			<?php echo JHTML::_('icon.edit', $this->article, $this->params, $this->access); ?></span><?php endif; ?></a>
 		<?php else : ?>
-			<?php echo $this->escape($this->article->title); ?><?php if ($canEdit) : ?><span class="edit"> <?php echo JHTML::_('icon.edit', $this->article, $this->params, $this->access); ?></span><?php endif; ?>
+			<?php echo $this->escape($this->article->title); ?><?php if ($canEdit) : ?><span class="edit"> <?php echo JHTML::_('icon.edit', $this->article, $this->params, $this->access); ?>
+			</span><?php endif; ?>
 		<?php endif; ?>
 		</h1>
 		<?php endif; ?>
-
-		<?php if (!$this->print) : ?>
-		<?php if ($canEdit || $this->params->get('show_pdf_icon') || $this->params->get('show_print_icon') || $this->params->get('show_email_icon')) : ?>
-		<ul class="article-options">
-			<?php if ($this->params->get('show_pdf_icon')) : ?>
-			<li><?php echo articleIcons::pdf($this->article, $this->params, $this->access); ?></li>
-			<?php endif; ?>
-			<?php if ($this->params->get('show_print_icon')) : ?>
-			<li><?php echo articleIcons::print_popup($this->article, $this->params, $this->access); ?></li>
-			<?php endif; ?>
-			<?php if ($this->params->get('show_email_icon')) : ?>
-			<li><?php echo articleIcons::email($this->article, $this->params, $this->access); ?></li>
-			<?php endif; ?>
-		</ul>
-		<?php endif; ?>
-		<?php endif; ?>
 	
 		<?php if (($this->params->get('show_author')) && ($this->article->author != "") or $this->params->get('show_create_date')) : ?>
-		<p class="article-info">
+		<p class="article-info<?php if (!$this->params->get('show_pdf_icon') || !$this->params->get('show_print_icon') || !$this->params->get('show_email_icon')) { ?> noicons<?php } ?>">
 			<?php if (($this->params->get('show_author')) && ($this->article->author != "")) : ?>
 				<span class="author">Written by <strong><?php JText::printf($this->article->created_by_alias ? $this->article->created_by_alias : $this->article->author); ?></strong></span>
 			<?php endif; ?>
@@ -83,6 +67,23 @@ $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $
 			<?php endif; ?>
 		</p>
 		<?php endif; ?>
+		
+		<?php if (!$this->print) : ?>
+		<?php if ($canEdit || $this->params->get('show_pdf_icon') || $this->params->get('show_print_icon') || $this->params->get('show_email_icon')) : ?>
+		<ul class="article-options">
+			<?php if ($this->params->get('show_pdf_icon')) : ?>
+			<li><?php echo articleIcons::pdf($this->article, $this->params, $this->access); ?></li>
+			<?php endif; ?>
+			<?php if ($this->params->get('show_print_icon')) : ?>
+			<li><?php echo articleIcons::print_popup($this->article, $this->params, $this->access); ?></li>
+			<?php endif; ?>
+			<?php if ($this->params->get('show_email_icon')) : ?>
+			<li><?php echo articleIcons::email($this->article, $this->params, $this->access); ?></li>
+			<?php endif; ?>
+		</ul>
+		<?php endif; ?>
+		<?php endif; ?>
+
 			
 	</div>
 	<!-- end article top -->

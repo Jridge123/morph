@@ -9,7 +9,6 @@ include_once(dirname(__FILE__).DS.'..'.DS.'icon.php');
 </div>
 <?php endif; ?>
 
-<?php if ($this->item->params->get('show_title') || $this->item->params->get('show_pdf_icon') || $this->item->params->get('show_print_icon') || $this->item->params->get('show_email_icon')) : ?>
 	
 	<?php if ($this->item->params->get('show_title')) : ?>
 	<h2 class="contentheading">
@@ -36,7 +35,6 @@ include_once(dirname(__FILE__).DS.'..'.DS.'icon.php');
     </ul>
 	<?php endif; ?>
 	
-<?php endif; ?>
 
 <?php echo $this->item->event->beforeDisplayContent; ?>
 
