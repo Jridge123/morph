@@ -516,7 +516,7 @@
 	</param>
 </params>
 
-<params group="masterheaddata">
+<params group="mastheaddata">
 	<param name="masthead_wrap" type="radio" default="0" label="Block wrapping" tooltip="modal" description="blockwrap.html">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
@@ -647,8 +647,7 @@
 	</param>
 </params>
 
-<params group="shelvesdata">
-	<param name="topshelf heading" type="heading" label="Top Shelf Settings:" />	
+<params group="topshelfdata">
 	<param name="topshelf_wrap" type="radio" default="1" label="Block wrapping" tooltip="modal" description="blockwrap.html">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
@@ -691,8 +690,9 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-		
-	<param name="bottom heading" type="heading" label="Bottom Shelf Settings:" />	
+</params>
+
+<params group="bottomshelfdata">	
 	<param name="bottomshelf_wrap" type="radio" default="0" label="Block wrapping" tooltip="modal" description="blockwrap.html">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
@@ -737,8 +737,7 @@
 	</param>
 </params>
 
-<params group="inlineshelvesdata">	
-	<param name="user1 heading" type="heading" label="User1 Settings:" />	
+<params group="user1data">	
 	<param name="user1_inner" type="radio" default="0" label="Block inner" tooltip="modal" description="blockinner.html">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
@@ -772,8 +771,9 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
+</params>
 
-	<param name="user2 heading" type="heading" label="User2 Settings:" />	
+<params group="user2data">
 	<param name="user2_inner" type="radio" default="1" label="Block inner" tooltip="modal" description="blockinner.html">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
@@ -809,8 +809,7 @@
 	</param>
 </params>
 
-<params group="insetsdata">	
-	<param name="inset1 heading" type="heading" label="Inset1 Settings:" />	
+<params group="inset1data">
 	<param name="inset1_chrome" type="list" default="basic" label="Inset1 chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
@@ -836,8 +835,9 @@
 		<option value="0">No</option>
 	</param>
 	<param name="inset1_modfx" type="textarea" default="" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
-	
-	<param name="inset2 heading" type="heading" label="Inset2 Settings:" />	
+</params>
+
+<params group="inset2data">	
 	<param name="inset2_chrome" type="list" default="basic" label="Inset2 chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
@@ -863,8 +863,9 @@
 		<option value="0">No</option>
 	</param>
 	<param name="inset2_modfx" type="textarea" default="" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
-	
-	<param name="inset3 heading" type="heading" label="Inset3 Settings:" />	
+</params>
+
+<params group="inset3data">	
 	<param name="inset3_chrome" type="list" default="basic" label="Inset3 chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
@@ -890,8 +891,9 @@
 		<option value="0">No</option>
 	</param>
 	<param name="inset3_modfx" type="textarea" default="" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
-		
-	<param name="inset4 heading" type="heading" label="Inset4 Settings:" />	
+</params>
+
+<params group="inset4data">		
 	<param name="inset4_chrome" type="list" default="basic" label="Inset4 chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
@@ -920,7 +922,6 @@
 </params>
 
 <params group="maindata">	
-	<param name="main heading" type="heading" label="Main Block Settings:" />	
 	<param name="main_wrap" type="radio" default="0" label="Block wrapping" tooltip="modal" description="blockwrap.html">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
@@ -948,8 +949,10 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="split left heading" type="heading" label="Split left module position" />			
-	<param name="splitleft_chrome" type="list" default="basic" label="Module chrome" tooltip="modal" description="chromefx.html">
+</params>
+
+<params group="splitleftdata">	
+    <param name="splitleft_chrome" type="list" default="basic" label="Module chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
 		<option value="grid">Grid</option>
@@ -967,9 +970,9 @@
 		<option value="0">No</option>
 	</param>
 	<param name="splitleft_modfx" type="textarea" default="" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
+</params>
 
-
-	<param name="top left heading" type="heading" label="Top left module position" />			
+<params group="topleftdata">			
 	<param name="topleft_chrome" type="list" default="basic" label="Module chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
@@ -988,9 +991,9 @@
 		<option value="0">No</option>
 	</param>
 	<param name="topleft_modfx" type="textarea" default="" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
-	
-	
-	<param name="left heading" type="heading" label="Left module position" />			
+</params>
+
+<params group="leftdata">	
 	<param name="left_chrome" type="list" default="basic" label="Module chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
@@ -1009,8 +1012,9 @@
 		<option value="0">No</option>
 	</param>
 	<param name="left_modfx" type="textarea" default="" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
-	
-	<param name="bottomleft heading" type="heading" label="Bottom left module position" />		
+</params>
+
+<params group="bottomleftdata">	
 	<param name="bottomleft_chrome" type="list" default="basic" label="Module chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
@@ -1031,8 +1035,7 @@
 	<param name="bottomleft_modfx" type="textarea" default="" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
 </params>
 
-<params group="inner-sidebardata">	
-	<param name="inner heading" type="heading" label="Inner Layout (Right Sidebar) Settings:" />	
+<params group="innersidebardata">	
 	<param name="inner_default" type="list" default="gh" label="Inner layout default" tooltip="modal" description="innerlayout.html">
 		<option value="g">50% Right</option>
 		<option value="gc">33% Right</option>
@@ -1045,8 +1048,9 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	
-	<param name="splitright heading" type="heading" label="Split right module position" />		
+</params>
+
+<params group="splitrightdata">
 	<param name="splitright_chrome" type="list" default="basic" label="Split right chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
@@ -1065,9 +1069,9 @@
 		<option value="0">No</option>
 	</param>
 	<param name="splitright_modfx" type="textarea" default="" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
-	
-	
-	<param name="topright heading" type="heading" label="Top right module position" />
+</params>
+
+<params group="toprightdata">	
 	<param name="topright_chrome" type="list" default="basic" label="Top right chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
@@ -1086,9 +1090,9 @@
 		<option value="0">No</option>
 	</param>
 	<param name="topright_modfx" type="textarea" default="" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
-	
-	
-	<param name="right heading" type="heading" label="Right module position" />		
+</params>
+
+<params group="rightdata">	
 	<param name="right_chrome" type="list" default="basic" label="Right chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
@@ -1107,9 +1111,9 @@
 		<option value="0">No</option>
 	</param>
 	<param name="right_modfx" type="textarea" default="" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
+</params>
 
-	
-	<param name="bottomright heading" type="heading" label="Bottom right module position" />		
+<params group="bottomrightdata">	
 	<param name="bottomright_chrome" type="list" default="basic" label="Bottom right chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
@@ -1129,10 +1133,6 @@
 	</param>
 	<param name="bottomright_modfx" type="textarea" default="" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
 </params>
-
-
-
-
 
 
 <params group="footerdata">	
