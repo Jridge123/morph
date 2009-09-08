@@ -100,11 +100,11 @@ body a:link,body a:visited,body a:active{color:#<?php echo $color_links; ?>;}
 body a:hover{color:#<?php echo $color_linkshover; ?>;}
 <?php } if ( $color_linksvisited && $color_linksvisited !== "#default" ) { ?>
 body a:visited{color:#<?php echo $color_linksvisited; ?>;}
-<?php } if ( $color_h1 && $color_h1 !== "#default" ) { ?>#primary-content h1{color:#<?php echo $color_h1; ?>}
-<?php } if ( $color_h2 && $color_h2 !== "#default" ) { ?>#primary-content h2{color:#<?php echo $color_h2; ?>}
-<?php } if ( $color_h3 && $color_h3 !== "#default" ) { ?>#primary-content h3{color:#<?php echo $color_h3; ?>}
-<?php } if ( $color_h4 && $color_h4 !== "#default" ) { ?>#primary-content h4{color:#<?php echo $color_h4; ?>}
-<?php } if ( $color_h5 && $color_h5 !== "#default" ) { ?>#primary-content h5{color:#<?php echo $color_h5; ?>}
+<?php } if ( $color_h1 && $color_h1 !== "#default" ) { ?>h1{color:#<?php echo $color_h1; ?>}
+<?php } if ( $color_h2 && $color_h2 !== "#default" ) { ?>h2{color:#<?php echo $color_h2; ?>}
+<?php } if ( $color_h3 && $color_h3 !== "#default" ) { ?>h3{color:#<?php echo $color_h3; ?>}
+<?php } if ( $color_h4 && $color_h4 !== "#default" ) { ?>h4{color:#<?php echo $color_h4; ?>}
+<?php } if ( $color_h5 && $color_h5 !== "#default" ) { ?>h5{color:#<?php echo $color_h5; ?>}
 <?php } if ( $color_bodytext && $color_bodytext !== "#default" ) { ?>
 body{color:#<?php echo $color_bodytext; ?>;}
 <?php } if ( $footer_textcolor && $footer_textcolor !== "#default" ) { ?>#footer{color:<?php echo $footer_textcolor; ?>}
