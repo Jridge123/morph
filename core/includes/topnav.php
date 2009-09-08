@@ -14,3 +14,7 @@
 	</div>
 <?php if ( $topnav_wrap == 1 ) { ?></div><?php } ?>
 <?php } ?>
+
+<?php if ( $topdrop >= 1 ) { ?>
+	<div id="topdrop-bar-wrap"></div>
+<?php } ?>
