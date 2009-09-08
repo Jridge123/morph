@@ -3,7 +3,7 @@ defined('_JEXEC') or die('Restricted access');
 $cparams = JComponentHelper::getParams ('com_media');
 ?>
 <?php if ($this->params->get('show_page_title',1)) : ?>
-<h1 class="componentheading">
+<h1 class="componentheading clearer">
 <?php echo $this->escape($this->params->get('page_title')); ?>
 </h1>
 <?php endif; ?>
