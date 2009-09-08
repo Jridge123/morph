@@ -3,15 +3,15 @@ defined('_JEXEC') or die('Restricted access');
 ?>
 
 <?php if ($this->params->get('show_page_title',1)) : ?>
-<h1 class="componentheading frontpage">
+<h1 class="componentheading frontpage clearer">
 	<?php echo $this->escape($this->params->get('page_title')); ?>
 </h1>
 <?php endif; ?>
 
-<div class="frontpage-blog blog">
+<div class="frontpage-blog blog clearer">
 	<?php $i = $this->pagination->limitstart; $rowcount = $this->params->def('num_leading_articles', 1); 
 	for ($y = 0; $y < $rowcount && $i < $this->total; $y++, $i++) : ?>
-	<div class="leading">
+	<div class="leading clearer">
 		<?php $this->item =& $this->getItem($i, $this->params); echo $this->loadTemplate('item'); ?>
 	</div>
 	<?php endfor; ?>
@@ -26,7 +26,7 @@ defined('_JEXEC') or die('Restricted access');
 	$ii = 0;
 	for ($y = 0; $y < $rowcount && $i < $this->total; $y++) : ?>
 	
-	<div class="article-row">
+	<div class="article-row clearer">
 		<?php for ($z = 0; $z < $colcount && $ii < $introcount && $i < $this->total; $z++, $i++, $ii++) : ?>
 			<div class="article-column column<?php echo $z + 1; ?> cols<?php echo $colcount; ?>" >
 				<?php $this->item =& $this->getItem($i, $this->params);
@@ -40,7 +40,7 @@ defined('_JEXEC') or die('Restricted access');
 	<?php $numlinks = $this->params->def('num_links', 4);
 	if ($numlinks && $i < $this->total) : ?>
 
-	<div class="blog-more">
+	<div class="blog-more clearer">
 		<?php $this->links = array_slice($this->items, $i - $this->pagination->limitstart, $i - $this->pagination->limitstart + $numlinks);
 		echo $this->loadTemplate('links'); ?>
 	</div>

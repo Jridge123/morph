@@ -45,8 +45,7 @@ endif; ?>
 <?php echo JFilterOutput::ampReplace($this->item->text);  ?>
 
 <?php if ($this->item->params->get('show_readmore') && $this->item->readmore) : ?>
-<p>
-	<a href="<?php echo $this->item->readmore_link; ?>" class="readon <?php echo $this->item->params->get('pageclass_sfx'); ?>" title="<?php echo JText::sprintf($this->item->title);; ?>">
+<p class="readon"><a href="<?php echo $this->item->readmore_link; ?>" title="<?php echo JText::sprintf($this->item->title);; ?>">
 		<?php if ($this->item->readmore_register) :
 			echo JText::_('Register to read more...');
 		elseif ($readmore = $this->item->params->get('readmore')) :
