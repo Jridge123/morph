@@ -266,7 +266,6 @@
 </params>
 
 <params group="progressivedata">
-	<param name="plugins heading" type="heading" label="jQuery Plugins:" />	
 	<param name="rounded_corners" type="radio" default="0" label="Enable rounded corners" tooltip="inline" description="Would you like to include the jQuery Rounded Corners plugin? This is automatically overridden if you add a module suffix of 'rounded' to any of your modules.">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
@@ -467,6 +466,10 @@
 </params>
 
 <params group="toolbardata">
+	<param name="toolbar_show" type="radio" default="0" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
 	<param name="toolbar_wrap" type="radio" default="1" label="Block wrapping" tooltip="modal" description="blockwrap.html">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
@@ -510,14 +513,14 @@
 		<option value="0">No</option>
 	</param>
 	<param name="toolbar_slider_text" type="text" default="toggle" label="Toolbar slider text" tooltip="inline" description="Define the toggle button text. You can either display a single word like toggle, or set different text for each state, for example 'open,close'. Its important that there are no spaces between the two words and that you use a comma to seperate them." />	
-	<param name="toolbar_modfx" type="textarea" default="" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
-	<param name="toolbar_show" type="radio" default="0" label="Disable this block" tooltip="inline" description="Would you like to disable this block?">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
+	<param name="toolbar_modfx" type="textarea" default="" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />
 </params>
 
 <params group="mastheaddata">
+	<param name="masthead_show" type="radio" default="0" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
 	<param name="masthead_wrap" type="radio" default="0" label="Block wrapping" tooltip="modal" description="blockwrap.html">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
@@ -556,13 +559,13 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="masthead_show" type="radio" default="0" label="Disable this block" tooltip="inline" description="Would you like to disable this block?">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
 </params>
 
 <params group="subheaddata">
+	<param name="subhead_show" type="radio" default="0" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
 	<param name="subhead_wrap" type="radio" default="0" label="Block wrapping" tooltip="modal" description="blockwrap.html">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
@@ -596,13 +599,13 @@
 		<option value="0">No</option>
 	</param>
 	<param name="subhead_modfx" type="textarea" default="" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
-	<param name="subhead_show" type="radio" default="0" label="Disable this block" tooltip="inline" description="Would you like to disable this block?">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
 </params>	
 
 <params group="topnavdata">
+	<param name="topnav_show" type="radio" default="0" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
 	<param name="topnav_wrap" type="radio" default="0" label="Block wrapping" tooltip="modal" description="blockwrap.html">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
@@ -641,10 +644,6 @@
 		<option value="1">Above Sub Head</option>
 		<option value="2">Above Top Shelf</option>
 		<option value="3">Below Top Shelf</option>
-	</param>
-	<param name="topnav_show" type="radio" default="0" label="Disable this block" tooltip="inline" description="Would you like to disable this block?">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
 	</param>
 </params>
 
@@ -687,7 +686,7 @@
 		<option value="0">No</option>
 	</param>
 	<param name="topshelf_slider_text" type="text" default="toggle" tooltip="inline" label="Topshelf Slider Text" description="toggletext.html" />
-	<param name="topshelf_show" type="radio" default="0" label="Disable this block" tooltip="inline" description="Would you like to disable this block?">
+	<param name="topshelf_show" type="radio" default="0" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
@@ -732,7 +731,7 @@
 		<option value="0">No</option>
 	</param>
 	<param name="bottomshelf_slider_text" type="text" default="toggle" label="Bottomshelf slider text" tooltip="inline" description="toggletext.html" />
-	<param name="bottomshelf_show" type="radio" default="0" label="Disable this block" tooltip="inline" description="Would you like to disable this block?">
+	<param name="bottomshelf_show" type="radio" default="0" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
@@ -768,7 +767,7 @@
 		<option value="0">No</option>
 	</param>
 	<param name="user1_modfx" type="textarea" default="" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
-	<param name="user1_show" type="radio" default="0" label="Disable this block" tooltip="inline" description="Would you like to disable this block?">
+	<param name="user1_show" type="radio" default="0" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
@@ -804,7 +803,7 @@
 		<option value="0">No</option>
 	</param>
 	<param name="user2_modfx" type="textarea" default="" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
-	<param name="user2_show" type="radio" default="0" label="Disable this block" tooltip="inline" description="Would you like to disable this block?">
+	<param name="user2_show" type="radio" default="0" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
@@ -1191,7 +1190,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="footer_show" type="radio" default="0" label="Disable this block" tooltip="inline" description="Would you like to disable this block?">
+	<param name="footer_show" type="radio" default="0" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
