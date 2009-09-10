@@ -19,58 +19,67 @@ $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $
 	</h2>
 	<?php endif; ?>
 
-	<!-- created date and author -->
-	<?php if ($this->item->params->get('show_author') && ($this->item->author != "") ||	$this->item->params->get('show_create_date') ||	$this->item->params->get('show_section') && ($this->item->sectionid && isset($this->item->section)) ||	$this->item->params->get('show_category') && $this->item->catid) { ?>
-		<p class="article-info<?php if (!$this->item->params->get('show_pdf_icon') || !$this->item->params->get('show_print_icon') || !$this->item->params->get('show_email_icon')) { ?> noicons
-		<?php } ?>">
-		
-			<?php if (($this->item->params->get('show_author')) && ($this->item->author != "")) { ?>
-				<span class="author">
-					Posted by 
-					<strong><?php JText::printf($this->item->created_by_alias ? $this->item->created_by_alias : $this->item->author); ?></strong>
-				</span>
-			<?php } ?>
-			
-			<?php if (($this->item->params->get('show_author')) && ($this->item->author != "") && ($this->item->params->get('show_create_date'))) { ?>
-			on
-			<?php } ?>
-			<?php if ($this->item->params->get('show_create_date')) { ?>
-				<span class="created"><?php echo JHTML::_('date', $this->item->created, JText::_('<strong>%a, %d %B %Y</strong>')); ?></span>.
-			<?php } ?>
-
-			<!-- section & category -->
-			<?php if (($this->item->params->get('show_section') && $this->item->sectionid) || ($this->item->params->get('show_category') && $this->item->catid)) { ?>
-			<span class="filing">
-				<?php echo JText::_('Filed under'); ?>
-				<?php if ($this->item->params->get('show_section') && $this->item->sectionid && isset($this->item->section)) { ?>		
-					<?php if ($this->item->params->get('link_section')) { echo '<a href="'.JRoute::_(ContentHelperRoute::getSectionRoute($this->item->sectionid)).'">'; } ?>
-					<strong class="article-section"><?php echo $this->item->section; ?></strong>
-					<?php if ($this->item->params->get('link_section')) { echo '</a>'; } ?>
-				<?php } if (($this->item->params->get('show_section') && $this->item->sectionid) && ($this->item->params->get('show_category') && $this->item->catid)) { ?>	
-				 / 
-				<?php } if ($this->item->params->get('show_category') && $this->item->catid) { ?>
-					<?php if ($this->item->params->get('link_category')) { echo '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catslug, $this->item->sectionid)).'">'; } ?>
-					<strong class="article-category"><?php echo $this->item->category; ?></strong>
-					<?php if ($this->item->params->get('link_category')) { echo '</a>'; } ?>
-				<?php } ?>
-			</span>
-			<?php } ?>
-		</p>	
-	<?php } ?>
+<!-- created date and author -->
+<?php if ($this->item->params->get('show_author') && ($this->item->author != "") ||	
+$this->item->params->get('show_create_date') ||	
+$this->item->params->get('show_section') ||	
+$this->item->params->get('show_category') ||
+$this->item->params->get('show_pdf_icon') ||
+$this->item->params->get('show_print_icon') || 
+$this->item->params->get('show_email_icon'))	{ ?>
 	
-	<?php if ($this->item->params->get('show_pdf_icon') || $this->item->params->get('show_print_icon') || $this->item->params->get('show_email_icon')) { ?>
-		<ul class="article-options">
-		<?php if ($this->item->params->get('show_pdf_icon')) { ?>
-			<li><?php echo articleIcons::pdf($this->item, $this->item->params, $this->access); ?></li>
-		<?php } ?>
-		<?php if ($this->item->params->get('show_print_icon')) { ?>
-			<li><?php echo articleIcons::print_popup($this->item, $this->item->params, $this->access); ?></li>
-		<?php } ?>
-		<?php if ($this->item->params->get('show_email_icon')) { ?>
-			<li><?php echo articleIcons::email($this->item, $this->item->params, $this->access); ?></li>
-		<?php } ?>
-		</ul>
+<ul class="article-info">
+			
+<?php if ($this->item->params->get('show_create_date')) { ?>
+    <li class="created"><?php echo JHTML::_('date', $this->item->created, JText::_('%a, %d %b %y')); ?>
+	<?php if ($this->item->params->get('show_create_date') && $this->item->params->get('show_author')){ ?>
+        <span class="divider">|&nbsp;</span>
+    <?php } ?></li>
+<?php } ?>
+
+<?php if (($this->item->params->get('show_author')) && ($this->item->author != "")) { ?>
+	<li class="author"><?php JText::printf('Written by', ($this->item->created_by_alias ? $this->item->created_by_alias : $this->item->author)); ?></li>
+<?php } ?>
+
+<!-- section & category -->
+<?php if (($this->item->params->get('show_section') && $this->item->sectionid) || ($this->item->params->get('show_category') && $this->item->catid)) { ?>
+<li class="filing">
+	<?php echo JText::_('Filed under'); ?>
+	<?php if ($this->item->params->get('show_section') && $this->item->sectionid && isset($this->item->section)) { ?>		
+		<?php if ($this->item->params->get('link_section')) { echo '<a href="'.JRoute::_(ContentHelperRoute::getSectionRoute($this->item->sectionid)).'">'; } ?>
+		<strong class="article-section"><?php echo $this->item->section; ?></strong>
+		<?php if ($this->item->params->get('link_section')) { echo '</a>'; } ?>
+	<?php } if (($this->item->params->get('show_section') && $this->item->sectionid) && ($this->item->params->get('show_category') && $this->item->catid)) { ?>	
+	 / 
+	<?php } if ($this->item->params->get('show_category') && $this->item->catid) { ?>
+		<?php if ($this->item->params->get('link_category')) { echo '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catslug, $this->item->sectionid)).'">'; } ?>
+		<strong class="article-category"><?php echo $this->item->category; ?></strong>
+		<?php if ($this->item->params->get('link_category')) { echo '</a>'; } ?>
 	<?php } ?>
+</li>
+<?php } ?>	
+
+<?php if ($this->item->params->get('show_pdf_icon')) { ?>
+    <li class="icons"><?php echo articleIcons::pdf($this->item, $this->item->params, $this->access); ?></li>
+<?php } ?>
+
+<?php if ($this->item->params->get('show_print_icon')) { ?>
+    <li class="icons"><?php echo articleIcons::print_popup($this->item, $this->item->params, $this->access); ?></li>
+<?php } ?>
+
+<?php if ($this->item->params->get('show_email_icon')) { ?>
+    <li class="icons"><?php echo articleIcons::email($this->item, $this->item->params, $this->access); ?></li>
+<?php } ?>
+
+</ul>
+
+
+<?php } ?>
+
+
+
+
+
 
 	<!-- after display title -->
 	<?php  if (!$this->item->params->get('show_intro')) :
@@ -92,7 +101,7 @@ $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $
 	
 	<!-- date modified -->
 	<?php if ( intval($this->item->modified) != 0 && $this->item->params->get('show_modify_date')) : ?>
-		<p class="modified"><?php echo JText::_( 'Last Updated' ); ?>: <strong><?php echo JHTML::_('date', $this->item->modified, JText::_('%a, %d %b %y')); ?></strong></p>
+		<p class="modified"><?php echo JText::_( 'Last updated on ' ); ?><?php echo JHTML::_('date', $this->item->modified, JText::_('%a, %d %b %y')); ?>.</p>
 	<?php endif; ?>
 	
 	
@@ -105,7 +114,7 @@ $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $
 			elseif ($readmore = $this->item->params->get('readmore')) :
 				echo $readmore;
 			else :
-				echo JText::sprintf('<span>Read</span> more');
+				echo JText::sprintf('<span>Read</span> More..');
 			endif; ?>
 		</a>
 		</p>
