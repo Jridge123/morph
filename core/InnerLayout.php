@@ -40,12 +40,13 @@ else {
 	$CurrentInnerScheme = $innerScheme['default'];
 }
 $innerPageSuffix = array (
-	'1' => 'g',
-	'2' => 'gc',
-	'3' => 'gd',
-	'4' => 'ge',
-	'5' => 'gf',
-	'6' => 'gg'
+    '0' => 'none',
+	'1' => 'yui-g',
+	'2' => 'yui-gc',
+	'3' => 'yui-gd',
+	'4' => 'yui-ge',
+	'5' => 'yui-gf',
+	'6' => 'yui-gg'
 	);
 $innerSfxArr = (explode("inner",$pageclass));
 if (array_key_exists(1,$innerSfxArr)) {
