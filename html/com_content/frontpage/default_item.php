@@ -77,10 +77,6 @@ $this->item->params->get('show_email_icon'))	{ ?>
 <?php } ?>
 
 
-
-
-
-
 	<!-- after display title -->
 	<?php  if (!$this->item->params->get('show_intro')) :
 		echo $this->item->event->afterDisplayTitle;
@@ -104,21 +100,19 @@ $this->item->params->get('show_email_icon'))	{ ?>
 		<p class="modified"><?php echo JText::_( 'Last updated on ' ); ?><?php echo JHTML::_('date', $this->item->modified, JText::_('%a, %d %b %y')); ?>.</p>
 	<?php endif; ?>
 	
-	
-	<!-- readon link -->
-	<?php if ($this->item->params->get('show_readmore') && $this->item->readmore) : ?>
-		<p class="readon">
-		<a href="<?php echo $this->item->readmore_link; ?>">
-			<?php if ($this->item->readmore_register) :
-				echo JText::_('Register to read more...');
-			elseif ($readmore = $this->item->params->get('readmore')) :
-				echo $readmore;
-			else :
-				echo JText::sprintf('<span>Read</span> More..');
-			endif; ?>
-		</a>
-		</p>
-	<?php endif; ?>
+
+    <?php if ($this->item->params->get('show_readmore') && $this->item->readmore) : ?>
+    <p class="readon"><a href="<?php echo $this->item->readmore_link; ?>" title="<?php echo JText::sprintf($this->item->title); ?>">
+    	<?php if ($this->item->readmore_register) :
+    		echo JText::_('Register to read more...');
+    	elseif ($readmore = $this->item->params->get('readmore')) :
+    		echo $readmore;
+    	else :
+    		echo JText::_('Continue reading<span> "' . JText::sprintf($this->item->title). '"</span>');
+    	endif; ?></a>
+    </p>
+    <?php endif; ?>
+
 
 <?php if ($this->item->state == 0) : ?>
 </div>

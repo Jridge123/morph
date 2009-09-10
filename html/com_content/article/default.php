@@ -28,24 +28,34 @@ $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $
 		</h1>
 		<?php endif; ?>
 	
-		<?php if (($this->params->get('show_author')) && ($this->article->author != "") or $this->params->get('show_create_date')) : ?>
-		<p class="article-info<?php if (!$this->params->get('show_pdf_icon') || !$this->params->get('show_print_icon') || !$this->params->get('show_email_icon')) { ?> noicons<?php } ?>">
-			<?php if (($this->params->get('show_author')) && ($this->article->author != "")) : ?>
-				<span class="author">Written by <strong><?php JText::printf($this->article->created_by_alias ? $this->article->created_by_alias : $this->article->author); ?></strong></span>
-			<?php endif; ?>
-			<?php if ($this->params->get('show_create_date') && $this->params->get('show_author')) : ?>
-				<span class="sep">&nbsp;|&nbsp;</span>
-			<?php endif; ?>
-			<?php if ($this->params->get('show_create_date')) : ?>
-				<span class="created"><?php echo JHTML::_('date', $this->article->created, JText::_('Posted on <strong>%a, %d %b %y</strong>')) ?></span>
-			<?php endif; ?>
+<!-- created date and author -->
+<?php if (
+$this->params->get('show_author') && ($this->article->author != "") ||	
+$this->params->get('show_create_date') ||	
+$this->params->get('show_section') ||	
+$this->params->get('show_category') ||
+$this->params->get('show_pdf_icon') ||
+$this->params->get('show_print_icon') || 
+$this->params->get('show_email_icon'))	{ ?>
+	
+<ul class="article-info">
+			
+<?php if ($this->params->get('show_create_date')) { ?>
+    <li class="created"><?php echo JHTML::_('date', $this->article->created, JText::_('%a, %d %b %y')); ?>
+	<?php if ($this->params->get('show_create_date') && $this->params->get('show_author')){ ?>
+        <span class="divider">|&nbsp;</span>
+    <?php } ?></li>
+<?php } ?>
 
-				<span class="sep">&nbsp;|&nbsp;</span>
-				<a href="<?php echo $this->article->readmore_link; ?>|<?php echo $this->escape($this->article->title); ?>" rel="shareit">Share Article</a>
-				<span class="sep">&nbsp;|&nbsp;</span><span id="fontsizer"></span>
-				
+<?php if (($this->params->get('show_author')) && ($this->article->author != "")) { ?>
+	<li class="author">Written by <strong><?php JText::printf($this->article->created_by_alias ? $this->article->created_by_alias : $this->article->author); ?></strong></li>
+<?php } ?>
+
+<!-- section & category -->
+<?php if ($this->params->get('show_section') && $this->article->sectionid && isset($this->article->section) or $this->params->get('show_category') && $this->article->catid) { ?>
+<li class="filing">
 			<?php if ($this->params->get('show_section') && $this->article->sectionid && isset($this->article->section) or $this->params->get('show_category') && $this->article->catid) : ?>
-			<br />Filed under: 
+			Filed under: 
 			<?php endif; ?>
 			
 			<?php if ($this->params->get('show_section') && $this->article->sectionid && isset($this->article->section)) : ?>
@@ -65,24 +75,30 @@ $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $
 					<?php echo '</a>'; ?>
 					<?php endif; ?>
 			<?php endif; ?>
-		</p>
-		<?php endif; ?>
-		
-		<?php if (!$this->print) : ?>
-		<?php if ($canEdit || $this->params->get('show_pdf_icon') || $this->params->get('show_print_icon') || $this->params->get('show_email_icon')) : ?>
-		<ul class="article-options">
+</li>
+<?php } ?>	
+<li>
+				<span class="sep">&nbsp;|&nbsp;</span>
+				<a href="<?php echo $this->article->readmore_link; ?>|<?php echo $this->escape($this->article->title); ?>" rel="shareit">Share Article</a>
+				<span class="sep">&nbsp;|&nbsp;</span><span id="fontsizer"></span>
+</li>
+
 			<?php if ($this->params->get('show_pdf_icon')) : ?>
-			<li><?php echo articleIcons::pdf($this->article, $this->params, $this->access); ?></li>
+			<li class="icons"><?php echo articleIcons::pdf($this->article, $this->params, $this->access); ?></li>
 			<?php endif; ?>
 			<?php if ($this->params->get('show_print_icon')) : ?>
-			<li><?php echo articleIcons::print_popup($this->article, $this->params, $this->access); ?></li>
+			<li class="icons"><?php echo articleIcons::print_popup($this->article, $this->params, $this->access); ?></li>
 			<?php endif; ?>
 			<?php if ($this->params->get('show_email_icon')) : ?>
-			<li><?php echo articleIcons::email($this->article, $this->params, $this->access); ?></li>
+			<li class="icons"><?php echo articleIcons::email($this->article, $this->params, $this->access); ?></li>
 			<?php endif; ?>
-		</ul>
-		<?php endif; ?>
-		<?php endif; ?>
+
+
+
+</ul>
+
+
+<?php } ?>	
 
 			
 	</div>

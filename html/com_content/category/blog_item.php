@@ -21,19 +21,62 @@ include_once(dirname(__FILE__).DS.'..'.DS.'icon.php');
 	</h2>
 	<?php endif; ?>
 
-	<?php if ($this->item->params->get('show_pdf_icon') || $this->item->params->get('show_print_icon') || $this->item->params->get('show_email_icon')) : ?>
-    <ul class="article-options">
-    	<?php if ($this->item->params->get('show_pdf_icon')) : ?>
-    		<li><?php echo articleIcons::pdf($this->item, $this->item->params, $this->access); ?></li>
-    	<?php endif; ?>
-    	<?php if ($this->item->params->get('show_print_icon')) : ?>
-    		<li><?php echo articleIcons::print_popup($this->item, $this->item->params, $this->access); ?></li>
-    	<?php endif; ?>
-    	<?php if ($this->item->params->get('show_email_icon')) : ?>
-    		<li><?php echo articleIcons::email($this->item, $this->item->params, $this->access); ?></li>
-    	<?php endif; ?>
-    </ul>
-	<?php endif; ?>
+<!-- created date and author -->
+<?php if ($this->item->params->get('show_author') && ($this->item->author != "") ||	
+$this->item->params->get('show_create_date') ||	
+$this->item->params->get('show_section') ||	
+$this->item->params->get('show_category') ||
+$this->item->params->get('show_pdf_icon') ||
+$this->item->params->get('show_print_icon') || 
+$this->item->params->get('show_email_icon'))	{ ?>
+	
+<ul class="article-info">
+			
+<?php if ($this->item->params->get('show_create_date')) { ?>
+    <li class="created"><?php echo JHTML::_('date', $this->item->created, JText::_('%a, %d %b %y')); ?>
+	<?php if ($this->item->params->get('show_create_date') && $this->item->params->get('show_author')){ ?>
+        <span class="divider">|&nbsp;</span>
+    <?php } ?></li>
+<?php } ?>
+
+<?php if (($this->item->params->get('show_author')) && ($this->item->author != "")) { ?>
+	<li class="author"><?php JText::printf('Written by', ($this->item->created_by_alias ? $this->item->created_by_alias : $this->item->author)); ?></li>
+<?php } ?>
+
+<!-- section & category -->
+<?php if (($this->item->params->get('show_section') && $this->item->sectionid) || ($this->item->params->get('show_category') && $this->item->catid)) { ?>
+<li class="filing">
+	<?php echo JText::_('Filed under'); ?>
+	<?php if ($this->item->params->get('show_section') && $this->item->sectionid && isset($this->item->section)) { ?>		
+		<?php if ($this->item->params->get('link_section')) { echo '<a href="'.JRoute::_(ContentHelperRoute::getSectionRoute($this->item->sectionid)).'">'; } ?>
+		<strong class="article-section"><?php echo $this->item->section; ?></strong>
+		<?php if ($this->item->params->get('link_section')) { echo '</a>'; } ?>
+	<?php } if (($this->item->params->get('show_section') && $this->item->sectionid) && ($this->item->params->get('show_category') && $this->item->catid)) { ?>	
+	 / 
+	<?php } if ($this->item->params->get('show_category') && $this->item->catid) { ?>
+		<?php if ($this->item->params->get('link_category')) { echo '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catslug, $this->item->sectionid)).'">'; } ?>
+		<strong class="article-category"><?php echo $this->item->category; ?></strong>
+		<?php if ($this->item->params->get('link_category')) { echo '</a>'; } ?>
+	<?php } ?>
+</li>
+<?php } ?>	
+
+<?php if ($this->item->params->get('show_pdf_icon')) { ?>
+    <li class="icons"><?php echo articleIcons::pdf($this->item, $this->item->params, $this->access); ?></li>
+<?php } ?>
+
+<?php if ($this->item->params->get('show_print_icon')) { ?>
+    <li class="icons"><?php echo articleIcons::print_popup($this->item, $this->item->params, $this->access); ?></li>
+<?php } ?>
+
+<?php if ($this->item->params->get('show_email_icon')) { ?>
+    <li class="icons"><?php echo articleIcons::email($this->item, $this->item->params, $this->access); ?></li>
+<?php } ?>
+
+</ul>
+
+
+<?php } ?>
 	
 
 <?php echo $this->item->event->beforeDisplayContent; ?>
@@ -45,13 +88,13 @@ endif; ?>
 <?php echo JFilterOutput::ampReplace($this->item->text);  ?>
 
 <?php if ($this->item->params->get('show_readmore') && $this->item->readmore) : ?>
-<p class="readon"><a href="<?php echo $this->item->readmore_link; ?>" title="<?php echo JText::sprintf($this->item->title);; ?>">
+<p class="readon"><a href="<?php echo $this->item->readmore_link; ?>" title="<?php echo JText::sprintf($this->item->title); ?>">
 		<?php if ($this->item->readmore_register) :
 			echo JText::_('Register to read more...');
 		elseif ($readmore = $this->item->params->get('readmore')) :
 			echo $readmore;
 		else :
-			echo JText::_('Read More...');
+    		echo JText::_('Continue reading<span> "' . JText::sprintf($this->item->title). '"</span>');
 		endif; ?></a>
 </p>
 <?php endif; ?>
