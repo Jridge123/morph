@@ -932,7 +932,7 @@
 	<param name="pathway_text" type="textarea" default="You are here:" cols="32" rows="1" tooltip="inline" label="Pathway text" description="" />		
 </params>
 
-<params group="outer-sidebardata">	
+<params group="outersidebardata">	
 	<param name="outer_default" type="list" default="6" label="Outer layout default" tooltip="modal" description="outerlayout.html">
 		<option value="1">160px Left</option>
 		<option value="2">180px Left</option>
