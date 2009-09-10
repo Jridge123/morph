@@ -1,4 +1,4 @@
-<?php if ( $main_wrap == "1" ) { ?><div id="bd-wrap"><?php } ?>
+<?php if ( $main_wrap == 1 ) { ?><div id="bd-wrap"><?php } ?>
 	<!-- apply outer scheme -->
 	<div id="bd" class="yui-t<?php echo $CurrentOuterScheme ?> <?php echo $site_width ?><?php if($option=='com_content' && $layout=='form'){ ?> editmode<?php } ?>">
 	<?php if ( $main_inner == 1 ) { ?><div class="bd-inner clearer"><?php } ?>

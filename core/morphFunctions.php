@@ -148,14 +148,14 @@ if ( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
 } else {
     if($nojs != 1) {
     	if ( isset($_COOKIE['unpackjs']) && $pack_js == 1 || isset($_COOKIE['unpackjs']) && $pack_js == 0 || !isset($_COOKIE['unpackjs']) && $pack_js == 0 ) {
-    		if ( $jquery_core == 1 ) { 
+    		if( $jquery_core == 1 ) { 
     		    $document->addScript($templatepath .'/core/js/jquery.js');
     		}
-    		if ( $tabscount >= 1 ) {
-    			$document->addScript($templatepath .'/core/js/core.js');
+    		if( $tabscount >= 1 ) {
+    		    $document->addScript($templatepath .'/core/js/core.js');
     			$document->addScript($templatepath .'/core/js/tabs.js');
     		}
-    		if ( $accordionscount >= 1 ) {
+    		if( $accordionscount >= 1 ) {
     			$document->addScript($templatepath .'/core/js/ui.js');
     			$document->addScript($templatepath .'/core/js/accordion.js');
     		}
@@ -177,16 +177,16 @@ if ( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
     		if( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1  or $topleft_equalize == 1  ) { 
     		    $document->addScript($templatepath .'/core/js/equalheights.js'); 
     		}
-    		if ( $plugin_scrollto == 1 ) { 
+    		if( $plugin_scrollto == 1 ) { 
     		    $document->addScript($templatepath .'/core/js/scrollto.js');
     		}
-    		if ( $simpleticker == 1 ) { 
+    		if( $simpleticker == 1 ) { 
     		    $document->addScript($templatepath .'/core/js/innerfade.js');
     		}
-    		if ( $captions_enabled == 1 ) { 
+    		if( $captions_enabled == 1 ) { 
     		    $document->addScript($templatepath .'/core/js/captify.js');
     		}
-    		if ( $google_analytics !== '' ) { 
+    		if( $google_analytics !== '' ) { 
     		    $document->addScript($templatepath .'/core/js/googleanalytics.js');
     		}
     		    $document->addScript($templatepath .'/core/js/fontsizer.js');
@@ -267,7 +267,8 @@ switch($_SERVER['HTTP_USER_AGENT']){
 include_once('InnerLayout.php');
 include_once('OuterLayout.php');
 
-if (!JDocumentHTML::countModules('right')) $CurrentInnerScheme = 'no-grid';
+if (!JDocumentHTML::countModules('splitleft or topleft or left or bottomleft')) $CurrentOuterScheme = '';
+if (!JDocumentHTML::countModules('splitright or topright or right or bottomright')) $CurrentInnerScheme = '';
 if (!JDocumentHTML::countModules('user4')) $no_search = 'no_search';
 
 // intelli mods array
