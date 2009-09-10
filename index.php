@@ -27,8 +27,6 @@ $.trackPage('<?php echo $google_analytics; ?>')
 <?php if(isIE6() && $hide_ie6toolbar == 1 ){ ?><meta http-equiv="imagetoolbar" content="no" /><?php } ?>
 </head>
 <body class="js-disabled morph <?php echo "$lcbrowser $lcbrowser$ver"; if ($pageclass != ""){ echo ' '.$pageclass; } ?>"<?php if ($themelet != ""){ echo ' id="'.$themelet.'"'; } ?>>
-<?php echo $CurrentInnerScheme; ?>
-
 <?php 
 if( $browser->getBrowser() == Browser::PLATFORM_IPHONE && $iphone_mode == 1 ){
 include_once('core/includes/iphone.php');
