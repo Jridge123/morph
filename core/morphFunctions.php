@@ -322,8 +322,7 @@ function getYuiSuffix ($moduleName, $jj_const){
 	echo $yuiModuleSuffix;
 }
 
-function sidebar_module($chrome, $position, $jj_const, $modfx, $glob, $nojs){
-	global $debug_modules;
+function sidebar_module($chrome, $position, $jj_const, $modfx, $glob, $debug_modules, $nojs){
 	if($glob->countModules($position) > 0){
 		if($chrome === 'basic' or $chrome === 'outline' or $chrome === ''){ 
 			if ($modfx){ ?>
