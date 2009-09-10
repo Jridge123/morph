@@ -43,10 +43,9 @@ $innerPageSuffix = array (
     '0' => 'none',
 	'1' => 'yui-g',
 	'2' => 'yui-gc',
-	'3' => 'yui-gd',
-	'4' => 'yui-ge',
-	'5' => 'yui-gf',
-	'6' => 'yui-gg'
+	'3' => 'yui-ge',
+	'4' => 'yui-gi',
+	'5' => 'yui-gh'
 	);
 $innerSfxArr = (explode("inner",$pageclass));
 if (array_key_exists(1,$innerSfxArr)) {
