@@ -26,11 +26,8 @@ if( $pack_css == 1 ){
     include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/themelet.css');
    	if( $simpleticker == 1 ) { include(JPATH . 'modules/mod_simpleticker/simpleticker/simpleticker.css'); }
 } ?>
-
-<!-- dynamic css starts -->
-<?php if ( $bg_image !== "Use themelets background") { ?>
-html body{<?php if ( $bg_color && $bg_color !== "default" ) { ?>background-color:#<?php echo $bg_color; ?>;<?php }; if ( $bg_image !== "default") { ?>background-image:url(../../../../morph_assets/backgrounds/<?php echo $bg_image; ?>);<?php } ?>background-repeat:<?php echo $bg_repeat; ?>;background-position:<?php echo $bg_position; ?>;background-attachment:<?php echo $bg_attachment; ?>;}
-<?php } if ( $masthead_height ) { ?>
+body{<?php if ( $bg_color && $bg_color !== "default" ) { ?>background-color:#<?php echo $bg_color; ?>;<?php }; if ( $bg_image !== "default") { ?>background-image:url(../../../../morph_assets/backgrounds/<?php echo $bg_image; ?>);<?php } ?>background-repeat:<?php echo $bg_repeat; ?>;background-position:<?php echo $bg_position; ?>;background-attachment:<?php echo $bg_attachment; ?>;}
+<?php if ( $masthead_height ) { ?>
 body #masthead{
 height:<?php echo $masthead_height; ?>;
 }
