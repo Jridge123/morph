@@ -23,9 +23,8 @@ $outerPageSuffix = array (
 	'4' => 'yui-t4',
 	'5' => 'yui-t5',
 	'6' => 'yui-t6',
-	'7' => 'yui-t7',
-	'8' => 'yui-t8',
-	'9' => 'yui-t9'
+	'7' => 'yui-t8',
+	'8' => 'yui-t9'
 	);
 
 $innerSfxArr = (explode("outer",$pageclass));
