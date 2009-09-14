@@ -1036,11 +1036,11 @@
 
 <params group="innersidebardata">	
 	<param name="inner_default" type="list" default="gh" label="Inner layout default" tooltip="modal" description="innerlayout.html">
-		<option value="g">50% Right</option>
-		<option value="gc">33% Right</option>
-		<option value="ge">25% Right</option>
-		<option value="gi">200px Left</option>
-		<option value="gh">200px Right</option>
+		<option value="yui-g">50% Right</option>
+		<option value="yui-gc">33% Right</option>
+		<option value="yui-ge">25% Right</option>
+		<option value="yui-gi">200px Left</option>
+		<option value="yui-gh">200px Right</option>
 		<option value="none">None</option>
 	</param>
 	<param name="tertiary_inner" type="radio" default="0" label="Inner wrapping" tooltip="inline" description="Would you like the secondary content sidebar to have an inner wrap div? This is useful if you need to add padding to the contents of the sidebar.">

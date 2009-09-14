@@ -7,7 +7,7 @@
 			<div class="yui-b<?php if (!$this->countModules('splitleft or topleft or left or bottomleft')) { echo ' no-left'; } ?>">
 				<?php $position = 'inset1'; include dirname(__FILE__) . '/../morphBlockClasses.php'; echo blocks($position, $this, $jj_const, $classes, '', $debug_modules, $nojs); ?>
 				<!-- apply inner scheme -->
-				<div class="<?php if($CurrentInnerScheme != 'none'){ echo 'yui-' . $CurrentInnerScheme . ' '; } ?>clearer" id="inner-wrap">
+				<div class="<?php if($CurrentInnerScheme != 'none'){ echo $CurrentInnerScheme . ' '; } ?>clearer" id="inner-wrap">
 					<div class="yui-u first" id="primary-content">
 						<div class="primary-inner clearer">
 							<?php $position = 'inset2'; include dirname(__FILE__) . '/../morphBlockClasses.php'; echo blocks($position, $this, $jj_const, $classes, '', $debug_modules, $nojs); ?>
