@@ -29,6 +29,4 @@ $innerSfxArr = (explode("inner",$pageclass));
 if (array_key_exists(1,$innerSfxArr)) {
 	$CurrentInnerScheme = $innerPageSuffix[substr($innerSfxArr[1],0,1)];
 }
-
-echo $CurrentInnerScheme;
 ?>
