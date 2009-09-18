@@ -1,6 +1,6 @@
 <?php if ( $main_wrap == 1 ) { ?><div id="bd-wrap"><?php } ?>
 	<!-- apply outer scheme -->
-	<div id="bd" class="<?php if($CurrentOuterScheme != '0'){ echo 'yui-t' . $CurrentOuterScheme . ' '; } echo $site_width; if($option=='com_content' && $layout=='form'){ ?> editmode<?php } ?>">
+	<div id="bd" class="<?php if($CurrentOuterScheme != '0'){ echo $CurrentOuterScheme . ' '; } echo $site_width; if($option=='com_content' && $layout=='form'){ ?> editmode<?php } ?>">
 	<?php if ( $main_inner == 1 ) { ?><div class="bd-inner clearer"><?php } ?>
 		<?php if($this->countModules('user1')) { ?><?php include_once("user1.php") ?><?php } ?>
 		<div id="yui-main">
@@ -24,7 +24,7 @@
 				<?php $position = 'inset4'; include dirname(__FILE__) . '/../morphBlockClasses.php'; echo blocks($position, $this, $jj_const, $classes, '', $debug_modules, $nojs); ?>
 			</div>
 		</div>
-		<?php if($CurrentOuterScheme !=0) { include_once("secondary.php"); } ?>
+		<?php if($CurrentOuterScheme !='none') { include_once("secondary.php"); } ?>
 		<?php if($this->countModules('user2')) { include_once("user2.php"); } ?>
 	</div>
 	<?php if ( $main_inner == 1 ) { ?></div><?php } ?><!-- bd inner close -->
