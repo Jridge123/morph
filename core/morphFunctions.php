@@ -223,7 +223,7 @@ if( $browser->getBrowser() == Browser::PLATFORM_IPHONE && $iphone_mode == 1 ){
 		$document->addStyleSheet($themeletpath .'/css/modules.css');
 		$document->addStyleSheet($themeletpath .'/css/modfx.css');	
 		$document->addStyleSheet($themeletpath .'/css/themelet.css');
-		if ( $simpleticker == 1 ) { $document->addStyleSheet(JPATH . 'modules/mod_simpleticker/simpleticker/simpleticker.css'); }
+		if ( $simpleticker == 1 ) { $document->addStyleSheet('../../../../mod_simpleticker/simpleticker/simpleticker.css'); }
 		$document->addStyleSheet($templatepath .'/core/css/template.css.php'.$packed_css);
 		if ( $direction == 'rtl' && file_exists($css_rtl)){ $document->addStyleSheet($css_rtl); } elseif ($direction == 'rtl') { $document->addStyleSheet($themeletpath .'/core/css/rtl.css'); }
 		if ( file_exists($customcss)) { $document->addStyleSheet($themeletpath .'/css/custom.css'); }
