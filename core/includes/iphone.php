@@ -6,23 +6,23 @@
 	</a>
 	</div>
 	
-	<?php if($this->countModules('iphonenav')) { ?>
+	<?php if(JDocumentHTML::countModules('iphonenav')) { ?>
 	<div id="iphone-nav">
 		<jdoc:include type="modules" name="iphonenav" style="basic" />
 	</div>
 	<?php } ?>	
 
 	<div class="iphone-inner">			
-	<?php if($this->countModules('iphone1')) { ?>
+	<?php if(JDocumentHTML::countModules('iphone1')) { ?>
 		<div id="iphone1"><jdoc:include type="modules" name="iphone1" style="basic" /></div>
-	<?php } if($this->countModules('iphone2')) { ?>
+	<?php } if(JDocumentHTML::countModules('iphone2')) { ?>
 		<div id="iphone2"><jdoc:include type="modules" name="iphone2" style="basic" /></div>
 	<?php } ?>
 	<jdoc:include type="message" />
 	<jdoc:include type="component" />
-	<?php if($this->countModules('iphone3')) { ?>
+	<?php if(JDocumentHTML::countModules('iphone3')) { ?>
 		<div id="iphone3"><jdoc:include type="modules" name="iphone3" style="basic" /></div>
-	<?php } if($this->countModules('iphone4')) { ?>
+	<?php } if(JDocumentHTML::countModules('iphone4')) { ?>
 		<div id="iphone4"><jdoc:include type="modules" name="iphone4" style="basic" /></div>
 	<?php } ?>
 </div>
