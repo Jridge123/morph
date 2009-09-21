@@ -269,18 +269,7 @@ body{text-align:center;}
 /* add margin to last module in sidebar */
 .sidebar .lastmodule {margin-bottom:1em;}
 
-#footer-wrap {overflow: hidden;}
-#footer *{margin:0;padding:0;list-style:none;overflow:hidden;height:auto;}
-#footer{margin:1em auto;}
-#footer #footer-links{padding-top:5px;}
-#footer #footer-text{padding-top:8px;}
-#footer .joomlajunkie-swish{width:60px;height:50px;text-indent:-7998px;display:block;float:left;}
-#footer .joomlajunkie-swish:hover{background-position:bottom;}
-#footer #footer-links .fl-left,#footer #footer-text .ft-left,#footer #footer-links .fl-left .menu li{float:left;width:auto;}
-#footer #footer-text .ft-right,#footer #footer-links .fl-right,#footer #footer-links .fl-right ul li{float:right;text-align:right;width:auto;}
-#footer #footer-links .fl-left .fl-last,#footer #footer-links .fl-right .fl-last{margin:0;padding:0;border:0;}
-#footer #footer-links .fl-left li{padding-right:10px;margin-right:10px;border-right:1px solid #ccc;}
-#footer #footer-links .fl-right li{padding-left:10px;margin-left:10px;border-left:1px solid #ccc;}
+
 		
 	/* @end */
 	
@@ -407,11 +396,3 @@ body{text-align:center;}
 /*.doc4 #yui-main .yui-gc #primary-content.first {
 	width: 65%;
 }*/
-
-
-
-
-
-
-
-
