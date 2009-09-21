@@ -94,7 +94,7 @@ function pagination_list_render($list)
 	// Initialize variables
 	$lang =& JFactory::getLanguage();
 	$html = "<ul class=\"pagination\">";
-	$html .= '<li>&laquo;</li>';
+	$html .= '<li class="bookends">&laquo;</li>';
 	// Reverse output rendering for right-to-left display
 	if($lang->isRTL())
 	{
@@ -142,7 +142,7 @@ function pagination_list_render($list)
 		// $html .= '&#171;';
 
 	}
-	$html .= '<li>&raquo;</li>';
+	$html .= '<li class="bookends">&raquo;</li>';
 	$html .= "</ul>";
 	return $html;
 }
