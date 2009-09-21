@@ -40,22 +40,22 @@
 		
 		<?php if ( $display_skipto == "1" ) { ?>
 		<ul id="skipto">
-			<?php if ($this->countModules( 'user3' )) : ?>
+			<?php if (JDocumentHTML::countModules( 'user3' )) : ?>
 			<li><a title="Skip to menu" href="<?php JURI::root(); ?>#topnav"><?php echo JText::_('skip to menu'); ?></a></li>
 			<?php endif; ?>
 			<li><a title="Skip to primary content" href="<?php JURI::root(); ?>#primary-content"><?php echo JText::_('skip to primary content'); ?></a></li>
-			<?php if ($this->countModules( 'splitleft or topleft or left or btmleft' )) : ?>
+			<?php if (JDocumentHTML::countModules( 'splitleft or topleft or left or btmleft' )) : ?>
 			<li><a title="Skip to secondary content" href="<?php JURI::root(); ?>#secondary-content"><?php echo JText::_('skip to secondary content'); ?></a></li>
-			<?php endif; if ($this->countModules( 'splitright or topright or right or btmright' )) : ?>
+			<?php endif; if (JDocumentHTML::countModules( 'splitright or topright or right or btmright' )) : ?>
 			<li><a title="Skip to tertiary content" href="<?php JURI::root(); ?>#tertiary-content"><?php echo JText::_('skip to tertiary content'); ?></a></li>
-			<?php endif; if ($this->countModules( 'user1 or user2' )) : ?>
+			<?php endif; if (JDocumentHTML::countModules( 'user1 or user2' )) : ?>
 			<li><a title="Skip to search" href="<?php JURI::root(); ?>#mod_search_searchword"><?php echo JText::_('skip to search'); ?></a></li>
 			<?php endif; ?>
 		</ul>
 		<?php } ?>
          
       </div>
-      <?php if($this->countModules('top')) { ?>
+      <?php if(JDocumentHTML::countModules('top')) { ?>
       <div  id="top">
          <jdoc:include type="modules" name="top" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } elseif(isset($nojs) && $nojs == 1) { echo 'basic'; } else { echo $masthead_chrome; } ?>" />
 	 </div>
