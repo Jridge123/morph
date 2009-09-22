@@ -31,9 +31,14 @@ $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $
         <?php if (($this->item->params->get('show_author')) && ($this->item->author != "")) { ?>
     	<li class="author"><?php JText::printf('Written by', ($this->item->created_by_alias ? $this->item->created_by_alias : $this->item->author)); ?></li>
         <?php } ?>
+        <?php if ($this->item->params->get('show_pdf_icon')) { ?><li class="icons"><?php echo articleIcons::pdf($this->item, $this->item->params, $this->access); ?></li><?php } ?>
+        <?php if ($this->item->params->get('show_print_icon')) { ?><li class="icons"><?php echo articleIcons::print_popup($this->item, $this->item->params, $this->access); ?></li><?php } ?>
+        <?php if ($this->item->params->get('show_email_icon')) { ?><li class="icons"><?php echo articleIcons::email($this->item, $this->item->params, $this->access); ?></li><?php } ?>
+    </ul>
+    <?php } ?>
         <!-- section & category -->
         <?php if (($this->item->params->get('show_section') && $this->item->sectionid) || ($this->item->params->get('show_category') && $this->item->catid)) { ?>
-        <li class="filing">
+        <p class="filing">
     	<?php echo JText::_('Filed under'); ?>
     	<?php if ($this->item->params->get('show_section') && $this->item->sectionid && isset($this->item->section)) { ?>		
     		<?php if ($this->item->params->get('link_section')) { echo '<a href="'.JRoute::_(ContentHelperRoute::getSectionRoute($this->item->sectionid)).'">'; } ?>
@@ -46,13 +51,8 @@ $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $
     		<strong class="article-category"><?php echo $this->item->category; ?></strong>
     		<?php if ($this->item->params->get('link_category')) { echo '</a>'; } ?>
     	<?php } ?>
-        </li>
+        </p>
         <?php } ?>	
-        <?php if ($this->item->params->get('show_pdf_icon')) { ?><li class="icons"><?php echo articleIcons::pdf($this->item, $this->item->params, $this->access); ?></li><?php } ?>
-        <?php if ($this->item->params->get('show_print_icon')) { ?><li class="icons"><?php echo articleIcons::print_popup($this->item, $this->item->params, $this->access); ?></li><?php } ?>
-        <?php if ($this->item->params->get('show_email_icon')) { ?><li class="icons"><?php echo articleIcons::email($this->item, $this->item->params, $this->access); ?></li><?php } ?>
-    </ul>
-    <?php } ?>
 
 	<!-- after display title -->
 	<?php  if (!$this->item->params->get('show_intro')) : echo $this->item->event->afterDisplayTitle; endif; ?>
