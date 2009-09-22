@@ -933,7 +933,7 @@
 </params>
 
 <params group="outersidebardata">	
-	<param name="outer_default" type="list" default="6" label="Outer layout default" tooltip="modal" description="outerlayout.html">
+	<param name="outer_default" type="list" default="yui-t6" label="Outer layout default" tooltip="modal" description="outerlayout.html">
 		<option value="yui-t1">160px Left</option>
 		<option value="yui-t2">180px Left</option>
 		<option value="yui-t8">200px Left</option>
@@ -1035,7 +1035,7 @@
 </params>
 
 <params group="innersidebardata">	
-	<param name="inner_default" type="list" default="gh" label="Inner layout default" tooltip="modal" description="innerlayout.html">
+	<param name="inner_default" type="list" default="yui-gh" label="Inner layout default" tooltip="modal" description="innerlayout.html">
 		<option value="yui-g">50% Right</option>
 		<option value="yui-gc">33% Right</option>
 		<option value="yui-ge">25% Right</option>
