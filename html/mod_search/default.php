@@ -3,13 +3,13 @@ defined('_JEXEC') or die('Restricted access'); ?>
 <form action="index.php" method="post">
 	<div class="search <?php echo $params->get('moduleclass_sfx') ?><?php if ( $button == "1" ) { ?> search-btn<?php } ?>">
 		<?php
-		    $output = '<input name="searchword" id="mod_search_searchword" maxlength="'.$maxlength.'" alt="'.$button_text.'" class="inputbox'.$moduleclass_sfx.'" type="text" size="'.$width.'" value="'.$text.'"  onblur="if(this.value==\'\') this.value=\''.$text.'\';" onfocus="if(this.value==\''.$text.'\') this.value=\'\';" />';
+		    $output = '<input name="searchword" id="mod_search_searchword" maxlength="'.$maxlength.'" alt="'.$button_text.'" class="search-input" type="text" size="'.$width.'" value="'.$text.'"  onblur="if(this.value==\'\') this.value=\''.$text.'\';" onfocus="if(this.value==\''.$text.'\') this.value=\'\';" />';
 
 			if ($button) :
 			    if ($imagebutton) :
-			        $button = '<input type="image" value="'.$button_text.'" class="button '.$moduleclass_sfx.'" src="'.$img.'" onclick="this.form.searchword.focus();"/>';
+			        $button = '<input type="image" value="'.$button_text.'" class="search-btn" src="'.$img.'" onclick="this.form.searchword.focus();"/>';
 			    else :
-			        $button = '<input type="submit" value="'.$button_text.'" class="button '.$moduleclass_sfx.'" onclick="this.form.searchword.focus();"/>';
+			        $button = '<input type="submit" value="'.$button_text.'" class="search-btn" onclick="this.form.searchword.focus();"/>';
 			    endif;
 			endif;
 
