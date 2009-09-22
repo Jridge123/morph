@@ -550,7 +550,7 @@
 		<option value="0">No</option>
 	</param>
 	<param name="masthead_modfx" type="textarea" default="" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
-	<param name="display_skipto" type="radio" default="0" label="Display skip to menu" tooltip="inline" description="Would you like to display a skip to content menu?">
+	<param name="display_skipto" type="radio" default="1" label="Display skip to menu" tooltip="inline" description="Would you like to display a skip to content menu?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
@@ -1169,27 +1169,23 @@
 	</param>
 	<param name="footer_modfx" type="textarea" default="" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
 
-	<param name="footer_copyright" type="textarea" cols="32" rows="2" default="Copyright 2009 JoomlaJunkie.com - All Rights Reserved" label="Copyright" tooltip="inline" description="Add your own copyright here" />
-	<param name="footer_credits" type="textarea" cols="32" rows="2" default="Template Designed by &lt;a href=&quot;http://www.joomlajunkie.com&quot; title=&quot;professional joomla templates&quot;&gt;JoomlaJunkie&lt;/a&gt;" label="Credits" tooltip="inline" description="Add your own credits here" />
-	<param name="footer_textcolor" type="colorpicker" default="default" label="Text color" tooltip="inline" description="" />
-	<param name="footer_linkscolor" type="colorpicker" default="default" label="Links color" tooltip="inline" description="" />
-	<param name="footer_swish" type="radio" default="1" label="JoomlaJunkie swish" tooltip="inline" description="We would appreciate it if you kept the JoomlaJunkie swish logo at the bottom of the template, but we have added an option for you to remove it.">
+	<param name="footer_copyright" type="textarea" cols="32" rows="2" default="Copyright 2009 JoomlaJunkie.com - All Rights Reserved" label="Copyright text" tooltip="inline" description="Add your own copyright here" />
+	<param name="footer_credits" type="textarea" cols="32" rows="2" default="Template Designed by &lt;a href=&quot;http://www.joomlajunkie.com&quot; title=&quot;professional joomla templates&quot;&gt;JoomlaJunkie&lt;/a&gt;" label="Credits text" tooltip="inline" description="Add your own credits here" />
+	<param name="footer_textcolor" type="colorpicker" default="default" label="Footer text color" tooltip="inline" description="" />
+	<param name="footer_linkscolor" type="colorpicker" default="default" label="Footer links color" tooltip="inline" description="" />
+	<param name="footer_swish" type="radio" default="1" label="Show Prothemer logo" tooltip="inline" description="We would appreciate it if you kept the JoomlaJunkie swish logo at the bottom of the template, but we have added an option for you to remove it.">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="footer_morphlink" type="radio" default="1" label="Morph Inside link" tooltip="inline" description="We've made it optional to disable the Morph Inside link, but ask that you please leave it intact as it lets people know that the site is powered by Morph.">
+	<param name="footer_morphlink" type="radio" default="1" label="Show Powered by Morph" tooltip="inline" description="We've made it optional to disable the Morph Inside link, but ask that you please leave it intact as it lets people know that the site is powered by Morph.">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="footer_xhtml" type="radio" default="1" label="Footer xhtml validation link" tooltip="inline" description="Should the xhtml validation link be displayed in the footer?">
+	<param name="footer_validation" type="radio" default="1" label="Show validation links" tooltip="inline" description="Should the xhtml validation link be displayed in the footer?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="footer_css" type="radio" default="1" label="Footer css validation link" tooltip="inline" description="Should the css validation link be displayed in the footer?">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="footer_show" type="radio" default="0" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
+	<param name="footer_show" type="radio" default="0" label="Disable the footer block" tooltip="inline" description="Would you like to disable this block?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>

@@ -230,7 +230,7 @@ jQuery.noConflict();
 	    
 	    <?php } if ( $simpleticker == 1 ) { ?>
 	    <!--$("#news").newsTicker('<?php echo $tickerdelay; ?>');-->
-	     $('#news').innerfade({ animationtype: 'slide', speed: 750, timeout: 2000, type: 'random', containerheight: '1em' }); 
+	     $('#news').innerfade({ animationtype: 'fade', speed: 750, timeout: 9000, type: 'random', containerheight: '1em' }); 
 	    
 		<?php } if ( $toolbar_slider == 1 ) { ?>
    		initSlider('#toolbar', '<?php echo $toolbar_slider_text; ?>'); 
