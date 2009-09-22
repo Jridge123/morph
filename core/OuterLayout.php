@@ -11,22 +11,21 @@ $outerPageSuffix = array (
 	'8' => 'yui-t9'
 );
 
-$OuterScheme = array ('default'=>"$outer_default");
 if(!preg_match('/administrator/i', $_SERVER['REQUEST_URI'])){
+	$OuterScheme = array ('default'=>"$outer_default");
 	foreach($MORPH as $k => $v){
  		if(preg_match('/od_/i', $k)){
  			$k = str_replace('od_', '', $k);
  			$OuterScheme[$k] = $v;
  		}
  	}
+
+	if ($option && isset($OuterScheme[$option]) && trim($OuterScheme[$option])!= 'default'){
+		$CurrentOuterScheme = $outerPageSuffix[trim($OuterScheme[$option])];
+	}else{
+		$CurrentOuterScheme = $OuterScheme['default'];
+	}
 };
-
-if ($option && isset($OuterScheme[$option]) && trim($OuterScheme[$option])!= false){
-	$CurrentOuterScheme = $outerPageSuffix[trim($OuterScheme[$option])];
-}else{
-	$CurrentOuterScheme = $OuterScheme['default'];
-}
-
 
 if(isset($pageclass)){
 	$outerSfxArr = (explode("outer",$pageclass));
