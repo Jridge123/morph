@@ -63,10 +63,8 @@ $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $
 		<?php echo $this->item->toc; ?>
 	<?php endif; ?>
 	
-	
 	<!-- teaser text -->
 	<?php echo $this->item->text; ?>
-	
 	
 	<!-- date modified -->
 	<?php if ( intval($this->item->modified) != 0 && $this->item->params->get('show_modify_date')) : ?>
