@@ -3,6 +3,7 @@
         <?php if ( $footer_type == 0 ) { ?>
             <?php echo codeComments('s','Footer Block','includes/foot.php','5', $code_comments); ?>
             	<div id="footer" class="<?php echo $site_width ?><?php if ( $footer_swish == 1 ) { ?> swish<?php } ?>">
+            	    <?php if ( $footer_swish == 1 ) { ?><a href="http://www.prothemer.com" title="professional templates for your favorite cms" target="_blank" class="logo-swish">Prothemer</a><?php } ?>
                 	<ul id="footer-links">
                 	    <li class="footer-links">
                 	        <jdoc:include type="modules" name="footernav" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo 'none'; } ?>" />
