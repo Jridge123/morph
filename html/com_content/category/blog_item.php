@@ -43,24 +43,6 @@ $this->item->params->get('show_email_icon'))	{ ?>
 	<li class="author"><?php JText::printf('Written by', ($this->item->created_by_alias ? $this->item->created_by_alias : $this->item->author)); ?></li>
 <?php } ?>
 
-<!-- section & category -->
-<?php if (($this->item->params->get('show_section') && $this->item->sectionid) || ($this->item->params->get('show_category') && $this->item->catid)) { ?>
-<li class="filing">
-	<?php echo JText::_('Filed under'); ?>
-	<?php if ($this->item->params->get('show_section') && $this->item->sectionid && isset($this->item->section)) { ?>		
-		<?php if ($this->item->params->get('link_section')) { echo '<a href="'.JRoute::_(ContentHelperRoute::getSectionRoute($this->item->sectionid)).'">'; } ?>
-		<strong class="article-section"><?php echo $this->item->section; ?></strong>
-		<?php if ($this->item->params->get('link_section')) { echo '</a>'; } ?>
-	<?php } if (($this->item->params->get('show_section') && $this->item->sectionid) && ($this->item->params->get('show_category') && $this->item->catid)) { ?>	
-	 / 
-	<?php } if ($this->item->params->get('show_category') && $this->item->catid) { ?>
-		<?php if ($this->item->params->get('link_category')) { echo '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catslug, $this->item->sectionid)).'">'; } ?>
-		<strong class="article-category"><?php echo $this->item->category; ?></strong>
-		<?php if ($this->item->params->get('link_category')) { echo '</a>'; } ?>
-	<?php } ?>
-</li>
-<?php } ?>	
-
 <?php if ($this->item->params->get('show_pdf_icon')) { ?>
     <li class="icons"><?php echo articleIcons::pdf($this->item, $this->item->params, $this->access); ?></li>
 <?php } ?>
@@ -77,7 +59,25 @@ $this->item->params->get('show_email_icon'))	{ ?>
 
 
 <?php } ?>
-	
+
+
+<!-- section & category -->
+<?php if (($this->item->params->get('show_section') && $this->item->sectionid) || ($this->item->params->get('show_category') && $this->item->catid)) { ?>
+<p class="filing">
+	<?php echo JText::_('Filed under'); ?>
+	<?php if ($this->item->params->get('show_section') && $this->item->sectionid && isset($this->item->section)) { ?>		
+		<?php if ($this->item->params->get('link_section')) { echo '<a href="'.JRoute::_(ContentHelperRoute::getSectionRoute($this->item->sectionid)).'">'; } ?>
+		<strong class="article-section"><?php echo $this->item->section; ?></strong>
+		<?php if ($this->item->params->get('link_section')) { echo '</a>'; } ?>
+	<?php } if (($this->item->params->get('show_section') && $this->item->sectionid) && ($this->item->params->get('show_category') && $this->item->catid)) { ?>	
+	 / 
+	<?php } if ($this->item->params->get('show_category') && $this->item->catid) { ?>
+		<?php if ($this->item->params->get('link_category')) { echo '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catslug, $this->item->sectionid)).'">'; } ?>
+		<strong class="article-category"><?php echo $this->item->category; ?></strong>
+		<?php if ($this->item->params->get('link_category')) { echo '</a>'; } ?>
+	<?php } ?>
+</p>
+<?php } ?>		
 
 <?php echo $this->item->event->beforeDisplayContent; ?>
 
