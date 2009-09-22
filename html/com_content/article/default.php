@@ -124,29 +124,25 @@ $this->params->get('show_email_icon'))	{ ?>
 		<?php if ( intval($this->article->modified) !=0 && $this->params->get('show_modify_date')) : ?>
 		<p class="modified"><?php echo JText::_( 'Last updated on:' ); ?> <?php echo JHTML::_('date', $this->article->modified, JText::_('%a, %d %b %y')); ?></p>
 		<?php endif; ?>
+		<div id="shareit-box">
+        	<div id="shareit-header"></div>
+        	<div id="shareit-body">
+        		<div id="shareit-blank"></div>
+        		<div id="shareit-url"><input type="text" value="" name="shareit-field" id="shareit-field" class="field"/></div>
+        		<div id="shareit-icon">
+        		<ul>
+        			<li class="shareit-mail"><a href="#" rel="shareit-mail" class="shareit-sm">Mail</a></li>
+        			<li class="shareit-delicious"><a href="#" rel="shareit-delicious" class="shareit-sm">Delicious</a></li>
+        			<li class="shareit-designfloat"><a href="#" rel="shareit-designfloat" class="shareit-sm">Designfloat</a></li>
+        			<li class="shareit-digg"><a href="#" rel="shareit-digg" class="shareit-sm">Digg</a></li>
+        			<li class="shareit-stumbleupon"><a href="#" rel="shareit-stumbleupon" class="shareit-sm">StumbleUpon</a></li>
+        			<li class="shareit-twitter"><a href="#" rel="shareit-twitter" class="shareit-sm">Twitter</a></li>
+        		</ul>
+        		</div>
+        	</div>
+        </div>
 		</div>
 		
 		<?php echo $this->article->event->afterDisplayContent; ?>
 	</div>
-
-<div id="shareit-box">
-	<div id="shareit-header"></div>
-	<div id="shareit-body">
-		<div id="shareit-blank"></div>
-		<div id="shareit-url"><input type="text" value="" name="shareit-field" id="shareit-field" class="field"/></div>
-		<div id="shareit-icon">
-		<ul>
-			<li class="shareit-mail"><a href="#" rel="shareit-mail" class="shareit-sm">Mail</a></li>
-			<li class="shareit-delicious"><a href="#" rel="shareit-delicious" class="shareit-sm">Delicious</a></li>
-			<li class="shareit-designfloat"><a href="#" rel="shareit-designfloat" class="shareit-sm">Designfloat</a></li>
-			<li class="shareit-digg"><a href="#" rel="shareit-digg" class="shareit-sm">Digg</a></li>
-			<li class="shareit-stumbleupon"><a href="#" rel="shareit-stumbleupon" class="shareit-sm">StumbleUpon</a></li>
-			<li class="shareit-twitter"><a href="#" rel="shareit-twitter" class="shareit-sm">Twitter</a></li>
-		</ul>
-		</div>
-	</div>
-</div>
-
-
-
 </div>
