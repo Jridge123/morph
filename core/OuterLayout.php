@@ -1,6 +1,6 @@
 <?php
 $outerPageSuffix = array (
-	'0' => 'none',
+	'0' => 'yui-t0',
 	'1' => 'yui-t1',
 	'2' => 'yui-t2',
 	'3' => 'yui-t3',
