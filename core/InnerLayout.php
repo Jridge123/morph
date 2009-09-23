@@ -8,21 +8,21 @@ $innerPageSuffix = array (
 	'5' => 'yui-gh'
 );
 
-$innerScheme = array ('default'=>"$inner_default");	
 if(!preg_match('/administrator/i', $_SERVER['REQUEST_URI'])){
+	$innerScheme = array ('default'=>$inner_default);	
 	foreach($MORPH as $k => $v){
  		if(preg_match('/id_/i', $k)){
  			$k = str_replace('id_', '', $k);
  			$innerScheme[$k] = $v;
  		}
  	}
-};
 
-if($option && isset($innerScheme[$option]) && trim($innerScheme[$option])!= false){
-	$CurrentInnerScheme = $innerPageSuffix[trim($innerScheme[$option])];
-}else{
-	$CurrentInnerScheme = $innerScheme['default'];
-}
+	if($option && isset($innerScheme[$option]) && trim($innerScheme[$option])!= 'default'){
+		$CurrentInnerScheme = $innerPageSuffix[trim($innerScheme[$option])];
+	}else{
+		$CurrentInnerScheme = $innerScheme['default'];
+	}
+};
 
 if(isset($pageclass)){
 	$innerSfxArr = (explode("inner",$pageclass));
