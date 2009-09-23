@@ -598,7 +598,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-</params>	
+</params>
 
 <params group="topnavdata">
 	<param name="topnav_wrap" type="radio" default="0" label="Block wrapping" tooltip="modal" description="blockwrap.html">
