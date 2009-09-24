@@ -111,6 +111,7 @@ if($load_mootools == 0) {
             break;
             case 'com_user':
             case 'com_contact':
+            case 'com_k2':
             $this->setHeadData($headoriginal);
             break;
         }
