@@ -117,7 +117,7 @@ body{color:#<?php echo $color_bodytext; ?>;}
 <?php } if( $pack_css == 1 ){
     if( $direction == 'rtl' && file_exists($css_rtl)){ include($css_rtl); } elseif ($direction == 'rtl') { include('rtl.css'); }
 	if($custom_css == 1){ include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/custom.css'); }
-    include('templates/morph/core/css/browsers.css');
+    include('browsers.css');
 	// browser specific
 	if(file_exists($css_browsers)) include($css_browsers);
     if($lcbrowser == 'firefox' && file_exists($css_firefox)) include($css_firefox);
