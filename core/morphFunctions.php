@@ -128,7 +128,14 @@ if (!$user->authorize('com_content', 'edit', 'content', 'all')) {
 
 if ( $remove_generator == 1 ) {
 $this->setGenerator(null);
-}function debug_chrome($pt_debug, $pt_mod_chrome){	if( $pt_debug == 1 ){ 		return 'outline'; 	} else { 		return $pt_mod_chrome; 	}}
+}
+function debug_chrome($pt_debug, $pt_mod_chrome){
+	if( $pt_debug == 1 ){ 
+		return 'outline'; 
+	} else { 
+		return $pt_mod_chrome; 
+	}
+}
 
 include 'morphVars.php';
 
@@ -251,9 +258,10 @@ if( $browser->getBrowser() == Browser::PLATFORM_IPHONE && $iphone_mode == 1 ){
 	}
 }
 
-function isIE6(){
-	$user_agent = $_SERVER['HTTP_USER_AGENT'];
-	if(strpos($user_agent, 'MSIE 6 ')){
+function isIE6($string=''){
+	$user_agent = $string;
+	if(!isset($string)) $user_agent = $_SERVER['HTTP_USER_AGENT'];
+	if(preg_match('/MSIE 6/i', $user_agent)){
 		return true;
 	} else {
 		return false;
