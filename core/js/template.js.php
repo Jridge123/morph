@@ -48,7 +48,7 @@ jQuery.noConflict();
 		
 		$(".search-results li:odd").addClass("alt");
 				
-		$(".article-body p:first").addClass("teaser");
+		$("#article-content p:first").addClass("teaser");
 		
 		$(".module-previews .mod:odd").addClass("alt");		
 		$("#nav li:first").addClass("first");
