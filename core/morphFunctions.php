@@ -267,18 +267,18 @@ function isIE6($string=''){
 		return false;
 	}
 }
-
-switch($_SERVER['HTTP_USER_AGENT']){
+$user_agent = $_SERVER['HTTP_USER_AGENT'];
+switch($user_agent)){
 	case strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE'):
 	if(file_exists($ie) && is_readable($ie)) $document->addStyleSheet($ie);
 	break;
-	case (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 6')):
+	case preg_match('/MSIE 6/i', $user_agent):
 	if(file_exists($ie6) && is_readable($ie6)) $document->addStyleSheet($ie6);
 	break;
-	case strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 7'):
+	case preg_match('/MSIE 7/i', $user_agent):
 	if(file_exists($ie7) && is_readable($ie7)) $document->addStyleSheet($ie7);
 	break;
-	case strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 8'):
+	case preg_match('/MSIE 8/i', $user_agent):
 	if(file_exists($ie8) && is_readable($ie8)) $document->addStyleSheet($ie8);
 	break;
 }
