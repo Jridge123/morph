@@ -7,7 +7,10 @@ if(!ob_start("ob_gzhandler")) ob_start();
 }else{
 ob_start();
 }
-header("cache-control: must-revalidate");$offset = 60 * 10000;$expire = "expires: " . gmdate("D, d M Y H:i:s", time() + $offset) . " GMT";header($expire);
+header("cache-control: must-revalidate");
+$offset = 60 * 10000;
+$expire = "expires: " . gmdate("D, d M Y H:i:s", time() + $offset) . " GMT";
+header($expire);
 }
 define('JPATH', str_replace('templates/morph/core/css', '', dirname(__FILE__)) . '/' );
 if( $pack_css == 1 ){
@@ -114,12 +117,16 @@ body{color:#<?php echo $color_bodytext; ?>;}
 <?php } if( $pack_css == 1 ){
     if( $direction == 'rtl' && file_exists($css_rtl)){ include($css_rtl); } elseif ($direction == 'rtl') { include('rtl.css'); }
 	if($custom_css == 1){ include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/custom.css'); }
-    include('templates/morph/core/css/browsers.css');
-	if(file_exists($css_browsers)){ include($css_browsers); }
-    if( $lcbrowser == 'firefox' && file_exists($css_firefox)) { include($css_firefox); }
-    if( $lcbrowser == 'safari' && file_exists($css_safari)) { include($css_safari); }
-    if( $lcbrowser == 'opera' && file_exists($css_opera)) { include($css_opera); }
-    if( $lcbrowser == 'chrome' && file_exists($css_chrome)) { include($css_chrome); }
-    if( $lcbrowser == 'internetexplorer' && file_exists($css_ie)) { include($css_ie); }
+    include('browsers.css');
+	// browser specific
+	if(file_exists($css_browsers)) include($css_browsers);
+    if($lcbrowser == 'firefox' && file_exists($css_firefox)) include($css_firefox);
+    if($lcbrowser == 'safari' && file_exists($css_safari)) include($css_safari);
+    if($lcbrowser == 'opera' && file_exists($css_opera)) include($css_opera);
+    if($lcbrowser == 'chrome' && file_exists($css_chrome)) include($css_chrome);
+    if($lcbrowser == 'internetexplorer' && file_exists($css_internetexplorer)) include($css_internetexplorer);
+	if(preg_match('/MSIE 8/i', $_SERVER['HTTP_USER_AGENT']) && file_exists($css_ie8)) include($css_ie8);
+	if(preg_match('/MSIE 7/i', $_SERVER['HTTP_USER_AGENT']) && file_exists($css_ie7)) include($css_ie7);
+	if(preg_match('/MSIE 6/i', $_SERVER['HTTP_USER_AGENT']) && file_exists($css_ie6)) include($css_ie6);
 }
 if ( $gzip_compression == 1 ) { ob_end_flush(); } ?>
