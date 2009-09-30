@@ -5,11 +5,23 @@ defined('_JEXEC') or die('Restricted access');
 include_once('templates/morph/core/morphLoader.php');
 include_once('templates/morph/core/morphParams.php');
 require_once('templates/morph/core/browser.php');
+// enable/disable GZIP compression
 if ( $gzip_compression == 1 ) {
+	// set Joomla's GZIP to on if not set.
+	$conf = JFactory::getConfig();
+	if($conf->getValue('config.gzip') !== '1'){
+		$path = JPATH_CONFIGURATION.DS.'configuration.php';
+		JPath::setPermissions($path, '0777');
+		if(file_exists($path) && is_writable($path)){			
+			$str = file_get_contents($path);
+			$line = str_replace('var $gzip = \'0\';', 'var $gzip = \'1\';', $str);
+			file_put_contents($path, $line);
+		}		
+		JPath::setPermissions($path, '0644');
+	}
+	// enable GZIP if the PHP ZLIB extension is loaded and output_compression is not enabled, else enable output buffering
 	if(extension_loaded('zlib') && !ini_get('zlib.output_compression')){
 		if(!ob_start("ob_gzhandler")) ob_start();
-	}else{
-		ob_start();
 	}
 }
 // set the various paths:
@@ -267,10 +279,9 @@ if( $browser->getBrowser() == Browser::PLATFORM_IPHONE && $iphone_mode == 1 ){
 		$document->addStyleSheet($templatepath .'/core/css/template.css.php'.$packed_css);
 	}
 }
-
 function isIE6($string=''){
 	$user_agent = $string;
-	if(!isset($string)) $user_agent = $_SERVER['HTTP_USER_AGENT'];
+	if($string == '') $user_agent = $_SERVER['HTTP_USER_AGENT'];
 	if(preg_match('/MSIE 6/i', $user_agent)){
 		return true;
 	} else {
