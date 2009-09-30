@@ -12,3 +12,8 @@
 .yui-t9 .yui-b{width:15.0003em;}
 .yui-t8 #yui-main .yui-b{margin-left:16.0003em;}
 .yui-t9 #yui-main .yui-b{margin-right:16.0003em;}
+#ie6Warning{background:#990000;padding:.5em 1em 1em 1em;border-bottom:1px solid #E84136;}
+#ie6Warning h2,#ie6Warning p{margin:0;padding:0;color:#fff;font-family:arial;}
+#ie6Warning h2{font-size:1.4em;padding-bottom:.3em;}
+#ie6Warning p{line-height:1.2em;width:780px;margin:0 auto;}
+#ie6Warning p a{color:#FFCC66;}

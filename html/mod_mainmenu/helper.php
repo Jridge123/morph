@@ -156,7 +156,7 @@ class modNewMainMenuHelper
 				$xml = modNewMainMenuHelper::getXML($params->get('menutype'), $params, $callback);
 				if ($xml) {
 					$class = $params->get('class_sfx');
-					$xml->addAttribute('class', 'menu'.$class);
+					$xml->addAttribute('class', 'menu'. ' ' .$class);
 					if ($tagId = $params->get('tag_id')) {
 						$xml->addAttribute('id', $tagId);
 					}
