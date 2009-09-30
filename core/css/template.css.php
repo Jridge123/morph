@@ -46,10 +46,10 @@ padding:0;
 width:<?php echo $logo_width; ?>px;
 height:<?php echo $logo_height; ?>px;
 font-weight:bold;
+font-size:<?php echo $logo_fontsize; ?>;
 }
 #branding h1 a{
 font-family:<?php echo $logo_fontfamily; ?>;
-font-size:<?php echo $logo_fontsize; ?>;
 <?php if ( $logo_textcolor !== "#default" ) { ?>color:<?php echo $logo_textcolor; ?>;<?php } ?>
 display:block;
 }

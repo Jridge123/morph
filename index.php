@@ -7,10 +7,7 @@
 *** @license   Commercial
 **/
 defined( '_JEXEC' ) or die( 'Restricted index access' );
-include_once(JPATH_ROOT . "/templates/" . $this->template . '/core/morphFunctions.php');
-if ($error_reporting == 0) { 
-error_reporting(E_ALL ^ E_NOTICE); 
-} ?>
+include_once(JPATH_ROOT . "/templates/" . $this->template . '/core/morphFunctions.php'); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>">
 <head>
@@ -26,6 +23,7 @@ $.trackPage('<?php echo $google_analytics; ?>')
 <?php } ?>
 <?php if(isIE6() && $hide_ie6toolbar == 1 ){ ?><meta http-equiv="imagetoolbar" content="no" /><?php } ?>
 </head>
+<?php if ($error_reporting == 0) error_reporting(E_ALL ^ E_NOTICE); ?>
 <body class="js-disabled morph <?php echo "$lcbrowser $lcbrowser$ver"; if ($pageclass != ""){ echo ' '.$pageclass; } ?>"<?php if ($themelet != ""){ echo ' id="'.$themelet.'"'; } ?>>
 <?php
 if( $browser->getBrowser() == Browser::PLATFORM_IPHONE && $iphone_mode == 1 ){
