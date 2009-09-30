@@ -267,10 +267,9 @@ if( $browser->getBrowser() == Browser::PLATFORM_IPHONE && $iphone_mode == 1 ){
 		$document->addStyleSheet($templatepath .'/core/css/template.css.php'.$packed_css);
 	}
 }
-
 function isIE6($string=''){
 	$user_agent = $string;
-	if(!isset($string)) $user_agent = $_SERVER['HTTP_USER_AGENT'];
+	if($string == '') $user_agent = $_SERVER['HTTP_USER_AGENT'];
 	if(preg_match('/MSIE 6/i', $user_agent)){
 		return true;
 	} else {

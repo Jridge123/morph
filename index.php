@@ -31,7 +31,7 @@ $.trackPage('<?php echo $google_analytics; ?>')
 if( $browser->getBrowser() == Browser::PLATFORM_IPHONE && $iphone_mode == 1 ){
 include_once('core/includes/iphone.php');
 } else{
-if(isIE6() && $ie6_upgrade == 1){include_once('core/includes/ie6upgrade.php');}
+if(isIE6() && $ie6_upgrade == 1){ include_once('core/includes/ie6upgrade.php');}
 if($this->countModules('advert1')){'<div id="advert1"><jdoc:include type="modules" name="advert1" style="none" /></div>';}
 if($toolbar_position == 0){include_once('core/includes/toolbar.php');}
 if($topnav_position == 0){include_once('core/includes/topnav.php');}
