@@ -78,7 +78,7 @@
 	<param name="logo_alttext" type="text" default="" label="Logo image alt text" tooltip="inline" description="Set your logo image alt text" />
 	<param name="logo_linktitle" type="text" default="" label="Logo link title text" tooltip="inline" description="Set your logo link title text" />
 	<param name="logo_textcolor" type="colorpicker" default="#666161" label="Logo text color" tooltip="inline" description="Set your logo text foreground color." />
-	<param name="logo_fontsize" type="list" default="2.5em" label="Logo font size" tooltip="inline" description="Adjust the font size of your custom logo text.">
+	<param name="logo_fontsize" type="list" default="4em" label="Logo font size" tooltip="inline" description="Adjust the font size of your custom logo text.">
 	    <option value="1em">1em</option>
 	    <option value="1.1em">1.1em</option>
 	    <option value="1.2em">1.2em</option>
@@ -142,8 +142,8 @@
 	    <option value="'Lucida Console', Monaco, monospace">Lucida Console</option>
 	    <option value="'Comic Sans MS', cursive">Comic Sans MS</option>
 	</param>
-	<param name="logo_top" type="text" default="30px" label="Logo top position" tooltip="inline" description="Set your logos x-coordinate (ie, the number of pixels it should be positioned from the top.  You can set the amount as either pixels, em's or a percentage. For example 10px, 10em or 10%. Please note that no spaces should be used." />
-	<param name="logo_left" type="text" default="0px" label="Logo left position" tooltip="inline" description="Set your logos y-coordinate (ie, the number of pixels it should be positioned from the left.  You can set the amount as either pixels, em's or a percentage. For example 10px, 10em or 10%. Please note that no spaces should be used." />
+	<param name="logo_top" type="text" default="10px" label="Logo top position" tooltip="inline" description="Set your logos x-coordinate (ie, the number of pixels it should be positioned from the top.  You can set the amount as either pixels, em's or a percentage. For example 10px, 10em or 10%. Please note that no spaces should be used." />
+	<param name="logo_left" type="text" default="20px" label="Logo left position" tooltip="inline" description="Set your logos y-coordinate (ie, the number of pixels it should be positioned from the left.  You can set the amount as either pixels, em's or a percentage. For example 10px, 10em or 10%. Please note that no spaces should be used." />
 	<param name="logo_stack" type="text" default="2" label="Logo stacking order" tooltip="inline" description="Set the stacking order (z-index) of your sites logo." />	
 
 </params>
