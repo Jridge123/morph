@@ -30,7 +30,6 @@ if( $browser->getBrowser() == Browser::PLATFORM_IPHONE && $iphone_mode == 1 ){
 include_once('core/includes/iphone.php');
 } else{
 if(isIE6() && $ie6_upgrade == 1){ include_once('core/includes/ie6upgrade.php');}
->>>>>>> 62b9e7b61a0e564652ff785fadcfdd3d5b8d7ffe:index.php
 if($this->countModules('advert1')){'<div id="advert1"><jdoc:include type="modules" name="advert1" style="none" /></div>';}
 if($toolbar_position == 0){include_once('core/includes/toolbar.php');}
 if($topnav_position == 0){include_once('core/includes/topnav.php');}
