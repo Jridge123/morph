@@ -118,6 +118,7 @@ body{color:#<?php echo $color_bodytext; ?>;}
     if( $direction == 'rtl' && file_exists($css_rtl)){ include($css_rtl); } elseif ($direction == 'rtl') { include('rtl.css'); }
 	if($custom_css == 1){ include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/custom.css'); }
     include('browsers.css');
+	if(preg_match('/MSIE 6/i', $_SERVER['HTTP_USER_AGENT'])) include('ie6.css');
 	// browser specific
 	if(file_exists($css_browsers)) include($css_browsers);
     if($lcbrowser == 'firefox' && file_exists($css_firefox)) include($css_firefox);

@@ -278,6 +278,10 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
+	<param name="chrome_frame" type="radio" default="0" label="Enable Google Chrome Frame" tooltip="inline" description="This will include the Google Chrome Frame meta tag in the Morph template. If the plugin is not installed on the users browser it will prompt the user to install the plugin on their browser. This is only for Internet Explorer versions 6-8.">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
 </params>
 
 <params group="menudata">
