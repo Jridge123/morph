@@ -1,22 +1,78 @@
-#jjNavigation UL.menu LI,#jjNavigation UL#mainlevel-nav LI{float:left;}
-.module div div div,.module_menu div div div,.module_text div div div{display:inline-block;}
-div.modfx.module.roundedc H3{margin:0;}
-div.modfx.module.roundedc{border:none;}
-div.modfx.module.roundedc div div div{border:none;padding:0;}
+/*[fmt]9A90-1A0A-3*/
+/*@group search module styling*/
+.internetexplorer60 #topnav .search .search-input	{
+	width: 10em;
+	margin: 0;
+	padding: 0.25em;
+}
+/*default menu*/
+.internetexplorer60 #topnav .search	{
+	margin: 0.48em 0;
+	float: right;
+	padding: 0 0.48em;
+}
+/*subtext menu*/
+.internetexplorer60 #topnav.subtext .search	{
+	margin: 1.12em 0;
+	padding: 0 1.12em;
+}
+/*topdrop menu*/
+.internetexplorer60 #topnav.topdrop .search	{
+	margin: 0.6em 0;
+	padding: 0 0.6em;
+}
+/*subtext topdrop*/
+.internetexplorer60 #topnav.topdrop.subtext .search, .internetexplorer60 #topnav.topfish.subtext .search	{
+	margin: 1.15em 0;
+	padding: 0 1.12em;
+}
+.internetexplorer60 #topnav .search input.search-input	{
+}
+/*@end*/
+.yui-gb .yui-u	{
+	width: 32.39%;
+}
+/*old ie6 styles - needs cleaning
+
 #user1.intelli.yui-gb .moduletable{margin:20px 5px 5px;}
+
 #user1 .jjmod.moduletable{height:100%;}
+
 #inset1.intelli.yui-gb .moduletable{margin:0 5px 5px;display:inline;}
+
 .module,.module-sfx,.module_menu,.module_text{height:1%;}
+
 #jjBtmShelf .moduletable,#jjUser1 .moduletable{margin:0;margin-top:20px;margin-bottom:20px;}
+
 hr{margin:1em 0;padding:0;border:none;background-image:none;color:#111;height:1px;}
-.main-nav UL.menu li,#main-nav ul#mainlevel-nav li{float:left;}
-.moduletable.rounded{margin:0;border:none;}
-.moduletable.rounded div{border:none;}
-.moduletable.rounded div div{border:none;}
-.moduletable.rounded div div div div{border:none;padding:0 5px 5px;}
-.moduletable.rounded div div div{border:none;padding:0;}
-.rounded div.jjmod-content{margin-top:10px;}
+
 #branding{height:1%;}
+
 .yui-t1 #yui-main .yui-b.no-left,.yui-t2 #yui-main .yui-b.no-left,.yui-t3 #yui-main .yui-b.no-left,.yui-t4 #yui-main .yui-b.no-left,.yui-t5 #yui-main .yui-b.no-left,.yui-t6 #yui-main .yui-b.no-left,.yui-t7 #yui-main .yui-b.no-left,.yui-t8 #yui-main .yui-b.no-left,.yui-t9 #yui-main .yui-b.no-left{margin-left:0;}
-#bottom{height:1%;clear:both;}
-.ui-tabs{zoom: 1;}
+
+#bottom{height:1%;clear:both;}*/
+#branding	{
+	float: none;
+	display: inline;
+}
+
+#top-link{display:inline-block;}
+#footer .footer-validation, #footer .footer-credits	{
+	float: right;
+	clear: both;
+}
+#footer .footer-credits	{
+	width: 39%;
+}
+#footer .footer-menu ul	{
+	padding: 0;
+}
+#footer .footer-copyright	{
+	clear: left;
+	width: 100%;
+}
+#footer.swish ul#footer-links	{
+	padding: 0.5em 0 0em;
+}
+
+#top-link{position: absolute; }
