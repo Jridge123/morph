@@ -22,9 +22,9 @@ $.trackPage('<?php echo $google_analytics; ?>')
 <link rel="apple-touch-icon" href="<?php echo $assetspath; ?>/iphone/<?php echo $iphone_webclip; ?>" />
 <?php } ?>
 <?php if(isIE6() && $hide_ie6toolbar == 1 ){ ?><meta http-equiv="imagetoolbar" content="no" /><?php } ?>
-<?php if( $browser->getBrowser() == Browser::BROWSER_IE && $chrome_frame == 1 ) { ?>
-<meta http-equiv="X-UA-Compatible" content="chrome=1">
-<?php }	?>
+<?php if( $browser->getBrowser() == Browser::BROWSER_IE && $chrome_frame == 1 ) {
+	$document->setMetaData('X-UA-Compatible', 'chrome=1', true);
+} ?>
 </head>
 <?php if ($error_reporting == 0) error_reporting(E_ALL ^ E_NOTICE); ?>
 <body class="js-disabled morph <?php echo "$lcbrowser $lcbrowser$ver"; if ($pageclass != ""){ echo ' '.$pageclass; } ?>"<?php if ($themelet != ""){ echo ' id="'.$themelet.'"'; } ?>>
