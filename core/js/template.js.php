@@ -1,11 +1,15 @@
 <?php
-include '../jsvars.php';if ( $gzip_compression == 1 ) {
+include '../jsvars.php';
+if ( $gzip_compression == 1 ) {
 	if(extension_loaded('zlib') && !ini_get('zlib.output_compression')){
 		if(!ob_start("ob_gzhandler")) ob_start();
 	}else{
 		ob_start();
 	}
-	header("cache-control: must-revalidate");	$offset = 60 * 10000;	$expire = "expires: " . gmdate("D, d M Y H:i:s", time() + $offset) . " GMT";	header($expire);
+	header("cache-control: must-revalidate");
+	$offset = 60 * 10000;
+	$expire = "expires: " . gmdate("D, d M Y H:i:s", time() + $offset) . " GMT";
+	header($expire);
 }
 header("content-type: text/javascript; charset: UTF-8");
 define('JPATH', str_replace('templates/morph/core/js', '', dirname(__FILE__)) . '/' );
@@ -32,6 +36,7 @@ if($pack_js == 1){
 jQuery.noConflict();
 (function($) {
 	$(document).ready(function(){
+		$('#gcf_placeholder').css('z-index','9999');
 		$("#topnav.call-for-action li:last").addClass("action-link");
 		$("#topnav.call-for-action li:last").prev("li").addClass("second-last");
 		

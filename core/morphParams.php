@@ -54,6 +54,7 @@ $rounded_corners = $MORPH->rounded_corners;
 $rounded_amount = $MORPH->rounded_amount;
 $equal_heights = $MORPH->equal_heights;
 $plugin_scrollto = $MORPH->plugin_scrollto;
+$chrome_frame = $MORPH->chrome_frame;
 
 $captions_enabled = $MORPH->captions_enabled;
 $captions_speedover = $MORPH->captions_speedover;
