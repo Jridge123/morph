@@ -283,11 +283,11 @@ body{text-align:center;}
 	/* @group generic styles for all pos */
 
 /* adjustment for when 2 mods published with 33/66*/
-.yui-gd.modcount2 .yui-u {margin-left: 1.35%;}
-.yui-gd.modcount2 .yui-u.first {margin-left: 0;}
+.modcount2.yui-gd .yui-u {margin-left: 1.35%;}
+.modcount2.yui-gd .yui-u.first {margin-left: 0;}
 /* adjustment for when 2 mods published with 66/33*/
-.yui-gc.modcount2 .yui-u.first,
-.yui-gc.modcount2 .yui-u.first {width: 66.2%;}
+.modcount2.yui-gc .yui-u.first,
+.modcount2.yui-gc .yui-u.first {width: 66.2%;}
 
 	/* @end */
 
