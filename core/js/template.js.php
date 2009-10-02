@@ -269,13 +269,14 @@ jQuery.noConflict();
 		           	$.cookie("accordion1", index'.$n.');
 			    }
 			}); '; 
+		    }
 		}
-		}?>
-			
-		<?php if($pack_js == 1 && $custom_js == 1){
+		if($themelet_js == 1){
+		    include('../../../../morph_assets/themelets/'.$themelet.'/js/themelet.js');
+		} 
+		if($custom_js == 1){
 		    include('../../../../morph_assets/themelets/'.$themelet.'/js/custom.js');
 		} ?>
-
     })
 })(jQuery);
 <?php if ( $gzip_compression == 1 ) { ob_end_flush(); } ?>

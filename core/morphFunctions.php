@@ -100,19 +100,9 @@ $css_yui					= $absolutepath."/css/yui.css";
 $css_iphone					= $absolutepath."/css/iphone.css";
 $customcss					= $absolutepath."/css/custom.css";
 $customjs					= $absolutepath."/js/custom.js";
-$themeletfunctions			= $absolutepath."/custom.php";
-$toolbar_override			= $absolutepath."/html/toolbar.php";
-$masthead_override			= $absolutepath."/html/masthead.php";
-$subhead_override			= $absolutepath."/html/subhead.php";
-$topnav_override			= $absolutepath."/html/topnav.php";
-$topshelf_override			= $absolutepath."/html/topshelf.php";
-$bottomshelf_override		= $absolutepath."/html/bottomshelf.php";
-$user1_override				= $absolutepath."/html/user1.php";
-$user2_override				= $absolutepath."/html/user2.php";
-$iphone_override			= $absolutepath."/html/iphone.php";
-$main_override				= $absolutepath."/html/main.php";
-$secondary_override			= $absolutepath."/html/secondary.php";
-$tertiary_override			= $absolutepath."/html/tertiary.php";
+$themeletjs					= $absolutepath."/js/themelet.js";
+$customfunctions			= $absolutepath."/custom.php";
+$themeletfunctions			= $absolutepath."/themelet.php";
 $foot_override				= $absolutepath."/html/foot.php";
 
 if($load_mootools == 0) {
@@ -127,6 +117,7 @@ if($load_mootools == 0) {
             case 'com_user':
             case 'com_contact':
             case 'com_k2':
+            case 'com_myblog':
             $this->setHeadData($headoriginal);
             break;
         }
@@ -155,6 +146,9 @@ function debug_chrome($pt_debug, $pt_mod_chrome){
 include 'morphVars.php';
 
 if(file_exists($themeletfunctions) && is_readable($themeletfunctions)){
+include_once($absolutepath.'/themelet.php');
+}
+if(file_exists($customfunctions) && is_readable($customfunctions)){
 include_once($absolutepath.'/custom.php');
 }
 
@@ -225,10 +219,6 @@ if ( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
     		}
     		    $document->addScript($templatepath .'/core/js/fontsizer.js');
     		    $document->addScript($templatepath .'/core/js/template.js.php'.$packed_js);
-    		    
-    		if( $custom_js == 1 ){ 
-    		    $document->addScript($themeletpath .'/js/custom.js');
-    		}
     	}else{
     		$document->addScript($templatepath .'/core/js/template.js.php'.$packed_js);
     	}

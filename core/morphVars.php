@@ -65,6 +65,7 @@ $db->setQuery( $query ); $animate_left = $db->loadResult();
 $query = "SELECT COUNT(*) FROM `#__modules` WHERE `module` = 'mod_simpleticker' AND `published` = '1'";
 $db->setQuery( $query ); $simpleticker = $db->loadResult();
 
+(file_exists($themeletjs)) ? $themelet_js = 1 : $themelet_js = 0;
 (file_exists($customjs)) ? $custom_js = 1 : $custom_js = 0;
 (file_exists($customcss)) ? $custom_css = 1 : $custom_css = 0;
 
@@ -156,6 +157,7 @@ $packed_js_vars["Z04"]=$simpleticker;
 if(!empty($pt_mod)){
 	$packed_js_vars["Z05"]=$pt_mod['pt_delay'];
 }
+$packed_js_vars["Z06"]=$themelet_js;
 
 $packed_js = '';
 foreach($packed_js_vars as $key => $val){

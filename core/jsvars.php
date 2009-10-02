@@ -85,4 +85,5 @@ if(isset($_GET['Z05'])){
 }else{
 	$tickerdelay = null;
 }
+$themelet_js = $_GET['Z06'];
 ?>

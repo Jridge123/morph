@@ -2,6 +2,17 @@
 defined('_JEXEC') or die('Restricted access');
 include_once(dirname(__FILE__).DS.'..'.DS.'icon.php');
 $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $this->user->authorize('com_content', 'edit', 'content', 'own'));
+function curPageURL() {
+ $pageURL = 'http';
+ if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
+ $pageURL .= "://";
+ if ($_SERVER["SERVER_PORT"] != "80") {
+  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+ } else {
+  $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+ }
+ return $pageURL;
+}
 ?>
 
 <div class="article-page">
@@ -53,7 +64,7 @@ $this->params->get('show_email_icon'))	{ ?>
 	
 <li>
 				<span class="sep">&nbsp;|&nbsp;</span>
-				<a href="<?php echo $this->article->readmore_link; ?>|<?php echo $this->escape($this->article->title); ?>" rel="shareit">Share Article</a>
+				<a href="<?php echo curPageURL(); ?>|<?php echo $this->escape($this->article->title); ?>" rel="shareit">Share Article</a>
 				<span class="sep">&nbsp;|&nbsp;</span><span id="fontsizer"></span>
 </li>
 
