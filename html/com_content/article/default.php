@@ -25,7 +25,6 @@ function curPageURL() {
 
 	<?php if ($this->params->get('show_title') || $this->params->get('show_pdf_icon') || $this->params->get('show_print_icon') || $this->params->get('show_email_icon')) : ?>
 
-	<div class="article-top clearer">
 	    <!-- start article top -->
 		<?php if ($this->params->get('show_title')) : ?>
 		<h1 class="article-title">
@@ -112,7 +111,6 @@ $this->params->get('show_email_icon'))	{ ?>
 </p>
 <?php } ?>
 			
-	</div>
 	<!-- end article top -->
 	<?php endif; ?>
 
