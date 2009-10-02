@@ -67,8 +67,8 @@
 
 
 /* move search box down just a little to make it same as other browsers */
-.chrome #topnav .search .inputbox,
-.safari #topnav .search .inputbox {
+.chrome #topnav .search .search-input,
+.safari #topnav .search .search-input {
 	margin-top: 0.14em;
 }
 /* topdrop modofocations */

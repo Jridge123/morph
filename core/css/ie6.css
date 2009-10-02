@@ -84,3 +84,13 @@ hr{margin:1em 0;padding:0;border:none;background-image:none;color:#111;height:1p
 /* menu adjustments */
 
 .internetexplorer60 .sf-sub-indicator{background:url('../../../../morph_assets/themelets/vanilla/images/arrows-ffffff.gif') no-repeat -10px -100px;}
+
+/* @group joomla fixes */
+
+.article-info {
+	height: 1%;
+}
+
+#breadcrumbs {
+	display: inline-block;
+}
