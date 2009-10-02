@@ -131,9 +131,9 @@ jQuery.noConflict();
 		
 		//make the bookmark media open in new tab/window
 		$('a.shareit-sm').attr('target','_blank');
-		
+				
 		//Setup the bookmark media url and title
-		$('a[rel=shareit-mail]').attr('href', 'http://mailto:?subject=' + title);
+		$('a[rel=shareit-facebook]').attr('href', 'http://www.facebook.com/sharer.php?u=' + url);
 		$('a[rel=shareit-delicious]').attr('href', 'http://del.icio.us/post?v=4&amp;noui&amp;jump=close&amp;url=' + url + '&title=' + title);
 		$('a[rel=shareit-designfloat]').attr('href', 'http://www.designfloat.com/submit.php?url='  + url + '&amp;title=' + title);
 		$('a[rel=shareit-digg]').attr('href', 'http://digg.com/submit?phase=2&amp;url=' + url + '&amp;title=' + title);

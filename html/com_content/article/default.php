@@ -142,7 +142,7 @@ $this->params->get('show_email_icon'))	{ ?>
         		<div id="shareit-url"><input type="text" value="" name="shareit-field" id="shareit-field" class="field"/></div>
         		<div id="shareit-icon">
         		<ul>
-        			<li class="shareit-mail"><a href="#" rel="shareit-mail" class="shareit-sm">Mail</a></li>
+        			<li class="shareit-facebook"><a href="#" rel="shareit-facebook" class="shareit-sm">Facebook</a></li>
         			<li class="shareit-delicious"><a href="#" rel="shareit-delicious" class="shareit-sm">Delicious</a></li>
         			<li class="shareit-designfloat"><a href="#" rel="shareit-designfloat" class="shareit-sm">Designfloat</a></li>
         			<li class="shareit-digg"><a href="#" rel="shareit-digg" class="shareit-sm">Digg</a></li>
