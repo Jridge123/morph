@@ -30,7 +30,7 @@
 }
 /*@end*/
 .yui-gb .yui-u	{
-	width: 32.39%;
+	width: 32.34%;
 }
 /*old ie6 styles - needs cleaning
 
@@ -76,3 +76,11 @@ hr{margin:1em 0;padding:0;border:none;background-image:none;color:#111;height:1p
 }
 
 #top-link{position: absolute; }
+
+/* Joomla CSS */
+ 
+.internetexplorer60 .blog .cols2 {width:46%;display: inline;}
+
+/* menu adjustments */
+
+.internetexplorer60 .sf-sub-indicator{background:url('../../../../morph_assets/themelets/vanilla/images/arrows-ffffff.gif') no-repeat -10px -100px;}
