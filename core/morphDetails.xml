@@ -400,6 +400,10 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
+	<param name="enable_firebug" type="radio" default="0" label="Enable Firebug Lite" tooltip="inline" description="Would you like to enable Firebug Lite?">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
 </params>
 
 <params group="captifydata">

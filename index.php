@@ -12,6 +12,12 @@ include_once(JPATH_ROOT . "/templates/" . $this->template . '/core/morphFunction
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>">
 <head>
 <jdoc:include type="head" />
+<?php if( $enable_firebug == 1 ) { ?>
+    <script type="text/javascript">
+        firebug.env.height = 500;
+        firebug.env.css = "<?php echo $templatepath; ?>/core/css/firebug-lite.css"
+    </script>
+<?php } ?>
 <?php if ( $google_analytics !== "" ) { ?>
 <script type="text/javascript">
 $.trackPage('<?php echo $google_analytics; ?>')
@@ -25,6 +31,7 @@ $.trackPage('<?php echo $google_analytics; ?>')
 <?php if( $browser->getBrowser() == Browser::BROWSER_IE && $chrome_frame == 1 ) {
 	$document->setMetaData('X-UA-Compatible', 'chrome=1', true);
 } ?>
+
 </head>
 <?php if ($error_reporting == 0) error_reporting(E_ALL ^ E_NOTICE); ?>
 <body class="js-disabled morph <?php echo "$lcbrowser $lcbrowser$ver"; if ($pageclass != ""){ echo ' '.$pageclass; } ?>"<?php if ($themelet != ""){ echo ' id="'.$themelet.'"'; } ?>>

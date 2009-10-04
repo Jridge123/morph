@@ -221,6 +221,9 @@ if ( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
     		    $document->addScript($templatepath .'/core/js/template.js.php'.$packed_js);
     	}else{
     		$document->addScript($templatepath .'/core/js/template.js.php'.$packed_js);
+    		if( $enable_firebug == 1 ) { 
+    		    $document->addScript($templatepath .'/core/js/firebug-lite.js');
+    		}
     	}
     
     }else{
@@ -269,6 +272,7 @@ if( $browser->getBrowser() == Browser::PLATFORM_IPHONE && $iphone_mode == 1 ){
 		$document->addStyleSheet($templatepath .'/core/css/template.css.php'.$packed_css);
 	}
 }
+
 function isIE6($string=''){
 	$user_agent = $string;
 	if($string == '') $user_agent = $_SERVER['HTTP_USER_AGENT'];
