@@ -275,16 +275,16 @@ if( $browser->getBrowser() == Browser::PLATFORM_IPHONE && $iphone_mode == 1 ){
 		$document->addStyleSheet($templatepath .'/core/css/browsers.css');
 		if(preg_match('/MSIE 6/i', $_SERVER['HTTP_USER_AGENT'])) $document->addStyleSheet($templatepath .'/core/css/ie6.css');
 		// themelet browser specific
-		if (file_exists($css_browsers)) $document->addStyleSheet($css_browsers);
-		if ($lcbrowser == 'firefox' && file_exists($css_firefox)) $document->addStyleSheet($css_firefox); 
-		if ($lcbrowser == 'safari' && file_exists($css_safari)) $document->addStyleSheet($css_safari);
-		if ($lcbrowser == 'opera' && file_exists($css_opera)) $document->addStyleSheet($css_opera);
-		if ($lcbrowser == 'chrome' && file_exists($css_chrome)) $document->addStyleSheet($css_chrome);
-		if ($lcbrowser == 'internetexplorer' && file_exists($css_ie)) $document->addStyleSheet($css_ie);
+		if (file_exists($css_browsers)) $document->addStyleSheet($themeletpath .'/css/browsers.css');
+		if ($lcbrowser == 'firefox' && file_exists($css_firefox)) $document->addStyleSheet($themeletpath .'/css/firefox.css'); 
+		if ($lcbrowser == 'safari' && file_exists($css_safari)) $document->addStyleSheet($themeletpath .'/css/safari.css');
+		if ($lcbrowser == 'opera' && file_exists($css_opera)) $document->addStyleSheet($themeletpath .'/css/opera.css');
+		if ($lcbrowser == 'chrome' && file_exists($css_chrome)) $document->addStyleSheet($themeletpath .'/css/chrome.css');
+		if ($lcbrowser == 'internetexplorer' && file_exists($css_ie)) $document->addStyleSheet($themeletpath .'/css/ie.css');
 		// ie specific
-		if(file_exists($css_ie6) && preg_match('/MSIE 6/i', $_SERVER['HTTP_USER_AGENT'])) $document->addStyleSheet($css_ie6);
-		if(file_exists($css_ie7) && preg_match('/MSIE 7/i', $_SERVER['HTTP_USER_AGENT'])) $document->addStyleSheet($css_ie7);
-		if(file_exists($css_ie8) && preg_match('/MSIE 8/i', $_SERVER['HTTP_USER_AGENT'])) $document->addStyleSheet($css_ie8);
+		if(file_exists($css_ie6) && preg_match('/MSIE 6/i', $_SERVER['HTTP_USER_AGENT'])) $document->addStyleSheet($themeletpath .'/css/ie6.css');
+		if(file_exists($css_ie7) && preg_match('/MSIE 7/i', $_SERVER['HTTP_USER_AGENT'])) $document->addStyleSheet($themeletpath .'/css/ie7.css');
+		if(file_exists($css_ie8) && preg_match('/MSIE 8/i', $_SERVER['HTTP_USER_AGENT'])) $document->addStyleSheet($themeletpath .'/css/ie8.css');
 	} else {
 		$document->addStyleSheet($templatepath .'/core/css/template.css.php'.$packed_css);
 	}
@@ -389,10 +389,11 @@ function sidebar_module($chrome, $position, $jj_const, $modfx, $glob, $debug_mod
 	}
 }
 
-function codeComments($position, $comment, $location='', $linenumber='', $show_comments) {
+function codeComments($position, $comment, $location='', $linenumber='', $show_comments, $relatedcss='') {
 	$haslocation = '';
    	$haslinenumber = '';
    	$hasrelatedcss = '';
+
 	if ($location !== '') $haslocation = ' | ' . $location;
 	if ($linenumber !== '') $haslinenumber = ' | '.$linenumber;
 	if ($relatedcss !== '') $hasrelatedcss = ' | '.$relatedcss;

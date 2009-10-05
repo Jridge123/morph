@@ -4,13 +4,13 @@
 defined('_JEXEC') or die('Restricted access');
 require_once(JModuleHelper::getLayoutPath('mod_mainmenu', 'helper'));
 
-
 if ( ! defined('modNewMainMenuXMLCallbackDefined') )
 {
 function modNewMainMenuXMLCallback(&$node, $args)
 {
-	$user	= &JFactory::getUser();
-	$menu	= &JSite::getMenu();
+	$i		= '';
+	$user	= JFactory::getUser();
+	$menu	= JSite::getMenu();
 	$active	= $menu->getActive();
 	$path	= isset($active) ? array_reverse($active->tree) : null;
 
