@@ -31,7 +31,7 @@
 
 /* re position sub items for subtext option */
 
-.internetexplorer70 #topnav.subtext #nav ul .submenu_item {padding-top: 0.7em;;}
+.internetexplorer70 #topnav.subtext #nav ul .submenu_item {padding-top: 0.7em;}
 
 /* topdrop modifications */
 .internetexplorer70 #topnav.topdrop #nav .menu a,
@@ -71,7 +71,7 @@
 .safari #topnav .search .search-input {
 	margin-top: 0.14em;
 }
-/* topdrop modofocations */
+/* topdrop modifications */
 .chrome #topnav.topdrop #nav .menu li:hover ul,
 .chrome #topnav.topdrop #nav .menu li.sfHover ul {top:102%;}
 
@@ -83,12 +83,5 @@
 .safari #topnav.topdrop #nav span.separator {padding-bottom: 1.168em; padding-top: 1.2em;}
 
 	/* @end */
-
-	/* @group opera */
-
 .opera #user1.grid.modcount5 .mod-grid.yui-u,
 .opera #user2.grid.modcount5 .mod-grid.yui-u {width:18.9%;}
-
-	/* @end */
-
-/* @end */
