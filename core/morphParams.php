@@ -91,7 +91,7 @@ $gzip_compression = $MORPH->gzip_compression;
 $load_mootools = $MORPH->load_mootools;
 $load_caption = $MORPH->load_caption;
 
-// Advanced Options
+// debugging
 $code_comments = $MORPH->code_comments;
 $remove_generator = $MORPH->remove_generator;
 $error_reporting = $MORPH->error_reporting;
@@ -99,6 +99,7 @@ $jquery_core = $MORPH->jquery_core;
 $debug_modules = $MORPH->debug_modules;
 $ie6_upgrade = $MORPH->ie6_upgrade;
 $google_analytics = $MORPH->google_analytics;
+$enable_firebug = $MORPH->enable_firebug;
 
 // top block
 $toolbar_wrap = $MORPH->toolbar_wrap;

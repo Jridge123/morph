@@ -3,7 +3,7 @@
 
 <params>
 	<name>Morph</name>
-	<version>1.00 rc1</version>
+	<version>1.00 rc2</version>
 	<creationDate>28 May 09</creationDate>
 	<author>JoomlaJunkie</author>
 	<authorEmail>noreply@joomlajunkie.com</authorEmail>
@@ -397,6 +397,10 @@
 		<option value="0">No</option>
 	</param>
 	<param name="debug_modules" type="radio" default="0" label="Debug Modules" tooltip="inline" description="Enabling this option will globally override all module chromes to use the outline chrome option. This is good when you want to see which module positions are being used where.">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
+	<param name="enable_firebug" type="radio" default="0" label="Enable Firebug Lite" tooltip="inline" description="Would you like to enable Firebug Lite?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
