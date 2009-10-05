@@ -12,12 +12,19 @@ include_once(JPATH_ROOT . "/templates/" . $this->template . '/core/morphFunction
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>">
 <head>
 <jdoc:include type="head" />
-<?php if( $enable_firebug == 1 ) { ?>
-    <script type="text/javascript">
-        firebug.env.height = 500;
-        firebug.env.css = "<?php echo $templatepath; ?>/core/css/firebug-lite.css"
-    </script>
-<?php } ?>
+<?php
+// firebug lite
+if( $enable_firebug == 1 ) {
+	if(isset($_COOKIE['firebug']) && $_COOKIE['firebug'] == 'enabled'){
+		$mainframe->addCustomHeadTag('
+			<script type="text/javascript">
+				firebug.env.height = 200;
+				firebug.env.css = "'.$templatepath.'/core/css/firebug-lite.css";
+			</script>
+		');
+	}
+}
+?>
 <?php if ( $google_analytics !== "" ) { ?>
 <script type="text/javascript">
 $.trackPage('<?php echo $google_analytics; ?>')

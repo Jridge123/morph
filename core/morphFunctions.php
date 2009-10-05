@@ -232,6 +232,23 @@ if ( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
     	}
     }
 }
+
+// enable/disble firebug lite
+if($enable_firebug == 1){
+	if(isset($_GET['show_firebug'])){
+		setcookie('firebug', 'enabled', 0);
+		header('Location: ' . str_replace(array('?show_firebug','&show_firebug'), '', $curr_url));
+	}
+	if(isset($_GET['hide_firebug'])){
+		setcookie('firebug', null, time()-3600);
+		header('Location: ' . str_replace(array('?hide_firebug','&hide_firebug'), '', $curr_url));
+	}
+}else{
+	if(isset($_GET['show_firebug']) || isset($_GET['hide_firebug'])){
+		header('Location: ' . str_replace(array('?show_firebug','&show_firebug','?hide_firebug','&hide_firebug'), '', $curr_url));
+	}
+}
+
 if( $browser->getBrowser() == Browser::PLATFORM_IPHONE && $iphone_mode == 1 ){
 	if ( file_exists($css_iphone)) { $document->addStyleSheet($css_iphone); } else { $document->addStyleSheet($templatepath .'/core/css/iphone.css'); }	
 //	if ( file_exists($css_iphone)) { $document->addStyleSheet($css_iphone); } else { $document->addStyleSheet($templatepath .'/core/css/jqtouch.css'); }	
