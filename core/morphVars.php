@@ -164,10 +164,6 @@ foreach($packed_js_vars as $key => $val){
 	($key == 'A01') ? $sep = '?' : $sep = '&amp;';
 	$packed_js .= $sep.$key.'='.$val; 
 }
-
-// CSS Variables
-if ($bg_image == "" ) $bg_image = "default";
-
 $packed_css_vars = array();
 $packed_css_vars["A01"]=$themelet;
 $packed_css_vars["A02"]=$this->direction;
@@ -193,10 +189,11 @@ $packed_css_vars["C05"]=$slogan_top;
 $packed_css_vars["C06"]=$slogan_left;
 $packed_css_vars["C07"]=$slogan_stack;
 $packed_css_vars["D01"]=urlencode($bg_color);
-$packed_css_vars["D02"]=$bg_image;
-$packed_css_vars["D03"]=$bg_repeat;
-$packed_css_vars["D04"]=urlencode($bg_position);
-$packed_css_vars["D05"]=$bg_attachment;
+$packed_css_vars["D02"]=$use_bg_image;
+$packed_css_vars["D03"]=$bg_image;
+$packed_css_vars["D04"]=$bg_repeat;
+$packed_css_vars["D05"]=urlencode($bg_position);
+$packed_css_vars["D06"]=$bg_attachment;
 $packed_css_vars["E01"]=urlencode($color_h1);
 $packed_css_vars["E02"]=urlencode($color_h2);
 $packed_css_vars["E03"]=urlencode($color_h3);

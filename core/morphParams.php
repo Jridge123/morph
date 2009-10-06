@@ -8,8 +8,9 @@ $nojs = $MORPH->nojs;
 $hide_ie6toolbar = $MORPH->hide_ie6toolbar;
 
 // customization settings
-$bg_image = $MORPH->bg_image;
 $bg_color = str_replace('#','',$MORPH->bg_color);
+$use_bg_image = $MORPH->use_bg_image;
+$bg_image = $MORPH->bg_image;
 $bg_repeat = $MORPH->bg_repeat;
 $bg_position = $MORPH->bg_position;
 $bg_attachment = $MORPH->bg_attachment;

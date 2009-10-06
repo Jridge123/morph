@@ -225,9 +225,13 @@
 </params>
 
 <params group="backgrounddata">
+	<param name="bg_color" type="colorpicker" default="default" label="Background color" tooltip="inline" description="Setting a color here will adjust your sites background color." />
+	<param name="use_bg_image" type="radio" default="1" label="Use background image" tooltip="inline" description="Would you like to use a background image?">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
 	<param name="bg_image" type="imagelist" default="Use themelets background" tooltip="inline" label="Background image" description="Choose a background to use for your site. The backgrounds are located in your assets / backgrounds folder. You can upload new backgrounds using the Universal Installer tool in the Toolbox tab." directory="morph_assets/backgrounds" hide_none="true" />
 		
-	<param name="bg_color" type="colorpicker" default="default" label="Background color" tooltip="inline" description="Setting a color here will adjust your sites background color." />
 	
 	<param name="bg_repeat" type="list" default="repeat" label="Background repeat" tooltip="inline" description="If a background image is set, how should it repeat?" exclude="" stripext="">
 		<option value="no-repeat">None</option>
