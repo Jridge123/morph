@@ -64,11 +64,7 @@ z-index:<?php echo $logo_stack; ?>;
 #branding h1 a{
 width:<?php echo $logo_width; ?>px;
 height:<?php echo $logo_height; ?>px;
-<?php if($lcbrowser !== 'internetexplorer' || $display_ie_logo == 0) { ?>
 background-image: url(<?php echo $logo; ?>);
-<?php } if($lcbrowser == 'internetexplorer' && $display_ie_logo == 1) { ?>
-background-image: url(<?php echo $logo_image_ie; ?>);
-<?php } ?>
 }
 <?php } if ( $logo_type == 2 ) { ?>
 #branding.logotype-2 a.logo-img{

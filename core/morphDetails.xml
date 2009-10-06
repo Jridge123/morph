@@ -72,7 +72,7 @@
 	<param name="display_ie_logo" type="radio" default="0" label="Display ie6 logo" tooltip="inline" description="Would you like to alternate logo displayed to Internet Explorer 6? This option is useful when you want to use a transparent png image for all standards compliant browsers and a less smooth transparent logo for ie6, which doesnt handle image transparency.">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
-	</param>	
+	</param>
 	<param name="logo_image_ie" type="imagelist" default="" tooltip="inline" label="Logo image for IE6" directory="morph_assets/logos" hide_none="false" hide_default="false" description="We have added the option to have an alternate logo to display in IE6. This is useful if you are using a transparent png for your logo and would like to have a gif displayed for people browsing your site in Internet Explorer 6." />
 	<param name="logo_text" type="text" default="" label="Logo text" tooltip="inline" description="Set your logo text" />
 	<param name="logo_alttext" type="text" default="" label="Logo image alt text" tooltip="inline" description="Set your logo image alt text" />
