@@ -62,8 +62,11 @@ left:<?php echo $logo_left; ?>;
 z-index:<?php echo $logo_stack; ?>;
 }
 #branding h1 a{
+<?php if($logo_width !== 'null') { ?>
 width:<?php echo $logo_width; ?>px;
+<?php } if($logo_height !== 'null') { ?>
 height:<?php echo $logo_height; ?>px;
+<?php } ?>
 background-image: url(<?php echo $logo; ?>);
 }
 <?php } if ( $logo_type == 2 ) { ?>
