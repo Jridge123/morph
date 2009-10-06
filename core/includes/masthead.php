@@ -31,9 +31,6 @@
 			<div id="logo"><jdoc:include type="modules" name="branding" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo $masthead_chrome; } ?>" /></div>
 		<?php } ?>
 
-
-
-
 		<?php if ( $display_slogan == "1" ) { ?>
 			<p class="slogan"><?php echo $slogan_text; ?></p>
 		<?php } ?>
