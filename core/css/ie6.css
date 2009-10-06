@@ -57,23 +57,6 @@ hr{margin:1em 0;padding:0;border:none;background-image:none;color:#111;height:1p
 }
 
 #top-link{display:inline-block;}
-#footer .footer-validation, #footer .footer-credits	{
-	float: right;
-	clear: both;
-}
-#footer .footer-credits	{
-	width: 39%;
-}
-#footer .footer-menu ul	{
-	padding: 0;
-}
-#footer .footer-copyright	{
-	clear: left;
-	width: 100%;
-}
-#footer.swish ul#footer-links	{
-	padding: 0.5em 0 0em;
-}
 
 #top-link{position: absolute; }
 
