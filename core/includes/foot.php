@@ -2,10 +2,7 @@
     <?php if ( $footer_wrap == 1 ) { ?><div id="footer-wrap"><?php } ?>  
         <?php if ( $footer_type == 0 ) { ?>
             <?php echo codeComments('s','Footer Block','includes/foot.php','5', $code_comments); ?>
-            <div id="footer" class="<?php echo $site_width; if ( $footer_swish == 1 ) echo ' swish'; ?>">
-                <?php if ( $footer_swish == 1 ) { ?>
-                <a href="http://www.prothemer.com" title="professional templates for your favorite cms" target="_blank" class="footer-swish">Prothemer</a>
-                <?php } ?>
+            <div id="footer" class="<?php echo $site_width; ?>">
                 <div class="footer-left">
                     <?php if(JDocumentHTML::countModules('footernav')) { ?>
                     <jdoc:include type="modules" name="footernav" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo 'none'; } ?>" />

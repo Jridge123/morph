@@ -278,7 +278,6 @@ $footer_equalize = $MORPH->footer_equalize;
 $footer_modfx = $MORPH->footer_modfx;
 $footer_credits = $MORPH->footer_credits;
 $footer_copyright = $MORPH->footer_copyright;
-$footer_swish = $MORPH->footer_swish;
 $footer_morphlink = $MORPH->footer_morphlink;
 $footer_validation = $MORPH->footer_validation;
 $footer_textcolor = $MORPH->footer_textcolor;
