@@ -2,15 +2,10 @@
     <?php if ( $footer_wrap == 1 ) { ?><div id="footer-wrap"><?php } ?>  
         <?php if ( $footer_type == 0 ) { ?>
             <?php echo codeComments('s','Footer Block','includes/foot.php','5', $code_comments); ?>
-            	
-            	
-            	
             <div id="footer" class="<?php echo $site_width; if ( $footer_swish == 1 ) echo ' swish'; ?>">
-            
                 <?php if ( $footer_swish == 1 ) { ?>
                 <a href="http://www.prothemer.com" title="professional templates for your favorite cms" target="_blank" class="footer-swish">Prothemer</a>
                 <?php } ?>
-                
                 <div class="footer-left">
                     <?php if(JDocumentHTML::countModules('footernav')) { ?>
                     <jdoc:include type="modules" name="footernav" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo 'none'; } ?>" />
@@ -20,7 +15,6 @@
                     <p class="footer-copyright"><?php echo $footer_copyright; ?></p>
                     <?php } ?>
                 </div>
-                
                 <div class="footer-right">
                     <?php if ($footer_validation == 1 || $footer_morphlink == 1) { ?><p class="footer-validation"><?php } ?>
                         <?php if ($footer_validation == 1) { ?>
@@ -38,9 +32,7 @@
                     <p class="footer-credits"><?php echo $footer_credits; ?></p>
                     <?php } ?>
                 </div>
-
-            </div>
-            		
+            </div>    		
         <?php echo codeComments('e','Footer Block', '', '', $code_comments); ?>
         <?php } if ( $footer_type == 1 ) { ?>
         	<div id="footer" class="<?php echo $site_width ?> <?php echo $footer_chrome ?> <?php getYuiSuffix('footer', $jj_const); ?>">
