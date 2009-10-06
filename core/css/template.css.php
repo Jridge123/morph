@@ -30,7 +30,16 @@ if( $pack_css == 1 ){
    	if( $simpleticker == 1 ) { include(JPATH . 'modules/mod_simpleticker/simpleticker/simpleticker.css'); }
 } ?>
 
-body{<?php if ( $bg_color && $bg_color !== "default" ) { ?>background-color:#<?php echo $bg_color; ?>;<?php }; if ( $bg_image !== "default") { ?>background-image:url(../../../../morph_assets/backgrounds/<?php echo $bg_image; ?>);<?php } ?>background-repeat:<?php echo $bg_repeat; ?>;background-position:<?php echo $bg_position; ?>;background-attachment:<?php echo $bg_attachment; ?>;}
+body{
+background-color:#<?php echo $bg_color; ?>;
+<?php if ( $use_bg_image == 1 ) { ?>
+background-image:url(../../../../morph_assets/backgrounds/<?php echo $bg_image; ?>);
+background-repeat:<?php echo $bg_repeat; ?>;
+background-position:<?php echo $bg_position; ?>;
+background-attachment:<?php echo $bg_attachment; ?>;
+<?php } ?>
+}
+
 <?php if ( $masthead_height ) { ?>
 body #masthead{
 height:<?php echo $masthead_height; ?>;
@@ -50,7 +59,7 @@ font-size:<?php echo $logo_fontsize; ?>;
 }
 #branding h1 a{
 font-family:<?php echo $logo_fontfamily; ?>;
-<?php if ( $logo_textcolor !== "#default" ) { ?>color:<?php echo $logo_textcolor; ?>;<?php } ?>
+color:<?php echo $logo_textcolor; ?>;
 display:block;
 }
 <?php } if ( $logo_type == 1 ) { ?>
@@ -86,31 +95,30 @@ z-index:<?php echo $logo_stack; ?>;
 }
 <?php } if ( $display_slogan == 1 ) { ?>
 #branding .slogan{
-<?php if ( $slogan_fontfamily !== "" ) { ?>font-family:<?php echo $slogan_fontfamily; ?>;
-<?php } if ( $slogan_fontsize !== "" ) { ?>font-size:<?php echo $slogan_fontsize; ?>;
-<?php } if ( $slogan_textcolor && $slogan_textcolor !== "#default" ) { ?>color:<?php echo $slogan_textcolor; ?>;<?php } ?>
-position:absolute;
+font-family:<?php echo $slogan_fontfamily; ?>;
+font-size:<?php echo $slogan_fontsize; ?>;
+color:<?php echo $slogan_textcolor; ?>;
 top:<?php echo $slogan_top; ?>;
 left:<?php echo $slogan_left; ?>;
 z-index:<?php echo $slogan_stack; ?>;
 margin:0;
+position:absolute;
 }
-<?php } if ( $color_links && $color_links !== "#default" ) { ?>
-body a:link,body a:visited,body a:active{color:#<?php echo $color_links; ?>;}
-<?php } if ( $color_linkshover && $color_linkshover !== "#default" ) { ?>
-body a:hover{color:#<?php echo $color_linkshover; ?>;}
-<?php } if ( $color_linksvisited && $color_linksvisited !== "#default" ) { ?>
-body a:visited{color:#<?php echo $color_linksvisited; ?>;}
-<?php } if ( $color_h1 && $color_h1 !== "#default" ) { ?>h1{color:#<?php echo $color_h1; ?>}
-<?php } if ( $color_h2 && $color_h2 !== "#default" ) { ?>h2{color:#<?php echo $color_h2; ?>}
-<?php } if ( $color_h3 && $color_h3 !== "#default" ) { ?>h3{color:#<?php echo $color_h3; ?>}
-<?php } if ( $color_h4 && $color_h4 !== "#default" ) { ?>h4{color:#<?php echo $color_h4; ?>}
-<?php } if ( $color_h5 && $color_h5 !== "#default" ) { ?>h5{color:#<?php echo $color_h5; ?>}
-<?php } if ( $color_bodytext && $color_bodytext !== "#default" ) { ?>
+<?php } ?>
+
+a:link,a:visited,a:active{color:#<?php echo $color_links; ?>;}
+a:hover{color:#<?php echo $color_linkshover; ?>;}
+a:visited{color:#<?php echo $color_linksvisited; ?>;}
+h1{color:#<?php echo $color_h1; ?>;}
+h2{color:#<?php echo $color_h2; ?>;}
+h3{color:#<?php echo $color_h3; ?>;}
+h4{color:#<?php echo $color_h4; ?>;}
+h5{color:#<?php echo $color_h5; ?>;}
 body{color:#<?php echo $color_bodytext; ?>;}
-<?php } if ( $footer_textcolor && $footer_textcolor !== "#default" ) { ?>#footer{color:<?php echo $footer_textcolor; ?>}
-<?php } if ( $footer_linkscolor && $footer_linkscolor !== "#default" ) { ?>#footer a,#footer a:link,#footer a:visited{color:<?php echo $footer_linkscolor; ?>}
-<?php } if ( $captions_enabled ) { ?>
+#footer{color:<?php echo $footer_textcolor; ?>}
+#footer a,#footer a:link,#footer a:visited{color:<?php echo $footer_linkscolor; ?>}
+
+<?php if ( $captions_enabled ) { ?>
 .caption-top,.caption-bottom{background:<?php echo $captions_bgcolor; ?>;color:<?php echo $captions_textcolor; ?>;}
 .caption-top{border-bottom:<?php echo $captions_borderheight; ?> solid <?php echo $captions_bordercolor; ?>;}
 .caption-bottom{border-top:<?php echo $captions_borderheight; ?> solid <?php echo $captions_bordercolor; ?>;}
