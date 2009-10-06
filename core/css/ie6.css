@@ -94,3 +94,7 @@ hr{margin:1em 0;padding:0;border:none;background-image:none;color:#111;height:1p
 #breadcrumbs {
 	display: inline-block;
 }
+
+/* @group article font-sizer */
+
+.ldisabled,.sdisabled{opacity:0.3;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";filter:alpha(opacity = 30);}

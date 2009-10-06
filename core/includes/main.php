@@ -26,7 +26,6 @@
 		</div>
 		<?php if($CurrentOuterScheme !='none') { include_once("secondary.php"); } ?>
 		<?php if(JDocumentHTML::countModules('user2')) { include_once("user2.php"); } ?>
-	</div>
 	<?php if ( $main_inner == 1 ) { ?></div><?php } ?><!-- bd inner close -->
 </div><!-- bd close -->
 <?php if ( $main_wrap == 1 ) { ?></div><?php } ?><!-- bd wrap close -->
