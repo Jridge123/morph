@@ -6,7 +6,7 @@
 	     <jdoc:include type="modules" name="user3" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo 'none'; } ?>" />
 	    </div>
 	  <?php } if(JDocumentHTML::countModules('user4')) { ?>
-	  	<div>
+	  	<div id="nav-side">
 	     <jdoc:include type="modules" name="user4" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo 'none'; } ?>" />
 	    </div>
 	  <?php } ?>
