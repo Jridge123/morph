@@ -4,6 +4,7 @@ $direction = $_GET['A02'];
 $tabscount = $_GET['A03'];
 $lcbrowser = $_GET['A04'];
 $accordionscount = $_GET['A05'];
+
 $logo_type = $_GET['B01'];
 $logo = $_GET['B02'];
 $logo_width = $_GET['B03'];
@@ -13,8 +14,11 @@ $logo_fontfamily = stripslashes(urldecode($_GET['B06']));
 $logo_fontsize = $_GET['B07'];
 $logo_top = $_GET['B08'];
 $logo_left = $_GET['B09'];
-$masthead_height = $_GET['B10'];
-$logo_stack = $_GET['B11'];
+$logo_stack = $_GET['B10'];
+$display_ie_logo = $_GET['B11'];
+$logo_image_ie = $_GET['B12'];
+$masthead_height = $_GET['B13'];
+
 $slogan_textcolor = stripslashes(urldecode($_GET['C01']));
 $slogan_fontfamily = stripslashes(urldecode($_GET['C02']));
 $slogan_fontsize = $_GET['C03'];
