@@ -11,11 +11,7 @@
 	<copyright>Copyright (C) 2009 JoomlaJunkie</copyright>
 	<license>Commercial</license>
 	<favicons>yes</favicons>
-	<description>
-	<![CDATA[<h1>Morph</h1>
-	<img src="../templates/morph/template_thumbnail.png" align="left" style="margin: 0px 10px 10px 0px;" />
-	]]>
-	</description>
+	<description />
 </params>
 
 <params addpath="/templates/morph/elements">
@@ -1181,7 +1177,7 @@
 	<param name="footer_credits" type="textarea" cols="32" rows="2" default="Template Designed by &lt;a href=&quot;http://www.joomlajunkie.com&quot; title=&quot;professional joomla templates&quot;&gt;JoomlaJunkie&lt;/a&gt;" label="Credits text" tooltip="inline" description="Add your own credits here" />
 	<param name="footer_textcolor" type="colorpicker" default="default" label="Footer text color" tooltip="inline" description="" />
 	<param name="footer_linkscolor" type="colorpicker" default="default" label="Footer links color" tooltip="inline" description="" />
-	<param name="footer_morphlink" type="radio" default="1" label="Show Powered by Morph" tooltip="inline" description="We've made it optional to disable the Morph Inside link, but ask that you please leave it intact as it lets people know that the site is powered by Morph.">
+	<param name="footer_morphlink" type="radio" default="1" label="Show Powered by Morph" tooltip="inline" description="We've made it optional to disable the Morph Inside link, but please consider leaving it on.">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
