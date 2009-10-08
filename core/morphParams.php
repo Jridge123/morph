@@ -6,7 +6,6 @@ $site_width = $MORPH->site_width;
 $themelet = $MORPH->themelet;
 $nojs = $MORPH->nojs;
 $hide_ie6toolbar = $MORPH->hide_ie6toolbar;
-$footer_script = $MORPH->footer_script;
 
 // customization settings
 $bg_color = str_replace('#','',$MORPH->bg_color);
