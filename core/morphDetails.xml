@@ -403,7 +403,7 @@
 </params>
 
 <params group="captifydata">
-	<param name="captions_enabled" type="radio" default="1" label="Enable fancy captions" tooltip="inline" description="Would you like to enable the fancy captions plugin?">
+	<param name="captions_enabled" type="radio" default="0" label="Enable fancy captions" tooltip="inline" description="Would you like to enable the fancy captions plugin?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
