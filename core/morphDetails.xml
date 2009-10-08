@@ -49,6 +49,8 @@
 		<option value="0">No</option>
 	</param>
 	<param name="google_analytics" type="text" default="" label="Google Analytics ID" tooltip="inline" description="Entering your Google Analytics ID will automatically load the needed tracking javascript, just above the closing body tag of your site. We plan on extending this to use any tracking or related javascript in the future, but for now this will have to do :)" />
+	<param name="footer_script" type="textarea" rows="1" cols="32" default="" tooltip="inline" label="Custom footer script" description="Sometimes you may need to add some custom javascript to the bottom of your sites closing body tag. Use this box to have it added automatically." />
+
 </params>
 
 <params group="logodata">		
