@@ -24,7 +24,7 @@ include_once(JPATH_ROOT . "/templates/" . $this->template . '/core/morphFunction
 	<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/system/css/general.css" type="text/css" />
 </head>
 <body>
-<jdoc:include type="message" />
+    <jdoc:include type="message" />
 	<div id="frame" class="outline">
 		<img src="images/joomla_logo_black.jpg" alt="Joomla! Logo" align="middle" />
 		<h1>
