@@ -14,15 +14,14 @@ include_once(JPATH_ROOT . "/templates/" . $this->template . '/core/morphFunction
 <jdoc:include type="head" />
 <?php
 // firebug lite
-if( $enable_firebug == 1 ) {
-	if(isset($_COOKIE['firebug']) && $_COOKIE['firebug'] == 'enabled'){
-		$mainframe->addCustomHeadTag('
-			<script type="text/javascript">
-				firebug.env.height = 200;
-				firebug.env.css = "'.$templatepath.'/core/css/firebug-lite.css";
-			</script>
-		');
-	}
+if(isset($_COOKIE['firebug']) && $_COOKIE['firebug'] == 'enabled'){
+	$document->addScript($templatepath .'/core/js/firebug-lite.js');
+	$mainframe->addCustomHeadTag('
+		<script type="text/javascript">
+			firebug.env.height = 200;
+			firebug.env.css = "'.$templatepath.'/core/css/firebug-lite.css";
+		</script>
+	');
 }
 ?>
 <?php if ( $google_analytics !== "" ) { ?>
@@ -80,5 +79,9 @@ if($this->countModules('advert2')) {'<div id="advert2"><jdoc:include type="modul
 <?php include_once("core/includes/ga-code.php"); ?>
 <?php if ( $plugin_scrollto == 1 && $browser->getBrowser() !== Browser::PLATFORM_IPHONE ) { ?><a href="#top" id="top-link">Top of Page</a><?php } ?>
 <?php } ?>
+<?php
+if($footer_script !== '') echo "\n\n<!-- footer script added via configurator --> \n" . $footer_script;
+?>
+
 </body>
 </html>
