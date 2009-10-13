@@ -175,8 +175,8 @@ jQuery.noConflict();
 			});
 		};
 		//usage w/ smoothscroll
-		$('#top-link').topLink({ min: 400, fadeSpeed: 500 });
-		$('#top-link').click(function(e){ $.scrollTo(0,300); return false; });
+		$('#top-link').topLink({ min: 400, fadeSpeed: 500 }); // fade in link
+		$('#top-link').click(function(e){ $.scrollToTop(0,300); return false; }); // scroll
 	<?php } ?>	
 		
 	    fontSize("#fontsizer", "#article", 9, 12, 20);
