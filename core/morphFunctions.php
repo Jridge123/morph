@@ -104,6 +104,7 @@ $themeletjs					= $absolutepath."/js/themelet.js";
 $customfunctions			= $absolutepath."/custom.php";
 $themeletfunctions			= $absolutepath."/themelet.php";
 $foot_override				= $absolutepath."/html/foot.php";
+$footer_script				= $absolutepath."/script.php";
 
 if($load_mootools == 0) {
     $headnomootools = $this->getHeadData();

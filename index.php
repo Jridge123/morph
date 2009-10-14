@@ -78,10 +78,9 @@ if($this->countModules('advert2')) {'<div id="advert2"><jdoc:include type="modul
 <jdoc:include type="modules" name="debug" />
 <?php include_once("core/includes/ga-code.php"); ?>
 <?php if ( $plugin_scrollto == 1 && $browser->getBrowser() !== Browser::PLATFORM_IPHONE ) { ?><a href="#top" id="top-link">Top of Page</a><?php } ?>
-<?php } ?>
-<?php
-if($footer_script !== '') echo "\n\n<!-- footer script added via configurator --> \n" . $footer_script;
-?>
-
+<?php } 
+if(file_exists($footer_script) && is_readable($footer_script)){
+	 include_once('morph_assets/themelets/'.$themelet.'/script.php');
+} ?>
 </body>
 </html>

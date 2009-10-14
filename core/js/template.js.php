@@ -77,12 +77,7 @@ jQuery.noConflict();
 		$('img[align*=right]').addClass("img-right");
 		$('img[align*=left]').addClass("img-left");
 		
-		$("table tr:even").addClass("alt");
-		$("#user1 .modinner").wrapInner("<div class='extra-border'></div>");
-		$(".ui-tabs-panel").wrapInner("<div class='extra-box-border'></div>");
-		$(".ui-tabs-nav li").wrapInner("<span class='extra-tab-border'></span>");
-		$("input#mod_search_searchword").wrapInner("<div class='extra-search-border'></div>");
-    
+		$("table tr:even").addClass("alt"); 
     
     	<?php if ( $captions_enabled == 1 ) { ?>
     	$('img.caption').captify({
