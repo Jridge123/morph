@@ -4,16 +4,20 @@ include_once(dirname(__FILE__).DS.'..'.DS.'icon.php');
 ?>
 
 <?php if ($this->user->authorize('com_content', 'edit', 'content', 'all') || $this->user->authorize('com_content', 'edit', 'content', 'own')) : ?>
-<div class="contentpaneopen_edit<?php echo $this->item->params->get('pageclass_sfx'); ?>">
+<div class="contentpaneopen_edit">
 	<?php echo JHTML::_('icon.edit', $this->item, $this->item->params, $this->access); ?>
 </div>
 <?php endif; ?>
 
 <?php if ($this->item->params->get('show_title')) : ?>
-<h1 class="contentheading">
+<h2 class="contentheading">
 <?php if ($this->item->params->get('link_titles') && $this->item->readmore_link != '') : ?>
 <a href="<?php echo $this->item->readmore_link; ?>"><?php echo $this->escape($this->item->title); ?></a>
-<?php else : echo $this->escape($this->item->title); endif; ?></h1>
+<?php else : echo $this->escape($this->item->title); endif; ?>
+<?php if ($canEdit) : ?>
+	<?php echo JHTML::_('icon.edit', $this->item, $this->item->params, $this->access); ?>
+<?php endif; ?>
+</h2>
 
 <?php endif; if (!$this->item->params->get('show_intro')) :
 echo $this->item->event->afterDisplayTitle;

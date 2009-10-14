@@ -18,6 +18,10 @@ include_once(dirname(__FILE__).DS.'..'.DS.'icon.php');
 		<?php else : ?>
 			<?php echo $this->escape($this->item->title); ?>
 		<?php endif; ?>
+		
+    	<?php if ($canEdit) : ?>
+    		<?php echo JHTML::_('icon.edit', $this->item, $this->item->params, $this->access); ?>
+    	<?php endif; ?>
 	</h2>
 	<?php endif; ?>
 
