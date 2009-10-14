@@ -1,5 +1,8 @@
 <?php // no direct access
-defined('_JEXEC') or die('Restricted access'); ?>
+defined('_JEXEC') or die('Restricted access');
+$document = Jfactory::getDocument();  
+$document->addStyleSheet('templates/morph/core/css/frontendedit.css');
+?>
 <script language="javascript" type="text/javascript">
 <!--
 function setgood() {
@@ -47,160 +50,69 @@ function submitbutton(pressbutton) {
 }
 //-->
 </script>
+
 <?php if ($this->params->get('show_page_title', 1)) : ?>
-<div class="componentheading <?php echo $this->params->get('pageclass_sfx')?>"><?php echo $this->escape($this->params->get('page_title')); ?></div>
+<h1 class="componentheading"><?php echo $this->escape($this->params->get('page_title')); ?></h1>
 <?php endif; ?>
-<form action="<?php echo $this->action ?>" method="post" name="adminForm" onSubmit="setgood();">
-<fieldset>
-<legend><?php echo JText::_('Editor'); ?></legend>
-<table class="adminform" width="100%">
-<tr>
-	<td>
-		<div style="float: left;">
-			<label for="title">
-				<?php echo JText::_( 'Title' ); ?>:
-			</label>
-			<input class="inputbox" type="text" id="title" name="title" size="50" maxlength="100" value="<?php echo $this->escape($this->article->title); ?>" />
-			<input class="inputbox" type="hidden" id="alias" name="alias" value="<?php echo $this->escape($this->article->alias); ?>" />
-		</div>
-		<div style="float: right;">
-			<button type="button" onclick="submitbutton('save')">
-				<?php echo JText::_('Save') ?>
-			</button>
-			<button type="button" onclick="submitbutton('cancel')">
-				<?php echo JText::_('Cancel') ?>
-			</button>
-		</div>
-	</td>
-</tr>
-</table>
 
-<?php
-echo $this->editor->display('text', $this->article->text, '100%', '400', '70', '15');
-?>
-</fieldset>
-<fieldset>
-<legend><?php echo JText::_('Publishing'); ?></legend>
-<table class="adminform">
-<tr>
-	<td class="key">
-		<label for="sectionid">
-			<?php echo JText::_( 'Section' ); ?>:
-		</label>
-	</td>
-	<td>
-		<?php echo $this->lists['sectionid']; ?>
-	</td>
-</tr>
-<tr>
-	<td class="key">
-		<label for="catid">
-			<?php echo JText::_( 'Category' ); ?>:
-		</label>
-	</td>
-	<td>
-		<?php echo $this->lists['catid']; ?>
-	</td>
-</tr>
-<?php if ($this->user->authorize('com_content', 'publish', 'content', 'all')) : ?>
-<tr>
-	<td class="key">
-		<label for="state">
-			<?php echo JText::_( 'Published' ); ?>:
-		</label>
-	</td>
-	<td>
-		<?php echo $this->lists['state']; ?>
-	</td>
-</tr>
-<?php endif; ?>
-<tr>
-	<td width="120" class="key">
-		<label for="frontpage">
-			<?php echo JText::_( 'Show on Front Page' ); ?>:
-		</label>
-	</td>
-	<td>
-		<?php echo $this->lists['frontpage']; ?>
-	</td>
-</tr>
-<tr>
-	<td class="key">
-		<label for="created_by_alias">
-			<?php echo JText::_( 'Author Alias' ); ?>:
-		</label>
-	</td>
-	<td>
-		<input type="text" id="created_by_alias" name="created_by_alias" size="50" maxlength="100" value="<?php echo $this->article->created_by_alias; ?>" class="inputbox" />
-	</td>
-</tr>
-<tr>
-	<td class="key">
-		<label for="publish_up">
-			<?php echo JText::_( 'Start Publishing' ); ?>:
-		</label>
-	</td>
-	<td>
-	    <?php echo JHTML::_('calendar', $this->article->publish_up, 'publish_up', 'publish_up', '%Y-%m-%d %H:%M:%S', array('class'=>'inputbox', 'size'=>'25',  'maxlength'=>'19')); ?>
-	</td>
-</tr>
-<tr>
-	<td class="key">
-		<label for="publish_down">
-			<?php echo JText::_( 'Finish Publishing' ); ?>:
-		</label>
-	</td>
-	<td>
-	    <?php echo JHTML::_('calendar', $this->article->publish_down, 'publish_down', 'publish_down', '%Y-%m-%d %H:%M:%S', array('class'=>'inputbox', 'size'=>'25',  'maxlength'=>'19')); ?>
-	</td>
-</tr>
-<tr>
-	<td valign="top" class="key">
-		<label for="access">
-			<?php echo JText::_( 'Access Level' ); ?>:
-		</label>
-	</td>
-	<td>
-		<?php echo $this->lists['access']; ?>
-	</td>
-</tr>
-<tr>
-	<td class="key">
-		<label for="ordering">
-			<?php echo JText::_( 'Ordering' ); ?>:
-		</label>
-	</td>
-	<td>
-		<?php echo $this->lists['ordering']; ?>
-	</td>
-</tr>
-</table>
+<form action="<?php echo $this->action ?>" method="post" name="adminForm" onSubmit="setgood();" id="edit-content">
+
+<h2><?php echo JText::_('Editor'); ?></h2>
+<fieldset id="editor">
+    <div id="editor-top">
+        <input class="editor-title" type="text" id="title" name="title" size="50" maxlength="100" value="<?php echo $this->escape($this->article->title); ?>" />
+        <input class="editor-alias" type="hidden" id="alias" name="alias" value="<?php echo $this->escape($this->article->alias); ?>" />
+    
+        <button type="button save" onclick="submitbutton('save')"><?php echo JText::_('Save') ?></button>
+        <button type="button cancel" onclick="submitbutton('cancel')"><?php echo JText::_('Cancel') ?></button>
+    </div>
+    <?php echo $this->editor->display('text', $this->article->text, '100%', '400', '70', '15'); ?>
+
 </fieldset>
 
-<fieldset>
-<legend><?php echo JText::_('Metadata'); ?></legend>
-<table class="adminform">
-<tr>
-	<td valign="top" class="key">
-		<label for="metadesc">
-			<?php echo JText::_( 'Description' ); ?>:
-		</label>
-	</td>
-	<td>
-		<textarea rows="5" cols="50" style="width:500px; height:120px" class="inputbox" id="metadesc" name="metadesc"><?php echo str_replace('&','&amp;',$this->article->metadesc); ?></textarea>
-	</td>
-</tr>
-<tr>
-	<td  valign="top" class="key">
-		<label for="metakey">
-			<?php echo JText::_( 'Keywords' ); ?>:
-		</label>
-	</td>
-	<td>
-		<textarea rows="5" cols="50" style="width:500px; height:50px" class="inputbox" id="metakey" name="metakey"><?php echo str_replace('&','&amp;',$this->article->metakey); ?></textarea>
-	</td>
-</tr>
-</table>
+<h2><?php echo JText::_('Publishing'); ?></h2>
+<fieldset id="publishing">    
+    <ul>
+        <li><label for="sectionid" class="label"><?php echo JText::_( 'Section' ); ?>:</label>
+        <?php echo $this->lists['sectionid']; ?></li>
+    
+        <li><label for="catid" class="label"><?php echo JText::_( 'Category' ); ?>:</label>
+        <?php echo $this->lists['catid']; ?></li>
+    
+        <?php if ($this->user->authorize('com_content', 'publish', 'content', 'all')) : ?>
+        <li><label for="state" class="label"><?php echo JText::_( 'Published' ); ?>:</label>
+        <?php echo $this->lists['state']; ?></li>
+        <?php endif; ?>
+        
+        <li><label for="frontpage" class="label"><?php echo JText::_( 'Show on Front Page' ); ?>:</label>
+        <?php echo $this->lists['frontpage']; ?></li>
+    
+        <li><label for="created_by_alias" class="label"><?php echo JText::_( 'Author Alias' ); ?>:</label>
+        <input type="text" id="created_by_alias" name="created_by_alias" size="50" maxlength="100" value="<?php echo $this->article->created_by_alias; ?>" /></li>
+    
+        <li><label for="publish_up" class="label"><?php echo JText::_( 'Start Publishing' ); ?>:</label>
+        <?php echo JHTML::_('calendar', $this->article->publish_up, 'publish_up', 'publish_up', '%Y-%m-%d %H:%M:%S', array('size'=>'25',  'maxlength'=>'19')); ?></li>
+    
+        <li><label for="publish_down" class="label"><?php echo JText::_( 'Finish Publishing' ); ?>:</label>
+        <?php echo JHTML::_('calendar', $this->article->publish_down, 'publish_down', 'publish_down', '%Y-%m-%d %H:%M:%S', array('size'=>'25',  'maxlength'=>'19')); ?></li>
+    
+        <li><label for="access" class="label"><?php echo JText::_( 'Access Level' ); ?>:</label>
+        <?php echo $this->lists['access']; ?></li>
+        
+        <li class="last"><label for="ordering" class="label"><?php echo JText::_( 'Ordering' ); ?>:</label>
+        <?php echo $this->lists['ordering']; ?></li>
+    </ul>
+
+</fieldset>
+
+<h2><?php echo JText::_('Metadata'); ?></h2>
+<fieldset id="meta">    
+    <label for="metadesc" class="block"><?php echo JText::_( 'Description' ); ?>:</label>
+    <textarea rows="1" id="metadesc" name="metadesc"><?php echo str_replace('&','&amp;',$this->article->metadesc); ?></textarea>
+    
+    <label for="metakey" class="block"><?php echo JText::_( 'Keywords' ); ?>:</label>
+    <textarea rows="1" id="metakey" name="metakey"><?php echo str_replace('&','&amp;',$this->article->metakey); ?></textarea>
+    
 </fieldset>
 
 <input type="hidden" name="option" value="com_content" />

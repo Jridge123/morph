@@ -1,0 +1,31 @@
+#primary-content .primary-inner{background:#fff;padding:0 .5em;border:0;}
+#secondary-content,
+#tertiary-content{display:none;}
+#editor-top{margin-bottom:1em;}
+#editor-top label{font-size:1.3em;}
+#editor-top .editor-title{padding:5px;width:80%;}
+#editor-top button{padding:4px;margin-left:5px;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;}
+#yui-main .yui-b{margin:0!important;}
+#yui-main .yui-u{width:100%;}
+#edit-content fieldset{margin-bottom:2em;background:#eee;padding:1em;}
+#edit-content h2{font-size:1.5em;padding:.5em .6em;margin:0 0 1px 0;background:#ddd;border-radius-topleft:5px;border-radius-topright:5px;-moz-border-radius-topleft:5px;-moz-border-radius-topright:5px;-webkit-border-radius-top-left:5px;-webkit-border-radius-top-right:5px;}
+.block{display:block;}
+#edit-content #publishing ul{margin:0;padding:0;}
+#edit-content img.calendar{border:0;position:relative;top:3px;left:5px;}
+#edit-content select,
+#edit-content input,
+#edit-content textarea{margin:0;padding:0;border:1px solid #ccc;background:#fff;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;}
+#edit-content input{padding:2px;}
+#edit-content textarea{padding:5px;}
+#edit-content #publishing li{position:relative;margin:0;padding:5px 0 5px 150px;list-style:none;}
+#edit-content #publishing li.last{border-bottom:0;}
+#edit-content #publishing .label{position:absolute;top:8px;left:0;}
+.button2-left{float:left;border:1px solid #fff;background:#fff;padding:1px;margin:.8em .7em 0 0;border-radius:6px;-moz-border-radius:6px;-webkit-border-radius:6px;}
+.button2-left a{float:left;font-size:.9em;padding:2px 5px;background:#ddd;border:1px solid #ccc;text-decoration:none;color:#999;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;}
+.button2-left a:hover{text-decoration:none;background:#fff;}
+#access{width:15em;overflow:hidden;}
+#access option{background:none;}
+#ordering option{font-size:.9em;}
+#created_by_alias{width:17em;}
+#meta textarea{width:99%;margin-bottom:.5em;}
+#meta #metadesc{margin-bottom:1em;}
