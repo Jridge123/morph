@@ -9,7 +9,6 @@
 #yui-main .yui-u{width:100%;}
 #edit-content fieldset{margin-bottom:2em;background:#eee;padding:1em;}
 #edit-content h2{font-size:1.5em;padding:.5em .6em;margin:0 0 1px 0;background:#ddd;border-radius-topleft:5px;border-radius-topright:5px;-moz-border-radius-topleft:5px;-moz-border-radius-topright:5px;-webkit-border-radius-top-left:5px;-webkit-border-radius-top-right:5px;}
-.block{display:block;}
 #edit-content #publishing ul{margin:0;padding:0;}
 #edit-content img.calendar{border:0;position:relative;top:3px;left:5px;}
 #edit-content select,
@@ -20,12 +19,15 @@
 #edit-content #publishing li{position:relative;margin:0;padding:5px 0 5px 150px;list-style:none;}
 #edit-content #publishing li.last{border-bottom:0;}
 #edit-content #publishing .label{position:absolute;top:8px;left:0;}
-.button2-left{float:left;border:1px solid #fff;background:#fff;padding:1px;margin:.8em .7em 0 0;border-radius:6px;-moz-border-radius:6px;-webkit-border-radius:6px;}
-.button2-left a{float:left;font-size:.9em;padding:2px 5px;background:#ddd;border:1px solid #ccc;text-decoration:none;color:#999;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;}
-.button2-left a:hover{text-decoration:none;background:#fff;}
-#access{width:15em;overflow:hidden;}
-#access option{background:none;}
-#ordering option{font-size:.9em;}
-#created_by_alias{width:17em;}
-#meta textarea{width:99%;margin-bottom:.5em;}
-#meta #metadesc{margin-bottom:1em;}
+#edit-content .button2-left{float:left;border:1px solid #fff;background:#fff;padding:1px;margin:.8em .7em 0 0;border-radius:6px;-moz-border-radius:6px;-webkit-border-radius:6px;}
+#edit-content .button2-left a{float:left;font-size:.9em;padding:2px 5px;background:#ddd;border:1px solid #ccc;text-decoration:none;color:#999;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;}
+#edit-content .button2-left a:hover{text-decoration:none;background:#fff;}
+#edit-content #access{width:15em;overflow:hidden;}
+#edit-content #access option{background:none;}
+#edit-content #ordering option{font-size:.9em;}
+#edit-content #created_by_alias{width:17em;}
+#edit-content #meta textarea{width:99%;margin-bottom:.5em;}
+#edit-content #meta #metadesc{margin-bottom:1em;}
+#edit-content #editor textarea#text{width:99%!important;}
+#edit-content input.focus,
+#edit-content textarea.focus{border-color:#85AF41;box-shadow:0 0 5px #A7CF67;-webkit-box-shadow:0 0 5px #A7CF67;-moz-box-shadow: 0 0 5px #A7CF67;}
