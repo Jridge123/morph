@@ -180,12 +180,13 @@ if ( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
     		if( $jquery_core == 1 ) { 
     		    $document->addScript($templatepath .'/core/js/jquery.js');
     		}
+    		if( $tabscount >= 1 or $accordionscount >= 1 ) {
+    		    $document->addScript($templatepath .'/core/js/ui.js');
+    		}
     		if( $tabscount >= 1 ) {
-    		    $document->addScript($templatepath .'/core/js/core.js');
     			$document->addScript($templatepath .'/core/js/tabs.js');
     		}
     		if( $accordionscount >= 1 ) {
-    			$document->addScript($templatepath .'/core/js/ui.js');
     			$document->addScript($templatepath .'/core/js/accordion.js');
     		}
     		if( $tabscount >= 1 or $accordionscount >= 1 or $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1 ) { 
