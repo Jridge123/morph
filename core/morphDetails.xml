@@ -29,7 +29,6 @@
 </params>
 
 <params group="generaldata">
-	<param name="themelet" default="light-base" type="themelet" label="Select themelet" directory="morph_assets/themelets" hide_none="false" hide_default="false" tooltip="inline" description="Select which themelet you would like to use. The themelets are stored in your templates assets folder. Use the Installer tab on the right to install new themelets." />
 	<param name="site_width" default="doc4" type="list" label="Site width" tooltip="inline" description="Set your sites page width. The full width 100% option is a bit buggy at the moment - especially with the fixed 200px left and right sidebar layout defaults (ie, your inner and outer layouts).">
 		<option value="doc">750px</option>
 		<option value="doc2">950px</option>
