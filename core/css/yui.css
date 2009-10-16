@@ -264,7 +264,7 @@ body{text-align:center;}
 	
 #user1{overflow:hidden;float:none;width:100%;clear:both;}
 #user2{clear:both;}
-#user1 .mod{overflow: hidden;margin-top:.5em;}
+#user1 .mod{overflow: hidden;margin-top:.987em;}
 #user1 .first{margin-left:0;}
 #inset1,#inset2,#inset3,#inset4{/*margin-bottom:1em;*/overflow: hidden; }
 #inset1 .mod-basic,
