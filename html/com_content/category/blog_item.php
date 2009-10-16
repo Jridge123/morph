@@ -3,11 +3,7 @@ defined('_JEXEC') or die('Restricted access');
 include_once(dirname(__FILE__).DS.'..'.DS.'icon.php');
 ?>
 
-<?php if ($this->user->authorize('com_content', 'edit', 'content', 'all') || $this->user->authorize('com_content', 'edit', 'content', 'own')) : ?>
-<div class="contentpaneopen-edit">
-	<?php echo JHTML::_('icon.edit', $this->item, $this->item->params, $this->access); ?>
-</div>
-<?php endif; ?>
+
 
 	
 	<?php if ($this->item->params->get('show_title')) : ?>
@@ -19,9 +15,9 @@ include_once(dirname(__FILE__).DS.'..'.DS.'icon.php');
 			<?php echo $this->escape($this->item->title); ?>
 		<?php endif; ?>
 		
-    	<?php if ($canEdit) : ?>
-    		<?php echo JHTML::_('icon.edit', $this->item, $this->item->params, $this->access); ?>
-    	<?php endif; ?>
+        <?php if ($this->user->authorize('com_content', 'edit', 'content', 'all') || $this->user->authorize('com_content', 'edit', 'content', 'own')) : ?>
+        	<?php echo JHTML::_('icon.edit', $this->item, $this->item->params, $this->access); ?>
+        <?php endif; ?>
 	</h2>
 	<?php endif; ?>
 
