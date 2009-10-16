@@ -24,7 +24,7 @@
 				<?php $position = 'inset4'; include dirname(__FILE__) . '/../morphBlockClasses.php'; echo blocks($position, $this, $jj_const, $classes, '', $debug_modules, $nojs); ?>
 			</div>
 		</div>
-		<?php if($CurrentOuterScheme !='none') { include_once("secondary.php"); } ?>
+		<?php if($CurrentOuterScheme !='yui-t0') { include_once("secondary.php"); } ?>
 		<?php if(JDocumentHTML::countModules('user2')) { include_once("user2.php"); } ?>
 	<?php if ( $main_inner == 1 ) { ?></div><?php } ?><!-- bd inner close -->
 </div><!-- bd close -->
