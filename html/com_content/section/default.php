@@ -26,13 +26,13 @@ $cparams = JComponentHelper::getParams ('com_media');
 <?php endif; ?>
 
 <?php if ($this->params->def('show_categories', 1) && count($this->categories)) : ?>
-<ul>
+<ul id="section-links">
 	<?php foreach ($this->categories as $category) :
 		if (!$this->params->get('show_empty_categories') && !$category->numitems) :
 			continue;
 		endif; ?>
-		<li>
-			<a href="<?php echo $category->link; ?>" class="category"><?php echo $category->title; ?></a>
+		<li class="category">
+			<a href="<?php echo $category->link; ?>"><?php echo $category->title; ?></a>
 
 			<?php if ($this->params->get('show_cat_num_articles')) : ?>
 			<span class="small">
@@ -44,8 +44,7 @@ $cparams = JComponentHelper::getParams ('com_media');
 			<?php endif; ?>
 
 			<?php if ($this->params->def('show_category_description', 1) && $category->description) : ?>
-			<br />
-			<?php echo $category->description; ?>
+			<p class="cat-desc"><?php echo $category->description; ?></p>
 			<?php endif; ?>
 	</li>
 	<?php endforeach; ?>
