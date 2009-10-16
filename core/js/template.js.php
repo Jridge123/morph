@@ -15,21 +15,21 @@ header("content-type: text/javascript; charset: UTF-8");
 define('JPATH', str_replace('templates/morph/core/js', '', dirname(__FILE__)) . '/' );
 
 if($pack_js == 1){
-	if ( $jquery_core == 1 ) { include('jquery.js'); }
-	if ( $tabscount >= 1 or $accordionscount >= 1 ) { include('ui.js'); }
-	if ( $tabscount >= 1 ) { include('tabs.js'); }
-	if ( $accordionscount >= 1 ) { include('accordion.js'); }
-	if ( $tabscount >= 1 or $accordionscount >= 1 or $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1  ) { include('cookie.js'); }
-	if ( $rounded_corners == 1 or $roundedcount !== '0' ) { include('corners.js'); }
-	if ( $topnav_hoverintent == 1 ) { include("hoverintent.js"); }
-	if ( $sidefish >= 1 or $topfish >= 1 or $topdrop >= 1  ) { include('superfish.js'); }
-	if ( $topnav_supersubs == 1 ) { include("supersubs.js"); }
-	if ( $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1 ) { include('slider.js'); }
-	if ( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1 or $topleft_equalize == 1 ) { include('equalheights.js'); }
-	if ( $plugin_scrollto == 1 ) { include('scrollto.js'); }
-	if ( $simpleticker == 1 ) { include('innerfade.js'); }
-	if ( $google_analytics !== '' ) { include('googleanalytics.js');}
-	if ( $captions_enabled == 1 ) { include('captify.js');	}
+	if ( $jquery_core == 1 ) { include('jquery.js');echo"\n"; }
+	if ( $tabscount >= 1 or $accordionscount >= 1 ) { include('ui.js');echo"\n"; }
+	if ( $tabscount >= 1 ) { include('tabs.js');echo"\n"; }
+	if ( $accordionscount >= 1 ) { include('accordion.js');echo"\n"; }
+	if ( $tabscount >= 1 or $accordionscount >= 1 or $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1  ) { include('cookie.js');echo"\n"; }
+	if ( $rounded_corners == 1 or $roundedcount !== '0' ) { include('corners.js');echo"\n"; }
+	if ( $topnav_hoverintent == 1 ) { include("hoverintent.js");echo"\n"; }
+	if ( $sidefish >= 1 or $topfish >= 1 or $topdrop >= 1  ) { include('superfish.js');echo"\n"; }
+	if ( $topnav_supersubs == 1 ) { include("supersubs.js");echo"\n"; }
+	if ( $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1 ) { include('slider.js');echo"\n"; }
+	if ( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1 or $topleft_equalize == 1 ) { include('equalheights.js');echo"\n"; }
+	if ( $plugin_scrollto == 1 ) { include('scrollto.js');echo"\n"; }
+	if ( $simpleticker == 1 ) { include('innerfade.js');echo"\n"; }
+	if ( $google_analytics !== '' ) { include('googleanalytics.js');echo"\n";}
+	if ( $captions_enabled == 1 ) { include('captify.js');echo"\n";}
 	include('fontsizer.js');
 }
 ?>
@@ -214,7 +214,7 @@ jQuery.noConflict();
  			<?php if ($topnav_hoverintent == 0 ) { ?>disableHI: true<?php } else { ?>disableHI: false<?php } ?>
 		});
 		<?php } if ( $topdrop >= 1 ) { ?>
-		$("#nav .menu").superfish({ pathClass:  'active' });
+		$("#nav .menu").superfish({ pathClass: 'active' });
 		<?php } ?>
 		<?php if ( $animate_left == 1 ) { ?>	
 		$('#secondary-content ul.menu.slide li:not(.active) a, #tertiary-content ul.menu.slide li:not(.active) a').hoverIntent(function() { //mouse in  
@@ -267,10 +267,10 @@ jQuery.noConflict();
 		    }
 		}
 		if($themelet_js == 1){
-		    include('../../../../morph_assets/themelets/'.$themelet.'/js/themelet.js');
+		    include('../../../../morph_assets/themelets/'.$themelet.'/js/themelet.js');echo"\n";
 		} 
 		if($custom_js == 1){
-		    include('../../../../morph_assets/themelets/'.$themelet.'/js/custom.js');
+		    include('../../../../morph_assets/themelets/'.$themelet.'/js/custom.js');echo"\n";
 		} ?>
     })
 })(jQuery);
