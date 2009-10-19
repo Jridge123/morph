@@ -1,6 +1,6 @@
 <?php
 
-if ( $logo_type == 1 or $logo_type == 3 ) {
+if ( $logo_type == 1 or $logo_type == 2 ) {
 	if( isIE6() && $logo_image_ie !== ''){ 
 		$logo = $assetspath.'/logos/'.$logo_image_ie; 
 		if($logo_autodimensions == 1) {
@@ -9,7 +9,7 @@ if ( $logo_type == 1 or $logo_type == 3 ) {
 			$logo_size[0] = $logo_width;
 			$logo_size[1] = $logo_height;
 		}	
-	} else { 
+	} else{ 
 		$logo = $assetspath.'/logos/'.$logo_image; 
 		if($logo_autodimensions == 1) {
 			$logo_size = getimagesize($assetsroot.'/logos/'.$logo_image);
