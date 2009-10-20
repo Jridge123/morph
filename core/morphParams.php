@@ -8,12 +8,18 @@ $nojs = $MORPH->nojs;
 $hide_ie6toolbar = $MORPH->hide_ie6toolbar;
 
 // customization settings
-$bg_color = str_replace('#','',$MORPH->bg_color);
-$use_bg_image = $MORPH->use_bg_image;
-$bg_image = $MORPH->bg_image;
-$bg_repeat = $MORPH->bg_repeat;
-$bg_position = $MORPH->bg_position;
-$bg_attachment = $MORPH->bg_attachment;
+$html_bg_color = str_replace('#','',$MORPH->html_bg_color);
+$use_html_bg_image = $MORPH->use_html_bg_image;
+$html_bg_image = $MORPH->html_bg_image;
+$html_bg_repeat = $MORPH->html_bg_repeat;
+$html_bg_position = $MORPH->html_bg_position;
+$html_bg_attachment = $MORPH->html_bg_attachment;
+$html_bg_color = str_replace('#','',$MORPH->html_bg_color);
+$use_body_bg_image = $MORPH->use_body_bg_image;
+$body_bg_image = $MORPH->body_bg_image;
+$body_bg_repeat = $MORPH->body_bg_repeat;
+$body_bg_position = $MORPH->body_bg_position;
+$body_bg_attachment = $MORPH->body_bg_attachment;
 
 $color_h1 = str_replace('#','',$MORPH->color_h1);
 $color_h2 = str_replace('#','',$MORPH->color_h2);

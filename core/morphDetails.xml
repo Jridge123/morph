@@ -220,22 +220,20 @@
 	<param name="slogan_stack" default="1" type="text" label="Tagline stacking order" tooltip="inline" description="Set the stacking order (z-index) of your sites tagline." />	
 </params>
 
-<params group="backgrounddata">
-	<param name="bg_color" default="default" type="colorpicker" label="Background color" tooltip="inline" description="Setting a color here will adjust your sites background color." />
-	<param name="use_bg_image" default="1" type="radio" label="Use background image" tooltip="inline" description="Would you like to use a background image?">
+<params group="htmlbackgrounddata">
+	<param name="html_bg_color" default="default" type="colorpicker" label="Background color" tooltip="inline" description="Setting a color here will adjust your sites background color." />
+	<param name="use_html_bg_image" default="1" type="radio" label="Use background image" tooltip="inline" description="Would you like to use a background image?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="bg_image" default="Use themelets background" type="imagelist" tooltip="inline" label="Background image" description="Choose a background to use for your site. The backgrounds are located in your assets / backgrounds folder. You can upload new backgrounds using the Universal Installer tool in the Toolbox tab." directory="morph_assets/backgrounds" hide_none="true" />
-		
-	
-	<param name="bg_repeat" default="repeat" type="list" label="Background repeat" tooltip="inline" description="If a background image is set, how should it repeat?" exclude="" stripext="">
+	<param name="html_bg_image" default="Use themelets background" type="imagelist" tooltip="inline" label="Background image" description="Choose a background to use for your site. The backgrounds are located in your assets / backgrounds folder. You can upload new backgrounds using the Universal Installer tool in the Toolbox tab." directory="morph_assets/backgrounds" hide_none="true" />
+	<param name="html_bg_repeat" default="repeat" type="list" label="Background repeat" tooltip="inline" description="If a background image is set, how should it repeat?" exclude="" stripext="">
 		<option value="no-repeat">None</option>
 		<option value="repeat">Repeat</option>
 		<option value="repeat-x">Repeat Horizontally</option>
 		<option value="repeat-y">Repeat Vertically</option>
 	</param>
-	<param name="bg_position" default="top left" type="list" label="Background position" tooltip="inline" description="Set the backgrounds position">
+	<param name="html_bg_position" default="top left" type="list" label="Background position" tooltip="inline" description="Set the backgrounds position">
 		<option value="top left">top left</option>
 		<option value="top center">top center</option>
 		<option value="top right">top right</option>
@@ -246,11 +244,42 @@
 		<option value="bottom center">bottom center</option>
 		<option value="bottom right">bottom right</option>
 	</param>
-	<param name="bg_attachment" default="scroll" type="list" tooltip="inline" label="Background attachment" description="Should be the background be fixed or should it scroll">
+	<param name="html_bg_attachment" default="scroll" type="list" tooltip="inline" label="Background attachment" description="Should be the background be fixed or should it scroll">
 		<option value="scroll">Scroll</option>
 		<option value="fixed">Fixed</option>
 	</param>
 </params>
+
+<params group="bodybackgrounddata">
+	<param name="body_bg_color" default="default" type="colorpicker" label="Background color" tooltip="inline" description="Setting a color here will adjust your sites background color." />
+	<param name="use_html_bg_image" default="1" type="radio" label="Use background image" tooltip="inline" description="Would you like to use a background image?">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
+	<param name="body_bg_image" default="Use themelets background" type="imagelist" tooltip="inline" label="Background image" description="Choose a background to use for your site. The backgrounds are located in your assets / backgrounds folder. You can upload new backgrounds using the Universal Installer tool in the Toolbox tab." directory="morph_assets/backgrounds" hide_none="true" />
+	<param name="body_bg_repeat" default="repeat" type="list" label="Background repeat" tooltip="inline" description="If a background image is set, how should it repeat?" exclude="" stripext="">
+		<option value="no-repeat">None</option>
+		<option value="repeat">Repeat</option>
+		<option value="repeat-x">Repeat Horizontally</option>
+		<option value="repeat-y">Repeat Vertically</option>
+	</param>
+	<param name="body_bg_position" default="top left" type="list" label="Background position" tooltip="inline" description="Set the backgrounds position">
+		<option value="top left">top left</option>
+		<option value="top center">top center</option>
+		<option value="top right">top right</option>
+		<option value="center left">center left</option>
+		<option value="center center">center center</option>
+		<option value="center right">center right</option>
+		<option value="bottom left">bottom left</option>
+		<option value="bottom center">bottom center</option>
+		<option value="bottom right">bottom right</option>
+	</param>
+	<param name="body_bg_attachment" default="scroll" type="list" tooltip="inline" label="Background attachment" description="Should be the background be fixed or should it scroll">
+		<option value="scroll">Scroll</option>
+		<option value="fixed">Fixed</option>
+	</param>
+</params>
+
 
 <params group="colordata">	
 	<param name="color_h1" default="default" type="colorpicker" tooltip="inline" label="Heading 1 color" description="Set the foreground color of your H1 headings." />
