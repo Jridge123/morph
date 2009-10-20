@@ -17,7 +17,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 <ul id="weblinks">
 <?php foreach ( $this->categories as $category ) : ?>
 	<li>
-		<a href="<?php echo $category->link; ?>" class="category<?php echo $this->escape($this->params->get( 'pageclass_sfx' )); ?>">
+		<a href="<?php echo $category->link; ?>" class="category">
 			<?php echo $this->escape($category->title);?></a>
 		&nbsp;
 		<span class="small">
