@@ -6,7 +6,7 @@ $lcbrowser = $_GET['A04'];
 $accordionscount = $_GET['A05'];
 
 $logo_type = $_GET['B01'];
-$logo = $_GET['B02'];
+$logo = stripslashes(urldecode($_GET['B02']));
 $logo_width = $_GET['B03'];
 $logo_height = $_GET['B04'];
 $logo_textcolor = stripslashes(urldecode($_GET['B05']));
