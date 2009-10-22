@@ -36,6 +36,10 @@
 		<option value="doc4">974px</option>
 		<option value="doc3">100%</option>
 	</param>
+	<param name="global_wrap" default="0" type="radio" label="Enable global wrap" tooltip="inline" description="This option if enabled, will wrap the main structural blocks with a global wrapper">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
 	<param name="remove_generator" default="0" type="radio" label="Remove Joomla! meta tag" tooltip="inline" description="The Joomla! meta generator is tag that is outputted in your sites xhtml, which will tell anyone who looks at the code that you are using Joomla!. This in most cases is fine, except when it comes to security. Its recommended that you leave this turned off.">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
@@ -49,10 +53,6 @@
 		<option value="0">No</option>
 	</param>
 	<param name="google_analytics" default="" type="text" label="Google Analytics ID" tooltip="inline" description="Entering your Google Analytics ID will automatically load the needed tracking javascript, just above the closing body tag of your site. We plan on extending this to use any tracking or related javascript in the future, but for now this will have to do :)" />
-	<param name="global_wrap" default="0" type="radio" label="Enable global wrap" tooltip="inline" description="This option if enabled, will wrap the main structural blocks with a global wrapper">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
 </params>
 
 <params group="logodata">		
