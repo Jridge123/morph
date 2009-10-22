@@ -1,10 +1,25 @@
 <?php
 defined('_JEXEC') or die('Restricted access');
-
 // initiate morph
-include_once('templates/morph/core/morphLoader.php');
-include_once('templates/morph/core/morphParams.php');
-require_once('templates/morph/core/browser.php');
+include('templates/morph/core/morphLoader.php');
+include('templates/morph/core/morphParams.php');
+require('templates/morph/core/browser.php');
+
+if(isset($_COOKIE['nogzip'])){
+	$conf = JFactory::getConfig();
+	if($conf->getValue('config.gzip') !== '0'){
+		$path = JPATH_CONFIGURATION.DS.'configuration.php';
+		JPath::setPermissions($path, '0777');
+		if(file_exists($path) && is_writable($path)){			
+			$str = file_get_contents($path);
+			$line = str_replace('var $gzip = \'1\';', 'var $gzip = \'0\';', $str);
+			file_put_contents($path, $line);
+		}		
+		JPath::setPermissions($path, '0644');
+	}
+	$gzip_compression = 0;
+}
+
 // enable/disable GZIP compression
 if ( $gzip_compression == 1 ) {
 	// set Joomla's GZIP to on if not set.
@@ -168,6 +183,25 @@ if(isset($_GET['unpackcss'])){
 }elseif(isset($_GET['packcss'])){
 	setcookie('unpackcss', 'true', time()-3600);
 	header('Location: ' . str_replace(array('?packcss','&packcss'), '', $curr_url));
+}
+
+if(isset($_GET['gzip']) && $_GET['gzip'] == 'off'){
+	setcookie('nogzip', 'off', 0);
+	header('Location: ' . str_replace(array('?gzip=off','&gzip=off'), '', $curr_url));
+}elseif(isset($_GET['gzip']) && $_GET['gzip'] == 'on'){
+	setcookie('nogzip', '', time()-3600);
+	$conf = JFactory::getConfig();
+	if($conf->getValue('config.gzip') !== '1'){
+		$path = JPATH_CONFIGURATION.DS.'configuration.php';
+		JPath::setPermissions($path, '0777');
+		if(file_exists($path) && is_writable($path)){			
+			$str = file_get_contents($path);
+			$line = str_replace('var $gzip = \'0\';', 'var $gzip = \'1\';', $str);
+			file_put_contents($path, $line);
+		}		
+		JPath::setPermissions($path, '0644');
+	}
+	header('Location: ' . str_replace(array('?gzip=on','&gzip=on'), '', $curr_url));
 }
 
 if ( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
