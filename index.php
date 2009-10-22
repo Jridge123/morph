@@ -39,7 +39,7 @@ $.trackPage('<?php echo $google_analytics; ?>')
 } ?>
 
 </head>
-<?php if ($error_reporting == 0) error_reporting(E_ALL ^ E_NOTICE); ?>
+<?php if ($error_reporting == 0) { error_reporting(E_ALL ^ E_NOTICE); } ?>
 <body class="js-disabled morph <?php echo "$lcbrowser $lcbrowser$ver"; if ($pageclass != ""){ echo ' '.$pageclass; } ?>"<?php if ($themelet != ""){ echo ' id="'.$themelet.'"'; } ?>>
 <?php 
 // check if Google Chrome Frame is installed on the browser, if not show a info box
