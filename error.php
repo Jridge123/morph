@@ -11,15 +11,36 @@
 
 // no direct access
 defined( '_JEXEC' ) or die( 'Restricted access' );
-include_once(JPATH_ROOT . "/templates/" . $this->template . '/core/morphFunctions.php');
+include_once(JPATH_ROOT . '/templates/morph/core/morphFunctions.php');
+if ( $gzip_compression == 1 ) {
+	// set Joomla's GZIP to on if not set.
+	$conf = JFactory::getConfig();
+	if($conf->getValue('config.gzip') !== '1'){
+		$path = JPATH_CONFIGURATION.DS.'configuration.php';
+		JPath::setPermissions($path, '0777');
+		if(file_exists($path) && is_writable($path)){			
+			$str = file_get_contents($path);
+			$line = str_replace('var $gzip = \'0\';', 'var $gzip = \'1\';', $str);
+			file_put_contents($path, $line);
+		}		
+		JPath::setPermissions($path, '0644');
+	}
+	// enable GZIP if the PHP ZLIB extension is loaded and output_compression is not enabled, else enable output buffering
+	if(extension_loaded('zlib') && !ini_get('zlib.output_compression')){
+		if(!ob_start("ob_gzhandler")) ob_start();
+	}
+}
+
+echo $gzip_compression;
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
 <head>
 	<title><?php echo $this->error->code ?> - <?php echo $this->title; ?></title>
-	<link rel="stylesheet" href="<?php echo $this->baseurl; ?>/templates/morph/css/error.css" type="text/css" />
-	<script src="<?php echo $this->baseurl; ?>/templates/morph/js/jquery-1.2.6.min.js" language="javascript" type="text/javascript"></script>
-	<script src="<?php echo $this->baseurl; ?>/templates/morph/js/jquery.corners.min.js" language="javascript" type="text/javascript"></script>
+	<link rel="stylesheet" href="<?php echo $this->baseurl; ?>/templates/morph/core/css/error.css" type="text/css" />
+	<script src="<?php echo $this->baseurl; ?>/templates/morph/core/js/jquery.js" language="javascript" type="text/javascript"></script>
+	<script src="<?php echo $this->baseurl; ?>/templates/morph/core/js/corners.js" language="javascript" type="text/javascript"></script>
 	<script type="text/javascript">
       $(document).ready(function() {
 		$('#morph').corners("10px");
