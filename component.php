@@ -24,8 +24,10 @@ include_once(JPATH_ROOT . "/templates/" . $this->template . '/core/morphFunction
 	<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/css/template_rtl.css" type="text/css" />
 <?php endif; ?>
 </head>
-<body>
+<body id="<?php echo $themelet; ?>">
+<div id="primary-content">
 	<jdoc:include type="message" />
 	<jdoc:include type="component" />
+</div>
 </body>
 </html>
