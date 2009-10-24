@@ -48,9 +48,9 @@ $cparams = JComponentHelper::getParams ('com_media');
 		$rowcount = (int) $introcount / $colcount;
 		$ii = 0;
 		for ($y = 0; $y < $rowcount && $i < $this->total; $y++) : ?>
-			<div class="article-row">
+			<div class="article-row ">
 				<?php for ($z = 0; $z < $colcount && $ii < $introcount && $i < $this->total; $z++, $i++, $ii++) : ?>
-					<div class="article-column column<?php echo $z + 1; ?> cols<?php echo $colcount; ?>" >
+					<div id="article<?php echo $this->item->id; ?>" class="article-column column<?php echo $z + 1; ?> cols<?php echo $colcount; ?>" >
 						<?php $this->item =& $this->getItem($i, $this->params);
 						echo $this->loadTemplate('item'); ?>
 					</div>
