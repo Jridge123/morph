@@ -28,7 +28,7 @@ defined('_JEXEC') or die('Restricted access');
 	
 	<div class="article-row clearer">
 		<?php for ($z = 0; $z < $colcount && $ii < $introcount && $i < $this->total; $z++, $i++, $ii++) : ?>
-			<div class="article-column column<?php echo $z + 1; ?> cols<?php echo $colcount; ?>" >
+			<div id="article<?php $this->item =& $this->getItem($i, $this->params); echo $this->item->id; ?>" class="article-column column<?php echo $z + 1; ?> cols<?php echo $colcount; ?>" >
 				<?php $this->item =& $this->getItem($i, $this->params);
 				echo $this->loadTemplate('item'); ?>
 			</div>
