@@ -25,38 +25,24 @@ $this->item->params->get('show_section') ||
 $this->item->params->get('show_category') ||
 $this->item->params->get('show_pdf_icon') ||
 $this->item->params->get('show_print_icon') || 
-$this->item->params->get('show_email_icon'))	{ ?>
-	
-<ul class="article-info">
-			
+$this->item->params->get('show_email_icon'))	{ ?>	
+<ul class="article-info">		
 <?php if ($this->item->params->get('show_create_date')) { ?>
     <li class="created"><?php echo JHTML::_('date', $this->item->created, JText::_('%a, %d %b %y')); ?>
 	<?php if ($this->item->params->get('show_create_date') && $this->item->params->get('show_author')){ ?>
         <span class="divider">|&nbsp;</span>
     <?php } ?></li>
-<?php } ?>
-
-<?php if (($this->item->params->get('show_author')) && ($this->item->author != "")) { ?>
+<?php } if (($this->item->params->get('show_author')) && ($this->item->author != "")) { ?>
 	<li class="author"><?php JText::printf('Written by', ($this->item->created_by_alias ? $this->item->created_by_alias : $this->item->author)); ?></li>
-<?php } ?>
-
-<?php if ($this->item->params->get('show_pdf_icon')) { ?>
+<?php } if ($this->item->params->get('show_pdf_icon')) { ?>
     <li class="icons"><?php echo articleIcons::pdf($this->item, $this->item->params, $this->access); ?></li>
-<?php } ?>
-
-<?php if ($this->item->params->get('show_print_icon')) { ?>
+<?php } if ($this->item->params->get('show_print_icon')) { ?>
     <li class="icons"><?php echo articleIcons::print_popup($this->item, $this->item->params, $this->access); ?></li>
-<?php } ?>
-
-<?php if ($this->item->params->get('show_email_icon')) { ?>
+<?php } if ($this->item->params->get('show_email_icon')) { ?>
     <li class="icons"><?php echo articleIcons::email($this->item, $this->item->params, $this->access); ?></li>
 <?php } ?>
-
 </ul>
-
-
 <?php } ?>
-
 
 <!-- section & category -->
 <?php if (($this->item->params->get('show_section') && $this->item->sectionid) || ($this->item->params->get('show_category') && $this->item->catid)) { ?>

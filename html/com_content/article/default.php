@@ -48,66 +48,55 @@ $this->params->get('show_pdf_icon') ||
 $this->params->get('show_print_icon') || 
 $this->params->get('show_email_icon'))	{ ?>
 	
-<ul class="article-info">
-			
-<?php if ($this->params->get('show_create_date')) { ?>
+<ul class="article-info">		
+    <?php if ($this->params->get('show_create_date')) { ?>
     <li class="created"><?php echo JHTML::_('date', $this->article->created, JText::_('%a, %d %b %y')); ?>
 	<?php if ($this->params->get('show_create_date') && $this->params->get('show_author')){ ?>
         <span class="divider">|&nbsp;</span>
     <?php } ?></li>
-<?php } ?>
-
-<?php if (($this->params->get('show_author')) && ($this->article->author != "")) { ?>
+    <?php } ?>
+    <?php if (($this->params->get('show_author')) && ($this->article->author != "")) { ?>
 	<li class="author">Written by <strong><?php JText::printf($this->article->created_by_alias ? $this->article->created_by_alias : $this->article->author); ?></strong></li>
-<?php } ?>
-	
-<li>
-				<span class="sep">&nbsp;|&nbsp;</span>
-				<a href="<?php echo curPageURL(); ?>|<?php echo $this->escape($this->article->title); ?>" rel="shareit">Share Article</a>
-				<span class="sep">&nbsp;|&nbsp;</span><span id="fontsizer"></span>
-</li>
-
-			<?php if ($this->params->get('show_pdf_icon')) : ?>
-			<li class="icons"><?php echo articleIcons::pdf($this->article, $this->params, $this->access); ?></li>
-			<?php endif; ?>
-			<?php if ($this->params->get('show_print_icon')) : ?>
-			<li class="icons"><?php echo articleIcons::print_popup($this->article, $this->params, $this->access); ?></li>
-			<?php endif; ?>
-			<?php if ($this->params->get('show_email_icon')) : ?>
-			<li class="icons"><?php echo articleIcons::email($this->article, $this->params, $this->access); ?></li>
-			<?php endif; ?>
-
-
-
+    <?php } ?>
+    <li><span class="sep">&nbsp;|&nbsp;</span><a href="<?php echo curPageURL(); ?>|<?php echo $this->escape($this->article->title); ?>" rel="shareit">Share Article</a>
+        <span class="sep">&nbsp;|&nbsp;</span><span id="fontsizer"></span></li>
+	<?php if ($this->params->get('show_pdf_icon')) : ?>
+	<li class="icons"><?php echo articleIcons::pdf($this->article, $this->params, $this->access); ?></li>
+	<?php endif; ?>
+	<?php if ($this->params->get('show_print_icon')) : ?>
+	<li class="icons"><?php echo articleIcons::print_popup($this->article, $this->params, $this->access); ?></li>
+	<?php endif; ?>
+	<?php if ($this->params->get('show_email_icon')) : ?>
+	<li class="icons"><?php echo articleIcons::email($this->article, $this->params, $this->access); ?></li>
+	<?php endif; ?>
 </ul>
-
 
 <?php } ?>	
 
 <!-- section & category -->
 <?php if ($this->params->get('show_section') && $this->article->sectionid && isset($this->article->section) or $this->params->get('show_category') && $this->article->catid) { ?>
 <p class="filing">
-			<?php if ($this->params->get('show_section') && $this->article->sectionid && isset($this->article->section) or $this->params->get('show_category') && $this->article->catid) : ?>
-			Filed under: 
+	<?php if ($this->params->get('show_section') && $this->article->sectionid && isset($this->article->section) or $this->params->get('show_category') && $this->article->catid) : ?>
+	Filed under: 
+	<?php endif; ?>
+	
+	<?php if ($this->params->get('show_section') && $this->article->sectionid && isset($this->article->section)) : ?>
+	<?php if ($this->params->get('link_section')) : ?><?php echo '<a href="'.JRoute::_(ContentHelperRoute::getSectionRoute($this->article->sectionid)).'">'; ?><?php endif; ?>
+		<span class="article-section"><?php echo $this->article->section; ?></span>
+	<?php if ($this->params->get('link_section')) : ?><?php echo '</a>'; ?><?php endif; ?>
+	<?php endif; ?>
+	<?php if ($this->params->get('show_category')) : ?>
+		<span class="filing-sep">&nbsp;/&nbsp;</span>
+	<?php endif; ?>
+	<?php if ($this->params->get('show_category') && $this->article->catid) : ?>
+		<?php if ($this->params->get('link_category')) : ?>
+			<?php echo '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->article->catslug, $this->article->sectionid)).'">'; ?>
 			<?php endif; ?>
-			
-			<?php if ($this->params->get('show_section') && $this->article->sectionid && isset($this->article->section)) : ?>
-			<?php if ($this->params->get('link_section')) : ?><?php echo '<a href="'.JRoute::_(ContentHelperRoute::getSectionRoute($this->article->sectionid)).'">'; ?><?php endif; ?>
-				<span class="article-section"><?php echo $this->article->section; ?></span>
-			<?php if ($this->params->get('link_section')) : ?><?php echo '</a>'; ?><?php endif; ?>
+			<span class="article-category"><?php echo $this->article->category; ?></span>
+			<?php if ($this->params->get('link_category')) : ?>
+			<?php echo '</a>'; ?>
 			<?php endif; ?>
-			<?php if ($this->params->get('show_category')) : ?>
-				<span class="filing-sep">&nbsp;/&nbsp;</span>
-			<?php endif; ?>
-			<?php if ($this->params->get('show_category') && $this->article->catid) : ?>
-				<?php if ($this->params->get('link_category')) : ?>
-					<?php echo '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->article->catslug, $this->article->sectionid)).'">'; ?>
-					<?php endif; ?>
-					<span class="article-category"><?php echo $this->article->category; ?></span>
-					<?php if ($this->params->get('link_category')) : ?>
-					<?php echo '</a>'; ?>
-					<?php endif; ?>
-			<?php endif; ?>
+	<?php endif; ?>
 </p>
 <?php } ?>
 			
@@ -118,7 +107,7 @@ $this->params->get('show_email_icon'))	{ ?>
 	<?php  if (!$this->params->get('show_intro')) :	echo $this->article->event->afterDisplayTitle; endif; ?>
 
 	<!-- article body -->
-	<div class="article-body clearer" id="article">
+	<div class="article-body clearer<?php if (isset ($this->article->toc)) : ?> toc<?php endif; ?>" id="article">
 		<?php echo $this->article->event->beforeDisplayContent; ?>
 
 		<?php if (isset ($this->article->toc)) : ?>
