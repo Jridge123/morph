@@ -266,11 +266,11 @@ body{text-align:center;}
 #user2{clear:both;}
 #user1 .mod{overflow: hidden;margin-top:.987em;}
 #user1 .first{margin-left:0;}
-#inset1,#inset2,#inset3,#inset4{/*margin-bottom:1em;*/overflow: hidden; }
+#inset1,#inset2,#inset3,#inset4{/*margin-bottom:1em;*/overflow: hidden;}
 #inset1 .mod-basic,
 #inset2 .mod-basic,
 #inset3 .mod-basic,
-#inset4 .mod-basic{width:auto;}
+#inset4 .mod-basic{width:auto;float:none;}
 #inset4{clear:both;}
 
 /* add margin to last module in sidebar */
