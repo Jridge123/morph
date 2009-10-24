@@ -33,7 +33,7 @@ $this->item->params->get('show_email_icon'))	{ ?>
         <span class="divider">|&nbsp;</span>
     <?php } ?></li>
 <?php } if (($this->item->params->get('show_author')) && ($this->item->author != "")) { ?>
-	<li class="author"><?php JText::printf('Written by', ($this->item->created_by_alias ? $this->item->created_by_alias : $this->item->author)); ?></li>
+	<li class="author"><?php JText::printf($this->item->created_by_alias ? $this->item->created_by_alias : $this->item->author); ?></li>
 <?php } if ($this->item->params->get('show_pdf_icon')) { ?>
     <li class="icons"><?php echo articleIcons::pdf($this->item, $this->item->params, $this->access); ?></li>
 <?php } if ($this->item->params->get('show_print_icon')) { ?>
