@@ -94,15 +94,31 @@ body{text-align:center;}
 
 /* set floats for 3,4 and 5 grid items*/
 .yui-g5 .yui-u,.yui-g4 .yui-u,.yui-gb .yui-u,.yui-g .yui-gb .yui-u,.yui-gb .yui-g,.yui-gb .yui-gb,.yui-gb .yui-gc,.yui-gb .yui-gd,.yui-gb .yui-ge,.yui-gb .yui-gf,.yui-gc .yui-u,.yui-gc .yui-g,.yui-gd .yui-u{float:left;}
+
 /* base yui layout for 3 grids side by side */
 .yui-gb .yui-u,.yui-g .yui-gb .yui-u,.yui-gb .yui-g,.yui-gb .yui-gb,.yui-gb .yui-gc,.yui-gb .yui-gd,.yui-gb .yui-ge,.yui-gb .yui-gf,.yui-gc .yui-u,.yui-gc .yui-g,.yui-gd .yui-u{width:32.46%;margin-left:1.3%;}
+
 /* custom layout for 4 grids side by side */
 .yui-g4 .mod-fx.yui-u,.yui-g .yui-g4 .mod-fx.yui-u,.yui-g4 .mod-grid.yui-u,.yui-g .yui-g4 .mod-grid.yui-u,.yui-g4 .yui-g,.yui-g4 .yui-g4,.yui-g4 .yui-gc,.yui-g4 .yui-gd,.yui-g4 .yui-ge,.yui-g4 .yui-gf{margin-left:1.1%;width:24.17%;}
+
 /* custom layout for 5 grids side by side */
-.yui-g5 .mod-grid.yui-u,.yui-g .yui-g5 .mod-grid.yui-u,.yui-g5 .yui-g,.yui-g5 .yui-g5,.yui-g5 .yui-gc,.yui-g5 .yui-gd,.yui-g5 .yui-ge,.yui-g5 .yui-gf{margin-left:1.25%;width:19%;}
+#article-content div.yui-g5 div.yui-u,
+.yui-g5 .mod-grid.yui-u,
+.yui-g .yui-g5 .mod-grid.yui-u,
+.yui-g5 .yui-g,
+.yui-g5 .yui-g5,
+.yui-g5 .yui-gc,
+.yui-g5 .yui-gd,
+.yui-g5 .yui-ge,
+.yui-g5 .yui-gf{margin-left:1.25%;width:19%;}
+
+#article-content div.yui-g5 div.yui-u.first{margin-left:0;}
+
 /* yui layout for 2 grids side by side - all options */
 .yui-g .yui-u,.yui-g .yui-g,.yui-g .yui-gb,.yui-g .yui-gc,.yui-g .yui-gd,.yui-g .yui-ge,.yui-g .yui-gf,.yui-gc .yui-u,.yui-gd .yui-g,.yui-g .yui-gc .yui-u,.yui-ge .yui-u,.yui-ge .yui-g,.yui-gf .yui-g,.yui-gf .yui-u{float:right;}
+
 .yui-g div.first,.yui-gb div.first,.yui-gc div.first,.yui-gd div.first,.yui-ge div.first,.yui-gf div.first,.yui-g .yui-gc div.first,.yui-g .yui-ge div.first,.yui-gc div.first div.first{float:left;}
+
 /* set widths for each option with 2 grids */
 .yui-g .yui-u,.yui-g .yui-g,.yui-g .yui-gb,.yui-g .yui-gc,.yui-g .yui-gd,.yui-g .yui-ge,.yui-g .yui-gf{width:49.3%;}
 .yui-gc div.first,.yui-gd .yui-u{width:66.6%;}
