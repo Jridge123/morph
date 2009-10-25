@@ -3,11 +3,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 <ul id="archive-list" style="list-style: none;">
 <?php foreach ($this->items as $item) : ?>
 	<li class="row<?php echo ($item->odd +1 ); ?>">
-		<h4 class="contentheading">
-			<a href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($item->slug)); ?>">
-				<?php echo $this->escape($item->title); ?></a>
-		</h4>
-
+		<h4><a href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($item->slug)); ?>"><?php echo $this->escape($item->title); ?></a></h4>
 		<?php if (($this->params->get('show_section') && $item->sectionid) || ($this->params->get('show_category') && $item->catid)) : ?>
 			<div>
 			<?php if ($this->params->get('show_section') && $item->sectionid && isset($item->section)) : ?>
@@ -59,7 +55,10 @@ defined('_JEXEC') or die('Restricted access'); ?>
 	</li>
 <?php endforeach; ?>
 </ul>
-<div id="navigation">
-	<span><?php echo $this->pagination->getPagesLinks(); ?></span>
-	<span><?php echo $this->pagination->getPagesCounter(); ?></span>
+
+<div id="pagination-wrap">
+	<div class="pagination-links">
+		<?php echo $this->pagination->getPagesCounter(); ?>
+	</div>
+	<?php echo $this->pagination->getPagesLinks(); ?>
 </div>
