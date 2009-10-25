@@ -104,8 +104,8 @@ z-index:<?php echo $slogan_stack; ?>;
 a:link,a:visited,a:active{color:#<?php echo $color_links; ?>;}
 a:hover{color:#<?php echo $color_linkshover; ?>;}
 a:visited{color:#<?php echo $color_linksvisited; ?>;}
-h1{color:#<?php echo $color_h1; ?>;}
-h2{color:#<?php echo $color_h2; ?>;}
+h1,.componentheading{color:#<?php echo $color_h1; ?>;}
+h2,.contentheading{color:#<?php echo $color_h2; ?>;}
 h3{color:#<?php echo $color_h3; ?>;}
 h4{color:#<?php echo $color_h4; ?>;}
 h5{color:#<?php echo $color_h5; ?>;}
