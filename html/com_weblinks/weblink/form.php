@@ -1,4 +1,4 @@
-<?php defined('_JEXEC') or die('Restricted access'); ?>
+<?php defined('_JEXEC') or die('Restricted access');?>
 <script language="javascript" type="text/javascript">
 function submitbutton(pressbutton)
 {
@@ -21,89 +21,39 @@ function submitbutton(pressbutton)
 }
 </script>
 
-<form action="<?php echo $this->action ?>" method="post" name="adminForm" id="adminForm">
 <?php if ( $this->params->def( 'show_page_title', 1 ) ) : ?>
-    <h1 class="componentheading clearer">
-		<?php echo $this->escape($this->params->get('page_title')); ?>
-	</h1>
+<h1 class="componentheading clearer"><?php echo $this->escape($this->params->get('page_title')); ?></h1>
 <?php endif; ?>
-<table cellpadding="4" cellspacing="1" border="0" width="100%">
-<tr>
-	<td width="10%">
-		<label for="jformtitle">
-			<?php echo JText::_( 'Name' ); ?>:
-		</label>
-	</td>
-	<td width="80%">
-		<input class="inputbox" type="text" id="jformtitle" name="jform[title]" size="50" maxlength="250" value="<?php echo $this->escape($this->weblink->title);?>" />
-	</td>
-</tr>
-<tr>
-	<td valign="top">
-		<label for="jformcatid">
-			<?php echo JText::_( 'Category' ); ?>:
-		</label>
-	</td>
-	<td>
-		<?php echo $this->lists['catid']; ?>
-	</td>
-</tr>
-<tr>
-	<td valign="top">
-		<label for="jformurl">
-			<?php echo JText::_( 'URL' ); ?>:
-		</label>
-	</td>
-	<td>
-		<input class="inputbox" type="text" id="jformurl" name="jform[url]" value="<?php echo $this->escape($this->weblink->url); ?>" size="50" maxlength="250" />
-	</td>
-</tr>
-<tr>
-	<td valign="top">
-		<label for="jformpublished">
-			<?php echo JText::_( 'Published' ); ?>:
-		</label>
-	</td>
-	<td>
-			<?php echo $this->lists['published']; ?>
-	</td>
-</tr>
-<tr>
-	<td valign="top">
-		<label for="jformdescription">
-			<?php echo JText::_( 'Description' ); ?>:
-		</label>
-	</td>
-	<td>
-		<textarea class="inputbox" cols="30" rows="6" id="jformdescription" name="jform[description]" style="width:300px"><?php echo $this->escape( $this->weblink->description);?></textarea>
-	</td>
-</tr>
-<tr>
-	<td class="key">
-		<label for="jformordering">
-			<?php echo JText::_( 'Ordering' ); ?>:
-		</label>
-	</td>
-	<td>
-		<?php echo $this->lists['ordering']; ?>
-	</td>
-</tr>
-</table>
+<div id="weblinks-wrap">
+<form action="<?php echo $this->action ?>" method="post" name="adminForm" id="adminForm">
+<ul>
+	<li><label for="jformtitle" class="label"><?php echo JText::_( 'Name' ); ?>:</label>
+	<input class="text-input" type="text" id="jformtitle" name="jform[title]" size="50" maxlength="250" value="<?php echo $this->escape($this->weblink->title);?>" /></li>
 
-<div>
-	<button type="button" onclick="submitbutton('save')">
-		<?php echo JText::_('Save') ?>
-	</button>
-	<button type="button" onclick="submitbutton('cancel')">
-		<?php echo JText::_('Cancel') ?>
-	</button>
-</div>
+	<li><label for="jformcatid" class="label"><?php echo JText::_( 'Category' ); ?>:</label>
+	<?php echo $this->lists['catid']; ?></li>
 
-	<input type="hidden" name="jform[id]" value="<?php echo $this->weblink->id; ?>" />
-	<input type="hidden" name="jform[ordering]" value="<?php echo $this->weblink->ordering; ?>" />
-	<input type="hidden" name="jform[approved]" value="<?php echo $this->weblink->approved; ?>" />
-	<input type="hidden" name="option" value="com_weblinks" />
-	<input type="hidden" name="controller" value="weblink" />
-	<input type="hidden" name="task" value="" />
-	<?php echo JHTML::_( 'form.token' ); ?>
+	<li><label for="jformurl" class="label"><?php echo JText::_( 'URL' ); ?>:</label>
+	<input class="text-input" type="text" id="jformurl" name="jform[url]" value="<?php echo $this->escape($this->weblink->url); ?>" size="50" maxlength="250" /></li>
+
+	<li><label for="jformpublished" class="label"><?php echo JText::_( 'Published' ); ?>:</label>
+	<?php echo $this->lists['published']; ?></li>
+
+	<li><label for="jformdescription" class="label"><?php echo JText::_( 'Description' ); ?>:</label>
+	<textarea class="text-input" cols="30" rows="6" id="jformdescription" name="jform[description]"><?php echo $this->escape( $this->weblink->description);?></textarea></li>
+
+	<li><label for="jformordering" class="label"><?php echo JText::_( 'Ordering' ); ?>:</label>
+	<?php echo $this->lists['ordering']; ?></li>
+
+	<li><button type="button" onclick="submitbutton('save')" class="button save"><?php echo JText::_('Save') ?></button>
+	<button type="button" onclick="submitbutton('cancel')" class="button cancel"><?php echo JText::_('Cancel') ?></button></li>
+</ul>
+<input type="hidden" name="jform[id]" value="<?php echo $this->weblink->id; ?>" />
+<input type="hidden" name="jform[ordering]" value="<?php echo $this->weblink->ordering; ?>" />
+<input type="hidden" name="jform[approved]" value="<?php echo $this->weblink->approved; ?>" />
+<input type="hidden" name="option" value="com_weblinks" />
+<input type="hidden" name="controller" value="weblink" />
+<input type="hidden" name="task" value="" />
+<?php echo JHTML::_( 'form.token' ); ?>
 </form>
+</div>
