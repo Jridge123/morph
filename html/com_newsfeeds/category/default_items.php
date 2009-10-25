@@ -5,7 +5,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 	<?php echo JText::_('Display Num') .'&nbsp;'; echo $this->pagination->getLimitBox(); ?>
 <?php endif; ?>
 
-<ol>
+<ol class="newsfeed-category">
 <?php foreach ($this->items as $item) : ?>
 <li class="sectiontableentry<?php echo $item->odd + 1; ?>">
 
