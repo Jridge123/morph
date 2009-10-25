@@ -10,7 +10,9 @@
 <ul>
 	<li class="label"><label for="email" class="hasTip" title="<?php echo JText::_('REMIND_USERNAME_EMAIL_TIP_TITLE'); ?>::<?php echo JText::_('REMIND_USERNAME_EMAIL_TIP_TEXT'); ?>"><?php echo JText::_('Email Address'); ?>:</label>
 	<span class="input-wrap"><input id="email" name="email" type="text" class="required validate-email form-input" /></span></li>
-	<li class="login-btn"><button type="submit" class="validate"><?php echo JText::_('Submit'); ?></button></li>
+	<li class="login-btn">
+		<input type="submit" name="Submit" class="button validate" value="<?php echo JText::_('Submit') ?>" />
+	</li>
 	<?php echo JHTML::_( 'form.token' ); ?>
 </ul>
 </form>
