@@ -122,6 +122,7 @@ $this->params->get('show_email_icon'))	{ ?>
 		<?php if ( intval($this->article->modified) !=0 && $this->params->get('show_modify_date')) : ?>
 		<p class="modified"><?php echo JText::_( 'Last updated on:' ); ?> <?php echo JHTML::_('date', $this->article->modified, JText::_('%a, %d %b %y')); ?></p>
 		<?php endif; ?>
+
 		<div id="shareit-box">
         	<div id="shareit-header"></div>
         	<div id="shareit-body">
