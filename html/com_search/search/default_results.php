@@ -31,6 +31,9 @@ foreach( $this->results as $result ) : ?>
 	</li>
 <?php endforeach; ?>
 </ol>
-<div class="pagination">
+<div id="pagination-wrap" class="search-bottom">
+	<div class="pagination-links">
+		<?php echo $this->result; ?>
+	</div>
 	<?php echo $this->pagination->getPagesLinks( ); ?>
 </div>
