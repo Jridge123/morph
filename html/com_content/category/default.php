@@ -22,6 +22,6 @@ endif; ?>
 <?php endif; ?>
 <?php $this->items =& $this->getItems();
 echo $this->loadTemplate('items'); ?>
-<?php if ($this->access->canEdit || $this->access->canEditOwn) :
-echo JHTML::_('icon.create', $this->category, $this->params, $this->access);
-endif; ?>
+<?php if ($this->access->canEdit || $this->access->canEditOwn) : ?>
+<?php echo JHTML::_('icon.create', $this->category, $this->params, $this->access); ?>
+<?php endif; ?>
