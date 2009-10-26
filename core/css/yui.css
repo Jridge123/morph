@@ -275,7 +275,7 @@ body{text-align:center;}
 #top{float:right;}
 
 .slider-toolbar{width:100%;}
-#toolbar-wrap .slider-toolbar a {display:block;position:absolute;right:0;z-index:999;}
+#toolbar-wrap .slider-toolbar a {display:block;position:absolute;right:0;z-index:999;cursor: pointer; }
 #toolbar-wrap .slider-toolbar a:focus{outline:none;}
 	
 #user1{overflow:hidden;float:none;width:100%;clear:both;}
