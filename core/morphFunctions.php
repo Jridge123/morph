@@ -20,6 +20,11 @@ if(isset($_COOKIE['nogzip'])){
 	$gzip_compression = 0;
 }
 
+
+if(isset($_COOKIE['debug_modules'])){
+	$debug_modules = 1;
+}
+
 // enable/disable GZIP compression
 if ( $gzip_compression == 1 ) {
 	// set Joomla's GZIP to on if not set.
@@ -183,6 +188,14 @@ if(isset($_GET['unpackcss'])){
 }elseif(isset($_GET['packcss'])){
 	setcookie('unpackcss', 'true', time()-3600);
 	header('Location: ' . str_replace(array('?packcss','&packcss'), '', $curr_url));
+}
+
+if(isset($_GET['debug_modules']) && $_GET['debug_modules'] == 'on'){
+	setcookie('debug_modules', 'true', 0);
+	header('Location: ' . str_replace(array('?debug_modules=on','&debug_modules=on'), '', $curr_url));
+}elseif(isset($_GET['debug_modules']) && $_GET['debug_modules'] == 'off'){
+	setcookie('debug_modules', 'true', time()-3600);
+	header('Location: ' . str_replace(array('?debug_modules=off','&debug_modules=off'), '', $curr_url));
 }
 
 if(isset($_GET['gzip']) && $_GET['gzip'] == 'off'){
