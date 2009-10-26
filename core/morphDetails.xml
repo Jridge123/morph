@@ -224,7 +224,7 @@
 	<param name="slogan_stack" default="1" type="text" label="Tagline stacking order" tooltip="inline" description="Set the stacking order (z-index) of your sites tagline." />	
 </params>
 
-<params group="htmlbackgrounddata">
+<params group="htmlbackgroundsdata">
 	<param name="html_bg_color" default="#fff" type="colorpicker" label="Background color" tooltip="inline" description="Setting a color here will adjust your sites background color." />
 	<param name="use_html_bg_image" default="0" type="radio" label="Use background image" tooltip="inline" description="Would you like to use a background image?">
 		<option value="1">Yes</option>
@@ -254,7 +254,7 @@
 	</param>
 </params>
 
-<params group="bodybackgrounddata">
+<params group="bodybackgroundsdata">
 	<param name="body_bg_color" default="#fff" type="colorpicker" label="Background color" tooltip="inline" description="Setting a color here will adjust your sites background color." />
 	<param name="use_body_bg_image" default="0" type="radio" label="Use background image" tooltip="inline" description="Would you like to use a background image?">
 		<option value="1">Yes</option>
