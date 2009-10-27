@@ -63,6 +63,7 @@ $gzip_compression = $_GET['Z01'];
 $pack_css = $_GET['Z02'];
 $custom_css = $_GET['Z03'];
 $simpleticker = $_GET['Z04'];
+$developer_toolbar = $_GET['Z05'];
 define ('DS', '/');
 $themeletpath = dirname(__FILE__) . '/../../../morph_assets'.DS.'themelets'.DS.$themelet;
 $css_yui = $themeletpath . "/css/yui.css";
