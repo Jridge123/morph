@@ -80,6 +80,7 @@ $gzip_compression = $_GET['Z01'];
 $pack_js = $_GET['Z02'];
 $custom_js = $_GET['Z03'];
 $simpleticker = $_GET['Z04'];
+$developer_toolbar = $_GET['Z05'];
 if(isset($_GET['Z05'])){
 	$tickerdelay = $_GET['Z05'];
 }else{

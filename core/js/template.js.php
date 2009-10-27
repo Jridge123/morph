@@ -19,7 +19,7 @@ if($pack_js == 1){
 	if ( $tabscount >= 1 or $accordionscount >= 1 ) { include('ui.js');echo"\n"; }
 	if ( $tabscount >= 1 ) { include('tabs.js');echo"\n"; }
 	if ( $accordionscount >= 1 ) { include('accordion.js');echo"\n"; }
-	if ( $tabscount >= 1 or $accordionscount >= 1 or $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1  ) { include('cookie.js');echo"\n"; }
+	if ( $tabscount >= 1 or $accordionscount >= 1 or $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1 or $developer_toolbar == 1  ) { include('cookie.js');echo"\n"; }
 	if ( $rounded_corners == 1 or $roundedcount !== '0' ) { include('corners.js');echo"\n"; }
 	if ( $topnav_hoverintent == 1 ) { include("hoverintent.js");echo"\n"; }
 	if ( $sidefish >= 1 or $topfish >= 1 or $topdrop >= 1  ) { include('superfish.js');echo"\n"; }
@@ -272,6 +272,41 @@ jQuery.noConflict();
 		if($custom_js == 1){
 		    include('../../../../morph_assets/themelets/'.$themelet.'/js/custom.js');echo"\n";
 		} ?>
-    })
+		<?php if($developer_toolbar==1){ ?>
+			$('#dev-toolbar a').click(function(){ return false; });
+			$('#dev-toolbar li.dev-css a').click(function(){
+				if($(this).hasClass('dev-unpack-css')){ $.cookie('unpackcss', 'true'); window.location.reload(true); }
+				if($(this).hasClass('dev-pack-css')){ $.cookie('unpackcss', null); window.location.reload(true); }
+			});
+			$('#dev-toolbar li.dev-js a').click(function(){
+				if($(this).hasClass('dev-unpack-js')){ $.cookie('unpackjs', 'true'); window.location.reload(true); }
+				if($(this).hasClass('dev-pack-js')){ $.cookie('unpackjs', null); window.location.reload(true); }
+			});
+			$('#dev-toolbar li.dev-modules a').click(function(){
+				if($(this).hasClass('dev-debug-mods-on')){ $.cookie('debug_modules', 'true'); window.location.reload(true); }
+				if($(this).hasClass('dev-debug-mods-off')){ $.cookie('debug_modules', null); window.location.reload(true); }
+			});
+			$('#dev-toolbar li.dev-gzip a').click(function(){
+				if($(this).hasClass('dev-gzip-off')){ $.cookie('nogzip', 'off'); window.location.reload(true); }
+				if($(this).hasClass('dev-gzip-on')){ 
+					$.cookie('nogzip', null);
+					var thisUrl = location.href;
+					var q = '';
+					if(thisUrl.indexOf('?')!=-1){ q='&'; }else{ q='?'; }
+					$.ajax({
+						url: thisUrl+q+'gzip=on',
+						success: function(){
+							window.location.reload(true);
+							return true;
+						}
+					});
+				}
+			});
+			$('#dev-toolbar li.dev-fb a').click(function(){
+				if($(this).hasClass('dev-fb-on')){ $.cookie('firebug', 'enabled'); window.location.reload(true); }
+				if($(this).hasClass('dev-fb-off')){ $.cookie('firebug', null); window.location.reload(true); }
+			});
+		<?php }?>
+    });
 })(jQuery);
 <?php if ( $gzip_compression == 1 ) { ob_end_flush(); } ?>
