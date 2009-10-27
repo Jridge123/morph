@@ -433,6 +433,10 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
+	<param name="developer_toolbar" default="0" type="radio" label="Show Developer Toolbar" tooltip="inline" description="Enabling this option will show a developer toolbar on your website with a list of tools that can be used to help debug your template.">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
 </params>
 
 <params group="captifydata">
