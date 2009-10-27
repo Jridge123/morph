@@ -19,11 +19,8 @@ if(isset($_COOKIE['nogzip'])){
 	}
 	$gzip_compression = 0;
 }
-
-
-if(isset($_COOKIE['debug_modules'])){
-	$debug_modules = 1;
-}
+if(isset($_COOKIE['debug_modules'])){ $debug_modules = 1; }
+if(isset($_COOKIE['morph_developer_toolbar'])){ $developer_toolbar = 1; }
 
 // enable/disable GZIP compression
 if ( $gzip_compression == 1 ) {
@@ -173,35 +170,9 @@ if(file_exists($customfunctions) && is_readable($customfunctions)){
 include_once($absolutepath.'/custom.php');
 }
 
-// CSS and JS URL Packing
+// gzip compression frontend switch - required for toolbar to work correctly
 $curr_url = (!empty($_SERVER['HTTPS'])) ? "https://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'] : "http://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
-if(isset($_GET['unpackjs'])){
-	setcookie('unpackjs', 'true', 0);
-	header('Location: ' . str_replace(array('?unpackjs','&unpackjs'), '', $curr_url));
-}elseif(isset($_GET['packjs'])){
-	setcookie('unpackjs', 'true', time()-3600);
-	header('Location: ' . str_replace(array('?packjs','&packjs'), '', $curr_url));
-}
-if(isset($_GET['unpackcss'])){
-	setcookie('unpackcss', 'true', 0);
-	header('Location: ' . str_replace(array('?unpackcss','&unpackcss'), '', $curr_url));
-}elseif(isset($_GET['packcss'])){
-	setcookie('unpackcss', 'true', time()-3600);
-	header('Location: ' . str_replace(array('?packcss','&packcss'), '', $curr_url));
-}
-
-if(isset($_GET['debug_modules']) && $_GET['debug_modules'] == 'on'){
-	setcookie('debug_modules', 'true', 0);
-	header('Location: ' . str_replace(array('?debug_modules=on','&debug_modules=on'), '', $curr_url));
-}elseif(isset($_GET['debug_modules']) && $_GET['debug_modules'] == 'off'){
-	setcookie('debug_modules', 'true', time()-3600);
-	header('Location: ' . str_replace(array('?debug_modules=off','&debug_modules=off'), '', $curr_url));
-}
-
-if(isset($_GET['gzip']) && $_GET['gzip'] == 'off'){
-	setcookie('nogzip', 'off', 0);
-	header('Location: ' . str_replace(array('?gzip=off','&gzip=off'), '', $curr_url));
-}elseif(isset($_GET['gzip']) && $_GET['gzip'] == 'on'){
+if(isset($_GET['gzip']) && $_GET['gzip'] == 'on'){
 	setcookie('nogzip', '', time()-3600);
 	$conf = JFactory::getConfig();
 	if($conf->getValue('config.gzip') !== '1'){
@@ -215,6 +186,16 @@ if(isset($_GET['gzip']) && $_GET['gzip'] == 'off'){
 		JPath::setPermissions($path, '0644');
 	}
 	header('Location: ' . str_replace(array('?gzip=on','&gzip=on'), '', $curr_url));
+}
+
+// developer toolbar frontend switch
+if(isset($_GET['show_devbar'])){
+	setcookie('morph_developer_toolbar', 'enabled', 0);
+	header('Location: ' . str_replace(array('?show_devbar','&show_devbar'), '', $curr_url));
+}
+if(isset($_GET['hide_devbar'])){
+	setcookie('morph_developer_toolbar', null, time()-3600);
+	header('Location: ' . str_replace(array('?hide_devbar','&hide_devbar'), '', $curr_url));
 }
 
 if ( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
@@ -236,7 +217,7 @@ if ( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
     		if( $accordionscount >= 1 ) {
     			$document->addScript($templatepath .'/core/js/accordion.js');
     		}
-    		if( $tabscount >= 1 or $accordionscount >= 1 or $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1 ) { 
+    		if( $tabscount >= 1 or $accordionscount >= 1 or $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1 or $developer_toolbar == 1 ) { 
     		    $document->addScript($templatepath .'/core/js/cookie.js'); 
     		}
     		if( $topfish >= 1 && $topnav_hoverintent == 1 ) { 
