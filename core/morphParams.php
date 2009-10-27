@@ -107,6 +107,7 @@ $jquery_core = $MORPH->jquery_core;
 $debug_modules = $MORPH->debug_modules;
 $ie6_upgrade = $MORPH->ie6_upgrade;
 $google_analytics = $MORPH->google_analytics;
+$developer_toolbar = $MORPH->developer_toolbar;
 
 // top block
 $toolbar_wrap = $MORPH->toolbar_wrap;
