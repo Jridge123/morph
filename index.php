@@ -15,6 +15,7 @@ include_once(JPATH_ROOT . "/templates/" . $this->template . '/core/morphFunction
 <?php
 // firebug lite
 if(isset($_COOKIE['firebug']) && $_COOKIE['firebug'] == 'enabled'){
+	$enable_fb = 1;
 	$document->addScript($templatepath .'/core/js/firebug-lite.js');
 	$mainframe->addCustomHeadTag('
 		<script type="text/javascript">
@@ -41,7 +42,21 @@ $.trackPage('<?php echo $google_analytics; ?>')
 </head>
 <?php if ($error_reporting == 0) { error_reporting(E_ALL ^ E_NOTICE); } ?>
 <body class="js-disabled morph <?php echo "$lcbrowser $lcbrowser$ver"; if ($pageclass != ""){ echo ' '.$pageclass; } ?>"<?php if ($themelet != ""){ echo ' id="'.$themelet.'"'; } ?>>
-<?php 
+<?php
+// show developer toolbar 
+if($developer_toolbar == 1 or isset($_COOKIE['morph_developer_toolbar'])){ ?>
+	<div id="dev-toolbar">
+		<ul<?php echo ' class="'.$site_width.'"'; ?>>
+			<li class="dev-label">Developer Toolbar</li>
+			<li class="dev-css"><strong>CSS</strong>: <a href="#" <?php if($pack_css == 1){ ?>class="dev-unpack-css">Unpack<?php }else{ ?>class="dev-pack-css">Pack<?php }?></a></li>
+			<li class="dev-js"><strong>JS</strong>: <a href="#" <?php if($pack_js == 1){ ?>class="dev-unpack-js">Unpack<?php }else{ ?>class="dev-pack-js">Pack<?php }?></a></li>
+			<li class="dev-modules"><strong>Modules</strong>: <a href="#"<?php if($debug_modules == 0){ ?> class="dev-debug-mods-on">Show<?php }else{ ?>class="dev-debug-mods-off">Hide<?php }?></a></li>
+			<li class="dev-gzip"><strong>GZIP</strong>: <a href="#"<?php if($gzip_compression == 0){ ?> class="dev-gzip-on">On<?php }else{ ?>class="dev-gzip-off">Off<?php }?></a></li>
+			<li class="dev-fb"><strong>Firebug Lite</strong>: <a href="#"<?php if($enable_fb == 0){ ?> class="dev-fb-on">Enable<?php }else{ ?>class="dev-fb-off">Disable<?php }?></a></li>
+		</ul>
+	</div>
+<?php
+}
 // check if Google Chrome Frame is installed on the browser, if not show a info box
 if( $browser->getBrowser() == Browser::BROWSER_IE && $chrome_frame == 1 ) { 
 	if(!preg_match('/chromeframe/i', $_SERVER['HTTP_USER_AGENT'])){
