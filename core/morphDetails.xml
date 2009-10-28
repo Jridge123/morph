@@ -410,7 +410,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="nojs" default="0" type="radio" label="Zero javascript mode" tooltip="inline" description="">
+	<param name="nojs" default="0" type="radio" label="Zero javascript mode" tooltip="inline" description="This option will disable all javascript from the loading on the frontend of Morph. There is only one small generic snippet of javascript that is loaded if you view your site in Internet Explorer 6, which is needed to add support for hover on non anchor (link) elements. This option is good for debugging javascript conflicts. Rule of thumb, if the javascript error persists with Morph's javascript disabled, then the problem is not related to Morph.">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
