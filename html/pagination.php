@@ -89,69 +89,105 @@ function pagination_list_footer($list)
 	return $html;
 }
 
-function pagination_list_render($list)
-{
+function pagination_list_render($list){
 	// Initialize variables
-	$lang =& JFactory::getLanguage();
+	$lang = JFactory::getLanguage();
 	$html = "<ul class=\"pagination\">";
 	$html .= '<li class="bookends">&laquo;</li>';
+
 	// Reverse output rendering for right-to-left display
-	if($lang->isRTL())
-	{
-		$html .= $list['start']['data'];
-		$html .= $list['previous']['data'];
-
+	if($lang->isRTL()){
+		
+		// next
+		if($list['next']['active'] == true){ 
+			$html .= '<li class="next">'.$list['next']['data'].'</li>';
+		}else{
+			$html .= $list['next']['data'];
+		}
+		
+		// end
+		if($list['end']['active'] == true) {
+			$html .= '<li class="end">'.$list['end']['data'].'</li>';
+		}else{
+			$html .= $list['end']['data'];
+		}
+			
+		// pages
 		$list['pages'] = array_reverse( $list['pages'] );
-
-		foreach( $list['pages'] as $page ) {
-			if($page['data']['active']) {
-				//  $html .= '<strong>';
+		$i = 1;
+		foreach($list['pages'] as $page){
+			if($page['active'] == true){ 
+				$html .= '<li class="page'.$i.'">'.$page['data'].'</li>';
+			}else{
+				$html .= '<li class="page'.$i.' active">'.$page['data'].'</li>';
 			}
-
-			$html .= $page['data'];
-
-			if($page['data']['active']) {
-				// $html .= '</strong>';
-			}
+			$i++;
 		}
-
-		$html .= $list['next']['data'];
-		$html .= $list['end']['data'];
-		// $html .= '&#171;';
-	}
-	else
-	{
-		$html .= $list['start']['data'];
-		$html .= $list['previous']['data'];
-
-		foreach( $list['pages'] as $page )
-		{
-			if($page['data']['active']) {
-				// $html .= '<strong>';
-			}
-
-			$html .= $page['data'];
-
-			if($page['data']['active']) {
-				//  $html .= '</strong>';
-			}
+		
+		// start
+		if($list['start']['active'] == true){ 
+			$html .= '<li class="start">'.$list['start']['data'].'</li>';
+		}else{
+			$html .= $list['start']['data'];
 		}
-
-		$html .= $list['next']['data'];
-		$html .= $list['end']['data'];
-		// $html .= '&#171;';
-
+		
+		// previous
+		if($list['previous']['active'] == true) {
+			$html .= '<li class="previous">'.$list['previous']['data'].'</li>';
+		}else{
+			$html .= $list['previous']['data'];
+		}
+		
+	}else{		
+		// start
+		if($list['start']['active'] == true){ 
+			$html .= '<li class="start">'.$list['start']['data'].'</li>';
+		}else{
+			$html .= $list['start']['data'];
+		}
+		
+		// previous
+		if($list['previous']['active'] == true) {
+			$html .= '<li class="previous">'.$list['previous']['data'].'</li>';
+		}else{
+			$html .= $list['previous']['data'];
+		}
+		
+		// pages
+		$i = 1;
+		foreach($list['pages'] as $page){
+			if($page['active'] == true){ 
+				$html .= '<li class="page'.$i.'">'.$page['data'].'</li>';
+			}else{
+				$html .= '<li class="page'.$i.' active">'.$page['data'].'</li>';
+			}
+			$i++;
+		}
+		
+		// next
+		if($list['next']['active'] == true){ 
+			$html .= '<li class="next">'.$list['next']['data'].'</li>';
+		}else{
+			$html .= $list['next']['data'];
+		}
+		
+		// end
+		if($list['end']['active'] == true) {
+			$html .= '<li class="end">'.$list['end']['data'].'</li>';
+		}else{
+			$html .= $list['end']['data'];
+		}
 	}
 	$html .= '<li class="bookends">&raquo;</li>';
 	$html .= "</ul>";
 	return $html;
 }
 
-function pagination_item_active(&$item) {
-	return "<li class=\"active\"><strong><a href=\"".$item->link."\" title=\"".$item->text."\">".$item->text."</a></strong></li>";
+function pagination_item_active($item) {
+	return "<a href=\"".$item->link."\" title=\"".$item->text."\">".$item->text."</a>";
 }
 
-function pagination_item_inactive(&$item) {
-	return "<li><span>".$item->text."</span></li>";
+function pagination_item_inactive($item) {
+	return "<span>".$item->text."</span>";
 }
 ?>
