@@ -118,6 +118,7 @@ body{color:#<?php echo $color_bodytext; ?>;}
 .caption-top{border-bottom:<?php echo $captions_borderheight; ?> solid <?php echo $captions_bordercolor; ?>;}
 .caption-bottom{border-top:<?php echo $captions_borderheight; ?> solid <?php echo $captions_bordercolor; ?>;}
 <?php } if( $pack_css == 1 ){
+if($developer_toolbar == 1) { include('devbar.css'); }
 if( $direction == 'rtl' && file_exists($css_rtl)){ include($css_rtl); } elseif ($direction == 'rtl') { include('rtl.css'); }
 if($custom_css == 1){ include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/custom.css'); }
 include('browsers.css');
@@ -133,12 +134,4 @@ if(preg_match('/MSIE 8/i', $_SERVER['HTTP_USER_AGENT']) && file_exists($css_ie8)
 if(preg_match('/MSIE 7/i', $_SERVER['HTTP_USER_AGENT']) && file_exists($css_ie7)) include($css_ie7);
 if(preg_match('/MSIE 6/i', $_SERVER['HTTP_USER_AGENT']) && file_exists($css_ie6)) include($css_ie6);
 }
-if($developer_toolbar == 1) { ?>
-#dev-toolbar {margin:0;padding:0;height:30px;width:100%;display:block;background:#f2f2f2;position:relative;z-index:9999;}
-#dev-toolbar ul {padding:8px 0 0 0;}
-#dev-toolbar ul li {margin:0;padding:0 10px 0 0;float:left;}
-#dev-toolbar ul li.dev-label {font-weight:bold;padding:0 50px 0 0;color:#2d2d2d;text-transform:uppercase;}
-#dev-toolbar ul li a {background: #e2e2e2;padding:3px;}
-#dev-toolbar ul li a:hover {background: #d2d2d2;padding:3px;text-decoration:none;}
-<?php }
 if ( $gzip_compression == 1 ) { ob_end_flush(); } ?>
