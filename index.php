@@ -48,11 +48,53 @@ if($developer_toolbar == 1 or isset($_COOKIE['morph_developer_toolbar'])){ ?>
 	<div id="dev-toolbar">
 		<ul<?php echo ' class="'.$site_width.'"'; ?>>
 			<li class="dev-label">Developer Toolbar</li>
-			<li class="dev-css"><strong>CSS Packing</strong>: <a href="#" <?php if($pack_css == 1){ ?>class="dev-unpack-css">Off<?php }else{ ?>class="dev-pack-css">On<?php }?></a></li>
-			<li class="dev-js"><strong>JS Packing</strong>: <a href="#" <?php if($pack_js == 1){ ?>class="dev-unpack-js">Off<?php }else{ ?>class="dev-pack-js">On<?php }?></a></li>
-			<li class="dev-modules"><strong>Modules Outline</strong>: <a href="#"<?php if($debug_modules == 0){ ?> class="dev-debug-mods-on">On<?php }else{ ?>class="dev-debug-mods-off">Off<?php }?></a></li>
-			<li class="dev-gzip"><strong>GZIP Compression</strong>: <a href="#"<?php if($gzip_compression == 0){ ?> class="dev-gzip-on">On<?php }else{ ?>class="dev-gzip-off">Off<?php }?></a></li>
-			<li class="dev-fb"><strong>Firebug Lite</strong>: <a href="#"<?php if($enable_fb == 0){ ?> class="dev-fb-on">On<?php }else{ ?>class="dev-fb-off">Off<?php }?></a></li>
+			<li class="dev-css"><strong class="tool-label">CSS Packing</strong>:
+				<span class="desc">
+					<strong>CSS Packing</strong>
+					<p>CSS Packing (otherwise refered to as CSS Concatination) refers to the combining of multiple files into a single file. Use this tool to pack/unpack your css files when debugging or making changes.</p>
+				</span>
+				<a href="#" <?php if($pack_css == 1){ ?>class="dev-unpack-css">Off<?php }else{ ?>class="dev-pack-css">On<?php }?></a>
+			</li>
+			<li class="dev-js"><strong class="tool-label">JS Packing</strong>:
+				<span class="desc">
+					<strong>JS Packing</strong>
+					<p>Lorem ipsum dolor sit amet, 
+					consectetur adipisicing elit, 
+					sed do eiusmod tempor incididunt ut 
+					labore et dolore magna aliqua.</p>
+				</span>
+				<a href="#" <?php if($pack_js == 1){ ?>class="dev-unpack-js">Off<?php }else{ ?>class="dev-pack-js">On<?php }?></a>
+			</li>
+			<li class="dev-modules"><strong class="tool-label">Modules Outline</strong>:
+				<span class="desc">
+					<strong>Modules Outline</strong>
+					<p>Lorem ipsum dolor sit amet, 
+					consectetur adipisicing elit, 
+					sed do eiusmod tempor incididunt ut 
+					labore et dolore magna aliqua.</p>
+				</span>
+				<a href="#"<?php if($debug_modules == 0){ ?> class="dev-debug-mods-on">On<?php }else{ ?>class="dev-debug-mods-off">Off<?php }?></a>
+			</li>
+			<li class="dev-gzip"><strong class="tool-label">GZIP Compression</strong>:
+				<span class="desc">
+					<strong>GZIP Compression</strong>
+					<p>Lorem ipsum dolor sit amet, 
+					consectetur adipisicing elit, 
+					sed do eiusmod tempor incididunt ut 
+					labore et dolore magna aliqua.</p>
+				</span>
+				<a href="#"<?php if($gzip_compression == 0){ ?> class="dev-gzip-on">On<?php }else{ ?>class="dev-gzip-off">Off<?php }?></a>
+			</li>
+			<li class="dev-fb"><strong class="tool-label">Firebug Lite</strong>:
+				<span class="desc">
+					<strong>Firebug Lite</strong>
+					<p>Lorem ipsum dolor sit amet, 
+					consectetur adipisicing elit, 
+					sed do eiusmod tempor incididunt ut 
+					labore et dolore magna aliqua.</p>
+				</span>
+				<a href="#"<?php if($enable_fb == 0){ ?> class="dev-fb-on">On<?php }else{ ?>class="dev-fb-off">Off<?php }?></a>
+			</li>
 		</ul>
 	</div>
 <?php

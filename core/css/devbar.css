@@ -5,25 +5,28 @@
 #dev-toolbar ul,
 #dev-toolbar li{list-style:none;margin:0;padding:0;}
 
-#dev-toolbar ul{margin:0 auto;color:#999;overflow:hidden;}
-#dev-toolbar li{height:33px;line-height:18px;float:left;padding:0 0 0 1.5em;}
-
-#dev-toolbar .dev-label{font-weight:bold;color:#555;text-transform:uppercase;padding:0 1em;line-height:30px;}
+#dev-toolbar ul{margin:0 auto;color:#999;}
+#dev-toolbar li{height:33px;line-height:18px;float:left;padding:0 0 0 1.5em;position:relative;}
+#dev-toolbar li strong{cursor:help;}
+#dev-toolbar li span{display:none;position:absolute;background:#000;width:180px;left:12px;top:31px;z-index:9999;padding:.7em .7em .4em .7em;border-bottom-left-radius:7px;border-bottom-right-radius:7px;-moz-border-bottomleft-radius:7px;-moz-border-bottomright-radius:7px;-webkit-border-bottom-left-radius:7px;-webkit-border-bottom-right-radius:7px;}
+#dev-toolbar li span p {line-height:16px;padding:5px 0 0 0;}
+#dev-toolbar li span strong{cursor:default;}
+#dev-toolbar .dev-label{font-weight:bold;color:#555;text-transform:uppercase;padding:0 1em 0 0;line-height:30px;}
 /* toolbar links */
-#dev-toolbar a {background:transparent url('../images/devbar-sprite.png') no-repeat 0 0;display:inline-block;text-indent:-9999px;height:18px;width:34px;text-decoration:none;}
+#dev-toolbar a {background:transparent url('../images/devbar-sprite.png') no-repeat 0 0;display:inline-block;text-indent:-9999px;height:19px;width:34px;text-decoration:none;}
 
 /* on state */
 #dev-toolbar ul li a.dev-pack-css,
 #dev-toolbar ul li a.dev-pack-js,
 #dev-toolbar ul li a.dev-debug-mods-on,
 #dev-toolbar ul li a.dev-gzip-on,
-#dev-toolbar ul li a.dev-fb-on {background-position: 0 -37px;margin:6px 0 0 0;}
+#dev-toolbar ul li a.dev-fb-on {background-position: 0 -36px;margin:6px 0 0 0;}
 
 #dev-toolbar ul li a.dev-pack-css:hover,
 #dev-toolbar ul li a.dev-pack-js:hover,
 #dev-toolbar ul li a.dev-debug-mods-on:hover,
 #dev-toolbar ul li a.dev-gzip-on:hover,
-#dev-toolbar ul li a.dev-fb-on:hover {background-position: 0 -56px;margin:6px 0 0 0;}
+#dev-toolbar ul li a.dev-fb-on:hover {background-position: 0 -55px;margin:6px 0 0 0;}
 
 /* off state */
 #dev-toolbar ul li a.dev-unpack-css,
