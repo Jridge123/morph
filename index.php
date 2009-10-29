@@ -48,11 +48,11 @@ if($developer_toolbar == 1 or isset($_COOKIE['morph_developer_toolbar'])){ ?>
 	<div id="dev-toolbar">
 		<ul<?php echo ' class="'.$site_width.'"'; ?>>
 			<li class="dev-label">Developer Toolbar</li>
-			<li class="dev-css"><strong>CSS</strong>: <a href="#" <?php if($pack_css == 1){ ?>class="dev-unpack-css">Unpack<?php }else{ ?>class="dev-pack-css">Pack<?php }?></a></li>
-			<li class="dev-js"><strong>JS</strong>: <a href="#" <?php if($pack_js == 1){ ?>class="dev-unpack-js">Unpack<?php }else{ ?>class="dev-pack-js">Pack<?php }?></a></li>
-			<li class="dev-modules"><strong>Modules</strong>: <a href="#"<?php if($debug_modules == 0){ ?> class="dev-debug-mods-on">Show<?php }else{ ?>class="dev-debug-mods-off">Hide<?php }?></a></li>
-			<li class="dev-gzip"><strong>GZIP</strong>: <a href="#"<?php if($gzip_compression == 0){ ?> class="dev-gzip-on">On<?php }else{ ?>class="dev-gzip-off">Off<?php }?></a></li>
-			<li class="dev-fb"><strong>Firebug Lite</strong>: <a href="#"<?php if($enable_fb == 0){ ?> class="dev-fb-on">Enable<?php }else{ ?>class="dev-fb-off">Disable<?php }?></a></li>
+			<li class="dev-css"><strong>CSS Packing</strong>: <a href="#" <?php if($pack_css == 1){ ?>class="dev-unpack-css">Off<?php }else{ ?>class="dev-pack-css">On<?php }?></a></li>
+			<li class="dev-js"><strong>JS Packing</strong>: <a href="#" <?php if($pack_js == 1){ ?>class="dev-unpack-js">Off<?php }else{ ?>class="dev-pack-js">On<?php }?></a></li>
+			<li class="dev-modules"><strong>Modules Outline</strong>: <a href="#"<?php if($debug_modules == 0){ ?> class="dev-debug-mods-on">On<?php }else{ ?>class="dev-debug-mods-off">Off<?php }?></a></li>
+			<li class="dev-gzip"><strong>GZIP Compression</strong>: <a href="#"<?php if($gzip_compression == 0){ ?> class="dev-gzip-on">On<?php }else{ ?>class="dev-gzip-off">Off<?php }?></a></li>
+			<li class="dev-fb"><strong>Firebug Lite</strong>: <a href="#"<?php if($enable_fb == 0){ ?> class="dev-fb-on">On<?php }else{ ?>class="dev-fb-off">Off<?php }?></a></li>
 		</ul>
 	</div>
 <?php

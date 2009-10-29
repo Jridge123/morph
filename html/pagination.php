@@ -99,18 +99,10 @@ function pagination_list_render($list){
 	if($lang->isRTL()){
 		
 		// next
-		if($list['next']['active'] == true){ 
-			$html .= '<li class="next">'.$list['next']['data'].'</li>';
-		}else{
-			$html .= $list['next']['data'];
-		}
+		$html .= '<li class="next">'.$list['next']['data'].'</li>';
 		
 		// end
-		if($list['end']['active'] == true) {
-			$html .= '<li class="end">'.$list['end']['data'].'</li>';
-		}else{
-			$html .= $list['end']['data'];
-		}
+		$html .= '<li class="end">'.$list['end']['data'].'</li>';
 			
 		// pages
 		$list['pages'] = array_reverse( $list['pages'] );
@@ -125,33 +117,17 @@ function pagination_list_render($list){
 		}
 		
 		// start
-		if($list['start']['active'] == true){ 
-			$html .= '<li class="start">'.$list['start']['data'].'</li>';
-		}else{
-			$html .= $list['start']['data'];
-		}
+		$html .= '<li class="start">'.$list['start']['data'].'</li>';
 		
 		// previous
-		if($list['previous']['active'] == true) {
-			$html .= '<li class="previous">'.$list['previous']['data'].'</li>';
-		}else{
-			$html .= $list['previous']['data'];
-		}
+		$html .= '<li class="previous">'.$list['previous']['data'].'</li>';
 		
 	}else{		
 		// start
-		if($list['start']['active'] == true){ 
-			$html .= '<li class="start">'.$list['start']['data'].'</li>';
-		}else{
-			$html .= $list['start']['data'];
-		}
+		$html .= '<li class="start">'.$list['start']['data'].'</li>';
 		
 		// previous
-		if($list['previous']['active'] == true) {
-			$html .= '<li class="previous">'.$list['previous']['data'].'</li>';
-		}else{
-			$html .= $list['previous']['data'];
-		}
+		$html .= '<li class="previous">'.$list['previous']['data'].'</li>';
 		
 		// pages
 		$i = 1;
@@ -165,18 +141,10 @@ function pagination_list_render($list){
 		}
 		
 		// next
-		if($list['next']['active'] == true){ 
-			$html .= '<li class="next">'.$list['next']['data'].'</li>';
-		}else{
-			$html .= $list['next']['data'];
-		}
+		$html .= '<li class="next">'.$list['next']['data'].'</li>';
 		
 		// end
-		if($list['end']['active'] == true) {
-			$html .= '<li class="end">'.$list['end']['data'].'</li>';
-		}else{
-			$html .= $list['end']['data'];
-		}
+		$html .= '<li class="end">'.$list['end']['data'].'</li>';
 	}
 	$html .= '<li class="bookends">&raquo;</li>';
 	$html .= "</ul>";

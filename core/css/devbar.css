@@ -1,41 +1,39 @@
 /* frontend dev bar
 ******************************************************/
-
-#dev-toolbar{font-family:arial;position:fixed;z-index:9999;background:#111;border-bottom:4px solid #000;width:100%;display:block;}
+#dev-toolbar{font-family:arial;position:fixed;z-index:9999;background:#fff url('../images/devbar-sprite.png') repeat-x 0px -87px;width:100%;display:block;}
 
 #dev-toolbar ul,
 #dev-toolbar li{list-style:none;margin:0;padding:0;}
 
 #dev-toolbar ul{margin:0 auto;color:#999;overflow:hidden;}
-#dev-toolbar li{height:30px;line-height:30px;float:left;padding:0 0 0 1.5em;}
+#dev-toolbar li{height:33px;line-height:18px;float:left;padding:0 0 0 1.5em;}
 
-#dev-toolbar .dev-label{font-weight:bold;color:#555;text-transform:uppercase;padding:0 1em;}
+#dev-toolbar .dev-label{font-weight:bold;color:#555;text-transform:uppercase;padding:0 1em;line-height:30px;}
+/* toolbar links */
+#dev-toolbar a {background:transparent url('../images/devbar-sprite.png') no-repeat 0 0;display:inline-block;text-indent:-9999px;height:18px;width:34px;text-decoration:none;}
 
-/* css packing */
-#dev-toolbar .dev-css{}
-#dev-toolbar .dev-unpack-css{}
-#dev-toolbar .dev-pack-css{}
+/* on state */
+#dev-toolbar ul li a.dev-pack-css,
+#dev-toolbar ul li a.dev-pack-js,
+#dev-toolbar ul li a.dev-debug-mods-on,
+#dev-toolbar ul li a.dev-gzip-on,
+#dev-toolbar ul li a.dev-fb-on {background-position: 0 -37px;margin:6px 0 0 0;}
 
-/* js packing */
-#dev-toolbar .dev-js{}
-#dev-toolbar .dev-unpack-js{}
-#dev-toolbar .dev-pack-js{}
+#dev-toolbar ul li a.dev-pack-css:hover,
+#dev-toolbar ul li a.dev-pack-js:hover,
+#dev-toolbar ul li a.dev-debug-mods-on:hover,
+#dev-toolbar ul li a.dev-gzip-on:hover,
+#dev-toolbar ul li a.dev-fb-on:hover {background-position: 0 -56px;margin:6px 0 0 0;}
 
-/* module outline */
-#dev-toolbar .dev-modules{}
-#dev-toolbar .dev-debug-mods-on{}
-#dev-toolbar .dev-debug-mods-off{}
+/* off state */
+#dev-toolbar ul li a.dev-unpack-css,
+#dev-toolbar ul li a.dev-unpack-js,
+#dev-toolbar ul li a.dev-debug-mods-off,
+#dev-toolbar ul li a.dev-gzip-off,
+#dev-toolbar ul li a.dev-fb-off {background-position: 0 0px;margin:6px 0 0 0;}
 
-/* gzip */
-#dev-toolbar .dev-gzip{}
-#dev-toolbar .dev-gzip-off{}
-#dev-toolbar .dev-gzip-on{}
-
-/* firebug lite */
-#dev-toolbar .dev-fb{}
-#dev-toolbar .dev-fb-on{}
-#dev-toolbar .dev-fb-off{}
-
-#dev-toolbar a{color:#fff;background:#555;padding:.1em .5em;border-radius:7px;-moz-border-radius:7px;-webkit-border-radius:7px;text-decoration:none;}
-#dev-toolbar a:hover {background:#d2d2d2;color:#333;text-decoration:none;}
-#dev-toolbar a:focus{outline:0;background:#fff;color:#555;}
+#dev-toolbar ul li a.dev-unpack-css:hover,
+#dev-toolbar ul li a.dev-unpack-js:hover,
+#dev-toolbar ul li a.dev-debug-mods-off:hover,
+#dev-toolbar ul li a.dev-gzip-off:hover,
+#dev-toolbar ul li a.dev-fb-off:hover {background-position: 0 -18px;margin:6px 0 0 0;}
