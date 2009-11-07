@@ -9,26 +9,25 @@ $cparams = JComponentHelper::getParams ('com_media');
 </h1>
 <?php endif; ?>
 
-<div class="blog">
+<?php if ($this->params->def('show_description', 1) || $this->params->def('show_description_image', 1)) : ?>
+<div class="content-description">
 
-	<?php if ($this->params->def('show_description', 1) || $this->params->def('show_description_image', 1)) : ?>
-	<div class="content-description">
-
-		<?php if ($this->params->get('show_description_image') && $this->category->image) : ?>
-		<img src="<?php echo $this->baseurl . $cparams->get('image_path') . '/' . $this->category->image; ?>" class="image-<?php echo $this->category->image_position; ?>" />
-		<?php endif; ?>
-
-		<?php if ($this->params->get('show_description') && $this->category->description) :
-			echo $this->category->description;
-		endif; ?>
-
-		<?php if ($this->params->get('show_description_image') && $this->category->image) : ?>
-		<div class="wrap_image">&nbsp;</div>
-		<?php endif; ?>
-
-	</div>
+	<?php if ($this->params->get('show_description_image') && $this->category->image) : ?>
+	<img src="<?php echo $this->baseurl . $cparams->get('image_path') . '/' . $this->category->image; ?>" class="image-<?php echo $this->category->image_position; ?>" />
 	<?php endif; ?>
 
+	<?php if ($this->params->get('show_description') && $this->category->description) :
+		echo $this->category->description;
+	endif; ?>
+
+	<?php if ($this->params->get('show_description_image') && $this->category->image) : ?>
+	<div class="wrap_image">&nbsp;</div>
+	<?php endif; ?>
+
+</div>
+<?php endif; ?>
+	
+<div class="blog">
 	<?php $i = $this->pagination->limitstart;
 	$rowcount = $this->params->def('num_leading_articles', 1);
 	for ($y = 0; $y < $rowcount && $i < $this->total; $y++, $i++) : ?>
@@ -50,10 +49,12 @@ $cparams = JComponentHelper::getParams ('com_media');
 		for ($y = 0; $y < $rowcount && $i < $this->total; $y++) : ?>
 			<div class="article-row ">
 				<?php for ($z = 0; $z < $colcount && $ii < $introcount && $i < $this->total; $z++, $i++, $ii++) : ?>
-					<div id="article<?php echo $this->item->id; ?>" class="article-column column<?php echo $z + 1; ?> cols<?php echo $colcount; ?>" >
+				
+				<?php if( $colcount !== 1 { ?>
+					<div id="article<?php $this->item = $this->getItem($i, $this->params); echo $this->item->id; ?>" class="article-column column<?php echo $z + 1; ?> cols<?php echo $colcount; ?>" >                <?php } ?>
 						<?php $this->item =& $this->getItem($i, $this->params);
 						echo $this->loadTemplate('item'); ?>
-					</div>
+					<?php if( $colcount !== 1 { ?></div><?php } ?>
 					
 				<?php endfor; ?>
 				<span class="row-separator">&nbsp;</span>
