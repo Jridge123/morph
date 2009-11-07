@@ -274,6 +274,15 @@ jQuery.noConflict();
 		} ?>
 		<?php if($developer_toolbar==1){ ?>
 			$('#dev-toolbar a').click(function(){ return false; });
+			$('#dev-toolbar li strong.tool-label').each(function(){
+				$this = $(this);
+				$this.mouseover(function(){
+					$(this).next().fadeIn();
+				})
+				.mouseout(function(){
+					$(this).next().fadeOut();
+				});
+			})
 			$('#dev-toolbar li.dev-css a').click(function(){
 				if($(this).hasClass('dev-unpack-css')){ $.cookie('unpackcss', 'true'); window.location.reload(true); }
 				if($(this).hasClass('dev-pack-css')){ $.cookie('unpackcss', null); window.location.reload(true); }
