@@ -88,7 +88,6 @@ body{text-align:center;}
 .doc3.yui-t8,.doc3.yui-t9{width:98.5%;}
 .doc3 .yui-ge div.first,.doc3 .yui-gf .yui-u{width:75%;}
 
-/* @end */
 
 /* @group grid styles - used for modules */
 
@@ -99,7 +98,18 @@ body{text-align:center;}
 .yui-gb .yui-u,.yui-g .yui-gb .yui-u,.yui-gb .yui-g,.yui-gb .yui-gb,.yui-gb .yui-gc,.yui-gb .yui-gd,.yui-gb .yui-ge,.yui-gb .yui-gf,.yui-gc .yui-u,.yui-gc .yui-g,.yui-gd .yui-u{width:32.46%;margin-left:1.3%;}
 
 /* custom layout for 4 grids side by side */
-.yui-g4 .mod-fx.yui-u,.yui-g .yui-g4 .mod-fx.yui-u,.yui-g4 .mod-grid.yui-u,.yui-g .yui-g4 .mod-grid.yui-u,.yui-g4 .yui-g,.yui-g4 .yui-g4,.yui-g4 .yui-gc,.yui-g4 .yui-gd,.yui-g4 .yui-ge,.yui-g4 .yui-gf{margin-left:1.1%;width:24.17%;}
+#article-content div.yui-g4 div.yui-u,
+.yui-g4 .mod-fx.yui-u,
+.yui-g4 .yui-u,
+.yui-g .yui-g4 .mod-fx.yui-u,
+.yui-g4 .mod-grid.yui-u,
+.yui-g .yui-g4 .mod-grid.yui-u,
+.yui-g4 .yui-g,
+.yui-g4 .yui-g4,
+.yui-g4 .yui-gc,
+.yui-g4 .yui-gd,
+.yui-g4 .yui-ge,
+.yui-g4 .yui-gf{margin-left:1.1%;width:24.17%;}
 
 /* custom layout for 5 grids side by side */
 #article-content div.yui-g5 div.yui-u,
@@ -112,18 +122,53 @@ body{text-align:center;}
 .yui-g5 .yui-ge,
 .yui-g5 .yui-gf{margin-left:1.25%;width:19%;}
 
+#article-content div.yui-g4 div.yui-u.first{margin-left:0;}
 #article-content div.yui-g5 div.yui-u.first{margin-left:0;}
 
-/* yui layout for 2 grids side by side - all options */
-.yui-g .yui-u,.yui-g .yui-g,.yui-g .yui-gb,.yui-g .yui-gc,.yui-g .yui-gd,.yui-g .yui-ge,.yui-g .yui-gf,.yui-gc .yui-u,.yui-gd .yui-g,.yui-g .yui-gc .yui-u,.yui-ge .yui-u,.yui-ge .yui-g,.yui-gf .yui-g,.yui-gf .yui-u{float:right;}
+#article-content div.yui-g4 div.yui-u,
+#article-content div.yui-g5 div.yui-u{float:left;}
 
-.yui-g div.first,.yui-gb div.first,.yui-gc div.first,.yui-gd div.first,.yui-ge div.first,.yui-gf div.first,.yui-g .yui-gc div.first,.yui-g .yui-ge div.first,.yui-gc div.first div.first{float:left;}
+/* yui layout for 2 grids side by side - all options */
+.yui-g .yui-u,
+.yui-g .yui-g,
+.yui-g .yui-gb,
+.yui-g .yui-gc,
+.yui-g .yui-gd,
+.yui-g .yui-ge,
+.yui-g .yui-gf,
+.yui-gc .yui-u,
+.yui-gd .yui-g,
+.yui-g .yui-gc .yui-u,
+.yui-ge .yui-u,
+.yui-ge .yui-g,
+.yui-gf .yui-g,
+.yui-gf .yui-u{float:right;}
+
+#article-content div.yui-g4 div.yui-u.first,
+#article-content div.yui-g5 div.yui-u.first,
+.yui-g div.first,
+.yui-gb div.first,
+.yui-gc div.first,
+.yui-gd div.first,
+.yui-ge div.first,
+.yui-gf div.first,
+.yui-g .yui-gc div.first,
+.yui-g .yui-ge div.first,
+.yui-gc div.first div.first{float:left;}
 
 /* set widths for each option with 2 grids */
-.yui-g .yui-u,.yui-g .yui-g,.yui-g .yui-gb,.yui-g .yui-gc,.yui-g .yui-gd,.yui-g .yui-ge,.yui-g .yui-gf{width:49.3%;}
-.yui-gc div.first,.yui-gd .yui-u{width:66.6%;}
+.yui-g .yui-u,
+.yui-g .yui-g,
+.yui-g .yui-gb,
+.yui-g .yui-gc,
+.yui-g .yui-gd,
+.yui-g .yui-ge,
+.yui-g .yui-gf{width:49.3%;}
+.yui-gc div.first,
+.yui-gd .yui-u{width:66.6%;}
 .yui-gd div.first{width:32.053%;}
-.yui-ge div.first,.yui-gf .yui-u{width:74.7%;}
+.yui-ge div.first,
+.yui-gf .yui-u{width:74.7%;}
 .yui-ge .yui-u,.yui-gf div.first{width:24%;}
 .yui-g4 .mod-grid.yui-u.first,.yui-g .yui-g4 .mod-grid.yui-u.first,.yui-g5 .mod-grid.yui-u.first,.yui-g .yui-g5 .mod-grid.yui-u.first,.yui-g .yui-gb div.first,.yui-gb div.first,.yui-gc div.first,.yui-gd div.first{margin-left:0;}
 .yui-g .yui-g .yui-u,.yui-gb .yui-g .yui-u,.yui-gc .yui-g .yui-u,.yui-gd .yui-g .yui-u,.yui-ge .yui-g .yui-u,.yui-gf .yui-g .yui-u{width:49%;}
@@ -171,8 +216,7 @@ body{text-align:center;}
 /*** T0 - no outer sidebar at all ***/
 .doc4.yui-t0 #yui-main .yui-b .yui-gh #primary-content.yui-u.first,
 /* inner sidebar on left */
-.doc4.yui-t0 #yui-main .yui-b .yui-gi #primary-content.yui-u.first{width:79.3%;}
-
+.doc4.yui-t0 #yui-main .yui-b .yui-gi #primary-content.yui-u.first{width:79%;}
 
 /*** T1 - 160px left outer layout with 200px inner sidebar ***/
 /* 974px layout with 160px outer & 200px inner*/
@@ -198,10 +242,7 @@ body{text-align:center;}
 .doc2.yui-t2 #yui-main .yui-b .yui-gi #primary-content.yui-u.first{width:72.5%;}
 /*** T3 & T6 - 300px Outer sidebar L & R positions*/
 /* 975px layout - 200px inner sidebar on right */
-.doc4.yui-t3 #yui-main .yui-b .yui-gh #primary-content.yui-u.first,
-.doc4.yui-t3 #yui-main .yui-b .yui-gi #primary-content.yui-u.first,
-.doc4.yui-t6 #yui-main .yui-b .yui-gh #primary-content.yui-u.first,
-.doc4.yui-t6 #yui-main .yui-b .yui-gi #primary-content.yui-u.first{width:68.8%;}
+.doc4.yui-t3 #yui-main .yui-b .yui-gh #primary-content.yui-u.first,.doc4.yui-t3 #yui-main .yui-b .yui-gi #primary-content.yui-u.first,.doc4.yui-t6 #yui-main .yui-b .yui-gh #primary-content.yui-u.first,.doc4.yui-t6 #yui-main .yui-b .yui-gi #primary-content.yui-u.first,.doc4 .yui-t0 #yui-main .yui-b .yui-gh #primary-content.yui-u.first,.doc4 .yui-t0 #yui-main .yui-b .yui-gi #primary-content.yui-u.first{width:68.8%;}
 /* 950px layout - 200px inner sidebar on right */
 .doc2.yui-t3 #yui-main .yui-b .yui-gh #primary-content.yui-u.first,
 .doc2.yui-t3 #yui-main .yui-b .yui-gi #primary-content.yui-u.first,
@@ -388,6 +429,7 @@ body{text-align:center;}
 /*inset2*/	
 .yui-t6 .yui-gh #inset2.yui-g.modcount2 .yui-u {width: 48.6%;}
 .yui-t3 .yui-gh #inset2.yui-g.modcount2 .yui-u {width: 48.6%;}
+
 /*inset3*/	
 .yui-t6 .yui-gh #inset3.yui-g.modcount2 .yui-u {width: 48.6%;}
 .yui-t3 .yui-gh #inset3.yui-g.modcount2 .yui-u {width: 48.6%;}
@@ -395,10 +437,7 @@ body{text-align:center;}
 /* 50% / 50% 300px without inner sidebar */
 .yui-t6 .yui- #inset2.yui-g.modcount2 .yui-u {width: 49%;}
 .yui-t3 .yui- #inset2.yui-g.modcount2 .yui-u {width: 49%;}
-
 .yui-t5 .yui-gh #inset2.yui-g.modcount2 .yui-u {width: 48.8%;}
-
-/* @end */
 
 /* nested grids in sidebar fixes */
 #tertiary-content .grid,
@@ -413,9 +452,18 @@ body{text-align:center;}
 #inset2.grid .mod-grid.yui-u.first,
 #user1.grid .mod-grid.yui-u.first,
 #user2.grid .mod-grid.yui-u.first {margin-left:0;}
-	
-/* @end */
 
 /*.doc4 #yui-main .yui-gc #primary-content.first {
 	width: 65%;
 }*/
+
+/* grids in content fixes */
+#article .grid{width:100%;margin:0 0 1.5em 0;display:block;clear:both;float:none;overflow:hidden;}
+
+#article .yui-gf .yui-u{width:74.7%;}
+#article .yui-gf .yui-u.first{width:24%;}
+
+#article .yui-gb .yui-u{width:32.46%;}
+#article .yui-gb .yui-u.first{width:32.46%;}
+
+.yui-t0 #article .yui-gc .yui-u.first{width:65%;}
