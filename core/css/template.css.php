@@ -56,8 +56,11 @@ height:<?php echo $masthead_height; ?>;
 top:<?php echo $logo_top; ?>;
 left:<?php echo $logo_left; ?>;
 z-index:<?php echo $logo_stack; ?>;
+<?php if ($logo_width !== 'null') { ?>
 width:<?php echo $logo_width; ?>px;
+<?php } if ($logo_height !== 'null') { ?>
 height:<?php echo $logo_height; ?>px;
+<?php } ?>
 font-size:<?php echo $logo_fontsize; ?>;
 }
 #branding h1 a{
@@ -110,8 +113,11 @@ h3{color:#<?php echo $color_h3; ?>;}
 h4{color:#<?php echo $color_h4; ?>;}
 h5{color:#<?php echo $color_h5; ?>;}
 body{color:#<?php echo $color_bodytext; ?>;}
+<?php if($footer_textcolor !== 'default') { ?>
 #footer{color:<?php echo $footer_textcolor; ?>}
+<?php } if($footer_linkscolor !== 'default') { ?>
 #footer a,#footer a:link,#footer a:visited{color:<?php echo $footer_linkscolor; ?>}
+<?php } ?>
 
 <?php if ( $captions_enabled ) { ?>
 .caption-top,.caption-bottom{background:<?php echo $captions_bgcolor; ?>;color:<?php echo $captions_textcolor; ?>;}
