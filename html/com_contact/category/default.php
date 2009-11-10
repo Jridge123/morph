@@ -11,7 +11,7 @@ if ( $this->params->get( 'show_page_title', 1 ) ) : ?>
 <?php endif; ?>
 <div id="contact-table">
 <?php if ($this->category->image || $this->category->description) : ?>
-	<div class="category-desc">
+	<div class="desc">
 	<?php if ($this->params->get('image') != -1 && $this->params->get('image') != '') : ?>
 		<img src="<?php echo $this->baseurl .'/'. 'images/stories' . '/'. $this->params->get('image'); ?>" align="<?php echo $this->params->get('image_align'); ?>" hspace="6" alt="<?php echo JText::_( 'Contacts' ); ?>" />
 	<?php elseif ($this->category->image) : ?>

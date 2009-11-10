@@ -7,13 +7,14 @@ $cparams = JComponentHelper::getParams ('com_media');
 ?>
 
 <div id="component-contact">
-    <?php if ( $this->params->get( 'show_page_title', 1 ) && !$this->contact->params->get( 'popup' ) && $this->params->get('page_title') != $this->contact->name ) : ?>
+    <?php if ($this->params->get('show_page_title',1) && $this->params->get('page_title') != $this->contact->name) : ?>
         <h1 class="componentheading clearer">
     		<?php echo $this->params->get( 'page_title' ); ?>
     	</h1>
     <?php endif; ?>
+    
     <?php if ( $this->contact->misc && $this->contact->params->get( 'show_misc' ) ) : ?>
-    <p class="contact-description">
+    <p class="desc">
     	<?php echo nl2br($this->contact->misc); ?>
     </p>
     <?php endif; ?>

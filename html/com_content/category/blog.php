@@ -10,7 +10,7 @@ $cparams = JComponentHelper::getParams ('com_media');
 <?php endif; ?>
 
 <?php if ($this->params->def('show_description', 1) || $this->params->def('show_description_image', 1)) : ?>
-<div class="content-description">
+<div class="desc">
 
 	<?php if ($this->params->get('show_description_image') && $this->category->image) : ?>
 	<img src="<?php echo $this->baseurl . $cparams->get('image_path') . '/' . $this->category->image; ?>" class="image-<?php echo $this->category->image_position; ?>" />
@@ -50,11 +50,9 @@ $cparams = JComponentHelper::getParams ('com_media');
 			<div class="article-row ">
 				<?php for ($z = 0; $z < $colcount && $ii < $introcount && $i < $this->total; $z++, $i++, $ii++) : ?>
 				
-				<?php if( $colcount !== 1 { ?>
-					<div id="article<?php $this->item = $this->getItem($i, $this->params); echo $this->item->id; ?>" class="article-column column<?php echo $z + 1; ?> cols<?php echo $colcount; ?>" >                <?php } ?>
-						<?php $this->item =& $this->getItem($i, $this->params);
+					<div id="article<?php $this->item = $this->getItem($i, $this->params); echo $this->item->id; ?>" class="article-column column<?php echo $z + 1; ?> cols<?php echo $colcount; ?>" >						<?php $this->item =& $this->getItem($i, $this->params);
 						echo $this->loadTemplate('item'); ?>
-					<?php if( $colcount !== 1 { ?></div><?php } ?>
+					</div>
 					
 				<?php endfor; ?>
 				<span class="row-separator">&nbsp;</span>
