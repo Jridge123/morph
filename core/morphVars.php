@@ -69,6 +69,12 @@ $db->setQuery( $query ); $simpleticker = $db->loadResult();
 $query = "SELECT COUNT(*) FROM `#__modules` WHERE `module` = 'mod_simpletweet' AND `published` = '1'";
 $db->setQuery( $query ); $simpletweet = $db->loadResult();
 
+$query = "SELECT COUNT(*) FROM `#__modules` WHERE `module` = 'mod_simplecontact' AND `published` = '1'";
+$db->setQuery( $query ); $simplecontact = $db->loadResult();
+
+$query = "SELECT COUNT(*) FROM `#__modules` WHERE `module` = 'mod_simplesocial' AND `published` = '1'";
+$db->setQuery( $query ); $simplesocial = $db->loadResult();
+
 (file_exists($themeletjs)) ? $themelet_js = 1 : $themelet_js = 0;
 (file_exists($customjs)) ? $custom_js = 1 : $custom_js = 0;
 (file_exists($customcss)) ? $custom_css = 1 : $custom_css = 0;
