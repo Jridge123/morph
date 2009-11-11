@@ -66,6 +66,15 @@ $db->setQuery( $query ); $animate_left = $db->loadResult();
 $query = "SELECT COUNT(*) FROM `#__modules` WHERE `module` = 'mod_simpleticker' AND `published` = '1'";
 $db->setQuery( $query ); $simpleticker = $db->loadResult();
 
+$query = "SELECT COUNT(*) FROM `#__modules` WHERE `module` = 'mod_simpletweet' AND `published` = '1'";
+$db->setQuery( $query ); $simpletweet = $db->loadResult();
+
+$query = "SELECT COUNT(*) FROM `#__modules` WHERE `module` = 'mod_simplecontact' AND `published` = '1'";
+$db->setQuery( $query ); $simplecontact = $db->loadResult();
+
+$query = "SELECT COUNT(*) FROM `#__modules` WHERE `module` = 'mod_simplesocial' AND `published` = '1'";
+$db->setQuery( $query ); $simplesocial = $db->loadResult();
+
 (file_exists($themeletjs)) ? $themelet_js = 1 : $themelet_js = 0;
 (file_exists($customjs)) ? $custom_js = 1 : $custom_js = 0;
 (file_exists($customcss)) ? $custom_css = 1 : $custom_css = 0;
@@ -151,15 +160,17 @@ $packed_js_vars["G05"]=$captions_animation;
 $packed_js_vars["G06"]=$captions_prefix;
 $packed_js_vars["G07"]=$captions_opacity;
 $packed_js_vars["G08"]=$captions_position;
+$packed_js_vars["H01"]=$simpleticker;
+$packed_js_vars["H02"]=$simpletweet;
 $packed_js_vars["Z01"]=$gzip_compression;
 $packed_js_vars["Z02"]=$pack_js;
 $packed_js_vars["Z03"]=$custom_js;
-$packed_js_vars["Z04"]=$simpleticker;
-$packed_js_vars["Z05"]=$developer_toolbar;
+$packed_js_vars["Z04"]=$developer_toolbar;
+$packed_js_vars["Z05"]=$themelet_js;
+
 if(!empty($pt_mod)){
 	$packed_js_vars["Z05"]=$pt_mod['pt_delay'];
 }
-$packed_js_vars["Z06"]=$themelet_js;
 
 $packed_js = '';
 foreach($packed_js_vars as $key => $val){
@@ -227,11 +238,14 @@ $packed_css_vars["J02"]=urlencode($captions_bgcolor);
 $packed_css_vars["J03"]=urlencode($captions_bordercolor);
 $packed_css_vars["J04"]=$captions_borderheight;
 $packed_css_vars["J05"]=urlencode($captions_textcolor);
+$packed_css_vars["K01"]=$simpleticker;
+$packed_css_vars["K02"]=$simpletweet;
+$packed_css_vars["K03"]=$simplecontact;
+$packed_css_vars["K04"]=$simplesocial;
 $packed_css_vars["Z01"]=$gzip_compression;
 $packed_css_vars["Z02"]=$pack_css;
 $packed_css_vars["Z03"]=$custom_css;
-$packed_css_vars["Z04"]=$simpleticker;
-$packed_css_vars["Z05"]=$developer_toolbar;
+$packed_css_vars["Z04"]=$developer_toolbar;
 $packed_css = '';
 foreach($packed_css_vars as $key => $val){
 	($key == 'A01') ? $sep = '?' : $sep = '&amp;';

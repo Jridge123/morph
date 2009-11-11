@@ -76,15 +76,11 @@ $captions_animation = $_GET['G05'];
 $captions_prefix = $_GET['G06'];
 $captions_opacity = $_GET['G07'];
 $captions_position = $_GET['G08'];
+$simpleticker = $_GET['H01'];
+$simpletweet = $_GET['H02'];
 $gzip_compression = $_GET['Z01'];
 $pack_js = $_GET['Z02'];
 $custom_js = $_GET['Z03'];
-$simpleticker = $_GET['Z04'];
-$developer_toolbar = $_GET['Z05'];
-if(isset($_GET['Z05'])){
-	$tickerdelay = $_GET['Z05'];
-}else{
-	$tickerdelay = null;
-}
-$themelet_js = $_GET['Z06'];
+$developer_toolbar = $_GET['Z04'];
+$themelet_js = $_GET['Z05'];
 ?>

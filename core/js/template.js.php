@@ -28,6 +28,7 @@ if($pack_js == 1){
 	if ( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1 or $topleft_equalize == 1 ) { include('equalheights.js');echo"\n"; }
 	if ( $plugin_scrollto == 1 ) { include('scrollto.js');echo"\n"; }
 	if ( $simpleticker == 1 ) { include('innerfade.js');echo"\n"; }
+	if ( $simpletweet == 1 ) { include('../../../../modules/mod_simpletweet/js/simpletweet.js');echo"\n"; }
 	if ( $google_analytics !== '' ) { include('googleanalytics.js');echo"\n";}
 	if ( $captions_enabled == 1 ) { include('captify.js');echo"\n";}
 	include('fontsizer.js');
