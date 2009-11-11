@@ -1,6 +1,6 @@
 /* frontend dev bar
 ******************************************************/
-#dev-toolbar{font-family:arial;position:fixed;z-index:9999;background:#fff url('../images/devbar-sprite.png') repeat-x 0px -87px;width:100%;display:block;}
+#dev-toolbar{font-family:arial;background:#fff url('../images/devbar-sprite.png') repeat-x 0px -87px;overflow:hidden;}
 
 #dev-toolbar ul,
 #dev-toolbar li{list-style:none;margin:0;padding:0;}
@@ -8,7 +8,7 @@
 #dev-toolbar ul{margin:0 auto;color:#999;}
 #dev-toolbar li{height:33px;line-height:18px;float:left;padding:0 0 0 1.5em;position:relative;}
 #dev-toolbar li strong{cursor:help;}
-#dev-toolbar li span{display:none;position:absolute;background:#000;width:180px;left:12px;top:31px;z-index:9999;padding:.7em .7em .4em .7em;border-bottom-left-radius:7px;border-bottom-right-radius:7px;-moz-border-radius-bottomleft:7px;-moz-border-radius-bottomright:7px;-webkit-border-bottom-left-radius:7px;-webkit-border-bottom-right-radius:7px;}
+#dev-toolbar li span{display:none;position:absolute;background:#000;width:180px;left:12px;top:31px;z-index:9999;padding:.7em .7em .4em .7em;}
 #dev-toolbar li span p {line-height:16px;padding:5px 0 0 0;}
 #dev-toolbar li span strong{cursor:default;}
 #dev-toolbar .dev-label{font-weight:bold;color:#555;text-transform:uppercase;padding:0 1em 0 0;line-height:30px;}
