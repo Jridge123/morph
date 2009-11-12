@@ -16,7 +16,7 @@
  */
 
 defined('_JEXEC') or die('Restricted access');
-$morph_component_path = dirname(__FILE__) . DS . '../../../administrator/components/com_configurator';
+$morph_component_path = dirname(__FILE__).DS.'..'.DS.'..'.DS.'..'.DS.'administrator'.DS.'components'.DS.'com_configurator';
 include_once ($morph_component_path . DS . "configurator.common.php");
 include_once ($morph_component_path . DS . "configurator.class.php");
 
@@ -46,7 +46,7 @@ class morphLoader {
 		}
 
 		
-		if(isset($themelet_name)) $themelet_params = getTemplateParamList( dirname(__FILE__).DS.'../../../morph_assets/themelets/'.$themelet_name.'/themeletDetails.xml', TRUE );
+		if(isset($themelet_name)) $themelet_params = getTemplateParamList( dirname(__FILE__).DS.'..'.DS.'..'.DS.'..'.DS.'morph_assets'.DS.'themelets'.DS.$themelet_name.DS.'themeletDetails.xml', TRUE );
 		$xml_params = getTemplateParamList( dirname(__FILE__).DS.'morphDetails.xml', TRUE );
 		
 		foreach ($xml_params as $param) {

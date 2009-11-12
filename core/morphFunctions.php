@@ -1,9 +1,9 @@
 <?php
 defined('_JEXEC') or die('Restricted access');
 // initiate morph
-include('templates/morph/core/morphLoader.php');
-include('templates/morph/core/morphParams.php');
-require('templates/morph/core/browser.php');
+include('templates'.DS.'morph'.DS.'core'.DS.'morphLoader.php');
+include('templates'.DS.'morph'.DS.'core'.DS.'morphParams.php');
+require('templates'.DS.'morph'.DS.'core'.DS.'browser.php');
 
 if(isset($_COOKIE['nogzip'])){
 	$conf = JFactory::getConfig();
@@ -42,11 +42,11 @@ if ( $gzip_compression == 1 ) {
 	}
 }
 // set the various paths:
-$templatepath = JURI::root() . 'templates/' . $this->template;
-$themeletpath = JURI::root() . 'morph_assets/themelets/' . $themelet;
+$templatepath = JURI::root() . 'templates'.DS.$this->template;
+$themeletpath = JURI::root() . 'morph_assets'.DS.'themelets'.DS.$themelet;
 $assetspath = JURI::root() . 'morph_assets';
 $assetsroot = JPATH_SITE.DS.'morph_assets';
-$imagespath = JURI::root() . 'morph_assets/themelets/' . $themelet.'/images/';
+$imagespath = JURI::root() . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'images'.DS;
 $absolutepath = JPATH_SITE.DS.'morph_assets'.DS.'themelets'.DS.$themelet;
 
 // set the document parameters with what morph found:
@@ -104,24 +104,24 @@ $dashes 					= "";
 $mod_chrome					= "";
 $ver 						= str_replace($dots , $dashes , $ver);
 $lcbrowser 					= strtolower($thebrowser);
-$css_firefox				= $absolutepath."/css/firefox.css";
-$css_safari					= $absolutepath."/css/safari.css";
-$css_opera					= $absolutepath."/css/opera.css";
-$css_chrome					= $absolutepath."/css/chrome.css";
-$css_ie					    = $absolutepath."/css/ie.css";
-$css_ie6				    = $absolutepath."/css/ie6.css";
-$css_ie7				    = $absolutepath."/css/ie7.css";
-$css_ie8				    = $absolutepath."/css/ie8.css";
-$css_browsers				= $absolutepath."/css/browsers.css";
-$css_yui					= $absolutepath."/css/yui.css";
-$css_iphone					= $absolutepath."/css/iphone.css";
-$customcss					= $absolutepath."/css/custom.css";
-$customjs					= $absolutepath."/js/custom.js";
-$themeletjs					= $absolutepath."/js/themelet.js";
-$customfunctions			= $absolutepath."/custom.php";
-$themeletfunctions			= $absolutepath."/themelet.php";
-$foot_override				= $absolutepath."/html/foot.php";
-$footer_script				= $absolutepath."/script.php";
+$css_firefox				= $absolutepath.DS.'css'.DS.'firefox.css';
+$css_safari					= $absolutepath.DS.'css'.DS.'safari.css';
+$css_opera					= $absolutepath.DS.'css'.DS.'opera.css';
+$css_chrome					= $absolutepath.DS.'css'.DS.'chrome.css';
+$css_ie					    = $absolutepath.DS.'css'.DS.'ie.css';
+$css_ie6				    = $absolutepath.DS.'css'.DS.'ie6.css';
+$css_ie7				    = $absolutepath.DS.'css'.DS.'ie7.css';
+$css_ie8				    = $absolutepath.DS.'css'.DS.'ie8.css';
+$css_browsers				= $absolutepath.DS.'css'.DS.'browsers.css';
+$css_yui					= $absolutepath.DS.'css'.DS.'yui.css';
+$css_iphone					= $absolutepath.DS.'css'.DS.'iphone.css';
+$customcss					= $absolutepath.DS.'css'.DS.'custom.css';
+$customjs					= $absolutepath.DS.'js'.DS.'custom.js';
+$themeletjs					= $absolutepath.DS.'js'.DS.'themelet.js';
+$customfunctions			= $absolutepath.DS.'custom.php';
+$themeletfunctions			= $absolutepath.DS.'themelet.php';
+$foot_override				= $absolutepath.DS.'html'.DS.'foot.php';
+$footer_script				= $absolutepath.DS.'script.php';
 
 if($load_mootools == 0) {
     $headnomootools = $this->getHeadData();
@@ -164,10 +164,10 @@ function debug_chrome($pt_debug, $pt_mod_chrome){
 include 'morphVars.php';
 
 if(file_exists($themeletfunctions) && is_readable($themeletfunctions)){
-include_once($absolutepath.'/themelet.php');
+include_once($absolutepath.DS.'themelet.php');
 }
 if(file_exists($customfunctions) && is_readable($customfunctions)){
-include_once($absolutepath.'/custom.php');
+include_once($absolutepath.DS.'custom.php');
 }
 
 // gzip compression frontend switch - required for toolbar to work correctly

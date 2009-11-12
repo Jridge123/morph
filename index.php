@@ -7,7 +7,7 @@
 *** @license   Commercial
 **/
 defined( '_JEXEC' ) or die( 'Restricted index access' );
-include_once(JPATH_ROOT . "/templates/" . $this->template . '/core/morphFunctions.php'); ?>
+include_once(JPATH_ROOT.DS.'templates'.DS.$this->template.DS.'core'.DS.'morphFunctions.php'); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>">
 <head>
@@ -96,39 +96,39 @@ if( $browser->getBrowser() == Browser::BROWSER_IE && $chrome_frame == 1 ) {
 	}
 }
 if( $browser->getBrowser() == Browser::PLATFORM_IPHONE && $iphone_mode == 1 ){
-include_once('core/includes/iphone.php');
+include_once('core'.DS.'includes'.DS.'iphone.php');
 } else{
-if(isIE6() && $ie6_upgrade == 1){ include_once('core/includes/ie6upgrade.php');}
+if(isIE6() && $ie6_upgrade == 1){ include_once('core'.DS.'includes'.DS.'ie6upgrade.php');}
 if($this->countModules('advert1')){'<div id="advert1"><jdoc:include type="modules" name="advert1" style="none" /></div>';}
 if ( $global_wrap == 1 ) echo '<div id="global-wrap" class="'.$site_width.'">';
-if($toolbar_position == 0){include_once('core/includes/toolbar.php');}
-if($topnav_position == 0){include_once('core/includes/topnav.php');}
-include_once('core/includes/masthead.php');
-if($toolbar_position == 1){include_once('core/includes/toolbar.php');}
-if($topnav_position == 1){include_once('core/includes/topnav.php');}
-include_once('core/includes/subhead.php');
-if($toolbar_position == 2){include_once('core/includes/toolbar.php');}	
-if($topnav_position == 2){include_once('core/includes/topnav.php');}
-include_once('core/includes/topshelf.php');
-if($toolbar_position == 3){include_once('core/includes/toolbar.php');}	
-if($topnav_position == 3){include_once('core/includes/topnav.php');}
-include_once('core/includes/main.php');
-include_once('core/includes/bottomshelf.php');
+if($toolbar_position == 0){include_once('core'.DS.'includes'.DS.'toolbar.php');}
+if($topnav_position == 0){include_once('core'.DS.'includes'.DS.'topnav.php');}
+include_once('core'.DS.'includes'.DS.'masthead.php');
+if($toolbar_position == 1){include_once('core'.DS.'includes'.DS.'toolbar.php');}
+if($topnav_position == 1){include_once('core'.DS.'includes'.DS.'topnav.php');}
+include_once('core'.DS.'includes'.DS.'subhead.php');
+if($toolbar_position == 2){include_once('core'.DS.'includes'.DS.'toolbar.php');}	
+if($topnav_position == 2){include_once('core'.DS.'includes'.DS.'topnav.php');}
+include_once('core'.DS.'includes'.DS.'topshelf.php');
+if($toolbar_position == 3){include_once('core'.DS.'includes'.DS.'toolbar.php');}	
+if($topnav_position == 3){include_once('core'.DS.'includes'.DS.'topnav.php');}
+include_once('core'.DS.'includes'.DS.'main.php');
+include_once('core'.DS.'includes'.DS.'bottomshelf.php');
 if(file_exists($foot_override) && is_readable($foot_override)){
-	 include_once('morph_assets/themelets/'.$themelet.'/html/foot.php');
+	 include_once('morph_assets'.DS.'themelets'.DS.$themelet.DS.'html'.DS.'foot.php');
 } else {
-	 include_once('core/includes/foot.php');
+	 include_once('core'.DS.'includes'.DS.'foot.php');
 }
 if ( $global_wrap == 1 ) echo '</div>';
 if($this->countModules('advert2')) {'<div id="advert2"><jdoc:include type="modules" name="advert2" style="none" /></div>';}
 ?>
 <jdoc:include type="modules" name="debug" />
-<?php include_once("core/includes/ga-code.php"); ?>
+<?php include_once('core'.DS.'includes'.DS.'ga-code.php'); ?>
 <?php if ( $plugin_scrollto == 1 && $browser->getBrowser() !== Browser::PLATFORM_IPHONE ) { ?><a href="#top" id="top-link">Top of Page</a><?php } ?>
 
 <?php } 
 if(file_exists($footer_script) && is_readable($footer_script)){
-	 include_once('morph_assets/themelets/'.$themelet.'/script.php');
+	 include_once('morph_assets'.DS.'themelets'.DS.$themelet.DS.'script.php');
 } ?>
 </body>
 </html>

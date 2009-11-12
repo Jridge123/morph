@@ -12,7 +12,7 @@
 // no direct access
 /* Required for functionality with Morph - Do not remove */
 defined( '_JEXEC' ) or die( 'Restricted access' );
-include_once(JPATH_ROOT . '/templates/morph/core/morphFunctions.php');
+include_once(JPATH_ROOT.DS.'templates'.DS.'morph'.DS.'core'.DS.'morphFunctions.php');
 ob_start();
 /* Edit below this line */
 ?>
