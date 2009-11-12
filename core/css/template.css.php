@@ -27,10 +27,10 @@ include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/joomla.css');
 include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/modules.css');
 include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/modfx.css');
 include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/themelet.css');
-if( $simpleticker == 1 ) {include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/extensions/simpleticker.css'); }
-if( $simpletweet == 1 ) {include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/extensions/simpleticker.css'); }
-if( $simplecontact == 1 ) {include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/extensions/simplecontact.css'); }
-if( $simplesocial == 1 ) {include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/extensions/simplesocial.css'); }
+if( $simpleticker == 1 ) {include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/simpleticker.css'); }
+if( $simpletweet == 1 ) {include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/simpleticker.css'); }
+if( $simplecontact == 1 ) {include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/simplecontact.css'); }
+if( $simplesocial == 1 ) {include(JPATH . 'morph_assets/themelets/'.$themelet.'/css/simplesocial.css'); }
 }?>
 html{
 background-color:#<?php echo $html_bg_color; ?>;

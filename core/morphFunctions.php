@@ -288,10 +288,10 @@ if( $browser->getBrowser() == Browser::PLATFORM_IPHONE && $iphone_mode == 1 ){
 		$document->addStyleSheet($themeletpath .'/css/modules.css');
 		$document->addStyleSheet($themeletpath .'/css/modfx.css');	
 		$document->addStyleSheet($themeletpath .'/css/themelet.css');
-		if ( $simpleticker == 1 ) { $document->addStyleSheet($themeletpath .'/css/extensions/simpleticker.css'); }
-		if ( $simpletweet == 1 ) { $document->addStyleSheet($themeletpath .'/css/extensions/simpletweet.css'); }
-		if ( $simplecontact == 1 ) { $document->addStyleSheet($themeletpath .'/css/extensions/simplecontact.css'); }
-		if ( $simplesocial == 1 ) { $document->addStyleSheet($themeletpath .'/css/extensions/simplesocial.css'); }
+		if ( $simpleticker == 1 ) { $document->addStyleSheet($themeletpath .'/css/simpleticker.css'); }
+		if ( $simpletweet == 1 ) { $document->addStyleSheet($themeletpath .'/css/simpletweet.css'); }
+		if ( $simplecontact == 1 ) { $document->addStyleSheet($themeletpath .'/css/simplecontact.css'); }
+		if ( $simplesocial == 1 ) { $document->addStyleSheet($themeletpath .'/css/simplesocial.css'); }
 		$document->addStyleSheet($templatepath .'/core/css/template.css.php'.$packed_css);
 		if($developer_toolbar == 1) { $document->addStyleSheet($templatepath .'/core/css/devbar.css'); }
 		if ( $direction == 'rtl' && file_exists($css_rtl)){ $document->addStyleSheet($css_rtl); } elseif ($direction == 'rtl') { $document->addStyleSheet($themeletpath .'/core/css/rtl.css'); }
