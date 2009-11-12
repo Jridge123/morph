@@ -14,16 +14,16 @@ echo JText::_('Display Num') .'&nbsp;';
 echo $this->pagination->getLimitBox();
 ?>
 <hr class="cut" />
-<ol class="weblinks-category">
+<ul class="weblinks-category">
     <?php foreach ($this->items as $item) : ?>
     <li class="link-item row<?php echo $item->odd + 1; ?>">
-    	<?php echo $item->link; ?><?php if ( $this->params->get( 'show_link_hits' ) ) : ?>&nbsp;<span class="small">(<?php echo $item->hits; ?>)</span><?php endif; ?>
+    	<?php echo $item->link; ?><?php if ( $this->params->get( 'show_link_hits' ) ) : ?>&nbsp;<span class="small">(<?php echo $item->hits; ?> hits)</span><?php endif; ?>
     	<?php if ( $this->params->get( 'show_link_description' ) ) : ?>
     	<p class="description"><?php echo nl2br($this->escape($item->description)); ?></p>
     	<?php endif; ?>
     </li>
     <?php endforeach; ?>
-</ol>
+</ul>
 <div id="pagination-wrap">
 	<div class="pagination-links">
 	    <?php echo $this->pagination->getPagesCounter(); ?>
