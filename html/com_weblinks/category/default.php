@@ -7,7 +7,7 @@
 
 <div id="weblinks-wrap">
 <?php if ( @$this->category->image || @$this->category->description ) : ?>
-    <div class="weblinks-desc">
+    <div class="desc">
 	<?php
 		if ( isset($this->category->image) ) :  echo $this->category->image; endif;
 		echo $this->category->description;

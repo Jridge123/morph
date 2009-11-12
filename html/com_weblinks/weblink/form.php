@@ -26,7 +26,7 @@ function submitbutton(pressbutton)
 <?php endif; ?>
 <div id="weblinks-wrap">
 <form action="<?php echo $this->action ?>" method="post" name="adminForm" id="adminForm">
-<ul>
+<ul id="submit-weblink">
 	<li><label for="jformtitle" class="label"><?php echo JText::_( 'Name' ); ?>:</label>
 	<input class="text-input" type="text" id="jformtitle" name="jform[title]" size="50" maxlength="250" value="<?php echo $this->escape($this->weblink->title);?>" /></li>
 

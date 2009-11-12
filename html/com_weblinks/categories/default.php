@@ -7,7 +7,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 <?php endif; ?>
 
 <?php if ( ($this->params->def('image', -1) != -1) || $this->params->def('show_comp_description', 1) ) : ?>
-<div class="weblinks-desc teaser">
+<div class="desc">
 	<?php if ( isset($this->image) ) : echo $this->image; endif;
 		echo $this->params->get('comp_description');
 	?>
