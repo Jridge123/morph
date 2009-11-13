@@ -1,4 +1,5 @@
 <?php
+define('DS', DIRECTORY_SEPARATOR);
 include '../jsvars.php';
 if ( $gzip_compression == 1 ) {
 	if(extension_loaded('zlib') && !ini_get('zlib.output_compression')){
