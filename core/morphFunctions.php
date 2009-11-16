@@ -478,4 +478,33 @@ function blocks($position, $glob, $jj_const, $classes, $site_width, $debug_modul
 	}
 }
 
+function pt_body_classes($menu, $view, $themelet){
+	$classes = 'class="';
+	$ids = '';  
+	$devbar = '';
+	$pageclass = '';
+	$view = $menu->query['view'];
+	$component = $menu->query['option'];
+	
+	$browser = new Browser();
+	$platform = ' '.strtolower($browser->getPlatform());
+	$thebrowser = ' '.strtolower(ereg_replace("[^A-Za-z]", "", $browser->getBrowser()));
+	$ver = $browser->getVersion();
+	$ver = str_replace('.', '', $ver);
+	
+	$params = new JParameter($menu->params);
+	$pageclass = $params->get('pageclass_sfx');
+	
+	if(isset($_COOKIE['morph_developer_toolbar'])){ $devbar = ' devbar'; }
+	if($pageclass !== ''){ $pageclass = ' '.$pageclass; }
+	if($view !== ''){ $view = ' '.$view; }
+	if($component !== ''){ $component = ' '.$component; }
+	if($themelet !== ''){ $ids = ' id="'.$themelet.'"'; }
+	
+	
+	$classes .= 'js-disabled morph'.$thebrowser.$thebrowser.$ver.$platform.$pageclass.$view.$component.$devbar.'"';
+	
+	return $classes.' '.$ids ;
+}
+
 ?>
