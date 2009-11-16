@@ -29,7 +29,7 @@ include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'modules.
 include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'modfx.css');
 include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'themelet.css');
 if( $simpleticker == 1 ) {include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'simpleticker.css'); }
-if( $simpletweet == 1 ) {include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'simpleticker.css'); }
+if( $simpletweet == 1 ) {include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'simpletweet.css'); }
 if( $simplecontact == 1 ) {include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'simplecontact.css'); }
 if( $simplesocial == 1 ) {include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'simplesocial.css'); }
 }?>
