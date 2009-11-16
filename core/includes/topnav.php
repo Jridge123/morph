@@ -1,13 +1,8 @@
 <?php if (JDocumentHTML::countModules( 'user3 or user4' ) && $topnav_show == 0 ) { ?>
-
 <?php if ( $topnav_wrap == 1 ) { ?>
-<div id="topnav-wrap" class="<?php if($subtext_top >= 1){ echo 'subtext'; } if($subtext_top == 0){ echo 'no-subtext'; } 
-if($topfish >= 1){ echo ' topfish'; } if($topdrop >= 1){ echo ' topdrop'; } ?>">
+<div id="topnav-wrap" class="<?php echo pt_classes(array('subtext_top' => $subtext_top, 'topdrop' => $topdrop, 'topfish' => $topfish)); ?>">
 <?php } ?>
-
-	<div id="topnav" class="<?php echo $site_width; if($subtext_top >= 1){ echo ' subtext'; } if($subtext_top == 0) { 
-	echo ' no-subtext'; } if ( $topnav_actionlink >= 1 ) echo ' call-for-action';  echo ' clearer'; if ( $topfish >= 1 ) { echo ' topfish'; } 
-	if ( $topdrop >= 1 ) { echo ' topdrop'; } ?>">
+	<div id="topnav" class="<?php echo pt_classes(array('subtext_top' => $subtext_top, 'topnav_actionlink' => $topnav_actionlink, 'topdrop' => $topdrop, 'topfish' => $topfish), $site_width); ?>">
 
 	  <?php if(JDocumentHTML::countModules('user3')) { ?>
 	  	<div id="nav" class="clearer">

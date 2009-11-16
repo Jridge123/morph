@@ -507,4 +507,31 @@ function pt_body_classes($menu, $view, $themelet){
 	return $classes.' '.$ids ;
 }
 
+function pt_classes($classes, $sitewidth=''){
+	$c = '';
+	if($sitewidth !== ''){ $c .= $sitewidth.' '; }
+	
+	if(is_array($classes)){
+		foreach($classes as $classname => $p){
+			switch($classname){
+				
+				case 'subtext_top':
+				if($p >= 1){ $c .= 'subtext'; }else{ $c .= 'no-subtext'; }
+				break;
+				case 'topnav_actionlink':
+				if($p >= 1){ $c .= ' call-for-action clearer'; }
+				break;
+				case 'topfish':
+				if($p >= 1){ $c .= ' topfish'; }
+				break;
+				case 'topdrop':
+				if($p >= 1){ $c .= ' topdrop'; }
+				break;
+			}
+		}
+	}
+	
+	return $c;
+}
+
 ?>
