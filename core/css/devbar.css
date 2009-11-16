@@ -6,7 +6,7 @@
 #dev-toolbar li{list-style:none;margin:0;padding:0;}
 
 #dev-toolbar ul{margin:0 auto;color:#999;}
-#dev-toolbar li{height:33px;line-height:18px;float:left;padding:0 0 0 1.5em;position:relative;}
+#dev-toolbar li{height:33px;line-height:18px;float:left;padding:0 1.5em 0 0;position:relative;}
 #dev-toolbar li strong{cursor:help;}
 #dev-toolbar li span{display:none;position:absolute;background:#000;width:180px;left:12px;top:31px;z-index:9999;padding:.7em .7em .4em .7em;}
 #dev-toolbar li span p {line-height:16px;padding:5px 0 0 0;}
@@ -20,12 +20,14 @@
 #dev-toolbar ul li a.dev-pack-js,
 #dev-toolbar ul li a.dev-debug-mods-on,
 #dev-toolbar ul li a.dev-gzip-on,
+#dev-toolbar ul li a.dev-nojs-on,
 #dev-toolbar ul li a.dev-fb-on {background-position: 0 -36px;margin:6px 0 0 0;}
 
 #dev-toolbar ul li a.dev-pack-css:hover,
 #dev-toolbar ul li a.dev-pack-js:hover,
 #dev-toolbar ul li a.dev-debug-mods-on:hover,
 #dev-toolbar ul li a.dev-gzip-on:hover,
+#dev-toolbar ul li a.dev-nojs-on:hover,
 #dev-toolbar ul li a.dev-fb-on:hover {background-position: 0 -55px;margin:6px 0 0 0;}
 
 /* off state */
@@ -33,10 +35,12 @@
 #dev-toolbar ul li a.dev-unpack-js,
 #dev-toolbar ul li a.dev-debug-mods-off,
 #dev-toolbar ul li a.dev-gzip-off,
+#dev-toolbar ul li a.dev-nojs-off,
 #dev-toolbar ul li a.dev-fb-off {background-position: 0 0px;margin:6px 0 0 0;}
 
 #dev-toolbar ul li a.dev-unpack-css:hover,
 #dev-toolbar ul li a.dev-unpack-js:hover,
 #dev-toolbar ul li a.dev-debug-mods-off:hover,
 #dev-toolbar ul li a.dev-gzip-off:hover,
+#dev-toolbar ul li a.dev-nojs-off:hover,
 #dev-toolbar ul li a.dev-fb-off:hover {background-position: 0 -18px;margin:6px 0 0 0;}

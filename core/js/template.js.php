@@ -317,6 +317,10 @@ jQuery.noConflict();
 				if($(this).hasClass('dev-fb-on')){ $.cookie('firebug', 'enabled'); window.location.reload(true); }
 				if($(this).hasClass('dev-fb-off')){ $.cookie('firebug', null); window.location.reload(true); }
 			});
+			$('#dev-toolbar li.dev-nojs a').click(function(){
+				if($(this).hasClass('dev-nojs-on')){ $.cookie('nojs', 'enabled'); window.location.reload(true); }
+				if($(this).hasClass('dev-nojs-off')){ $.cookie('nojs', null); window.location.reload(true); }
+			});
 		<?php }?>
     });
 })(jQuery);

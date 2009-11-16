@@ -1,6 +1,6 @@
 <div id="dev-toolbar">
 	<ul<?php echo ' class="'.$site_width.'"'; ?>>
-		<li class="dev-label">Developer Toolbar</li>
+		<?php if($nojs == 0){ ?>
 		<li class="dev-css"><strong class="tool-label">CSS Packing</strong>:
 			<span class="desc">
 				<strong>CSS Packing</strong>
@@ -40,6 +40,22 @@
 				you can edit, debug, and monitor CSS, HTML, and JavaScript live.</p>
 			</span>
 			<a href="#"<?php if($enable_fb == 0){ ?> class="dev-fb-on">On<?php }else{ ?>class="dev-fb-off">Off<?php }?></a>
+		</li>
+		<?php } ?>
+		
+		<li class="dev-nojs">
+			<strong class="tool-label">
+				<?php if($nojs == 1){ ?>  
+					The Developer Toolbar requires JS to work. Please switch off No JS mode:
+				<?php }else{ ?> 
+					No JS:	
+				<?php }?>
+			</strong>
+			<span class="desc">
+				<strong>No JS</strong>
+				<p>Enable or Disable the zero Javascript mode.</p>
+			</span>
+			<a href="<?php if($nojs == 1){ if($_SERVER['QUERY_STRING'] == ''){ echo '?nojs=off'; }else{ echo '?'.$_SERVER['QUERY_STRING'].'&nojs=off'; }}else{ echo '#'; } ?>"<?php if($nojs == 0){ ?> class="dev-nojs-on">On<?php }else{ ?>class="dev-nojs-off">Off<?php }?></a>
 		</li>
 	</ul>
 </div>

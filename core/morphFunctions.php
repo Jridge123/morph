@@ -21,6 +21,7 @@ if(isset($_COOKIE['nogzip'])){
 }
 if(isset($_COOKIE['debug_modules'])){ $debug_modules = 1; }
 if(isset($_COOKIE['morph_developer_toolbar'])){ $developer_toolbar = 1; }
+if(isset($_COOKIE['nojs'])){ $nojs = 1; }
 
 // enable/disable GZIP compression
 if ( $gzip_compression == 1 ) {
@@ -197,13 +198,17 @@ if(isset($_GET['hide_devbar'])){
 	setcookie('morph_developer_toolbar', null, time()-3600);
 	header('Location: ' . str_replace(array('?hide_devbar','&hide_devbar'), '', $curr_url));
 }
+if(isset($_GET['nojs']) && $_GET['nojs'] == 'off'){
+	setcookie('nojs', null, time()-3600);
+	header('Location: ' . str_replace(array('?nojs=off','&nojs=off'), '', $curr_url));
+}
 
 if ( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
 //	$document->addScript($templatepath .'/core/js/jquery.js');	
 //	$document->addScript($templatepath .'/core/js/jqtouch.js');
 //	$document->addScript($templatepath .'/core/js/iphone.js');
 } else {
-    if($nojs != 1) {
+    if($nojs !== 1) {
     	if ( isset($_COOKIE['unpackjs']) && $pack_js == 1 || isset($_COOKIE['unpackjs']) && $pack_js == 0 || !isset($_COOKIE['unpackjs']) && $pack_js == 0 ) {
     		if( $jquery_core == 1 ) { 
     		    $document->addScript($templatepath .'/core/js/jquery.js');

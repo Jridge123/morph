@@ -41,9 +41,10 @@ $.trackPage('<?php echo $google_analytics; ?>')
 </head>
 <?php if ($error_reporting == 0) { error_reporting(E_ALL ^ E_NOTICE); } ?>
 <body class="js-disabled morph <?php echo "$lcbrowser $lcbrowser$ver"; if ($pageclass != ""){ echo ' '.$pageclass; } ?>"<?php if ($themelet != ""){ echo ' id="'.$themelet.'"'; } ?>>
+
 <?php
 if($developer_toolbar == 1 or isset($_COOKIE['morph_developer_toolbar'])){
-include_once('core/includes/devbar');
+include_once('core/includes/devbar.php');
 }
 // check if Google Chrome Frame is installed on the browser, if not show a info box
 if( $browser->getBrowser() == Browser::BROWSER_IE && $chrome_frame == 1 ) { 
