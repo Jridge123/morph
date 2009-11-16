@@ -13,7 +13,7 @@ $offset = 60 * 10000;
 $expire = "expires: " . gmdate("D, d M Y H:i:s", time() + $offset) . " GMT";
 header($expire);
 }
-define('JPATH', str_replace('templates'.DS.'morph'.DS.'core'.DS.'css', '', dirname(__FILE__)) .DS );
+define('JPATH', str_replace('templates'.DS.'morph'.DS.'core'.DS.'css', '', dirname(__FILE__)) );
 if( $pack_css == 1 ){
 if(file_exists($css_yui)){ include($css_yui); } else { include('yui.css'); }
 if( $topnav_count >= 1 ) { include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'topnav-default.css'); }

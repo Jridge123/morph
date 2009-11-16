@@ -202,7 +202,6 @@ if(isset($_GET['nojs']) && $_GET['nojs'] == 'off'){
 	setcookie('nojs', null, time()-3600);
 	header('Location: ' . str_replace(array('?nojs=off','&nojs=off'), '', $curr_url));
 }
-
 if ( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
 //	$document->addScript($templatepath .'/core/js/jquery.js');	
 //	$document->addScript($templatepath .'/core/js/jqtouch.js');
