@@ -46,13 +46,13 @@
 		<li class="dev-nojs">
 			<strong class="tool-label">
 				<?php if($nojs == 1){ ?>  
-					The Developer Toolbar requires JS to work. Please switch off No JS mode:
+					The developer toolbar requires javascript to work. Click the "on" button to re-enable the templates javascript.
 				<?php }else{ ?> 
-					No JS:	
+					Zero Javascript Mode:	
 				<?php }?>
 			</strong>
 			<span class="desc">
-				<strong>No JS</strong>
+				<strong>Zero Jasascript Mode</strong>
 				<p>Enable or Disable the zero Javascript mode.</p>
 			</span>
 			<a href="<?php if($nojs == 1){ if($_SERVER['QUERY_STRING'] == ''){ echo '?nojs=off'; }else{ echo '?'.$_SERVER['QUERY_STRING'].'&nojs=off'; }}else{ echo '#'; } ?>"<?php if($nojs == 0){ ?> class="dev-nojs-on">On<?php }else{ ?>class="dev-nojs-off">Off<?php }?></a>
