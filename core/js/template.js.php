@@ -1,4 +1,5 @@
 <?php
+define('DS', DIRECTORY_SEPARATOR);
 include '../jsvars.php';
 if ( $gzip_compression == 1 ) {
 	if(extension_loaded('zlib') && !ini_get('zlib.output_compression')){
@@ -12,7 +13,7 @@ if ( $gzip_compression == 1 ) {
 	header($expire);
 }
 header("content-type: text/javascript; charset: UTF-8");
-define('JPATH', str_replace('templates/morph/core/js', '', dirname(__FILE__)) . '/' );
+define('JPATH', str_replace('templates'.DS.'morph'.DS.'core'.DS.'js', '', dirname(__FILE__)).DS);
 
 if($pack_js == 1){
 	if ( $jquery_core == 1 ) { include('jquery.js');echo"\n"; }
@@ -28,7 +29,7 @@ if($pack_js == 1){
 	if ( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1 or $topleft_equalize == 1 ) { include('equalheights.js');echo"\n"; }
 	if ( $plugin_scrollto == 1 ) { include('scrollto.js');echo"\n"; }
 	if ( $simpleticker == 1 ) { include('innerfade.js');echo"\n"; }
-	if ( $simpletweet == 1 ) { include('../../../../modules/mod_simpletweet/js/simpletweet.js');echo"\n"; }
+	if ( $simpletweet == 1 ) { include('..'.DS.'..'.DS.'..'.DS.'..'.DS.'modules'.DS.'mod_simpletweet'.DS.'js'.DS.'simpletweet.js');echo"\n"; }
 	if ( $google_analytics !== '' ) { include('googleanalytics.js');echo"\n";}
 	if ( $captions_enabled == 1 ) { include('captify.js');echo"\n";}
 	include('fontsizer.js');
@@ -268,10 +269,10 @@ jQuery.noConflict();
 		    }
 		}
 		if($themelet_js == 1){
-		    include('../../../../morph_assets/themelets/'.$themelet.'/js/themelet.js');echo"\n";
+		    include('..'.DS.'..'.DS.'..'.DS.'..'.DS.'morph_assets'.DS.'themelets'.DS.$themelet.DS.'js'.DS.'themelet.js');echo"\n";
 		} 
 		if($custom_js == 1){
-		    include('../../../../morph_assets/themelets/'.$themelet.'/js/custom.js');echo"\n";
+		    include('..'.DS.'..'.DS.'..'.DS.'..'.DS.'morph_assets'.DS.'themelets'.DS.$themelet.DS.'js'.DS.'custom.js');echo"\n";
 		} ?>
 		<?php if($developer_toolbar==1){ ?>
 			$('#dev-toolbar a').click(function(){ return false; });

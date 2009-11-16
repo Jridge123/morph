@@ -11,7 +11,7 @@
 
 // no direct access
 defined( '_JEXEC' ) or die( 'Restricted access' );
-include_once(JPATH_ROOT . "/templates/" . $this->template . '/core/morphFunctions.php');
+include_once(JPATH_ROOT.DS.'templates'.DS.$this->template.DS.'core'.DS.'morphFunctions.php');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
