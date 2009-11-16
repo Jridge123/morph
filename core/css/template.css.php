@@ -28,10 +28,10 @@ include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'joomla.c
 include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'modules.css');
 include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'modfx.css');
 include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'themelet.css');
-if( $simpleticker == 1 ) {include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'extensions'.DS.'simpleticker.css'); }
-if( $simpletweet == 1 ) {include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'extensions'.DS.'simpleticker.css'); }
-if( $simplecontact == 1 ) {include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'extensions'.DS.'simplecontact.css'); }
-if( $simplesocial == 1 ) {include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'extensions'.DS.'simplesocial.css'); }
+if( $simpleticker == 1 ) {include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'simpleticker.css'); }
+if( $simpletweet == 1 ) {include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'simpleticker.css'); }
+if( $simplecontact == 1 ) {include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'simplecontact.css'); }
+if( $simplesocial == 1 ) {include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'simplesocial.css'); }
 }?>
 html{
 background-color:#<?php echo $html_bg_color; ?>;
