@@ -7,8 +7,7 @@
                     <?php if(JDocumentHTML::countModules('footernav')) { ?>
                     <jdoc:include type="modules" name="footernav" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo 'none'; } ?>" />
                     <?php } ?>
-                    
-                    <?php if ($footer_copyright !== '') { ?>
+                    <?php if ($footer_copyright_show == 1) { ?>
                     <p class="footer-copyright"><?php echo $footer_copyright; ?></p>
                     <?php } ?>
                 </div>
@@ -24,8 +23,7 @@
                             <a target="_blank" href="http://www.joomlajunkie.com/morph" title="powered by the morph joomla template framework">Morph</a>
                         <?php } ?>  
                     <?php if ($footer_validation == 1 || $footer_morphlink == 1) { ?></p><?php } ?>
-                    
-                    <?php if ($footer_credits !== '') { ?>
+                    <?php if ($footer_credits_show == 1) { ?>
                     <p class="footer-credits"><?php echo $footer_credits; ?></p>
                     <?php } ?>
                 </div>
