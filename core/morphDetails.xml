@@ -970,7 +970,11 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="pathway_text" default="You are here:" type="textarea" cols="32" rows="1" tooltip="inline" label="Pathway text" description="" />		
+	<param name="pathway_text_show" default="1" type="radio" label="Enable pathway pre-text" tooltip="inline" description="This option lets you choose wether or not to display the text before the pathway module, eg: You are here">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
+	<param name="pathway_text" default="You are here:" type="textarea" cols="32" rows="1" tooltip="inline" label="Pathway pre-text" description="Would you like the pathway text to be displayed? This will not impact the actual pathway module itself." />		
 </params>
 
 <params group="outersidebardata">	

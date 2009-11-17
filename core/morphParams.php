@@ -225,6 +225,7 @@ $inset4_modfx = $MORPH->inset4_modfx;
 // main block
 $main_wrap = $MORPH->main_wrap;
 $main_inner = $MORPH->main_inner;
+$pathway_text_show = $MORPH->pathway_text_show;
 $pathway_text = $MORPH->pathway_text;
 
 // secondary content
