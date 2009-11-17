@@ -1209,11 +1209,18 @@
 		<option value="0">No</option>
 	</param>
 	<param name="footer_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
-
+	<param name="footer_copyright_show" default="1" type="radio" label="Display copyright" tooltip="inline" description="Would you like the footer copyright to be display?">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
 	<param name="footer_copyright" default="Copyright 2009 JoomlaJunkie.com - All Rights Reserved" type="textarea" cols="32" rows="2" label="Copyright text" tooltip="inline" description="Add your own copyright here" />
+	<param name="footer_credits_show" default="1" type="radio" label="Display credits" tooltip="inline" description="Would you like the footer credits to be display?">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
 	<param name="footer_credits" default="Template Designed by &lt;a href=&quot;http://www.joomlajunkie.com&quot; title=&quot;professional joomla templates&quot;&gt;JoomlaJunkie&lt;/a&gt;" type="textarea" cols="32" rows="2" label="Credits text" tooltip="inline" description="Add your own credits here" />
-	<param name="footer_textcolor" default="default" type="colorpicker" label="Footer text color" tooltip="inline" description="" />
-	<param name="footer_linkscolor" default="default" type="colorpicker" label="Footer links color" tooltip="inline" description="" />
+	<param name="footer_textcolor" default="#777" type="colorpicker" label="Footer text color" tooltip="inline" description="" />
+	<param name="footer_linkscolor" default="#555" type="colorpicker" label="Footer links color" tooltip="inline" description="" />
 	<param name="footer_morphlink" default="1" type="radio" label="Show Powered by Morph" tooltip="inline" description="We've made it optional to disable the Morph Inside link, but please consider leaving it on.">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
