@@ -509,7 +509,7 @@ function pt_body_classes($menu, $view, $themelet){
 
 function pt_classes($classes, $sitewidth=''){
 	$c = '';
-	if($sitewidth !== ''){ $c .= $sitewidth.' '; }
+	if($sitewidth !== ''){ $c .= $sitewidth.' clearer '; }
 	
 	if(is_array($classes)){
 		foreach($classes as $classname => $p){
@@ -519,7 +519,7 @@ function pt_classes($classes, $sitewidth=''){
 				if($p >= 1){ $c .= 'subtext'; }else{ $c .= 'no-subtext'; }
 				break;
 				case 'topnav_actionlink':
-				if($p >= 1){ $c .= ' call-for-action clearer'; }
+				if($p >= 1){ $c .= ' call-for-action'; }
 				break;
 				case 'topfish':
 				if($p >= 1){ $c .= ' topfish'; }
