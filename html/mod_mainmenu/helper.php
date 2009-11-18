@@ -156,6 +156,12 @@ class modNewMainMenuHelper
 				$xml = modNewMainMenuHelper::getXML($params->get('menutype'), $params, $callback);
 				if ($xml) {
 					$class = $params->get('class_sfx');
+					
+					// add icon class if menu images are enabled
+					if ($params->get('menu_images') && $params->get('menu_images') != -1) {
+						$class .= ' icon';
+					}
+					
 					$xml->addAttribute('class', 'menu'. ' ' .$class);
 					if ($tagId = $params->get('tag_id')) {
 						$xml->addAttribute('id', $tagId);
@@ -305,7 +311,18 @@ class MainMenuTree extends JTree
 
 		$iParams = new JParameter($tmp->params);
 		if ($params->get('menu_images') && $iParams->get('menu_image') && $iParams->get('menu_image') != -1) {
-			$image = '<img src="'.JURI::base(true).'/images/stories/'.$iParams->get('menu_image').'" alt="'.$item->alias.'" />';
+			
+			$menu_text = '<span>'.$item->name.'</span>';
+			if($params->get('class_sfx') && $params->get('class_sfx') == 'image-only'){
+				$menu_text = null;
+			}
+			
+			if($params->get('menu_images_align') == 0){ // left aligned
+				$image = '<img src="'.JURI::base(true).'/images/stories/'.$iParams->get('menu_image').'" alt="'.$item->alias.'" />'.$menu_text;
+			}
+			if($params->get('menu_images_align') == 1){ // right aligned
+				$image = $menu_text.'<img src="'.JURI::base(true).'/images/stories/'.$iParams->get('menu_image').'" alt="'.$item->alias.'" />';
+			}
 			if($tmp->ionly){
 				 $tmp->name = null;
 			 }
