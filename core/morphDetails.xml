@@ -970,7 +970,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="pathway_text_show" default="1" type="radio" label="Enable pathway pre-text" tooltip="inline" description="This option lets you choose wether or not to display the text before the pathway module, eg: You are here">
+	<param name="pathway_text_show" default="1" type="radio" label="Enable pathway pre-text" tooltip="inline" description="This option lets you choose whether or not to display the text before the pathway module, eg: You are here">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
