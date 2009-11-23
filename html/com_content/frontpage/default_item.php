@@ -48,9 +48,13 @@ $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $
     		<?php if ($this->item->params->get('link_section')) { echo '<a href="'.JRoute::_(ContentHelperRoute::getSectionRoute($this->item->sectionid)).'">'; } ?>
     		<strong class="article-section"><?php echo $this->item->section; ?></strong>
     		<?php if ($this->item->params->get('link_section')) { echo '</a>'; } ?>
-    	<?php } if (($this->item->params->get('show_section') && $this->item->sectionid) && ($this->item->params->get('show_category') && $this->item->catid)) { ?>	
+    		
+    	<?php } 
+    	if (($this->item->params->get('show_section') && $this->item->sectionid) && ($this->item->params->get('show_category') && $this->item->catid)) { ?>	
     	 / 
-    	<?php } if ($this->item->params->get('show_category') && $this->item->catid) { ?>
+    	<?php }
+    	
+    	if ($this->item->params->get('show_category') && $this->item->catid) { ?>
     		<?php if ($this->item->params->get('link_category')) { echo '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catslug, $this->item->sectionid)).'">'; } ?>
     		<strong class="article-category"><?php echo $this->item->category; ?></strong>
     		<?php if ($this->item->params->get('link_category')) { echo '</a>'; } ?>

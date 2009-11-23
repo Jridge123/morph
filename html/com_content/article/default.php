@@ -56,7 +56,7 @@ $this->params->get('show_email_icon'))	{ ?>
     <?php } ?></li>
     <?php } ?>
     <?php if (($this->params->get('show_author')) && ($this->article->author != "")) { ?>
-	<li class="author">Written by <strong><?php JText::printf($this->article->created_by_alias ? $this->article->created_by_alias : $this->article->author); ?></strong></li>
+	<li class="author"><?php echo JText::_( 'Written by' ); ?> <strong><?php JText::printf($this->article->created_by_alias ? $this->article->created_by_alias : $this->article->author); ?></strong></li>
     <?php } ?>
     <li><span class="sep">&nbsp;|&nbsp;</span><a href="<?php echo curPageURL(); ?>|<?php echo $this->escape($this->article->title); ?>" rel="shareit">Share Article</a>
         <span class="sep">&nbsp;|&nbsp;</span><span id="fontsizer"></span></li>

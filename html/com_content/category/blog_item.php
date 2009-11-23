@@ -3,20 +3,20 @@ defined('_JEXEC') or die('Restricted access');
 include_once(dirname(__FILE__).DS.'..'.DS.'icon.php');
 ?>
 
-	<?php if ($this->item->params->get('show_title')) : ?>
-	<h2 class="contentheading">
-		<?php if ($this->item->params->get('link_titles') && $this->item->readmore_link != '') : ?>
-		<a href="<?php echo $this->item->readmore_link; ?>">
-			<?php echo $this->escape($this->item->title); ?></a>
-		<?php else : ?>
-			<?php echo $this->escape($this->item->title); ?>
-		<?php endif; ?>
-		
-        <?php if ($this->user->authorize('com_content', 'edit', 'content', 'all') || $this->user->authorize('com_content', 'edit', 'content', 'own')) : ?>
-        	<?php echo JHTML::_('icon.edit', $this->item, $this->item->params, $this->access); ?>
-        <?php endif; ?>
-	</h2>
+<?php if ($this->item->params->get('show_title')) : ?>
+<h2 class="contentheading">
+	<?php if ($this->item->params->get('link_titles') && $this->item->readmore_link != '') : ?>
+	<a href="<?php echo $this->item->readmore_link; ?>">
+		<?php echo $this->escape($this->item->title); ?></a>
+	<?php else : ?>
+		<?php echo $this->escape($this->item->title); ?>
 	<?php endif; ?>
+	
+    <?php if ($this->user->authorize('com_content', 'edit', 'content', 'all') || $this->user->authorize('com_content', 'edit', 'content', 'own')) : ?>
+    	<?php echo JHTML::_('icon.edit', $this->item, $this->item->params, $this->access); ?>
+    <?php endif; ?>
+</h2>
+<?php endif; ?>
 
 <!-- created date and author -->
 <?php if ($this->item->params->get('show_author') && ($this->item->author != "") ||	
