@@ -82,13 +82,14 @@ $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $
 
     <?php if ($this->item->params->get('show_readmore') && $this->item->readmore) : ?>
     <p class="readon"><a href="<?php echo $this->item->readmore_link; ?>" title="<?php echo JText::sprintf($this->item->title); ?>">
-    	<?php if ($this->item->readmore_register) :
-    		echo JText::_('Register to read more...');
-    	elseif ($readmore = $this->item->params->get('readmore')) :
-    		echo $readmore;
-    	else :
-    		echo JText::_('Continue reading<span> "' . JText::sprintf($this->item->title). '"</span>');
-    	endif; ?></a>
+		<?php if ($this->item->readmore_register) :
+			echo JText::_('Register to read more...');
+		elseif ($readmore = $this->item->params->get('readmore')) :
+			echo $readmore;
+		else :
+			echo JText::sprintf('Read more', $this->escape($this->item->title));
+		endif; ?></a>
+</p>
     </p>
     <?php endif; ?>
 

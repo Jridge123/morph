@@ -31,11 +31,11 @@ defined('_JEXEC') or die('Restricted access'); ?>
 		</li>
 		<?php if(JPluginHelper::isEnabled('system', 'remember')) : ?>
 		<li class="login-remember"><label for="remember" id="form-login-remember"><input type="checkbox" name="remember" id="remember" value="yes" alt="Remember Me" /> 
-			<?php echo JText::_('Remember me ') ?></label>
+		    <?php echo JText::_('Remember me'); ?>
 		</li>
 		<?php endif; ?>
 		<li class="login-btn">
-			<button class="button" type="submit"><?php echo JText::_('Members Login'); ?></button>
+			<button class="button" type="submit"><?php echo JText::_('Login'); ?></button>
 		</li>
 	</ul>
 	<ul class="login-links">

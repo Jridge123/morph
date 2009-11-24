@@ -58,7 +58,7 @@ $this->params->get('show_email_icon'))	{ ?>
     <?php if (($this->params->get('show_author')) && ($this->article->author != "")) { ?>
 	<li class="author"><?php echo JText::_( 'Written by' ); ?> <strong><?php JText::printf($this->article->created_by_alias ? $this->article->created_by_alias : $this->article->author); ?></strong></li>
     <?php } ?>
-    <li><span class="sep">&nbsp;|&nbsp;</span><a href="<?php echo curPageURL(); ?>|<?php echo $this->escape($this->article->title); ?>" rel="shareit">Share Article</a>
+    <li><span class="sep">&nbsp;|&nbsp;</span><a href="<?php echo curPageURL(); ?>|<?php echo $this->escape($this->article->title); ?>" rel="shareit"><?php echo JText::_('SHARE_ARTICLE'); ?></a>
         <span class="sep">&nbsp;|&nbsp;</span><span id="fontsizer"></span></li>
 	<?php if ($this->params->get('show_pdf_icon')) : ?>
 	<li class="icons"><?php echo articleIcons::pdf($this->article, $this->params, $this->access); ?></li>
@@ -73,33 +73,39 @@ $this->params->get('show_email_icon'))	{ ?>
 
 <?php } ?>	
 
-<!-- section & category -->
-<?php if ($this->params->get('show_section') && $this->article->sectionid && isset($this->article->section) or $this->params->get('show_category') && $this->article->catid) { ?>
+<?php if (($this->params->get('show_section') && $this->article->sectionid) || ($this->params->get('show_category') && $this->article->catid)) : ?>
 <p class="filing">
-	<?php if ($this->params->get('show_section') && $this->article->sectionid && isset($this->article->section) or $this->params->get('show_category') && $this->article->catid) : ?>
-	Filed under: 
-	<?php endif; ?>
-	
-	<?php if ($this->params->get('show_section') && $this->article->sectionid && isset($this->article->section)) : ?>
-	<?php if ($this->params->get('link_section')) : ?><?php echo '<a href="'.JRoute::_(ContentHelperRoute::getSectionRoute($this->article->sectionid)).'">'; ?><?php endif; ?>
-		<span class="article-section"><?php echo $this->article->section; ?></span>
-	<?php if ($this->params->get('link_section')) : ?><?php echo '</a>'; ?><?php endif; ?>
-	<?php endif; ?>
-	<?php if ($this->params->get('show_category')) : ?>
-		<span class="filing-sep">&nbsp;/&nbsp;</span>
+	<?php if ($this->params->get('show_section') && $this->article->sectionid) : ?>
+	<span class="article-section">
+		<?php if ($this->params->get('link_section')) : ?>
+			<?php echo '<a href="'.JRoute::_(ContentHelperRoute::getSectionRoute($this->article->sectionid)).'">'; ?>
+		<?php endif; ?>
+		<?php echo $this->escape($this->article->section); ?>
+		<?php if ($this->params->get('link_section')) : ?>
+			<?php echo '</a>'; ?>
+		<?php endif; ?>
+		<?php if ($this->params->get('show_category')) : ?>
+			<?php echo ' - '; ?>
+		<?php endif; ?>
+	</span>
 	<?php endif; ?>
 	<?php if ($this->params->get('show_category') && $this->article->catid) : ?>
+	<span class="article-category">
 		<?php if ($this->params->get('link_category')) : ?>
 			<?php echo '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->article->catslug, $this->article->sectionid)).'">'; ?>
-			<?php endif; ?>
-			<span class="article-category"><?php echo $this->article->category; ?></span>
-			<?php if ($this->params->get('link_category')) : ?>
+		<?php endif; ?>
+		<?php echo $this->escape($this->article->category); ?>
+		<?php if ($this->params->get('link_category')) : ?>
 			<?php echo '</a>'; ?>
-			<?php endif; ?>
+		<?php endif; ?>
+	</span>
 	<?php endif; ?>
 </p>
-<?php } ?>
-			
+<?php endif; ?>
+
+
+
+	
 	<!-- end article top -->
 	<?php endif; ?>
 
