@@ -57,7 +57,7 @@ $db->setQuery( $query ); $sidefish = $db->loadResult();
 $query = "SELECT COUNT(*) FROM `#__modules` WHERE `position` = 'splitleft' AND `module` = 'mod_mainmenu' OR `position` = 'topleft' AND `module` = 'mod_mainmenu' OR `position` = 'left' AND `module` = 'mod_mainmenu' OR `position` = 'bottomleft' AND `module` = 'mod_mainmenu' OR `position` = 'splitright' AND `module` = 'mod_mainmenu' OR `position` = 'topright' AND `module` = 'mod_mainmenu' OR `position` = 'right' AND `module` = 'mod_mainmenu' OR `position` = 'bottomright' AND `module` = 'mod_mainmenu'" ;
 $db->setQuery( $query ); $sidenav_count = $db->loadResult();
 
-$query = "SELECT COUNT(*) FROM `#__modules` WHERE `position` = 'user3' AND `module` = 'mod_mainmenu'";
+$query = "SELECT COUNT(*) FROM `#__modules` WHERE `position` = 'user3' AND `module` = 'mod_mainmenu' OR `position` = 'top' AND `module` = 'mod_mainmenu'  OR `position` = 'toolbar' AND `module` = 'mod_mainmenu'";
 $db->setQuery( $query ); $topnav_count = $db->loadResult();
 
 $query = "SELECT COUNT(*) FROM `#__modules` WHERE `position` = 'left' AND `params` LIKE '%moduleclass_sfx=animate%' OR `position` = 'left' AND  `params` LIKE '% animate%'";
