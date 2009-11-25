@@ -7,7 +7,7 @@
 	<copyright>Commercial</copyright>
 	<authorEmail>noreply@joomlajunkie.com</authorEmail>
 	<authorUrl>htp://www.joomlajunkie.com</authorUrl>
-	<version>1.03</version>
+	<version>1.04</version>
 	<description>
 		<![CDATA[
 		<style type="text/css" media="screen">
@@ -55,6 +55,10 @@
 		<filename>template_thumbnail.png</filename>		
 		<filename>templateDetails.xml</filename>
 	</files>
+	<languages folder="languages">
+		<language tag="en-GB">en-GB.tpl_morph.ini</language>
+		<language tag="sv-SE">sv-SE.tpl_morph.ini</language>
+	</languages>
 	<positions>		
 		<position>banner</position>
 		<position>breadcrumb</position>

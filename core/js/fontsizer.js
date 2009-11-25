@@ -31,7 +31,7 @@ function fontSize(container, target, minSize, defSize, maxSize) {
 	smallFontHtml = "<a href='javascript:void(0);' class='smallFont' title='" + minCaption +"'>Decrease</a> ";
 	defFontHtml = "<a href='javascript:void(0);' class='defaultFont' title='" + defCaption +"'>Reset</a> ";
 	largeFontHtml = "<a href='javascript:void(0);' class='largeFont' title='" + maxCaption +"'>Increase</a> ";
-	jQuery(container).html('Text size' + smallFontHtml + defFontHtml + largeFontHtml);
+	jQuery(container).html(smallFontHtml + defFontHtml + largeFontHtml);
 	
 	//Read cookie & sets the fontsize
 	if (jQuery.cookie != undefined) {
