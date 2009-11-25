@@ -1,6 +1,6 @@
 /* frontend dev bar
 ******************************************************/
-#dev-toolbar{font-family:arial;background:#fff url('../images/devbar-sprite.png') repeat-x 0px -87px;overflow:hidden;}
+#dev-toolbar{font-family:arial;background:#fff url('../images/devbar-sprite.png') repeat-x 0px -87px;width:100%;height:33px;}
 
 #dev-toolbar ul,
 #dev-toolbar li{list-style:none;margin:0;padding:0;}
@@ -8,9 +8,9 @@
 #dev-toolbar ul{margin:0 auto;color:#999;}
 #dev-toolbar li{height:33px;line-height:18px;float:left;padding:0 1.5em 0 0;position:relative;}
 #dev-toolbar li strong{cursor:help;}
-#dev-toolbar li span{display:none;position:absolute;background:#000;width:180px;left:12px;top:31px;z-index:9999;padding:.7em .7em .4em .7em;}
-#dev-toolbar li span p {line-height:16px;padding:5px 0 0 0;}
-#dev-toolbar li span strong{cursor:default;}
+#dev-toolbar li span.desc{display:none;position:absolute;background:#000;width:180px;left:0px;top:31px;z-index:9999;padding:.7em .7em .4em .7em;}
+#dev-toolbar li span.desc span {line-height:16px;padding:5px 0 0 0;font-size:12px;display:block;}
+#dev-toolbar li span.desc span strong{cursor:default;display:inline-block;}
 #dev-toolbar .dev-label{font-weight:bold;color:#555;text-transform:uppercase;padding:0 1em 0 0;line-height:30px;}
 /* toolbar links */
 #dev-toolbar a {background:transparent url('../images/devbar-sprite.png') no-repeat 0 0;display:inline-block;text-indent:-9999px;height:19px;width:34px;text-decoration:none;}
