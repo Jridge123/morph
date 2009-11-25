@@ -90,7 +90,6 @@ $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $
 		else :
 			echo JText::sprintf('Read more', $this->escape($this->item->title));
 		endif; ?></a>
-</p>
     </p>
     <?php endif; ?>
 
