@@ -130,7 +130,7 @@ body{color:#<?php echo $color_bodytext; ?>;}
 <?php } if( $pack_css == 1 ){
 if($developer_toolbar == 1) { include('devbar.css'); }
 if( $direction == 'rtl' && file_exists($css_rtl)){ include($css_rtl); } elseif ($direction == 'rtl') { include('rtl.css'); }
-if($custom_css == 1){ include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'custom.css'); }
+if($custom_css == 1){ include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'custom.css.php'); }
 include('browsers.css');
 if(preg_match('/MSIE 6/i', $_SERVER['HTTP_USER_AGENT'])) include('ie6.css');
 // browser specific
