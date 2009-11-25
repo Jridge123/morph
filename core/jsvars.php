@@ -81,6 +81,6 @@ $simpletweet = $_GET['H02'];
 $gzip_compression = $_GET['Z01'];
 $pack_js = $_GET['Z02'];
 $custom_js = $_GET['Z03'];
-$developer_toolbar = $_GET['Z04'];
-$themelet_js = $_GET['Z05'];
+$themelet_js = $_GET['Z04'];
+$developer_toolbar = $_GET['Z05'];
 ?>

@@ -165,8 +165,8 @@ $packed_js_vars["H02"]=$simpletweet;
 $packed_js_vars["Z01"]=$gzip_compression;
 $packed_js_vars["Z02"]=$pack_js;
 $packed_js_vars["Z03"]=$custom_js;
-$packed_js_vars["Z04"]=$developer_toolbar;
-$packed_js_vars["Z05"]=$themelet_js;
+$packed_js_vars["Z04"]=$themelet_js;
+$packed_js_vars["Z05"]=$developer_toolbar;
 
 if(!empty($pt_mod)){
 	$packed_js_vars["Z05"]=$pt_mod['pt_delay'];
