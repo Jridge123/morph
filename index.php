@@ -83,7 +83,7 @@ if($this->countModules('advert2')) {'<div id="advert2"><jdoc:include type="modul
 ?>
 <jdoc:include type="modules" name="debug" />
 <?php include_once('core'.DS.'includes'.DS.'ga-code.php'); ?>
-<?php if ( $plugin_scrollto == 1 && $browser->getBrowser() !== Browser::PLATFORM_IPHONE ) { ?><a href="#top" id="top-link"><?php echo JText::_('TOP_OF_PAGE'); ?></a><?php } ?>
+<?php if ( $plugin_scrollto == 1 && $browser->getBrowser() !== Browser::PLATFORM_IPHONE ) { ?><a href="#top" id="top-link"><?php echo JText::_('Back to Top'); ?></a><?php } ?>
 
 <?php } 
 if(file_exists($footer_script) && is_readable($footer_script)){

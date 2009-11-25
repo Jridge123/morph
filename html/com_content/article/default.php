@@ -38,28 +38,27 @@ function curPageURL() {
 		</h1>
 		<?php endif; ?>
 	
-<!-- created date and author -->
-<?php if (
-$this->params->get('show_author') && ($this->article->author != "") ||	
-$this->params->get('show_create_date') ||	
-$this->params->get('show_section') ||	
-$this->params->get('show_category') ||
-$this->params->get('show_pdf_icon') ||
-$this->params->get('show_print_icon') || 
-$this->params->get('show_email_icon'))	{ ?>
+    <!-- created date and author -->
+    <?php if (
+    $this->params->get('show_author') && ($this->article->author != "") ||	
+    $this->params->get('show_create_date') ||	
+    $this->params->get('show_section') ||	
+    $this->params->get('show_category') ||
+    $this->params->get('show_pdf_icon') ||
+    $this->params->get('show_print_icon') || 
+    $this->params->get('show_email_icon'))	{ ?>
 	
 <ul class="article-info">		
     <?php if ($this->params->get('show_create_date')) { ?>
-    <li class="created"><?php echo JHTML::_('date', $this->article->created, JText::_('%a, %d %b %y')); ?>
-	<?php if ($this->params->get('show_create_date') && $this->params->get('show_author')){ ?>
-        <span class="divider">|&nbsp;</span>
-    <?php } ?></li>
+    <li class="created"><?php echo JHTML::_('date', $this->article->created, JText::_('%d %b %y')); ?></li>
     <?php } ?>
+    
     <?php if (($this->params->get('show_author')) && ($this->article->author != "")) { ?>
-	<li class="author"><?php echo JText::_( 'Written by' ); ?> <strong><?php JText::printf($this->article->created_by_alias ? $this->article->created_by_alias : $this->article->author); ?></strong></li>
+	<li class="author"><?php JText::printf('Written by', ($this->article->created_by_alias ? $this->escape($this->article->created_by_alias) : $this->escape($this->article->author))); ?></li>
     <?php } ?>
-    <li><span class="sep">&nbsp;|&nbsp;</span><a href="<?php echo curPageURL(); ?>|<?php echo $this->escape($this->article->title); ?>" rel="shareit"><?php echo JText::_('SHARE_ARTICLE'); ?></a>
-        <span class="sep">&nbsp;|&nbsp;</span><span id="fontsizer"></span></li>
+    <li class="share"><a href="<?php echo curPageURL(); ?>|<?php echo $this->escape($this->article->title); ?>" rel="shareit"><?php echo JText::_('Share Article'); ?></a></li>
+    <li class="fontsize"><span class="fontsize-label"><?php echo JText::_('Text Size'); ?>: </span><span id="fontsizer"></span></li>
+    
 	<?php if ($this->params->get('show_pdf_icon')) : ?>
 	<li class="icons"><?php echo articleIcons::pdf($this->article, $this->params, $this->access); ?></li>
 	<?php endif; ?>
