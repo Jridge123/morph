@@ -79,7 +79,7 @@ if(file_exists($themeletjs)){ $themelet_js = 1; }else{ $themelet_js = 0; }
 if(file_exists($customjs)){ $custom_js = 1; }else{ $custom_js = 0; }
 if(file_exists($customcss)){ $custom_css = 1; }else{ $custom_css = 0; }
 
-$pt_mod = getModuleParams('mod_simpleticker');
+//$pt_mod = getModuleParams('mod_simpleticker');
 
 // JS Variables
 $packed_js_vars = array();
@@ -168,9 +168,9 @@ $packed_js_vars["Z03"]=$custom_js;
 $packed_js_vars["Z04"]=$themelet_js;
 $packed_js_vars["Z05"]=$developer_toolbar;
 
-if(!empty($pt_mod)){
-	$packed_js_vars["Z05"]=$pt_mod['pt_delay'];
-}
+//if(!empty($pt_mod)){
+//	$packed_js_vars["H01"]=$pt_mod['pt_delay'];
+//}
 
 $packed_js = '';
 foreach($packed_js_vars as $key => $val){
