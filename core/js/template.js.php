@@ -279,7 +279,6 @@ jQuery.noConflict();
 			$('#dev-toolbar li strong.tool-label').each(function(){
 				$this = $(this);
 				$this.mouseover(function(){
-					console.log($(this).next().next())
 					$(this).next().next().fadeIn();
 				})
 				.mouseout(function(){
