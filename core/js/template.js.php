@@ -259,6 +259,7 @@ jQuery.noConflict();
         	}			
 			$("#accordions'.$n.'").accordion({
 			    header: "h3",
+			    autoHeight: false,
 			    collapsible: true,
 			    active: active'.$n.',
 			    change: function(event, ui) {
