@@ -28,7 +28,7 @@ $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $
     <ul class="article-info">		
         <?php if ($this->item->params->get('show_create_date')) { ?>
         <li class="created">
-            <?php echo JHTML::_('date', $this->article->created, JText::_('%d %b %y')); ?>
+            <?php echo JHTML::_('date', $this->item->created, JText::_('%d %b %y')); ?>
         </li>
         <?php } ?>
         <?php if (($this->item->params->get('show_author')) && ($this->item->author != "")) : ?>
