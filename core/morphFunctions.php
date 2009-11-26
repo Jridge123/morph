@@ -246,6 +246,9 @@ if ( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
     		if( $simpleticker == 1 ) { 
     		    $document->addScript($templatepath .'/core/js/innerfade.js');
     		}
+    		if( $simpletweet == 1 ) {
+    		    $document->addScript('modules/mod_simpletweet/js/simpletweet.js');
+            }
     		if( $captions_enabled == 1 ) { 
     		    $document->addScript($templatepath .'/core/js/captify.js');
     		}
