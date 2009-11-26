@@ -57,7 +57,7 @@ $db->setQuery( $query ); $sidefish = $db->loadResult();
 $query = "SELECT COUNT(*) FROM `#__modules` WHERE `position` = 'splitleft' AND `module` = 'mod_mainmenu' OR `position` = 'topleft' AND `module` = 'mod_mainmenu' OR `position` = 'left' AND `module` = 'mod_mainmenu' OR `position` = 'bottomleft' AND `module` = 'mod_mainmenu' OR `position` = 'splitright' AND `module` = 'mod_mainmenu' OR `position` = 'topright' AND `module` = 'mod_mainmenu' OR `position` = 'right' AND `module` = 'mod_mainmenu' OR `position` = 'bottomright' AND `module` = 'mod_mainmenu'" ;
 $db->setQuery( $query ); $sidenav_count = $db->loadResult();
 
-$query = "SELECT COUNT(*) FROM `#__modules` WHERE `position` = 'user3' AND `module` = 'mod_mainmenu'";
+$query = "SELECT COUNT(*) FROM `#__modules` WHERE `position` = 'user3' AND `module` = 'mod_mainmenu' OR `position` = 'top' AND `module` = 'mod_mainmenu'  OR `position` = 'toolbar' AND `module` = 'mod_mainmenu'";
 $db->setQuery( $query ); $topnav_count = $db->loadResult();
 
 $query = "SELECT COUNT(*) FROM `#__modules` WHERE `position` = 'left' AND `params` LIKE '%moduleclass_sfx=animate%' OR `position` = 'left' AND  `params` LIKE '% animate%'";
@@ -79,7 +79,7 @@ if(file_exists($themeletjs)){ $themelet_js = 1; }else{ $themelet_js = 0; }
 if(file_exists($customjs)){ $custom_js = 1; }else{ $custom_js = 0; }
 if(file_exists($customcss)){ $custom_css = 1; }else{ $custom_css = 0; }
 
-$pt_mod = getModuleParams('mod_simpleticker');
+//$pt_mod = getModuleParams('mod_simpleticker');
 
 // JS Variables
 $packed_js_vars = array();
@@ -165,12 +165,12 @@ $packed_js_vars["H02"]=$simpletweet;
 $packed_js_vars["Z01"]=$gzip_compression;
 $packed_js_vars["Z02"]=$pack_js;
 $packed_js_vars["Z03"]=$custom_js;
-$packed_js_vars["Z04"]=$developer_toolbar;
-$packed_js_vars["Z05"]=$themelet_js;
+$packed_js_vars["Z04"]=$themelet_js;
+$packed_js_vars["Z05"]=$developer_toolbar;
 
-if(!empty($pt_mod)){
-	$packed_js_vars["Z05"]=$pt_mod['pt_delay'];
-}
+//if(!empty($pt_mod)){
+//	$packed_js_vars["H01"]=$pt_mod['pt_delay'];
+//}
 
 $packed_js = '';
 foreach($packed_js_vars as $key => $val){

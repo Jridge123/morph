@@ -116,8 +116,8 @@ $css_ie8				    = $absolutepath.DS.'css'.DS.'ie8.css';
 $css_browsers				= $absolutepath.DS.'css'.DS.'browsers.css';
 $css_yui					= $absolutepath.DS.'css'.DS.'yui.css';
 $css_iphone					= $absolutepath.DS.'css'.DS.'iphone.css';
-$customcss					= $absolutepath.DS.'css'.DS.'custom.css';
-$customjs					= $absolutepath.DS.'js'.DS.'custom.js';
+$customcss					= $absolutepath.DS.'css'.DS.'custom.css.php';
+$customjs					= $absolutepath.DS.'js'.DS.'custom.js.php';
 $themeletjs					= $absolutepath.DS.'js'.DS.'themelet.js';
 $customfunctions			= $absolutepath.DS.'custom.php';
 $themeletfunctions			= $absolutepath.DS.'themelet.php';
@@ -137,6 +137,7 @@ if($load_mootools == 0) {
             case 'com_contact':
             case 'com_k2':
             case 'com_myblog':
+            case 'com_jevents':
             $this->setHeadData($headoriginal);
             break;
         }
@@ -245,6 +246,9 @@ if ( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
     		if( $simpleticker == 1 ) { 
     		    $document->addScript($templatepath .'/core/js/innerfade.js');
     		}
+    		if( $simpletweet == 1 ) {
+    		    $document->addScript('modules/mod_simpletweet/js/simpletweet.js');
+            }
     		if( $captions_enabled == 1 ) { 
     		    $document->addScript($templatepath .'/core/js/captify.js');
     		}
@@ -299,7 +303,6 @@ if( $browser->getBrowser() == Browser::PLATFORM_IPHONE && $iphone_mode == 1 ){
 		$document->addStyleSheet($templatepath .'/core/css/template.css.php'.$packed_css);
 		if($developer_toolbar == 1) { $document->addStyleSheet($templatepath .'/core/css/devbar.css'); }
 		if ( $direction == 'rtl' && file_exists($css_rtl)){ $document->addStyleSheet($css_rtl); } elseif ($direction == 'rtl') { $document->addStyleSheet($themeletpath .'/core/css/rtl.css'); }
-		if ( file_exists($customcss)) { $document->addStyleSheet($themeletpath .'/css/custom.css'); }
 		// core browser specific
 		$document->addStyleSheet($templatepath .'/core/css/browsers.css');
 		if(preg_match('/MSIE 6/i', $_SERVER['HTTP_USER_AGENT'])) $document->addStyleSheet($templatepath .'/core/css/ie6.css');

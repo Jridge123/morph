@@ -2,7 +2,6 @@
 /**
 *** Morph is a commercial template framework from JoomlaJunkie.com
 *** @author    JoomlaJunkie
-*** @version   0.01
 *** @copyright (C) 2009 by JoomlaJunkie
 *** @license   Commercial
 **/
@@ -13,7 +12,6 @@ include_once(JPATH_ROOT.DS.'templates'.DS.$this->template.DS.'core'.DS.'morphFun
 <head>
 <jdoc:include type="head" />
 <?php
-// firebug lite
 if(isset($_COOKIE['firebug']) && $_COOKIE['firebug'] == 'enabled'){
 	$enable_fb = 1;
 	$document->addScript($templatepath .'/core/js/firebug-lite.js');
@@ -24,13 +22,11 @@ if(isset($_COOKIE['firebug']) && $_COOKIE['firebug'] == 'enabled'){
 		</script>
 	');
 }
-?>
-<?php if ( $google_analytics !== "" ) { ?>
+if ( $google_analytics !== "" ) { ?>
 <script type="text/javascript">
 $.trackPage('<?php echo $google_analytics; ?>')
 </script>
-<?php } ?>
-<?php if( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) { ?>
+<?php } if( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) { ?>
 <meta name="viewport" content="width=320" />
 <link rel="apple-touch-icon" href="<?php echo $assetspath; ?>/iphone/<?php echo $iphone_webclip; ?>" />
 <?php } ?>
@@ -45,8 +41,7 @@ $.trackPage('<?php echo $google_analytics; ?>')
 if($developer_toolbar == 1 or isset($_COOKIE['morph_developer_toolbar'])){
 include_once('core/includes/devbar.php');
 }
-
-// check if Google Chrome Frame is installed on the browser, if not show a info box
+// check if google chrome frame is installed on the browser, if not show a info box
 if( $browser->getBrowser() == Browser::BROWSER_IE && $chrome_frame == 1 ) { 
 	if(!preg_match('/chromeframe/i', $_SERVER['HTTP_USER_AGENT'])){
 		echo '<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>';
@@ -83,7 +78,7 @@ if($this->countModules('advert2')) {'<div id="advert2"><jdoc:include type="modul
 ?>
 <jdoc:include type="modules" name="debug" />
 <?php include_once('core'.DS.'includes'.DS.'ga-code.php'); ?>
-<?php if ( $plugin_scrollto == 1 && $browser->getBrowser() !== Browser::PLATFORM_IPHONE ) { ?><a href="#top" id="top-link">Top of Page</a><?php } ?>
+<?php if ( $plugin_scrollto == 1 && $browser->getBrowser() !== Browser::PLATFORM_IPHONE ) { ?><a href="#top" id="top-link"><?php echo JText::_('Back to Top'); ?></a><?php } ?>
 
 <?php } 
 if(file_exists($footer_script) && is_readable($footer_script)){

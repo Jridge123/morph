@@ -259,6 +259,7 @@ jQuery.noConflict();
         	}			
 			$("#accordions'.$n.'").accordion({
 			    header: "h3",
+			    autoHeight: false,
 			    collapsible: true,
 			    active: active'.$n.',
 			    change: function(event, ui) {
@@ -272,17 +273,17 @@ jQuery.noConflict();
 		    include('..'.DS.'..'.DS.'..'.DS.'..'.DS.'morph_assets'.DS.'themelets'.DS.$themelet.DS.'js'.DS.'themelet.js');echo"\n";
 		} 
 		if($custom_js == 1){
-		    include('..'.DS.'..'.DS.'..'.DS.'..'.DS.'morph_assets'.DS.'themelets'.DS.$themelet.DS.'js'.DS.'custom.js');echo"\n";
+		    include('..'.DS.'..'.DS.'..'.DS.'..'.DS.'morph_assets'.DS.'themelets'.DS.$themelet.DS.'js'.DS.'custom.js.php');echo"\n";
 		} ?>
-		<?php if($developer_toolbar==1){ ?>
+		<?php if($developer_toolbar == 1){ ?>
 			$('#dev-toolbar a').click(function(){ return false; });
 			$('#dev-toolbar li strong.tool-label').each(function(){
 				$this = $(this);
 				$this.mouseover(function(){
-					$(this).next().fadeIn();
+					$(this).next().next().fadeIn();
 				})
 				.mouseout(function(){
-					$(this).next().fadeOut();
+					$(this).next().next().fadeOut();
 				});
 			})
 			$('#dev-toolbar li.dev-css a').click(function(){

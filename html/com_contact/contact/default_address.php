@@ -78,7 +78,7 @@ function splitname($n){
             <?php if ( $this->contact->telephone && $this->contact->params->get( 'show_telephone' ) ) : ?>
             <li class="tel contact-tel">
                   <span class="type">work</span>
-                  <strong>Tel:</strong> <span class="value"><?php echo nl2br($this->escape($this->contact->telephone)); ?></span>
+                  <strong><?php echo JText::_('Telephone'); ?>:</strong> <span class="value"><?php echo nl2br($this->escape($this->contact->telephone)); ?></span>
             </li>
             <?php endif; ?>
             
@@ -86,14 +86,14 @@ function splitname($n){
             <li class="tel contact-fax">
                   <span class="type">work</span>
                   <span class="type">fax</span>
-                  <strong>Fax:</strong> <span class="value"><?php echo nl2br($this->escape($this->contact->fax)); ?></span>
+                  <strong><?php echo JText::_('Fax'); ?>:</strong> <span class="value"><?php echo nl2br($this->escape($this->contact->fax)); ?></span>
             </li>
             <?php endif; ?>
             
             <?php if ( $this->contact->mobile && $this->contact->params->get( 'show_mobile' ) ) :?>
             <li class="tel contact-mob">
                   <span class="type">cell</span>
-                  <strong>Mobile:</strong> <span class="value"><?php echo nl2br($this->escape($this->contact->mobile)); ?></span>
+                  <strong><?php echo JText::_('Mobile'); ?>:</strong> <span class="value"><?php echo nl2br($this->escape($this->contact->mobile)); ?></span>
             </li>
             <?php endif; ?>
         </ul>
@@ -101,7 +101,7 @@ function splitname($n){
 
 
     <?php if ( $this->contact->webpage && $this->contact->params->get( 'show_webpage' )) : ?>
-	<p class="website"><strong>Web:</strong> <a href="<?php echo $this->escape($this->contact->webpage); ?>" target="_blank"><span class="org url">
+	<p class="website"><strong><?php echo JText::_('Web'); ?>:</strong> <a href="<?php echo $this->escape($this->contact->webpage); ?>" target="_blank"><span class="org url">
 	<?php echo $this->escape($this->contact->webpage); ?></span></a></p>
     <?php endif; ?>  
         

@@ -38,28 +38,27 @@ function curPageURL() {
 		</h1>
 		<?php endif; ?>
 	
-<!-- created date and author -->
-<?php if (
-$this->params->get('show_author') && ($this->article->author != "") ||	
-$this->params->get('show_create_date') ||	
-$this->params->get('show_section') ||	
-$this->params->get('show_category') ||
-$this->params->get('show_pdf_icon') ||
-$this->params->get('show_print_icon') || 
-$this->params->get('show_email_icon'))	{ ?>
+    <!-- created date and author -->
+    <?php if (
+    $this->params->get('show_author') && ($this->article->author != "") ||	
+    $this->params->get('show_create_date') ||	
+    $this->params->get('show_section') ||	
+    $this->params->get('show_category') ||
+    $this->params->get('show_pdf_icon') ||
+    $this->params->get('show_print_icon') || 
+    $this->params->get('show_email_icon'))	{ ?>
 	
 <ul class="article-info">		
     <?php if ($this->params->get('show_create_date')) { ?>
-    <li class="created"><?php echo JHTML::_('date', $this->article->created, JText::_('%a, %d %b %y')); ?>
-	<?php if ($this->params->get('show_create_date') && $this->params->get('show_author')){ ?>
-        <span class="divider">|&nbsp;</span>
-    <?php } ?></li>
+    <li class="created"><?php echo JHTML::_('date', $this->article->created, JText::_('%d %b %y')); ?></li>
     <?php } ?>
+    
     <?php if (($this->params->get('show_author')) && ($this->article->author != "")) { ?>
-	<li class="author">Written by <strong><?php JText::printf($this->article->created_by_alias ? $this->article->created_by_alias : $this->article->author); ?></strong></li>
+	<li class="author"><?php JText::printf('Written by', ($this->article->created_by_alias ? $this->escape($this->article->created_by_alias) : $this->escape($this->article->author))); ?></li>
     <?php } ?>
-    <li><span class="sep">&nbsp;|&nbsp;</span><a href="<?php echo curPageURL(); ?>|<?php echo $this->escape($this->article->title); ?>" rel="shareit">Share Article</a>
-        <span class="sep">&nbsp;|&nbsp;</span><span id="fontsizer"></span></li>
+    <li class="share"><a href="<?php echo curPageURL(); ?>|<?php echo $this->escape($this->article->title); ?>" rel="shareit"><?php echo JText::_('Share Article'); ?></a></li>
+    <li class="fontsize"><span class="fontsize-label"><?php echo JText::_('Text Size'); ?>: </span><span id="fontsizer"></span></li>
+    
 	<?php if ($this->params->get('show_pdf_icon')) : ?>
 	<li class="icons"><?php echo articleIcons::pdf($this->article, $this->params, $this->access); ?></li>
 	<?php endif; ?>
@@ -73,33 +72,39 @@ $this->params->get('show_email_icon'))	{ ?>
 
 <?php } ?>	
 
-<!-- section & category -->
-<?php if ($this->params->get('show_section') && $this->article->sectionid && isset($this->article->section) or $this->params->get('show_category') && $this->article->catid) { ?>
+<?php if (($this->params->get('show_section') && $this->article->sectionid) || ($this->params->get('show_category') && $this->article->catid)) : ?>
 <p class="filing">
-	<?php if ($this->params->get('show_section') && $this->article->sectionid && isset($this->article->section) or $this->params->get('show_category') && $this->article->catid) : ?>
-	Filed under: 
-	<?php endif; ?>
-	
-	<?php if ($this->params->get('show_section') && $this->article->sectionid && isset($this->article->section)) : ?>
-	<?php if ($this->params->get('link_section')) : ?><?php echo '<a href="'.JRoute::_(ContentHelperRoute::getSectionRoute($this->article->sectionid)).'">'; ?><?php endif; ?>
-		<span class="article-section"><?php echo $this->article->section; ?></span>
-	<?php if ($this->params->get('link_section')) : ?><?php echo '</a>'; ?><?php endif; ?>
-	<?php endif; ?>
-	<?php if ($this->params->get('show_category')) : ?>
-		<span class="filing-sep">&nbsp;/&nbsp;</span>
+	<?php if ($this->params->get('show_section') && $this->article->sectionid) : ?>
+	<span class="article-section">
+		<?php if ($this->params->get('link_section')) : ?>
+			<?php echo '<a href="'.JRoute::_(ContentHelperRoute::getSectionRoute($this->article->sectionid)).'">'; ?>
+		<?php endif; ?>
+		<?php echo $this->escape($this->article->section); ?>
+		<?php if ($this->params->get('link_section')) : ?>
+			<?php echo '</a>'; ?>
+		<?php endif; ?>
+		<?php if ($this->params->get('show_category')) : ?>
+			<?php echo ' - '; ?>
+		<?php endif; ?>
+	</span>
 	<?php endif; ?>
 	<?php if ($this->params->get('show_category') && $this->article->catid) : ?>
+	<span class="article-category">
 		<?php if ($this->params->get('link_category')) : ?>
 			<?php echo '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->article->catslug, $this->article->sectionid)).'">'; ?>
-			<?php endif; ?>
-			<span class="article-category"><?php echo $this->article->category; ?></span>
-			<?php if ($this->params->get('link_category')) : ?>
+		<?php endif; ?>
+		<?php echo $this->escape($this->article->category); ?>
+		<?php if ($this->params->get('link_category')) : ?>
 			<?php echo '</a>'; ?>
-			<?php endif; ?>
+		<?php endif; ?>
+	</span>
 	<?php endif; ?>
 </p>
-<?php } ?>
-			
+<?php endif; ?>
+
+
+
+	
 	<!-- end article top -->
 	<?php endif; ?>
 
@@ -118,10 +123,12 @@ $this->params->get('show_email_icon'))	{ ?>
 		<!-- start content output -->
 		<div id="article-content">
 		<?php echo $this->article->text; ?>
-		
+
+	<!-- date modified -->
 		<?php if ( intval($this->article->modified) !=0 && $this->params->get('show_modify_date')) : ?>
-		<p class="modified"><?php echo JText::_( 'Last updated on:' ); ?> <?php echo JHTML::_('date', $this->article->modified, JText::_('%a, %d %b %y')); ?></p>
-		<?php endif; ?>
+		<p class="modified"><?php echo JText::sprintf('LAST_UPDATED2', JHTML::_('date', $this->article->modified, JText::_('DATE_FORMAT_LC2'))); ?>.</p>
+	    <?php endif; ?>
+		
 
 		<div id="shareit-box">
         	<div id="shareit-header"></div>
