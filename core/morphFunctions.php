@@ -256,7 +256,7 @@ if ( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
     		    $document->addScript($templatepath .'/core/js/lazyload.js');
     		}
     		if( $lightbox_enabled == 1 ) { 
-    		    $document->addScript($templatepath .'/core/js/lightbox');
+    		    $document->addScript($templatepath .'/core/js/lightbox.js');
     		}
     		if( $google_analytics !== '' ) { 
     		    $document->addScript($templatepath .'/core/js/googleanalytics.js');
