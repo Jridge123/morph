@@ -243,9 +243,6 @@ if ( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
     		if( $plugin_scrollto == 1 ) { 
     		    $document->addScript($templatepath .'/core/js/scrollto.js');
     		}
-    		if( $lazyload_enabled == 1 ) { 
-    		    $document->addScript($templatepath .'/core/js/lazyload.js');
-    		}
     		if( $simpleticker == 1 ) { 
     		    $document->addScript($templatepath .'/core/js/innerfade.js');
     		}
@@ -254,6 +251,12 @@ if ( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
             }
     		if( $captions_enabled == 1 ) { 
     		    $document->addScript($templatepath .'/core/js/captify.js');
+    		}
+    		if( $lazyload_enabled == 1 ) { 
+    		    $document->addScript($templatepath .'/core/js/lazyload.js');
+    		}
+    		if( $lightbox_enabled == 1 ) { 
+    		    $document->addScript($templatepath .'/core/js/lightbox');
     		}
     		if( $google_analytics !== '' ) { 
     		    $document->addScript($templatepath .'/core/js/googleanalytics.js');

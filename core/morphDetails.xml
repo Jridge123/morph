@@ -511,6 +511,13 @@
 		<option value="0">No</option>
 	</param>
 </params>	
+
+<params group="lightboxdata">
+	<param name="lightbox_enabled" default="0" type="radio" label="Enable TopUp Lightbox" tooltip="inline" description="Would you like to enable the TopUp Lightbox plugin?">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
+</params>	
 	
 <params group="toolbardata">
 	<param name="toolbar_wrap" default="1" type="radio" label="Block wrapping" tooltip="modal" description="blockwrap.html">

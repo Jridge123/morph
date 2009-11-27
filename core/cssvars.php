@@ -63,6 +63,7 @@ $simpleticker = $_GET['K01'];
 $simpletweet = $_GET['K02'];
 $simplecontact = $_GET['K03'];
 $simplesocial = $_GET['K04'];
+$lightbox_enabled = $_GET['L01'];
 $gzip_compression = $_GET['Z01'];
 $pack_css = $_GET['Z02'];
 $custom_css = $_GET['Z03'];

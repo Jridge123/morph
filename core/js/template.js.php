@@ -33,6 +33,7 @@ if($pack_js == 1){
 	if ( $google_analytics !== '' ) { include('googleanalytics.js');echo"\n";}
 	if ( $lazyload_enabled == 1 ) { include('lazyload.js');echo"\n";}
 	if ( $captions_enabled == 1 ) { include('captify.js');echo"\n";}
+	if ( $lightbox_enabled == 1 ) { include('topup.js');echo"\n";}
 	include('fontsizer.js');
 }
 ?>
@@ -100,9 +101,10 @@ jQuery.noConflict();
             placeholder : "img/grey.gif",
             effect : "fadeIn" 
         });
+    	<?php } if ( $lightbox_enabled == 1 ) { ?>
 
         <?php } ?>
-		
+        		
 	//grab all the anchor tag with rel set to shareit
 	$('a[rel=shareit], #shareit-box').mouseenter(function() {		
 		

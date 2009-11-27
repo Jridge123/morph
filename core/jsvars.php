@@ -79,6 +79,7 @@ $captions_position = $_GET['G08'];
 $simpleticker = $_GET['H01'];
 $simpletweet = $_GET['H02'];
 $lazyload_enabled = $_GET['I01'];
+$lightbox_enabled = $_GET['J01'];
 $gzip_compression = $_GET['Z01'];
 $pack_js = $_GET['Z02'];
 $custom_js = $_GET['Z03'];

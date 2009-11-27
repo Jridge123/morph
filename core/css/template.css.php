@@ -16,6 +16,7 @@ header($expire);
 define('JPATH', str_replace('templates'.DS.'morph'.DS.'core'.DS.'css', '', dirname(__FILE__)) );
 if( $pack_css == 1 ){
 if(file_exists($css_yui)){ include($css_yui); } else { include('yui.css'); }
+if ( $lightbox_enabled == 1 ) { include('topup.css'); }
 if( $topnav_count >= 1 ) { include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'topnav-default.css'); }
 if( $topfish >= 1 ) { include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'topnav-topfish.css'); }
 if( $topdrop >= 1 ) { include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'topnav-topdrop.css'); }
