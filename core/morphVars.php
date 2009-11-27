@@ -162,6 +162,7 @@ $packed_js_vars["G07"]=$captions_opacity;
 $packed_js_vars["G08"]=$captions_position;
 $packed_js_vars["H01"]=$simpleticker;
 $packed_js_vars["H02"]=$simpletweet;
+$packed_js_vars["I01"]=$lazyload_enabled;
 $packed_js_vars["Z01"]=$gzip_compression;
 $packed_js_vars["Z02"]=$pack_js;
 $packed_js_vars["Z03"]=$custom_js;

@@ -243,6 +243,9 @@ if ( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
     		if( $plugin_scrollto == 1 ) { 
     		    $document->addScript($templatepath .'/core/js/scrollto.js');
     		}
+    		if( $lazyload_enabled == 1 ) { 
+    		    $document->addScript($templatepath .'/core/js/lazyload.js');
+    		}
     		if( $simpleticker == 1 ) { 
     		    $document->addScript($templatepath .'/core/js/innerfade.js');
     		}

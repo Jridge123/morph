@@ -505,6 +505,13 @@
 	</param>
 </params>
 
+<params group="lazyloaddata">
+	<param name="lazyload_enabled" default="0" type="radio" label="Enable lazyload on images" tooltip="inline" description="Would you like to enable the lazyload image loading plugin?">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
+</params>	
+	
 <params group="toolbardata">
 	<param name="toolbar_wrap" default="1" type="radio" label="Block wrapping" tooltip="modal" description="blockwrap.html">
 		<option value="1">Yes</option>
