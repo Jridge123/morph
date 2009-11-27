@@ -103,6 +103,8 @@ jQuery.noConflict();
         });
     	<?php } if ( $lightbox_enabled == 1 ) { ?>
 
+        TopUp.images_path = "/morph_assets/lightbox";
+        TopUp.players_path = "/templates/morph/core/players/";
         <?php } ?>
         		
 	//grab all the anchor tag with rel set to shareit
