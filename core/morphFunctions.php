@@ -252,6 +252,12 @@ if ( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
     		if( $captions_enabled == 1 ) { 
     		    $document->addScript($templatepath .'/core/js/captify.js');
     		}
+    		if( $lazyload_enabled == 1 ) { 
+    		    $document->addScript($templatepath .'/core/js/lazyload.js');
+    		}
+    		if( $lightbox_enabled == 1 ) { 
+    		    $document->addScript($templatepath .'/core/js/lightbox.js');
+    		}
     		if( $google_analytics !== '' ) { 
     		    $document->addScript($templatepath .'/core/js/googleanalytics.js');
     		}
@@ -303,7 +309,6 @@ if( $browser->getBrowser() == Browser::PLATFORM_IPHONE && $iphone_mode == 1 ){
 		$document->addStyleSheet($templatepath .'/core/css/template.css.php'.$packed_css);
 		if($developer_toolbar == 1) { $document->addStyleSheet($templatepath .'/core/css/devbar.css'); }
 		if ( $direction == 'rtl' && file_exists($css_rtl)){ $document->addStyleSheet($css_rtl); } elseif ($direction == 'rtl') { $document->addStyleSheet($themeletpath .'/core/css/rtl.css'); }
-		if ( file_exists($customcss)) { $document->addStyleSheet($themeletpath .'/css/custom.css'); }
 		// core browser specific
 		$document->addStyleSheet($templatepath .'/core/css/browsers.css');
 		if(preg_match('/MSIE 6/i', $_SERVER['HTTP_USER_AGENT'])) $document->addStyleSheet($templatepath .'/core/css/ie6.css');

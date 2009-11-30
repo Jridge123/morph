@@ -77,6 +77,12 @@ $captions_bordercolor = $MORPH->captions_bordercolor;
 $captions_borderheight = $MORPH->captions_borderheight;
 $captions_textcolor = $MORPH->captions_textcolor;
 
+// lazy load
+$lazyload_enabled = $MORPH->lazyload_enabled;
+
+// topup lightbox
+$lightbox_enabled = $MORPH->lightbox_enabled;
+
 // menu settings
 $topnav_supersubs = $MORPH->topnav_supersubs;
 $topnav_hoverintent = $MORPH->topnav_hoverintent;

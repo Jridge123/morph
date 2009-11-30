@@ -31,7 +31,9 @@ if($pack_js == 1){
 	if ( $simpleticker == 1 ) { include('innerfade.js');echo"\n"; }
 	if ( $simpletweet == 1 ) { include('..'.DS.'..'.DS.'..'.DS.'..'.DS.'modules'.DS.'mod_simpletweet'.DS.'js'.DS.'simpletweet.js');echo"\n"; }
 	if ( $google_analytics !== '' ) { include('googleanalytics.js');echo"\n";}
+	if ( $lazyload_enabled == 1 ) { include('lazyload.js');echo"\n";}
 	if ( $captions_enabled == 1 ) { include('captify.js');echo"\n";}
+	if ( $lightbox_enabled == 1 ) { include('topup.js');echo"\n";}
 	include('fontsizer.js');
 }
 ?>
@@ -93,8 +95,18 @@ jQuery.noConflict();
     		<?php if($captions_prefix) { ?>prefix: '<?php echo $captions_prefix; ?>',<?php } ?>});
     	$('.caption-wrapper img[align*=right]').removeAttr('align').parent().addClass('img-right').css('float','right');
 		$('.caption-wrapper img[align*=left]').removeAttr('align').parent().addClass('img-left').css('float','left');
-		<?php } ?>			
 		
+    	<?php } if ( $lazyload_enabled == 1 ) { ?>
+		$("#primary-content img").lazyload({ 
+            placeholder : "img/grey.gif",
+            effect : "fadeIn" 
+        });
+    	<?php } if ( $lightbox_enabled == 1 ) { ?>
+
+        TopUp.images_path = "/morph_assets/lightbox";
+        TopUp.players_path = "/templates/morph/core/players/";
+        <?php } ?>
+        		
 	//grab all the anchor tag with rel set to shareit
 	$('a[rel=shareit], #shareit-box').mouseenter(function() {		
 		

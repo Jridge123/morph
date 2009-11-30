@@ -216,7 +216,7 @@ body{text-align:center;}
 /*** T0 - no outer sidebar at all ***/
 .doc4.yui-t0 #yui-main .yui-b .yui-gh #primary-content.yui-u.first,
 /* inner sidebar on left */
-.doc4.yui-t0 #yui-main .yui-b .yui-gi #primary-content.yui-u.first{width:79%;}
+.doc4.yui-t0 #yui-main .yui-b .yui-gi #primary-content.yui-u.first{width:79%!important;}
 
 /*** T1 - 160px left outer layout with 200px inner sidebar ***/
 /* 974px layout with 160px outer & 200px inner*/

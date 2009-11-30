@@ -16,6 +16,7 @@ header($expire);
 define('JPATH', str_replace('templates'.DS.'morph'.DS.'core'.DS.'css', '', dirname(__FILE__)) );
 if( $pack_css == 1 ){
 if(file_exists($css_yui)){ include($css_yui); } else { include('yui.css'); }
+if ( $lightbox_enabled == 1 ) { include('topup.css'); }
 if( $topnav_count >= 1 ) { include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'topnav-default.css'); }
 if( $topfish >= 1 ) { include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'topnav-topfish.css'); }
 if( $topdrop >= 1 ) { include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'topnav-topdrop.css'); }
@@ -127,10 +128,11 @@ body{color:#<?php echo $color_bodytext; ?>;}
 .caption-top,.caption-bottom{background:<?php echo $captions_bgcolor; ?>;color:<?php echo $captions_textcolor; ?>;}
 .caption-top{border-bottom:<?php echo $captions_borderheight; ?> solid <?php echo $captions_bordercolor; ?>;}
 .caption-bottom{border-top:<?php echo $captions_borderheight; ?> solid <?php echo $captions_bordercolor; ?>;}
-<?php } if( $pack_css == 1 ){
+<?php } 
+if($custom_css == 1){ include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'custom.css.php'); }
+if( $pack_css == 1 ){
 if($developer_toolbar == 1) { include('devbar.css'); }
 if( $direction == 'rtl' && file_exists($css_rtl)){ include($css_rtl); } elseif ($direction == 'rtl') { include('rtl.css'); }
-if($custom_css == 1){ include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'custom.css.php'); }
 include('browsers.css');
 if(preg_match('/MSIE 6/i', $_SERVER['HTTP_USER_AGENT'])) include('ie6.css');
 // browser specific
