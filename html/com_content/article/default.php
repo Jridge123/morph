@@ -24,19 +24,18 @@ function curPageURL() {
 	<?php endif; ?>		
 
 	<?php if ($this->params->get('show_title') || $this->params->get('show_pdf_icon') || $this->params->get('show_print_icon') || $this->params->get('show_email_icon')) : ?>
-
-	    <!-- start article top -->
-		<?php if ($this->params->get('show_title')) : ?>
-		<h1 class="article-title">
-		<?php if ($this->params->get('link_titles') && $this->article->readmore_link != '') : ?>
-			<a href="<?php echo $this->article->readmore_link; ?>"><?php echo $this->escape($this->article->title); ?><?php if ($canEdit) : ?><span class="edit"> 
-			<?php echo JHTML::_('icon.edit', $this->article, $this->params, $this->access); ?></span><?php endif; ?></a>
-		<?php else : ?>
-			<?php echo $this->escape($this->article->title); ?><?php if ($canEdit) : ?><span class="edit"> <?php echo JHTML::_('icon.edit', $this->article, $this->params, $this->access); ?>
-			</span><?php endif; ?>
-		<?php endif; ?>
-		</h1>
-		<?php endif; ?>
+    <!-- start article top -->
+	<?php if ($this->params->get('show_title')) : ?>
+	<h1 class="article-title">
+	<?php if ($this->params->get('link_titles') && $this->article->readmore_link != '') : ?>
+		<a href="<?php echo $this->article->readmore_link; ?>"><?php echo $this->escape($this->article->title); ?><?php if ($canEdit) : ?><span class="edit"> 
+		<?php echo JHTML::_('icon.edit', $this->article, $this->params, $this->access); ?></span><?php endif; ?></a>
+	<?php else : ?>
+		<?php echo $this->escape($this->article->title); ?><?php if ($canEdit) : ?><span class="edit"> <?php echo JHTML::_('icon.edit', $this->article, $this->params, $this->access); ?>
+		</span><?php endif; ?>
+	<?php endif; ?>
+	</h1>
+	<?php endif; ?>
 	
     <!-- created date and author -->
     <?php if (
@@ -47,64 +46,57 @@ function curPageURL() {
     $this->params->get('show_pdf_icon') ||
     $this->params->get('show_print_icon') || 
     $this->params->get('show_email_icon'))	{ ?>
-	
-<ul class="article-info">		
-    <?php if ($this->params->get('show_create_date')) { ?>
-    <li class="created"><?php echo JHTML::_('date', $this->article->created, JText::_('%d %b %y')); ?></li>
-    <?php } ?>
-    
-    <?php if (($this->params->get('show_author')) && ($this->article->author != "")) { ?>
-	<li class="author"><?php JText::printf('Written by', ($this->article->created_by_alias ? $this->escape($this->article->created_by_alias) : $this->escape($this->article->author))); ?></li>
-    <?php } ?>
-    <li class="share"><a href="<?php echo curPageURL(); ?>|<?php echo $this->escape($this->article->title); ?>" rel="shareit"><?php echo JText::_('Share Article'); ?></a></li>
-    <li class="fontsize"><span class="fontsize-label"><?php echo JText::_('Text Size'); ?>: </span><span id="fontsizer"></span></li>
-    
-	<?php if ($this->params->get('show_pdf_icon')) : ?>
-	<li class="icons"><?php echo articleIcons::pdf($this->article, $this->params, $this->access); ?></li>
-	<?php endif; ?>
-	<?php if ($this->params->get('show_print_icon')) : ?>
-	<li class="icons"><?php echo articleIcons::print_popup($this->article, $this->params, $this->access); ?></li>
-	<?php endif; ?>
-	<?php if ($this->params->get('show_email_icon')) : ?>
-	<li class="icons"><?php echo articleIcons::email($this->article, $this->params, $this->access); ?></li>
-	<?php endif; ?>
-</ul>
+    <ul class="article-info">		
+        <?php if ($this->params->get('show_create_date')) { ?>
+        <li class="created"><?php echo JHTML::_('date', $this->article->created, JText::_('%d %b %y')); ?></li>
+        <?php } ?>
+        <?php if (($this->params->get('show_author')) && ($this->article->author != "")) { ?>
+    	<li class="author"><?php JText::printf('Written by', ($this->article->created_by_alias ? $this->escape($this->article->created_by_alias) : $this->escape($this->article->author))); ?></li>
+        <?php } ?>
+        <li class="share"><a href="<?php echo curPageURL(); ?>|<?php echo $this->escape($this->article->title); ?>" rel="shareit"><?php echo JText::_('Share Article'); ?></a></li>
+        <li class="fontsize"><span class="fontsize-label"><?php echo JText::_('Text Size'); ?>: </span><span id="fontsizer"></span></li>
+    	<?php if ($this->params->get('show_pdf_icon')) : ?>
+    	<li class="icons"><?php echo articleIcons::pdf($this->article, $this->params, $this->access); ?></li>
+    	<?php endif; ?>
+    	<?php if ($this->params->get('show_print_icon')) : ?>
+    	<li class="icons"><?php echo articleIcons::print_popup($this->article, $this->params, $this->access); ?></li>
+    	<?php endif; ?>
+    	<?php if ($this->params->get('show_email_icon')) : ?>
+    	<li class="icons"><?php echo articleIcons::email($this->article, $this->params, $this->access); ?></li>
+    	<?php endif; ?>
+    </ul>    
+    <?php } ?>	
 
-<?php } ?>	
+    <?php if (($this->params->get('show_section') && $this->article->sectionid) || ($this->params->get('show_category') && $this->article->catid)) : ?>
+    <p class="filing">
+    	<?php if ($this->params->get('show_section') && $this->article->sectionid) : ?>
+    	<span class="article-section">
+    		<?php if ($this->params->get('link_section')) : ?>
+    			<?php echo '<a href="'.JRoute::_(ContentHelperRoute::getSectionRoute($this->article->sectionid)).'">'; ?>
+    		<?php endif; ?>
+    		<?php echo $this->escape($this->article->section); ?>
+    		<?php if ($this->params->get('link_section')) : ?>
+    			<?php echo '</a>'; ?>
+    		<?php endif; ?>
+    		<?php if ($this->params->get('show_category')) : ?>
+    			<?php echo ' - '; ?>
+    		<?php endif; ?>
+    	</span>
+    	<?php endif; ?>
+    	<?php if ($this->params->get('show_category') && $this->article->catid) : ?>
+    	<span class="article-category">
+    		<?php if ($this->params->get('link_category')) : ?>
+    			<?php echo '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->article->catslug, $this->article->sectionid)).'">'; ?>
+    		<?php endif; ?>
+    		<?php echo $this->escape($this->article->category); ?>
+    		<?php if ($this->params->get('link_category')) : ?>
+    			<?php echo '</a>'; ?>
+    		<?php endif; ?>
+    	</span>
+    	<?php endif; ?>
+    </p>
+    <?php endif; ?>
 
-<?php if (($this->params->get('show_section') && $this->article->sectionid) || ($this->params->get('show_category') && $this->article->catid)) : ?>
-<p class="filing">
-	<?php if ($this->params->get('show_section') && $this->article->sectionid) : ?>
-	<span class="article-section">
-		<?php if ($this->params->get('link_section')) : ?>
-			<?php echo '<a href="'.JRoute::_(ContentHelperRoute::getSectionRoute($this->article->sectionid)).'">'; ?>
-		<?php endif; ?>
-		<?php echo $this->escape($this->article->section); ?>
-		<?php if ($this->params->get('link_section')) : ?>
-			<?php echo '</a>'; ?>
-		<?php endif; ?>
-		<?php if ($this->params->get('show_category')) : ?>
-			<?php echo ' - '; ?>
-		<?php endif; ?>
-	</span>
-	<?php endif; ?>
-	<?php if ($this->params->get('show_category') && $this->article->catid) : ?>
-	<span class="article-category">
-		<?php if ($this->params->get('link_category')) : ?>
-			<?php echo '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->article->catslug, $this->article->sectionid)).'">'; ?>
-		<?php endif; ?>
-		<?php echo $this->escape($this->article->category); ?>
-		<?php if ($this->params->get('link_category')) : ?>
-			<?php echo '</a>'; ?>
-		<?php endif; ?>
-	</span>
-	<?php endif; ?>
-</p>
-<?php endif; ?>
-
-
-
-	
 	<!-- end article top -->
 	<?php endif; ?>
 
@@ -137,12 +129,12 @@ function curPageURL() {
         		<div id="shareit-url"><input type="text" value="" name="shareit-field" id="shareit-field" class="field"/></div>
         		<div id="shareit-icon">
         		<ul>
-        			<li class="shareit-facebook"><a href="#" rel="shareit-facebook" class="shareit-sm">Facebook</a></li>
-        			<li class="shareit-delicious"><a href="#" rel="shareit-delicious" class="shareit-sm">Delicious</a></li>
-        			<li class="shareit-designfloat"><a href="#" rel="shareit-designfloat" class="shareit-sm">Designfloat</a></li>
-        			<li class="shareit-digg"><a href="#" rel="shareit-digg" class="shareit-sm">Digg</a></li>
-        			<li class="shareit-stumbleupon"><a href="#" rel="shareit-stumbleupon" class="shareit-sm">StumbleUpon</a></li>
-        			<li class="shareit-twitter"><a href="#" rel="shareit-twitter" class="shareit-sm">Twitter</a></li>
+        			<li class="shareit-facebook"><a href="#" rel="shareit-facebook" class="shareit-sm" title="Facebook">Facebook</a></li>
+        			<li class="shareit-delicious"><a href="#" rel="shareit-delicious" class="shareit-sm" title="Delicious">Delicious</a></li>
+        			<li class="shareit-designfloat"><a href="#" rel="shareit-designfloat" class="shareit-sm" title="Designfloat">Designfloat</a></li>
+        			<li class="shareit-digg"><a href="#" rel="shareit-digg" class="shareit-sm" title="Digg">Digg</a></li>
+        			<li class="shareit-stumbleupon"><a href="#" rel="shareit-stumbleupon" class="shareit-sm" title="StumbleUpon">StumbleUpon</a></li>
+        			<li class="shareit-twitter"><a href="#" rel="shareit-twitter" class="shareit-sm" title="Twitter">Twitter</a></li>
         		</ul>
         		</div>
         	</div>
