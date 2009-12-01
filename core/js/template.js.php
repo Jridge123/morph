@@ -102,9 +102,17 @@ jQuery.noConflict();
             effect : "fadeIn" 
         });
     	<?php } if ( $lightbox_enabled == 1 ) { ?>
-
-        TopUp.images_path = "/morph_assets/lightbox";
-        TopUp.players_path = "/templates/morph/core/players/";
+		
+        //TopUp.images_path = "templates/morph/core/images/top_up/";
+        TopUp.players_path = "templates/morph/core/players/";
+		TopUp.addPresets({
+		    "a.top_up_link": {
+		      group: "images",
+		      layout: "quicklook",
+			  resizable: 0,
+		      modal: 0
+		    }
+		  });
         <?php } ?>
         		
 	//grab all the anchor tag with rel set to shareit

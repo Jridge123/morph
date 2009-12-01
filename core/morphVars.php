@@ -244,6 +244,7 @@ $packed_css_vars["K01"]=$simpleticker;
 $packed_css_vars["K02"]=$simpletweet;
 $packed_css_vars["K03"]=$simplecontact;
 $packed_css_vars["K04"]=$simplesocial;
+$packed_css_vars["L01"]=$lightbox_enabled;
 $packed_css_vars["Z01"]=$gzip_compression;
 $packed_css_vars["Z02"]=$pack_css;
 $packed_css_vars["Z03"]=$custom_css;

@@ -76,9 +76,9 @@ class Browser {
 	public function getPlatform() { return $this->_platform; }
 	public function setPlatform($platform) { return $this->_platform = $platform; }
 	public function getVersion() { return $this->_version; }
-	public function setVersion($version) { $this->_version = ereg_replace('[^0-9,.,a-z,A-Z]','',$version); }
+	public function setVersion($version) { $this->_version = preg_replace('/[^0-9,.,a-z,A-Z]/i','',$version); }
 	public function getAolVersion() { return $this->_aol_version; }
-	public function setAolVersion($version) { $this->_aol_version = ereg_replace('[^0-9,.,a-z,A-Z]','',$version); }
+	public function setAolVersion($version) { $this->_aol_version = preg_replace('/[^0-9,.,a-z,A-Z]/i','',$version); }
 	public function isAol() { return $this->_is_aol; }
 	public function setAol($isAol) { $this->_is_aol = $isAol; }
 	public function getUserAgent() { return $this->_agent; }
@@ -120,10 +120,10 @@ class Browser {
 	}
 	protected function checkForAol() {
 		$retval = false;
-		if( eregi("AOL", $this->_agent) ) {
+		if( preg_match("/AOL/i", $this->_agent) ) {
 			$aversion = explode(' ',stristr($this->_agent, "AOL"));
 			$this->setAol(true);
-			$this->setAolVersion(ereg_replace("[^0-9,.,a-z,A-Z]", "", $aversion[1]));
+			$this->setAolVersion(preg_replace("/[^0-9,.,a-z,A-Z]/i", "", $aversion[1]));
 			$retval = true;
 		}
 		else {
@@ -135,7 +135,7 @@ class Browser {
 	}
 	protected function checkBrowserGoogleBot() {
 		$retval = false;
-		if( eregi('googlebot',$this->_agent) ) {
+		if( preg_match('/googlebot/i',$this->_agent) ) {
 			$aresult = explode("/",stristr($this->_agent,"googlebot"));
 			$aversion = explode(' ',$aresult[1]);
 			$this->setVersion($aversion[0]);
@@ -146,7 +146,7 @@ class Browser {
 	}
 	protected function checkBrowserW3CValidator() {
 		$retval = false;
-		if( eregi('W3C-checklink',$this->_agent) ) {
+		if( preg_match('/W3C-checklink/i',$this->_agent) ) {
 			$aresult = explode("/",stristr($this->_agent,"W3C-checklink"));
 			$aversion = explode(' ',$aresult[1]);
 			$this->setVersion($aversion[0]);
@@ -157,7 +157,7 @@ class Browser {
 	}
 	protected function checkBrowserSlurp() {
 		$retval = false;
-		if( eregi('Slurp',$this->_agent) ) {
+		if( preg_match('/Slurp/i',$this->_agent) ) {
 			$aresult = explode("/",stristr($this->_agent,"Slurp"));
 			$aversion = explode(' ',$aresult[1]);
 			$this->setVersion($aversion[0]);
@@ -168,7 +168,7 @@ class Browser {
 	}
 	protected function checkBrowserInternetExplorer() {
 		$retval = false;
-		if( eregi('microsoft internet explorer', $this->_agent) ) {
+		if( preg_match('/microsoft internet explorer/i', $this->_agent) ) {
 			$this->setBrowser(self::BROWSER_IE);
 			$this->setVersion('1.0');
 			$aresult = stristr($this->_agent, '/');
@@ -177,18 +177,18 @@ class Browser {
 			}
 			$retval = true;
 		}
-		else if( eregi('msie',$this->_agent) && !eregi('opera',$this->_agent) ) {
+		else if( preg_match('/msie/i',$this->_agent) && !preg_match('/opera/i',$this->_agent) ) {
 			$aresult = explode(' ',stristr(str_replace(';','; ',$this->_agent),'msie'));
 			$this->setBrowser( self::BROWSER_IE );
 			$this->setVersion($aresult[1]);
 			$retval = true;
 		}
-		else if( eregi('mspie',$this->_agent) || eregi('pocket', $this->_agent) ) {
+		else if( preg_match('/mspie/i',$this->_agent) || preg_match('/pocket/i', $this->_agent) ) {
 			$aresult = explode(' ',stristr($this->_agent,'mspie'));
 			$this->setPlatform( self::PLATFORM_WINDOWS_CE );
 			$this->setBrowser( self::BROWSER_POCKET_IE );
 			
-			if( eregi('mspie', $this->_agent) ) {
+			if( preg_match('/mspie/i', $this->_agent) ) {
 				$this->setVersion($aresult[1]);
 			}
 			else {
@@ -201,9 +201,9 @@ class Browser {
 	}
 	protected function checkBrowserOpera() {
 		$retval = false;
-		if( eregi('opera',$this->_agent) ) {
+		if( preg_match('/opera/i',$this->_agent) ) {
 			$resultant = stristr($this->_agent, 'opera');
-			if( eregi('/',$resultant) ) {
+			if( preg_match('/\//',$resultant) ) {
 				$aresult = explode('/',$resultant);
 				$aversion = explode(' ',$aresult[1]); 
 				$this->setVersion($aversion[0]);
@@ -221,7 +221,7 @@ class Browser {
 	}
 	protected function checkBrowserWebTv() {
 		$retval = false;
-		if( eregi('webtv',$this->_agent) ) {
+		if( preg_match('/webtv/i',$this->_agent) ) {
 			$aresult = explode("/",stristr($this->_agent,"webtv"));
 			$aversion = explode(' ',$aresult[1]);
 			$this->setVersion($aversion[0]);
@@ -232,7 +232,7 @@ class Browser {
 	}
 	protected function checkBrowserNetPositive() {
 		$retval = false;
-		if( eregi('NetPositive',$this->_agent) ) {
+		if( preg_match('/NetPositive/i',$this->_agent) ) {
 			$aresult = explode('/',stristr($this->_agent,'NetPositive'));
 			$aversion = explode(' ',$aresult[1]);
 			$this->setVersion($aversion[0]);
@@ -244,7 +244,7 @@ class Browser {
 	}
 	protected function checkBrowserGaleon() {
 		$retval = false;
-		if( eregi('galeon',$this->_agent) ) {
+		if( preg_match('/galeon/i',$this->_agent) ) {
 			$aresult = explode(' ',stristr($this->_agent,'galeon'));
 			$aversion = explode('/',$aresult[0]);
 			$this->setVersion($aversion[1]);
@@ -255,7 +255,7 @@ class Browser {
 	}
 	protected function checkBrowserKonqueror() {
 		$retval = false;
-		if( eregi('Konqueror',$this->_agent) ) {
+		if( preg_match('/Konqueror/i',$this->_agent) ) {
 			$aresult = explode(' ',stristr($this->_agent,'Konqueror'));
 			$aversion = explode('/',$aresult[0]);
 			$this->setVersion($aversion[1]);
@@ -266,7 +266,7 @@ class Browser {
 	}
 	protected function checkBrowserIcab() {
 		$retval = false;
-		if( eregi('icab',$this->_agent) ) {
+		if( preg_match('/icab/i',$this->_agent) ) {
 			$aversion = explode(' ',stristr(str_replace('/',' ',$this->_agent),'icab'));
 			$this->setVersion($aversion[1]);
 			$this->setBrowser(self::BROWSER_ICAB);
@@ -276,7 +276,7 @@ class Browser {
 	}
 	protected function checkBrowserOmniWeb() {
 		$retval = false;
-		if( eregi('omniweb',$this->_agent) ) {
+		if( preg_match('/omniweb/i',$this->_agent) ) {
 			$aresult = explode('/',stristr($this->_agent,'omniweb'));
 			$aversion = explode(' ',$aresult[1]);
 			$this->setVersion($aversion[0]);
@@ -287,7 +287,7 @@ class Browser {
 	}
 	protected function checkBrowserPhoenix() {
 		$retval = false;
-		if( eregi('Phoenix',$this->_agent) ) {
+		if( preg_match('/Phoenix/i',$this->_agent) ) {
 			$aversion = explode('/',stristr($this->_agent,'Phoenix'));
 			$this->setVersion($aversion[1]);
 			$this->setBrowser(self::BROWSER_PHOENIX);
@@ -297,7 +297,7 @@ class Browser {
 	}
 	protected function checkBrowserFirebird() {
 		$retval = false;
-		if( eregi('Firebird',$this->_agent) ) {
+		if( preg_match('/Firebird/i',$this->_agent) ) {
 			$aversion = explode('/',stristr($this->_agent,'Firebird'));
 			$this->setVersion($aversion[1]);
 			$this->setBrowser(self::BROWSER_FIREBIRD);
@@ -307,7 +307,7 @@ class Browser {
 	}
 	protected function checkBrowserFirefox() {
 		$retval = false;
-		if( eregi('Firefox',$this->_agent) ) {
+		if( preg_match('/Firefox/i',$this->_agent) ) {
 			$aresult = explode('/',stristr($this->_agent,'Firefox'));
 			$aversion = explode(' ',$aresult[1]);
 			$this->setVersion($aversion[0]);
@@ -318,16 +318,16 @@ class Browser {
 	}
 	protected function checkBrowserMozilla() {
 		$retval = false;
-		if( eregi('Mozilla',$this->_agent) && eregi('rv:[0-9].[0-9][a-b]',$this->_agent) && !eregi('netscape',$this->_agent)) {
+		if( preg_match('/Mozilla/i',$this->_agent) && preg_match('/rv:[0-9].[0-9][a-b]/i',$this->_agent) && !preg_match('/netscape/i',$this->_agent)) {
 			$aversion = explode(' ',stristr($this->_agent,'rv:'));
-			eregi('rv:[0-9].[0-9][a-b]',$this->_agent,$aversion);
+			preg_match('/rv:[0-9].[0-9][a-b]/i',$this->_agent,$aversion);
 			$this->setVersion($aversion[0]);
 			$this->setBrowser(self::BROWSER_MOZILLA);
 			$retval = true;
 		}
-		else if( eregi('mozilla',$this->_agent) && eregi('rv:[0-9]\.[0-9]',$this->_agent) && !eregi('netscape',$this->_agent) ) {
+		else if( preg_match('/mozilla/i',$this->_agent) && preg_match('/rv:[0-9]\.[0-9]/i',$this->_agent) && !preg_match('/netscape/i',$this->_agent) ) {
 			$aversion = explode(" ",stristr($this->_agent,'rv:'));
-        	eregi('rv:[0-9]\.[0-9]\.[0-9]',$this->_agent,$aversion);
+        	preg_match('/rv:[0-9]\.[0-9]\.[0-9]/i',$this->_agent,$aversion);
 			$this->setVersion($aversion[0]);
 			$this->setBrowser(self::BROWSER_MOZILLA);
 			$retval = true;
@@ -336,7 +336,7 @@ class Browser {
 	}
 	protected function checkBrowserLynx() {
 		$retval = false;
-		if( eregi('libwww',$this->_agent) && eregi("lynx", $this->_agent) ) {
+		if( preg_match('/libwww/i',$this->_agent) && preg_match("/lynx/i", $this->_agent) ) {
 			$aresult = explode('/',stristr($this->_agent,'Lynx'));
 			$aversion = explode(' ',$aresult[1]);
 			$this->setVersion($aversion[0]);
@@ -347,7 +347,7 @@ class Browser {
 	}
 	protected function checkBrowserAmaya() {
 		$retval = false;
-		if( eregi('libwww',$this->_agent) && eregi("amaya", $this->_agent) ) {
+		if( preg_match('/libwww/i',$this->_agent) && preg_match("/amaya/i", $this->_agent) ) {
 			$aresult = explode('/',stristr($this->_agent,'Amaya'));
 			$aversion = explode(' ',$aresult[1]);
 			$this->setVersion($aversion[0]);
@@ -358,7 +358,7 @@ class Browser {
 	}
 	protected function checkBrowserChrome() {
 		$retval = false;
-		if( eregi('Chrome',$this->_agent) ) {
+		if( preg_match('/Chrome/i',$this->_agent) ) {
 			$aresult = explode('/',stristr($this->_agent,'Chrome'));
 			$aversion = explode(' ',$aresult[1]);
 			$this->setVersion($aversion[0]);
@@ -369,7 +369,7 @@ class Browser {
 	}
 	protected function checkBrowserSafari() {
 		$retval = false;
-		if( eregi('Safari',$this->_agent) && ! eregi('iPhone',$this->_agent) && ! eregi('iPod',$this->_agent) ) {
+		if( preg_match('/Safari/i',$this->_agent) && ! preg_match('/iPhone/i',$this->_agent) && ! preg_match('/iPod/i',$this->_agent) ) {
 			$aresult = explode('/',stristr($this->_agent,'Version'));
 			if( isset($aresult[1]) ) {
 				$aversion = explode(' ',$aresult[1]);
@@ -385,7 +385,7 @@ class Browser {
 	}
 	protected function checkBrowseriPhone() {
 		$retval = false;
-		if( eregi('iPhone',$this->_agent) ) {
+		if( preg_match('/iPhone/i',$this->_agent) ) {
 			$aresult = explode('/',stristr($this->_agent,'Version'));
 			if( isset($aresult[1]) ) {
 				$aversion = explode(' ',$aresult[1]);
@@ -401,7 +401,7 @@ class Browser {
 	}
 	protected function checkBrowseriPod() {
 		$retval = false;
-		if( eregi('iPod',$this->_agent) ) {
+		if( preg_match('/iPod/i',$this->_agent) ) {
 			$aresult = explode('/',stristr($this->_agent,'Version'));
 			if( isset($aresult[1]) ) {
 				$aversion = explode(' ',$aresult[1]);
@@ -417,7 +417,7 @@ class Browser {
 	}
 	protected function checkBrowserAndroid() {
 		$retval = false;
-		if( eregi('Android',$this->_agent) ) {
+		if( preg_match('/Android/i',$this->_agent) ) {
 			$aresult = explode('/',stristr($this->_agent,'Version'));
 			if( isset($aresult[1]) ) {
 				$aversion = explode(' ',$aresult[1]);
@@ -432,25 +432,25 @@ class Browser {
 		return $retval;
 	}
 	protected function checkPlatform() {
-		if( eregi("iPhone", $this->_agent) ) {
+		if( preg_match("/iPhone/i", $this->_agent) ) {
 			$this->_platform = self::PLATFORM_IPHONE;
 		}
-		else if( eregi("iPod", $this->_agent) ) {
+		else if( preg_match("/iPod/i", $this->_agent) ) {
 			$this->_platform = self::PLATFORM_IPOD;
 		}
-		else if( eregi("win", $this->_agent) ) {
+		else if( preg_match("/win/i", $this->_agent) ) {
 			$this->_platform = self::PLATFORM_WINDOWS;
 		}
-		elseif( eregi("mac", $this->_agent) ) {
+		elseif( preg_match("/mac/i", $this->_agent) ) {
 			$this->_platform = self::PLATFORM_APPLE;
 		}
-		elseif( eregi("linux", $this->_agent) ) {
+		elseif( preg_match("/linux/i", $this->_agent) ) {
 			$this->_platform = self::PLATFORM_LINUX;
 		}
-		elseif( eregi("OS/2", $this->_agent) ) {
+		elseif( preg_match("/OS\/2/i", $this->_agent) ) {
 			$this->_platform = self::PLATFORM_OS2;
 		}
-		elseif( eregi("BeOS", $this->_agent) ) {
+		elseif( preg_match("/BeOS/i", $this->_agent) ) {
 			$this->_platform = self::PLATFORM_BEOS;
 		}
 	}

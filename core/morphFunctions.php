@@ -43,11 +43,11 @@ if ( $gzip_compression == 1 ) {
 	}
 }
 // set the various paths:
-$templatepath = JURI::root() . 'templates'.DS.$this->template;
-$themeletpath = JURI::root() . 'morph_assets'.DS.'themelets'.DS.$themelet;
+$templatepath = JURI::root() . 'templates'.'/'.$this->template;
+$themeletpath = JURI::root() . 'morph_assets'.'/'.'themelets'.'/'.$themelet;
 $assetspath = JURI::root() . 'morph_assets';
 $assetsroot = JPATH_SITE.DS.'morph_assets';
-$imagespath = JURI::root() . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'images'.DS;
+$imagespath = JURI::root() . 'morph_assets'.'/'.'themelets'.'/'.$themelet.'/'.'images'.'/';
 $absolutepath = JPATH_SITE.DS.'morph_assets'.DS.'themelets'.DS.$themelet;
 
 // set the document parameters with what morph found:
@@ -98,7 +98,7 @@ $footer_count 				= JDocumentHTML::countModules('footer');
 $stylelink 					= '';
 $direction  				= $this->direction;
 $browser 					= new Browser();
-$thebrowser 				= ereg_replace("[^A-Za-z]", "", $browser->getBrowser());
+$thebrowser 				= preg_replace("/[^A-Za-z]/i", "", $browser->getBrowser());
 $ver 						= $browser->getVersion();
 $dots 						= ".";
 $dashes 					= "";
@@ -256,7 +256,7 @@ if ( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
     		    $document->addScript($templatepath .'/core/js/lazyload.js');
     		}
     		if( $lightbox_enabled == 1 ) { 
-    		    $document->addScript($templatepath .'/core/js/lightbox.js');
+    		    $document->addScript($templatepath .'/core/js/topup.js');
     		}
     		if( $google_analytics !== '' ) { 
     		    $document->addScript($templatepath .'/core/js/googleanalytics.js');
@@ -497,7 +497,7 @@ function pt_body_classes($menu, $view, $themelet){
 	
 	$browser = new Browser();
 	$platform = ' '.strtolower($browser->getPlatform());
-	$thebrowser = ' '.strtolower(ereg_replace("[^A-Za-z]", "", $browser->getBrowser()));
+	$thebrowser = ' '.strtolower(preg_replace("/[^A-Za-z]/i", "", $browser->getBrowser()));
 	$ver = $browser->getVersion();
 	$ver = str_replace('.', '', $ver);
 	
