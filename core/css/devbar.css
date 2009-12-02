@@ -1,6 +1,6 @@
 /* frontend dev bar
 ******************************************************/
-#dev-toolbar{font-family:arial;background:#fff url('../images/devbar-sprite.png') repeat-x 0px -87px;width:100%;height:33px;}
+#dev-toolbar{font-family:arial;background:#fff url('../images/devbar-sprite.png') repeat-x 0px -125px;width:100%;height:33px;}
 
 #dev-toolbar ul,
 #dev-toolbar li{list-style:none;margin:0;padding:0;}
@@ -21,14 +21,14 @@
 #dev-toolbar ul li a.dev-debug-mods-on,
 #dev-toolbar ul li a.dev-gzip-on,
 #dev-toolbar ul li a.dev-nojs-on,
-#dev-toolbar ul li a.dev-fb-on {background-position: 0 -36px;margin:6px 0 0 0;}
+#dev-toolbar ul li a.dev-fb-on {background-position: 0 -74px;margin:6px 0 0 0;}
 
 #dev-toolbar ul li a.dev-pack-css:hover,
 #dev-toolbar ul li a.dev-pack-js:hover,
 #dev-toolbar ul li a.dev-debug-mods-on:hover,
 #dev-toolbar ul li a.dev-gzip-on:hover,
 #dev-toolbar ul li a.dev-nojs-on:hover,
-#dev-toolbar ul li a.dev-fb-on:hover {background-position: 0 -55px;margin:6px 0 0 0;}
+#dev-toolbar ul li a.dev-fb-on:hover {background-position: 0 -93px;margin:6px 0 0 0;}
 
 /* off state */
 #dev-toolbar ul li a.dev-unpack-css,
@@ -36,11 +36,16 @@
 #dev-toolbar ul li a.dev-debug-mods-off,
 #dev-toolbar ul li a.dev-gzip-off,
 #dev-toolbar ul li a.dev-nojs-off,
-#dev-toolbar ul li a.dev-fb-off {background-position: 0 0px;margin:6px 0 0 0;}
+#dev-toolbar ul li a.dev-fb-off {background-position: 0 -38px;margin:6px 0 0 0;}
 
 #dev-toolbar ul li a.dev-unpack-css:hover,
 #dev-toolbar ul li a.dev-unpack-js:hover,
 #dev-toolbar ul li a.dev-debug-mods-off:hover,
 #dev-toolbar ul li a.dev-gzip-off:hover,
 #dev-toolbar ul li a.dev-nojs-off:hover,
-#dev-toolbar ul li a.dev-fb-off:hover {background-position: 0 -18px;margin:6px 0 0 0;}
+#dev-toolbar ul li a.dev-fb-off:hover {background-position: 0 -56px;margin:6px 0 0 0;}
+
+/* close */
+#dev-toolbar ul li.dev-close { position: absolute; right: 12px; }
+#dev-toolbar ul li a.dev-close-devbar {text-indent: 22px; color: #999; background-position: 0 0px;padding: 1px 0 0 0;margin:6px 0 0 0;}
+#dev-toolbar ul li a.dev-close-devbar:hover {background-position: 0 -19px;margin:6px 0 0 0;}

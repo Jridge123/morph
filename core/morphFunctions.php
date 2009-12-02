@@ -19,7 +19,7 @@ if(isset($_COOKIE['nogzip'])){
 	}
 	$gzip_compression = 0;
 }
-if(isset($_COOKIE['debug_modules'])){ $debug_modules = 1; }
+if(isset($_COOKIE['debug_modules']) && $_COOKIE['debug_modules'] == 'true'){ $debug_modules = 1; }elseif(isset($_COOKIE['debug_modules']) && $_COOKIE['debug_modules'] == 'false'){ $debug_modules = 0; }else{ $debug_modules = $debug_modules; }
 if(isset($_COOKIE['morph_developer_toolbar'])){ $developer_toolbar = 1; }
 if(isset($_COOKIE['nojs'])){ $nojs = 1; }
 
@@ -197,12 +197,30 @@ if(isset($_GET['show_devbar'])){
 }
 if(isset($_GET['hide_devbar'])){
 	setcookie('morph_developer_toolbar', null, time()-3600);
+	setcookie('debug_modules', null, time()-3600);
 	header('Location: ' . str_replace(array('?hide_devbar','&hide_devbar'), '', $curr_url));
 }
 if(isset($_GET['nojs']) && $_GET['nojs'] == 'off'){
 	setcookie('nojs', null, time()-3600);
 	header('Location: ' . str_replace(array('?nojs=off','&nojs=off'), '', $curr_url));
 }
+if(isset($_GET['unpack_js'])){
+	setcookie('unpackjs', 'unpack', 0);
+	header('Location: ' . str_replace(array('?unpack_js','&unpack_js'), '', $curr_url));
+}
+if(isset($_GET['pack_js'])){
+	setcookie('unpackjs', null, time()-3600);
+	header('Location: ' . str_replace(array('?pack_js','&pack_js'), '', $curr_url));
+}
+if(isset($_GET['unpack_css'])){
+	setcookie('unpackcss', 'unpack', 0);
+	header('Location: ' . str_replace(array('?unpack_css','&unpack_css'), '', $curr_url));
+}
+if(isset($_GET['pack_css'])){
+	setcookie('unpackcss', null, time()-3600);
+	header('Location: ' . str_replace(array('?pack_css','&pack_css'), '', $curr_url));
+}
+
 if ( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
 //	$document->addScript($templatepath .'/core/js/jquery.js');	
 //	$document->addScript($templatepath .'/core/js/jqtouch.js');

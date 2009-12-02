@@ -62,5 +62,8 @@
 				<span>Enable or Disable the zero Javascript mode.</span>
 			</span>
 		</li>
+		<li class="dev-close">
+			<a href="<?php if($nojs == 1){ if($_SERVER['QUERY_STRING'] == ''){ echo '?hide_devbar'; }else{ echo '?'.$_SERVER['QUERY_STRING'].'&hide_devbar'; }}else{ echo '#'; } ?>" class="dev-close-devbar">Close</a>
+		</li>
 	</ul>
 </div>
