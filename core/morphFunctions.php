@@ -226,7 +226,7 @@ if ( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
 //	$document->addScript($templatepath .'/core/js/jqtouch.js');
 //	$document->addScript($templatepath .'/core/js/iphone.js');
 } else {
-    if($nojs !== 1) {
+    if($nojs == 0) {
     	if ( isset($_COOKIE['unpackjs']) && $pack_js == 1 || isset($_COOKIE['unpackjs']) && $pack_js == 0 || !isset($_COOKIE['unpackjs']) && $pack_js == 0 ) {
     		if( $jquery_core == 1 ) { 
     		    $document->addScript($templatepath .'/core/js/jquery.js');
