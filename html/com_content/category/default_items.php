@@ -21,7 +21,7 @@ document.adminForm.submit( task );
 <div class="filter">
 	<p>
 		<?php echo JText::_('Filter'); ?>&nbsp;
-		<input type="text" name="filter" value="<?php echo $this->lists['filter']; ?>" class="inputbox" onchange="document.adminForm.submit();" />
+		<input type="text" name="filter" value="<?php echo $this->lists['filter']; ?>" class="text-input" onchange="document.adminForm.submit();" />
 	</p>
 </div>
 <?php endif; ?>
