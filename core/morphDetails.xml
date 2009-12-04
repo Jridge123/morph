@@ -52,6 +52,14 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
+	<param name="plugin_scrollto" default="1" type="radio" label="Display scroll to top link" tooltip="inline" description="This plugin will show a scroll-to-top link when you scroll to the bottom of your page.">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
+	<param name="chrome_frame" default="0" type="radio" label="Enable Google Chrome Frame" tooltip="inline" description="This will include the Google Chrome Frame meta tag in the Morph template. If the plugin is not installed on the users browser it will prompt the user to install the plugin on their browser. This is only for Internet Explorer versions 6-8.">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
 	<param name="google_analytics" default="" type="text" label="Google Analytics ID" tooltip="inline" description="Entering your Google Analytics ID will automatically load the needed tracking javascript, just above the closing body tag of your site. We plan on extending this to use any tracking or related javascript in the future, but for now this will have to do :)" />
 </params>
 
@@ -298,7 +306,7 @@
 </params>
 
 <params group="progressivedata">
-	<param name="rounded_corners" default="0" type="radio" label="Enable rounded corners" tooltip="inline" description="Would you like to include the jQuery Rounded Corners plugin? This is automatically overridden if you add a module suffix of 'rounded' to any of your modules.">
+<!--	<param name="rounded_corners" default="0" type="radio" label="Enable rounded corners" tooltip="inline" description="Would you like to include the jQuery Rounded Corners plugin? This is automatically overridden if you add a module suffix of 'rounded' to any of your modules.">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
@@ -306,15 +314,8 @@
 	<param name="equal_heights" default="0" type="radio" label="Enable equal heights" tooltip="inline" description="Would you like to enable the equal heights feature? You only need to enable this option if you want to use the Equal Heights somewhere other than the top and bottom shelfs.">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
-	</param>
-	<param name="plugin_scrollto" default="1" type="radio" label="Scroll to top" tooltip="inline" description="This plugin will show a scroll-to-top link when you scroll to the bottom of your page.">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="chrome_frame" default="0" type="radio" label="Enable Google Chrome Frame" tooltip="inline" description="This will include the Google Chrome Frame meta tag in the Morph template. If the plugin is not installed on the users browser it will prompt the user to install the plugin on their browser. This is only for Internet Explorer versions 6-8.">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
+	</param>-->
+
 </params>
 
 <params group="menudata">
