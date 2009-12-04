@@ -139,7 +139,6 @@ $parent_id = $active_item->tree[0];
 $parent_item = $menu->getItem($parent_id);
 $submenu_heading = $parent_item->name;
 $heading = explode(' # ',$submenu_heading);
-
 if ($pub_modules[0]->id == $module->id) {
 	$posSuffix = ' '.$params->get('moduleclass_sfx') . ' first';
 } elseif ($pub_modules[count($pub_modules)-1]->id == $module->id) {
