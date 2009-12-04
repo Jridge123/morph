@@ -85,7 +85,6 @@ jimport('joomla.application.module.helper');
 	}
 }
 
-/* module chrome that allows for rounded corners by wrapping in nested div tags and adds extra hooks for ModFX styles */
 function modChrome_basic($module, &$params, &$attribs) {
 $pub_modules = JModuleHelper::getModules($module->position);
 
@@ -131,6 +130,31 @@ if ($pub_modules[0]->id == $module->id) {
 	<?php if($innerwrap == 1 || $innerwrap == 2){ ?></div><?php } ?>
 </div>
 <?php }
+
+function modChrome_split($module, &$params, &$attribs) {
+$pub_modules = JModuleHelper::getModules($module->position);
+$menu = JSite::getMenu();
+$active_item = $menu->getActive();
+$parent_id = $active_item->tree[0];
+$parent_item = $menu->getItem($parent_id);
+$submenu_heading = $parent_item->name;
+$heading = explode(' # ',$submenu_heading);
+
+if ($pub_modules[0]->id == $module->id) {
+	$posSuffix = ' '.$params->get('moduleclass_sfx') . ' first';
+} elseif ($pub_modules[count($pub_modules)-1]->id == $module->id) {
+	$posSuffix = ' '.$params->get('moduleclass_sfx') . ' last';
+} else {
+	$posSuffix = ' '.$params->get('moduleclass_sfx');
+} ?>
+<div class="mod mod-basic splitmenu<?php echo ' ' . $posSuffix; ?>" id="mod<?php echo $module->id; ?>">
+    <h3 class="modhead"><span class="icon"></span><?php echo $heading[0]; ?></h3>
+	<div class="modinner">
+	    <?php echo $module->content; ?>
+	</div>
+</div>
+<?php }
+
 
 function modChrome_tabs($module, &$params, &$attribs) {
 global $morph_tabs,$tabscount,$loadtabs,$istabsload;	

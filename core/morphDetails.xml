@@ -1009,27 +1009,6 @@
 	</param>
 </params>
 
-<params group="outersplitdata">	
-    <param name="outersplit_chrome" default="basic" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
-		<option value="none">None</option>
-		<option value="basic">Basic</option>
-		<option value="grid">Grid</option>
-		<option value="tabs">Tabs</option>
-		<option value="accordion">Accordion</option>			
-		<option value="outline">Outline</option>
-	</param>
-	<param name="outersplit_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
-		<option value="1">Wrap heading &amp; content</option>
-		<option value="2">Wrap content only</option>
-		<option value="0">None</option>
-	</param>
-	<param name="outersplit_equalize" default="0" type="radio" label="Equalize modules" tooltip="modal" description="equalize.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="outersplit_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
-</params>
-
 <params group="outer1data">			
 	<param name="outer1_chrome" default="basic" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
@@ -1148,27 +1127,6 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-</params>
-
-<params group="innersplitdata">
-	<param name="innersplit_chrome" default="basic" type="list" label="Split right chrome" tooltip="modal" description="chromefx.html">
-		<option value="none">None</option>
-		<option value="basic">Basic</option>
-		<option value="grid">Grid</option>
-		<option value="tabs">Tabs</option>
-		<option value="accordion">Accordion</option>			
-		<option value="outline">Outline</option>
-	</param>
-	<param name="innersplit_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
-		<option value="1">Wrap heading &amp; content</option>
-		<option value="2">Wrap content only</option>
-		<option value="0">None</option>
-	</param>
-	<param name="innersplit_equalize" default="0" type="radio" label="Equalize modules" tooltip="modal" description="equalize.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="innersplit_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
 </params>
 
 <params group="inner1data">	

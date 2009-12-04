@@ -238,49 +238,69 @@ $pathway_text = $MORPH->pathway_text;
 $outer_default = $MORPH->outer_default;
 $secondary_inner = $MORPH->secondary_inner;
 
-$splitleft_chrome = $MORPH->splitleft_chrome;
-$splitleft_module_inner = $MORPH->splitleft_module_inner;
-$splitleft_equalize = $MORPH->splitleft_equalize;
-$splitleft_modfx = $MORPH->splitleft_modfx;
+$outersplit_chrome = $MORPH->outersplit_chrome;
+$outersplit_module_inner = $MORPH->outersplit_module_inner;
+$outersplit_equalize = $MORPH->outersplit_equalize;
+$outersplit_modfx = $MORPH->outersplit_modfx;
 
-$topleft_chrome = $MORPH->topleft_chrome;
-$topleft_module_inner = $MORPH->topleft_module_inner;
-$topleft_equalize = $MORPH->topleft_equalize;
-$topleft_modfx = $MORPH->topleft_modfx;
+$outer1_chrome = $MORPH->outer1_chrome;
+$outer1_module_inner = $MORPH->outer1_module_inner;
+$outer1_equalize = $MORPH->outer1_equalize;
+$outer1_modfx = $MORPH->outer1_modfx;
 
-$left_chrome = $MORPH->left_chrome;
-$left_module_inner = $MORPH->left_module_inner;
-$left_equalize = $MORPH->left_equalize;
-$left_modfx = $MORPH->left_modfx;
+$outer2_chrome = $MORPH->outer2_chrome;
+$outer2_module_inner = $MORPH->outer2_module_inner;
+$outer2_equalize = $MORPH->outer2_equalize;
+$outer2_modfx = $MORPH->outer2_modfx;
 
-$bottomleft_chrome = $MORPH->bottomleft_chrome;
-$bottomleft_module_inner = $MORPH->bottomleft_module_inner;
-$bottomleft_equalize = $MORPH->bottomleft_equalize;
-$bottomleft_modfx = $MORPH->bottomleft_modfx;
+$outer3_chrome = $MORPH->outer3_chrome;
+$outer3_module_inner = $MORPH->outer3_module_inner;
+$outer3_equalize = $MORPH->outer3_equalize;
+$outer3_modfx = $MORPH->outer3_modfx;
+
+$outer4_chrome = $MORPH->outer4_chrome;
+$outer4_module_inner = $MORPH->outer4_module_inner;
+$outer4_equalize = $MORPH->outer4_equalize;
+$outer4_modfx = $MORPH->outer4_modfx;
+
+$outer5_chrome = $MORPH->outer5_chrome;
+$outer5_module_inner = $MORPH->outer5_module_inner;
+$outer5_equalize = $MORPH->outer5_equalize;
+$outer5_modfx = $MORPH->outer5_modfx;
 
 // tertiary content
 $inner_default = $MORPH->inner_default;
 $tertiary_inner = $MORPH->tertiary_inner;
 
-$splitright_chrome = $MORPH->splitright_chrome;
-$splitright_module_inner = $MORPH->splitright_module_inner;
+$innersplit_chrome = $MORPH->splitright_chrome;
+$innersplit_module_inner = $MORPH->splitright_module_inner;
 $splitright_equalize = $MORPH->splitright_equalize;
 $splitright_modfx = $MORPH->splitright_modfx;
 
-$topright_chrome = $MORPH->topright_chrome;
-$topright_module_inner = $MORPH->topright_module_inner;
-$topright_modfx = $MORPH->topright_modfx;
-$topright_equalize = $MORPH->topright_equalize;
+$inner1_chrome = $MORPH->inner1_chrome;
+$inner1_module_inner = $MORPH->inner1_module_inner;
+$inner1_modfx = $MORPH->inner1_modfx;
+$inner1_equalize = $MORPH->inner1_equalize;
 
-$right_chrome = $MORPH->right_chrome;
-$right_module_inner = $MORPH->right_module_inner;
-$right_modfx = $MORPH->right_modfx;
-$right_equalize = $MORPH->right_equalize;
+$inner2_chrome = $MORPH->inner2_chrome;
+$inner2_module_inner = $MORPH->inner2_module_inner;
+$inner2_modfx = $MORPH->inner2_modfx;
+$inner2_equalize = $MORPH->inner2_equalize;
 
-$bottomright_chrome = $MORPH->bottomright_chrome;
-$bottomright_module_inner = $MORPH->bottomright_module_inner;
-$bottomright_modfx = $MORPH->bottomright_modfx;
-$bottomright_equalize = $MORPH->bottomright_equalize;
+$inner3_chrome = $MORPH->inner3_chrome;
+$inner3_module_inner = $MORPH->inner3_module_inner;
+$inner3_modfx = $MORPH->inner3_modfx;
+$inner3_equalize = $MORPH->inner3_equalize;
+
+$inner4_chrome = $MORPH->inner4_chrome;
+$inner4_module_inner = $MORPH->inner4_module_inner;
+$inner4_modfx = $MORPH->inner4_modfx;
+$inner4_equalize = $MORPH->inner4_equalize;
+
+$inner5_chrome = $MORPH->inner5_chrome;
+$inner5_module_inner = $MORPH->inner5_module_inner;
+$inner5_modfx = $MORPH->inner5_modfx;
+$inner5_equalize = $MORPH->inner5_equalize;
 
 // Footer Block
 $footer_wrap = $MORPH->footer_wrap;

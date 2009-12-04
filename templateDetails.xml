@@ -79,14 +79,16 @@
 		<position>user5</position>
 		<position>user6</position>
 		<position>user7</position>
-		<position>splitleft</position>
-		<position>topleft</position>
-		<position>left</position>
-		<position>bottomleft</position>
-		<position>splitright</position>
-		<position>topright</position>
-		<position>right</position>
-		<position>bottomright</position>
+		<position>outer1</position>
+		<position>outer2</position>
+		<position>outer3</position>
+		<position>outer4</position>
+		<position>outer5</position>
+		<position>inner1</position>
+		<position>inner2</position>
+		<position>inner3</position>
+		<position>inner4</position>
+		<position>inner5</position>
 		<position>advert1</position>
 		<position>advert2</position>
 		<position>footernav</position>
