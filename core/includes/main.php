@@ -1,6 +1,6 @@
 <?php if ( $main_wrap == 1 ) { ?><div id="bd-wrap"><?php } ?>
 	<!-- apply outer scheme -->
-	<div id="bd" class="<?php if($CurrentOuterScheme != 0){ echo $CurrentOuterScheme . ' '; } echo $site_width; if($option=='com_content' && $layout=='form'){ ?> editmode<?php } ?>">
+	<div id="bd" class="<?php if($CurrentOuterScheme != '0'){ echo $CurrentOuterScheme . ' '; } echo $site_width; if($option=='com_content' && $layout=='form'){ ?> editmode<?php } ?>">
 	<?php if ( $main_inner == 1 ) { ?><div class="bd-inner clearer"><?php } ?>
 		<?php if(JDocumentHTML::countModules('user1')) { ?><?php include_once("user1.php") ?><?php } ?>
 		<div id="yui-main">
