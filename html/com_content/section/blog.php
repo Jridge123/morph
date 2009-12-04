@@ -35,7 +35,6 @@ $cparams = JComponentHelper::getParams ('com_media');
 			<?php $this->item =& $this->getItem($i, $this->params);
 			echo $this->loadTemplate('item'); ?>
 		</div>
-		<span class="leading-separator">&nbsp;</span>
 	<?php endfor; ?>
 
 	<?php $introcount = $this->params->def('num_intro_articles', 4);
@@ -46,16 +45,24 @@ $cparams = JComponentHelper::getParams ('com_media');
 		endif;
 		$rowcount = (int) $introcount / $colcount;
 		$ii = 0;
-		for ($y = 0; $y < $rowcount && $i < $this->total; $y++) : ?>
-			<div class="article-row">
+		for ($y = 0; $y < $rowcount && $i < $this->total; $y++) : ?>	
+		
+			<div class="article-row<?php if($colcount > 1) { ?> columns<?php } ?>">
 				<?php for ($z = 0; $z < $colcount && $ii < $introcount && $i < $this->total; $z++, $i++, $ii++) : ?>
-					<div id="article<?php echo $this->item->id; ?>" class="article-column column<?php echo $z + 1; ?> cols<?php echo $colcount; ?>" >
-						<?php $this->item =& $this->getItem($i, $this->params);
+				
+					<?php if($colcount > 1) { ?>
+					<div class="article-column column<?php echo $z + 1; ?> cols<?php echo $colcount; ?>" >
+					<?php } ?>
+					
+					    <?php $this->item =& $this->getItem($i, $this->params);
 						echo $this->loadTemplate('item'); ?>
+						
+					<?php if($colcount > 1) { ?>
 					</div>
-					<span class="article-separator">&nbsp;</span>
+					<?php } ?>
+
+
 				<?php endfor; ?>
-				<span class="row-separator">&nbsp;</span>
 			</div>
 		<?php endfor;
 	endif; ?>
