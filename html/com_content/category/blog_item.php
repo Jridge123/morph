@@ -19,13 +19,7 @@ include_once(dirname(__FILE__).DS.'..'.DS.'icon.php');
 <?php endif; ?>
 
 <!-- created date and author -->
-<?php if ($this->item->params->get('show_author') && ($this->item->author != "") ||	
-$this->item->params->get('show_create_date') ||	
-$this->item->params->get('show_section') ||	
-$this->item->params->get('show_category') ||
-$this->item->params->get('show_pdf_icon') ||
-$this->item->params->get('show_print_icon') || 
-$this->item->params->get('show_email_icon'))	{ ?>	
+<?php if ($this->item->params->get('show_author') && ($this->item->author != "") ||	$this->item->params->get('show_create_date') ||	$this->item->params->get('show_pdf_icon') || $this->item->params->get('show_print_icon') || $this->item->params->get('show_email_icon')){ ?>	
 <ul class="article-info">		
 <?php if ($this->item->params->get('show_create_date')) { ?>
     <li class="created"><?php echo JHTML::_('date', $this->article->created, JText::_('%d %b %y')); ?></li>
