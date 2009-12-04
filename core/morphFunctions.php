@@ -86,14 +86,18 @@ $inset1_count 				= JDocumentHTML::countModules('inset1');
 $inset2_count 				= JDocumentHTML::countModules('inset2');
 $inset3_count 				= JDocumentHTML::countModules('inset3');
 $inset4_count 				= JDocumentHTML::countModules('inset4');
-$splitleft_count 			= JDocumentHTML::countModules('splitleft');
-$topleft_count 				= JDocumentHTML::countModules('topleft');
-$left_count 				= JDocumentHTML::countModules('left');
-$bottomleft_count 			= JDocumentHTML::countModules('bottomleft');
-$splitright_count 			= JDocumentHTML::countModules('splitright');
-$topright_count 			= JDocumentHTML::countModules('topright');
-$right_count 				= JDocumentHTML::countModules('right');
-$bottomright_count 			= JDocumentHTML::countModules('bottomright');
+$outersplit_count 			= JDocumentHTML::countModules('outersplit');
+$outer1_count 				= JDocumentHTML::countModules('outer1');
+$outer2_count 				= JDocumentHTML::countModules('outer2');
+$outer3_count 			    = JDocumentHTML::countModules('outer3');
+$outer4_count 				= JDocumentHTML::countModules('outer4');
+$outer5_count 			    = JDocumentHTML::countModules('outer5');
+$innersplit_count 			= JDocumentHTML::countModules('innersplit');
+$inner1_count 				= JDocumentHTML::countModules('inner1');
+$inner2_count 				= JDocumentHTML::countModules('inner2');
+$inner3_count 			    = JDocumentHTML::countModules('inner3');
+$inner4_count 				= JDocumentHTML::countModules('inner4');
+$inner5_count 			    = JDocumentHTML::countModules('inner5');
 $footer_count 				= JDocumentHTML::countModules('footer');
 $stylelink 					= '';
 $direction  				= $this->direction;
@@ -360,8 +364,8 @@ function isIE6($string=''){
 include_once('InnerLayout.php');
 include_once('OuterLayout.php');
 
-if (!JDocumentHTML::countModules('splitleft or topleft or left or bottomleft')) $CurrentOuterScheme = '';
-if (!JDocumentHTML::countModules('splitright or topright or right or bottomright')) $CurrentInnerScheme = '';
+if (!JDocumentHTML::countModules('outersplit or outer1 or outer2 or outer3 or outer4 or outer5')) $CurrentOuterScheme = '';
+if (!JDocumentHTML::countModules('innersplit or inner1 or inner2 or inner3 or inner4 or inner5')) $CurrentInnerScheme = '';
 if (!JDocumentHTML::countModules('user4')) $no_search = 'no_search';
 
 // intelli mods array
@@ -370,8 +374,8 @@ $jj_const = array(
 		0				=> "",			// no suffix since no modules present
 		1				=> "no-grid",	// no-grid since only 1 module present
 		2				=> "yui-g",		// yui-g for 2 blocks in a grid
-		3				=> "yui-gb",		// yui-gb for 3 blocks in a grid
-		4				=> "yui-g4",		// yui-gb for 4 blocks in a grid
+		3				=> "yui-gb",	// yui-gb for 3 blocks in a grid
+		4				=> "yui-g4",	// yui-gb for 4 blocks in a grid
 		5				=> "yui-g5"		// yui-gb for 5 blocks in a grid
 	),
 	"mod_suffix" => array(
@@ -389,22 +393,26 @@ $jj_const = array(
 		"bottomshelf"	=>$this->params->get('bottomshelf_gridsplit'),
 		"footer"		=>$this->params->get('footer_gridsplit'),
 	),
-	"left_right_pos" => array(
-		"splitleft", 
-		"topleft", 
-		"left", 
-		"bottomleft", 
-		"splitright", 
-		"topright", 
-		"right", 
-		"bottomright"
+	"outer_inner_pos" => array(
+		"outersplit", 
+		"outer1", 
+		"outer2", 
+		"outer3", 
+		"outer4", 
+		"outer5", 
+		"innersplit", 
+		"inner1", 
+		"inner2", 
+		"inner3",
+		"inner4", 
+		"inner5"
 	)
 );
 
 function getYuiSuffix ($moduleName, $jj_const){
 	$myJdoc = new JDocumentHTML();
 	$moduleCount = $myJdoc->countModules($moduleName); 
-	if(in_array($moduleName, $jj_const['left_right_pos'])){
+	if(in_array($moduleName, $jj_const['outer_inner_pos'])){
 		$yuiModuleSuffix = $jj_const["yui_suffix"][$moduleCount];
 	}else{
 		if ($moduleCount == 2) {

@@ -1009,8 +1009,8 @@
 	</param>
 </params>
 
-<params group="splitleftdata">	
-    <param name="splitleft_chrome" default="basic" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
+<params group="outersplitdata">	
+    <param name="outersplit_chrome" default="basic" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
 		<option value="grid">Grid</option>
@@ -1018,20 +1018,20 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="splitleft_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
+	<param name="outersplit_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
 		<option value="0">None</option>
 	</param>
-	<param name="splitleft_equalize" default="0" type="radio" label="Equalize modules" tooltip="modal" description="equalize.html">
+	<param name="outersplit_equalize" default="0" type="radio" label="Equalize modules" tooltip="modal" description="equalize.html">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="splitleft_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
+	<param name="outersplit_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
 </params>
 
-<params group="topleftdata">			
-	<param name="topleft_chrome" default="basic" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
+<params group="outer1data">			
+	<param name="outer1_chrome" default="basic" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
 		<option value="grid">Grid</option>
@@ -1039,20 +1039,20 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="topleft_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
+	<param name="outer1_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
 		<option value="0">None</option>
 	</param>
-	<param name="topleft_equalize" default="0" type="radio" label="Equalize modules" tooltip="modal" description="equalize.html">
+	<param name="outer1_equalize" default="0" type="radio" label="Equalize modules" tooltip="modal" description="equalize.html">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="topleft_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
+	<param name="outer1_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
 </params>
 
-<params group="leftdata">	
-	<param name="left_chrome" default="basic" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
+<params group="outer2data">			
+	<param name="outer2_chrome" default="basic" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
 		<option value="grid">Grid</option>
@@ -1060,20 +1060,20 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="left_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
+	<param name="outer2_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
 		<option value="0">None</option>
 	</param>
-	<param name="left_equalize" default="0" type="radio" label="Equalize modules" tooltip="modal" description="equalize.html">
+	<param name="outer2_equalize" default="0" type="radio" label="Equalize modules" tooltip="modal" description="equalize.html">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="left_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
+	<param name="outer2_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
 </params>
 
-<params group="bottomleftdata">	
-	<param name="bottomleft_chrome" default="basic" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
+<params group="outer3data">			
+	<param name="outer3_chrome" default="basic" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
 		<option value="grid">Grid</option>
@@ -1081,16 +1081,58 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="bottomleft_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
+	<param name="outer3_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
 		<option value="0">None</option>
 	</param>
-	<param name="bottomleft_equalize" default="0" type="radio" label="Equalize modules" tooltip="modal" description="equalize.html">
+	<param name="outer3_equalize" default="0" type="radio" label="Equalize modules" tooltip="modal" description="equalize.html">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="bottomleft_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
+	<param name="outer3_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
+</params>
+
+<params group="outer4data">			
+	<param name="outer4_chrome" default="basic" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
+		<option value="none">None</option>
+		<option value="basic">Basic</option>
+		<option value="grid">Grid</option>
+		<option value="tabs">Tabs</option>
+		<option value="accordion">Accordion</option>			
+		<option value="outline">Outline</option>
+	</param>
+	<param name="outer4_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
+		<option value="1">Wrap heading &amp; content</option>
+		<option value="2">Wrap content only</option>
+		<option value="0">None</option>
+	</param>
+	<param name="outer4_equalize" default="0" type="radio" label="Equalize modules" tooltip="modal" description="equalize.html">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
+	<param name="outer4_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
+</params>
+
+<params group="outer5data">			
+	<param name="outer5_chrome" default="basic" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
+		<option value="none">None</option>
+		<option value="basic">Basic</option>
+		<option value="grid">Grid</option>
+		<option value="tabs">Tabs</option>
+		<option value="accordion">Accordion</option>			
+		<option value="outline">Outline</option>
+	</param>
+	<param name="outer5_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
+		<option value="1">Wrap heading &amp; content</option>
+		<option value="2">Wrap content only</option>
+		<option value="0">None</option>
+	</param>
+	<param name="outer5_equalize" default="0" type="radio" label="Equalize modules" tooltip="modal" description="equalize.html">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
+	<param name="outer5_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
 </params>
 
 <params group="innersidebardata">	
@@ -1108,8 +1150,8 @@
 	</param>
 </params>
 
-<params group="splitrightdata">
-	<param name="splitright_chrome" default="basic" type="list" label="Split right chrome" tooltip="modal" description="chromefx.html">
+<params group="innersplitdata">
+	<param name="innersplit_chrome" default="basic" type="list" label="Split right chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
 		<option value="grid">Grid</option>
@@ -1117,20 +1159,20 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="splitright_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
+	<param name="innersplit_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
 		<option value="0">None</option>
 	</param>
-	<param name="splitright_equalize" default="0" type="radio" label="Equalize modules" tooltip="modal" description="equalize.html">
+	<param name="innersplit_equalize" default="0" type="radio" label="Equalize modules" tooltip="modal" description="equalize.html">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="splitright_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
+	<param name="innersplit_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
 </params>
 
-<params group="toprightdata">	
-	<param name="topright_chrome" default="basic" type="list" label="Top right chrome" tooltip="modal" description="chromefx.html">
+<params group="inner1data">	
+	<param name="inner1_chrome" default="basic" type="list" label="Top right chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
 		<option value="grid">Grid</option>
@@ -1138,20 +1180,20 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="topright_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
+	<param name="inner1_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
 		<option value="0">None</option>
 	</param>
-	<param name="topright_equalize" default="0" type="radio" label="Equalize modules" tooltip="modal" description="equalize.html">
+	<param name="inner1_equalize" default="0" type="radio" label="Equalize modules" tooltip="modal" description="equalize.html">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="topright_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
+	<param name="inner1_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
 </params>
 
-<params group="rightdata">	
-	<param name="right_chrome" default="basic" type="list" label="Right chrome" tooltip="modal" description="chromefx.html">
+<params group="inner2data">	
+	<param name="inner2_chrome" default="basic" type="list" label="Top right chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
 		<option value="grid">Grid</option>
@@ -1159,20 +1201,20 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="right_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
+	<param name="inner2_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
 		<option value="0">None</option>
 	</param>
-	<param name="right_equalize" default="0" type="radio" label="Equalize modules" tooltip="modal" description="equalize.html">
+	<param name="inner2_equalize" default="0" type="radio" label="Equalize modules" tooltip="modal" description="equalize.html">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="right_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
+	<param name="inner2_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
 </params>
 
-<params group="bottomrightdata">	
-	<param name="bottomright_chrome" default="basic" type="list" label="Bottom right chrome" tooltip="modal" description="chromefx.html">
+<params group="inner3data">	
+	<param name="inner3_chrome" default="basic" type="list" label="Top right chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
 		<option value="grid">Grid</option>
@@ -1180,18 +1222,59 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="bottomright_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
+	<param name="inner3_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
 		<option value="0">None</option>
 	</param>
-	<param name="bottomright_equalize" default="0" type="radio" label="Equalize modules" tooltip="modal" description="equalize.html">
+	<param name="inner3_equalize" default="0" type="radio" label="Equalize modules" tooltip="modal" description="equalize.html">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="bottomright_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
+	<param name="inner3_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
 </params>
 
+<params group="inner4data">	
+	<param name="inner4_chrome" default="basic" type="list" label="Top right chrome" tooltip="modal" description="chromefx.html">
+		<option value="none">None</option>
+		<option value="basic">Basic</option>
+		<option value="grid">Grid</option>
+		<option value="tabs">Tabs</option>
+		<option value="accordion">Accordion</option>			
+		<option value="outline">Outline</option>
+	</param>
+	<param name="inner4_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
+		<option value="1">Wrap heading &amp; content</option>
+		<option value="2">Wrap content only</option>
+		<option value="0">None</option>
+	</param>
+	<param name="inner4_equalize" default="0" type="radio" label="Equalize modules" tooltip="modal" description="equalize.html">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
+	<param name="inner4_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
+</params>
+
+<params group="inner5data">	
+	<param name="inner5_chrome" default="basic" type="list" label="Top right chrome" tooltip="modal" description="chromefx.html">
+		<option value="none">None</option>
+		<option value="basic">Basic</option>
+		<option value="grid">Grid</option>
+		<option value="tabs">Tabs</option>
+		<option value="accordion">Accordion</option>			
+		<option value="outline">Outline</option>
+	</param>
+	<param name="inner5_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
+		<option value="1">Wrap heading &amp; content</option>
+		<option value="2">Wrap content only</option>
+		<option value="0">None</option>
+	</param>
+	<param name="inner5_equalize" default="0" type="radio" label="Equalize modules" tooltip="modal" description="equalize.html">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
+	<param name="inner5_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
+</params>
 
 <params group="footerdata">	
 	<param name="footer_wrap" default="0" type="radio" label="Block wrapping" tooltip="modal" description="blockwrap.html">
