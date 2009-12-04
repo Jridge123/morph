@@ -2,7 +2,7 @@
 defined('_JEXEC') or die('Restricted access'); ?>
 <ul class="breadcrumbs pathway">
 <?php for ($i = 0; $i < $count; $i ++) :
-	$linktext = split(' # ',$list[$i]->name);
+	$linktext = explode(' # ',$list[$i]->name);
 	
 	if ($i < $count -1) {
 		if(!empty($list[$i]->link)) {
