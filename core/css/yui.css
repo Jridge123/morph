@@ -457,6 +457,8 @@ body{text-align:center;}
 	width: 65%;
 }*/
 
+#bd #yui-main .no-left{margin-left:0;}
+
 /* grids in content fixes */
 #article .grid{width:100%;margin:0 0 1.5em 0;display:block;clear:both;float:none;overflow:hidden;}
 
