@@ -31,11 +31,10 @@ $cparams = JComponentHelper::getParams ('com_media');
 	<?php $i = $this->pagination->limitstart;
 	$rowcount = $this->params->def('num_leading_articles', 1);
 	for ($y = 0; $y < $rowcount && $i < $this->total; $y++, $i++) : ?>
-		<div class="leading">
-			<?php $this->item =& $this->getItem($i, $this->params);
-			echo $this->loadTemplate('item'); ?>
-		</div>
-		<span class="leading-separator">&nbsp;</span>
+	<div class="leading">
+		<?php $this->item =& $this->getItem($i, $this->params);
+		echo $this->loadTemplate('item'); ?>
+	</div>
 	<?php endfor; ?>
 
 	<?php $introcount = $this->params->def('num_intro_articles', 4);
@@ -50,12 +49,18 @@ $cparams = JComponentHelper::getParams ('com_media');
 			<div class="article-row ">
 				<?php for ($z = 0; $z < $colcount && $ii < $introcount && $i < $this->total; $z++, $i++, $ii++) : ?>
 				
-					<div id="article<?php $this->item = $this->getItem($i, $this->params); echo $this->item->id; ?>" class="article-column column<?php echo $z + 1; ?> cols<?php echo $colcount; ?>" >						<?php $this->item =& $this->getItem($i, $this->params);
+					<?php if($colcount > 1) { ?>
+					<div class="article-column column<?php echo $z + 1; ?> cols<?php echo $colcount; ?>" >
+					<?php } ?>
+					
+					    <?php $this->item =& $this->getItem($i, $this->params);
 						echo $this->loadTemplate('item'); ?>
+					
+					<?php if($colcount > 1) { ?>
 					</div>
+					<?php } ?>
 					
 				<?php endfor; ?>
-				<span class="row-separator">&nbsp;</span>
 			</div>
 		<?php endfor;
 	endif; ?>
