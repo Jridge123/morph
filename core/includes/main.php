@@ -4,7 +4,7 @@
 	<?php if ( $main_inner == 1 ) { ?><div class="bd-inner clearer"><?php } ?>
 		<?php if(JDocumentHTML::countModules('user1')) { ?><?php include_once("user1.php") ?><?php } ?>
 		<div id="yui-main">
-			<div class="yui-b<?php if (!JDocumentHTML::countModules('splitleft or topleft or left or bottomleft')) { echo ' no-left'; } ?>">
+			<div class="yui-b<?php if (!$this->countModules('outer1 or outer2 or outer3 or outer4 or outer5') && ($this->countMenuChildren() < 1 ) ){ echo ' no-left'; } ?>">
 				<?php $position = 'inset1'; include dirname(__FILE__) .DS.'..'.DS.'morphBlockClasses.php'; echo blocks($position, $this, $jj_const, $classes, '', $debug_modules, $nojs); ?>
 				<!-- apply inner scheme -->
 				<div class="<?php if($CurrentInnerScheme != 'none'){ echo $CurrentInnerScheme . ' '; } ?>clearer" id="inner-wrap">
