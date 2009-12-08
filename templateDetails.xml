@@ -79,11 +79,13 @@
 		<position>user5</position>
 		<position>user6</position>
 		<position>user7</position>
+		<position>outersplit</position>
 		<position>outer1</position>
 		<position>outer2</position>
 		<position>outer3</position>
 		<position>outer4</position>
 		<position>outer5</position>
+		<position>innersplit</position>
 		<position>inner1</position>
 		<position>inner2</position>
 		<position>inner3</position>
