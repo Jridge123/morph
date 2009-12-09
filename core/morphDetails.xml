@@ -3,7 +3,7 @@
 
 <params>
 	<name>Morph</name>
-	<version>1.03</version>
+	<version>1.05</version>
 	<creationDate>28 May 09</creationDate>
 	<author>JoomlaJunkie</author>
 	<authorEmail>noreply@joomlajunkie.com</authorEmail>
@@ -306,15 +306,6 @@
 </params>
 
 <params group="progressivedata">
-<!--	<param name="rounded_corners" default="0" type="radio" label="Enable rounded corners" tooltip="inline" description="Would you like to include the jQuery Rounded Corners plugin? This is automatically overridden if you add a module suffix of 'rounded' to any of your modules.">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="rounded_amount" default="10px" type="text" label="Rounded corners amount" tooltip="inline" description="How much should the default rounded corners be? We'll be posting a tutorial about how you can further take advantage of the rounded corners feature, but for now this will have to do ;)" />
-	<param name="equal_heights" default="0" type="radio" label="Enable equal heights" tooltip="inline" description="Would you like to enable the equal heights feature? You only need to enable this option if you want to use the Equal Heights somewhere other than the top and bottom shelfs.">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>-->
 
 </params>
 

@@ -240,6 +240,7 @@ $packed_css_vars["J02"]=urlencode($captions_bgcolor);
 $packed_css_vars["J03"]=urlencode($captions_bordercolor);
 $packed_css_vars["J04"]=$captions_borderheight;
 $packed_css_vars["J05"]=urlencode($captions_textcolor);
+$packed_css_vars["J06"]=$lightbox_enabled;
 $packed_css_vars["K01"]=$simpleticker;
 $packed_css_vars["K02"]=$simpletweet;
 $packed_css_vars["K03"]=$simplecontact;

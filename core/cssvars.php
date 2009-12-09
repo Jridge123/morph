@@ -59,6 +59,7 @@ $captions_bgcolor = $_GET['J02'];
 $captions_bordercolor = $_GET['J03'];
 $captions_borderheight = $_GET['J04'];
 $captions_textcolor = $_GET['J05'];
+$lightbox_enabled = $_GET['J06'];
 $simpleticker = $_GET['K01'];
 $simpletweet = $_GET['K02'];
 $simplecontact = $_GET['K03'];
