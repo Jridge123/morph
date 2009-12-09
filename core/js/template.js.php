@@ -199,14 +199,16 @@ jQuery.noConflict();
 		<?php } if ( $inset2_equalize == 1 ) { ?>$('#inset2 .modinner').equalHeights();
 		<?php } if ( $inset3_equalize == 1 ) { ?>$('#inset3 .mod-grid').equalHeights();
 		<?php } if ( $inset4_equalize == 1 ) { ?>$('#inset4 .mod-grid').equalHeights();
-		<?php } if ( $splitleft_equalize == 1 ) { ?>$('#splitleft-grid div.modinner').equalHeights();
-		<?php } if ( $topleft_equalize == 1 ) { ?>$('#topleft-grid div.modinner').equalHeights();
-		<?php } if ( $left_equalize == 1 ) { ?>$('#left-grid div.modinner').equalHeights();
-		<?php } if ( $bottomleft_equalize == 1 ) { ?>$('#bottomleft-grid div.modinner').equalHeights();
-		<?php } if ( $splitright_equalize == 1 ) { ?>$('#splitright-grid div.modinner').equalHeights();
-		<?php } if ( $topright_equalize == 1 ) { ?>$('#topright-grid div.modinner').equalHeights();
-		<?php } if ( $right_equalize == 1 ) { ?>$('#right-grid div.modinner').equalHeights();
-		<?php } if ( $bottomright_equalize == 1 ) { ?>$('#bottomright-grid div.modinner').equalHeights();
+		<?php } if ( $outer1_equalize == 1 ) { ?>$('#outer1-grid div.modinner').equalHeights();
+		<?php } if ( $outer2_equalize == 1 ) { ?>$('#outer2-grid div.modinner').equalHeights();
+		<?php } if ( $outer3_equalize == 1 ) { ?>$('#outer3-grid div.modinner').equalHeights();
+		<?php } if ( $outer4_equalize == 1 ) { ?>$('#outer4-grid div.modinner').equalHeights();
+		<?php } if ( $outer5_equalize == 1 ) { ?>$('#outer5-grid div.modinner').equalHeights();
+		<?php } if ( $inner1_equalize == 1 ) { ?>$('#inner1-grid div.modinner').equalHeights();
+		<?php } if ( $inner2_equalize == 1 ) { ?>$('#inner2-grid div.modinner').equalHeights();
+		<?php } if ( $inner3_equalize == 1 ) { ?>$('#inner3-grid div.modinner').equalHeights();
+		<?php } if ( $inner4_equalize == 1 ) { ?>$('#inner4-grid div.modinner').equalHeights();
+		<?php } if ( $inner5_equalize == 1 ) { ?>$('#inner5-grid div.modinner').equalHeights();
 		<?php } if ( $footer_equalize == 1 ) { ?>$('#footer-grid div.modinner').equalHeights();
 		
 		<?php } if ( $topfish >= 1  ) { ?>
