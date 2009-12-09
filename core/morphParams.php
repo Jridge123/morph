@@ -80,7 +80,7 @@ $captions_textcolor = $MORPH->captions_textcolor;
 // lazy load
 $lazyload_enabled = $MORPH->lazyload_enabled;
 
-// topup lightbox
+// colorbox lightbox
 $lightbox_enabled = $MORPH->lightbox_enabled;
 
 // menu settings
