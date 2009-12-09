@@ -1,39 +1,40 @@
 <?php
-define ('DS', DIRECTORY_SEPARATOR);
-include '..'.DS.'cssvars.php';
-header("content-type: text/css; charset: UTF-8");
+define('DS', DIRECTORY_SEPARATOR);
+include '../cssvars.php';
 if ( $gzip_compression == 1 ) {
-if(extension_loaded('zlib') && !ini_get('zlib.output_compression')){
-if(!ob_start("ob_gzhandler")) ob_start();
-}else{
-ob_start();
+	if(extension_loaded('zlib') && !ini_get('zlib.output_compression')){
+		if(!ob_start("ob_gzhandler")) ob_start();
+	}else{
+		ob_start();
+	}
+	header("cache-control: must-revalidate");
+	$offset = 60 * 10000;
+	$expire = "expires: " . gmdate("D, d M Y H:i:s", time() + $offset) . " GMT";
+	header($expire);
 }
-header("cache-control: must-revalidate");
-$offset = 60 * 10000;
-$expire = "expires: " . gmdate("D, d M Y H:i:s", time() + $offset) . " GMT";
-header($expire);
-}
-define('JPATH', str_replace('templates'.DS.'morph'.DS.'core'.DS.'css', '', dirname(__FILE__)) );
+header('Content-Type: text/css; charset=UTF-8');
+define('JPATH', str_replace('templates'.DS.'morph'.DS.'core'.DS.'css', '', dirname(__FILE__)).DS);
+
 if( $pack_css == 1 ){
-if(file_exists($css_yui)){ include($css_yui); } else { include('yui.css'); }
-if ( $lightbox_enabled == 1 ) { include('topup.css'); }
-if( $topnav_count >= 1 ) { include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'topnav-default.css'); }
-if( $topfish >= 1 ) { include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'topnav-topfish.css'); }
-if( $topdrop >= 1 ) { include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'topnav-topdrop.css'); }
-if( $sidenav_count >= 1 ) { include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'sidenav-default.css'); }
-if( $sidefish >= 1 ) { include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'sidenav-sidefish.css'); }
-if( $tabscount >= 1 ) { include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'tabs.css'); }
-if( $accordionscount >= 1 ) { include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'accordions.css'); }
-include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'typo.css');
-include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'joomla.css');
-include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'modules.css');
-include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'modfx.css');
-include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'themelet.css');
-if( $simpleticker == 1 ) {include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'simpleticker.css'); }
-if( $simpletweet == 1 ) {include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'simpletweet.css'); }
-if( $simplecontact == 1 ) {include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'simplecontact.css'); }
-if( $simplesocial == 1 ) {include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'simplesocial.css'); }
-}?>
+    if(file_exists($css_yui)){ include($css_yui); } else { include('yui.css'); }
+    if ( $lightbox_enabled == 1 ) { include('topup.css'); }
+    if( $topnav_count >= 1 ) { include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'topnav-default.css'); }
+    if( $topfish >= 1 ) { include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'topnav-topfish.css'); }
+    if( $topdrop >= 1 ) { include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'topnav-topdrop.css'); }
+    if( $sidenav_count >= 1 ) { include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'sidenav-default.css'); }
+    if( $sidefish >= 1 ) { include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'sidenav-sidefish.css'); }
+    if( $tabscount >= 1 ) { include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'tabs.css'); }
+    if( $accordionscount >= 1 ) { include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'accordions.css'); }
+    include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'typo.css');
+    include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'joomla.css');
+    include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'modules.css');
+    include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'modfx.css');
+    include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'themelet.css');
+    if( $simpleticker == 1 ) {include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'simpleticker.css'); }
+    if( $simpletweet == 1 ) {include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'simpletweet.css'); }
+    if( $simplecontact == 1 ) {include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'simplecontact.css'); }
+    if( $simplesocial == 1 ) {include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'simplesocial.css'); }
+} ?>
 html{
 background-color:#<?php echo $html_bg_color; ?>;
 <?php if ( $use_html_bg_image == 1 ) { ?>
