@@ -102,6 +102,7 @@ jQuery.noConflict();
         });
     	<?php } if ( $lightbox_enabled == 1 ) { ?>
         $("a[rel='lightbox']").colorbox();
+		$(".video").colorbox({iframe:true, innerWidth:425, innerHeight:344});        
         <?php } ?>
         		
 	//grab all the anchor tag with rel set to shareit
