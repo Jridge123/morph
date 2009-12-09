@@ -272,10 +272,10 @@ $outer5_modfx = $MORPH->outer5_modfx;
 $inner_default = $MORPH->inner_default;
 $tertiary_inner = $MORPH->tertiary_inner;
 
-$innersplit_chrome = $MORPH->splitright_chrome;
-$innersplit_module_inner = $MORPH->splitright_module_inner;
-$splitright_equalize = $MORPH->splitright_equalize;
-$splitright_modfx = $MORPH->splitright_modfx;
+$innersplit_chrome = $MORPH->innersplit_chrome;
+$innersplit_module_inner = $MORPH->innersplit_module_inner;
+$innersplit_equalize = $MORPH->innersplit_equalize;
+$innersplit_modfx = $MORPH->innersplit_modfx;
 
 $inner1_chrome = $MORPH->inner1_chrome;
 $inner1_module_inner = $MORPH->inner1_module_inner;
