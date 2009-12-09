@@ -12,31 +12,30 @@ if ( $gzip_compression == 1 ) {
 	$expire = "expires: " . gmdate("D, d M Y H:i:s", time() + $offset) . " GMT";
 	header($expire);
 }
-header("content-type: text/javascript; charset: UTF-8");
+header('Content-Type: text/javascript; charset=UTF-8');
 define('JPATH', str_replace('templates'.DS.'morph'.DS.'core'.DS.'js', '', dirname(__FILE__)).DS);
 
 if($pack_js == 1){
-	if ( $jquery_core == 1 ) { include('jquery.js');echo"\n"; }
-	if ( $tabscount >= 1 or $accordionscount >= 1 ) { include('ui.js');echo"\n"; }
+	if(in_array('1', $jquery)){ include('jquery.js');echo"\n"; }
+	if(in_array('1', $jqueryui)){ include('ui.js');echo"\n"; }
+	if(in_array('1', $cookie)){ include('cookie.js');echo"\n"; }
+	if(in_array('1', $equalize)){ include('equalheights.js');echo"\n"; }
+	if(in_array('1', $slider)){ include('slider.js');echo"\n"; }
 	if ( $tabscount >= 1 ) { include('tabs.js');echo"\n"; }
 	if ( $accordionscount >= 1 ) { include('accordion.js');echo"\n"; }
-	if ( $tabscount >= 1 or $accordionscount >= 1 or $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1 or $developer_toolbar == 1  ) { include('cookie.js');echo"\n"; }
-	if ( $rounded_corners == 1 or $roundedcount !== '0' ) { include('corners.js');echo"\n"; }
 	if ( $topnav_hoverintent == 1 ) { include("hoverintent.js");echo"\n"; }
 	if ( $sidefish >= 1 or $topfish >= 1 or $topdrop >= 1  ) { include('superfish.js');echo"\n"; }
 	if ( $topnav_supersubs == 1 ) { include("supersubs.js");echo"\n"; }
-	if ( $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1 ) { include('slider.js');echo"\n"; }
-	if ( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1 or $topleft_equalize == 1 ) { include('equalheights.js');echo"\n"; }
 	if ( $plugin_scrollto == 1 ) { include('scrollto.js');echo"\n"; }
 	if ( $simpleticker == 1 ) { include('innerfade.js');echo"\n"; }
 	if ( $simpletweet == 1 ) { include('..'.DS.'..'.DS.'..'.DS.'..'.DS.'modules'.DS.'mod_simpletweet'.DS.'js'.DS.'simpletweet.js');echo"\n"; }
 	if ( $google_analytics !== '' ) { include('googleanalytics.js');echo"\n";}
 	if ( $lazyload_enabled == 1 ) { include('lazyload.js');echo"\n";}
 	if ( $captions_enabled == 1 ) { include('captify.js');echo"\n";}
-	if ( $lightbox_enabled == 1 ) { include('topup.js');echo"\n";}
+	if ( $lightbox_enabled == 1 ) { include('colorbox.js');echo"\n";}
 	include('fontsizer.js');
-}
-?>
+	//if ( $rounded_corners == 1 or $roundedcount !== 0 ) { include('corners.js');echo"\n"; }
+} ?>
 jQuery.noConflict();
 (function($) {
 	$(document).ready(function(){
@@ -102,17 +101,7 @@ jQuery.noConflict();
             effect : "fadeIn" 
         });
     	<?php } if ( $lightbox_enabled == 1 ) { ?>
-		
-        //TopUp.images_path = "templates/morph/core/images/top_up/";
-        TopUp.players_path = "templates/morph/core/players/";
-		TopUp.addPresets({
-		    "a.top_up_link": {
-		      group: "images",
-		      layout: "quicklook",
-			  resizable: 0,
-		      modal: 0
-		    }
-		  });
+        $("a[rel='lightbox']").colorbox();
         <?php } ?>
         		
 	//grab all the anchor tag with rel set to shareit
@@ -237,13 +226,6 @@ jQuery.noConflict();
 		});
 		<?php } if ( $topdrop >= 1 ) { ?>
 		$("#nav .menu").superfish({ pathClass: 'active' });
-		<?php } ?>
-		<?php if ( $animate_left == 1 ) { ?>	
-		$('#secondary-content ul.menu.slide li:not(.active) a, #tertiary-content ul.menu.slide li:not(.active) a').hoverIntent(function() { //mouse in  
-		    $(this).animate({backgroundColor: "#fff"}, 100).animate({ paddingLeft: '18px' }, "normal");
-		}, function() { // mouse out  
-			$(this).animate({ paddingLeft: '10px' }, "normal").animate({ backgroundColor: "#000" }, "slow");  
-		});
 		<?php } if ( $sidefish >= 1 ) { ?> 
 	    $(".mod.sidefish ul.menu").superfish({ 
 	    	animation: {height:'show'},   // slide-down effect without fade-in 
