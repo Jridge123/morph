@@ -307,7 +307,7 @@ if(isset($_GET['hide_firebug'])){
 }
 
 if( $browser->getBrowser() == Browser::PLATFORM_IPHONE && $iphone_mode == 1 ){
-	if ( file_exists($css_iphone)) { $document->addStyleSheet($css_iphone); } else { $document->addStyleSheet($templatepath .'/core/css/iphone.css'); }	
+	if ( file_exists($css_iphone)) { $document->addStyleSheet($themeletpath .'/css/iphone.css'); } else { $document->addStyleSheet($templatepath .'/core/css/iphone.css'); }	
 //	if ( file_exists($css_iphone)) { $document->addStyleSheet($css_iphone); } else { $document->addStyleSheet($templatepath .'/core/css/jqtouch.css'); }	
 } else {
 	if ( isset($_COOKIE['unpackcss']) && $pack_css == 1 || isset($_COOKIE['unpackcss']) && $pack_css == 0 || !isset($_COOKIE['unpackcss']) && $pack_css == 0 ) {
