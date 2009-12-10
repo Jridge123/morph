@@ -11,6 +11,8 @@ if ( $gzip_compression == 1 ) {
 	$offset = 60 * 10000;
 	$expire = "expires: " . gmdate("D, d M Y H:i:s", time() + $offset) . " GMT";
 	header($expire);
+}else{
+	ob_start();
 }
 header('Content-Type: text/css; charset=UTF-8');
 define('JPATH', str_replace('templates'.DS.'morph'.DS.'core'.DS.'css', '', dirname(__FILE__)).DS);
@@ -147,4 +149,5 @@ if(preg_match('/MSIE 8/i', $_SERVER['HTTP_USER_AGENT']) && file_exists($css_ie8)
 if(preg_match('/MSIE 7/i', $_SERVER['HTTP_USER_AGENT']) && file_exists($css_ie7)) include($css_ie7);
 if(preg_match('/MSIE 6/i', $_SERVER['HTTP_USER_AGENT']) && file_exists($css_ie6)) include($css_ie6);
 }
-if ( $gzip_compression == 1 ) { ob_end_flush(); } ?>
+ob_end_flush();
+?>

@@ -1,6 +1,7 @@
 <?php
 define('DS', DIRECTORY_SEPARATOR);
 include '../jsvars.php';
+
 if ( $gzip_compression == 1 ) {
 	if(extension_loaded('zlib') && !ini_get('zlib.output_compression')){
 		if(!ob_start("ob_gzhandler")) ob_start();
@@ -11,6 +12,8 @@ if ( $gzip_compression == 1 ) {
 	$offset = 60 * 10000;
 	$expire = "expires: " . gmdate("D, d M Y H:i:s", time() + $offset) . " GMT";
 	header($expire);
+}else{
+	ob_start();
 }
 header('Content-Type: text/javascript; charset=UTF-8');
 define('JPATH', str_replace('templates'.DS.'morph'.DS.'core'.DS.'js', '', dirname(__FILE__)).DS);
@@ -333,4 +336,4 @@ jQuery.noConflict();
 		<?php }?>
     });
 })(jQuery);
-<?php if ( $gzip_compression == 1 ) { ob_end_flush(); } ?>
+<?php ob_end_flush(); ?>

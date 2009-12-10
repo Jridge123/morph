@@ -41,6 +41,8 @@ if ( $gzip_compression == 1 ) {
 	if(extension_loaded('zlib') && !ini_get('zlib.output_compression')){
 		if(!ob_start("ob_gzhandler")) ob_start();
 	}
+}else{
+	ob_start();
 }
 // set the various paths:
 $templatepath = JURI::root() . 'templates'.'/'.$this->template;
@@ -572,5 +574,4 @@ function pt_classes($classes, $sitewidth=''){
 	
 	return $c;
 }
-
 ?>
