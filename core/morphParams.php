@@ -7,6 +7,7 @@ $themelet = $MORPH->themelet;
 $nojs = $MORPH->nojs;
 $hide_ie6toolbar = $MORPH->hide_ie6toolbar;
 $global_wrap = $MORPH->global_wrap;
+$remove_outline = $MORPH->remove_outline;
 
 // customization settings
 $html_bg_color = str_replace('#','',$MORPH->html_bg_color);

@@ -167,6 +167,10 @@ function debug_chrome($pt_debug, $pt_mod_chrome){
 	}
 }
 
+if ( $remove_outline == 1 ) {
+JRequest::setVar('tp',0);
+}
+
 include 'morphVars.php';
 
 if(file_exists($themeletfunctions) && is_readable($themeletfunctions)){

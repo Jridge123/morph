@@ -421,7 +421,11 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="debug_modules" default="0" type="radio" label="Debug Modules" tooltip="inline" description="Enabling this option will globally override all module chromes to use the outline chrome option. This is good when you want to see which module positions are being used where.">
+	<param name="debug_modules" default="0" type="radio" label="Enable module outlines" tooltip="inline" description="Enabling this option will globally override all module chromes to use the outline chrome option. This is good when you want to see which module positions are being used where.">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
+	<param name="remove_outline" default="0" type="radio" label="Disable ?tp=1" tooltip="inline" description="This option will disable the ability to view your sites module positions using ?tp=1 appended to the url of your site.">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
