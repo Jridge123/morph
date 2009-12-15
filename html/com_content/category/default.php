@@ -8,7 +8,7 @@ $cparams = JComponentHelper::getParams ('com_media');
 </h1>
 <?php endif; ?>
 <?php if ($this->params->def('show_description', 1) || $this->params->def('show_description_image', 1)) : ?>
-<div class="contentdescription">
+<div class="desc">
 <?php if ($this->params->get('show_description_image') && $this->category->image) : ?>
 <img src="<?php echo $this->baseurl . $cparams->get('image_path').'/'.$this->category->image; ?>" class="image_<?php echo $this->category->image_position; ?>" />
 <?php endif; ?>
