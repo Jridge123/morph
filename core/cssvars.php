@@ -86,6 +86,7 @@ $css_safari = $themeletpath.DS.'css'.DS.'safari.css';
 $css_opera = $themeletpath.DS.'css'.DS.'opera.css';
 $css_firefox = $themeletpath.DS.'css'.DS.'firefox.css';
 $css_chrome = $themeletpath.DS.'css'.DS.'chrome.css';
+$css_webkit = $themeletpath.DS.'css'.DS.'webkit.css';
 $css_internetexplorer = $themeletpath.DS.'css'.DS.'ie.css';
 $css_ie8 = $themeletpath.DS.'css'.DS.'ie8.css';
 $css_ie7 = $themeletpath.DS.'css'.DS.'ie7.css';
