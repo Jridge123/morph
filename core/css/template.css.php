@@ -144,6 +144,7 @@ if($lcbrowser == 'firefox' && file_exists($css_firefox)) include($css_firefox);
 if($lcbrowser == 'safari' && file_exists($css_safari)) include($css_safari);
 if($lcbrowser == 'opera' && file_exists($css_opera)) include($css_opera);
 if($lcbrowser == 'chrome' && file_exists($css_chrome)) include($css_chrome);
+if(($lcbrowser == 'chrome' || $lcbrowser == 'safari') && file_exists($css_webkit)) include($css_webkit);
 if($lcbrowser == 'internetexplorer' && file_exists($css_internetexplorer)) include($css_internetexplorer);
 if(preg_match('/MSIE 8/i', $_SERVER['HTTP_USER_AGENT']) && file_exists($css_ie8)) include($css_ie8);
 if(preg_match('/MSIE 7/i', $_SERVER['HTTP_USER_AGENT']) && file_exists($css_ie7)) include($css_ie7);
