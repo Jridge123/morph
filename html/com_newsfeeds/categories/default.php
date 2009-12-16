@@ -5,7 +5,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 <?php endif; ?>
 
 <?php if ( ($this->params->get('image') != -1) || $this->params->get('show_comp_description') ) : ?>
-<div class="newsfeeds-desc">
+<div class="desc">
 	<?php if(isset($this->image)): echo $this->image; endif; echo $this->escape($this->params->get('comp_description'));?>
 </div>
 <?php endif; ?>

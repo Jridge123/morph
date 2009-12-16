@@ -4,6 +4,6 @@ defined('_JEXEC') or die('Restricted access'); ?>
 <h1 class="componentheading clearer"><?php echo $this->escape($this->params->get('page_title')); ?></h1>
 <?php endif; ?>
 <?php if ( @$this->image || @$this->category->description ) : ?>
-<div class="newsfeed-desc"><?php if ( isset($this->image) ) :  echo $this->image; endif; echo $this->category->description; ?></div>
+<div class="desc"><?php if ( isset($this->image) ) :  echo $this->image; endif; echo $this->category->description; ?></div>
 <?php endif; ?>
 <?php echo $this->loadTemplate('items'); ?>
