@@ -133,7 +133,7 @@ body{color:#<?php echo $color_bodytext; ?>;}
 .caption-bottom{border-top:<?php echo $captions_borderheight; ?> solid <?php echo $captions_bordercolor; ?>;}
 <?php } 
 if($custom_css == 1){ include(JPATH . 'morph_assets'.DS.'themelets'.DS.$themelet.DS.'css'.DS.'custom.css.php'); }
-if( $pack_css == 1 ){
+if($pack_css == 1){
 if($developer_toolbar == 1) { include('devbar.css'); }
 if( $direction == 'rtl' && file_exists($css_rtl)){ include($css_rtl); } elseif ($direction == 'rtl') { include('rtl.css'); }
 include('browsers.css');
