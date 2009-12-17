@@ -24,8 +24,8 @@
 .internetexplorer70 #primary-content {padding-bottom: 1em;}
 
 .internetexplorer70 .doc4.yui-t3 #yui-main .yui-b .yui-gd #primary-content.yui-u.first{width:31.5%;}
-.internetexplorer70 #login-wrap .input-wrap .form-input{float: left;width:95.3%;}
-.internetexplorer70 .search-input {width:85%;float: left;}
+.internetexplorer70 #login-wrap .input-wrap .form-input{float: left;}
+.internetexplorer70 .search-input {width:auto;float: left;}
 .internetexplorer70 #branding h1 a {padding: 0.2em 0 0.5em; }
 .internetexplorer70 #footer {padding-bottom:1em;}
 
