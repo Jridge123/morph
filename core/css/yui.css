@@ -349,7 +349,10 @@ body{text-align:center;}
 	/* @end */
 
 /* styling for grids in the sidebars */
-.sidebar .grid .mod-grid.yui-u{width:48.0%;margin-left:4%;}
+.sidebar .grid .mod-grid.yui-u{width:48.0%;margin-left:0%;float:right;}
+
+.sidebar .grid .mod-grid.yui-u.first {float:left;}
+
 
 /* user1 & 2 */
 #user1.grid.modcount3 .mod-grid.yui-u,
