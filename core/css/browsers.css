@@ -65,12 +65,6 @@
 .chrome #user1.grid.modcount5 .mod-grid.yui-u,
 .safari #user1.grid.modcount5 .mod-grid.yui-u {width:18.9%;}
 
-
-/* move search box down just a little to make it same as other browsers */
-.chrome #topnav .search .search-input,
-.safari #topnav .search .search-input {
-	margin-top: 0.14em;
-}
 /* topdrop modifications */
 .chrome #topnav.topdrop #nav .menu li:hover ul,
 .chrome #topnav.topdrop #nav .menu li.sfHover ul {top:102%;}
