@@ -24,8 +24,8 @@
 .internetexplorer70 #primary-content {padding-bottom: 1em;}
 
 .internetexplorer70 .doc4.yui-t3 #yui-main .yui-b .yui-gd #primary-content.yui-u.first{width:31.5%;}
-.internetexplorer70 #login-wrap .input-wrap .form-input{float: left;width:95.3%;}
-.internetexplorer70 .search-input {width:85%;float: left;}
+.internetexplorer70 #login-wrap .input-wrap .form-input{float: left;}
+.internetexplorer70 .search-input {width:auto;float: left;}
 .internetexplorer70 #branding h1 a {padding: 0.2em 0 0.5em; }
 .internetexplorer70 #footer {padding-bottom:1em;}
 
@@ -65,12 +65,6 @@
 .chrome #user1.grid.modcount5 .mod-grid.yui-u,
 .safari #user1.grid.modcount5 .mod-grid.yui-u {width:18.9%;}
 
-
-/* move search box down just a little to make it same as other browsers */
-.chrome #topnav .search .search-input,
-.safari #topnav .search .search-input {
-	margin-top: 0.14em;
-}
 /* topdrop modifications */
 .chrome #topnav.topdrop #nav .menu li:hover ul,
 .chrome #topnav.topdrop #nav .menu li.sfHover ul {top:102%;}

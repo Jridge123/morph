@@ -33,10 +33,10 @@ $filePath = substr(JURI::base(), 0, -1).str_replace(JPATH_SITE,'',dirname(__FILE
 				
 				<!-- popup info tooltip -->
 				<?php if($feedItemDescription): ?>
-				<div>
-					<span>
+				<span class="popup-container">
+					<span class="inner">
 					<?php if($feedItemTitle): ?>
-					<h5 class="srfrTitle"><?php echo $feed->itemTitle; ?></h5>
+					<span class="srfrTitle"><?php echo $feed->itemTitle; ?></span>
 					<?php endif; ?>
 				
 					<?php if($feed->feedImageSrc): ?>
@@ -44,12 +44,12 @@ $filePath = substr(JURI::base(), 0, -1).str_replace(JPATH_SITE,'',dirname(__FILE
 					<img class="srfrImage" src="<?php echo $feed->feedImageSrc; ?>" alt="<?php echo $feed->itemTitle; ?>" />
 					<?php endif; ?>
 					
-					<p><?php echo $feed->itemDescription; ?></p>
+					<span><?php echo $feed->itemDescription; ?></span>
 					
-					<p><strong><?php echo JText::_('Source:'); ?></strong> <?php echo $feed->feedTitle; ?></p>
-					<p><strong><?php echo JText::_('Created on:'); ?></strong> <?php echo $feed->itemDate; ?></p>
+					<span><strong><?php echo JText::_('Source:'); ?></strong> <?php echo $feed->feedTitle; ?></span>
+					<span><strong><?php echo JText::_('Created on:'); ?></strong> <?php echo $feed->itemDate; ?></span>
 					</span>
-				</div>
+				</span>
 				<?php endif; ?>
 				<!-- end - popup info tooltip -->
 			</a>
