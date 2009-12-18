@@ -42,7 +42,7 @@ $db->setQuery( $query ); $roundedcount = $db->loadResult();
 $query = "SELECT COUNT(*) FROM `#__modules` WHERE `position` = 'user3' AND `params` LIKE '%moduleclass_sfx=topdrop%' OR `position` = 'user3' AND `params` LIKE '% topdrop%'";
 $db->setQuery( $query ); $topdrop = $db->loadResult();
 
-$query = "SELECT COUNT(*) FROM `#__modules` WHERE `position` = 'user3' AND `params` LIKE '%moduleclass_sfx=topfish%' OR `position` = 'user3' AND `params` LIKE '% topfish%'";
+$query = "SELECT COUNT(*) FROM `#__modules` WHERE `position` = 'user3' AND published = '1' AND `params` LIKE '%moduleclass_sfx=topfish%' OR `position` = 'user3' AND published = '1' AND `params` LIKE '% topfish%' OR `position` = 'top' AND published = '1' AND `params` LIKE '%moduleclass_sfx=topfish%' OR `position` = 'top' AND published = '1' AND `params` LIKE '% topfish%'";
 $db->setQuery( $query ); $topfish = $db->loadResult();
 
 $query = "SELECT COUNT(*) FROM `#__modules` WHERE `position` = 'user3' AND `params` LIKE '%moduleclass_sfx=subtext%' OR `position` = 'user3' AND `params` LIKE '% subtext%'";

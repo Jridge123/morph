@@ -8,7 +8,7 @@
 	</dd>
 	<?php if ($this->params->get( 'search_areas', 1 )) : ?>
 	<dt><?php echo JText::_( 'Search Only' );?>:</dt>
-	<dd><?php foreach ($this->searchareas['search'] as $val => $txt) :
+	<dd class="checkbox"><?php foreach ($this->searchareas['search'] as $val => $txt) :
 			$checked = is_array( $this->searchareas['active'] ) && in_array( $val, $this->searchareas['active'] ) ? 'checked="checked"' : '';
 		?>
 		<input type="checkbox" name="areas[]" value="<?php echo $val;?>" id="area_<?php echo $val;?>" <?php echo $checked;?> />
@@ -19,7 +19,7 @@
 		<?php endforeach; ?><span class="search-phrase"><?php echo $this->lists['searchphrase']; ?></span></dd>
 	<?php endif; ?>
 	<dt><label for="ordering"><?php echo JText::_( 'Ordering' );?>:	</label></dt>
-	<dd><?php echo $this->lists['ordering'];?></dd>
+	<dd class="radio"><?php echo $this->lists['ordering'];?></dd>
 </dl>
 <?php if($this->total > 0) : ?>
 <ul class="search-info">

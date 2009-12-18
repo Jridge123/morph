@@ -11,7 +11,7 @@ $cparams = JComponentHelper::getParams ('com_media');
 
 <div class="blog">
 	<?php if ($this->params->def('show_description', 1) || $this->params->def('show_description_image', 1)) : ?>
-	<div class="contentdescription">
+	<div class="desc">
 	
 		<?php if ($this->params->get('show_description_image') && $this->section->image) : ?>
 		<img src="<?php echo $this->baseurl . $cparams->get('image_path').'/'.$this->section->image; ?>" class="img-<?php echo $this->section->image_position; ?>" />
