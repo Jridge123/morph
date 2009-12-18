@@ -62,13 +62,13 @@ include_once(dirname(__FILE__).DS.'..'.DS.'icon.php');
 
     <?php if ($this->item->params->get('show_readmore') && $this->item->readmore) : ?>
     <p class="readon"><a href="<?php echo $this->item->readmore_link; ?>" title="<?php echo JText::sprintf($this->item->title); ?>">
-		<?php if ($this->item->readmore_register) :
-			echo JText::_('Register to read more...');
-		elseif ($readmore = $this->item->params->get('readmore')) :
-			echo $readmore;
-		else :
-			echo JText::sprintf('Read more', '<span>', $this->escape($this->item->title), '</span>');
-		endif; ?></a>
+    	<?php if ($this->item->readmore_register) :
+    		echo JText::_('Register to read more...');
+    	elseif ($readmore = $this->item->params->get('readmore')) :
+    		echo $readmore;
+    	else :
+    		echo JText::sprintf('READMORE', '<span>', $this->escape($this->item->title), '</span>');
+    	endif; ?></a>
     </p>
     <?php endif; ?>
 
