@@ -294,12 +294,12 @@ if( $browser->getBrowser() == Browser::PLATFORM_IPHONE && $iphone_mode == 1 ){
 		if ( $topdrop >= 1 ) { $document->addStyleSheet($themeletpath .'/css/topnav-topdrop.css'); }
 		if ( $sidenav_count >= 1 ) { $document->addStyleSheet($themeletpath .'/css/sidenav-default.css'); }
 		if ( $sidefish >= 1 ) { $document->addStyleSheet($themeletpath .'/css/sidenav-sidefish.css'); }
+		$document->addStyleSheet($themeletpath .'/css/modfx.css');	
 		if ( $tabscount >= 1 ) { $document->addStyleSheet($themeletpath .'/css/tabs.css'); }
 		if ( $accordionscount >= 1 ) { $document->addStyleSheet($themeletpath .'/css/accordions.css'); }
 		$document->addStyleSheet($themeletpath .'/css/typo.css');
 		$document->addStyleSheet($themeletpath .'/css/joomla.css');
 		$document->addStyleSheet($themeletpath .'/css/modules.css');
-		$document->addStyleSheet($themeletpath .'/css/modfx.css');	
 		$document->addStyleSheet($themeletpath .'/css/themelet.css');
 		if ( $simpleticker == 1 ) { $document->addStyleSheet($themeletpath .'/css/simpleticker.css'); }
 		if ( $simpletweet == 1 ) { $document->addStyleSheet($themeletpath .'/css/simpletweet.css'); }
