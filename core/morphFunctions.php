@@ -232,6 +232,9 @@ if(isset($_GET['pack_css'])){
 	header('Location: ' . str_replace(array('?pack_css','&pack_css'), '', $curr_url));
 }
 
+// include the reusable arrays
+include 'morphArrays.php';
+
 if ( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
 //	$document->addScript($templatepath .'/core/js/jquery.js');	
 //	$document->addScript($templatepath .'/core/js/jqtouch.js');
@@ -239,59 +242,26 @@ if ( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
 } else {
     if($nojs == 0) {
     	if ( isset($_COOKIE['unpackjs']) && $pack_js == 1 || isset($_COOKIE['unpackjs']) && $pack_js == 0 || !isset($_COOKIE['unpackjs']) && $pack_js == 0 ) {
-    		if( $jquery_core == 1 ) { 
-    		    $document->addScript($templatepath .'/core/js/jquery.js');
-    		}
-    		if( $tabscount >= 1 or $accordionscount >= 1 ) {
-    		    $document->addScript($templatepath .'/core/js/ui.js');
-    		}
-    		if( $tabscount >= 1 ) {
-    			$document->addScript($templatepath .'/core/js/tabs.js');
-    		}
-    		if( $accordionscount >= 1 ) {
-    			$document->addScript($templatepath .'/core/js/accordion.js');
-    		}
-    		if( $tabscount >= 1 or $accordionscount >= 1 or $toolbar_slider == 1 or $topshelf_slider == 1 or $bottomshelf_slider == 1 or $developer_toolbar == 1 ) { 
-    		    $document->addScript($templatepath .'/core/js/cookie.js'); 
-    		}
-    		if( $topfish >= 1 && $topnav_hoverintent == 1 ) { 
-    		    $document->addScript($templatepath .'/core/js/hoverintent.js');
-    		}
-    		if( $sidefish >= 1 or $topfish >= 1  ) { 
-    		    $document->addScript($templatepath .'/core/js/superfish.js');
-    		}
-    		if( $topfish >= 1 && $topnav_supersubs == 1 ) { 
-    		    $document->addScript($templatepath .'/core/js/supersubs.js');
-    		}
-    		if( $rounded_corners == 1 or $roundedcount !== 0 ) { 
-    		    $document->addScript($templatepath .'/core/js/corners.js');
-    		}
-    		if( $topshelf_equalize == 1  or $bottomshelf_equalize == 1  or $user1_equalize == 1  or $user2_equalize == 1  or $topleft_equalize == 1  ) { 
-    		    $document->addScript($templatepath .'/core/js/equalheights.js'); 
-    		}
-    		if( $plugin_scrollto == 1 ) { 
-    		    $document->addScript($templatepath .'/core/js/scrollto.js');
-    		}
-    		if( $simpleticker == 1 ) { 
-    		    $document->addScript($templatepath .'/core/js/innerfade.js');
-    		}
-    		if( $simpletweet == 1 ) {
-    		    $document->addScript('modules/mod_simpletweet/js/simpletweet.js');
-            }
-    		if( $captions_enabled == 1 ) { 
-    		    $document->addScript($templatepath .'/core/js/captify.js');
-    		}
-    		if( $lazyload_enabled == 1 ) { 
-    		    $document->addScript($templatepath .'/core/js/lazyload.js');
-    		}
-    		if( $lightbox_enabled == 1 ) { 
-    		    $document->addScript($templatepath .'/core/js/topup.js');
-    		}
-    		if( $google_analytics !== '' ) { 
-    		    $document->addScript($templatepath .'/core/js/googleanalytics.js');
-    		}
-    		    $document->addScript($templatepath .'/core/js/fontsizer.js');
-    		    $document->addScript($templatepath .'/core/js/template.js.php'.$packed_js);
+    		if(in_array('1', $js_jquery)) { $document->addScript($templatepath .'/core/js/jquery.js'); }
+    		if(in_array('1', $js_jqueryui)) { $document->addScript($templatepath .'/core/js/ui.js'); }
+    		if(in_array('1', $js_cookie)) { $document->addScript($templatepath .'/core/js/cookie.js'); }
+    		if(in_array('1', $js_equalize)) { $document->addScript($templatepath .'/core/js/equalheights.js');}
+    		if(in_array('1', $js_slider)) { $document->addScript($templatepath .'/core/js/slider.js');}
+    		if( $tabscount >= 1 ) { $document->addScript($templatepath .'/core/js/tabs.js'); }
+    		if( $accordionscount >= 1 ) { $document->addScript($templatepath .'/core/js/accordion.js'); }
+    		if( $topfish >= 1 && $topnav_hoverintent == 1 ) { $document->addScript($templatepath .'/core/js/hoverintent.js'); }
+    		if( $sidefish >= 1 or $topfish >= 1 or $topdrop >= 1  ) { $document->addScript($templatepath .'/core/js/superfish.js'); }
+    		if( $topfish >= 1 && $topnav_supersubs == 1 ) { $document->addScript($templatepath .'/core/js/supersubs.js'); }
+    		if( $plugin_scrollto == 1 ) { $document->addScript($templatepath .'/core/js/scrollto.js'); }
+    		if( $simpleticker == 1 ) { $document->addScript($templatepath .'/core/js/innerfade.js');}
+    		if( $simpletweet == 1 ) { $document->addScript('modules/mod_simpletweet/js/simpletweet.js'); }
+    		if( $google_analytics !== '' ) { $document->addScript($templatepath .'/core/js/googleanalytics.js');}
+    		if( $lazyload_enabled == 1 ) { $document->addScript($templatepath .'/core/js/lazyload.js'); }
+    		if( $captions_enabled == 1 ) { $document->addScript($templatepath .'/core/js/captify.js'); }
+    		if( $lightbox_enabled == 1 ) { $document->addScript($templatepath .'/core/js/colorbox.js');}
+    	    $document->addScript($templatepath .'/core/js/fontsizer.js');
+    	    $document->addScript($templatepath .'/core/js/template.js.php'.$packed_js);
+    		//if( $rounded_corners == 1 or $roundedcount !== 0 ) { $document->addScript($templatepath .'/core/js/corners.js'); }
     	}else{
     		$document->addScript($templatepath .'/core/js/template.js.php'.$packed_js);
     	}
