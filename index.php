@@ -54,7 +54,6 @@ include_once('core'.DS.'includes'.DS.'iphone.php');
 } else{
 if(isIE6() && $ie6_upgrade == 1){ include_once('core'.DS.'includes'.DS.'ie6upgrade.php');}
 if($this->countModules('advert1')){'<div id="advert1"><jdoc:include type="modules" name="advert1" style="none" /></div>';}
-if ( $global_wrap == 1 ) echo '<div id="global-wrap" class="'.$site_width.'">';
 if($toolbar_position == 0){include_once('core'.DS.'includes'.DS.'toolbar.php');}
 if($topnav_position == 0){include_once('core'.DS.'includes'.DS.'topnav.php');}
 include_once('core'.DS.'includes'.DS.'masthead.php');
@@ -73,7 +72,6 @@ if(file_exists($foot_override) && is_readable($foot_override)){
 } else {
 	 include_once('core'.DS.'includes'.DS.'foot.php');
 }
-if ( $global_wrap == 1 ) echo '</div>';
 if($this->countModules('advert2')) {'<div id="advert2"><jdoc:include type="modules" name="advert2" style="none" /></div>';}
 ?>
 <jdoc:include type="modules" name="debug" />

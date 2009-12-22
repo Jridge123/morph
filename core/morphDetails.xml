@@ -40,6 +40,18 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
+    <param name="global_wrap_start" default="" type="list" label="Wrap start position" tooltip="inline" description="Set the position of the global wrap start position (ie, the opening div)">
+    	<option value="0">Above the toolbar</option>
+    	<option value="1">Above the masthead</option>
+        <option value="2">Above the topnav</option>
+        <option value="3">Above the top shelf</option>
+        <option value="4">Above the main block</option>
+    </param>	
+    <param name="global_wrap_end" default="" type="list" label="Wrap end position" tooltip="inline" description="Set the position of the global wrap end position (ie, the closing div)">
+        <option value="0">Below the main block</option>
+        <option value="1">Below the bottom shelf</option>
+        <option value="2">Below the footer</option>
+    </param>
 	<param name="remove_generator" default="0" type="radio" label="Remove Joomla! meta tag" tooltip="inline" description="The Joomla! meta generator is tag that is outputted in your sites xhtml, which will tell anyone who looks at the code that you are using Joomla!. This in most cases is fine, except when it comes to security. Its recommended that you leave this turned off.">
 		<option value="1">Yes</option>
 		<option value="0">No</option>

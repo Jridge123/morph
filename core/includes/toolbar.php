@@ -1,3 +1,4 @@
+<?php if($global_wrap_start == 0){ ?><div id="global-wrap" class="<?php echo $site_width; ?>"><?php } ?>
 <?php 
 $position = 'toolbar';
 include dirname(__FILE__) .DS.'..'.DS.'morphBlockClasses.php';

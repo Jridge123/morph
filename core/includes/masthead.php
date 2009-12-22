@@ -1,7 +1,8 @@
-<?php if ( $masthead_show == 0 ) {
-	  if ( $masthead_wrap == 1 ) { ?><div id="masthead-wrap"><?php } ?>
-		
-   <div class="<?php echo $site_width . ' ' . $masthead_gridsplit . ' ' . $masthead_chrome; ?>" id="masthead">
+<?php if ( $masthead_show == 0 ) { ?>
+    <?php if($global_wrap_start == 1){ ?><div id="global-wrap" class="<?php echo $site_width; ?>"><?php } ?>
+    
+    <?php if ( $masthead_wrap == 1 ) { ?><div id="masthead-wrap"><?php } ?>
+    <div class="<?php echo $site_width . ' ' . $masthead_gridsplit . ' ' . $masthead_chrome; ?>" id="masthead">
 	  <?php if ( $masthead_inner == 1 ) { ?><div id="masthead-inner" class="clearer"><?php } ?>
 
       <div id="branding" class="logotype-<?php echo $logo_type; ?><?php if ( $slogan_text !== "" ) { ' slogan'; } ?>">
