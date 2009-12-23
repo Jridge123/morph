@@ -1,4 +1,4 @@
-<?php if($global_wrap_start == 2){ ?><div id="global-wrap" class="<?php echo $site_width; ?>"><?php } ?>
+<?php if($global_wrap == 1 && $global_wrap_start == 3){ ?><div id="global-wrap" class="<?php echo $site_width; ?>"><?php } ?>
 <?php if (JDocumentHTML::countModules( 'user3 or user4' ) && $topnav_show == 0 ) { ?>
 <?php if ( $topnav_wrap == 1 ) { ?>
 <div id="topnav-wrap" class="<?php echo pt_classes(array('subtext_top' => $subtext_top, 'topdrop' => $topdrop, 'topfish' => $topfish)); ?>">

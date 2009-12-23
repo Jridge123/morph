@@ -1,4 +1,4 @@
-<?php if($global_wrap_start == 4){ ?><div id="global-wrap" class="<?php echo $site_width; ?>"><?php } ?>
+<?php if($global_wrap == 1 && $global_wrap_start == 5){ ?><div id="global-wrap" class="<?php echo $site_width; ?>"><?php } ?>
 <?php if ( $main_wrap == 1 ) { ?><div id="bd-wrap"><?php } ?>
 	<!-- apply outer scheme -->
 	<div id="bd" class="<?php if($CurrentOuterScheme != '0'){ echo $CurrentOuterScheme . ' '; } echo $site_width; if($option=='com_content' && $layout=='form'){ ?> editmode<?php } ?>">
@@ -30,4 +30,4 @@
 	<?php if ( $main_inner == 1 ) { ?></div><?php } ?><!-- bd inner close -->
 </div><!-- bd close -->
 <?php if($main_wrap == 1){ ?></div><?php } ?><!-- bd wrap close -->
-<?php if($global_wrap_end == 0){ ?></div><?php } ?>
+<?php if($global_wrap == 1 && $global_wrap_end == 0){ ?></div><?php } ?>
