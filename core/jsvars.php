@@ -88,10 +88,4 @@ $pack_js = $_GET['Z02'];
 $custom_js = $_GET['Z03'];
 $themelet_js = $_GET['Z04'];
 $developer_toolbar = $_GET['Z05'];
-
-$jquery = array($jquery_core, $tabscount, $accordionscount, $lazyload_enabled, $captions_enabled, $lightbox_enabled);
-$jqueryui = array($tabscount, $accordionscount);
-$cookie = array($tabscount, $accordionscount, $toolbar_slider, $topshelf_slider, $bottomshelf_slider, $developer_toolbar);
-$slider = array($toolbar_slider, $topshelf_slider, $bottomshelf_slider);
-$equalize = array($topshelf_equalize, $bottomshelf_equalize, $user1_equalize, $user2_equalize, $outer1_equalize, $outer2_equalize, $outer3_equalize, $outer4_equalize, $outer5_equalize,  $inner1_equalize, $inner2_equalize, $inner3_equalize, $inner4_equalize, $inner5_equalize);
 ?>

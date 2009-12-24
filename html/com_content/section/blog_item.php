@@ -20,7 +20,7 @@ include_once(dirname(__FILE__).DS.'..'.DS.'icon.php');
 <?php if ($this->item->params->get('show_author') && ($this->item->author != "") ||	$this->item->params->get('show_create_date') ||	$this->item->params->get('show_pdf_icon') || $this->item->params->get('show_print_icon') || $this->item->params->get('show_email_icon')){ ?>	
 <ul class="article-info">		
 <?php if ($this->item->params->get('show_create_date')) { ?>
-    <li class="created"><?php echo JHTML::_('date', $this->article->created, JText::_('%d %b %y')); ?></li>
+    <li class="created"><?php echo JHTML::_('date', $this->item->created, JText::_('%d %b %y')); ?></li>
 <?php } if (($this->item->params->get('show_author')) && ($this->item->author != "")) { ?>
 	<li class="author"><?php JText::printf('Written by', ($this->item->created_by_alias ? $this->item->created_by_alias : $this->item->author)); ?></li>
 <?php } if ($this->item->params->get('show_pdf_icon')) { ?>
@@ -62,13 +62,13 @@ include_once(dirname(__FILE__).DS.'..'.DS.'icon.php');
 
     <?php if ($this->item->params->get('show_readmore') && $this->item->readmore) : ?>
     <p class="readon"><a href="<?php echo $this->item->readmore_link; ?>" title="<?php echo JText::sprintf($this->item->title); ?>">
-		<?php if ($this->item->readmore_register) :
-			echo JText::_('Register to read more...');
-		elseif ($readmore = $this->item->params->get('readmore')) :
-			echo $readmore;
-		else :
-			echo JText::sprintf('Read more', '<span>', $this->escape($this->item->title), '</span>');
-		endif; ?></a>
+    	<?php if ($this->item->readmore_register) :
+    		echo JText::_('Register to read more...');
+    	elseif ($readmore = $this->item->params->get('readmore')) :
+    		echo $readmore;
+    	else :
+    		echo JText::sprintf('READMORE', '<span>', $this->escape($this->item->title), '</span>');
+    	endif; ?></a>
     </p>
     <?php endif; ?>
 

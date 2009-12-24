@@ -3,7 +3,7 @@
 <?php if ( $topnav_wrap == 1 ) { ?>
 <div id="topnav-wrap" class="<?php echo pt_classes(array('subtext_top' => $subtext_top, 'topdrop' => $topdrop, 'topfish' => $topfish)); ?>">
 <?php } ?>
-	<div id="topnav" class="<?php echo pt_classes(array('subtext_top' => $subtext_top, 'topnav_actionlink' => $topnav_actionlink, 'topdrop' => $topdrop, 'topfish' => $topfish), $site_width); ?>">
+	<div id="topnav" class="<?php echo pt_classes(array('subtext_top' => $subtext_top, 'topnav_actionlink' => $topnav_actionlink, 'topdrop' => $topdrop, 'topfish' => $topfish), $site_width); ?> primary-nav">
 
 	  <?php if(JDocumentHTML::countModules('user3')) { ?>
 	  	<div id="nav" class="clearer">
@@ -17,8 +17,7 @@
 	  
 	</div>
     <?php if ( $topnav_wrap == 1 ) { ?></div><?php } ?>
-<?php } ?>
-
-<?php if ( $topdrop >= 1 ) { ?>
-	<div id="topdrop-bar-wrap"></div>
+    <?php if ( $topdrop >= 1 ) { ?>
+    	<div id="topdrop-bar-wrap"></div>
+    <?php } ?>
 <?php } ?>

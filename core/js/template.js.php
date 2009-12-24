@@ -1,6 +1,7 @@
 <?php
 define('DS', DIRECTORY_SEPARATOR);
 include '../jsvars.php';
+include '../morphArrays.php';
 
 if ( $gzip_compression == 1 ) {
 	if(extension_loaded('zlib') && !ini_get('zlib.output_compression')){
@@ -19,25 +20,25 @@ header('Content-Type: text/javascript; charset=UTF-8');
 define('JPATH', str_replace('templates'.DS.'morph'.DS.'core'.DS.'js', '', dirname(__FILE__)).DS);
 
 if($pack_js == 1){
-	if(in_array('1', $jquery)){ include('jquery.js');echo"\n"; }
-	if(in_array('1', $jqueryui)){ include('ui.js');echo"\n"; }
-	if(in_array('1', $cookie)){ include('cookie.js');echo"\n"; }
-	if(in_array('1', $equalize)){ include('equalheights.js');echo"\n"; }
-	if(in_array('1', $slider)){ include('slider.js');echo"\n"; }
-	if ( $tabscount >= 1 ) { include('tabs.js');echo"\n"; }
-	if ( $accordionscount >= 1 ) { include('accordion.js');echo"\n"; }
-	if ( $topnav_hoverintent == 1 ) { include("hoverintent.js");echo"\n"; }
-	if ( $sidefish >= 1 or $topfish >= 1 or $topdrop >= 1  ) { include('superfish.js');echo"\n"; }
-	if ( $topnav_supersubs == 1 ) { include("supersubs.js");echo"\n"; }
-	if ( $plugin_scrollto == 1 ) { include('scrollto.js');echo"\n"; }
-	if ( $simpleticker == 1 ) { include('innerfade.js');echo"\n"; }
-	if ( $simpletweet == 1 ) { include('..'.DS.'..'.DS.'..'.DS.'..'.DS.'modules'.DS.'mod_simpletweet'.DS.'js'.DS.'simpletweet.js');echo"\n"; }
-	if ( $google_analytics !== '' ) { include('googleanalytics.js');echo"\n";}
-	if ( $lazyload_enabled == 1 ) { include('lazyload.js');echo"\n";}
-	if ( $captions_enabled == 1 ) { include('captify.js');echo"\n";}
-	if ( $lightbox_enabled == 1 ) { include('colorbox.js');echo"\n";}
-	include('fontsizer.js');
-	//if ( $rounded_corners == 1 or $roundedcount !== 0 ) { include('corners.js');echo"\n"; }
+    if(in_array('1', $js_jquery)){ include('jquery.js');echo"\n"; }
+    if(in_array('1', $js_jqueryui)){ include('ui.js');echo"\n"; }
+    if(in_array('1', $js_cookie)){ include('cookie.js');echo"\n"; }
+    if(in_array('1', $js_equalize)){ include('equalheights.js');echo"\n"; }
+    if(in_array('1', $js_slider)){ include('slider.js');echo"\n"; }
+    if ( $tabscount >= 1 ) { include('tabs.js');echo"\n"; }
+    if ( $accordionscount >= 1 ) { include('accordion.js');echo"\n"; }
+    if ( $topfish >= 1 && $topnav_hoverintent == 1 ) { include("hoverintent.js");echo"\n"; }
+    if ( $sidefish >= 1 or $topfish >= 1 or $topdrop >= 1  ) { include('superfish.js');echo"\n"; }
+    if ( $topfish >= 1 && $topnav_supersubs == 1 ) { include("supersubs.js");echo"\n"; }
+    if ( $plugin_scrollto == 1 ) { include('scrollto.js');echo"\n"; }
+    if ( $simpleticker == 1 ) { include('innerfade.js');echo"\n"; }
+    if ( $simpletweet == 1 ) { include('..'.DS.'..'.DS.'..'.DS.'..'.DS.'modules'.DS.'mod_simpletweet'.DS.'js'.DS.'simpletweet.js');echo"\n"; }
+    if ( $google_analytics !== '' ) { include('googleanalytics.js');echo"\n";}
+    if ( $lazyload_enabled == 1 ) { include('lazyload.js');echo"\n";}
+    if ( $captions_enabled == 1 ) { include('captify.js');echo"\n";}
+    if ( $lightbox_enabled == 1 ) { include('colorbox.js');echo"\n";}
+    include('fontsizer.js');
+    //if( $rounded_corners == 1 or $roundedcount !== 0 ) { include('colorbox.js');echo"\n";}
 } ?>
 jQuery.noConflict();
 (function($) {
