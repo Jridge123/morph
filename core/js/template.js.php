@@ -42,7 +42,6 @@ if($pack_js == 1){
 } ?>
 jQuery.noConflict();
 (function($) {
-	$(document).ready(function(){
 		$('#gcf_placeholder').css('z-index','9999');
 		$("#topnav.call-for-action li:last").addClass("action-link");
 		$("#topnav.call-for-action li:last").prev("li").addClass("second-last");
@@ -335,6 +334,6 @@ jQuery.noConflict();
 			 	$.cookie('morph_developer_toolbar', null); window.location.reload(true);
 			});
 		<?php }?>
-    });
+    
 })(jQuery);
 <?php ob_end_flush(); ?>
