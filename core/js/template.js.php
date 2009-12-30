@@ -217,7 +217,7 @@ jQuery.noConflict();
 		<?php } if ( $footer_equalize == 1 ) { ?>$('#footer-grid div.modinner').equalHeights();
 		
 		<?php } if ( $topfish >= 1  ) { ?>
-		$("#nav .menu")<?php if ($topnav_supersubs == 1 ) { ?>.supersubs({
+		$("#topnav .menu, #top .menu")<?php if ($topnav_supersubs == 1 ) { ?>.supersubs({
 			minWidth: <?php echo $topnav_minwidth; ?>,
 		 	maxWidth: <?php echo $topnav_maxwidth; ?>,
 		 	extraWidth: 1
