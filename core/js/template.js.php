@@ -232,7 +232,7 @@ jQuery.noConflict();
  			<?php if ($topnav_hoverintent == 0 ) { ?>disableHI: true<?php } else { ?>disableHI: false<?php } ?>
 		});
 		<?php } if ( $topdrop >= 1 ) { ?>
-		$("#nav .menu").superfish({ pathClass: 'active' });
+		$("#topnav .menu, #top .menu").superfish({ pathClass: 'active' });
 		<?php } if ( $sidefish >= 1 ) { ?> 
 	    $(".mod.sidefish ul.menu").superfish({ 
 	    	animation: {height:'show'},   // slide-down effect without fade-in 
