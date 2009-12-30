@@ -76,31 +76,32 @@ $params 					= new JParameter( $menu->params );
 $pageclass 					= $params->get( 'pageclass_sfx' );
 endif;
 $user 						= JFactory::getUser();
-$toolbar_count 				= JDocumentHTML::countModules('toolbar');
-$masthead_count 			= JDocumentHTML::countModules('masthead');
-$subhead_count 				= JDocumentHTML::countModules('subhead');
-$topnav_count 				= JDocumentHTML::countModules('topnav');
-$topshelf_count 			= JDocumentHTML::countModules('topshelf');
-$bottomshelf_count 			= JDocumentHTML::countModules('bottomshelf');
-$user1_count 				= JDocumentHTML::countModules('user1');
-$user2_count 				= JDocumentHTML::countModules('user2');
-$inset1_count 				= JDocumentHTML::countModules('inset1');
-$inset2_count 				= JDocumentHTML::countModules('inset2');
-$inset3_count 				= JDocumentHTML::countModules('inset3');
-$inset4_count 				= JDocumentHTML::countModules('inset4');
-$outersplit_count 			= JDocumentHTML::countModules('outersplit');
-$outer1_count 				= JDocumentHTML::countModules('outer1');
-$outer2_count 				= JDocumentHTML::countModules('outer2');
-$outer3_count 			    = JDocumentHTML::countModules('outer3');
-$outer4_count 				= JDocumentHTML::countModules('outer4');
-$outer5_count 			    = JDocumentHTML::countModules('outer5');
-$innersplit_count 			= JDocumentHTML::countModules('innersplit');
-$inner1_count 				= JDocumentHTML::countModules('inner1');
-$inner2_count 				= JDocumentHTML::countModules('inner2');
-$inner3_count 			    = JDocumentHTML::countModules('inner3');
-$inner4_count 				= JDocumentHTML::countModules('inner4');
-$inner5_count 			    = JDocumentHTML::countModules('inner5');
-$footer_count 				= JDocumentHTML::countModules('footer');
+$document					= JFactory::getDocument();
+$toolbar_count 				= $document->countModules('toolbar');
+$masthead_count 			= $document->countModules('masthead');
+$subhead_count 				= $document->countModules('subhead');
+$topnav_count 				= $document->countModules('topnav');
+$topshelf_count 			= $document->countModules('topshelf');
+$bottomshelf_count 			= $document->countModules('bottomshelf');
+$user1_count 				= $document->countModules('user1');
+$user2_count 				= $document->countModules('user2');
+$inset1_count 				= $document->countModules('inset1');
+$inset2_count 				= $document->countModules('inset2');
+$inset3_count 				= $document->countModules('inset3');
+$inset4_count 				= $document->countModules('inset4');
+$outersplit_count 			= $document->countModules('outersplit');
+$outer1_count 				= $document->countModules('outer1');
+$outer2_count 				= $document->countModules('outer2');
+$outer3_count 			    = $document->countModules('outer3');
+$outer4_count 				= $document->countModules('outer4');
+$outer5_count 			    = $document->countModules('outer5');
+$innersplit_count 			= $document->countModules('innersplit');
+$inner1_count 				= $document->countModules('inner1');
+$inner2_count 				= $document->countModules('inner2');
+$inner3_count 			    = $document->countModules('inner3');
+$inner4_count 				= $document->countModules('inner4');
+$inner5_count 			    = $document->countModules('inner5');
+$footer_count 				= $document->countModules('footer');
 $stylelink 					= '';
 $direction  				= $this->direction;
 $browser 					= new Browser();
@@ -261,9 +262,11 @@ if ( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
     		if( $lightbox_enabled == 1 ) { $document->addScript($templatepath .'/core/js/colorbox.js');}
     	    $document->addScript($templatepath .'/core/js/fontsizer.js');
     	    $document->addScript($templatepath .'/core/js/template.js.php'.$packed_js);
+		   //$document->addScript(JRoute::_('&option=com_configurator&format=js'));
     		//if( $rounded_corners == 1 or $roundedcount !== 0 ) { $document->addScript($templatepath .'/core/js/corners.js'); }
     	}else{
     		$document->addScript($templatepath .'/core/js/template.js.php'.$packed_js);
+    		//$document->addScript(JRoute::_('&option=com_configurator&format=js'));
     	}
     
     }else{
@@ -306,6 +309,7 @@ if( $browser->getBrowser() == Browser::PLATFORM_IPHONE && $iphone_mode == 1 ){
 		if ( $simplecontact == 1 ) { $document->addStyleSheet($themeletpath .'/css/simplecontact.css'); }
 		if ( $simplesocial == 1 ) { $document->addStyleSheet($themeletpath .'/css/simplesocial.css'); }
 		$document->addStyleSheet($templatepath .'/core/css/template.css.php'.$packed_css);
+		//$document->addStyleSheet(JRoute::_('&option=com_configurator&format=css'));
 		if($developer_toolbar == 1) { $document->addStyleSheet($templatepath .'/core/css/devbar.css'); }
 		if ( $direction == 'rtl' && file_exists($css_rtl)){ $document->addStyleSheet($css_rtl); } elseif ($direction == 'rtl') { $document->addStyleSheet($themeletpath .'/core/css/rtl.css'); }
 		// core browser specific
@@ -325,6 +329,7 @@ if( $browser->getBrowser() == Browser::PLATFORM_IPHONE && $iphone_mode == 1 ){
 		if(file_exists($css_ie8) && preg_match('/MSIE 8/i', $_SERVER['HTTP_USER_AGENT'])) $document->addStyleSheet($themeletpath .'/css/ie8.css');
 	} else {
 		$document->addStyleSheet($templatepath .'/core/css/template.css.php'.$packed_css);
+		//$document->addStyleSheet(JRoute::_('&option=com_configurator&format=css'));
 	}
 }
 
@@ -342,9 +347,10 @@ function isIE6($string=''){
 include_once('InnerLayout.php');
 include_once('OuterLayout.php');
 
-if (!JDocumentHTML::countModules('outersplit or outer1 or outer2 or outer3 or outer4 or outer5')) $CurrentOuterScheme = '';
-if (!JDocumentHTML::countModules('innersplit or inner1 or inner2 or inner3 or inner4 or inner5')) $CurrentInnerScheme = '';
-if (!JDocumentHTML::countModules('user4')) $no_search = 'no_search';
+$document = JFactory::getDocument();
+if (!$document->countModules('outersplit or outer1 or outer2 or outer3 or outer4 or outer5')) $CurrentOuterScheme = '';
+if (!$document->countModules('innersplit or inner1 or inner2 or inner3 or inner4 or inner5')) $CurrentInnerScheme = '';
+if (!$document->countModules('user4')) $no_search = 'no_search';
 
 // intelli mods array
 $jj_const = array(
@@ -388,8 +394,8 @@ $jj_const = array(
 );
 
 function getYuiSuffix ($moduleName, $jj_const){
-	$myJdoc = new JDocumentHTML();
-	$moduleCount = $myJdoc->countModules($moduleName); 
+	$document					= JFactory::getDocument();
+	$moduleCount = $document->countModules($moduleName); 
 	if(in_array($moduleName, $jj_const['outer_inner_pos'])){
 		$yuiModuleSuffix = $jj_const["yui_suffix"][$moduleCount];
 	}else{

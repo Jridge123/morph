@@ -40,6 +40,19 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
+    <param name="global_wrap_start" default="" type="list" label="Wrap start position" tooltip="inline" description="Set the position of the global wrap start position (ie, the opening div)">
+    	<option value="0">Above toolbar</option>
+    	<option value="1">Above masthead</option>
+    	<option value="2">Above subhead</option>
+        <option value="3">Above topnav</option>
+        <option value="4">Above topshelf</option>
+        <option value="5">Above main block</option>
+    </param>	
+    <param name="global_wrap_end" default="" type="list" label="Wrap end position" tooltip="inline" description="Set the position of the global wrap end position (ie, the closing div)">
+        <option value="0">Below main block</option>
+        <option value="1">Below bottomshelf</option>
+        <option value="2">Below footer</option>
+    </param>
 	<param name="remove_generator" default="0" type="radio" label="Remove Joomla! meta tag" tooltip="inline" description="The Joomla! meta generator is tag that is outputted in your sites xhtml, which will tell anyone who looks at the code that you are using Joomla!. This in most cases is fine, except when it comes to security. Its recommended that you leave this turned off.">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
@@ -559,7 +572,7 @@
 		<option value="0">No</option>
 	</param>
 	<param name="toolbar_slider_text" default="toggle" type="text" label="Toolbar slider text" tooltip="inline" description="Define the toggle button text. You can either display a single word like toggle, or set different text for each state, for example 'open,close'. Its important that there are no spaces between the two words and that you use a comma to seperate them." />	
-	<param name="toolbar_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />
+	<param name="toolbar_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />
 	<param name="toolbar_show" default="0" type="radio" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
@@ -600,7 +613,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="masthead_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
+	<param name="masthead_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
 	<param name="display_skipto" default="1" type="radio" label="Display skip to menu" tooltip="inline" description="Would you like to display a skip to content menu?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
@@ -644,7 +657,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="subhead_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
+	<param name="subhead_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
 	<param name="subhead_show" default="0" type="radio" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
@@ -684,7 +697,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="topnav_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
+	<param name="topnav_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
 	<param name="topnav_position" default="2" type="list" label="Top menu position" tooltip="inline" description="Where would you like the top menu to be displayed.">
 		<option value="0">Above Master Head</option>
 		<option value="1">Above Sub Head</option>
@@ -730,7 +743,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="topshelf_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />
+	<param name="topshelf_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />
 	<param name="topshelf_slider" default="0" type="radio" label="Topshelf slider" tooltip="modal" description="slider.html">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
@@ -775,7 +788,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="bottomshelf_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
+	<param name="bottomshelf_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
 	<param name="bottomshelf_slider" default="0" type="radio" label="Topbar slider" tooltip="modal" description="slider.html">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
@@ -816,7 +829,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="user1_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
+	<param name="user1_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
 	<param name="user1_show" default="0" type="radio" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
@@ -852,7 +865,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="user2_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
+	<param name="user2_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
 	<param name="user2_show" default="0" type="radio" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
@@ -884,7 +897,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="inset1_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
+	<param name="inset1_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
 </params>
 
 <params group="inset2data">	
@@ -912,7 +925,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="inset2_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
+	<param name="inset2_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
 </params>
 
 <params group="inset3data">	
@@ -940,7 +953,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="inset3_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
+	<param name="inset3_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
 </params>
 
 <params group="inset4data">		
@@ -968,7 +981,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="inset4_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
+	<param name="inset4_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
 </params>
 
 <params group="maindata">	
@@ -1023,7 +1036,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="outer1_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
+	<param name="outer1_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
 </params>
 
 <params group="outer2data">			
@@ -1044,7 +1057,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="outer2_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
+	<param name="outer2_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
 </params>
 
 <params group="outer3data">			
@@ -1065,7 +1078,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="outer3_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
+	<param name="outer3_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
 </params>
 
 <params group="outer4data">			
@@ -1086,7 +1099,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="outer4_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
+	<param name="outer4_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
 </params>
 
 <params group="outer5data">			
@@ -1107,7 +1120,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="outer5_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
+	<param name="outer5_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
 </params>
 
 <params group="innersidebardata">	
@@ -1143,7 +1156,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="inner1_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
+	<param name="inner1_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
 </params>
 
 <params group="inner2data">	
@@ -1164,7 +1177,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="inner2_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
+	<param name="inner2_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
 </params>
 
 <params group="inner3data">	
@@ -1185,7 +1198,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="inner3_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
+	<param name="inner3_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
 </params>
 
 <params group="inner4data">	
@@ -1206,7 +1219,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="inner4_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
+	<param name="inner4_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
 </params>
 
 <params group="inner5data">	
@@ -1227,7 +1240,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="inner5_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
+	<param name="inner5_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
 </params>
 
 <params group="footerdata">	
@@ -1263,7 +1276,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="footer_modfx" default="" type="textarea" cols="32" rows="1" tooltip="inline" label="Default module style" description="" />	
+	<param name="footer_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
 	<param name="footer_copyright_show" default="1" type="radio" label="Display copyright" tooltip="inline" description="Would you like the footer copyright to be display?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
