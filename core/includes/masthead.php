@@ -60,6 +60,8 @@
       <?php } ?>
     <?php if ( $masthead_inner == 1 ) { ?></div><?php } ?>
    </div>
-   
+   <?php if ( $topdrop >= 1 ) { ?>
+   	<div id="topdrop-bar-wrap"></div>
+   <?php } ?>
 <?php if ( $masthead_wrap == 1 ) { ?></div><?php } ?>
 <?php } ?>
