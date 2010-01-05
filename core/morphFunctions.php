@@ -536,7 +536,7 @@ function pt_classes($classes, $sitewidth=''){
 		foreach($classes as $classname => $p){
 			switch($classname){
 				
-				case 'subtext_top':
+				case 'subtext':
 				if($p >= 1){ $c .= 'subtext'; }else{ $c .= 'no-subtext'; }
 				break;
 				case 'topnav_actionlink':

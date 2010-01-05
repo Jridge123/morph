@@ -47,8 +47,8 @@ class morphLoader {
 
 		
 		if(isset($themelet_name)) $themelet_params = getTemplateParamList( JPATH_ROOT.'/morph_assets/themelets/'.$themelet_name.'/themeletDetails.xml', TRUE );
-		$xml_params = getTemplateParamList( realpath(dirname(__FILE__).'morphDetails.xml'), TRUE );
-		
+		$xml_params = getTemplateParamList( realpath(dirname(__FILE__).'/morphDetails.xml'), TRUE );
+
 		foreach ($xml_params as $param) {
 		$param = explode( '=', $param );
 		$default_params[$param[0]] = $param[1];
