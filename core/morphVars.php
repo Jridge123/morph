@@ -39,14 +39,14 @@ $db->setQuery( $query ); $accordionscount = $db->loadResult();
 $query = "SELECT COUNT(*) FROM `#__modules` WHERE `params` LIKE '%moduleclass_sfx=rounded%' ";
 $db->setQuery( $query ); $roundedcount = $db->loadResult();
 
-$query = "SELECT COUNT(*) FROM `#__modules` WHERE `position` = 'user3' AND `params` LIKE '%moduleclass_sfx=topdrop%' OR `position` = 'user3' AND `params` LIKE '% topdrop%'";
+$query = "SELECT COUNT(*) FROM `#__modules` WHERE `position` = 'user3'  AND published = '1' AND `params` LIKE '%moduleclass_sfx=topdrop%' OR `position` = 'user3' AND published = '1' AND `params` LIKE '% topdrop%' OR `position` = 'top' AND published = '1' AND `params` LIKE '%moduleclass_sfx=topdrop%' OR `position` = 'top' AND published = '1' AND `params` LIKE '% topdrop%'";
 $db->setQuery( $query ); $topdrop = $db->loadResult();
 
 $query = "SELECT COUNT(*) FROM `#__modules` WHERE `position` = 'user3' AND published = '1' AND `params` LIKE '%moduleclass_sfx=topfish%' OR `position` = 'user3' AND published = '1' AND `params` LIKE '% topfish%' OR `position` = 'top' AND published = '1' AND `params` LIKE '%moduleclass_sfx=topfish%' OR `position` = 'top' AND published = '1' AND `params` LIKE '% topfish%'";
 $db->setQuery( $query ); $topfish = $db->loadResult();
 
-$query = "SELECT COUNT(*) FROM `#__modules` WHERE `position` = 'user3' AND `params` LIKE '%moduleclass_sfx=subtext%' OR `position` = 'user3' AND `params` LIKE '% subtext%'";
-$db->setQuery( $query ); $subtext_top = $db->loadResult();
+$query = "SELECT COUNT(*) FROM `#__modules` WHERE `position` = 'user3' AND published = '1' AND `params` LIKE '%moduleclass_sfx=subtext%' OR `position` = 'user3' AND published = '1' AND `params` LIKE '% subtext%' OR `position` = 'top' AND published = '1' AND `params` LIKE '%moduleclass_sfx=subtext%' OR `position` = 'top' AND published = '1' AND `params` LIKE '% subtext%'";
+$db->setQuery( $query ); $subtext = $db->loadResult();
 
 $query = "SELECT COUNT(*) FROM `#__modules` WHERE `position` = 'user3' AND `params` LIKE '%moduleclass_sfx=animate%' OR `position` = 'user3' AND `params` LIKE '% animate%'";
 $db->setQuery( $query ); $animate_top = $db->loadResult();

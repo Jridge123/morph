@@ -17,3 +17,6 @@
 #ie6Warning h2{font-size:1.4em;padding-bottom:.3em;}
 #ie6Warning p{line-height:1.2em;width:780px;margin:0 auto;}
 #ie6Warning p a{color:#FFCC66;}
+
+/* opacity for all IE but IE6 */
+.ldisabled,.sdisabled{filter:alpha(opacity = 30);}
