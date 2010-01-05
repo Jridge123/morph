@@ -68,6 +68,8 @@ $secid 						= JRequest::getCmd('secid');
 $catid 						= JRequest::getCmd('catid');
 $itemid 					= JRequest::getCmd('Itemid');
 $pageclass   				= "";
+$cache						= $MORPH->cache ? '&cache='.$MORPH->cachetime : false;
+$gzip						= $MORPH->gzip_compression ? '&gzip='.$MORPH->gzip_compression : false;
 $document 					= Jfactory::getDocument();  
 $menus      				= JSite::getMenu();
 $menu      					= $menus->getActive();
@@ -261,12 +263,12 @@ if ( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
     		if( $captions_enabled == 1 ) { $document->addScript($templatepath .'/core/js/captify.js'); }
     		if( $lightbox_enabled == 1 ) { $document->addScript($templatepath .'/core/js/colorbox.js');}
     	    $document->addScript($templatepath .'/core/js/fontsizer.js');
-    	    $document->addScript($templatepath .'/core/js/template.js.php'.$packed_js);
-		   //$document->addScript(JRoute::_('&option=com_configurator&format=js'));
+    	    //$document->addScript($templatepath .'/core/js/template.js.php'.$packed_js);
+		    $document->addScript(JRoute::_('&render=js'.$cache.$gzip));
     		//if( $rounded_corners == 1 or $roundedcount !== 0 ) { $document->addScript($templatepath .'/core/js/corners.js'); }
     	}else{
-    		$document->addScript($templatepath .'/core/js/template.js.php'.$packed_js);
-    		//$document->addScript(JRoute::_('&option=com_configurator&format=js'));
+    		//$document->addScript($templatepath .'/core/js/template.js.php'.$packed_js);
+    		$document->addScript(JRoute::_('&render=js'.$cache.$gzip));
     	}
     
     }else{
@@ -308,8 +310,8 @@ if( $browser->getBrowser() == Browser::PLATFORM_IPHONE && $iphone_mode == 1 ){
 		if ( $simpletweet == 1 ) { $document->addStyleSheet($themeletpath .'/css/simpletweet.css'); }
 		if ( $simplecontact == 1 ) { $document->addStyleSheet($themeletpath .'/css/simplecontact.css'); }
 		if ( $simplesocial == 1 ) { $document->addStyleSheet($themeletpath .'/css/simplesocial.css'); }
-		$document->addStyleSheet($templatepath .'/core/css/template.css.php'.$packed_css);
-		//$document->addStyleSheet(JRoute::_('&option=com_configurator&format=css'));
+		//$document->addStyleSheet($templatepath .'/core/css/template.css.php'.$packed_css);
+		$document->addStyleSheet(JRoute::_('&render=css'.$cache.$gzip));
 		if($developer_toolbar == 1) { $document->addStyleSheet($templatepath .'/core/css/devbar.css'); }
 		if ( $direction == 'rtl' && file_exists($css_rtl)){ $document->addStyleSheet($css_rtl); } elseif ($direction == 'rtl') { $document->addStyleSheet($themeletpath .'/core/css/rtl.css'); }
 		// core browser specific
@@ -328,8 +330,8 @@ if( $browser->getBrowser() == Browser::PLATFORM_IPHONE && $iphone_mode == 1 ){
 		if(file_exists($css_ie7) && preg_match('/MSIE 7/i', $_SERVER['HTTP_USER_AGENT'])) $document->addStyleSheet($themeletpath .'/css/ie7.css');
 		if(file_exists($css_ie8) && preg_match('/MSIE 8/i', $_SERVER['HTTP_USER_AGENT'])) $document->addStyleSheet($themeletpath .'/css/ie8.css');
 	} else {
-		$document->addStyleSheet($templatepath .'/core/css/template.css.php'.$packed_css);
-		//$document->addStyleSheet(JRoute::_('&option=com_configurator&format=css'));
+		//$document->addStyleSheet($templatepath .'/core/css/template.css.php'.$packed_css);
+		$document->addStyleSheet(JRoute::_('&render=css'.$cache.$gzip));
 	}
 }
 

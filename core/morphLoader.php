@@ -16,9 +16,9 @@
  */
 
 defined('_JEXEC') or die('Restricted access');
-$morph_component_path = dirname(__FILE__).DS.'..'.DS.'..'.DS.'..'.DS.'administrator'.DS.'components'.DS.'com_configurator';
-include_once ($morph_component_path . DS . "configurator.common.php");
-include_once ($morph_component_path . DS . "configurator.class.php");
+$morph_component_path = JPATH_ADMINISTRATOR.'/components/com_configurator';
+include_once ($morph_component_path . "/configurator.common.php");
+include_once ($morph_component_path . "/configurator.class.php");
 
 class morphLoader {
 
@@ -46,8 +46,8 @@ class morphLoader {
 		}
 
 		
-		if(isset($themelet_name)) $themelet_params = getTemplateParamList( dirname(__FILE__).DS.'..'.DS.'..'.DS.'..'.DS.'morph_assets'.DS.'themelets'.DS.$themelet_name.DS.'themeletDetails.xml', TRUE );
-		$xml_params = getTemplateParamList( dirname(__FILE__).DS.'morphDetails.xml', TRUE );
+		if(isset($themelet_name)) $themelet_params = getTemplateParamList( JPATH_ROOT.'/morph_assets/themelets/'.$themelet_name.'/themeletDetails.xml', TRUE );
+		$xml_params = getTemplateParamList( realpath(dirname(__FILE__).'morphDetails.xml'), TRUE );
 		
 		foreach ($xml_params as $param) {
 		$param = explode( '=', $param );
@@ -67,6 +67,23 @@ class morphLoader {
 		foreach( $default_params as $key => $value ) {
 		$this->$key = $value;
 		}
+		
+			jimport('joomla.filesystem.file');
+		
+			$path = JPATH_CACHE.'/morph/data.json';
+			if(file_exists($path))
+			{
+				$created	= time()-date('U', filemtime($path));
+				$expire		= $this->cache * 60;
+				if($created > $expire)
+				{
+					$json = json_encode($this);
+					JFile::write($path, $json);
+				}
+			} else {
+				$json = json_encode($this);
+				JFile::write($path, $json);
+			}
 		}
 		
 		function get($param_name=null) {
