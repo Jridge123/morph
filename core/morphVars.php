@@ -72,6 +72,13 @@ $db->setQuery( $query ); $simplecontact = $db->loadResult();
 $query = "SELECT COUNT(*) FROM `#__modules` WHERE `module` = 'mod_simplesocial' AND `published` = '1'";
 $db->setQuery( $query ); $simplesocial = $db->loadResult();
 
+//Let's pass session variables to the js and css views so we only have to run the sql queries once.
+$counts = array('tabscount', 'accordionscount', 'roundedcount', 'topdrop', 'topfish', 'subtext', 'animate_top', 'sidefish', 'sidenav_count', 'topnav_count', 'simpleticker', 'simpletweet', 'simplecontact', 'simplesocial');
+foreach($counts as $count)
+{
+	$_SESSION[$count] = $$count;
+}
+
 if(file_exists($themeletjs)){ $themelet_js = 1; }else{ $themelet_js = 0; }
 if(file_exists($customjs)){ $custom_js = 1; }else{ $custom_js = 0; }
 if(file_exists($customcss)){ $custom_css = 1; }else{ $custom_css = 0; }

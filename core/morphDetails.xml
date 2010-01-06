@@ -403,6 +403,11 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
+	<param name="cache" default="1" type="radio" label="Enable caching" tooltip="inline" description="Caching the dynamic css and js files will greatly improve performance regarding response time (the 'waiting for response' delay) and loadtimes. Turn on gzip too for the best possible performance.">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
+	<param name="cachetime" default="15" type="text" label="Cache Expire Time" tooltip="inline" description="Configurator will always purge the cache whenever you make an change in Morph's settings. But if you make changes affecting what css and/or js Morph loads outside of the configurator, like if you unpublish the simpletweet module, cache expire time will ensure that the cache refresh to reflect those changes. There's a balance on how quick you want the cache to refresh, and how snappy you want your site to load. We've found 15 minutes to have the most 'Zen' balance to it." />
 	<param name="gzip_compression" default="1" type="radio" label="Enable gzip" tooltip="inline" description="Gzip is a form of optimization that causes pages to be compressed before being transmitted from server to browser, making the transmitted data smaller, thus speeding up the delivery.">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
