@@ -34,6 +34,7 @@ $.trackPage('<?php echo $google_analytics; ?>')
 <?php if( $browser->getBrowser() == Browser::BROWSER_IE && $chrome_frame == 1 ) {
 	$document->setMetaData('X-UA-Compatible', 'chrome=1', true);
 } ?>
+<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/morph/core/css/print.css" type="text/css" media="Print" />
 </head>
 <?php if ($error_reporting == 0) { error_reporting(E_ALL ^ E_NOTICE); } ?>
 <body <?php echo pt_body_classes($menu, $view, $themelet); ?>>
