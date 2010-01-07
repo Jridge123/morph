@@ -25,11 +25,6 @@ height:<?php echo $this->css->masthead_height; ?>;
 top:<?php echo $this->css->logo_top; ?>;
 left:<?php echo $this->css->logo_left; ?>;
 z-index:<?php echo $this->css->logo_stack; ?>;
-<?php if ($this->css->logo_width !== 'null') { ?>
-width:<?php echo $this->css->logo_width; ?>px;
-<?php } if ($this->css->logo_height !== 'null') { ?>
-height:<?php echo $this->css->logo_height; ?>px;
-<?php } ?>
 font-size:<?php echo $this->css->logo_fontsize; ?>;
 }
 #branding h1 a{
