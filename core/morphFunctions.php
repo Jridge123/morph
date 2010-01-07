@@ -125,9 +125,12 @@ $css_ie7				    = $absolutepath.DS.'css'.DS.'ie7.css';
 $css_ie8				    = $absolutepath.DS.'css'.DS.'ie8.css';
 $css_browsers				= $absolutepath.DS.'css'.DS.'browsers.css';
 $css_yui					= $absolutepath.DS.'css'.DS.'yui.css';
+$css_rtl					= $absolutepath.DS.'css'.DS.'rtl.css';
 $css_iphone					= $absolutepath.DS.'css'.DS.'iphone.css';
 $customcss					= $absolutepath.DS.'css'.DS.'custom.css.php';
 $customjs					= $absolutepath.DS.'js'.DS.'custom.js.php';
+$custom_css_file    		= $absolutepath.DS.'css'.DS.'custom.css';
+$custom_js_file				= $absolutepath.DS.'js'.DS.'custom.js';
 $themeletjs					= $absolutepath.DS.'js'.DS.'themelet.js';
 $customfunctions			= $absolutepath.DS.'custom.php';
 $themeletfunctions			= $absolutepath.DS.'themelet.php';
@@ -262,6 +265,7 @@ if ( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
     		if( $lazyload_enabled == 1 ) { $document->addScript($templatepath .'/core/js/lazyload.js'); }
     		if( $captions_enabled == 1 ) { $document->addScript($templatepath .'/core/js/captify.js'); }
     		if( $lightbox_enabled == 1 ) { $document->addScript($templatepath .'/core/js/colorbox.js');}
+		    if( file_exists($custom_js_file)){ $document->addScript($themeletpath .'/js/custom.js'); }
     	    $document->addScript($templatepath .'/core/js/fontsizer.js');
     	    //$document->addScript($templatepath .'/core/js/template.js.php'.$packed_js);
 		    $document->addScript(JRoute::_('&render=js'.$cache.$gzip));
@@ -288,6 +292,9 @@ if(isset($_GET['hide_firebug'])){
 	header('Location: ' . str_replace(array('?hide_firebug','&hide_firebug'), '', $curr_url));
 }
 
+// activate rtl for testing
+// $direction = 'rtl';
+
 if( $browser->getBrowser() == Browser::PLATFORM_IPHONE && $iphone_mode == 1 ){
 	if ( file_exists($css_iphone)) { $document->addStyleSheet($themeletpath .'/css/iphone.css'); } else { $document->addStyleSheet($templatepath .'/core/css/iphone.css'); }	
 //	if ( file_exists($css_iphone)) { $document->addStyleSheet($css_iphone); } else { $document->addStyleSheet($templatepath .'/core/css/jqtouch.css'); }	
@@ -313,7 +320,9 @@ if( $browser->getBrowser() == Browser::PLATFORM_IPHONE && $iphone_mode == 1 ){
 		//$document->addStyleSheet($templatepath .'/core/css/template.css.php'.$packed_css);
 		$document->addStyleSheet(JRoute::_('&render=css'.$cache.$gzip));
 		if($developer_toolbar == 1) { $document->addStyleSheet($templatepath .'/core/css/devbar.css'); }
-		if ( $direction == 'rtl' && file_exists($css_rtl)){ $document->addStyleSheet($css_rtl); } elseif ($direction == 'rtl') { $document->addStyleSheet($themeletpath .'/core/css/rtl.css'); }
+		
+		if ( $direction == 'rtl' && file_exists($css_rtl)){ $document->addStyleSheet($themeletpath .'/css/rtl.css'); } elseif ($direction == 'rtl') { $document->addStyleSheet($templatepath .'/core/css/rtl.css'); }
+		if ( file_exists($custom_css_file)){ $document->addStyleSheet($themeletpath .'/css/custom.css'); }
 		// core browser specific
 		$document->addStyleSheet($templatepath .'/core/css/browsers.css');
 		if(preg_match('/MSIE 6/i', $_SERVER['HTTP_USER_AGENT'])) $document->addStyleSheet($templatepath .'/core/css/ie6.css');
