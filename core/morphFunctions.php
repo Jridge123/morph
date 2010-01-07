@@ -317,7 +317,6 @@ if( $browser->getBrowser() == Browser::PLATFORM_IPHONE && $iphone_mode == 1 ){
 		if ( $simpletweet == 1 ) { $document->addStyleSheet($themeletpath .'/css/simpletweet.css'); }
 		if ( $simplecontact == 1 ) { $document->addStyleSheet($themeletpath .'/css/simplecontact.css'); }
 		if ( $simplesocial == 1 ) { $document->addStyleSheet($themeletpath .'/css/simplesocial.css'); }
-		//$document->addStyleSheet($templatepath .'/core/css/template.css.php'.$packed_css);
 		$document->addStyleSheet(JRoute::_('&render=css'.$cache.$gzip));
 		if($developer_toolbar == 1) { $document->addStyleSheet($templatepath .'/core/css/devbar.css'); }
 		
@@ -339,7 +338,6 @@ if( $browser->getBrowser() == Browser::PLATFORM_IPHONE && $iphone_mode == 1 ){
 		if(file_exists($css_ie7) && preg_match('/MSIE 7/i', $_SERVER['HTTP_USER_AGENT'])) $document->addStyleSheet($themeletpath .'/css/ie7.css');
 		if(file_exists($css_ie8) && preg_match('/MSIE 8/i', $_SERVER['HTTP_USER_AGENT'])) $document->addStyleSheet($themeletpath .'/css/ie8.css');
 	} else {
-		//$document->addStyleSheet($templatepath .'/core/css/template.css.php'.$packed_css);
 		$document->addStyleSheet(JRoute::_('&render=css'.$cache.$gzip));
 	}
 }
