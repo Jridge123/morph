@@ -45,8 +45,8 @@ if ( $gzip_compression == 1 ) {
 	ob_start();
 }
 // set the various paths:
-$templatepath = JURI::root() . 'templates'.'/'.$this->template;
-$themeletpath = JURI::root() . 'morph_assets'.'/'.'themelets'.'/'.$themelet;
+$templatepath = JURI::root(1) . '/templates'.'/'.$this->template;
+$themeletpath = JURI::root(1) . '/morph_assets'.'/'.'themelets'.'/'.$themelet;
 $assetspath = JURI::root() . 'morph_assets';
 $assetsroot = JPATH_SITE.DS.'morph_assets';
 $imagespath = JURI::root() . 'morph_assets'.'/'.'themelets'.'/'.$themelet.'/'.'images'.'/';
@@ -248,11 +248,11 @@ if ( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
 } else {
     if($nojs == 0) {
     	if ( isset($_COOKIE['unpackjs']) && $pack_js == 1 || isset($_COOKIE['unpackjs']) && $pack_js == 0 || !isset($_COOKIE['unpackjs']) && $pack_js == 0 ) {
-    		if(in_array('1', $js_jquery)) { $document->addScript($templatepath .'/core/js/jquery.js'); }
-    		if(in_array('1', $js_jqueryui)) { $document->addScript($templatepath .'/core/js/ui.js'); }
-    		if(in_array('1', $js_cookie)) { $document->addScript($templatepath .'/core/js/cookie.js'); }
-    		if(in_array('1', $js_equalize)) { $document->addScript($templatepath .'/core/js/equalheights.js');}
-    		if(in_array('1', $js_slider)) { $document->addScript($templatepath .'/core/js/slider.js');}
+    		if(in_array(1, $js_jquery)) { $document->addScript($templatepath .'/core/js/jquery.js'); }
+    		if(in_array(1, $js_jqueryui)) { $document->addScript($templatepath .'/core/js/ui.js'); }
+    		if(in_array(1, $js_cookie)) { $document->addScript($templatepath .'/core/js/cookie.js'); }
+    		if(in_array(1, $js_equalize)) { $document->addScript($templatepath .'/core/js/equalheights.js');}
+    		if(in_array(1, $js_slider)) { $document->addScript($templatepath .'/core/js/slider.js');}
     		if( $tabscount >= 1 ) { $document->addScript($templatepath .'/core/js/tabs.js'); }
     		if( $accordionscount >= 1 ) { $document->addScript($templatepath .'/core/js/accordion.js'); }
     		if( $topfish >= 1 && $topnav_hoverintent == 1 ) { $document->addScript($templatepath .'/core/js/hoverintent.js'); }
@@ -265,13 +265,10 @@ if ( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
     		if( $lazyload_enabled == 1 ) { $document->addScript($templatepath .'/core/js/lazyload.js'); }
     		if( $captions_enabled == 1 ) { $document->addScript($templatepath .'/core/js/captify.js'); }
     		if( $lightbox_enabled == 1 ) { $document->addScript($templatepath .'/core/js/colorbox.js');}
-		    if( file_exists($custom_js_file)){ $document->addScript($themeletpath .'/js/custom.js'); }
     	    $document->addScript($templatepath .'/core/js/fontsizer.js');
-    	    //$document->addScript($templatepath .'/core/js/template.js.php'.$packed_js);
 		    $document->addScript(JRoute::_('&render=js'.$cache.$gzip));
     		//if( $rounded_corners == 1 or $roundedcount !== 0 ) { $document->addScript($templatepath .'/core/js/corners.js'); }
     	}else{
-    		//$document->addScript($templatepath .'/core/js/template.js.php'.$packed_js);
     		$document->addScript(JRoute::_('&render=js'.$cache.$gzip));
     	}
     
