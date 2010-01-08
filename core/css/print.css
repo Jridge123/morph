@@ -10,4 +10,4 @@ a,a:visited,a:link{color:#000;}
 .article-info,.filing,.pagination-links,#masthead,#toolbar-wrap,#subhead,#topnav,#topshelf,#bottomshelf,#user1,#user2,
 #breadcrumbs,#secondary-content,#tertiary-content,#pagenav,#shareit-box,#footer{display:none!important;}
 #yui-main .yui-b{margin:0!important;}
-#global-wrap{border:0;box-shadow:0;}
+#global-wrap{border:0;}
