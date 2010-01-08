@@ -38,10 +38,10 @@ left:<?php echo $this->css->logo_left; ?>;
 z-index:<?php echo $this->css->logo_stack; ?>;
 }
 #branding h1 a{
-<?php if($this->css->logo_width !== 'null') { ?>
-width:<?php echo $this->css->logo_width; ?>px;
-<?php } if($this->css->logo_height !== 'null') { ?>
-height:<?php echo $this->css->logo_height; ?>px;
+<?php if(!empty($this->css->logo_size[0])) { ?>
+width:<?php echo $this->css->logo_size[0]; ?>px;
+<?php } if(!empty($this->css->logo_size[1])) { ?>
+height:<?php echo $this->css->logo_size[1]; ?>px;
 <?php } ?>
 background-image: url(<?php echo $this->css->logo; ?>);
 }
