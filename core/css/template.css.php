@@ -1,7 +1,7 @@
 html{
 background-color:<?php echo $this->css->html_bg_color; ?>;
 <?php if ( $this->css->use_html_bg_image == 1 ) { ?>
-background-image:url(../../../../morph_assets/backgrounds/<?php echo $this->css->html_bg_image; ?>);
+background-image:url(<?php echo JURI::root(1) ?>/morph_assets/backgrounds/<?php echo $this->css->html_bg_image; ?>);
 background-repeat:<?php echo $this->css->html_bg_repeat; ?>;
 background-position:<?php echo $this->css->html_bg_position; ?>;
 background-attachment:<?php echo $this->css->html_bg_attachment; ?>;
@@ -10,7 +10,7 @@ background-attachment:<?php echo $this->css->html_bg_attachment; ?>;
 body{
 background-color:<?php echo $this->css->body_bg_color; ?>;
 <?php if ( $this->css->use_body_bg_image == 1 ) { ?>
-background-image:url(../../../../morph_assets/backgrounds/<?php echo $this->css->body_bg_image; ?>);
+background-image:url(<?php echo JURI::root(1) ?>/morph_assets/backgrounds/<?php echo $this->css->body_bg_image; ?>);
 background-repeat:<?php echo $this->css->body_bg_repeat; ?>;
 background-position:<?php echo $this->css->body_bg_position; ?>;
 background-attachment:<?php echo $this->css->body_bg_attachment; ?>;
