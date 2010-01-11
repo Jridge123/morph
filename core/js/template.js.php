@@ -68,7 +68,7 @@ jQuery.noConflict();
         <?php } ?>
         		
 	//grab all the anchor tag with rel set to shareit
-	$('a[rel=shareit], #shareit-box').mouseenter(function() {		
+	$('a[rel=shareit]').mouseenter(function() {		
 		
 		//get the height, top and calculate the left value for the sharebox
 		var height = $(this).height();
@@ -79,13 +79,13 @@ jQuery.noConflict();
 		
 		//grab the href value and explode the bar symbol to grab the url and title
 		//the content should be in this format url|title
-		var value = $(this).attr('href').split('|');
+		var value = [$(this).attr('href'), $(this).attr('title')];
 		
 		//assign the value to variables and encode it to url friendly
 		var field = value[0];
 		var url = encodeURIComponent(value[0]);
 		var title = encodeURIComponent(value[1]);
-		
+
 		//assign the height for the header, so that the link is cover
 		$('#shareit-header').height(height);
 		
