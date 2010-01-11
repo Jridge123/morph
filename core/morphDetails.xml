@@ -1255,7 +1255,7 @@
 	</param>
 	<param name="footer_type" default="0" type="list" label="Footer type" tooltip="modal" description="footer.html">
 		<option value="0">Copyright, credits and links</option>
-		<option value="1">Module position</option>
+		<option value="1">Module position (footer)</option>
 	</param>	
 	<param name="footer_chrome" default="none" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
