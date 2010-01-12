@@ -106,5 +106,5 @@ class morphLoader {
 		
 		}
 		
-$MORPH = new morphLoader( getTemplateName( dirname(__FILE__).'/'.'morphDetails.xml' ) );
+$MORPH = new morphLoader( getTemplateName( dirname(__FILE__).'/morphDetails.xml' ) );
 ?>

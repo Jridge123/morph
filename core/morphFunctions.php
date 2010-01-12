@@ -1,14 +1,14 @@
 <?php
 defined('_JEXEC') or die('Restricted access');
 // initiate morph
-include('templates'.'/'.'morph'.'/'.'core'.'/'.'morphLoader.php');
-include('templates'.'/'.'morph'.'/'.'core'.'/'.'morphParams.php');
-require('templates'.'/'.'morph'.'/'.'core'.'/'.'browser.php');
+include('templates'.'/morph'.'/core'.'/morphLoader.php');
+include('templates'.'/morph'.'/core'.'/morphParams.php');
+require('templates'.'/morph'.'/core'.'/browser.php');
 
 if(isset($_COOKIE['nogzip'])){
 	$conf = JFactory::getConfig();
 	if($conf->getValue('config.gzip') !== '0'){
-		$path = JPATH_CONFIGURATION.'/'.'configuration.php';
+		$path = JPATH_CONFIGURATION.'/configuration.php';
 		JPath::setPermissions($path, '0777');
 		if(file_exists($path) && is_writable($path)){			
 			$str = file_get_contents($path);
@@ -28,7 +28,7 @@ if ( $gzip_compression == 1 ) {
 	// set Joomla's GZIP to on if not set.
 	$conf = JFactory::getConfig();
 	if($conf->getValue('config.gzip') !== '1'){
-		$path = JPATH_CONFIGURATION.'/'.'configuration.php';
+		$path = JPATH_CONFIGURATION.'/configuration.php';
 		JPath::setPermissions($path, '0777');
 		if(file_exists($path) && is_writable($path)){			
 			$str = file_get_contents($path);
@@ -46,11 +46,11 @@ if ( $gzip_compression == 1 ) {
 }
 // set the various paths:
 $templatepath = JURI::root(1) . '/templates'.'/'.$this->template;
-$themeletpath = JURI::root(1) . '/morph_assets'.'/'.'themelets'.'/'.$themelet;
+$themeletpath = JURI::root(1) . '/morph_assets'.'/themelets'.'/'.$themelet;
 $assetspath = JURI::root() . 'morph_assets';
-$assetsroot = JPATH_SITE.'/'.'morph_assets';
-$imagespath = JURI::root() . 'morph_assets'.'/'.'themelets'.'/'.$themelet.'/'.'images'.'/';
-$absolutepath = JPATH_SITE.'/'.'morph_assets'.'/'.'themelets'.'/'.$themelet;
+$assetsroot = JPATH_SITE.'/morph_assets';
+$imagespath = JURI::root() . 'morph_assets'.'/themelets'.'/'.$themelet.'/images'.'/';
+$absolutepath = JPATH_SITE.'/morph_assets'.'/themelets'.'/'.$themelet;
 
 // set the document parameters with what morph found:
 $MORPH_paramlist = get_object_vars($MORPH);
@@ -114,28 +114,28 @@ $dashes 					= "";
 $mod_chrome					= "";
 $ver 						= str_replace($dots , $dashes , $ver);
 $lcbrowser 					= strtolower($thebrowser);
-$css_firefox				= $absolutepath.'/'.'css'.'/'.'firefox.css';
-$css_safari					= $absolutepath.'/'.'css'.'/'.'safari.css';
-$css_opera					= $absolutepath.'/'.'css'.'/'.'opera.css';
-$css_chrome					= $absolutepath.'/'.'css'.'/'.'chrome.css';
-$css_webkit				    = $absolutepath.'/'.'css'.'/'.'webkit.css';
-$css_ie					    = $absolutepath.'/'.'css'.'/'.'ie.css';
-$css_ie6				    = $absolutepath.'/'.'css'.'/'.'ie6.css';
-$css_ie7				    = $absolutepath.'/'.'css'.'/'.'ie7.css';
-$css_ie8				    = $absolutepath.'/'.'css'.'/'.'ie8.css';
-$css_browsers				= $absolutepath.'/'.'css'.'/'.'browsers.css';
-$css_yui					= $absolutepath.'/'.'css'.'/'.'yui.css';
-$css_rtl					= $absolutepath.'/'.'css'.'/'.'rtl.css';
-$css_iphone					= $absolutepath.'/'.'css'.'/'.'iphone.css';
-$customcss					= $absolutepath.'/'.'css'.'/'.'custom.css.php';
-$customjs					= $absolutepath.'/'.'js'.'/'.'custom.js.php';
-$custom_css_file    		= $absolutepath.'/'.'css'.'/'.'custom.css';
-$custom_js_file				= $absolutepath.'/'.'js'.'/'.'custom.js';
-$themeletjs					= $absolutepath.'/'.'js'.'/'.'themelet.js';
-$customfunctions			= $absolutepath.'/'.'custom.php';
-$themeletfunctions			= $absolutepath.'/'.'themelet.php';
-$foot_override				= $absolutepath.'/'.'html'.'/'.'foot.php';
-$footer_script				= $absolutepath.'/'.'script.php';
+$css_firefox				= $absolutepath.'/css'.'/firefox.css';
+$css_safari					= $absolutepath.'/css'.'/safari.css';
+$css_opera					= $absolutepath.'/css'.'/opera.css';
+$css_chrome					= $absolutepath.'/css'.'/chrome.css';
+$css_webkit				    = $absolutepath.'/css'.'/webkit.css';
+$css_ie					    = $absolutepath.'/css'.'/ie.css';
+$css_ie6				    = $absolutepath.'/css'.'/ie6.css';
+$css_ie7				    = $absolutepath.'/css'.'/ie7.css';
+$css_ie8				    = $absolutepath.'/css'.'/ie8.css';
+$css_browsers				= $absolutepath.'/css'.'/browsers.css';
+$css_yui					= $absolutepath.'/css'.'/yui.css';
+$css_rtl					= $absolutepath.'/css'.'/rtl.css';
+$css_iphone					= $absolutepath.'/css'.'/iphone.css';
+$customcss					= $absolutepath.'/css'.'/custom.css.php';
+$customjs					= $absolutepath.'/js'.'/custom.js.php';
+$custom_css_file    		= $absolutepath.'/css'.'/custom.css';
+$custom_js_file				= $absolutepath.'/js'.'/custom.js';
+$themeletjs					= $absolutepath.'/js'.'/themelet.js';
+$customfunctions			= $absolutepath.'/custom.php';
+$themeletfunctions			= $absolutepath.'/themelet.php';
+$foot_override				= $absolutepath.'/html'.'/foot.php';
+$footer_script				= $absolutepath.'/script.php';
 
 if($load_mootools == 0) {
     $headnomootools = $this->getHeadData();
@@ -183,10 +183,10 @@ JRequest::setVar('tp',0);
 include 'morphVars.php';
 
 if(file_exists($themeletfunctions) && is_readable($themeletfunctions)){
-include_once($absolutepath.'/'.'themelet.php');
+include_once($absolutepath.'/themelet.php');
 }
 if(file_exists($customfunctions) && is_readable($customfunctions)){
-include_once($absolutepath.'/'.'custom.php');
+include_once($absolutepath.'/custom.php');
 }
 
 // gzip compression frontend switch - required for toolbar to work correctly
@@ -195,7 +195,7 @@ if(isset($_GET['gzip']) && $_GET['gzip'] == 'on'){
 	setcookie('nogzip', '', time()-3600);
 	$conf = JFactory::getConfig();
 	if($conf->getValue('config.gzip') !== '1'){
-		$path = JPATH_CONFIGURATION.'/'.'configuration.php';
+		$path = JPATH_CONFIGURATION.'/configuration.php';
 		JPath::setPermissions($path, '0777');
 		if(file_exists($path) && is_writable($path)){			
 			$str = file_get_contents($path);

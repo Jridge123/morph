@@ -2,9 +2,9 @@
 
 if ( $logo_type == 1 or $logo_type == 2 ) {
 	if( isIE6() && $logo_image_ie !== ''){ 
-		$logo = $assetspath.'/'.'logos'.'/'.$logo_image_ie; 
+		$logo = $assetspath.'/logos'.'/'.$logo_image_ie; 
 		if($logo_autodimensions == 1) {
-			$logo_size = getimagesize($assetsroot.'/'.'logos'.'/'.$logo_image_ie);
+			$logo_size = getimagesize($assetsroot.'/logos'.'/'.$logo_image_ie);
 		}else{
 			$logo_size[0] = $logo_width;
 			$logo_size[1] = $logo_height;
@@ -12,7 +12,7 @@ if ( $logo_type == 1 or $logo_type == 2 ) {
 	} else{ 
 		$logo = $assetspath.'/logos/'.$logo_image; 
 		if($logo_autodimensions == 1) {
-			$logo_size = getimagesize($assetsroot.'/'.'logos'.'/'.$logo_image);
+			$logo_size = getimagesize($assetsroot.'/logos'.'/'.$logo_image);
 		}else{
 			$logo_size[0] = $logo_width;
 			$logo_size[1] = $logo_height;
