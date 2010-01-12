@@ -230,11 +230,11 @@ if(isset($_GET['pack_js'])){
 	header('Location: ' . str_replace(array('?pack_js','&pack_js'), '', $curr_url));
 }
 if(isset($_GET['unpack_css'])){
-	setcookie('packcss', 'unpack', 0);
+	//setcookie('packcss', 'unpack', 0);
 	header('Location: ' . str_replace(array('?unpack_css','&unpack_css'), '', $curr_url));
 }
 if(isset($_GET['pack_css'])){
-	setcookie('packcss', null, time()-3600);
+	//setcookie('packcss', null, time()-3600);
 	header('Location: ' . str_replace(array('?pack_css','&pack_css'), '', $curr_url));
 }
 
