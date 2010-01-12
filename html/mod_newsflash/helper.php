@@ -14,7 +14,7 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-require_once (JPATH_SITE.'/components'.'/com_content'.'/helpers'.'/route.php');
+require_once (JPATH_SITE.'/components/com_content/helpers/route.php');
 
 class modNewsFlashHelper
 {
