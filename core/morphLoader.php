@@ -72,15 +72,15 @@ class morphLoader {
 		//TODO: We need to make the caching smarter, so we don't have to do this here
 		if(isset($this->developer_toolbar) && $this->developer_toolbar)
 		{
-			jimport('joomla.filesystem.folder');
-			$cache = JPATH_CACHE.'/morph';
-			if(JRequest::getCmd('empty', false) == 'cache' && JFolder::exists($cache)) JFolder::delete($cache);
 			$this->pack_css = JRequest::getBool('packcss', $this->pack_css, 'COOKIE');
 			$this->pack_js = JRequest::getBool('packjs', $this->pack_js, 'COOKIE');
 			if(JRequest::getCmd('gzip') == 'on') $this->gzip_compression = 1;
 			else if(JRequest::getCmd('nogzip', false, 'COOKIE') == 'off') $this->gzip_compression = 0;
-			
 		}
+		
+		jimport('joomla.filesystem.folder');
+		$cache = JPATH_CACHE.'/morph';
+		if(JRequest::getCmd('empty', false) == 'cache' && JFolder::exists($cache)) JFolder::delete($cache);
 		
 		jimport('joomla.filesystem.file');
 	
