@@ -222,19 +222,19 @@ if(isset($_GET['nojs']) && $_GET['nojs'] == 'off'){
 	header('Location: ' . str_replace(array('?nojs=off','&nojs=off'), '', $curr_url));
 }
 if(isset($_GET['unpack_js'])){
-	setcookie('unpackjs', 'unpack', 0);
+	setcookie('packjs', 'unpack', 0);
 	header('Location: ' . str_replace(array('?unpack_js','&unpack_js'), '', $curr_url));
 }
 if(isset($_GET['pack_js'])){
-	setcookie('unpackjs', null, time()-3600);
+	setcookie('packjs', null, time()-3600);
 	header('Location: ' . str_replace(array('?pack_js','&pack_js'), '', $curr_url));
 }
 if(isset($_GET['unpack_css'])){
-	setcookie('unpackcss', 'unpack', 0);
+	setcookie('packcss', 'unpack', 0);
 	header('Location: ' . str_replace(array('?unpack_css','&unpack_css'), '', $curr_url));
 }
 if(isset($_GET['pack_css'])){
-	setcookie('unpackcss', null, time()-3600);
+	setcookie('packcss', null, time()-3600);
 	header('Location: ' . str_replace(array('?pack_css','&pack_css'), '', $curr_url));
 }
 
@@ -247,7 +247,7 @@ if ( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
 //	$document->addScript($templatepath .'/core/js/iphone.js');
 } else {
     if($nojs == 0) {
-    	if ( isset($_COOKIE['unpackjs']) && $pack_js == 1 || isset($_COOKIE['unpackjs']) && $pack_js == 0 || !isset($_COOKIE['unpackjs']) && $pack_js == 0 ) {
+    	if (!$pack_js) {
     		if(in_array(1, $js_jquery)) { $document->addScript($templatepath .'/core/js/jquery.js'); }
     		if(in_array(1, $js_jqueryui)) { $document->addScript($templatepath .'/core/js/ui.js'); }
     		if(in_array(1, $js_cookie)) { $document->addScript($templatepath .'/core/js/cookie.js'); }
@@ -296,7 +296,7 @@ if( $browser->getBrowser() == Browser::PLATFORM_IPHONE && $iphone_mode == 1 ){
 	if ( file_exists($css_iphone)) { $document->addStyleSheet($themeletpath .'/css/iphone.css'); } else { $document->addStyleSheet($templatepath .'/core/css/iphone.css'); }	
 //	if ( file_exists($css_iphone)) { $document->addStyleSheet($css_iphone); } else { $document->addStyleSheet($templatepath .'/core/css/jqtouch.css'); }	
 } else {
-	if ( isset($_COOKIE['unpackcss']) && $pack_css == 1 || isset($_COOKIE['unpackcss']) && $pack_css == 0 || !isset($_COOKIE['unpackcss']) && $pack_css == 0 ) {
+	if (!$pack_css) {
 		if ( file_exists($css_yui)) { $document->addStyleSheet($css_yui); } else { $document->addStyleSheet($templatepath .'/core/css/yui.css'); }
 		if ( $topnav_count >= 1 ) { $document->addStyleSheet($themeletpath .'/css/topnav-default.css'); }
 		if ( $topfish >= 1 ) { $document->addStyleSheet($themeletpath .'/css/topnav-topfish.css'); }

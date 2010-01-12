@@ -29,7 +29,7 @@
 			</span>
 		</li>
 		<li class="dev-gzip">
-		    <strong class="tool-label">GZIP Compression:</strong>
+		    <strong class="tool-label">GZIP:</strong>
 			<a href="#"<?php if($gzip_compression == 0){ ?> class="dev-gzip-on">On<?php }else{ ?>class="dev-gzip-off">Off<?php }?></a>
 			<span class="desc">
 				<strong>GZIP Compression</strong>
@@ -46,6 +46,16 @@
 				you can edit, debug, and monitor CSS, HTML, and JavaScript live.</span>
 			</span>
 		</li>
+		<?php if($cache) : ?>
+		<li class="dev-cache">
+		    <strong class="tool-label">Clear cache:</strong>
+			<a href="#" class="dev-close-devbar">&nbsp;</a>
+			<span class="desc">
+				<strong>Clear Morph Cache</strong>
+				<span>Morph cache your dynamic css, js and params used in dynamic files. If you've made a change to your themelet with caching turned on that doesn't show, clear the cache.</span>
+			</span>
+		</li>
+		<?php endif ?>
 		<?php } ?>
 		
 		<li class="dev-nojs">
@@ -53,7 +63,7 @@
 				<?php if($nojs == 1){ ?>  
 					The developer toolbar requires javascript to work. Click the "on" button to re-enable the templates javascript.
 				<?php }else{ ?> 
-					Zero Javascript Mode:	
+					Zero JS Mode:	
 				<?php }?>
 			</strong>
 			<a href="<?php if($nojs == 1){ if($_SERVER['QUERY_STRING'] == ''){ echo '?nojs=off'; }else{ echo '?'.$_SERVER['QUERY_STRING'].'&nojs=off'; }}else{ echo '#'; } ?>"<?php if($nojs == 0){ ?> class="dev-nojs-on">On<?php }else{ ?>class="dev-nojs-off">Off<?php }?></a>

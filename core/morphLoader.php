@@ -22,7 +22,8 @@ include_once ($morph_component_path . "/configurator.class.php");
 
 class morphLoader {
 
-	function morphLoader( $template=null ) {
+	function morphLoader( $template=null )
+	{
 		$db = JFactory::getDBO();
 
 		if( $template == null ) return;
@@ -68,27 +69,39 @@ class morphLoader {
 		$this->$key = $value;
 		}
 		
-			jimport('joomla.filesystem.file');
+		//TODO: We need to make the caching smarter, so we don't have to do this here
+		if(isset($this->developer_toolbar) && $this->developer_toolbar)
+		{
+			$this->pack_css = JRequest::getBool('packcss', $this->pack_css, 'COOKIE');
+			$this->pack_js = JRequest::getBool('packjs', $this->pack_js, 'COOKIE');
+			if(JRequest::getCmd('gzip') == 'on') $this->gzip_compression = 1;
+			else if(JRequest::getCmd('nogzip', false, 'COOKIE') == 'off') $this->gzip_compression = 0;
+			jimport('joomla.filesystem.folder');
+			$cache = JPATH_CACHE.'/morph';
+			if(JRequest::getCmd('empty', false) == 'cache' && JFolder::exists($cache)) JFolder::delete($cache);
+		}		
 		
-			$path = JPATH_CACHE.'/morph/data.json';
-			if(file_exists($path))
+		jimport('joomla.filesystem.file');
+	
+		$path = JPATH_CACHE.'/morph/data.json';
+		if(file_exists($path))
+		{
+			$created	= time()-date('U', filemtime($path));
+			$expire		= $this->cache * 60;
+			if($created > $expire)
 			{
-				$created	= time()-date('U', filemtime($path));
-				$expire		= $this->cache * 60;
-				if($created > $expire)
-				{
-					$json = json_encode($this);
-					JFile::write($path, $json);
-				}
-			} else {
 				$json = json_encode($this);
 				JFile::write($path, $json);
 			}
+		} else {
+			$json = json_encode($this);
+			JFile::write($path, $json);
 		}
+	}
 		
 		function get($param_name=null) {
-		if(!isset($param_name)) return null;
-		return $this->$param_name;
+			if(!isset($param_name)) return null;
+			return $this->$param_name;
 		}
 		
 		}

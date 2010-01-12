@@ -246,12 +246,12 @@ jQuery.noConflict();
 				});
 			})
 			$('#dev-toolbar li.dev-css a').click(function(){
-				if($(this).hasClass('dev-unpack-css')){ $.cookie('unpackcss', 'true'); window.location.reload(true); }
-				if($(this).hasClass('dev-pack-css')){ $.cookie('unpackcss', null); window.location.reload(true); }
+				$.cookie('packcss', $(this).hasClass('dev-pack-css') ? 1 : 0);
+				window.location.reload(true);
 			});
 			$('#dev-toolbar li.dev-js a').click(function(){
-				if($(this).hasClass('dev-unpack-js')){ $.cookie('unpackjs', 'true'); window.location.reload(true); }
-				if($(this).hasClass('dev-pack-js')){ $.cookie('unpackjs', null); window.location.reload(true); }
+				$.cookie('packjs', $(this).hasClass('dev-pack-js') ? 1 : 0);
+				window.location.reload(true);
 			});
 			$('#dev-toolbar li.dev-modules a').click(function(){
 				if($(this).hasClass('dev-debug-mods-on')){ $.cookie('debug_modules', 'true'); window.location.reload(true); }
@@ -261,11 +261,8 @@ jQuery.noConflict();
 				if($(this).hasClass('dev-gzip-off')){ $.cookie('nogzip', 'off'); window.location.reload(true); }
 				if($(this).hasClass('dev-gzip-on')){ 
 					$.cookie('nogzip', null);
-					var thisUrl = location.href;
-					var q = '';
-					if(thisUrl.indexOf('?')!=-1){ q='&'; }else{ q='?'; }
 					$.ajax({
-						url: thisUrl+q+'gzip=on',
+						data: {gzip:'on'},
 						success: function(){
 							window.location.reload(true);
 							return true;
@@ -276,6 +273,15 @@ jQuery.noConflict();
 			$('#dev-toolbar li.dev-fb a').click(function(){
 				if($(this).hasClass('dev-fb-on')){ $.cookie('firebug', 'enabled'); window.location.reload(true); }
 				if($(this).hasClass('dev-fb-off')){ $.cookie('firebug', null); window.location.reload(true); }
+			});
+			$('#dev-toolbar li.dev-cache a').click(function(){
+				$.ajax({
+					data: {empty:'cache'},
+					success: function(){
+						window.location.reload(true);
+						return true;
+					}
+				});
 			});
 			$('#dev-toolbar li.dev-nojs a').click(function(){
 				if($(this).hasClass('dev-nojs-on')){ $.cookie('nojs', 'enabled'); window.location.reload(true); }
