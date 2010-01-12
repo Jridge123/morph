@@ -135,19 +135,19 @@ class modNewMainMenuHelper
 		{
 			case 'list_flat' :
 				// Include the legacy library file
-				require_once(dirname(__FILE__).DS.'legacy.php');
+				require_once(dirname(__FILE__).'/'.'legacy.php');
 				mosShowHFMenu($params, 1);
 				break;
 
 			case 'horiz_flat' :
 				// Include the legacy library file
-				require_once(dirname(__FILE__).DS.'legacy.php');
+				require_once(dirname(__FILE__).'/'.'legacy.php');
 				mosShowHFMenu($params, 0);
 				break;
 
 			case 'vert_indent' :
 				// Include the legacy library file
-				require_once(dirname(__FILE__).DS.'legacy.php');
+				require_once(dirname(__FILE__).'/'.'legacy.php');
 				mosShowVIMenu($params);
 				break;
 

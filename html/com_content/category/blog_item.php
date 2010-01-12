@@ -1,6 +1,6 @@
 <?php
 defined('_JEXEC') or die('Restricted access');
-include_once(dirname(__FILE__).DS.'..'.DS.'icon.php');
+include_once(dirname(__FILE__).'/'.'..'.'/'.'icon.php');
 ?>
 
 <?php if ($this->item->params->get('show_title')) : ?>

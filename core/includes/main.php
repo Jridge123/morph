@@ -6,23 +6,23 @@
 		<?php if(JDocumentHTML::countModules('user1')) { ?><?php include_once("user1.php") ?><?php } ?>
 		<div id="yui-main">
 			<div class="yui-b<?php if (!$this->countModules('outer1 or outer2 or outer3 or outer4 or outer5') && ($this->countMenuChildren() < 1 ) ){ echo ' no-left'; } ?>">
-				<?php $position = 'inset1'; include dirname(__FILE__).DS.'..'.DS.'morphBlockClasses.php'; echo blocks($position, $this, $jj_const, $classes, '', $debug_modules, $nojs); ?>
+				<?php $position = 'inset1'; include dirname(__FILE__).'/'.'..'.'/'.'morphBlockClasses.php'; echo blocks($position, $this, $jj_const, $classes, '', $debug_modules, $nojs); ?>
 				<!-- apply inner scheme -->
 				<div class="<?php if($CurrentInnerScheme != 'none'){ echo $CurrentInnerScheme . ' '; } ?>clearer" id="inner-wrap">
 					<div class="yui-u first" id="primary-content">
 						<div class="primary-inner clearer">
-							<?php $position = 'inset2'; include dirname(__FILE__).DS.'..'.DS.'morphBlockClasses.php'; echo blocks($position, $this, $jj_const, $classes, '', $debug_modules, $nojs); ?>
+							<?php $position = 'inset2'; include dirname(__FILE__).'/'.'..'.'/'.'morphBlockClasses.php'; echo blocks($position, $this, $jj_const, $classes, '', $debug_modules, $nojs); ?>
 							<?php if ((JRequest::getVar( 'view' ) != 'frontpage') && (JDocumentHTML::countModules('breadcrumb'))) { ?>
 								<div id="breadcrumbs"><?php if($pathway_text_show == '1') { ?><span><?php echo $pathway_text ?> </span><?php } ?><jdoc:include type="modules" name="breadcrumb" /></div>
 							<?php } ?>
 							<jdoc:include type="message" />
 							<jdoc:include type="component" />
-							<?php $position = 'inset3'; include dirname(__FILE__).DS.'..'.DS.'morphBlockClasses.php'; echo blocks($position, $this, $jj_const, $classes, '', $debug_modules, $nojs); ?>
+							<?php $position = 'inset3'; include dirname(__FILE__).'/'.'..'.'/'.'morphBlockClasses.php'; echo blocks($position, $this, $jj_const, $classes, '', $debug_modules, $nojs); ?>
 						</div>
 					</div>
 					<?php if($CurrentInnerScheme !='none') { include_once("tertiary.php"); } ?>
 				</div>
-				<?php $position = 'inset4'; include dirname(__FILE__).DS.'..'.DS.'morphBlockClasses.php'; echo blocks($position, $this, $jj_const, $classes, '', $debug_modules, $nojs); ?>
+				<?php $position = 'inset4'; include dirname(__FILE__).'/'.'..'.'/'.'morphBlockClasses.php'; echo blocks($position, $this, $jj_const, $classes, '', $debug_modules, $nojs); ?>
 			</div>
 		</div>
 		<?php if($CurrentOuterScheme !='yui-t0') { include_once("secondary.php"); } ?>
