@@ -1144,7 +1144,7 @@
 </params>
 
 <params group="inner1data">	
-	<param name="inner1_chrome" default="basic" type="list" label="Top right chrome" tooltip="modal" description="chromefx.html">
+	<param name="inner1_chrome" default="basic" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
 		<option value="grid">Grid</option>
@@ -1165,7 +1165,7 @@
 </params>
 
 <params group="inner2data">	
-	<param name="inner2_chrome" default="basic" type="list" label="Top right chrome" tooltip="modal" description="chromefx.html">
+	<param name="inner2_chrome" default="basic" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
 		<option value="grid">Grid</option>
@@ -1186,7 +1186,7 @@
 </params>
 
 <params group="inner3data">	
-	<param name="inner3_chrome" default="basic" type="list" label="Top right chrome" tooltip="modal" description="chromefx.html">
+	<param name="inner3_chrome" default="basic" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
 		<option value="grid">Grid</option>
@@ -1207,7 +1207,7 @@
 </params>
 
 <params group="inner4data">	
-	<param name="inner4_chrome" default="basic" type="list" label="Top right chrome" tooltip="modal" description="chromefx.html">
+	<param name="inner4_chrome" default="basic" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
 		<option value="grid">Grid</option>
@@ -1228,7 +1228,7 @@
 </params>
 
 <params group="inner5data">	
-	<param name="inner5_chrome" default="basic" type="list" label="Top right chrome" tooltip="modal" description="chromefx.html">
+	<param name="inner5_chrome" default="basic" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
 		<option value="grid">Grid</option>
