@@ -28,7 +28,7 @@ jimport('joomla.utilities.simplexml');
  */
 class modNewMainMenuHelper
 {
-	function buildXML(&$params)
+	function buildXML($params)
 	{
 		$menu = new MainMenuTree($params);
 		$items = &JSite::getMenu();
@@ -69,7 +69,7 @@ class modNewMainMenuHelper
 		return $menu->toXML();
 	}
 
-	function &getXML($type, &$params, $decorator)
+	function &getXML($type, $params, $decorator)
 	{
 		static $xmls;
 
