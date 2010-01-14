@@ -106,7 +106,7 @@ $inner5_count 			    = $document->countModules('inner5');
 $footer_count 				= $document->countModules('footer');
 $stylelink 					= '';
 $direction  				= $this->direction;
-$browser 					= new Browser();
+$browser 					= new MBrowser();
 $thebrowser 				= preg_replace("/[^A-Za-z]/i", "", $browser->getBrowser());
 $ver 						= $browser->getVersion();
 $dots 						= ".";
@@ -241,7 +241,7 @@ if(isset($_GET['pack_css'])){
 // include the reusable arrays
 include 'morphArrays.php';
 
-if ( $browser->getBrowser() == Browser::PLATFORM_IPHONE ) {
+if ( $browser->getBrowser() == MBrowser::PLATFORM_IPHONE ) {
 //	$document->addScript($templatepath .'/core/js/jquery.js');	
 //	$document->addScript($templatepath .'/core/js/jqtouch.js');
 //	$document->addScript($templatepath .'/core/js/iphone.js');
@@ -292,7 +292,7 @@ if(isset($_GET['hide_firebug'])){
 // activate rtl for testing
 // $direction = 'rtl';
 
-if( $browser->getBrowser() == Browser::PLATFORM_IPHONE && $iphone_mode == 1 ){
+if( $browser->getBrowser() == MBrowser::PLATFORM_IPHONE && $iphone_mode == 1 ){
 	if ( file_exists($css_iphone)) { $document->addStyleSheet($themeletpath .'/css/iphone.css'); } else { $document->addStyleSheet($templatepath .'/core/css/iphone.css'); }	
 //	if ( file_exists($css_iphone)) { $document->addStyleSheet($css_iphone); } else { $document->addStyleSheet($templatepath .'/core/css/jqtouch.css'); }	
 } else {
@@ -511,7 +511,7 @@ function pt_body_classes($menu, $view, $themelet){
 	$view = $menu->query['view'];
 	$component = $menu->query['option'];
 	
-	$browser = new Browser();
+	$browser = new MBrowser();
 	$platform = ' '.strtolower($browser->getPlatform());
 	$thebrowser = ' '.strtolower(preg_replace("/[^A-Za-z]/i", "", $browser->getBrowser()));
 	$ver = $browser->getVersion();

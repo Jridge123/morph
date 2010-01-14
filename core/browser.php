@@ -8,7 +8,7 @@
  * 
  * Copyright (C) 2008-2009 Chris Schuld  (chris@chrisschuld.com)
 */
-class Browser {
+class MBrowser {
 	private $_agent = '';
 	private $_browser_name = '';
 	private $_version = '';
