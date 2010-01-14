@@ -82,6 +82,9 @@ class morphLoader {
 		$cache = JPATH_CACHE.'/morph';
 		if(JRequest::getCmd('empty', false) == 'cache' && JFolder::exists($cache)) JFolder::delete($cache);
 		
+		//Where passing the menu item id, so that the cache works with menu item.
+		$_SESSION['menuid'] = JRequest::getInt('Itemid');
+		
 		jimport('joomla.filesystem.file');
 	
 		$path = JPATH_CACHE.'/morph/data.json';
