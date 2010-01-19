@@ -227,16 +227,25 @@ body{text-align:center;}
 .doc2.yui-t2 #yui-main .yui-b .yui-gh #primary-content.yui-u.first,
 /* inner sidebar on left */
 .doc2.yui-t2 #yui-main .yui-b .yui-gi #primary-content.yui-u.first{width:72.5%;}
-/*** T3 & T6 - 300px Outer sidebar L & R positions*/
+
+/* T3 and T6 - 300px Outer sidebar L & R positions */
+
 /* 975px layout - 200px inner sidebar on right */
-.doc4.yui-t3 #yui-main .yui-b .yui-gh #primary-content.yui-u.first,.doc4.yui-t3 #yui-main .yui-b .yui-gi #primary-content.yui-u.first,.doc4.yui-t6 #yui-main .yui-b .yui-gh #primary-content.yui-u.first,.doc4.yui-t6 #yui-main .yui-b .yui-gi #primary-content.yui-u.first,.doc4 .yui-t0 #yui-main .yui-b .yui-gh #primary-content.yui-u.first,.doc4 .yui-t0 #yui-main .yui-b .yui-gi #primary-content.yui-u.first{width:68.8%;}
+.doc4.yui-t3 #yui-main .yui-b .yui-gh #primary-content.yui-u.first,
+.doc4.yui-t3 #yui-main .yui-b .yui-gi #primary-content.yui-u.first,
+.doc4.yui-t6 #yui-main .yui-b .yui-gh #primary-content.yui-u.first,
+.doc4.yui-t6 #yui-main .yui-b .yui-gi #primary-content.yui-u.first,
+.doc4 .yui-t0 #yui-main .yui-b .yui-gh #primary-content.yui-u.first,.doc4 .yui-t0 #yui-main .yui-b .yui-gi #primary-content.yui-u.first{width:68.8%;}
+
 /* 950px layout - 200px inner sidebar on right */
 .doc2.yui-t3 #yui-main .yui-b .yui-gh #primary-content.yui-u.first,
 .doc2.yui-t3 #yui-main .yui-b .yui-gi #primary-content.yui-u.first,
 .doc2.yui-t6 #yui-main .yui-b .yui-gh #primary-content.yui-u.first,
 .doc2.yui-t6 #yui-main .yui-b .yui-gi #primary-content.yui-u.first{width:67.5%;}
-/*** T4 - 180px right outer layout with 200px inner sidebar ***/
-/* 974px layout with 180px outer & 200px inner*/
+
+/* T4 180px right outer layout with 200px inner sidebar */
+/* 974px layout with 180px outer and 200px inner*/
+
 /* inner sidebar on right */
 .doc4.yui-t4 #yui-main .yui-b .yui-gh #primary-content.yui-u.first,
 /* inner sidebar on left */
