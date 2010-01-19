@@ -33,4 +33,3 @@ if(isset($pageclass)){
 		$CurrentOuterScheme = $outerPageSuffix[substr($outerSfxArr[1],0,1)];
 	}
 }
-?>

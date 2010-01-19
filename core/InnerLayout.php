@@ -30,5 +30,3 @@ if(isset($pageclass)){
 		$CurrentInnerScheme = $innerPageSuffix[substr($innerSfxArr[1],0,1)];
 	}
 }
-
-?>

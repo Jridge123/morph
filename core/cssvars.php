@@ -21,4 +21,3 @@ $css_internetexplorer = $themeletpath.'/css/ie.css';
 $css_ie8 = $themeletpath.'/css/ie8.css';
 $css_ie7 = $themeletpath.'/css/ie7.css';
 $css_ie6 = $themeletpath.'/css/ie6.css';
-?>

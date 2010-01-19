@@ -13,4 +13,3 @@ $classes = array(
 	$position.'_chrome' => ${$position.'_chrome'}, 
 	$position.'_modfx'	=> ${$position.'_modfx'}
 );
-?>
