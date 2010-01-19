@@ -399,7 +399,15 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
+	<param name="minify_css" default="1" type="radio" label="Minify css" tooltip="inline" description="Minifying will remove empty spaces and line returns that'll make the CSS less readable, but faster loading. This process is often done manually when a site is completed and the code no longer neads to be readable. Since the minifying process is quite intense, it's recommended that you turn caching on for live sites.">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
 	<param name="pack_js" default="1" type="radio" label="Enable js packing" tooltip="inline" description="JS Packing (otherwise refered to as JS Concatination) refers to the combining of multiple files into a single file. This boosts your sites performance as fewer http requests are needed.">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
+	<param name="minify_js" default="1" type="radio" label="Minify js" tooltip="inline" description="Minifying will remove empty spaces and line returns that'll make the JS less readable, but faster loading. It'll also make it harder to &quot;pirate&quot; your style declarations. Since the minifying process is quite intense, it's recommended that you turn caching on for live sites.">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
