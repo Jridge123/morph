@@ -50,30 +50,34 @@ if( $browser->getBrowser() == MBrowser::BROWSER_IE && $chrome_frame == 1 ) {
 		echo '<script>CFInstall.check({ node: "gcf_placeholder" });</script>'; 
 	}
 }
-if( $browser->getBrowser() == MBrowser::PLATFORM_IPHONE && $iphone_mode == 1 ){
-include_once('core/includes/iphone.php');
+$isiPhone = $browser->getBrowser() == MBrowser::PLATFORM_IPHONE && $iphone_mode == 1;
+$iPhoneCookie = isset($_COOKIE['iPhone']) ? $_COOKIE['iPhone'] == 'normal' : false;
+if( $isiPhone && !$iPhoneCookie ){
+	include_once('core/includes/iphone.php');
+	include_once('core/includes/iphone_footer.php');
 } else{
-if(isIE6() && $ie6_upgrade == 1){ include_once('core/includes/ie6upgrade.php');}
-if($this->countModules('advert1')){'<div id="advert1"><jdoc:include type="modules" name="advert1" style="none" /></div>';}
-if($toolbar_position == 0){include_once('core/includes/toolbar.php');}
-if($topnav_position == 0){include_once('core/includes/topnav.php');}
-include_once('core/includes/masthead.php');
-if($toolbar_position == 1){include_once('core/includes/toolbar.php');}
-if($topnav_position == 1){include_once('core/includes/topnav.php');}
-include_once('core/includes/subhead.php');
-if($toolbar_position == 2){include_once('core/includes/toolbar.php');}	
-if($topnav_position == 2){include_once('core/includes/topnav.php');}
-include_once('core/includes/topshelf.php');
-if($toolbar_position == 3){include_once('core/includes/toolbar.php');}	
-if($topnav_position == 3){include_once('core/includes/topnav.php');}
-include_once('core/includes/main.php');
-include_once('core/includes/bottomshelf.php');
-if(file_exists($foot_override) && is_readable($foot_override)){
-	 include_once('morph_assets/themelets/'.$themelet.'/html/foot.php');
-} else {
-	 include_once('core/includes/foot.php');
-}
-if($this->countModules('advert2')) {'<div id="advert2"><jdoc:include type="modules" name="advert2" style="none" /></div>';}
+	if(isIE6() && $ie6_upgrade == 1){ include_once('core/includes/ie6upgrade.php');}
+	if($this->countModules('advert1')){'<div id="advert1"><jdoc:include type="modules" name="advert1" style="none" /></div>';}
+	if($toolbar_position == 0){include_once('core/includes/toolbar.php');}
+	if($topnav_position == 0){include_once('core/includes/topnav.php');}
+	include_once('core/includes/masthead.php');
+	if($toolbar_position == 1){include_once('core/includes/toolbar.php');}
+	if($topnav_position == 1){include_once('core/includes/topnav.php');}
+	include_once('core/includes/subhead.php');
+	if($toolbar_position == 2){include_once('core/includes/toolbar.php');}	
+	if($topnav_position == 2){include_once('core/includes/topnav.php');}
+	include_once('core/includes/topshelf.php');
+	if($toolbar_position == 3){include_once('core/includes/toolbar.php');}	
+	if($topnav_position == 3){include_once('core/includes/topnav.php');}
+	include_once('core/includes/main.php');
+	include_once('core/includes/bottomshelf.php');
+	if(file_exists($foot_override) && is_readable($foot_override)){
+		 include_once('morph_assets/themelets/'.$themelet.'/html/foot.php');
+	} else {
+		 include_once('core/includes/foot.php');
+	}
+	if($this->countModules('advert2')) {'<div id="advert2"><jdoc:include type="modules" name="advert2" style="none" /></div>';}
+	if($isiPhone) include_once('core/includes/iphone_footer.php');
 ?>
 <jdoc:include type="modules" name="debug" />
 <?php include_once('core/includes/ga-code.php'); ?>

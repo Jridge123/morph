@@ -234,7 +234,10 @@ if(isset($_GET['pack_css'])){
 // include the reusable arrays
 include 'morphArrays.php';
 
-if ( $browser->getBrowser() == MBrowser::PLATFORM_IPHONE ) {
+$isiPhone = $browser->getBrowser() == MBrowser::PLATFORM_IPHONE && $iphone_mode == 1;
+$iPhoneCookie = isset($_COOKIE['iPhone']) ? $_COOKIE['iPhone'] == 'normal' : false;
+
+if ( $isiPhone && !$iPhoneCookie ) {
 //	$document->addScript($templatepath .'/core/js/jquery.js');	
 //	$document->addScript($templatepath .'/core/js/jqtouch.js');
 //	$document->addScript($templatepath .'/core/js/iphone.js');
@@ -291,8 +294,7 @@ if(isset($_GET['hide_firebug'])){
 
 // activate rtl for testing
 // $direction = 'rtl';
-
-if( $browser->getBrowser() == MBrowser::PLATFORM_IPHONE && $iphone_mode == 1 ){
+if(  $isiPhone && !$iPhoneCookie  ){
 	if ( file_exists($css_iphone)) { $document->addStyleSheet($themeletpath .'/css/iphone.css'); } else { $document->addStyleSheet($templatepath .'/core/css/iphone.css'); }	
 //	if ( file_exists($css_iphone)) { $document->addStyleSheet($css_iphone); } else { $document->addStyleSheet($templatepath .'/core/css/jqtouch.css'); }	
 } else {

@@ -10,6 +10,6 @@ jQuery.noConflict();
             'themes/jqt/img/back_button_clicked.png',
             'themes/jqt/img/button_clicked.png'
             ]
-    });
+    	});
     })
 })(jQuery);
