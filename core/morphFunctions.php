@@ -558,4 +558,3 @@ function pt_classes($classes, $sitewidth=''){
 	
 	return $c;
 }
-?>
