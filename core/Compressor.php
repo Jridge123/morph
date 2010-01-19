@@ -150,7 +150,9 @@ class Minify_CSS_Compressor {
         
         // prevent triggering IE6 bug: http://www.crankygeek.com/ie6pebug/
         $css = preg_replace('/:first-l(etter|ine)\\{/', ':first-l$1 {', $css);
-            
+		
+		$css = str_replace("\n", "", $css);
+		
         return trim($css);
     }
     
@@ -207,16 +209,19 @@ class Minify_CSS_Compressor {
         }
         if (substr($m, -1) === '\\') { // comment ends like \*/
             // begin hack mode and preserve hack
+            return '';
             $this->_inHack = true;
             return '/*\\*/';
         }
         if ($m !== '' && $m[0] === '/') { // comment looks like /*/ foo */
             // begin hack mode and preserve hack
+            return '';
             $this->_inHack = true;
             return '/*/*/';
         }
         if ($this->_inHack) {
             // a regular comment ends hack mode but should be preserved
+            return '';
             $this->_inHack = false;
             return '/**/';
         }
