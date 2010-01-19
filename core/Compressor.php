@@ -100,7 +100,7 @@ class Minify_CSS_Compressor {
             /x', 'url($1)', $css);
         
         // remove ws between rules and colons
-        $css = preg_replace('/
+        /*$css = preg_replace('/
                 \\s*
                 ([{;])              # 1 = beginning of block or rule separator 
                 \\s*
@@ -109,7 +109,7 @@ class Minify_CSS_Compressor {
                 :
                 \\s*
                 (\\b|[#\'"])        # 3 = first character of a value
-            /x', '$1$2:$3', $css);
+            /x', '$1$2:$3', $css);*/
         
         // remove ws in selectors
         $css = preg_replace_callback('/
@@ -133,20 +133,20 @@ class Minify_CSS_Compressor {
         $css = preg_replace_callback('/font-family:([^;}]+)([;}])/'
             ,array($this, '_fontFamilyCB'), $css);
         
-        $css = preg_replace('/@import\\s+url/', '@import url', $css);
+        //$css = preg_replace('/@import\\s+url/', '@import url', $css);
         
         // replace any ws involving newlines with a single newline
         $css = preg_replace('/[ \\t]*\\n+\\s*/', "\n", $css);
         
         // separate common descendent selectors w/ newlines (to limit line lengths)
-        $css = preg_replace('/([\\w#\\.\\*]+)\\s+([\\w#\\.\\*]+){/', "$1\n$2{", $css);
+        //$css = preg_replace('/([\\w#\\.\\*]+)\\s+([\\w#\\.\\*]+){/', "$1\n$2{", $css);
         
         // Use newline after 1st numeric value (to limit line lengths).
-        $css = preg_replace('/
+        /* $css = preg_replace('/
             ((?:padding|margin|border|outline):\\d+(?:px|em)?) # 1 = prop : 1st numeric value
             \\s+
             /x'
-            ,"$1\n", $css);
+            ,"$1\n", $css); */
         
         // prevent triggering IE6 bug: http://www.crankygeek.com/ie6pebug/
         $css = preg_replace('/:first-l(etter|ine)\\{/', ':first-l$1 {', $css);
