@@ -86,6 +86,12 @@ $lazyload_enabled = $MORPH->lazyload_enabled;
 // colorbox lightbox
 $lightbox_enabled = $MORPH->lightbox_enabled;
 
+//Fontsizer
+$fontsizer_enabled = $MORPH->fontsizer_enabled;
+
+//Shareit
+$shareit_enabled = $MORPH->shareit_enabled;
+
 // menu settings
 $topnav_supersubs = $MORPH->topnav_supersubs;
 $topnav_hoverintent = $MORPH->topnav_hoverintent;

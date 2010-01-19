@@ -66,7 +66,8 @@ jQuery.noConflict();
         $("a[rel='lightbox']").colorbox();
 		$(".video").colorbox({iframe:true, innerWidth:425, innerHeight:344});        
         <?php } ?>
-        		
+    
+    <?php if ( $this->js->shareit_enabled == 1 ) { ?>    		
 	//grab all the anchor tag with rel set to shareit
 	$('a[rel=shareit]').mouseenter(function() {		
 		
@@ -121,6 +122,9 @@ jQuery.noConflict();
 	$('#shareit-field').click(function () {
 		$(this).select();
 	});
+	<?php } else { ?>
+	$('a[rel=shareit]').hide();
+	<?php } ?>
 		
 		
 	<?php if ( $this->js->plugin_scrollto == 1 ) { ?>
@@ -148,7 +152,11 @@ jQuery.noConflict();
 		$('#top-link').click(function(e){ $.scrollToTop(0,300); e.preventDefault(); return false; });
 	<?php } ?>	
 		
+		<?php if ( $this->js->fontsizer_enabled == 1 ) { ?>
 	    fontSize("#fontsizer", "#article", 9, 12, 20);
+	    <?php } else { ?>
+	    $(".article-page #fontsizer").parent().hide();
+	    <?php } ?>
 
 		<?php if ( $this->js->toolbar_equalize == 1 ) { ?>$('#toolbar .modinner').equalHeights();
 		<?php } if ( $this->js->masthead_equalize == 1 ) { ?>$('#masthead .modinner').equalHeights();

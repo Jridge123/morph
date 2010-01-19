@@ -265,7 +265,7 @@ if ( $browser->getBrowser() == MBrowser::PLATFORM_IPHONE ) {
     		if( $lazyload_enabled == 1 ) { $document->addScript($templatepath .'/core/js/lazyload.js'); }
     		if( $captions_enabled == 1 ) { $document->addScript($templatepath .'/core/js/captify.js'); }
     		if( $lightbox_enabled == 1 ) { $document->addScript($templatepath .'/core/js/colorbox.js');}
-    	    $document->addScript($templatepath .'/core/js/fontsizer.js');
+    		if( $fontsizer_enabled == 1 ) { $document->addScript($templatepath .'/core/js/fontsizer.js');}
 		    $document->addScript(JRoute::_('&render=js'.$cache.$gzip));
     		//if( $rounded_corners == 1 or $roundedcount !== 0 ) { $document->addScript($templatepath .'/core/js/corners.js'); }
     	}else{

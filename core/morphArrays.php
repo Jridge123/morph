@@ -1,7 +1,7 @@
 <?php
 
 // javascript arrays
-$js_jquery = array($jquery_core, (bool)$tabscount, (bool)$accordionscount, $lazyload_enabled, $captions_enabled, $lightbox_enabled);
+$js_jquery = array($jquery_core, (bool)$tabscount, (bool)$accordionscount, $lazyload_enabled, $captions_enabled, $lightbox_enabled, $fontsizer_enabled, $shareit_enabled);
 $js_jqueryui = array((bool)$tabscount, (bool)$accordionscount);
 $js_cookie = array((bool)$tabscount, (bool)$accordionscount, $toolbar_slider, $topshelf_slider, $bottomshelf_slider, $developer_toolbar);
 $js_slider = array($toolbar_slider, $topshelf_slider, $bottomshelf_slider);
