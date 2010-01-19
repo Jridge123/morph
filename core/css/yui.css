@@ -6,8 +6,7 @@ version:2.6.0
 ** Modified by Prothemer.com - added new layouts & numerous fixes applied
 ----------------------------------------------------------------------------*/
 
-/* @group YUI Reset CSS */
-
+/* YUI Reset CSS */
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}
 table{border-collapse:collapse;border-spacing:0;}
 fieldset,img{border:0;}
@@ -25,36 +24,23 @@ del,ins{text-decoration:none;}
 /* universal clearer
 ***************************************/
 .clearer:after{content:".";display:block;height:0;clear:both;visibility:hidden;overflow:hidden;}
-/* hides from ie mac \*/
 * html .clearer{height:1%;}
 .clearer{display:block;}
 
-/* @end */
-
-/* @group YUI Fonts CSS */
-
+/* YUI Fonts CSS */
 table{font-size:inherit;}
 pre,code,kbd,samp,tt{font-family:monospace;line-height:100%;}
 
-/* @end */
-
-/* @group YUI Main Grid CSS */
-
+/* YUI Main Grid CSS */
 body{text-align:center;}
-/*#ft - *test if still in use{clear:both;}
-*/
 .doc,.doc2,.doc3,.doc4,.yui-t1,.yui-t2,.yui-t3,.yui-t4,.yui-t5,.yui-t6,.yui-t7{margin:auto;text-align:left;width:57.69em;min-width:750px;}
 
-/* @group page width styles */
-
+/* page width styles */
 .doc2{width:73.076em;}
 .doc3{margin:auto 10px;width:auto;}
 .doc4{width:74.923em;}
 
-/* @end */
-
-/* @group outer sidebar layout styles */
-
+/* outer sidebar layout styles */
 .yui-b{position:relative;}
 #yui-main .yui-b{position:static;}
 #yui-main,.yui-g .yui-u .yui-g{width:100%;}
@@ -73,6 +59,7 @@ body{text-align:center;}
 .yui-t6 .yui-b{float:right;width:23.0769em;}
 .yui-t6 #yui-main .yui-b{margin-right:24.0769em;}
 .yui-t7 #yui-main .yui-b{display:block;margin:0 0 1em;}
+
 /* custom YUI layouts */
 .yui-t8,
 .yui-t9{margin:auto;text-align:left;width:57.69em;min-width:750px;}
@@ -89,7 +76,7 @@ body{text-align:center;}
 .doc3 .yui-ge div.first,.doc3 .yui-gf .yui-u{width:75%;}
 
 
-/* @group grid styles - used for modules */
+/* grid styles - used for modules */
 
 /* set floats for 3,4 and 5 grid items*/
 .yui-g5 .yui-u,.yui-g4 .yui-u,.yui-gb .yui-u,.yui-g .yui-gb .yui-u,.yui-gb .yui-g,.yui-gb .yui-gb,.yui-gb .yui-gc,.yui-gb .yui-gd,.yui-gb .yui-ge,.yui-gb .yui-gf,.yui-gc .yui-u,.yui-gc .yui-g,.yui-gd .yui-u{float:left;}
@@ -186,17 +173,17 @@ body{text-align:center;}
 .yui-ge div.first .yui-gd div.first{width:32%;}
 #bd:after,.yui-g:after,.yui-gb:after,.yui-gc:after,.yui-gd:after,.yui-ge:after,.yui-gf:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
 
-/* @end */
-
-/* @group custom inner 200px YUI grid options gh & gi */
+/* custom inner 200px YUI grid options gh & gi */
 
 /*gh - right 200px*/
 .yui-gh #tertiary-content{float:right;}
 .yui-gh #primary-content.first{float:left;}
+
 /*gi - left 200px*/
 .yui-gi #primary-content{float:right;}
 .yui-gi #tertiary-content{float:left;}
-/* set sidebar width for all layouts - doc,doc2 and doc4 - Tertiary 200px*/
+
+/* set sidebar width for all layouts - doc,doc2 and doc4 - Tertiary 200px */
 .doc4.yui-t9 #yui-main .yui-b .yui-gh #tertiary-content.yui-u,.doc4.yui-t8 #yui-main .yui-b .yui-gh #tertiary-content.yui-u,.doc4.yui-t6 #yui-main .yui-b .yui-gh #tertiary-content.yui-u,.doc4.yui-t5 #yui-main .yui-b .yui-gh #tertiary-content.yui-u,.doc4.yui-t4 #yui-main .yui-b .yui-gh #tertiary-content.yui-u,.doc4.yui-t3 #yui-main .yui-b .yui-gh #tertiary-content.yui-u,.doc4.yui-t2 #yui-main .yui-b .yui-gh #tertiary-content.yui-u,.doc4.yui-t1 #yui-main .yui-b .yui-gh #tertiary-content.yui-u,.doc2.yui-t9 #yui-main .yui-b .yui-gh #tertiary-content.yui-u,.doc2.yui-t8 #yui-main .yui-b .yui-gh #tertiary-content.yui-u,.doc2.yui-t6 #yui-main .yui-b .yui-gh #tertiary-content.yui-u,.doc2.yui-t5 #yui-main .yui-b .yui-gh #tertiary-content.yui-u,.doc2.yui-t4 #yui-main .yui-b .yui-gh #tertiary-content.yui-u,.doc2.yui-t3 #yui-main .yui-b .yui-gh #tertiary-content.yui-u,.doc2.yui-t2 #yui-main .yui-b .yui-gh #tertiary-content.yui-u,.doc2.yui-t1 #yui-main .yui-b .yui-gh #tertiary-content.yui-u,.doc.yui-t9 #yui-main .yui-b .yui-gh #tertiary-content.yui-u,.doc.yui-t8 #yui-main .yui-b .yui-gh #tertiary-content.yui-u,.doc.yui-t6 #yui-main .yui-b .yui-gh #tertiary-content.yui-u,.doc.yui-t5 #yui-main .yui-b .yui-gh #tertiary-content.yui-u,.doc.yui-t4 #yui-main .yui-b .yui-gh #tertiary-content.yui-u,.doc.yui-t3 #yui-main .yui-b .yui-gh #tertiary-content.yui-u,.doc.yui-t2 #yui-main .yui-b .yui-gh #tertiary-content.yui-u,.doc.yui-t1 #yui-main .yui-b .yui-gh #tertiary-content.yui-u,.doc4.yui-t9 #yui-main .yui-b .yui-gi #tertiary-content.yui-u,.doc4.yui-t8 #yui-main .yui-b .yui-gi #tertiary-content.yui-u,.doc4.yui-t6 #yui-main .yui-b .yui-gi #tertiary-content.yui-u,.doc4.yui-t5 #yui-main .yui-b .yui-gi #tertiary-content.yui-u,.doc4.yui-t4 #yui-main .yui-b .yui-gi #tertiary-content.yui-u,.doc4.yui-t3 #yui-main .yui-b .yui-gi #tertiary-content.yui-u,.doc4.yui-t2 #yui-main .yui-b .yui-gi #tertiary-content.yui-u,.doc4.yui-t1 #yui-main .yui-b .yui-gi #tertiary-content.yui-u,.doc2.yui-t9 #yui-main .yui-b .yui-gi #tertiary-content.yui-u,.doc2.yui-t8 #yui-main .yui-b .yui-gi #tertiary-content.yui-u,.doc2.yui-t6 #yui-main .yui-b .yui-gi #tertiary-content.yui-u,.doc2.yui-t5 #yui-main .yui-b .yui-gi #tertiary-content.yui-u,.doc2.yui-t4 #yui-main .yui-b .yui-gi #tertiary-content.yui-u,.doc2.yui-t3 #yui-main .yui-b .yui-gi #tertiary-content.yui-u,.doc2.yui-t2 #yui-main .yui-b .yui-gi #tertiary-content.yui-u,.doc2.yui-t1 #yui-main .yui-b .yui-gi #tertiary-content.yui-u,.doc.yui-t9 #yui-main .yui-b .yui-gi #tertiary-content.yui-u,.doc.yui-t8 #yui-main .yui-b .yui-gi #tertiary-content.yui-u,.doc.yui-t6 #yui-main .yui-b .yui-gi #tertiary-content.yui-u,.doc.yui-t5 #yui-main .yui-b .yui-gi #tertiary-content.yui-u,.doc.yui-t4 #yui-main .yui-b .yui-gi #tertiary-content.yui-u,.doc.yui-t3 #yui-main .yui-b .yui-gi #tertiary-content.yui-u,.doc.yui-t2 #yui-main .yui-b .yui-gi #tertiary-content.yui-u,.doc.yui-t1 #yui-main .yui-b .yui-gi #tertiary-content.yui-u, .yui-t0 .yui-gh #tertiary-content.yui-u, .yui-t0 .yui-gi #tertiary-content.yui-u {width:14.3846em;}
 
 /**** Doc 1 = 100% ****/
@@ -297,11 +284,9 @@ body{text-align:center;}
 /* set modules in sidebars to use all available space */
 #inner-wrap.yui-gc #tertiary-content .mod-basic {width: 100%;}
 
-/* @end */
+/* block & module grid adjustment styles to get precision layout */
 
-/* @group block & module grid adjustment styles to get precision layout */
-
-	/* @group First we need resets, clears, margin for all blocks blocks */
+/* First we need resets, clears, margin for all blocks blocks */
 
 #masthead{clear:both;position:relative;}
 
@@ -332,12 +317,8 @@ body{text-align:center;}
 
 /* add margin to last module in sidebar */
 .sidebar .lastmodule {margin-bottom:1em;}
-
-
-		
-	/* @end */
 	
-	/* @group generic styles for all pos */
+/* generic styles for all pos */
 
 /* adjustment for when 2 mods published with 33/66*/
 .modcount2.yui-gd .yui-u {margin-left: 1.35%;}
@@ -346,13 +327,10 @@ body{text-align:center;}
 .modcount2.yui-gc .yui-u.first,
 .modcount2.yui-gc .yui-u.first {width: 66.2%;}
 
-	/* @end */
-
 /* styling for grids in the sidebars */
 .sidebar .grid .mod-grid.yui-u{width:48.0%;margin-left:0%;float:right;}
 
 .sidebar .grid .mod-grid.yui-u.first {float:left;}
-
 
 /* user1 & 2 */
 #user1.grid.modcount3 .mod-grid.yui-u,
@@ -362,7 +340,7 @@ body{text-align:center;}
 #user1.grid.modcount5 .mod-grid.yui-u,
 #user2.grid.modcount5 .mod-grid.yui-u {width:18.88%;margin-left:1.4%}
 
-	/* @group inset position contol styles */
+/* inset position contol styles */
 
 /* inset 1 & 4 	*/
 #inset1.grid.modcount5 .yui-u{width:18.4%;margin-left:2%}
@@ -385,13 +363,10 @@ body{text-align:center;}
 .yui-gd #primary-content #inset3.no-grid .yui-u,
 .yui-ge #primary-content #inset3.no-grid .yui-u,
 .yui-gf #primary-content #inset3.no-grid .yui-u {float: none;width: 100%;}
-/*.yui-g #primary-content #inset2 .yui-u,
-.yui-g #primary-content #inset3 .yui-u {width: 100%;}*/
 
 .yui-gc #inset2.no-grid div.first,
-.yui-gc #inset3.no-grid div.first {
-	width: 100%;
-}
+.yui-gc #inset3.no-grid div.first{width: 100%;}
+
 /* nested inset grids specificity fix */
 .yui-gc #inset2.yui-g,
 .yui-gd #inset2.yui-g,
@@ -400,10 +375,7 @@ body{text-align:center;}
 .yui-gc #inset3.yui-g,
 .yui-gd #inset3.yui-g,
 .yui-ge #inset3.yui-g,
-.yui-gf #inset3.yui-g {
-	width: 100%;
-	margin-left: 0;
-}
+.yui-gf #inset3.yui-g {width: 100%;margin-left: 0;}
 
 /* inset 2 & 3 when using inner layouts and nested insets */
 .yui-gc #inset2.yui-gb.modcount3 .yui-u,
@@ -413,10 +385,7 @@ body{text-align:center;}
 .yui-ge #inset2.yui-gb.modcount3 .yui-u,
 .yui-ge #inset3.yui-gb.modcount3 .yui-u,
 .yui-gf #inset2.yui-gb.modcount3 .yui-u,
-.yui-gf #inset3.yui-gb.modcount3 .yui-u {
-	width: 32.3%;
-	float: left;
-} 
+.yui-gf #inset3.yui-gb.modcount3 .yui-u {width: 32.3%;float: left;} 
 
 /* inset2 adjustment for when 2 mods published with wide sidebars */
 #inset2.yui-gc.modcount2 .yui-u.first {width: 65.5%;}
@@ -429,11 +398,11 @@ body{text-align:center;}
 #inset2.yui-gf.modcount2 .yui-u {width: 65.5%;margin-left: 3%;}
 
 /* 50% / 50% - 300px with inner sidebar */
-/*inset2*/	
+/* inset2 */	
 .yui-t6 .yui-gh #inset2.yui-g.modcount2 .yui-u {width: 48.6%;}
 .yui-t3 .yui-gh #inset2.yui-g.modcount2 .yui-u {width: 48.6%;}
 
-/*inset3*/	
+/* inset3 */	
 .yui-t6 .yui-gh #inset3.yui-g.modcount2 .yui-u {width: 48.6%;}
 .yui-t3 .yui-gh #inset3.yui-g.modcount2 .yui-u {width: 48.6%;}
 
@@ -444,10 +413,7 @@ body{text-align:center;}
 
 /* nested grids in sidebar fixes */
 #tertiary-content .grid,
-#tertiary-content .mod-basic {
-	margin-left: 0;
-	width:  100%;
-}
+#tertiary-content .mod-basic{margin-left:0;width:100%;}
 	
 /* reset all grids left margin */
 .sidebar .grid .mod-grid.yui-u.first,
@@ -455,10 +421,6 @@ body{text-align:center;}
 #inset2.grid .mod-grid.yui-u.first,
 #user1.grid .mod-grid.yui-u.first,
 #user2.grid .mod-grid.yui-u.first {margin-left:0;}
-
-/*.doc4 #yui-main .yui-gc #primary-content.first {
-	width: 65%;
-}*/
 
 #bd #yui-main .no-left{margin-left:0;}
 
