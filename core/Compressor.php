@@ -100,7 +100,7 @@ class Minify_CSS_Compressor {
             /x', 'url($1)', $css);
         
         // remove ws between rules and colons
-        /*$css = preg_replace('/
+        $css = preg_replace('/
                 \\s*
                 ([{;])              # 1 = beginning of block or rule separator 
                 \\s*
@@ -109,7 +109,7 @@ class Minify_CSS_Compressor {
                 :
                 \\s*
                 (\\b|[#\'"])        # 3 = first character of a value
-            /x', '$1$2:$3', $css);*/
+            /x', '$1$2:$3', $css);
         
         // remove ws in selectors
         $css = preg_replace_callback('/
@@ -151,7 +151,7 @@ class Minify_CSS_Compressor {
         // prevent triggering IE6 bug: http://www.crankygeek.com/ie6pebug/
         $css = preg_replace('/:first-l(etter|ine)\\{/', ':first-l$1 {', $css);
 		
-		$css = str_replace("\n", "", $css);
+		$css = str_replace(array("\n", "\r"), "", $css);
 		
         return trim($css);
     }
