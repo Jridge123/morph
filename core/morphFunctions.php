@@ -182,13 +182,6 @@ JRequest::setVar('tp',0);
 
 include 'morphVars.php';
 
-if(file_exists($themeletfunctions) && is_readable($themeletfunctions)){
-include_once($absolutepath.'/themelet.php');
-}
-if(file_exists($customfunctions) && is_readable($customfunctions)){
-include_once($absolutepath.'/custom.php');
-}
-
 // gzip compression frontend switch - required for toolbar to work correctly
 $curr_url = (!empty($_SERVER['HTTPS'])) ? "https://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'] : "http://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
 if(isset($_GET['gzip']) && $_GET['gzip'] == 'on'){
@@ -277,6 +270,13 @@ if ( $browser->getBrowser() == MBrowser::PLATFORM_IPHONE ) {
     		$document->addScript($templatepath .'/core/js/ie6.js');
     	}
     }
+}
+
+if(file_exists($themeletfunctions) && is_readable($themeletfunctions)){
+include_once($absolutepath.'/themelet.php');
+}
+if(file_exists($customfunctions) && is_readable($customfunctions)){
+include_once($absolutepath.'/custom.php');
 }
 
 // enable/disble firebug lite
