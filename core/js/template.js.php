@@ -154,7 +154,7 @@ jQuery.noConflict();
 			autoArrows: true,
 			dropShadows: false,
 			hoverClass: 'sfHover',
- 			disableHI: <?php echo !$this->js->topnav_hoverintent ?>
+ 			disableHI: <?php echo json_encode(!$this->js->topnav_hoverintent) ?>
 		});
 		<?php } if ( $this->js->topdrop >= 1 ) { ?>
 		$("#topnav .menu, #top .menu").superfish({pathClass:'active'});
