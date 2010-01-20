@@ -141,6 +141,7 @@ jQuery.noConflict();
 	    	}
 	    ?>
 		<?php echo implode($equalizers) ?>
+console.warn(<?php echo json_encode(range(0, 1)) ?>);
 		<?php if ( $this->js->topfish >= 1  ) { ?>
 		$("#nav .menu")<?php if ($this->js->topnav_supersubs == 1 ) { ?>.supersubs({
 			minWidth: <?php echo $this->js->topnav_minwidth; ?>,
@@ -154,7 +155,7 @@ jQuery.noConflict();
 			autoArrows: true,
 			dropShadows: false,
 			hoverClass: 'sfHover',
- 			disableHI: <?php echo (bool)!$this->js->topnav_hoverintent ?>
+ 			disableHI: <?php echo !$this->js->topnav_hoverintent ?>
 		});
 		<?php } if ( $this->js->topdrop >= 1 ) { ?>
 		$("#topnav .menu, #top .menu").superfish({pathClass:'active'});
