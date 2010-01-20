@@ -141,7 +141,6 @@ jQuery.noConflict();
 	    	}
 	    ?>
 		<?php echo implode($equalizers) ?>
-console.warn(<?php echo json_encode(range(0, 1)) ?>);
 		<?php if ( $this->js->topfish >= 1  ) { ?>
 		$("#nav .menu")<?php if ($this->js->topnav_supersubs == 1 ) { ?>.supersubs({
 			minWidth: <?php echo $this->js->topnav_minwidth; ?>,
