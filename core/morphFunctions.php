@@ -275,6 +275,12 @@ if ( $isiPhone && !$iPhoneCookie ) {
     }
 }
 
+if(isset($document->_scripts[JURI::root().'components/com_k2/js/k2.js']))
+{
+	unset($document->_scripts[JURI::root().'components/com_k2/js/k2.js']);
+	$document->addScript($templatepath .'/core/js/k2.js');
+}
+
 if(file_exists($themeletfunctions) && is_readable($themeletfunctions)){
 include_once($absolutepath.'/themelet.php');
 }
