@@ -93,4 +93,3 @@ function modNewMainMenuXMLCallback(&$node, $args)
 }
 
 modNewMainMenuHelper::render($params, 'modNewMainMenuXMLCallback');
-?>

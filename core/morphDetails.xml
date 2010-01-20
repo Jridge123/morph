@@ -467,7 +467,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="captions_animation" default="slide" type="itoggle" label="Caption animation" tooltip="inline" description="Choose whether to animate the caption or have it always displayed.">
+	<param name="captions_animation" default="slide" type="radio" label="Caption animation" tooltip="inline" description="Choose whether to animate the caption or have it always displayed.">
 		<option value="slide">On</option>
 		<option value="always-on">Off</option>
 	</param>
