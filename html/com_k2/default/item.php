@@ -34,16 +34,9 @@ defined('_JEXEC') or die('Restricted access');
 
 	<div class="itemHeader">
 	
-		<?php if($this->item->params->get('itemDateCreated')): ?>
-		<!-- Date created -->
-		<span class="itemDateCreated">
-			<?php echo JHTML::_('date', $this->item->created , JText::_('DATE_FORMAT_LC2')); ?>
-		</span>
-		<?php endif; ?>
-	
 	  <?php if($this->item->params->get('itemTitle')): ?>
 	  <!-- Item title -->
-	  <h2 class="itemTitle">
+	  <h1>
 	  	<?php echo $this->item->title; ?>
 	  	
 	  	<?php if($this->item->params->get('itemFeaturedNotice') && $this->item->featured): ?>
@@ -55,16 +48,23 @@ defined('_JEXEC') or die('Restricted access');
 	  	</span>
 	  	<?php endif; ?>
 
-	  </h2>
+	  </h1>
 	  <?php endif; ?>
-
+	  
+        <?php if($this->item->params->get('itemDateCreated')): ?>
+        <!-- Date created -->
+        <span class="itemDateCreated">
+        	<?php echo JHTML::_('date', $this->item->created , JText::_('DATE_FORMAT_LC2')); ?>
+        </span>
+        <?php endif; ?>	
+        
 		<?php if($this->item->params->get('itemAuthor')): ?>
 		<!-- Item Author -->
 		<span class="itemAuthor">
 			<?php echo K2HelperUtilities::writtenBy($this->item->author->profile->gender); ?> <a href="<?php echo $this->item->author->link; ?>"><?php echo $this->item->author->name; ?></a>
 		</span>
 		<?php endif; ?>
-		
+	
   </div>
 
   <!-- Plugins: AfterDisplayTitle -->

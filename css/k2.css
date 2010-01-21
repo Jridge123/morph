@@ -7,22 +7,16 @@
  */
 
 /*
-### Legend ###
-Font families used:
-	font-family:Georgia, "Times New Roman", Times, serif;
-	font-family:"Trebuchet MS",Trebuchet,Arial,Verdana,Sans-serif;
-	font-family:Arial, Helvetica, sans-serif;
-*/
-
-
 
 /*----------------------------------------------------------------------
 	Common Elements
 ----------------------------------------------------------------------*/
 
 /* --- Basic typography --- */
-a:active,
-a:focus {outline:0;}
+#k2Container a {text-decoration:underline;}
+
+#k2Container a:active,
+#k2Container a:focus {outline:0;}
 img {border:none;}
 
 /* --- Global K2 container --- */
@@ -42,7 +36,6 @@ body.contentpane #k2Container {padding:16px;} /* used in popups */
 
 /* --- RSS feed icon --- */
 a.feedicon{display:block;float:right;margin:0;padding:0;width:14px;height:14px;background:url(../html/com_k2/default/images/system/feed-icon-14x14.gif) no-repeat 50% 50%;text-indent:-7998px;}
-
 
 /* --- Rating --- */
 .itemRatingForm {display:block;vertical-align:middle;line-height:16px;float:left;}
@@ -85,8 +78,6 @@ div.k2Pagination {padding:8px;margin:24px 0 4px 0;text-align:center;color:#999;}
 table.csvData {}
 table.csvData tr th {}
 table.csvData tr td {}
-
-
 
 /*----------------------------------------------------------------------
 	Component: Item view
@@ -278,9 +269,7 @@ div.itemCommentsForm h4.itemCommentsFormTitle {color:#135CAE;font-size:24px;marg
 div.itemBackToTop {text-align:right;}
 	div.itemBackToTop a {text-decoration:underline;}
 	div.itemBackToTop a:hover {text-decoration:underline;}
-
-
-
+	
 /*----------------------------------------------------------------------
 	Component: Itemlist view (category)
 ----------------------------------------------------------------------*/
@@ -407,8 +396,6 @@ div.catItemReadMore {display:inline;}
 /* Modified date */
 span.catItemDateModified {display:block;text-align:right;padding:4px;margin:4px 0;color:#999;border-top:1px solid #ddd;}
 
-
-
 /*----------------------------------------------------------------------
 	Component: Itemlist view (user)
 ----------------------------------------------------------------------*/
@@ -474,8 +461,6 @@ div.userItemReadMore {display:inline;}
 	div.userItemReadMore a {}
 	div.userItemReadMore a:hover {}
 
-
-
 /*----------------------------------------------------------------------
 	Component: Itemlist view (generic)
 ----------------------------------------------------------------------*/
@@ -503,8 +488,6 @@ div.genericItemCategory {display:inline;margin:0 8px 0 0;padding:0 8px 0 0;borde
 div.genericItemReadMore {display:inline;}
 	div.genericItemReadMore a {}
 	div.genericItemReadMore a:hover {}
-
-
 
 /*----------------------------------------------------------------------
 	Component: Latest view
@@ -577,8 +560,6 @@ div.latestItemReadMore {display:inline;}
 /* Items presented in a list */
 h2.latestItemTitleList {font-size:14px;padding:2px 0;margin:8px 0 2px 0;font-family:Arial, Helvetica, sans-serif;border-bottom:1px dotted #ccc;line-height:normal;}
 
-
-
 /*----------------------------------------------------------------------
 	Component: Register & profile page views (register.php & profile.php)
 ----------------------------------------------------------------------*/
@@ -596,8 +577,6 @@ img.k2AccountPageImage {border:4px solid #ddd;margin:10px 0;padding:0;display:bl
 .k2AccountPage table.admintable tr td {}
 .k2AccountPage table.admintable tr td span {}
 .k2AccountPage table.admintable tr td span label {}
-
-
 
 /*----------------------------------------------------------------------
 	Modules: mod_k2_comments
@@ -628,8 +607,6 @@ div.k2TopCommentersBlock ul li span.tcCommentsCounter {}
 div.k2TopCommentersBlock ul li a.tcLatestComment {}
 div.k2TopCommentersBlock ul li a.tcLatestComment:hover {}
 div.k2TopCommentersBlock ul li span.tcLatestCommentDate {color:#999;}
-
-
 
 /*----------------------------------------------------------------------
 	Modules: mod_k2_content
@@ -681,8 +658,6 @@ div.k2ItemsBlock ul li a.moduleItemReadMore:hover {}
 div.k2ItemsBlock a.moduleCustomLink {}
 div.k2ItemsBlock a.moduleCustomLink:hover {}
 
-
-
 /*----------------------------------------------------------------------
 	Modules: mod_k2_login
 ----------------------------------------------------------------------*/
@@ -713,8 +688,6 @@ div.k2UserBlock {}
 	div.k2UserBlock p.ubCommentsCount {}
 	div.k2UserBlock form {}
 	div.k2UserBlock form input.ubLogout {}
-
-
 
 /*----------------------------------------------------------------------
 	Modules: mod_k2_tools
@@ -817,7 +790,5 @@ div.k2TagCloudBlock a:hover {padding:4px;float:left;display:block;background:#13
 #k2Container div.gsc-branding-text { text-align:right;}
 #k2Container div.gsc-control {width:100%;}
 #k2Container div.gs-visibleUrl { display:none;}
-
-
 
 /* --- END --- */
