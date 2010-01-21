@@ -283,8 +283,8 @@ if(isset($document->_scripts[JURI::root().'components/com_k2/js/k2.js']))
 	$document->addScript($templatepath .'/core/js/k2.js');
 	//$document->addScript($templatepath .'/core/js/modal.js');
 	$document->_script['text/javascript'] = preg_replace("/(window.*\n\n.*SqueezeBox.initialize\(\{}\);)(\n.*){8}/m", '', $document->_script['text/javascript']);
-	
-	if(isset($document->_stylesheets[JURI::root().'components/com_k2/css/k2.css'])) unset($document->_stylesheets[JURI::root().'components/com_k2/css/k2.css']);
+
+	if(isset($document->_styleSheets[JURI::root().'components/com_k2/css/k2.css'])) unset($document->_styleSheets[JURI::root().'components/com_k2/css/k2.css']);
 	$document->addStyleSheet($templatepath .'/core/css/k2.css');
 	
 }
