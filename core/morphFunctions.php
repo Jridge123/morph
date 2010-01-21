@@ -278,11 +278,11 @@ if ( $isiPhone && !$iPhoneCookie ) {
 if(isset($document->_scripts[JURI::root().'components/com_k2/js/k2.js']))
 {
 	unset($document->_scripts[JURI::root().'components/com_k2/js/k2.js']);
-	unset($document->_scripts[$this->baseurl.'/media/system/js/modal.js']);
+	if(isset($document->_scripts[$this->baseurl.'/media/system/js/modal.js'])) unset($document->_scripts[$this->baseurl.'/media/system/js/modal.js']);
+	if(isset($document->_scripts[$this->baseurl.'/media/system/js/mootools.js'])) unset($document->_scripts[$this->baseurl.'/media/system/js/mootools.js']);
 	$document->addScript($templatepath .'/core/js/k2.js');
-	$document->addScript($templatepath .'/core/js/modal.js');
-	$test = $document->_script['text/javascript'] = preg_replace("/((window)(.*)(SqueezeBox)(.*)(}\);[\n|\r].\s}\);))/mi", '', $document->_script['text/javascript']);
-	//die('<pre>'.print_r($test, true).'</pre>');
+	//$document->addScript($templatepath .'/core/js/modal.js');
+	$document->_script['text/javascript'] = preg_replace("/(window.*\n\n.*SqueezeBox.initialize\(\{}\);)(\n.*){8}/m", '', $document->_script['text/javascript']);
 }
 
 if(file_exists($themeletfunctions) && is_readable($themeletfunctions)){
