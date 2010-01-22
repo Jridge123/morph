@@ -46,7 +46,8 @@ jQuery.noConflict();
 	  	// Smooth Scroll
 		$('#k2Container a[href*=#]').click(function(){
 			if(!this.hash) return;
-			$.scrollToTop($(this.hash),500);
+			if($(this.hash).length > 0) $.scrollToTop($(this.hash),500);
+			else return;
 			return false;
 		});
     	
