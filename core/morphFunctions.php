@@ -281,8 +281,10 @@ if(isset($document->_scripts[JURI::root().'components/com_k2/js/k2.js']))
 	if(isset($document->_scripts[$this->baseurl.'/media/system/js/modal.js'])) unset($document->_scripts[$this->baseurl.'/media/system/js/modal.js']);
 	if(isset($document->_scripts[$this->baseurl.'/media/system/js/mootools.js'])) unset($document->_scripts[$this->baseurl.'/media/system/js/mootools.js']);
 	$document->addScript($templatepath .'/core/js/k2.js');
-	//$document->addScript($templatepath .'/core/js/modal.js');
-	$document->_script['text/javascript'] = preg_replace("/(window.*\n\n.*SqueezeBox.initialize\(\{}\);)(\n.*){8}/m", '', $document->_script['text/javascript']);
+	$document->addScript($templatepath .'/core/js/colorbox.js');
+	$document->addStyleSheet($templatepath .'/core/css/colorbox.css');
+	$document->_script['text/javascript'] = str_replace("\n\t\twindow.addEvent('domready', function() {\n\n\t\t\tSqueezeBox.initialize({});\n\n\t\t\t$$('a.modal').each(function(el) {\n\t\t\t\tel.addEvent('click', function(e) {\n\t\t\t\t\tnew Event(e).stop();\n\t\t\t\t\tSqueezeBox.fromElement(el);\n\t\t\t\t});\n\t\t\t});\n\t\t});", "(function($){$(document).ready(function(){$('a.modal').colorbox({width:'80%', height:'80%', iframe:true});});})(jQuery);
+	", $document->_script['text/javascript']);
 
 	if(isset($document->_styleSheets[JURI::root().'components/com_k2/css/k2.css'])) unset($document->_styleSheets[JURI::root().'components/com_k2/css/k2.css']);
 	$document->addStyleSheet($templatepath .'/core/css/k2.css');
