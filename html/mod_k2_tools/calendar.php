@@ -9,7 +9,13 @@
 
 // no direct access
 defined('_JEXEC') or die('Restricted access');
-ob_start();
+
+function minify($str)
+{
+	return str_replace(array("\n", "\t", ' ', "\r"), '', $str);
+}
+
+ob_start('minify');
 ?>
 (function($){
 	var id      = '#k2ModuleBox<?php echo $module->id; ?>',
@@ -23,7 +29,7 @@ ob_start();
 	    
 	});
 })(jQuery);
-<?php $this->_doc->addScriptDeclaration(ob_get_clean()) ?>
+<?php $this->_doc->addScriptDeclaration(str_replace(array('  ', '   ', "\n", "\t", "\r"), array(' ', ' ', ''), ob_get_clean())) ?>
 
 <div id="k2ModuleBox<?php echo $module->id; ?>" class="k2CalendarBlock <?php echo $params->get('moduleclass_sfx'); ?>">
 	<?php echo $calendar; ?>
