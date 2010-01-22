@@ -21,17 +21,9 @@ $user = &JFactory::getUser();
 
 	<?php if($this->params->get('show_page_title') && $this->params->get('page_title')!=$this->user->name): ?>
 	<!-- Page title -->
-	<div class="componentheading<?php echo $this->params->get('pageclass_sfx')?>">
+	<h1>
 		<?php echo $this->escape($this->params->get('page_title')); ?>
-	</div>
-	<?php endif; ?>
-
-	<?php if($this->params->get('userFeed')): ?>
-	<!-- RSS feed icon -->
-		<a class="k2FeedIcon" href="<?php echo $this->feed; ?>" title="<?php echo JText::_('Subscribe to this RSS feed'); ?>">
-			<span><?php echo JText::_('Subscribe to this RSS feed'); ?></span>
-		</a>
-		<div class="clr"></div>
+	</h1>
 	<?php endif; ?>
 
 	<?php if ($this->params->get('userImage') || $this->params->get('userName') || $this->params->get('userDescription') || $this->params->get('userURL') || $this->params->get('userEmail')): ?>
@@ -53,7 +45,12 @@ $user = &JFactory::getUser();
 		<?php if ($this->params->get('userName')): ?>
 		<h2><?php echo $this->user->name; ?></h2>
 		<?php endif; ?>
-		
+		<?php if($this->params->get('userFeed')): ?>
+		<!-- RSS feed icon -->
+			<a class="feedicon" href="<?php echo $this->feed; ?>" title="<?php echo JText::_('Subscribe to this RSS feed'); ?>">
+				<span><?php echo JText::_('Subscribe to this RSS feed'); ?></span>
+			</a>
+		<?php endif; ?>
 		<?php if ($this->params->get('userDescription') && isset($this->user->profile->description)): ?>
 		<p class="userDescription"><?php echo $this->user->profile->description; ?></p>
 		<?php endif; ?>

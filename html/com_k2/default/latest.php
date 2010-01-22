@@ -17,9 +17,9 @@ defined('_JEXEC') or die('Restricted access');
 
 	<?php if($this->params->get('show_page_title')): ?>
 	<!-- Page title -->
-	<div class="componentheading<?php echo $this->params->get('pageclass_sfx')?>">
+	<h1>
 		<?php echo $this->escape($this->params->get('page_title')); ?>
-	</div>
+	</h1>
 	<?php endif; ?>
 
 	<?php foreach($this->blocks as $key=>$block): ?>
@@ -32,12 +32,9 @@ defined('_JEXEC') or die('Restricted access');
 		<div class="latestItemsCategory">
 			<?php if($this->params->get('categoryFeed')): ?>
 			<!-- RSS feed icon -->
-			<div class="k2FeedIcon">
-				<a href="<?php echo $category->feed; ?>" title="<?php echo JText::_('Subscribe to this RSS feed'); ?>">
+				<a class="feedicon" href="<?php echo $category->feed; ?>" title="<?php echo JText::_('Subscribe to this RSS feed'); ?>">
 					<span><?php echo JText::_('Subscribe to this RSS feed'); ?></span>
 				</a>
-				<div class="clr"></div>
-			</div>
 			<?php endif; ?>
 	
 			<?php if ($this->params->get('categoryImage') && !empty($category->image)): ?>

@@ -29,9 +29,9 @@ defined('_JEXEC') or die('Restricted access');
 <form action="<?php echo JRoute::_( 'index.php?option=com_user' ); ?>" enctype="multipart/form-data" method="post" id="josForm" name="josForm" class="form-validate">
 
   <?php if ( $this->params->def( 'show_page_title', 1 ) ) : ?>
-  <div class="componentheading<?php echo $this->escape($this->params->get('pageclass_sfx')); ?>">
+  <h1>
   	<?php echo $this->escape($this->params->get('page_title')); ?>
-  </div>
+  </h1>
   <?php endif; ?>
 
   <div id="k2Container" class="k2AccountPage">

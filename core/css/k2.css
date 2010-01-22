@@ -407,14 +407,16 @@ div.userView {}
 		span.userItemAddLink a:hover {}
 		
 		div.userBlock img {display:block;float:left;background:#fff;padding:4px;border:1px solid #ddd;margin:0 8px 0 0;}
-		div.userBlock h2 {}
+		div.userBlock h2 {margin:0;padding:0;}
 		div.userBlock p.userDescription {padding:4px 0;}
 		div.userBlock p.userAdditionalInfo {padding:4px 0;margin:8px 0 0 0;border-top:1px dotted #ccc;}
 			span.userURL {font-weight:bold;color:#555;display:block;}
 			span.userEmail {font-weight:bold;color:#555;display:block;}
 
 /* User items */
-div.userItemView {} /* this is the item container for this view */
+div.userItemView{margin:0 0 1.5em;}
+div.userItemView h2{margin:0;} /* this is the item container for this view */
+div.userItemView .userItemHeader h2 a{text-decoration:none;}
 
 div.userItemViewUnpublished {opacity:0.9;border:4px dashed #ccc;background:#fffff2;padding:8px;}
 
@@ -424,7 +426,7 @@ span.userItemEditLink a:hover {}
 
 div.userItemHeader {}
 	div.userItemHeader span.userItemDateCreated {color:#999;font-size:11px;}
-	div.userItemHeader h3.userItemTitle {font-family:Georgia, "Times New Roman", Times, serif;font-size:24px;font-weight:normal;line-height:110%;padding:10px 0 4px 0;margin:0;}
+	div.userItemHeader h3.userItemTitle {font-weight:normal;line-height:110%;padding:10px 0 4px 0;margin:0;}
 	div.userItemHeader h3.userItemTitle span sup {font-size:12px;color:#CF1919;text-decoration:none;} /* "Unpublished" presented in superscript */
 
 div.userItemBody {padding:8px 0;margin:0;}
@@ -433,12 +435,12 @@ div.userItemImageBlock {padding:0;margin:0;float:left;}
 	span.userItemImage {display:block;text-align:center;margin:0 8px 8px 0;}
 	span.userItemImage img {border:1px solid #ccc;padding:8px;}
 
-div.userItemIntroText {font-size:inherit;font-weight:normal;line-height:inherit;padding:4px 0 12px 0;}
+div.userItemIntroText {font-size:inherit;font-weight:normal;line-height:inherit;padding:4px 0 0 0;}
 	div.userItemIntroText img {padding:2px;margin:4px;background:#fff;border:1px solid #ccc;}
 
-div.userItemLinks {margin:0 0 16px 0;padding:0;}
+div.userItemLinks {margin:0;padding:0 0 .2em;}
 
-div.userItemCategory {padding:4px;border-bottom:1px dotted #ccc;}
+div.userItemCategory {padding:0 0 0.2em;border-bottom:1px dotted #ccc;}
 	div.userItemCategory span {font-weight:bold;color:#555;padding:0 4px 0 0;}
 	div.userItemCategory a {}
 	
@@ -582,7 +584,7 @@ img.k2AccountPageImage {border:4px solid #ddd;margin:10px 0;padding:0;display:bl
 
 /* Latest Comments */
 div.k2LatestCommentsBlock {}
-div.k2LatestCommentsBlock ul {padding:4px;margin:4px;list-style:none;}
+div.k2LatestCommentsBlock ul {padding:0;margin:0;list-style:none;}
 div.k2LatestCommentsBlock ul li {display:block;clear:both;}
 div.k2LatestCommentsBlock ul li a {}
 div.k2LatestCommentsBlock ul li a:hover {}
@@ -592,6 +594,7 @@ div.k2LatestCommentsBlock ul li span.lcUsername {}
 div.k2LatestCommentsBlock ul li span.lcCommentDate {color:#999;}
 div.k2LatestCommentsBlock ul li span.lcItemTitle {}
 div.k2LatestCommentsBlock ul li span.lcItemCategory {}
+div.k2LatestCommentsBlock .k2FeedIcon{padding-top:.5em;}
 
 /* Top Commenters */
 div.k2TopCommentersBlock {}
@@ -614,12 +617,12 @@ div.k2ItemsBlock {}
 
 div.k2ItemsBlock p.modulePretext {}
 
-div.k2ItemsBlock ul {padding:4px;margin:4px;list-style:none;}
-div.k2ItemsBlock ul li {padding:8px 4px;}
+div.k2ItemsBlock ul {padding:0;margin:0;}
+div.k2ItemsBlock ul li {padding:0 0 1em;margin:0 0 1em;list-style:none;}
 div.k2ItemsBlock ul li a {}
 div.k2ItemsBlock ul li a:hover {}
 
-div.k2ItemsBlock ul li a.moduleItemTitle {font-family:Georgia, "Times New Roman", Times, serif;font-size:20px;}
+div.k2ItemsBlock ul li a.moduleItemTitle {font-size:1.5em;}
 div.k2ItemsBlock ul li a.moduleItemTitle:hover {}
 
 div.k2ItemsBlock ul li a.moduleItemAuthorLink {}
@@ -627,8 +630,9 @@ div.k2ItemsBlock ul li a.moduleItemAuthorLink:hover {}
 
 div.k2ItemsBlock ul li img.moduleItemAuthorAvatar {display:block;float:left;background:#fff;border:1px solid #ccc;padding:2px;margin:0 4px 0 0;width:14px;height:auto;}
 
-div.k2ItemsBlock ul li p.moduleItemIntrotext {display:block;padding:4px 0;line-height:120%;}
+div.k2ItemsBlock ul li p.moduleItemIntrotext {display:block;padding:.5em 0 0 0;margin:0;line-height:120%;}
 div.k2ItemsBlock ul li p.moduleItemIntrotext a.moduleItemImage img {float:left;margin:2px 4px 4px 0;padding:0;border:2px solid #ddd;}
+div.k2ItemsBlock ul li br{display:none;}
 
 div.k2ItemsBlock ul li ul.moduleItemExtraFields {margin:0;padding:0;list-style:none;}
 	ul.moduleItemExtraFields li {display:block;}
@@ -639,7 +643,7 @@ div.k2ItemsBlock ul li p.moduleItemVideo {}
 div.k2ItemsBlock ul li p.moduleItemVideo span.moduleItemVideoCaption {}
 div.k2ItemsBlock ul li p.moduleItemVideo span.moduleItemVideoCredits {}
 
-div.k2ItemsBlock ul li span.moduleItemDateCreated {}
+div.k2ItemsBlock ul li span.moduleItemDateCreated {display:block;color:#777;}
 div.k2ItemsBlock ul li a.moduleItemCategory {}
 div.k2ItemsBlock ul li span.moduleItemTags {}
 div.k2ItemsBlock ul li span.moduleItemTags b {}
@@ -679,8 +683,8 @@ div.k2LoginBlock {}
 div.k2UserBlock {}
 	div.k2UserBlock p img {display:block;float:left;background:#fff;border:1px solid #ccc;padding:2px;margin:2px 4px 4px 0;width:48px;height:auto;}
 	div.k2UserBlock p span.ubName {}
-	div.k2UserBlock ul {padding:4px 8px;margin:4px;list-style:square;}
-	div.k2UserBlock ul li {}
+	div.k2UserBlock ul {padding:0;margin:0 0 1em;list-style:square;float:right;}
+	div.k2UserBlock ul li {margin-left:1em;}
 	div.k2UserBlock ul li a {}
 	div.k2UserBlock ul li a:hover {}
 	div.k2UserBlock p.ubCommentsCount {}
@@ -693,15 +697,15 @@ div.k2UserBlock {}
 
 /* --- Archives --- */
 div.k2ArchivesBlock {}
-div.k2ArchivesBlock ul {padding:4px 8px;margin:4px;list-style:square;}
-div.k2ArchivesBlock ul li {}
+div.k2ArchivesBlock ul {padding:0;margin:0;list-style:square;}
+div.k2ArchivesBlock ul li {margin-left:1em;}
 div.k2ArchivesBlock ul li a {}
 div.k2ArchivesBlock ul li a:hover {}
 
 /* --- Authors --- */
 div.k2AuthorsListBlock {}
-div.k2AuthorsListBlock ul {padding:4px 8px;margin:4px;list-style:square;}
-div.k2AuthorsListBlock ul li {}
+div.k2AuthorsListBlock ul {padding:0;margin:0;list-style:none;}
+div.k2AuthorsListBlock ul li {list-style:none;}
 div.k2AuthorsListBlock ul li img.abAuthorAvatar {display:block;float:left;background:#fff;border:1px solid #ccc;padding:2px;margin:2px 4px 4px 0;width:24px;height:auto;}
 div.k2AuthorsListBlock ul li a.abAuthorName {}
 div.k2AuthorsListBlock ul li a.abAuthorName:hover {}
@@ -717,7 +721,7 @@ div.k2BreadcrumbsBlock a:hover {}
 div.k2BreadcrumbsBlock span.bcSeparator {padding:0 4px;font-size:14px;}
 
 /* --- Calendar --- */
-div.k2CalendarBlock {height:190px;margin-bottom:8px;} /* use this height value so that the calendar height won't change on Month change via ajax */
+div.k2CalendarBlock {margin:-1em;height:190px;margin-bottom:8px;} /* use this height value so that the calendar height won't change on Month change via ajax */
 div.k2CalendarLoader {background:#fff url(../../html/com_k2/default/images/system/k2CalendarLoader.gif) no-repeat 50% 50%;}
 table.calendar {margin:0 auto;background:#fff;border-collapse:collapse;}
 table.calendar tr td {text-align:center;vertical-align:middle;padding:2px;border:1px solid #f4f4f4;background:#fff;}
@@ -741,13 +745,18 @@ table.calendar tr td.calendarTodayLinked a:hover {display:block;background:#BFD9
 
 /* --- Category Tree Select Box --- */
 div.k2CategorySelectBlock {}
-div.k2CategorySelectBlock form select {width:auto;}
-div.k2CategorySelectBlock form select option {}
+div.k2CategorySelectBlock form select {width:auto;background:#fff;}
+div.k2CategorySelectBlock form select option {background:#fff;}
+
+.mod .odd{background:#fff;}
+.mod .even{background:none;}
 
 /* --- Category List/Menu --- */
 div.k2CategoriesListBlock {}
-div.k2CategoriesListBlock ul {padding:4px 8px;margin:4px;list-style:square;}
-div.k2CategoriesListBlock ul li {}
+div.k2CategoriesListBlock ul {padding:0;margin:0;list-style:square;}
+div.k2CategoriesListBlock ul ul{margin:0;}
+
+div.k2CategoriesListBlock ul li {margin-left:1em;}
 div.k2CategoriesListBlock ul li a {}
 div.k2CategoriesListBlock ul li a:hover {}
 div.k2CategoriesListBlock ul li a span {}
@@ -776,7 +785,7 @@ div.k2CategoriesListBlock ul li.activeCategory a {font-weight:bold;}
 /* --- Search Box --- */
 div.k2SearchBlock {}
 div.k2SearchBlock form {}
-div.k2SearchBlock form input.inputbox {}
+div.k2SearchBlock form input.inputbox {background:#fff url(../../../../morph_assets/themelets/vanilla/images/themelet-sprite.png) no-repeat 99% -78px;border:1px solid;border-color:#ccc #ddd #ddd #ccc;}
 div.k2SearchBlock form input.button {}
 
 /* --- Tag Cloud --- */

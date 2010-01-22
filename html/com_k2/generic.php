@@ -17,18 +17,16 @@ defined('_JEXEC') or die('Restricted access');
 
 	<?php if($this->params->get('show_page_title')): ?>
 	<!-- Page title -->
-	<div class="componentheading<?php echo $this->params->get('pageclass_sfx')?>">
+	<h1>
 		<?php echo $this->escape($this->params->get('page_title')); ?>
-	</div>
+	</h1>
 	<?php endif; ?>
 
 	<?php if($this->params->get('userFeed')): ?>
 	<!-- RSS feed icon -->
-	<div class="k2FeedIcon">
-		<a href="<?php echo $this->feed; ?>" title="<?php echo JText::_('Subscribe to this RSS feed'); ?>">
+		<a class="feedicon" href="<?php echo $this->feed; ?>" title="<?php echo JText::_('Subscribe to this RSS feed'); ?>">
 			<span><?php echo JText::_('Subscribe to this RSS feed'); ?></span>
 		</a>
-	</div>
 	<?php endif; ?>
 
 	<?php if(count($this->items)): ?>
