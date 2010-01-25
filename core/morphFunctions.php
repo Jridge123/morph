@@ -37,12 +37,6 @@ if ( $gzip_compression == 1 ) {
 		}		
 		JPath::setPermissions($path, '0644');
 	}
-	// enable GZIP if the PHP ZLIB extension is loaded and output_compression is not enabled, else enable output buffering
-	if(extension_loaded('zlib') && !ini_get('zlib.output_compression')){
-		if(!ob_start("ob_gzhandler")) ob_start();
-	}
-}else{
-	ob_start();
 }
 // set the various paths:
 $templatepath = JURI::root(1) . '/templates/'.$this->template;
@@ -137,32 +131,31 @@ $themeletfunctions			= $absolutepath.'/themelet.php';
 $foot_override				= $absolutepath.'/html/foot.php';
 $footer_script				= $absolutepath.'/script.php';
 
-if($load_mootools == 0) {
-    $headnomootools = $this->getHeadData();
-    $headoriginal = $this->getHeadData();
-    if($user->get('guest') == 1 or $user->usertype == 'Registered'){
-        switch($option){
-            default:
-            unset($headnomootools['scripts'][$this->baseurl.'/media/system/js/mootools.js']);
-    		$this->setHeadData($headnomootools);
-            break;
-            case 'com_user':
-            case 'com_contact':
-            case 'com_k2':
-            case 'com_myblog':
-            case 'com_jevents':
-            $this->setHeadData($headoriginal);
-            break;
-        }
+$moo = $this->baseurl.'/media/system/js/mootools.js';
+if($load_mootools == 0)
+{
+    if($user->get('guest') == 1 or $user->usertype == 'Registered')
+    {
+    	$moolist = array(
+			'com_user',
+			'com_contact',
+			'com_myblog',
+			'com_jevents'
+		);
+    	if(!in_array($option, $moolist))
+    	{
+    		if (isset($this->_scripts[$moo])) {
+    		    unset($this->_scripts[$moo]);
+    		}
+    	}
 	}
 }
-
-$headoriginal = $this->getHeadData();
-if (!$user->authorize('com_content', 'edit', 'content', 'all')) {
-    unset($headoriginal['scripts'][$this->baseurl.'/media/system/js/caption.js']);
-	$this->setHeadData($headoriginal);
-}else{
-    $this->setHeadData($headoriginal);
+if (isset($this->_scripts[$moo])) {
+    unset($this->_scripts[$moo]);
+    $MORPH->addScript($moo);
+}
+if (isset($this->_scripts[$this->baseurl.'/media/system/js/caption.js'])) {
+    unset($this->_scripts[$this->baseurl.'/media/system/js/caption.js']);
 }
 
 if ( $remove_generator == 1 ) {
@@ -197,7 +190,6 @@ if(isset($_GET['gzip']) && $_GET['gzip'] == 'on'){
 		}		
 		JPath::setPermissions($path, '0644');
 	}
-	header('Location: ' . str_replace(array('?gzip=on','&gzip=on'), '', $curr_url));
 }
 
 // developer toolbar frontend switch
