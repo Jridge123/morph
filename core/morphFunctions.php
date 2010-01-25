@@ -244,33 +244,33 @@ if ( $isiPhone && !$iPhoneCookie ) {
 } else {
     if($nojs == 0) {
     	if (!$pack_js) {
-    		if(in_array(1, $js_jquery)) { $document->addScript($templatepath .'/core/js/jquery.js'); }
-    		if(in_array(1, $js_jqueryui)) { $document->addScript($templatepath .'/core/js/ui.js'); }
-    		if(in_array(1, $js_cookie)) { $document->addScript($templatepath .'/core/js/cookie.js'); }
-    		if(in_array(1, $js_equalize)) { $document->addScript($templatepath .'/core/js/equalheights.js');}
-    		if(in_array(1, $js_slider)) { $document->addScript($templatepath .'/core/js/slider.js');}
-    		if( $tabscount >= 1 ) { $document->addScript($templatepath .'/core/js/tabs.js'); }
-    		if( $accordionscount >= 1 ) { $document->addScript($templatepath .'/core/js/accordion.js'); }
-    		if( $topfish >= 1 && $topnav_hoverintent == 1 ) { $document->addScript($templatepath .'/core/js/hoverintent.js'); }
-    		if( $sidefish >= 1 or $topfish >= 1 or $topdrop >= 1  ) { $document->addScript($templatepath .'/core/js/superfish.js'); }
-    		if( $topfish >= 1 && $topnav_supersubs == 1 ) { $document->addScript($templatepath .'/core/js/supersubs.js'); }
-    		if( $plugin_scrollto == 1 ) { $document->addScript($templatepath .'/core/js/scrollto.js'); }
-    		if( $simpleticker == 1 ) { $document->addScript($templatepath .'/core/js/innerfade.js');}
-    		if( $simpletweet == 1 ) { $document->addScript('modules/mod_simpletweet/js/simpletweet.js'); }
-    		if( $google_analytics !== '' ) { $document->addScript($templatepath .'/core/js/googleanalytics.js');}
-    		if( $lazyload_enabled == 1 ) { $document->addScript($templatepath .'/core/js/lazyload.js'); }
-    		if( $captions_enabled == 1 ) { $document->addScript($templatepath .'/core/js/captify.js'); }
-    		if( $lightbox_enabled == 1 ) { $document->addScript($templatepath .'/core/js/colorbox.js');}
-    		if( $fontsizer_enabled == 1 ) { $document->addScript($templatepath .'/core/js/fontsizer.js');}
-		    $document->addScript(JRoute::_('&render=js'.$cache.$gzip));
+    		if(in_array(1, $js_jquery)) { $MORPH->addScript($templatepath .'/core/js/jquery.js'); }
+    		if(in_array(1, $js_jqueryui)) { $MORPH->addScript($templatepath .'/core/js/ui.js'); }
+    		if(in_array(1, $js_cookie)) { $MORPH->addScript($templatepath .'/core/js/cookie.js'); }
+    		if(in_array(1, $js_equalize)) { $MORPH->addScript($templatepath .'/core/js/equalheights.js');}
+    		if(in_array(1, $js_slider)) { $MORPH->addScript($templatepath .'/core/js/slider.js');}
+    		if( $tabscount >= 1 ) { $MORPH->addScript($templatepath .'/core/js/tabs.js'); }
+    		if( $accordionscount >= 1 ) { $MORPH->addScript($templatepath .'/core/js/accordion.js'); }
+    		if( $topfish >= 1 && $topnav_hoverintent == 1 ) { $MORPH->addScript($templatepath .'/core/js/hoverintent.js'); }
+    		if( $sidefish >= 1 or $topfish >= 1 or $topdrop >= 1  ) { $MORPH->addScript($templatepath .'/core/js/superfish.js'); }
+    		if( $topfish >= 1 && $topnav_supersubs == 1 ) { $MORPH->addScript($templatepath .'/core/js/supersubs.js'); }
+    		if( $plugin_scrollto == 1 ) { $document->addScript($MORPH .'/core/js/scrollto.js'); }
+    		if( $simpleticker == 1 ) { $document->addScript($MORPH .'/core/js/innerfade.js');}
+    		if( $simpletweet == 1 ) { $MORPH->addScript('modules/mod_simpletweet/js/simpletweet.js'); }
+    		if( $google_analytics !== '' ) { $MORPH->addScript($templatepath .'/core/js/googleanalytics.js');}
+    		if( $lazyload_enabled == 1 ) { $MORPH->addScript($templatepath .'/core/js/lazyload.js'); }
+    		if( $captions_enabled == 1 ) { $MORPH->addScript($templatepath .'/core/js/captify.js'); }
+    		if( $lightbox_enabled == 1 ) { $MORPH->addScript($templatepath .'/core/js/colorbox.js');}
+    		if( $fontsizer_enabled == 1 ) { $MORPH->addScript($templatepath .'/core/js/fontsizer.js');}
+		    $MORPH->addScript(JRoute::_('&render=js'.$cache.$gzip));
     		//if( $rounded_corners == 1 or $roundedcount !== 0 ) { $document->addScript($templatepath .'/core/js/corners.js'); }
     	}else{
-    		$document->addScript(JRoute::_('&render=js'.$cache.$gzip));
+    		$MORPH->addScript(JRoute::_('&render=js'.$cache.$gzip));
     	}
     
     }else{
     	if(isIE6()){ 
-    		$document->addScript($templatepath .'/core/js/ie6.js');
+    		$MORPH->addScript($templatepath .'/core/js/ie6.js');
     	}
     }
 }
@@ -281,8 +281,8 @@ if(isset($document->_scripts[JURI::root().'components/com_k2/js/k2.js']))
 	if(isset($document->_scripts[$this->baseurl.'/media/system/js/modal.js'])) unset($document->_scripts[$this->baseurl.'/media/system/js/modal.js']);
 	if(isset($document->_styleSheets[$this->baseurl.'/media/system/css/modal.css'])) unset($document->_styleSheets[$this->baseurl.'/media/system/css/modal.css']);
 	if(isset($document->_scripts[$this->baseurl.'/media/system/js/mootools.js'])) unset($document->_scripts[$this->baseurl.'/media/system/js/mootools.js']);
-	$document->addScript($templatepath .'/core/js/k2.js');
-	$document->addScript($templatepath .'/core/js/colorbox.js');
+	$MORPH->addScript($templatepath .'/core/js/k2.js');
+	$MORPH->addScript($templatepath .'/core/js/colorbox.js');
 	$document->addStyleSheet($templatepath .'/core/css/colorbox.css');
 	$document->_script['text/javascript'] = str_replace("\n\t\twindow.addEvent('domready', function() {\n\n\t\t\tSqueezeBox.initialize({});\n\n\t\t\t$$('a.modal').each(function(el) {\n\t\t\t\tel.addEvent('click', function(e) {\n\t\t\t\t\tnew Event(e).stop();\n\t\t\t\t\tSqueezeBox.fromElement(el);\n\t\t\t\t});\n\t\t\t});\n\t\t});", '(function($){$(document).ready(function(){$(\'a.modal\').colorbox({width:\'80%\', height:\'80%\', iframe:true});});})(jQuery);', $document->_script['text/javascript']);
 
@@ -355,6 +355,9 @@ if(  $isiPhone && !$iPhoneCookie  ){
 	} else {
 		$document->addStyleSheet(JRoute::_('&render=css'.$cache.$gzip));
 	}
+	
+	//Sends Morphs scripts to JDocument, loading them at the top to avoid issues with missing jQuery in JomSocial and such.
+	$MORPH->updateJDocument();
 }
 
 function isIE6($string=''){

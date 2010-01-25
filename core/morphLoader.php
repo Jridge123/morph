@@ -22,7 +22,9 @@ include_once ($morph_component_path . "/configurator.class.php");
 
 class morphLoader {
 
-	function morphLoader( $template=null )
+	protected $_scripts = array();
+
+	public function morphLoader( $template = null )
 	{
 		$db = JFactory::getDBO();
 
@@ -103,11 +105,22 @@ class morphLoader {
 		}
 	}
 		
-		function get($param_name=null) {
-			if(!isset($param_name)) return null;
-			return $this->$param_name;
-		}
-		
-		}
+	public function get($param_name=null)
+	{
+		if(!isset($param_name)) return null;
+		return $this->$param_name;
+	}
+	
+	public function addScript($url, $type = 'text/javascript')
+	{
+		$this->_scripts[$url] = $type;
+	}
+	
+	public function updateJDocument()
+	{
+		$document = JFactory::getDocument();
+		$document->_scripts = array_merge($this->_scripts, $document->_scripts);
+	}
+}
 		
 $MORPH = new morphLoader( getTemplateName( dirname(__FILE__).'/morphDetails.xml' ) );
