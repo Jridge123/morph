@@ -43,32 +43,22 @@ class morphLoader {
 		if ( isset( $morph_installed ) ) {
 			$query = "SELECT * FROM #__configurator WHERE `template_name` = '{$template}'";
 			$db->setQuery( $query );
-			$params = $db->loadObjectList();
+			$params = (array) $db->loadObjectList();
 		} else {
 			$params = array();
 		}
 
-		
-		if(isset($themelet_name)) $themelet_params = getTemplateParamList( JPATH_ROOT.'/morph_assets/themelets/'.$themelet_name.'/themeletDetails.xml', TRUE );
 		$xml_params = getTemplateParamList( realpath(dirname(__FILE__).'/morphDetails.xml'), TRUE );
+		if(isset($themelet_name)) $themelet_params = getTemplateParamList( JPATH_ROOT.'/morph_assets/themelets/'.$themelet_name.'/themeletDetails.xml', TRUE );
 
-		foreach ($xml_params as $param) {
-		$param = explode( '=', $param );
-		$default_params[$param[0]] = $param[1];
-		}
-		
-		foreach ($themelet_params as $param) {
-		$param = explode( '=', $param );
-		$default_params[$param[0]] = $param[1];
+		foreach(array_merge($xml_params, $themelet_params) as $key => $value)
+		{
+			$this->$key = $value;
 		}
 		
 		// Replace default settings with any settings found in the DB.
-		foreach( (array) $params as $param ) {
-		$default_params[$param->param_name] = $param->param_value;
-		}
-		// Create class members dynamically to be used by template.
-		foreach( $default_params as $key => $value ) {
-		$this->$key = $value;
+		foreach( $params as $param ) {
+			$this->{$param->param_name} = $param->param_value;
 		}
 		
 		//TODO: We need to make the caching smarter, so we don't have to do this here
@@ -122,5 +112,5 @@ class morphLoader {
 		$document->_scripts = array_merge($this->_scripts, $document->_scripts);
 	}
 }
-		
+
 $MORPH = new morphLoader( getTemplateName( dirname(__FILE__).'/morphDetails.xml' ) );

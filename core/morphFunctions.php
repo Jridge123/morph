@@ -1,9 +1,9 @@
 <?php
 defined('_JEXEC') or die('Restricted access');
 // initiate morph
-include('templates/morph/core/morphLoader.php');
-include('templates/morph/core/morphParams.php');
-require('templates/morph/core/browser.php');
+require_once('templates/morph/core/morphLoader.php');
+require_once('templates/morph/core/morphParams.php');
+require_once('templates/morph/core/browser.php');
 
 if(isset($_COOKIE['nogzip'])){
 	$conf = JFactory::getConfig();
@@ -23,6 +23,8 @@ if(isset($_COOKIE['debug_modules']) && $_COOKIE['debug_modules'] == 'true'){ $de
 if(isset($_COOKIE['morph_developer_toolbar'])){ $developer_toolbar = 1; }
 if(isset($_COOKIE['nojs'])){ $nojs = 1; }
 
+$document = JFactory::getDocument();
+
 // enable/disable GZIP compression
 if ( $gzip_compression == 1 ) {
 	// set Joomla's GZIP to on if not set.
@@ -39,7 +41,7 @@ if ( $gzip_compression == 1 ) {
 	}
 }
 // set the various paths:
-$templatepath = JURI::root(1) . '/templates/'.$this->template;
+$templatepath = JURI::root(1) . '/templates/'.$document->template;
 $themeletpath = JURI::root(1) . '/morph_assets/themelets/'.$themelet;
 $assetspath = JURI::root() . 'morph_assets';
 $assetsroot = JPATH_SITE.'/morph_assets';
@@ -47,12 +49,10 @@ $imagespath = JURI::root() . 'morph_assets/themelets/'.$themelet.'/images/';
 $absolutepath = JPATH_SITE.'/morph_assets/themelets/'.$themelet;
 
 // set the document parameters with what morph found:
-$MORPH_paramlist = get_object_vars($MORPH);
-$new_params = '';
-foreach( $MORPH_paramlist as $key=>$value ) {
-    $new_params .= $key."=".$value."\n";
-}
-$this->params 				= new JParameter( $new_params );
+$params	= new JParameter(null);
+$params->loadObject($MORPH);
+$document->params = $params;
+
 $option 					= JRequest::getCmd('option');
 $task 						= JRequest::getCmd('task');
 $view 						= JRequest::getCmd('view');
@@ -99,7 +99,7 @@ $inner4_count 				= $document->countModules('inner4');
 $inner5_count 			    = $document->countModules('inner5');
 $footer_count 				= $document->countModules('footer');
 $stylelink 					= '';
-$direction  				= $this->direction;
+$direction  				= $document->direction;
 $browser 					= new MBrowser();
 $thebrowser 				= preg_replace("/[^A-Za-z]/i", "", $browser->getBrowser());
 $ver 						= $browser->getVersion();
@@ -131,7 +131,7 @@ $themeletfunctions			= $absolutepath.'/themelet.php';
 $foot_override				= $absolutepath.'/html/foot.php';
 $footer_script				= $absolutepath.'/script.php';
 
-$moo = $this->baseurl.'/media/system/js/mootools.js';
+$moo = $document->baseurl.'/media/system/js/mootools.js';
 if($load_mootools == 0)
 {
     if($user->get('guest') == 1 or $user->usertype == 'Registered')
@@ -144,22 +144,22 @@ if($load_mootools == 0)
 		);
     	if(!in_array($option, $moolist))
     	{
-    		if (isset($this->_scripts[$moo])) {
-    		    unset($this->_scripts[$moo]);
+    		if (isset($document->_scripts[$moo])) {
+    		    unset($document->_scripts[$moo]);
     		}
     	}
 	}
 }
-if (isset($this->_scripts[$moo])) {
-    unset($this->_scripts[$moo]);
+if (isset($document->_scripts[$moo])) {
+    unset($document->_scripts[$moo]);
     $MORPH->addScript($moo);
 }
-if (isset($this->_scripts[$this->baseurl.'/media/system/js/caption.js'])) {
-    unset($this->_scripts[$this->baseurl.'/media/system/js/caption.js']);
+if (isset($document->_scripts[$document->baseurl.'/media/system/js/caption.js'])) {
+    unset($document->_scripts[$document->baseurl.'/media/system/js/caption.js']);
 }
 
 if ( $remove_generator == 1 ) {
-$this->setGenerator(null);
+$document->setGenerator(null);
 }
 function debug_chrome($pt_debug, $pt_mod_chrome){
 	if( $pt_debug == 1 ){ 
@@ -246,8 +246,8 @@ if ( $isiPhone && !$iPhoneCookie ) {
     		if( $topfish >= 1 && $topnav_hoverintent == 1 ) { $MORPH->addScript($templatepath .'/core/js/hoverintent.js'); }
     		if( $sidefish >= 1 or $topfish >= 1 or $topdrop >= 1  ) { $MORPH->addScript($templatepath .'/core/js/superfish.js'); }
     		if( $topfish >= 1 && $topnav_supersubs == 1 ) { $MORPH->addScript($templatepath .'/core/js/supersubs.js'); }
-    		if( $plugin_scrollto == 1 ) { $document->addScript($MORPH .'/core/js/scrollto.js'); }
-    		if( $simpleticker == 1 ) { $document->addScript($MORPH .'/core/js/innerfade.js');}
+    		if( $plugin_scrollto == 1 ) { $document->addScript($templatepath .'/core/js/scrollto.js'); }
+    		if( $simpleticker == 1 ) { $document->addScript($templatepath .'/core/js/innerfade.js');}
     		if( $simpletweet == 1 ) { $MORPH->addScript('modules/mod_simpletweet/js/simpletweet.js'); }
     		if( $google_analytics !== '' ) { $MORPH->addScript($templatepath .'/core/js/googleanalytics.js');}
     		if( $lazyload_enabled == 1 ) { $MORPH->addScript($templatepath .'/core/js/lazyload.js'); }
@@ -270,9 +270,9 @@ if ( $isiPhone && !$iPhoneCookie ) {
 if(isset($document->_scripts[JURI::root().'components/com_k2/js/k2.js']))
 {
 	unset($document->_scripts[JURI::root().'components/com_k2/js/k2.js']);
-	if(isset($document->_scripts[$this->baseurl.'/media/system/js/modal.js'])) unset($document->_scripts[$this->baseurl.'/media/system/js/modal.js']);
-	if(isset($document->_styleSheets[$this->baseurl.'/media/system/css/modal.css'])) unset($document->_styleSheets[$this->baseurl.'/media/system/css/modal.css']);
-	if(isset($document->_scripts[$this->baseurl.'/media/system/js/mootools.js'])) unset($document->_scripts[$this->baseurl.'/media/system/js/mootools.js']);
+	if(isset($document->_scripts[$document->baseurl.'/media/system/js/modal.js'])) unset($document->_scripts[$document->baseurl.'/media/system/js/modal.js']);
+	if(isset($document->_styleSheets[$document->baseurl.'/media/system/css/modal.css'])) unset($document->_styleSheets[$document->baseurl.'/media/system/css/modal.css']);
+	if(isset($document->_scripts[$document->baseurl.'/media/system/js/mootools.js'])) unset($document->_scripts[$document->baseurl.'/media/system/js/mootools.js']);
 	$MORPH->addScript($templatepath .'/core/js/k2.js');
 	$MORPH->addScript($templatepath .'/core/js/colorbox.js');
 	$document->addStyleSheet($templatepath .'/core/css/colorbox.css');
@@ -382,19 +382,19 @@ $jj_const = array(
 		5				=> "yui-g5"		// yui-gb for 5 blocks in a grid
 	),
 	"mod_suffix" => array(
-		"toolbar"		=>$this->params->get('toolbar_gridsplit'),
-      	"topshelf"      =>$this->params->get('topshelf_gridsplit'), 
-		"top"			=>$this->params->get('top_gridsplit'),
-		"topnav"		=>$this->params->get('topnav_gridsplit'),
-		"user1"			=>$this->params->get('topshelf_gridsplit'),
-		"inset1"		=>$this->params->get('inset1_gridsplit'),
-		"inset2"		=>$this->params->get('inset2_gridsplit'),
-		"inset3"		=>$this->params->get('inset3_gridsplit'),
-		"inset4"		=>$this->params->get('inset4_gridsplit'),
-		"user1"			=>$this->params->get('user1_gridsplit'),
-		"user2"			=>$this->params->get('user2_gridsplit'),
-		"bottomshelf"	=>$this->params->get('bottomshelf_gridsplit'),
-		"footer"		=>$this->params->get('footer_gridsplit'),
+		"toolbar"		=>$document->params->get('toolbar_gridsplit'),
+      	"topshelf"      =>$document->params->get('topshelf_gridsplit'), 
+		"top"			=>$document->params->get('top_gridsplit'),
+		"topnav"		=>$document->params->get('topnav_gridsplit'),
+		"user1"			=>$document->params->get('topshelf_gridsplit'),
+		"inset1"		=>$document->params->get('inset1_gridsplit'),
+		"inset2"		=>$document->params->get('inset2_gridsplit'),
+		"inset3"		=>$document->params->get('inset3_gridsplit'),
+		"inset4"		=>$document->params->get('inset4_gridsplit'),
+		"user1"			=>$document->params->get('user1_gridsplit'),
+		"user2"			=>$document->params->get('user2_gridsplit'),
+		"bottomshelf"	=>$document->params->get('bottomshelf_gridsplit'),
+		"footer"		=>$document->params->get('footer_gridsplit'),
 	),
 	"outer_inner_pos" => array(
 		"outersplit", 
