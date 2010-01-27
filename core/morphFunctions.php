@@ -41,7 +41,7 @@ if ( $gzip_compression == 1 ) {
 	}
 }
 // set the various paths:
-$templatepath = JURI::root(1) . '/templates/'.$document->template;
+$templatepath = JURI::root(1) . '/templates/'.$this->template;
 $themeletpath = JURI::root(1) . '/morph_assets/themelets/'.$themelet;
 $assetspath = JURI::root() . 'morph_assets';
 $assetsroot = JPATH_SITE.'/morph_assets';
@@ -131,7 +131,7 @@ $themeletfunctions			= $absolutepath.'/themelet.php';
 $foot_override				= $absolutepath.'/html/foot.php';
 $footer_script				= $absolutepath.'/script.php';
 
-$moo = $document->baseurl.'/media/system/js/mootools.js';
+$moo = $this->baseurl.'/media/system/js/mootools.js';
 if($load_mootools == 0)
 {
     if($user->get('guest') == 1 or $user->usertype == 'Registered')
@@ -154,8 +154,8 @@ if (isset($document->_scripts[$moo])) {
     unset($document->_scripts[$moo]);
     $MORPH->addScript($moo);
 }
-if (isset($document->_scripts[$document->baseurl.'/media/system/js/caption.js'])) {
-    unset($document->_scripts[$document->baseurl.'/media/system/js/caption.js']);
+if (isset($document->_scripts[$this->baseurl.'/media/system/js/caption.js'])) {
+    unset($document->_scripts[$this->baseurl.'/media/system/js/caption.js']);
 }
 
 if ( $remove_generator == 1 ) {
