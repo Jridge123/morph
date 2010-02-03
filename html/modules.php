@@ -154,7 +154,6 @@ if ($pub_modules[0]->id == $module->id) {
 </div>
 <?php }
 
-
 function modChrome_tabs($module, &$params, &$attribs) {
 global $morph_tabs,$tabscount,$loadtabs,$istabsload;	
 
@@ -192,15 +191,15 @@ global $morph_tabs,$tabscount,$loadtabs,$istabsload;
 					<li class="ui-state-default"><a href="#tab<?php echo $curr_tab.'-'.$modul->position; ?>"><span class="icon"></span><?php echo moduleHeadings($modul->title);?></a></li>
 				<?php 
 				}
-				$tabs_contents .= '<div id="tab'.$curr_tab.'-'.$modul->position.'" class="ui-tabs-panel">'.$modul->content.'</div>';
-				$curr_tab++;
+                                $hide = $curr_tab > 1 ? ' ui-tabs-hide' : '';
+    				$tabs_contents .= '<div id="tab'.$curr_tab.'-'.$modul->position.'" class="ui-tabs-panel'.$hide.'">'.$modul->content.'</div>';
+    			        $curr_tab++;
 			} ?>
 			</ul>
 		<?php echo $tabs_contents; ?>
 		</div>
 <?php }
 }
-
 function modChrome_accordion($module, &$params, &$attribs) {
 global $morph_accordions,$accordionscount,$loadaccordions,$isaccordionsload;
 
