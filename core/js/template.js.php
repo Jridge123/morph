@@ -1,3 +1,23 @@
+/**
+ * Prevent errors from Mootools scripts
+ * 
+ * Whenever we replace stuff like joomlas core tooltips,
+ * or tabs and like, scripts added to the head by joomla is unesseccary and can cause errors.
+ * The following code will only execute if MooTools isn't loaded,
+ * and will prevent the most common errors.
+ *
+ */
+try
+{
+	MooTools;
+}
+catch(err)
+{
+	var $lambda = function(){};
+	window.addEvent = Class = Events = Options = $lambda;
+	Class.prototype.implement = $lambda;
+}
+
 jQuery.noConflict();
 (function($) {
 	$(document).ready(function(){
