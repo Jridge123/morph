@@ -262,13 +262,14 @@ if ( $isiPhone && !$iPhoneCookie ) {
     		//add JS to Morph for WP for Joomla
     		// first if there is no wordpress component loading we still need the supporting files if the module is being used
     		if(JRequest::getVar('option') != 'com_wordpress') {
-    		//Check 1 : must add check IF module "mod_wordpress_utility" is active on the page
-    		$document->addScript('images/wordpress/themes/morph/js/jquery-tools.js'); // always load
-    		$document->addScript('images/wordpress/themes/morph/js/images.js');// load if module or wordpress component
+    			//Check 1 : must add check IF module "mod_wordpress_utility" is active on the page
+    			$document->addScript('images/wordpress/themes/morph/js/jquery-tools.js'); // always load
+    			$document->addScript('images/wordpress/themes/morph/js/images.js');// load if module or wordpress component
     		} else if(JRequest::getVar('option') == 'com_wordpress'){ 
-    		$document->addScript('images/wordpress/themes/morph/js/jquery-tools.js'); //always load
-    		$document->addScript('images/wordpress/themes/morph/js/images.js');// load if module or wordpress component
-    		$document->addScript('images/wordpress/themes/morph/js/theme.js'); // only load if its the wordpress component/wptheme
+    			$document->addScript('images/wordpress/themes/morph/js/jquery-tools.js'); //always load
+    			$document->addScript('images/wordpress/themes/morph/js/images.js');// load if module or wordpress component
+    			$document->addScript('images/wordpress/themes/morph/js/theme.js'); // only load if its the wordpress component/wptheme
+    		}
     	}else{
     		$MORPH->addScript(JRoute::_('&render=js'.$cache.$gzip));
     	}
