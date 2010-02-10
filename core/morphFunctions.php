@@ -258,6 +258,17 @@ if ( $isiPhone && !$iPhoneCookie ) {
     		if( $fontsizer_enabled == 1 ) { $MORPH->addScript($templatepath .'/core/js/fontsizer.js');}
 		    $MORPH->addScript(JRoute::_('&render=js'.$cache.$gzip));
     		//if( $rounded_corners == 1 or $roundedcount !== 0 ) { $document->addScript($templatepath .'/core/js/corners.js'); }
+    		
+    		//add JS to Morph for WP for Joomla
+    		// first if there is no wordpress component loading we still need the supporting files if the module is being used
+    		if(JRequest::getVar('option') != 'com_wordpress') {
+    		//Check 1 : must add check IF module "mod_wordpress_utility" is active on the page
+    		$document->addScript('images/wordpress/themes/morph/js/jquery-tools.js'); // always load
+    		$document->addScript('images/wordpress/themes/morph/js/images.js');// load if module or wordpress component
+    		} else if(JRequest::getVar('option') == 'com_wordpress'){ 
+    		$document->addScript('images/wordpress/themes/morph/js/jquery-tools.js'); //always load
+    		$document->addScript('images/wordpress/themes/morph/js/images.js');// load if module or wordpress component
+    		$document->addScript('images/wordpress/themes/morph/js/theme.js'); // only load if its the wordpress component/wptheme
     	}else{
     		$MORPH->addScript(JRoute::_('&render=js'.$cache.$gzip));
     	}
@@ -326,6 +337,22 @@ if(  $isiPhone && !$iPhoneCookie  ){
 		if ( $simpletweet == 1 ) { $document->addStyleSheet($themeletpath .'/css/simpletweet.css'); }
 		if ( $simplecontact == 1 ) { $document->addStyleSheet($themeletpath .'/css/simplecontact.css'); }
 		if ( $simplesocial == 1 ) { $document->addStyleSheet($themeletpath .'/css/simplesocial.css'); }
+		
+		// add CSS to Morph for WP for Joomla
+		// first if there is no wordpress component loading we still need the supporting files if the module is being used
+		if(JRequest::getVar('option') != 'com_wordpress') {
+		//Check 1 : must add check IF module "mod_wordpress_utility" is active on the page
+		$document->addStylesheet('images/wordpress/themes/morph/css/images.css'); // load if module or wordpress component
+		$document->addStylesheet('images/wordpress/themes/morph/css/modules.css'); // load if module
+		//Check 2 : must add check IF module "mod_wordpress_widgetmod" is active on the page
+		$document->addStylesheet('images/wordpress/themes/morph/css/widgets.css');// load if widget module is used
+		// now if WP is loading, then make sure the theme.css is also loaded as well as the above css files
+		} else if(JRequest::getVar('option') == 'com_wordpress'){ 
+		$document->addStylesheet('images/wordpress/themes/morph/css/theme.css'); // only load if its the wordpress component/wptheme
+		$document->addStylesheet('images/wordpress/themes/morph/css/images.css'); // load if module or wordpress component
+		$document->addStylesheet('images/wordpress/themes/morph/css/modules.css'); // load if module is loaded
+		}
+		
 		$document->addStyleSheet(JRoute::_('&render=css'.$cache.$gzip));
 		if($developer_toolbar == 1) { $document->addStyleSheet($templatepath .'/core/css/devbar.css'); }
 		
