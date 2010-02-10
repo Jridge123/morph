@@ -149,7 +149,7 @@ jQuery.noConflict();
 		$(".article-page #fontsizer").parent().hide();
 	    <?php } ?>
 	    <?php 
-	    	$js_equalizers = array('toolbar', 'masthead', 'subhead', 'topnav', 'topshelf', 'bottomshelf', 'user1', 'user2', 'inset1', 'inset2', 'inset3', 'inset4', 'outer1-grid', 'outer2-grid', 'outer3-grid', 'outer4-grid', 'outer5-grid', 'inner1-grid', 'inner2-grid', 'inner3-grid', 'inner4-grid', 'inner5-grid', 'footer-grid');
+	    	$js_equalizers = array('toolbar', 'masthead', 'subhead', 'topnav', 'topshelf', 'bottomshelf', 'bottomshelf2', 'bottomshelf3', 'user1', 'user2', 'inset1', 'inset2', 'inset3', 'inset4', 'outer1-grid', 'outer2-grid', 'outer3-grid', 'outer4-grid', 'outer5-grid', 'inner1-grid', 'inner2-grid', 'inner3-grid', 'inner4-grid', 'inner5-grid', 'footer-grid');
 	    	$equalizers = array();
 	    	foreach($js_equalizers as $equalize)
 	    	{
@@ -194,6 +194,10 @@ jQuery.noConflict();
    		initSlider('#topshelf', '<?php echo $this->js->topshelf_slider_text; ?>');
 		<?php } if ( $this->js->bottomshelf_slider == 1 ) { ?>
 	    initSlider('#bottomshelf', '<?php echo $this->js->bottomshelf_slider_text; ?>');	
+		<?php } if ( $this->js->bottomshelf2_slider == 1 ) { ?>
+		initSlider('#bottomshelf2', '<?php echo $this->js->bottomshelf2_slider_text; ?>');	
+		<?php } if ( $this->js->bottomshelf3_slider == 1 ) { ?>
+		initSlider('#bottomshelf3', '<?php echo $this->js->bottomshelf3_slider_text; ?>');	
 		<?php } if ( $this->js->topnav_hoverfocus == 1 ) { ?>
 		$('#nav ul.menu ul').hover( function(){ $('#user1').fadeTo("fast", "0.1");},function(){	$('#user1').fadeTo("fast", "1"); } );
 		<?php } if ( $this->js->tabscount > 0 ) { ?>

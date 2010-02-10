@@ -828,16 +828,16 @@
 	</param>
 </params>
 
-<params group="bottomshelf3data">	
-	<param name="bottomshelf3_wrap" default="0" type="itoggle" label="Block wrapping" tooltip="modal" description="blockwrap.html">
+<params group="bottomshelf2data">	
+	<param name="bottomshelf2_wrap" default="0" type="itoggle" label="Block wrapping" tooltip="modal" description="blockwrap.html">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="bottomshelf3_inner" default="1" type="itoggle" label="Block inner" tooltip="modal" description="blockinner.html">
+	<param name="bottomshelf2_inner" default="1" type="itoggle" label="Block inner" tooltip="modal" description="blockinner.html">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="bottomshelf3_chrome" default="grid" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
+	<param name="bottomshelf2_chrome" default="grid" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
 		<option value="none">None</option>
 		<option value="basic">Basic</option>
 		<option value="grid">Grid</option>
@@ -845,29 +845,29 @@
 		<option value="accordion">Accordion</option>			
 		<option value="outline">Outline</option>
 	</param>
-	<param name="bottomshelf3_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
+	<param name="bottomshelf2_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
 		<option value="1">Wrap heading &amp; content</option>
 		<option value="2">Wrap content only</option>
 		<option value="0">None</option>
 	</param>
-	<param name="bottomshelf3_gridsplit" default="yui-g" type="list" label="Grid split" tooltip="modal" description="gridsplit.html">
+	<param name="bottomshelf2_gridsplit" default="yui-g" type="list" label="Grid split" tooltip="modal" description="gridsplit.html">
 		<option value="yui-g">Default (50/50)</option>
 		<option value="yui-gc">66/33 Split</option>
 		<option value="yui-gd">33/66 Split</option>
 		<option value="yui-ge">75/25 Split</option>
 		<option value="yui-gf">25/75 Split</option>
 	</param>
-	<param name="bottomshelf3_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
+	<param name="bottomshelf2_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="bottomshelf3_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
-	<param name="bottomshelf3_slider" default="0" type="itoggle" label="Topbar slider" tooltip="modal" description="slider.html">
+	<param name="bottomshelf2_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
+	<param name="bottomshelf2_slider" default="0" type="itoggle" label="Topbar slider" tooltip="modal" description="slider.html">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="bottomshelf3_slider_text" default="toggle" type="text" label="Bottomshelf slider text" tooltip="inline" description="toggletext.html" />
-	<param name="bottomshelf3_show" default="0" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
+	<param name="bottomshelf2_slider_text" default="toggle" type="text" label="Bottomshelf slider text" tooltip="inline" description="toggletext.html" />
+	<param name="bottomshelf2_show" default="1" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
@@ -912,7 +912,7 @@
 		<option value="0">No</option>
 	</param>
 	<param name="bottomshelf3_slider_text" default="toggle" type="text" label="Bottomshelf slider text" tooltip="inline" description="toggletext.html" />
-	<param name="bottomshelf3_show" default="0" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
+	<param name="bottomshelf3_show" default="1" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
