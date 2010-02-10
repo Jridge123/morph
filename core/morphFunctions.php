@@ -79,6 +79,8 @@ $subhead_count 				= $document->countModules('subhead');
 $topnav_count 				= $document->countModules('topnav');
 $topshelf_count 			= $document->countModules('topshelf');
 $bottomshelf_count 			= $document->countModules('bottomshelf');
+$bottomshelf2_count 		= $document->countModules('bottomshelf2');
+$bottomshelf3_count 		= $document->countModules('bottomshelf3');
 $user1_count 				= $document->countModules('user1');
 $user2_count 				= $document->countModules('user2');
 $inset1_count 				= $document->countModules('inset1');
@@ -394,6 +396,8 @@ $jj_const = array(
 		"user1"			=>$document->params->get('user1_gridsplit'),
 		"user2"			=>$document->params->get('user2_gridsplit'),
 		"bottomshelf"	=>$document->params->get('bottomshelf_gridsplit'),
+		"bottomshelf2"	=>$document->params->get('bottomshelf2_gridsplit'),
+		"bottomshelf3"	=>$document->params->get('bottomshelf3_gridsplit'),
 		"footer"		=>$document->params->get('footer_gridsplit'),
 	),
 	"outer_inner_pos" => array(

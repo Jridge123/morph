@@ -71,6 +71,8 @@ if( $isiPhone && !$iPhoneCookie ){
 	if($topnav_position == 3){include_once('core/includes/topnav.php');}
 	include_once('core/includes/main.php');
 	include_once('core/includes/bottomshelf.php');
+	include_once('core/includes/bottomshelf2.php');
+	include_once('core/includes/bottomshelf3.php');
 	if(file_exists($foot_override) && is_readable($foot_override)){
 		 include_once('morph_assets/themelets/'.$themelet.'/html/foot.php');
 	} else {
