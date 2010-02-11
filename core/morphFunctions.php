@@ -344,6 +344,7 @@ if(  $isiPhone && !$iPhoneCookie  ){
 		if ( $simpletweet == 1 ) { $document->addStyleSheet($themeletpath .'/css/simpletweet.css'); }
 		if ( $simplecontact == 1 ) { $document->addStyleSheet($themeletpath .'/css/simplecontact.css'); }
 		if ( $simplesocial == 1 ) { $document->addStyleSheet($themeletpath .'/css/simplesocial.css'); }
+		if( $lightbox_enabled == 1 ) { $document->addStyleSheet($templatepath .'/core/css/colorbox.css'); }
 		
 		// add CSS to Morph for WP for Joomla
 		// first if there is no wordpress component loading we still need the supporting files if the module is being used
