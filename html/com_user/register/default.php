@@ -1,5 +1,6 @@
 <?php // no direct access
 defined('_JEXEC') or die('Restricted access'); ?>
+<div id="user-register">
 <script type="text/javascript">
 <!--
 	Window.onDomReady(function(){
@@ -45,4 +46,5 @@ defined('_JEXEC') or die('Restricted access'); ?>
 		<input type="hidden" name="gid" value="0" />
 		<?php echo JHTML::_( 'form.token' ); ?>
 	</form>
+</div>
 </div>
