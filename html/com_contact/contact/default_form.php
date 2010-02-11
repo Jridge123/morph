@@ -28,9 +28,6 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 <?php endif; ?>
 
 <div id="contact-form">
-
-<h3>Contact form:</h3>
-
 <?php if ($this->contact->params->get( 'email_description' ) !== '' ) : ?>
 <p class="form-description"><?php echo $this->contact->params->get( 'email_description' ); ?></p>
 <?php endif; ?>
