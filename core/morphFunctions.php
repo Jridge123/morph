@@ -204,34 +204,51 @@ if(isset($_GET['gzip']) && $_GET['gzip'] == 'on'){
 }
 
 // developer toolbar frontend switch
+$uri = JFactory::getURI();
 if(isset($_GET['show_devbar'])){
+	$MORPH->developer_toolbar = true;
+	$uri->delVar('show_devbar');
 	setcookie('morph_developer_toolbar', 'enabled', 0);
-	header('Location: ' . str_replace(array('?show_devbar','&show_devbar'), '', $curr_url));
+	
+	header('Location: ' . $uri->toString());
 }
 if(isset($_GET['hide_devbar'])){
+	$MORPH->developer_toolbar = false;
+	$uri->delVar('hide_devbar');
+
 	setcookie('morph_developer_toolbar', null, time()-3600);
 	setcookie('debug_modules', null, time()-3600);
-	header('Location: ' . str_replace(array('?hide_devbar','&hide_devbar'), '', $curr_url));
+	header('Location: ' . $uri->toString());
 }
 if(isset($_GET['nojs']) && $_GET['nojs'] == 'off'){
-	setcookie('nojs', null, time()-3600);
-	header('Location: ' . str_replace(array('?nojs=off','&nojs=off'), '', $curr_url));
+	$MORPH->nojs = false;
+	$uri->delVar('nojs');
+	//setcookie('nojs', null, time()-3600);
+	header('Location: ' . $uri->toString());
 }
 if(isset($_GET['unpack_js'])){
-	setcookie('packjs', 'unpack', 0);
-	header('Location: ' . str_replace(array('?unpack_js','&unpack_js'), '', $curr_url));
+	$MORPH->pack_js = false;
+	$uri->delVar('unpack_js');
+	//setcookie('packjs', 'unpack', 0);
+	header('Location: ' . $uri->toString());
 }
 if(isset($_GET['pack_js'])){
-	setcookie('packjs', null, time()-3600);
-	header('Location: ' . str_replace(array('?pack_js','&pack_js'), '', $curr_url));
+	$MORPH->pack_js = true;
+	$uri->delVar('pack_js');
+	//setcookie('packjs', null, time()-3600);
+	header('Location: ' . $uri->toString());
 }
 if(isset($_GET['unpack_css'])){
+	$MORPH->pack_css = false;
+	$uri->delVar('unpack_css');
 	//setcookie('packcss', 'unpack', 0);
-	header('Location: ' . str_replace(array('?unpack_css','&unpack_css'), '', $curr_url));
+	header('Location: ' . $uri->toString());
 }
 if(isset($_GET['pack_css'])){
+	$MORPH->pack_css = true;
+	$uri->delVar('pack_css');
 	//setcookie('packcss', null, time()-3600);
-	header('Location: ' . str_replace(array('?pack_css','&pack_css'), '', $curr_url));
+	header('Location: ' . $uri->toString());
 }
 
 // include the reusable arrays
@@ -245,7 +262,7 @@ if ( $isiPhone && !$iPhoneCookie ) {
 //	$document->addScript($templatepath .'/core/js/jqtouch.js');
 //	$document->addScript($templatepath .'/core/js/iphone.js');
 } else {
-    if($nojs == 0) {
+    if(!$MORPH->nojs) {
     	//if (!$pack_js) {
     		if(in_array(1, $js_jquery)) { $MORPH->addScript($templatepath .'/core/js/jquery.js'); }
     		if(in_array(1, $js_jqueryui)) { $MORPH->addScript($templatepath .'/core/js/ui.js'); }
