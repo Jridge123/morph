@@ -41,8 +41,17 @@ if ( $gzip_compression == 1 ) {
 	}
 }
 // set the various paths:
+// @TODO drop this later
 $templatepath = JURI::root(1) . '/templates/'.$this->template;
+// new path
+$templatepath = '/templates/'.$this->template;
+
+// @TODO drop this later
 $themeletpath = JURI::root(1) . '/morph_assets/themelets/'.$themelet;
+// new path
+$themeletpath = '/morph_assets/themelets/'.$themelet;
+
+
 $assetspath = JURI::root() . 'morph_assets';
 $assetsroot = JPATH_SITE.'/morph_assets';
 $imagespath = JURI::root() . 'morph_assets/themelets/'.$themelet.'/images/';
@@ -237,7 +246,7 @@ if ( $isiPhone && !$iPhoneCookie ) {
 //	$document->addScript($templatepath .'/core/js/iphone.js');
 } else {
     if($nojs == 0) {
-    	if (!$pack_js) {
+    	//if (!$pack_js) {
     		if(in_array(1, $js_jquery)) { $MORPH->addScript($templatepath .'/core/js/jquery.js'); }
     		if(in_array(1, $js_jqueryui)) { $MORPH->addScript($templatepath .'/core/js/ui.js'); }
     		if(in_array(1, $js_cookie)) { $MORPH->addScript($templatepath .'/core/js/cookie.js'); }
@@ -248,37 +257,33 @@ if ( $isiPhone && !$iPhoneCookie ) {
     		if( $topfish >= 1 && $topnav_hoverintent == 1 ) { $MORPH->addScript($templatepath .'/core/js/hoverintent.js'); }
     		if( $sidefish >= 1 or $topfish >= 1 or $topdrop >= 1  ) { $MORPH->addScript($templatepath .'/core/js/superfish.js'); }
     		if( $topfish >= 1 && $topnav_supersubs == 1 ) { $MORPH->addScript($templatepath .'/core/js/supersubs.js'); }
-    		if( $plugin_scrollto == 1 ) { $document->addScript($templatepath .'/core/js/scrollto.js'); }
-    		if( $simpleticker == 1 ) { $document->addScript($templatepath .'/core/js/innerfade.js');}
-    		if( $simpletweet == 1 ) { $MORPH->addScript('modules/mod_simpletweet/js/simpletweet.js'); }
+    		if( $plugin_scrollto == 1 ) { $MORPH->addScript($templatepath .'/core/js/scrollto.js'); }
+    		if( $simpleticker == 1 ) { $MORPH->addScript($templatepath .'/core/js/innerfade.js');}
+    		if( $simpletweet == 1 ) { $MORPH->addScript('/modules/mod_simpletweet/js/simpletweet.js'); }
     		if( $google_analytics !== '' ) { $MORPH->addScript($templatepath .'/core/js/googleanalytics.js');}
     		if( $lazyload_enabled == 1 ) { $MORPH->addScript($templatepath .'/core/js/lazyload.js'); }
     		if( $captions_enabled == 1 ) { $MORPH->addScript($templatepath .'/core/js/captify.js'); }
     		if( $lightbox_enabled == 1 ) { $MORPH->addScript($templatepath .'/core/js/colorbox.js');}
     		if( $fontsizer_enabled == 1 ) { $MORPH->addScript($templatepath .'/core/js/fontsizer.js');}
-		    $MORPH->addScript(JRoute::_('&render=js'.$cache.$gzip));
     		//if( $rounded_corners == 1 or $roundedcount !== 0 ) { $document->addScript($templatepath .'/core/js/corners.js'); }
-    		$wpload == '';
-    		$db=& JFactory::getDBO();
-    		$query = "SELECT COUNT(*) FROM `#__components` WHERE `name` = 'WordPress' ";
-    		$db->setQuery( $query ); $wploaded = $db->loadResult();
-    		// first check to see whether wp4joomla is installed
-    		if ( $wploaded == 1) {	
-	    		// add js to Morph for wp4joomla
-	    		// first if there is no wordpress component loading we still need the supporting files if the module is being used
-	    		if(JRequest::getVar('option') != 'com_wordpress') {
-	    			//Check 1 : must add check IF module "mod_wordpress_utility" is active on the page
-	    			$document->addScript('images/wordpress/themes/morph/js/jquery-tools.js'); // always load
-	    			$document->addScript('images/wordpress/themes/morph/js/images.js');// load if module or wordpress component
-	    		} else if(JRequest::getVar('option') == 'com_wordpress'){ 
-	    			$document->addScript('images/wordpress/themes/morph/js/jquery-tools.js'); //always load
-	    			$document->addScript('images/wordpress/themes/morph/js/images.js');// load if module or wordpress component
-	    			$document->addScript('images/wordpress/themes/morph/js/theme.js'); // only load if its the wordpress component/wptheme
-	    		}
-	    	}
-    	}else{
-    		$MORPH->addScript(JRoute::_('&render=js'.$cache.$gzip));
-    	}
+    		
+    		if(file_exists(JPATH_ROOT.$themeletpath .'/js/themelet.js')) $MORPH->addScriptAfter($themeletpath .'/js/themelet.js');
+    		if(file_exists(JPATH_ROOT.$themeletpath .'/js/custom.js')) $MORPH->addScriptAfter($themeletpath .'/js/custom.js');
+				
+			if(JComponentHelper::isEnabled('com_wordpress', true))
+			{
+				$wp_images_js = '/images/wordpress/themes/morph/js/images.js';
+				$wp_theme_js = '/images/wordpress/themes/morph/js/theme.js';
+				$wp_jqtools_js = '/images/wordpress/themes/morph/js/jquery-tools.js';
+				
+				if(file_exists($wp_jqtools_js)) $MORPH->addScriptAfter($wp_jqtools_js);
+				if(file_exists($wp_images_js)) $MORPH->addScriptAfter($wp_images_js);
+				
+				if(JRequest::getVar('option') == 'com_wordpress'){ 
+					// only load if its the wordpress component/wptheme
+					if(file_exists(JPATH_ROOT.$wp_theme_js)) $MORPH->addScriptAfter($wp_theme_js); 
+				}
+			}
     
     }else{
     	if(isIE6()){ 
@@ -295,11 +300,11 @@ if(isset($document->_scripts[JURI::root().'components/com_k2/js/k2.js']))
 	if(isset($document->_scripts[$document->baseurl.'/media/system/js/mootools.js'])) unset($document->_scripts[$document->baseurl.'/media/system/js/mootools.js']);
 	$MORPH->addScript($templatepath .'/core/js/k2.js');
 	$MORPH->addScript($templatepath .'/core/js/colorbox.js');
-	$document->addStyleSheet($templatepath .'/core/css/colorbox.css');
+	$MORPH->addStyleSheet($templatepath .'/core/css/colorbox.css');
 	$document->_script['text/javascript'] = str_replace("\n\t\twindow.addEvent('domready', function() {\n\n\t\t\tSqueezeBox.initialize({});\n\n\t\t\t$$('a.modal').each(function(el) {\n\t\t\t\tel.addEvent('click', function(e) {\n\t\t\t\t\tnew Event(e).stop();\n\t\t\t\t\tSqueezeBox.fromElement(el);\n\t\t\t\t});\n\t\t\t});\n\t\t});", '(function($){$(document).ready(function(){$(\'a.modal\').colorbox({width:\'80%\', height:\'80%\', iframe:true});});})(jQuery);', $document->_script['text/javascript']);
 
 	if(isset($document->_styleSheets[JURI::root().'components/com_k2/css/k2.css'])) unset($document->_styleSheets[JURI::root().'components/com_k2/css/k2.css']);
-	$document->addStyleSheet($templatepath .'/core/css/k2.css');
+	$MORPH->addStyleSheet($templatepath .'/core/css/k2.css');
 	
 }
 
@@ -323,67 +328,75 @@ if(isset($_GET['hide_firebug'])){
 // activate rtl for testing
 // $direction = 'rtl';
 if(  $isiPhone && !$iPhoneCookie  ){
-	if ( file_exists($css_iphone)) { $document->addStyleSheet($themeletpath .'/css/iphone.css'); } else { $document->addStyleSheet($templatepath .'/core/css/iphone.css'); }	
+	if ( file_exists($css_iphone)) { $MORPH->addStyleSheet($themeletpath .'/css/iphone.css'); } else { $MORPH->addStyleSheet($templatepath .'/core/css/iphone.css'); }	
 //	if ( file_exists($css_iphone)) { $document->addStyleSheet($css_iphone); } else { $document->addStyleSheet($templatepath .'/core/css/jqtouch.css'); }	
 } else {
-	if (!$pack_css) {
-		if ( file_exists($css_yui)) { $document->addStyleSheet($css_yui); } else { $document->addStyleSheet($templatepath .'/core/css/yui.css'); }
-		if ( $topnav_count >= 1 ) { $document->addStyleSheet($themeletpath .'/css/topnav-default.css'); }
-		if ( $topfish >= 1 ) { $document->addStyleSheet($themeletpath .'/css/topnav-topfish.css'); }
-		if ( $topdrop >= 1 ) { $document->addStyleSheet($themeletpath .'/css/topnav-topdrop.css'); }
-		if ( $sidenav_count >= 1 ) { $document->addStyleSheet($themeletpath .'/css/sidenav-default.css'); }
-		if ( $sidefish >= 1 ) { $document->addStyleSheet($themeletpath .'/css/sidenav-sidefish.css'); }
-		$document->addStyleSheet($themeletpath .'/css/modfx.css');	
-		if ( $tabscount >= 1 ) { $document->addStyleSheet($themeletpath .'/css/tabs.css'); }
-		if ( $accordionscount >= 1 ) { $document->addStyleSheet($themeletpath .'/css/accordions.css'); }
-		$document->addStyleSheet($themeletpath .'/css/typo.css');
-		$document->addStyleSheet($themeletpath .'/css/joomla.css');
-		$document->addStyleSheet($themeletpath .'/css/modules.css');
-		$document->addStyleSheet($themeletpath .'/css/themelet.css');
-		if ( $simpleticker == 1 ) { $document->addStyleSheet($themeletpath .'/css/simpleticker.css'); }
-		if ( $simpletweet == 1 ) { $document->addStyleSheet($themeletpath .'/css/simpletweet.css'); }
-		if ( $simplecontact == 1 ) { $document->addStyleSheet($themeletpath .'/css/simplecontact.css'); }
-		if ( $simplesocial == 1 ) { $document->addStyleSheet($themeletpath .'/css/simplesocial.css'); }
-		if( $lightbox_enabled == 1 ) { $document->addStyleSheet($templatepath .'/core/css/colorbox.css'); }
+	//if (!$pack_css) {
+
+		if ( file_exists($css_yui)) { $MORPH->addStyleSheet($themeletpath .'/css/yui.css'); } else { $MORPH->addStyleSheet($templatepath .'/core/css/yui.css'); }
+		if ( $topnav_count >= 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/topnav-default.css'); }
+		if ( $topfish >= 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/topnav-topfish.css'); }
+		if ( $topdrop >= 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/topnav-topdrop.css'); }
+		if ( $sidenav_count >= 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/sidenav-default.css'); }
+		if ( $sidefish >= 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/sidenav-sidefish.css'); }
+		$MORPH->addStyleSheet($themeletpath .'/css/modfx.css');	
+		if ( $tabscount >= 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/tabs.css'); }
+		if ( $accordionscount >= 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/accordions.css'); }
+		$MORPH->addStyleSheet($themeletpath .'/css/typo.css');
+		$MORPH->addStyleSheet($themeletpath .'/css/joomla.css');
+		$MORPH->addStyleSheet($themeletpath .'/css/modules.css');
+		$MORPH->addStyleSheet($themeletpath .'/css/themelet.css');
+		if ( $simpleticker == 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/simpleticker.css'); }
+		if ( $simpletweet == 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/simpletweet.css'); }
+		if ( $simplecontact == 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/simplecontact.css'); }
+		if ( $simplesocial == 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/simplesocial.css'); }
+		if( $lightbox_enabled == 1 ) { $MORPH->addStyleSheet($templatepath .'/core/css/colorbox.css'); }
 		
 		// add CSS to Morph for WP for Joomla
 		// first if there is no wordpress component loading we still need the supporting files if the module is being used
-		if(JRequest::getVar('option') != 'com_wordpress') {
-		//Check 1 : must add check IF module "mod_wordpress_utility" is active on the page
-		$document->addStylesheet('images/wordpress/themes/morph/css/images.css'); // load if module or wordpress component
-		$document->addStylesheet('images/wordpress/themes/morph/css/modules.css'); // load if module
-		//Check 2 : must add check IF module "mod_wordpress_widgetmod" is active on the page
-		$document->addStylesheet('images/wordpress/themes/morph/css/widgets.css');// load if widget module is used
-		// now if WP is loading, then make sure the theme.css is also loaded as well as the above css files
-		} else if(JRequest::getVar('option') == 'com_wordpress'){ 
-		$document->addStylesheet('images/wordpress/themes/morph/css/theme.css'); // only load if its the wordpress component/wptheme
-		$document->addStylesheet('images/wordpress/themes/morph/css/images.css'); // load if module or wordpress component
-		$document->addStylesheet('images/wordpress/themes/morph/css/modules.css'); // load if module is loaded
+		if(JComponentHelper::isEnabled('com_wordpress', true))
+		{
+			$wp_images_css = '/images/wordpress/themes/morph/css/images.css';
+			$wp_theme_css = '/images/wordpress/themes/morph/css/theme.css';
+			$wp_modules_css = '/images/wordpress/themes/morph/css/modules.css';
+			$wp_widgets_css = '/images/wordpress/themes/morph/css/widgets';
+			
+			if(JRequest::getVar('option') != 'com_wordpress') {
+			//Check 1 : must add check IF module "mod_wordpress_utility" is active on the page
+			
+			if(file_exists(JPATH_ROOT.$wp_images_css)) $MORPH->addStylesheet($wp_images_css); // load if module or wordpress component
+			if(file_exists(JPATH_ROOT.$wp_modules_css)) $MORPH->addStylesheet($wp_modules_css);  // load if module
+			//Check 2 : must add check IF module "mod_wordpress_widgetmod" is active on the page
+			if(file_exists(JPATH_ROOT.$wp_widgets_css)) $MORPH->addStylesheet($wp_widgets_css);// load if widget module is used
+			// now if WP is loading, then make sure the theme.css is also loaded as well as the above css files
+			} else if(JRequest::getVar('option') == 'com_wordpress'){ 
+			if(file_exists(JPATH_ROOT.$wp_theme_css)) $MORPH->addStylesheet($wp_theme_css); // only load if its the wordpress component/wptheme
+			if(file_exists(JPATH_ROOT.$wp_images_css)) $MORPH->addStylesheet($wp_images_css); // load if module or wordpress component
+			if(file_exists(JPATH_ROOT.$wp_modules_css)) $MORPH->addStylesheet($wp_modules_css); // load if module is loaded
+			}
 		}
 		
-		$document->addStyleSheet(JRoute::_('&render=css'.$cache.$gzip));
-		if($developer_toolbar == 1) { $document->addStyleSheet($templatepath .'/core/css/devbar.css'); }
-		
-		if ( $direction == 'rtl' && file_exists($css_rtl)){ $document->addStyleSheet($themeletpath .'/css/rtl.css'); } elseif ($direction == 'rtl') { $document->addStyleSheet($templatepath .'/core/css/rtl.css'); }
-		if ( file_exists($custom_css_file)){ $document->addStyleSheet($themeletpath .'/css/custom.css'); }
+		if($developer_toolbar == 1) { $MORPH->addStyleSheetAfter($templatepath .'/core/css/devbar.css'); }
+		if ( $direction == 'rtl' && file_exists($css_rtl)){ $MORPH->addStyleSheetAfter($themeletpath .'/css/rtl.css'); } elseif ($direction == 'rtl') { $MORPH->addStyleSheetAfter($templatepath .'/core/css/rtl.css'); }
+		if ( file_exists($custom_css_file)){ $MORPH->addStyleSheetAfter($themeletpath .'/css/custom.css'); }
 		// core browser specific
-		$document->addStyleSheet($templatepath .'/core/css/browsers.css');
-		if(preg_match('/MSIE 6/i', $_SERVER['HTTP_USER_AGENT'])) $document->addStyleSheet($templatepath .'/core/css/ie6.css');
+		$MORPH->addStyleSheetAfter($templatepath .'/core/css/browsers.css');
+		if(preg_match('/MSIE 6/i', $_SERVER['HTTP_USER_AGENT'])) $MORPH->addStyleSheetAfter($templatepath .'/core/css/ie6.css');
 		// themelet browser specific
-		if (file_exists($css_browsers)) $document->addStyleSheet($themeletpath .'/css/browsers.css');
-		if ($lcbrowser == 'firefox' && file_exists($css_firefox)) $document->addStyleSheet($themeletpath .'/css/firefox.css'); 
-		if ($lcbrowser == 'safari' && file_exists($css_safari)) $document->addStyleSheet($themeletpath .'/css/safari.css');
-		if ($lcbrowser == 'opera' && file_exists($css_opera)) $document->addStyleSheet($themeletpath .'/css/opera.css');
-		if ($lcbrowser == 'chrome' && file_exists($css_chrome)) $document->addStyleSheet($themeletpath .'/css/chrome.css');
-		if (($lcbrowser == 'chrome' || $lcbrowser == 'safari') && file_exists($css_webkit)) $document->addStyleSheet($themeletpath .'/css/webkit.css');
-		if ($lcbrowser == 'internetexplorer' && file_exists($css_ie)) $document->addStyleSheet($themeletpath .'/css/ie.css');
+		if (file_exists($css_browsers)) $MORPH->addStyleSheetAfter($themeletpath .'/css/browsers.css');
+		if ($lcbrowser == 'firefox' && file_exists($css_firefox)) $MORPH->addStyleSheetAfter($themeletpath .'/css/firefox.css'); 
+		if ($lcbrowser == 'safari' && file_exists($css_safari)) $MORPH->addStyleSheetAfter($themeletpath .'/css/safari.css');
+		if ($lcbrowser == 'opera' && file_exists($css_opera)) $MORPH->addStyleSheetAfter($themeletpath .'/css/opera.css');
+		if ($lcbrowser == 'chrome' && file_exists($css_chrome)) $MORPH->addStyleSheetAfter($themeletpath .'/css/chrome.css');
+		if (($lcbrowser == 'chrome' || $lcbrowser == 'safari') && file_exists($css_webkit)) $MORPH->addStyleSheetAfter($themeletpath .'/css/webkit.css');
+		if ($lcbrowser == 'internetexplorer' && file_exists($css_ie)) $MORPH->addStyleSheetAfter($themeletpath .'/css/ie.css');
 		// ie specific
-		if(file_exists($css_ie6) && preg_match('/MSIE 6/i', $_SERVER['HTTP_USER_AGENT'])) $document->addStyleSheet($themeletpath .'/css/ie6.css');
-		if(file_exists($css_ie7) && preg_match('/MSIE 7/i', $_SERVER['HTTP_USER_AGENT'])) $document->addStyleSheet($themeletpath .'/css/ie7.css');
-		if(file_exists($css_ie8) && preg_match('/MSIE 8/i', $_SERVER['HTTP_USER_AGENT'])) $document->addStyleSheet($themeletpath .'/css/ie8.css');
-	} else {
-		$document->addStyleSheet(JRoute::_('&render=css'.$cache.$gzip));
-	}
+		if(file_exists($css_ie6) && preg_match('/MSIE 6/i', $_SERVER['HTTP_USER_AGENT'])) $MORPH->addStyleSheetAfter($themeletpath .'/css/ie6.css');
+		if(file_exists($css_ie7) && preg_match('/MSIE 7/i', $_SERVER['HTTP_USER_AGENT'])) $MORPH->addStyleSheetAfter($themeletpath .'/css/ie7.css');
+		if(file_exists($css_ie8) && preg_match('/MSIE 8/i', $_SERVER['HTTP_USER_AGENT'])) $MORPH->addStyleSheetAfter($themeletpath .'/css/ie8.css');
+	//} else {
+	//	$document->addStyleSheet(JRoute::_('&render=css'.$cache.$gzip));
+	//}
 	
 	//Sends Morphs scripts to JDocument, loading them at the top to avoid issues with missing jQuery in JomSocial and such.
 	$MORPH->updateJDocument();

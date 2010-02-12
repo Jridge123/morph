@@ -22,7 +22,11 @@ include_once ($morph_component_path . "/configurator.class.php");
 
 class morphLoader {
 
-	protected $_scripts = array();
+	public $scripts = array();
+	public $scriptsAfter = array();
+	
+	public $styleSheets = array();
+	public $styleSheetsAfter = array();
 
 	public function morphLoader( $template = null )
 	{
@@ -69,7 +73,10 @@ class morphLoader {
 			if(JRequest::getCmd('gzip') == 'on') $this->gzip_compression = 1;
 			else if(JRequest::getCmd('nogzip', false, 'COOKIE') == 'off') $this->gzip_compression = 0;
 		}
-		
+	}
+	
+	public function cache()
+	{
 		jimport('joomla.filesystem.folder');
 		$cache = JPATH_CACHE.'/morph';
 		if(JRequest::getCmd('empty', false) == 'cache' && JFolder::exists($cache)) JFolder::delete($cache);
@@ -103,13 +110,71 @@ class morphLoader {
 	
 	public function addScript($url, $type = 'text/javascript')
 	{
-		$this->_scripts[$url] = $type;
+		$this->scripts[$url] = $type;
+	}
+	
+	public function addScriptAfter($url, $type = 'text/javascript')
+	{
+		$this->scriptsAfter[$url] = $type;
+	}
+	
+	public function addStyleSheet($url, $type = 'text/css', $media = null, $attribs = array())
+	{
+		$this->styleSheets[$url]['mime']	= $type;
+		$this->styleSheets[$url]['media']	= $media;
+		$this->styleSheets[$url]['attribs']	= $attribs;
+	}
+	
+	public function addStyleSheetAfter($url, $type = 'text/css', $media = null, $attribs = array())
+	{
+		$this->styleSheetsAfter[$url]['mime']	 = $type;
+		$this->styleSheetsAfter[$url]['media']	 = $media;
+		$this->styleSheetsAfter[$url]['attribs'] = $attribs;
 	}
 	
 	public function updateJDocument()
 	{
+		$cache	= $this->cache ? '&cache='.$this->cachetime : false;
+		$gzip	= $this->gzip_compression ? '&gzip='.$this->gzip_compression : false;
+		$renderjs = JRoute::_('&render=js'.$cache.$gzip);
+		$rendercss = JRoute::_('&render=css'.$cache.$gzip);
+
 		$document = JFactory::getDocument();
-		$document->_scripts = array_merge($this->_scripts, $document->_scripts);
+		if($this->pack_js)
+		{
+			$document->_scripts = array_merge(array($renderjs => 'text/javascript'), $document->_scripts);
+		}
+		else
+		{
+			$scriptsBefore = array();
+			foreach($this->scripts as $script => $type)
+			{
+				$scriptsBefore[JURI::root(1).$script] = $type;
+			}
+			
+			$document->_scripts = array_merge($scriptsBefore, array($renderjs => 'text/javascript'), $document->_scripts);
+		}
+		
+		if($this->pack_css)
+		{
+			$document->addStyleSheet($rendercss);
+		}
+		else
+		{
+			foreach($this->styleSheets as $css => $args)
+			{
+				$document->addStyleSheet(JURI::root(1).$css, $args['mime'], $args['media'], $args['attribs']);
+			}
+			
+			$document->addStyleSheet($rendercss);
+			
+			foreach($this->styleSheetsAfter as $css => $args)
+			{
+				$document->addStyleSheet(JURI::root(1).$css, $args['mime'], $args['media'], $args['attribs']);
+			}
+		}
+		
+		$this->cache();
 	}
 }
 
