@@ -37,6 +37,10 @@ jimport('joomla.application.module.helper');
 	$spaces = array('<span class="twotone"> ', '<span class="pretext"> ', '<span class="subtext"> ', ' </span>');
 	$nospaces = array('<span class="twotone">', '<span class="pretext">', '<span class="subtext">', '</span>');
 	
+	// Fix amps
+	$modtitle = JFilterOutput::ampReplace($modtitle);
+	
+	
 	// subtext & twotone
 	if(strstr($modtitle, $subtext) && strstr($modtitle, $twotone)){
 		$twotone_arr = explode($twotone, $modtitle);
