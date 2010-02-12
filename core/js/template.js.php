@@ -286,11 +286,9 @@ if($this->js->custom_js)
 	echo $this->js->custom_js;
 	echo PHP_EOL.' /* @end */ '.PHP_EOL;
 }
-foreach($this->js->scripts->after as $js)
+foreach($this->js->scriptsAfter as $js => $type)
 {
-	echo PHP_EOL.' /* @group '.basename($js).' */ '.PHP_EOL;
-	echo file_get_contents($js);
-	echo PHP_EOL.' /* @end */ '.PHP_EOL;
+	echo file_get_contents(JPATH_ROOT.$js);
 } ?>
 	});
 })(jQuery);
