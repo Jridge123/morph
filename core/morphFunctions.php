@@ -20,7 +20,7 @@ if(isset($_COOKIE['nogzip'])){
 	$gzip_compression = 0;
 }
 if(isset($_COOKIE['debug_modules']) && $_COOKIE['debug_modules'] == 'true'){ $debug_modules = 1; }elseif(isset($_COOKIE['debug_modules']) && $_COOKIE['debug_modules'] == 'false'){ $debug_modules = 0; }else{ $debug_modules = $debug_modules; }
-if(isset($_COOKIE['morph_developer_toolbar'])){ $developer_toolbar = 1; }
+if(isset($_COOKIE['morph_developer_toolbar'])){ $MORPH->developer_toolbar = 1; }
 if(isset($_COOKIE['nojs'])){ $nojs = 1; }
 
 $document = JFactory::getDocument();
@@ -210,13 +210,15 @@ if(isset($_GET['show_devbar'])){
 	$uri->delVar('show_devbar');
 	setcookie('morph_developer_toolbar', 'enabled', 0);
 	
+	$MORPH->cache();
 	header('Location: ' . $uri->toString());
 }
 if(isset($_GET['hide_devbar'])){
 	$MORPH->developer_toolbar = false;
 	$uri->delVar('hide_devbar');
-
-	setcookie('morph_developer_toolbar', null, time()-3600);
+	
+	$MORPH->cache();
+	setcookie('morph_developer_toolbar', 'disabled', time()-3600);
 	setcookie('debug_modules', null, time()-3600);
 	header('Location: ' . $uri->toString());
 }
@@ -254,8 +256,11 @@ if(isset($_GET['pack_css'])){
 // include the reusable arrays
 include 'morphArrays.php';
 
-$isiPhone = $browser->getBrowser() == MBrowser::PLATFORM_IPHONE && $iphone_mode == 1;
-$iPhoneCookie = isset($_COOKIE['iPhone']) ? $_COOKIE['iPhone'] == 'normal' : false;
+$isiPhone		= $browser->getBrowser() == MBrowser::PLATFORM_IPHONE && $iphone_mode == 1;
+$iPhoneCookie	= isset($_COOKIE['iPhone']) ? $_COOKIE['iPhone'] == 'normal' : false;
+$isComWP		= (bool)JComponentHelper::isEnabled('com_wordpress', true);
+$isModUtilWP	= JModuleHelper::isEnabled('wordpress_utility');
+$isModWidgWP	= JModuleHelper::isEnabled('wordpress_widgetmod');
 
 if ( $isiPhone && !$iPhoneCookie ) {
 //	$document->addScript($templatepath .'/core/js/jquery.js');	
@@ -286,18 +291,19 @@ if ( $isiPhone && !$iPhoneCookie ) {
     		
     		if(file_exists(JPATH_ROOT.$themeletpath .'/js/themelet.js')) $MORPH->addScriptAfter($themeletpath .'/js/themelet.js');
     		if(file_exists(JPATH_ROOT.$themeletpath .'/js/custom.js')) $MORPH->addScriptAfter($themeletpath .'/js/custom.js');
-				
-			if(JComponentHelper::isEnabled('com_wordpress', true))
+
+
+			if($isModUtilWP || $isComWP)
 			{
 				$wp_images_js = '/images/wordpress/themes/morph/js/images.js';
 				$wp_theme_js = '/images/wordpress/themes/morph/js/theme.js';
 				$wp_jqtools_js = '/images/wordpress/themes/morph/js/jquery-tools.js';
 				
-				if(file_exists($wp_jqtools_js)) $MORPH->addScriptAfter($wp_jqtools_js);
-				if(file_exists($wp_images_js)) $MORPH->addScriptAfter($wp_images_js);
+				if(file_exists(JPATH_ROOT.$wp_jqtools_js)) $MORPH->addScriptAfter($wp_jqtools_js);
+				if(file_exists(JPATH_ROOT.$wp_images_js)) $MORPH->addScriptAfter($wp_images_js);
 				
+				// only load if its the wordpress component/wptheme
 				if(JRequest::getVar('option') == 'com_wordpress'){ 
-					// only load if its the wordpress component/wptheme
 					if(file_exists(JPATH_ROOT.$wp_theme_js)) $MORPH->addScriptAfter($wp_theme_js); 
 				}
 			}
@@ -371,29 +377,24 @@ if(  $isiPhone && !$iPhoneCookie  ){
 		
 		// add CSS to Morph for WP for Joomla
 		// first if there is no wordpress component loading we still need the supporting files if the module is being used
-		if(JComponentHelper::isEnabled('com_wordpress', true))
+		if($isModUtilWP || $isModWidgWP || $isComWP)
 		{
 			$wp_images_css = '/images/wordpress/themes/morph/css/images.css';
 			$wp_theme_css = '/images/wordpress/themes/morph/css/theme.css';
 			$wp_modules_css = '/images/wordpress/themes/morph/css/modules.css';
-			$wp_widgets_css = '/images/wordpress/themes/morph/css/widgets';
+			$wp_widgets_css = '/images/wordpress/themes/morph/css/widgets.css';
 			
-			if(JRequest::getVar('option') != 'com_wordpress') {
-			//Check 1 : must add check IF module "mod_wordpress_utility" is active on the page
-			
-			if(file_exists(JPATH_ROOT.$wp_images_css)) $MORPH->addStylesheet($wp_images_css); // load if module or wordpress component
-			if(file_exists(JPATH_ROOT.$wp_modules_css)) $MORPH->addStylesheet($wp_modules_css);  // load if module
-			//Check 2 : must add check IF module "mod_wordpress_widgetmod" is active on the page
-			if(file_exists(JPATH_ROOT.$wp_widgets_css)) $MORPH->addStylesheet($wp_widgets_css);// load if widget module is used
-			// now if WP is loading, then make sure the theme.css is also loaded as well as the above css files
-			} else if(JRequest::getVar('option') == 'com_wordpress'){ 
-			if(file_exists(JPATH_ROOT.$wp_theme_css)) $MORPH->addStylesheet($wp_theme_css); // only load if its the wordpress component/wptheme
-			if(file_exists(JPATH_ROOT.$wp_images_css)) $MORPH->addStylesheet($wp_images_css); // load if module or wordpress component
-			if(file_exists(JPATH_ROOT.$wp_modules_css)) $MORPH->addStylesheet($wp_modules_css); // load if module is loaded
-			}
+			// load if module or wordpress component
+			if(file_exists(JPATH_ROOT.$wp_images_css)) $MORPH->addStylesheet($wp_images_css); 
+			// load if module is loaded
+			if($isModUtilWP && file_exists(JPATH_ROOT.$wp_modules_css)) $MORPH->addStylesheet($wp_modules_css);
+			// load if widget module is used
+			if($isModWidgWP && file_exists(JPATH_ROOT.$wp_widgets_css)) $MORPH->addStylesheet($wp_widgets_css);
+			// only load if its the wordpress component/wptheme
+			if(JRequest::getVar('option') == 'com_wordpress' && file_exists(JPATH_ROOT.$wp_theme_css)) $MORPH->addStylesheet($wp_theme_css); 
 		}
 		
-		if($developer_toolbar == 1) { $MORPH->addStyleSheetAfter($templatepath .'/core/css/devbar.css'); }
+		if($MORPH->developer_toolbar == 1) { $MORPH->addStyleSheetAfter($templatepath .'/core/css/devbar.css'); }
 		if ( $direction == 'rtl' && file_exists($css_rtl)){ $MORPH->addStyleSheetAfter($themeletpath .'/css/rtl.css'); } elseif ($direction == 'rtl') { $MORPH->addStyleSheetAfter($templatepath .'/core/css/rtl.css'); }
 		if ( file_exists($custom_css_file)){ $MORPH->addStyleSheetAfter($themeletpath .'/css/custom.css'); }
 		// core browser specific
