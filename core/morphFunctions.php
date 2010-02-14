@@ -213,7 +213,8 @@ if($MORPH->debug || $MORPH->developer_toolbar)
 		$uri->delVar('showdev');
 		setcookie('morph_developer_toolbar', 'enabled', 0);
 		$MORPH->addStyleSheetAfter($templatepath .'/core/css/devbar.css');
-		$MORPH->cache();
+		
+		$MORPH->updateJDocument();
 		//header('Location: ' . $uri->toString());
 	}
 	if(isset($_GET['hide_devbar'])||isset($_GET['hidedev'])){
@@ -221,7 +222,7 @@ if($MORPH->debug || $MORPH->developer_toolbar)
 		$uri->delVar('hidedev');
 		$_GET['morph']['developer_toolbar'] = false;
 	
-		$MORPH->cache();
+		$MORPH->updateJDocument();
 		setcookie('morph_developer_toolbar', null, time()-3600);
 		setcookie('debug_modules', null, time()-3600);
 		//header('Location: ' . $uri->toString());

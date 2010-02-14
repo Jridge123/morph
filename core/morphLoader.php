@@ -73,7 +73,7 @@ class morphLoader {
 			$overrides = array_merge((array)$app->getUserState('morph'), $overrides);
 			foreach($overrides as $name => $override)
 			{
-				if($name == 'debug' || in_array($name, array('styleSheets', 'styleSheetsAfter'))) continue;
+				if($name == 'debug') continue;
 				$this->$name = $override;
 			}
 		}
@@ -107,17 +107,13 @@ class morphLoader {
 			
 			foreach($params as $name => $param)
 			{
-				if($name == 'debug' || in_array($name, array('styleSheets', 'styleSheetsAfter'))) continue;
+				if($name == 'debug') continue;
 				$this->$name = $param;
 			}
 			
 			if(!$this->jquery_core) unset($this->scripts['/templates/morph/core/js/jquery.js']);
-			if(isset($_GET['morph'])){
-				$uri = JFactory::getURI();
-				$uri->delVar('morph');
-
-				header('Location: ' . $uri->toString());
-			}
+			if(!$this->developer_toolbar) unset($this->styleSheetsAfter['/templates/morph/core/css/devbar.css']);
+			if($this->developer_toolbar) $this->addStyleSheetAfter('/templates/morph/core/css/devbar.css');
 		}
 		
 		jimport('joomla.filesystem.file');
@@ -137,7 +133,15 @@ class morphLoader {
 			JFile::write($path, $json);
 		}
 		
-		
+		if($this->developer_toolbar || $this->debug)
+		{
+			if(isset($_GET['morph'])){
+				$uri = JFactory::getURI();
+				$uri->delVar('morph');
+
+				header('Location: ' . $uri->toString());
+			}
+		}
 	}
 		
 	public function get($param_name=null)
