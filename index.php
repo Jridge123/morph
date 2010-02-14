@@ -39,7 +39,7 @@ $.trackPage('<?php echo $google_analytics; ?>')
 <?php if ($error_reporting == 0) { error_reporting(E_ALL ^ E_NOTICE); } ?>
 <body <?php echo pt_body_classes($menu, $view, $themelet); ?>>
 <?php
-if($developer_toolbar == 1 or isset($_COOKIE['morph_developer_toolbar'])){
+if($developer_toolbar == 1){
 include_once('core/includes/devbar.php');
 }
 // check if google chrome frame is installed on the browser, if not show a info box

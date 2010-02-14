@@ -20,7 +20,7 @@ if(isset($_COOKIE['nogzip'])){
 	$gzip_compression = 0;
 }
 if(isset($_COOKIE['debug_modules']) && $_COOKIE['debug_modules'] == 'true'){ $debug_modules = 1; }elseif(isset($_COOKIE['debug_modules']) && $_COOKIE['debug_modules'] == 'false'){ $debug_modules = 0; }else{ $debug_modules = $debug_modules; }
-if(isset($_COOKIE['morph_developer_toolbar'])){ $MORPH->developer_toolbar = 1; }
+//if(isset($_COOKIE['morph_developer_toolbar'])){ $MORPH->developer_toolbar = 1; }
 if(isset($_COOKIE['nojs'])){ $nojs = 1; }
 
 $document = JFactory::getDocument();
@@ -82,33 +82,33 @@ $pageclass 					= $params->get( 'pageclass_sfx' );
 endif;
 $user 						= JFactory::getUser();
 $document					= JFactory::getDocument();
-$toolbar_count 				= $document->countModules('toolbar');
-$masthead_count 			= $document->countModules('masthead');
-$subhead_count 				= $document->countModules('subhead');
-$topnav_count 				= $document->countModules('topnav');
-$topshelf_count 			= $document->countModules('topshelf');
-$bottomshelf_count 			= $document->countModules('bottomshelf');
-$bottomshelf2_count 		= $document->countModules('bottomshelf2');
-$bottomshelf3_count 		= $document->countModules('bottomshelf3');
-$user1_count 				= $document->countModules('user1');
-$user2_count 				= $document->countModules('user2');
-$inset1_count 				= $document->countModules('inset1');
-$inset2_count 				= $document->countModules('inset2');
-$inset3_count 				= $document->countModules('inset3');
-$inset4_count 				= $document->countModules('inset4');
-$outersplit_count 			= $document->countModules('outersplit');
-$outer1_count 				= $document->countModules('outer1');
-$outer2_count 				= $document->countModules('outer2');
-$outer3_count 			    = $document->countModules('outer3');
-$outer4_count 				= $document->countModules('outer4');
-$outer5_count 			    = $document->countModules('outer5');
-$innersplit_count 			= $document->countModules('innersplit');
-$inner1_count 				= $document->countModules('inner1');
-$inner2_count 				= $document->countModules('inner2');
-$inner3_count 			    = $document->countModules('inner3');
-$inner4_count 				= $document->countModules('inner4');
-$inner5_count 			    = $document->countModules('inner5');
-$footer_count 				= $document->countModules('footer');
+$toolbar_count 				= $MORPH->countModules('toolbar');
+$masthead_count 			= $MORPH->countModules('masthead');
+$subhead_count 				= $MORPH->countModules('subhead');
+$topnav_count 				= $MORPH->countModules('topnav');
+$topshelf_count 			= $MORPH->countModules('topshelf');
+$bottomshelf_count 			= $MORPH->countModules('bottomshelf');
+$bottomshelf2_count 		= $MORPH->countModules('bottomshelf2');
+$bottomshelf3_count 		= $MORPH->countModules('bottomshelf3');
+$user1_count 				= $MORPH->countModules('user1');
+$user2_count 				= $MORPH->countModules('user2');
+$inset1_count 				= $MORPH->countModules('inset1');
+$inset2_count 				= $MORPH->countModules('inset2');
+$inset3_count 				= $MORPH->countModules('inset3');
+$inset4_count 				= $MORPH->countModules('inset4');
+$outersplit_count 			= $MORPH->countModules('outersplit');
+$outer1_count 				= $MORPH->countModules('outer1');
+$outer2_count 				= $MORPH->countModules('outer2');
+$outer3_count 			    = $MORPH->countModules('outer3');
+$outer4_count 				= $MORPH->countModules('outer4');
+$outer5_count 			    = $MORPH->countModules('outer5');
+$innersplit_count 			= $MORPH->countModules('innersplit');
+$inner1_count 				= $MORPH->countModules('inner1');
+$inner2_count 				= $MORPH->countModules('inner2');
+$inner3_count 			    = $MORPH->countModules('inner3');
+$inner4_count 				= $MORPH->countModules('inner4');
+$inner5_count 			    = $MORPH->countModules('inner5');
+$footer_count 				= $MORPH->countModules('footer');
 $stylelink 					= '';
 $direction  				= $document->direction;
 $browser 					= new MBrowser();
@@ -142,7 +142,7 @@ $themeletfunctions			= $absolutepath.'/themelet.php';
 $foot_override				= $absolutepath.'/html/foot.php';
 $footer_script				= $absolutepath.'/script.php';
 
-$moo = $this->baseurl.'/media/system/js/mootools.js';
+$moo = JURI::base(true).'/media/system/js/mootools.js';
 if($load_mootools == 0)
 {
     if($user->get('guest') == 1 or $user->usertype == 'Registered')
@@ -165,8 +165,8 @@ if (isset($document->_scripts[$moo])) {
     unset($document->_scripts[$moo]);
     $MORPH->addScript($moo);
 }
-if (isset($document->_scripts[$this->baseurl.'/media/system/js/caption.js'])) {
-    unset($document->_scripts[$this->baseurl.'/media/system/js/caption.js']);
+if (isset($document->_scripts[JURI::base(true).'/media/system/js/caption.js'])) {
+    unset($document->_scripts[JURI::base(true).'/media/system/js/caption.js']);
 }
 
 if ( $remove_generator == 1 ) {
@@ -205,52 +205,98 @@ if(isset($_GET['gzip']) && $_GET['gzip'] == 'on'){
 
 // developer toolbar frontend switch
 $uri = JFactory::getURI();
-if(isset($_GET['show_devbar'])){
-	$MORPH->developer_toolbar = true;
+if(isset($_GET['show_devbar'])||isset($_GET['showdev'])){
+	$_GET['morph']['developer_toolbar'] = true;
 	$uri->delVar('show_devbar');
+	$uri->delVar('showdev');
 	setcookie('morph_developer_toolbar', 'enabled', 0);
 	
 	$MORPH->cache();
 	header('Location: ' . $uri->toString());
 }
-if(isset($_GET['hide_devbar'])){
-	$MORPH->developer_toolbar = false;
+if(isset($_GET['hide_devbar'])||isset($_GET['hidedev'])){
 	$uri->delVar('hide_devbar');
-	
+	$uri->delVar('hidedev');
+	$_GET['morph']['developer_toolbar'] = false;
+
 	$MORPH->cache();
 	setcookie('morph_developer_toolbar', 'disabled', time()-3600);
 	setcookie('debug_modules', null, time()-3600);
-	header('Location: ' . $uri->toString());
+	//header('Location: ' . $uri->toString());
 }
 if(isset($_GET['nojs']) && $_GET['nojs'] == 'off'){
-	$MORPH->nojs = false;
+	$_GET['morph']['nojs'] = 0;
+	$MORPH->nojs = 0;
 	$uri->delVar('nojs');
-	//setcookie('nojs', null, time()-3600);
-	header('Location: ' . $uri->toString());
+	setcookie('nojs', null, time()-3600);
+	$MORPH->cache();
+	//header('Location: ' . $uri->toString());
 }
-if(isset($_GET['unpack_js'])){
+if(isset($_GET['nojs']) && $_GET['nojs'] != 'off'){
+	$_GET['morph']['nojs'] = 1;
+	$MORPH->nojs = 1;
+	$uri->delVar('nojs');
+	setcookie('nojs', 'enabled', time()-3600);
+	$MORPH->cache();
+	//header('Location: ' . $uri->toString());
+}
+if(isset($_GET['unpack_js'])||isset($_GET['upjs'])){
 	$MORPH->pack_js = false;
 	$uri->delVar('unpack_js');
+	$uri->delVar('upjs');
+	$_GET['morph']['pack_js'] = false;
+	
+	$MORPH->cache();
 	//setcookie('packjs', 'unpack', 0);
-	header('Location: ' . $uri->toString());
+	//header('Location: ' . $uri->toString());
 }
-if(isset($_GET['pack_js'])){
+if(isset($_GET['pack_js'])||isset($_GET['pjs'])){
 	$MORPH->pack_js = true;
 	$uri->delVar('pack_js');
+	$uri->delVar('pjs');
+	$_GET['morph']['pack_js'] = true;
+	
+	$MORPH->cache();
 	//setcookie('packjs', null, time()-3600);
-	header('Location: ' . $uri->toString());
+	//header('Location: ' . $uri->toString());
 }
-if(isset($_GET['unpack_css'])){
+if(isset($_GET['unpack_css'])||isset($_GET['upcss'])){
 	$MORPH->pack_css = false;
 	$uri->delVar('unpack_css');
+	$uri->delVar('upcss');
+	$_GET['morph']['pack_css'] = false;
+	
+	$MORPH->cache();
 	//setcookie('packcss', 'unpack', 0);
-	header('Location: ' . $uri->toString());
+	//header('Location: ' . $uri->toString());
 }
-if(isset($_GET['pack_css'])){
+if(isset($_GET['pack_css'])||isset($_GET['pcss'])){
 	$MORPH->pack_css = true;
 	$uri->delVar('pack_css');
+	$uri->delVar('pcss');
+	$_GET['morph']['pack_css'] = true;
+	
+	$MORPH->cache();
 	//setcookie('packcss', null, time()-3600);
-	header('Location: ' . $uri->toString());
+	//header('Location: ' . $uri->toString());
+}
+if(isset($_GET['nojq'])){
+	$MORPH->jquery_core = false;
+	$uri->delVar('nojq');
+	$_GET['morph']['jquery_core'] = false;
+	
+	$MORPH->cache();
+}
+if(isset($_GET['flush'])){
+	$uri->delVar('flush');
+	$_GET['morph']['flush'] = true;
+	
+	jimport('joomla.filesystem.folder');
+	
+	$path = JPATH_CACHE.'/morph';
+	if(JFolder::exists($path)) JFolder::delete($path);
+	
+	$MORPH->cache();
 }
 
 // include the reusable arrays
@@ -318,9 +364,9 @@ if ( $isiPhone && !$iPhoneCookie ) {
 if(isset($document->_scripts[JURI::root().'components/com_k2/js/k2.js']))
 {
 	unset($document->_scripts[JURI::root().'components/com_k2/js/k2.js']);
-	if(isset($document->_scripts[$document->baseurl.'/media/system/js/modal.js'])) unset($document->_scripts[$document->baseurl.'/media/system/js/modal.js']);
-	if(isset($document->_styleSheets[$document->baseurl.'/media/system/css/modal.css'])) unset($document->_styleSheets[$document->baseurl.'/media/system/css/modal.css']);
-	if(isset($document->_scripts[$document->baseurl.'/media/system/js/mootools.js'])) unset($document->_scripts[$document->baseurl.'/media/system/js/mootools.js']);
+	if(isset($document->_scripts[JURI::base(true).'/media/system/js/modal.js'])) unset($document->_scripts[JURI::base(true).'/media/system/js/modal.js']);
+	if(isset($document->_styleSheets[JURI::base(true).'/media/system/css/modal.css'])) unset($document->_styleSheets[JURI::base(true).'/media/system/css/modal.css']);
+	if(isset($document->_scripts[JURI::base(true).'/media/system/js/mootools.js'])) unset($document->_scripts[JURI::base(true).'/media/system/js/mootools.js']);
 	$MORPH->addScript($templatepath .'/core/js/k2.js');
 	$MORPH->addScript($templatepath .'/core/js/colorbox.js');
 	$MORPH->addStyleSheet($templatepath .'/core/css/colorbox.css');
@@ -435,9 +481,9 @@ include_once('InnerLayout.php');
 include_once('OuterLayout.php');
 
 $document = JFactory::getDocument();
-if (!$document->countModules('outersplit or outer1 or outer2 or outer3 or outer4 or outer5')) $CurrentOuterScheme = '';
-if (!$document->countModules('innersplit or inner1 or inner2 or inner3 or inner4 or inner5')) $CurrentInnerScheme = '';
-if (!$document->countModules('user4')) $no_search = 'no_search';
+if (!$MORPH->countModules('outersplit or outer1 or outer2 or outer3 or outer4 or outer5')) $CurrentOuterScheme = '';
+if (!$MORPH->countModules('innersplit or inner1 or inner2 or inner3 or inner4 or inner5')) $CurrentInnerScheme = '';
+if (!$MORPH->countModules('user4')) $no_search = 'no_search';
 
 // intelli mods array
 $jj_const = array(
@@ -484,7 +530,7 @@ $jj_const = array(
 
 function getYuiSuffix ($moduleName, $jj_const){
 	$document					= JFactory::getDocument();
-	$moduleCount = $document->countModules($moduleName); 
+	$moduleCount = method_exists('countModules', $document) ? $document->countModules($moduleName) : 0; 
 	if(in_array($moduleName, $jj_const['outer_inner_pos'])){
 		$yuiModuleSuffix = $jj_const["yui_suffix"][$moduleCount];
 	}else{

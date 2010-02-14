@@ -452,6 +452,10 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
+	<param name="debug" default="0" type="itoggle" label="Enable debug mode" tooltip="inline" description="Debug mode lets you control morph by the url. ">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
 	<param name="remove_outline" default="0" type="itoggle" label="Disable ?tp=1" tooltip="inline" description="This option will disable the ability to view your sites module positions using ?tp=1 appended to the url of your site.">
 		<option value="1">Yes</option>
 		<option value="0">No</option>

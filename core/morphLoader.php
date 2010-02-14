@@ -64,15 +64,28 @@ class morphLoader {
 		foreach( $params as $param ) {
 			$this->{$param->param_name} = $param->param_value;
 		}
+
+		if($this->developer_toolbar || $this->debug)
+		{
+			$app = JFactory::getApplication();
+			$overrides = JRequest::getVar('morph', array(), 'get', 'array');
+			
+			$overrides = array_merge((array)$app->getUserState('morph'), $overrides);
+			foreach($overrides as $name => $override)
+			{
+				if($name == 'debug') continue;
+				$this->$name = $override;
+			}
+		}
 		
 		//TODO: We need to make the caching smarter, so we don't have to do this here
-		if(isset($this->developer_toolbar) && $this->developer_toolbar)
+		/*if(isset($this->developer_toolbar) && $this->developer_toolbar)
 		{
 			$this->pack_css = JRequest::getBool('packcss', $this->pack_css, 'COOKIE');
 			$this->pack_js = JRequest::getBool('packjs', $this->pack_js, 'COOKIE');
 			if(JRequest::getCmd('gzip') == 'on') $this->gzip_compression = 1;
 			else if(JRequest::getCmd('nogzip', false, 'COOKIE') == 'off') $this->gzip_compression = 0;
-		}
+		}*/
 	}
 	
 	public function cache()
@@ -83,14 +96,36 @@ class morphLoader {
 		
 		//Where passing the menu item id, so that the cache works with menu item.
 		$_SESSION['menuid'] = JRequest::getInt('Itemid');
+
+		if($this->developer_toolbar || $this->debug)
+		{
+			$app = JFactory::getApplication();
+			$params = JRequest::getVar('morph', array(), 'get', 'array');
+			$params = array_merge((array)$app->getUserState('morph'), $params);
+			$params = array_merge((array)$this, $params);
+			$app->setUserState('morph', $params);
+			
+			foreach($params as $name => $param)
+			{
+				if($name == 'debug') continue;
+				$this->$name = $param;
+			}
+			
+			if(isset($_GET['morph'])){
+				$uri = JFactory::getURI();
+				$uri->delVar('morph');
+				echo var_dump($this->developer_toolbar);
+				header('Location: ' . $uri->toString());
+			}
+		}
 		
 		jimport('joomla.filesystem.file');
-	
+
 		$path = JPATH_CACHE.'/morph/data.json';
 		if(file_exists($path))
 		{
 			$created	= time()-date('U', filemtime($path));
-			$expire		= $this->cache * 60;
+			$expire		= (int)$this->cache * 60;
 			if($created > $expire)
 			{
 				$json = json_encode($this);
@@ -100,6 +135,8 @@ class morphLoader {
 			$json = json_encode($this);
 			JFile::write($path, $json);
 		}
+		
+		
 	}
 		
 	public function get($param_name=null)
@@ -140,19 +177,24 @@ class morphLoader {
 		$rendercss = JRoute::_('&render=css'.$cache.$gzip);
 
 		$document = JFactory::getDocument();
-		if($this->pack_js)
+		if(!$this->nojs)
 		{
-			$document->_scripts = array_merge(array($renderjs => 'text/javascript'), $document->_scripts);
-		}
-		else
-		{
-			$scriptsBefore = array();
-			foreach($this->scripts as $script => $type)
+		
+			if(!$this->jquery_core) unset($this->scripts['/templates/'.$document->template .'/core/js/jquery.js']);
+			if($this->pack_js)
 			{
-				$scriptsBefore[JURI::root(1).$script] = $type;
+				$document->_scripts = array_merge(array($renderjs => 'text/javascript'), $document->_scripts);
 			}
-			
-			$document->_scripts = array_merge($scriptsBefore, array($renderjs => 'text/javascript'), $document->_scripts);
+			else
+			{
+				$scriptsBefore = array();
+				foreach($this->scripts as $script => $type)
+				{
+					$scriptsBefore[JURI::root(1).$script] = $type;
+				}
+				
+				$document->_scripts = array_merge($scriptsBefore, array($renderjs => 'text/javascript'), $document->_scripts);
+			}
 		}
 		
 		if($this->pack_css)
@@ -173,8 +215,26 @@ class morphLoader {
 				$document->addStyleSheet(JURI::root(1).$css, $args['mime'], $args['media'], $args['attribs']);
 			}
 		}
-		
 		$this->cache();
+	}
+	
+	public function countModules($condition)
+	{
+		$result = '';
+		
+		$document = JFactory::getDocument();
+
+		$words = explode(' ', $condition);
+		for($i = 0; $i < count($words); $i+=2)
+		{
+			// odd parts (modules)
+			$name		= strtolower($words[$i]);
+			$words[$i]	= ((isset($document->_buffer['modules'][$name])) && ($document->_buffer['modules'][$name] === false)) ? 0 : count(JModuleHelper::getModules($name));
+		}
+
+		$str = 'return '.implode(' ', $words).';';
+
+		return eval($str);
 	}
 }
 

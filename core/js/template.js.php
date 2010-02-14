@@ -234,29 +234,18 @@ jQuery.noConflict();
 				});
 			})
 			$('#dev-toolbar li.dev-css a').click(function(){
-				$.cookie('packcss', $(this).hasClass('dev-pack-css') ? 1 : 0);
-				window.location.reload(true);
+				$.get('', {'morph[pack_css]': $(this).hasClass('dev-pack-css') ? 1 : 0}, function(){window.location.reload(true);} );
 			});
 			$('#dev-toolbar li.dev-js a').click(function(){
-				$.cookie('packjs', $(this).hasClass('dev-pack-js') ? 1 : 0);
-				window.location.reload(true);
+				$.get('', {'morph[pack_js]': $(this).hasClass('dev-pack-js') ? 1 : 0}, function(){window.location.reload(true);} );
 			});
 			$('#dev-toolbar li.dev-modules a').click(function(){
 				if($(this).hasClass('dev-debug-mods-on')){ $.cookie('debug_modules', 'true'); window.location.reload(true); }
 				if($(this).hasClass('dev-debug-mods-off')){ $.cookie('debug_modules', 'false'); window.location.reload(true); }
 			});
 			$('#dev-toolbar li.dev-gzip a').click(function(){
-				if($(this).hasClass('dev-gzip-off')){ $.cookie('nogzip', 'off'); window.location.reload(true); }
-				if($(this).hasClass('dev-gzip-on')){ 
-					$.cookie('nogzip', null);
-					$.ajax({
-						data: {gzip:'on'},
-						success: function(){
-							window.location.reload(true);
-							return true;
-						}
-					});
-				}
+				
+				$.get('', {'morph[gzip_compression]': $(this).hasClass('dev-gzip-on') ? 1 : 0}, function(){window.location.reload(true);} );
 			});
 			$('#dev-toolbar li.dev-fb a').click(function(){
 				if($(this).hasClass('dev-fb-on')){ $.cookie('firebug', 'enabled'); window.location.reload(true); }
@@ -272,11 +261,12 @@ jQuery.noConflict();
 				});
 			});
 			$('#dev-toolbar li.dev-nojs a').click(function(){
-				if($(this).hasClass('dev-nojs-on')){ $.cookie('nojs', 'enabled'); window.location.reload(true); }
-				if($(this).hasClass('dev-nojs-off')){ $.cookie('nojs', null); window.location.reload(true); }
+				if($(this).hasClass('dev-nojs-on')){ $.cookie('nojs', 'enabled'); }
+				if($(this).hasClass('dev-nojs-off')){ $.cookie('nojs', null); }
+				$.get('', {'morph[nojs]': 1}, function(){window.location.reload(true);} );
 			});
 			$('#dev-toolbar li.dev-close a').click(function(){
-			 	$.cookie('morph_developer_toolbar', null); window.location.reload(true);
+			 	$.get('', {'morph[developer_toolbar]': 0}, function(){window.location.reload(true);} );
 			});
 		<?php }?>
 <?php
