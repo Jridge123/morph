@@ -212,7 +212,7 @@ if($MORPH->debug || $MORPH->developer_toolbar)
 		$uri->delVar('show_devbar');
 		$uri->delVar('showdev');
 		setcookie('morph_developer_toolbar', 'enabled', 0);
-		
+		$MORPH->addStyleSheetAfter($templatepath .'/core/css/devbar.css');
 		$MORPH->cache();
 		//header('Location: ' . $uri->toString());
 	}
