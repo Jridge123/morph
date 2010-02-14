@@ -214,7 +214,7 @@ if($MORPH->debug || $MORPH->developer_toolbar)
 		setcookie('morph_developer_toolbar', 'enabled', 0);
 		
 		$MORPH->cache();
-		header('Location: ' . $uri->toString());
+		//header('Location: ' . $uri->toString());
 	}
 	if(isset($_GET['hide_devbar'])||isset($_GET['hidedev'])){
 		$uri->delVar('hide_devbar');
@@ -222,7 +222,7 @@ if($MORPH->debug || $MORPH->developer_toolbar)
 		$_GET['morph']['developer_toolbar'] = false;
 	
 		$MORPH->cache();
-		setcookie('morph_developer_toolbar', 'disabled', time()-3600);
+		setcookie('morph_developer_toolbar', null, time()-3600);
 		setcookie('debug_modules', null, time()-3600);
 		//header('Location: ' . $uri->toString());
 	}
@@ -322,6 +322,18 @@ if($MORPH->debug || $MORPH->developer_toolbar)
 		
 		$MORPH->cache();
 	}
+} else {
+	$used = array();
+	$vars = array('show_devbar','showdev','hide_devbar','hidedev','json','jsoff','unpack_js','unpackjs','pack_js','packjs','unpack_css','unpackcss','pack_css','packcss','jqueryoff','jqueryon','mootoolsoff','mootoolson','flushcache');
+	foreach($vars as $var)
+	{
+		if(!isset($_GET[$var])) continue;
+		$used[] = $var;
+	}
+	 
+	if($used) JError::raiseNotice(0, '
+	You are trying to use Morph\'s url switches, but you have not enabled the debug mode option in Configurator.
+	You can do so by setting the "<strong>Enable debug mode</strong>" option in the <em>General > Debugging</em> tab of Configurator.');
 }
 
 // include the reusable arrays
@@ -464,7 +476,7 @@ if(  $isiPhone && !$iPhoneCookie  ){
 			// only load if its the wordpress component/wptheme
 			if(JRequest::getVar('option') == 'com_wordpress' && file_exists(JPATH_ROOT.$wp_theme_css)) $MORPH->addStylesheet($wp_theme_css); 
 		}
-		
+
 		if($MORPH->developer_toolbar == 1) { $MORPH->addStyleSheetAfter($templatepath .'/core/css/devbar.css'); }
 		if ( $direction == 'rtl' && file_exists($css_rtl)){ $MORPH->addStyleSheetAfter($themeletpath .'/css/rtl.css'); } elseif ($direction == 'rtl') { $MORPH->addStyleSheetAfter($templatepath .'/core/css/rtl.css'); }
 		if ( file_exists($custom_css_file)){ $MORPH->addStyleSheetAfter($themeletpath .'/css/custom.css'); }
