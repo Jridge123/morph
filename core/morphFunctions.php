@@ -527,9 +527,27 @@ $jj_const = array(
 	)
 );
 
+// This code needs to be reviewed as its preventing the grids class from being set.
+//////////////////////////////////////////////////////////////////////////////////
+//function getYuiSuffix ($moduleName, $jj_const){
+//	$document = JFactory::getDocument();
+//	$moduleCount = method_exists('countModules', $document) ? $document->countModules($moduleName) : 0; 
+//	if(in_array($moduleName, $jj_const['outer_inner_pos'])){
+//		$yuiModuleSuffix = $jj_const["yui_suffix"][$moduleCount];
+//	}else{
+//		if ($moduleCount == 2) {
+//			$yuiModuleSuffix = $jj_const["mod_suffix"][$moduleName];
+//		} else {
+//			$yuiModuleSuffix = $jj_const["yui_suffix"][$moduleCount];
+//		}
+//	}
+//	echo $yuiModuleSuffix;
+//}
+//////////////////////////////////////////////////////////////////////////////////
+
 function getYuiSuffix ($moduleName, $jj_const){
 	$document					= JFactory::getDocument();
-	$moduleCount = method_exists('countModules', $document) ? $document->countModules($moduleName) : 0; 
+	$moduleCount = $document->countModules($moduleName); 
 	if(in_array($moduleName, $jj_const['outer_inner_pos'])){
 		$yuiModuleSuffix = $jj_const["yui_suffix"][$moduleCount];
 	}else{
