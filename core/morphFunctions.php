@@ -163,7 +163,7 @@ if($load_mootools == 0)
 }
 if (isset($document->_scripts[$moo])) {
     unset($document->_scripts[$moo]);
-    $MORPH->addScript($moo);
+    $MORPH->addScript(str_replace(JURI::base(true), '', $moo));
 }
 if (isset($document->_scripts[JURI::base(true).'/media/system/js/caption.js'])) {
     unset($document->_scripts[JURI::base(true).'/media/system/js/caption.js']);
@@ -204,99 +204,124 @@ if(isset($_GET['gzip']) && $_GET['gzip'] == 'on'){
 }
 
 // developer toolbar frontend switch
-$uri = JFactory::getURI();
-if(isset($_GET['show_devbar'])||isset($_GET['showdev'])){
-	$_GET['morph']['developer_toolbar'] = true;
-	$uri->delVar('show_devbar');
-	$uri->delVar('showdev');
-	setcookie('morph_developer_toolbar', 'enabled', 0);
+if($MORPH->debug || $MORPH->developer_toolbar)
+{
+	$uri = JFactory::getURI();
+	if(isset($_GET['show_devbar'])||isset($_GET['showdev'])){
+		$_GET['morph']['developer_toolbar'] = true;
+		$uri->delVar('show_devbar');
+		$uri->delVar('showdev');
+		setcookie('morph_developer_toolbar', 'enabled', 0);
+		
+		$MORPH->cache();
+		header('Location: ' . $uri->toString());
+	}
+	if(isset($_GET['hide_devbar'])||isset($_GET['hidedev'])){
+		$uri->delVar('hide_devbar');
+		$uri->delVar('hidedev');
+		$_GET['morph']['developer_toolbar'] = false;
 	
-	$MORPH->cache();
-	header('Location: ' . $uri->toString());
-}
-if(isset($_GET['hide_devbar'])||isset($_GET['hidedev'])){
-	$uri->delVar('hide_devbar');
-	$uri->delVar('hidedev');
-	$_GET['morph']['developer_toolbar'] = false;
-
-	$MORPH->cache();
-	setcookie('morph_developer_toolbar', 'disabled', time()-3600);
-	setcookie('debug_modules', null, time()-3600);
-	//header('Location: ' . $uri->toString());
-}
-if(isset($_GET['nojs']) && $_GET['nojs'] == 'off'){
-	$_GET['morph']['nojs'] = 0;
-	$MORPH->nojs = 0;
-	$uri->delVar('nojs');
-	setcookie('nojs', null, time()-3600);
-	$MORPH->cache();
-	//header('Location: ' . $uri->toString());
-}
-if(isset($_GET['nojs']) && $_GET['nojs'] != 'off'){
-	$_GET['morph']['nojs'] = 1;
-	$MORPH->nojs = 1;
-	$uri->delVar('nojs');
-	setcookie('nojs', 'enabled', time()-3600);
-	$MORPH->cache();
-	//header('Location: ' . $uri->toString());
-}
-if(isset($_GET['unpack_js'])||isset($_GET['upjs'])){
-	$MORPH->pack_js = false;
-	$uri->delVar('unpack_js');
-	$uri->delVar('upjs');
-	$_GET['morph']['pack_js'] = false;
-	
-	$MORPH->cache();
-	//setcookie('packjs', 'unpack', 0);
-	//header('Location: ' . $uri->toString());
-}
-if(isset($_GET['pack_js'])||isset($_GET['pjs'])){
-	$MORPH->pack_js = true;
-	$uri->delVar('pack_js');
-	$uri->delVar('pjs');
-	$_GET['morph']['pack_js'] = true;
-	
-	$MORPH->cache();
-	//setcookie('packjs', null, time()-3600);
-	//header('Location: ' . $uri->toString());
-}
-if(isset($_GET['unpack_css'])||isset($_GET['upcss'])){
-	$MORPH->pack_css = false;
-	$uri->delVar('unpack_css');
-	$uri->delVar('upcss');
-	$_GET['morph']['pack_css'] = false;
-	
-	$MORPH->cache();
-	//setcookie('packcss', 'unpack', 0);
-	//header('Location: ' . $uri->toString());
-}
-if(isset($_GET['pack_css'])||isset($_GET['pcss'])){
-	$MORPH->pack_css = true;
-	$uri->delVar('pack_css');
-	$uri->delVar('pcss');
-	$_GET['morph']['pack_css'] = true;
-	
-	$MORPH->cache();
-	//setcookie('packcss', null, time()-3600);
-	//header('Location: ' . $uri->toString());
-}
-if(isset($_GET['nojq'])){
-	$MORPH->jquery_core = false;
-	$uri->delVar('nojq');
-	$_GET['morph']['jquery_core'] = false;
-	
-	$MORPH->cache();
-}
-if(isset($_GET['flush'])){
-	$uri->delVar('flush');
-	$_GET['morph']['flush'] = true;
-	
-	jimport('joomla.filesystem.folder');
-	
-	$path = JPATH_CACHE.'/morph';
-	if(JFolder::exists($path)) JFolder::delete($path);
-	
-	$MORPH->cache();
+		$MORPH->cache();
+		setcookie('morph_developer_toolbar', 'disabled', time()-3600);
+		setcookie('debug_modules', null, time()-3600);
+		//header('Location: ' . $uri->toString());
+	}
+	if(isset($_GET['json'])){
+		$_GET['morph']['nojs'] = 0;
+		$MORPH->nojs = 0;
+		$uri->delVar('json');
+		setcookie('nojs', null, time()-3600);
+		$MORPH->cache();
+		//header('Location: ' . $uri->toString());
+	}
+	if(isset($_GET['jsoff'])){
+		$_GET['morph']['nojs'] = 1;
+		$MORPH->nojs = 1;
+		$uri->delVar('jsoff');
+		setcookie('nojs', 'enabled', time()-3600);
+		$MORPH->cache();
+		//header('Location: ' . $uri->toString());
+	}
+	if(isset($_GET['unpack_js'])||isset($_GET['unpackjs'])){
+		$MORPH->pack_js = false;
+		$uri->delVar('unpack_js');
+		$uri->delVar('unpackjs');
+		$_GET['morph']['pack_js'] = false;
+		
+		$MORPH->cache();
+		//setcookie('packjs', 'unpack', 0);
+		//header('Location: ' . $uri->toString());
+	}
+	if(isset($_GET['pack_js'])||isset($_GET['packjs'])){
+		$MORPH->pack_js = true;
+		$uri->delVar('pack_js');
+		$uri->delVar('packjs');
+		$_GET['morph']['pack_js'] = true;
+		
+		$MORPH->cache();
+		//setcookie('packjs', null, time()-3600);
+		//header('Location: ' . $uri->toString());
+	}
+	if(isset($_GET['unpack_css'])||isset($_GET['unpackcss'])){
+		$MORPH->pack_css = false;
+		$uri->delVar('unpack_css');
+		$uri->delVar('unpackcss');
+		$_GET['morph']['pack_css'] = false;
+		
+		$MORPH->cache();
+		//setcookie('packcss', 'unpack', 0);
+		//header('Location: ' . $uri->toString());
+	}
+	if(isset($_GET['pack_css'])||isset($_GET['packcss'])){
+		$MORPH->pack_css = true;
+		$uri->delVar('pack_css');
+		$uri->delVar('packcss');
+		$_GET['morph']['pack_css'] = true;
+		
+		$MORPH->cache();
+		//setcookie('packcss', null, time()-3600);
+		//header('Location: ' . $uri->toString());
+	}
+	if(isset($_GET['jqueryoff'])){
+		$MORPH->jquery_core = false;
+		$uri->delVar('jqueryoff');
+		$_GET['morph']['jquery_core'] = false;
+		
+		$MORPH->cache();
+	}
+	if(isset($_GET['jqueryon'])){
+		$MORPH->jquery_core = true;
+		$uri->delVar('jqueryon');
+		$_GET['morph']['jquery_core'] = true;
+		
+		$MORPH->cache();
+	}
+	if(isset($_GET['mootoolsoff'])){
+		$MORPH->load_mootools = false;
+		$uri->delVar('mootoolsoff');
+		$_GET['morph']['load_mootools'] = false;
+		
+		$MORPH->cache();
+	}
+	if(isset($_GET['mootoolson'])){
+		$MORPH->jquery_core = true;
+		$uri->delVar('mootoolson');
+		$_GET['morph']['load_mootools'] = true;
+		
+		$MORPH->cache();
+	}
+	if(isset($_GET['flushcache'])){
+		$uri->delVar('flushcache');
+		//This is to make morph do the redirect
+		$_GET['morph']['void'] = null;
+		
+		jimport('joomla.filesystem.folder');
+		
+		$path = JPATH_CACHE.'/morph';
+		if(JFolder::exists($path)) JFolder::delete($path);
+		
+		$MORPH->cache();
+	}
 }
 
 // include the reusable arrays
