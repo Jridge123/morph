@@ -229,7 +229,7 @@ global $morph_accordions,$accordionscount,$loadaccordions,$isaccordionsload;
 	}
 
 	if ($countmodules == count($morph_accordions[ $attribs['name'] ] ) ){ $accordionscount++; ?>
-		<div id="accordions<?php echo $accordionscount; ?>"<?php if($accordion_modfx !== ''){ ?>class="<?php echo $accordion_modfx; ?><?php } ?>">
+		<div id="accordions<?php echo $accordionscount; ?>"<?php if($accordion_modfx !== ''){ ?> class="<?php echo $accordion_modfx; ?><?php } ?>">
 			<?php
 			$curr_accordion = 1;
 			$accordions_contents = '';
