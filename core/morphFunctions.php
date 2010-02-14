@@ -322,6 +322,18 @@ if($MORPH->debug || $MORPH->developer_toolbar)
 		
 		$MORPH->cache();
 	}
+} else {
+	$used = array();
+	$vars = array('show_devbar','showdev','hide_devbar','hidedev','json','jsoff','unpack_js','unpackjs','pack_js','packjs','unpack_css','unpackcss','pack_css','packcss','jqueryoff','jqueryon','mootoolsoff','mootoolson','flushcache');
+	foreach($vars as $var)
+	{
+		if(!isset($_GET[$var])) continue;
+		$used[] = $var;
+	}
+	 
+	if($used) JError::raiseNotice(0, '
+	You are trying to use Morph\'s url switches, but you have not enabled the debug mode option in Configurator.
+	You can do so by setting the "<strong>Enable debug mode</strong>" option in the <em>General > Debugging</em> tab of Configurator.');
 }
 
 // include the reusable arrays
