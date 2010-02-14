@@ -263,10 +263,10 @@ jQuery.noConflict();
 			$('#dev-toolbar li.dev-nojs a').click(function(){
 				if($(this).hasClass('dev-nojs-on')){ $.cookie('nojs', 'enabled'); }
 				if($(this).hasClass('dev-nojs-off')){ $.cookie('nojs', null); }
-				$.get('', {'morph[nojs]': 1}, function(){window.location.reload(true);} );
+				$.get('', {'nojs': 1}, function(){window.location.reload(true);} );
 			});
 			$('#dev-toolbar li.dev-close a').click(function(){
-			 	$.get('', {'morph[developer_toolbar]': 0}, function(){window.location.reload(true);} );
+			 	$.get('', {'hidedev': 0}, function(){window.location.reload(true);} );
 			});
 		<?php }?>
 <?php
