@@ -73,7 +73,7 @@ class morphLoader {
 			$overrides = array_merge((array)$app->getUserState('morph'), $overrides);
 			foreach($overrides as $name => $override)
 			{
-				if($name == 'debug') continue;
+				if($name == 'debug' || in_array($name, array('scripts', 'scriptsAfter', 'styleSheets', 'styleSheetsAfter'))) continue;
 				$this->$name = $override;
 			}
 		}
@@ -107,12 +107,11 @@ class morphLoader {
 			
 			foreach($params as $name => $param)
 			{
-				if($name == 'debug') continue;
+				if($name == 'debug' || in_array($name, array('scripts', 'scriptsAfter', 'styleSheets', 'styleSheetsAfter'))) continue;
 				$this->$name = $param;
 			}
 			
 			if(!$this->jquery_core) unset($this->scripts['/templates/morph/core/js/jquery.js']);
-			
 			if(isset($_GET['morph'])){
 				$uri = JFactory::getURI();
 				$uri->delVar('morph');

@@ -214,7 +214,7 @@ if($MORPH->debug || $MORPH->developer_toolbar)
 		setcookie('morph_developer_toolbar', 'enabled', 0);
 		
 		$MORPH->cache();
-		header('Location: ' . $uri->toString());
+		//header('Location: ' . $uri->toString());
 	}
 	if(isset($_GET['hide_devbar'])||isset($_GET['hidedev'])){
 		$uri->delVar('hide_devbar');
@@ -222,7 +222,7 @@ if($MORPH->debug || $MORPH->developer_toolbar)
 		$_GET['morph']['developer_toolbar'] = false;
 	
 		$MORPH->cache();
-		setcookie('morph_developer_toolbar', 'disabled', time()-3600);
+		setcookie('morph_developer_toolbar', null, time()-3600);
 		setcookie('debug_modules', null, time()-3600);
 		//header('Location: ' . $uri->toString());
 	}
@@ -476,7 +476,7 @@ if(  $isiPhone && !$iPhoneCookie  ){
 			// only load if its the wordpress component/wptheme
 			if(JRequest::getVar('option') == 'com_wordpress' && file_exists(JPATH_ROOT.$wp_theme_css)) $MORPH->addStylesheet($wp_theme_css); 
 		}
-		
+
 		if($MORPH->developer_toolbar == 1) { $MORPH->addStyleSheetAfter($templatepath .'/core/css/devbar.css'); }
 		if ( $direction == 'rtl' && file_exists($css_rtl)){ $MORPH->addStyleSheetAfter($themeletpath .'/css/rtl.css'); } elseif ($direction == 'rtl') { $MORPH->addStyleSheetAfter($templatepath .'/core/css/rtl.css'); }
 		if ( file_exists($custom_css_file)){ $MORPH->addStyleSheetAfter($themeletpath .'/css/custom.css'); }
