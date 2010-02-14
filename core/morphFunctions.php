@@ -223,7 +223,7 @@ if($MORPH->debug || $MORPH->developer_toolbar)
 		$_GET['morph']['developer_toolbar'] = false;
 	
 		$MORPH->updateJDocument();
-		setcookie('morph_developer_toolbar', null, time()-3600);
+		setcookie('morph_developer_toolbar', '', time()-3600);
 		setcookie('debug_modules', null, time()-3600);
 		//header('Location: ' . $uri->toString());
 	}
