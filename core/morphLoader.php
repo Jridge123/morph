@@ -102,18 +102,27 @@ class morphLoader {
 			$app = JFactory::getApplication();
 			$params = JRequest::getVar('morph', array(), 'get', 'array');
 			$params = array_merge((array)$app->getUserState('morph'), $params);
+			$backup = array();
+			foreach(array('scripts', 'styleSheets', 'styleSheetsAfter') as $b) $backup[$b] = $this->$b;
 			$params = array_merge((array)$this, $params);
-			$app->setUserState('morph', $params);
+			
 			
 			foreach($params as $name => $param)
 			{
 				if($name == 'debug') continue;
+				//if($name == 'scripts' && !$this->pack_js) continue;
+				//if(in_array($name, array('styleSheets', 'styleSheetsAfter')) && !$this->pack_css) continue;
 				$this->$name = $param;
 			}
+			
 			
 			if(!$this->jquery_core) unset($this->scripts['/templates/morph/core/js/jquery.js']);
 			if(!$this->developer_toolbar) unset($this->styleSheetsAfter['/templates/morph/core/css/devbar.css']);
 			if($this->developer_toolbar) $this->addStyleSheetAfter('/templates/morph/core/css/devbar.css');
+			
+			foreach($backup as $name => $b) $this->$name = $b;
+			
+			$app->setUserState('morph', (array)$this);
 		}
 		
 		jimport('joomla.filesystem.file');
@@ -199,6 +208,7 @@ class morphLoader {
 				}
 				
 				$document->_scripts = array_merge($scriptsBefore, array($renderjs => 'text/javascript'), $document->_scripts);
+				$this->scripts = array();
 			}
 		}
 		
@@ -219,6 +229,8 @@ class morphLoader {
 			{
 				$document->addStyleSheet(JURI::root(1).$css, $args['mime'], $args['media'], $args['attribs']);
 			}
+			$this->styleSheets = array();
+			$this->styleSheetsAfter = array();
 		}
 		$this->cache();
 	}
