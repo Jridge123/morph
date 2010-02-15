@@ -1,6 +1,6 @@
 <?php // no direct access
 defined('_JEXEC') or die('Restricted access'); ?>
-<form action="index.php" method="post" name="form2" class="polls <?php echo $params->get('moduleclass_sfx'); ?>">
+<form action="index.php" method="post" name="form2" class="polls">
 <h4><?php echo $poll->title; ?></h4>
 <ul>
 <?php for ($i = 0, $n = count($options); $i < $n; $i ++) : ?>
