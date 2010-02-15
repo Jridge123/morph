@@ -214,6 +214,11 @@ if($MORPH->debug || $MORPH->developer_toolbar)
 		setcookie('morph_developer_toolbar', 'enabled', 0);
 		$MORPH->addStyleSheetAfter($templatepath .'/core/css/devbar.css');
 		
+		jimport('joomla.filesystem.folder');
+		
+		$path = JPATH_CACHE.'/morph';
+		if(JFolder::exists($path)) JFolder::delete($path);
+		
 		$MORPH->updateJDocument();
 		//header('Location: ' . $uri->toString());
 	}
@@ -221,6 +226,11 @@ if($MORPH->debug || $MORPH->developer_toolbar)
 		$uri->delVar('hide_devbar');
 		$uri->delVar('hidedev');
 		$_GET['morph']['developer_toolbar'] = false;
+		
+		jimport('joomla.filesystem.folder');
+		
+		$path = JPATH_CACHE.'/morph';
+		if(JFolder::exists($path)) JFolder::delete($path);
 	
 		$MORPH->updateJDocument();
 		setcookie('morph_developer_toolbar', '', time()-3600);
