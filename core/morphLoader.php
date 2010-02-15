@@ -115,7 +115,6 @@ class morphLoader {
 				$this->$name = $param;
 			}
 			
-			
 			if(!$this->jquery_core) unset($this->scripts['/templates/morph/core/js/jquery.js']);
 			if(!$this->developer_toolbar) unset($this->styleSheetsAfter['/templates/morph/core/css/devbar.css']);
 			if($this->developer_toolbar) $this->addStyleSheetAfter('/templates/morph/core/css/devbar.css');
