@@ -1403,7 +1403,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="footer_copyright" default="Copyright 2009 JoomlaJunkie.com - All Rights Reserved" type="textarea" cols="32" rows="2" label="Copyright text" tooltip="inline" description="Add your own copyright here" />
+	<param name="footer_copyright" default="Copyright 2010 JoomlaJunkie.com - All Rights Reserved" type="textarea" cols="32" rows="2" label="Copyright text" tooltip="inline" description="Add your own copyright here" />
 	<param name="footer_credits_show" default="1" type="itoggle" label="Display credits" tooltip="inline" description="Would you like the footer credits to be display?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
