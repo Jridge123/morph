@@ -65,14 +65,19 @@ endif; ?>
 	<?php endif; ?>
 
     <?php if ($this->item->params->get('show_readmore') && $this->item->readmore) : ?>
-    <p class="readon"><a href="<?php echo $this->item->readmore_link; ?>" title="<?php echo JText::sprintf($this->item->title); ?>">
-		<?php if ($this->item->readmore_register) :
-			echo JText::_('Register to read more...');
-		elseif ($readmore = $this->item->params->get('readmore')) :
-			echo $readmore;
-		else :
-			echo JText::sprintf('READMORE', '<span>', $this->escape($this->item->title), '</span>');
-		endif; ?></a>
+    <p class="readon">
+    
+    <a href="<?php echo $this->item->readmore_link; ?>" title="<?php echo JText::sprintf($this->item->title); ?>" rel="article-preview" class="preview-link preview-disabled"><?php echo JText::_('Preview'); ?></a>
+
+	<a href="<?php echo $this->item->readmore_link; ?>" title="<?php echo JText::sprintf($this->item->title); ?>">
+	<?php if ($this->item->readmore_register) :
+		echo JText::_('Register to read more...');
+	elseif ($readmore = $this->item->params->get('readmore')) :
+		echo $readmore;
+	else :
+		echo JText::sprintf('READMORE', '<span>', $this->escape($this->item->title), '</span>');
+	endif; ?></a>		
+		
     </p>
     <?php endif; ?>
 

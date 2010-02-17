@@ -72,10 +72,32 @@ jQuery.noConflict();
 			'placeholder' => 'img/grey.gif',
 			'effect' => 'fadeIn'
 		)) ?>);
+		
+		
     	<?php } if ( $this->js->lightbox_enabled == 1 ) { ?>
-        $("a[rel='lightbox']").colorbox();
-		$(".video").colorbox(<?php echo json_encode(array('iframe' => true, 'innerWidth' => 425, 'innerHeight' => 344)) ?>);        
+        
+        	$("a[rel='lightbox']").colorbox();
+			$(".video").colorbox(<?php echo json_encode(array('iframe' => true, 'innerWidth' => 425, 'innerHeight' => 344)) ?>); 
+		
+			<?php if ( $this->js->disable_scrollbar == 1 ) { ?>
+			$().bind('cbox_open', function(){
+			    $('body').css({overflow:'hidden'});
+			}).bind('cbox_closed', function(){
+			    $('body').css({overflow:'auto'});
+			}); 
+			<?php } ?>
+			
+			<?php if ( $this->js->article_preview == 1 ) { ?>
+			$("#primary-content p.readon a.preview-link").removeClass("preview-disabled").addClass("preview-enabled");
+			$("#primary-content a[rel='article-preview']").click(function(){
+			    var url = $(this).attr('href');
+			     $.fn.colorbox({href: url + " div.article-page", width:700, height:600});
+			    return false;
+			});
+			<?php } ?>
+			   
         <?php } ?>
+        
     
     <?php if ( $this->js->shareit_enabled == 1 ) { ?>    		
 	//grab all the anchor tag with rel set to shareit

@@ -551,6 +551,14 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
+	<param name="disable_scrollbar" default="1" type="itoggle" label="Disable browser scrollbar" tooltip="inline" description="Would you like the browser scrollbar disabled when colorbox is open?">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>
+	<param name="article_preview" default="1" type="itoggle" label="Show preview link" tooltip="inline" description="Would you like to enable the article preview link in the blog and frontpage views?">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	</param>	
 </params>
 
 <params group="shareitdata">
