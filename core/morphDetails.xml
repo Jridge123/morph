@@ -558,6 +558,13 @@
 	<param name="article_preview" default="1" type="itoggle" label="Show preview link" tooltip="inline" description="Would you like to enable the article preview link in the blog and frontpage views?">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
+	</param>
+	<param name="colorbox_style" default="style1" type="list" label="Colorbox style" tooltip="inline" description="Would you like to enable the article preview link in the blog and frontpage views?">
+		<option value="style1">Style 1</option>
+		<option value="style2">Style 2</option>
+		<option value="style3">Style 3</option>
+		<option value="style4">Style 4</option>
+		<option value="style5">Style 5</option>
 	</param>	
 </params>
 
