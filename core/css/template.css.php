@@ -66,8 +66,16 @@ top:<?php echo $this->css->slogan_top; ?>;
 left:<?php echo $this->css->slogan_left; ?>;
 z-index:<?php echo $this->css->slogan_stack; ?>;
 }
+<?php } if ( $this->css->preloader_enabled == 1 ) { ?>
+.QOverlay{
+background-color:<?php echo $this->css->preloader_background; ?>;
+z-index: 9999;
+}
+.QLoader{
+background-color:<?php echo $this->css->preloader_foreground; ?>;
+height:<?php echo $this->css->preloader_height; ?>;
+}
 <?php } ?>
-
 a:link,a:visited,a:active{color:<?php echo $this->css->color_links; ?>;}
 a:hover{color:<?php echo $this->css->color_linkshover; ?>;}
 a:visited{color:<?php echo $this->css->color_linksvisited; ?>;}

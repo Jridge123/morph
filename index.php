@@ -88,6 +88,8 @@ if( $isiPhone && !$iPhoneCookie ){
 <?php } 
 if(file_exists($footer_script) && is_readable($footer_script)){
 	 include_once('morph_assets/themelets/'.$themelet.'/script.php');
-} ?>
+} 
+if($preloader_enabled == 1){include_once('core/includes/preloader.php');}	
+?>
 </body>
 </html>
