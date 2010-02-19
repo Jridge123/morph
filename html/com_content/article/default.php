@@ -11,8 +11,10 @@ function curPageURL() {
  } else {
   $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
  }
+ $pageURL = JFilterOutput::ampReplace($pageURL);
  return $pageURL;
 }
+
 ?>
 
 <div class="article-page">
@@ -120,8 +122,7 @@ function curPageURL() {
 		<?php if ( intval($this->article->modified) !=0 && $this->params->get('show_modify_date')) : ?>
 		<p class="modified"><?php echo JText::sprintf('LAST_UPDATED2', JHTML::_('date', $this->article->modified, JText::_('DATE_FORMAT_LC2'))); ?>.</p>
 	    <?php endif; ?>
-		
-
+	
 		<div id="shareit-box">
         	<div id="shareit-header"></div>
         	<div id="shareit-body">
