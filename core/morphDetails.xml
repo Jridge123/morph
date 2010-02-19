@@ -580,7 +580,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="preloader_all" default="1" type="itoggle" label="Enable on all pages" tooltip="inline" description="Should the preloader be enabled on all pages? If you select no, you can enable it on certain pages by adding the footer js via the custom footer script option in the built in editor.">
+	<param name="preloader_all" default="1" type="itoggle" label="Enable on all pages" tooltip="modal" description="preloader.html">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
