@@ -43,6 +43,7 @@ var QueryLoader = {
 	
 	ieLoadFix: function() {
 		var ie = navigator.userAgent.match(/MSIE (\d+(?:\.\d+)+(?:b\d*)?)/);
+		if(!ie) return;
 		if (ie[0].match("MSIE")) {
 			while ((100 / QueryLoader.doneStatus) * QueryLoader.doneNow < 100) {
 				QueryLoader.imgCallback();
@@ -91,7 +92,7 @@ var QueryLoader = {
 			var imgLoad = $("<img></img>");
 			$(imgLoad).attr("src", QueryLoader.items[i]);
 			$(imgLoad).unbind("load");
-			$(imgLoad).bind("load", function() {
+			$(imgLoad).bind("load error", function() {
 				QueryLoader.imgCallback();
 			});
 			$(imgLoad).appendTo($(QueryLoader.preloader));
