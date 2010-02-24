@@ -17,7 +17,7 @@ unpacked url:  url(../cbstyle2/
 #cboxContent{margin-top:32px;}
 #cboxLoadedContent{background:#eee;padding:0;}
 #cboxLoadingGraphic{background:url(templates/morph/core/cbstyle2/loading.gif) center center no-repeat;}
-#cboxLoadingOverlay{background:#eee;}
+#cboxLoadingOverlay{background:#f6f6f6;}
 #cboxTitle{position:absolute; top:-22px; left:0; color:#000;}
 #cboxCurrent{position:absolute; top:-22px; right:205px; text-indent:-9999px;}
 #cboxSlideshow, #cboxPrevious, #cboxNext, #cboxClose{text-indent:-9999px; width:20px; height:20px; position:absolute; top:-20px; background:url(templates/morph/core/cbstyle2/controls.png) 0 0 no-repeat;}
