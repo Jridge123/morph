@@ -471,10 +471,10 @@ if(  $isiPhone && !$iPhoneCookie  ){
 		if ( $simplesocial == 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/simplesocial.css'); }
 		
 		// add css for simple flickr module
-		if($isModFlickr) {		
-		$flickr_css = '/modules/mod_simple_flickr/css/simple_flickr.css';
-		$MORPH->addStylesheet($flickr_css);
-		}
+		$morphflickr_css = $themeletpath .'/css/simpleflickr.css';
+		$defaultflickr_css = '/modules/mod_simpleflickr/css/simpleflickr.css';
+		if(file_exists(JPATH_ROOT.$morphflickr_css)) {$MORPH->addStylesheet($morphflickr_css);}
+		else if ($isModFlickr) {$MORPH->addStylesheet($defaultflickr_css);}
 		
 		if( $lightbox_enabled == 1 ) { $MORPH->addStyleSheet($templatepath .'/core/css/colorbox_'. $colorbox_style .'.css'); }
 		
