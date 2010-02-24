@@ -355,6 +355,7 @@ $iPhoneCookie	= isset($_COOKIE['iPhone']) ? $_COOKIE['iPhone'] == 'normal' : fal
 $isComWP		= (bool)JComponentHelper::isEnabled('com_wordpress', true);
 $isModUtilWP	= JModuleHelper::isEnabled('wordpress_utility');
 $isModWidgWP	= JModuleHelper::isEnabled('wordpress_widgetmod');
+$isModFlickr	= JModuleHelper::isEnabled('simple_flickr');
 
 if ( $isiPhone && !$iPhoneCookie ) {
 //	$document->addScript($templatepath .'/core/js/jquery.js');	
@@ -450,7 +451,7 @@ if(  $isiPhone && !$iPhoneCookie  ){
 //	if ( file_exists($css_iphone)) { $document->addStyleSheet($css_iphone); } else { $document->addStyleSheet($templatepath .'/core/css/jqtouch.css'); }	
 } else {
 	//if (!$pack_css) {
-
+		/* @group yui.css */
 		if ( file_exists($css_yui)) { $MORPH->addStyleSheet($themeletpath .'/css/yui.css'); } else { $MORPH->addStyleSheet($templatepath .'/core/css/yui.css'); }
 		if ( $topnav_count >= 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/topnav-default.css'); }
 		if ( $topfish >= 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/topnav-topfish.css'); }
@@ -468,6 +469,13 @@ if(  $isiPhone && !$iPhoneCookie  ){
 		if ( $simpletweet == 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/simpletweet.css'); }
 		if ( $simplecontact == 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/simplecontact.css'); }
 		if ( $simplesocial == 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/simplesocial.css'); }
+		
+		// add css for simple flickr module
+		if($isModFlickr) {		
+		$flickr_css = '/modules/mod_simple_flickr/css/simple_flickr.css';
+		$MORPH->addStylesheet($flickr_css);
+		}
+		
 		if( $lightbox_enabled == 1 ) { $MORPH->addStyleSheet($templatepath .'/core/css/colorbox_'. $colorbox_style .'.css'); }
 		
 		// add CSS to Morph for WP for Joomla
@@ -488,7 +496,7 @@ if(  $isiPhone && !$iPhoneCookie  ){
 			// only load if its the wordpress component/wptheme
 			if(JRequest::getVar('option') == 'com_wordpress' && file_exists(JPATH_ROOT.$wp_theme_css)) $MORPH->addStylesheet($wp_theme_css); 
 		}
-
+				
 		if($MORPH->developer_toolbar == 1) { $MORPH->addStyleSheetAfter($templatepath .'/core/css/devbar.css'); }
 		if ( $direction == 'rtl' && file_exists($css_rtl)){ $MORPH->addStyleSheetAfter($themeletpath .'/css/rtl.css'); } elseif ($direction == 'rtl') { $MORPH->addStyleSheetAfter($templatepath .'/core/css/rtl.css'); }
 		if ( file_exists($custom_css_file)){ $MORPH->addStyleSheetAfter($themeletpath .'/css/custom.css'); }

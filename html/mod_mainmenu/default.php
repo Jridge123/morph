@@ -32,6 +32,9 @@ function modNewMainMenuXMLCallback(&$node, $args)
 			if ($child->attributes('access') > $user->get('aid', 0)) {
 				$node->removeChild($child);
 			}
+			if ($i == 0) {
+						$child->addAttribute('class', ' first');
+			}
 	    	if($i == count($node->children())-1) {
 	    		$child->addAttribute('class', $node->attributes('class').' last');
 	    	}
