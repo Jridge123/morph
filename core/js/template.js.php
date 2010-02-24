@@ -184,7 +184,7 @@ jQuery.noConflict();
 	    ?>
 		<?php echo implode($equalizers) ?>
 		<?php if ( $this->js->topfish >= 1  ) { ?>
-		$("#nav .menu")<?php if ($this->js->topnav_supersubs == 1 ) { ?>.supersubs({
+		$("#top.primary-nav .menu, #topnav.primary-nav .menu")<?php if ($this->js->topnav_supersubs == 1 ) { ?>.supersubs({
 			minWidth: <?php echo $this->js->topnav_minwidth; ?>,
 		 	maxWidth: <?php echo $this->js->topnav_maxwidth; ?>,
 		 	extraWidth: 1
