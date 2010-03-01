@@ -189,9 +189,9 @@ class morphLoader {
 		$gzip	= $this->gzip_compression ? $uri->setVar('gzip', $this->gzip_compression) : false;
 		
 		$uri->setVar('render', 'js');
-		$renderjs = $uri->toString();
+		$renderjs = JFilterOutput::ampReplace($uri->toString());
 		$uri->setVar('render', 'css');
-		$rendercss = $uri->toString();
+		$rendercss = JFilterOutput::ampReplace($uri->toString());
 
 		$document = JFactory::getDocument();
 		if(!$this->nojs)

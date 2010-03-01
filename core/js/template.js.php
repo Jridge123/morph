@@ -7,11 +7,7 @@
  * and will prevent the most common errors.
  *
  */
-try
-{
-	MooTools;
-}
-catch(err)
+if(typeof MooTools == 'undefined')
 {
 	var $lambda = function(){};
 	window.addEvent = Class = Events = Options = $lambda;

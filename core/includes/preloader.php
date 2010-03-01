@@ -1,5 +1,5 @@
 <?php if ( $preloader_all == 1 ) { ?>
-<script>
+<script type="text/javascript">
  $ = jQuery.noConflict();   
  QueryLoader.selectorPreload = "body";
  QueryLoader.init();

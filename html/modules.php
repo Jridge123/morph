@@ -183,7 +183,7 @@ global $morph_tabs,$tabscount,$loadtabs,$istabsload;
 	}
 	
 	if ($countmodules == count($morph_tabs[ $attribs['name'] ] ) ){ $tabscount++; ?>
-		<div id="tabs<?php echo $tabscount; ?>" class="mod<?php if($tabs_modfx){ echo ' ' . $tabs_modfx; } ?>"
+		<div id="tabs<?php echo $tabscount; ?>" class="mod<?php if($tabs_modfx){ echo ' ' . $tabs_modfx; } ?>">
 			<ul class="ui-tabs-nav">
 			<?php
 			$curr_tab = 1;
