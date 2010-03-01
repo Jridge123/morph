@@ -230,7 +230,7 @@ jQuery.noConflict();
 		} if ( $this->js->accordionscount > 0 ) {  ?>
 		
 		<?php foreach(range(1, $this->js->accordionscount) as $n){ ?>
-		var index<?php echo $n ?> = $.cookie("accordion<?php echo $n ?>"),
+		var index<?php echo $n ?> = $.cookie("accordion<?php echo $n ?>") || 0,
 			active<?php echo $n ?> = (index<?php echo $n ?> !== undefined) ? $("#accordions<?php echo $n ?>").find("h3:eq(" + index<?php echo $n ?> + ")") : false;
 		$("#accordions<?php echo $n ?>").accordion({
 			header: "h3",
