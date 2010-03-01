@@ -355,7 +355,7 @@ $iPhoneCookie	= isset($_COOKIE['iPhone']) ? $_COOKIE['iPhone'] == 'normal' : fal
 $isComWP		= (bool)JComponentHelper::isEnabled('com_wordpress', true);
 $isModUtilWP	= JModuleHelper::isEnabled('wordpress_utility');
 $isModWidgWP	= JModuleHelper::isEnabled('wordpress_widgetmod');
-$isModFlickr	= JModuleHelper::isEnabled('simple_flickr');
+$isModFlickr	= JModuleHelper::isEnabled('simpleflickr');
 
 if ( $isiPhone && !$iPhoneCookie ) {
 //	$document->addScript($templatepath .'/core/js/jquery.js');	
