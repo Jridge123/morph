@@ -184,10 +184,14 @@ class morphLoader {
 	
 	public function updateJDocument()
 	{
-		$cache	= $this->cache ? '&cache='.$this->cachetime : false;
-		$gzip	= $this->gzip_compression ? '&gzip='.$this->gzip_compression : false;
-		$renderjs = JRoute::_('&render=js'.$cache.$gzip);
-		$rendercss = JRoute::_('&render=css'.$cache.$gzip);
+		$uri	= clone JFactory::getURI();
+		$cache	= $this->cache ? $uri->setVar('cache', $this->cachetime) : false;
+		$gzip	= $this->gzip_compression ? $uri->setVar('gzip', $this->gzip_compression) : false;
+		
+		$uri->setVar('render', 'js');
+		$renderjs = $uri->toString();
+		$uri->setVar('render', 'css');
+		$rendercss = $uri->toString();
 
 		$document = JFactory::getDocument();
 		if(!$this->nojs)
