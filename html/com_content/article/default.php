@@ -38,16 +38,10 @@ function curPageURL() {
 	<?php endif; ?>
 	</h1>
 	<?php endif; ?>
-	
-    <!-- created date and author -->
-    <?php if (
-    $this->params->get('show_author') && ($this->article->author != "") ||	
-    $this->params->get('show_create_date') ||	
-    $this->params->get('show_section') ||	
-    $this->params->get('show_category') ||
-    $this->params->get('show_pdf_icon') ||
-    $this->params->get('show_print_icon') || 
-    $this->params->get('show_email_icon'))	{ ?>
+    
+    <?php if ($this->print) :
+    	echo '<span class="print-icon">' . JHTML::_('icon.print_screen', $this->article, $this->params, $this->access) . '</span>';
+    elseif ($this->params->get('show_author') || $this->params->get('show_create_date') || $this->params->get('show_pdf_icon') || $this->params->get('show_print_icon') || $this->params->get('show_email_icon')) : ?>
     <ul class="article-info">		
         <?php if ($this->params->get('show_create_date')) { ?>
         <li class="created"><?php echo JHTML::_('date', $this->article->created, JText::_('%d %b %y')); ?></li>
@@ -66,8 +60,8 @@ function curPageURL() {
     	<?php if ($this->params->get('show_email_icon')) : ?>
     	<li class="icons email"><?php echo articleIcons::email($this->article, $this->params, $this->access); ?></li>
     	<?php endif; ?>
-    </ul>    
-    <?php } ?>	
+    </ul>
+	<?php endif; ?>
 
     <?php if (($this->params->get('show_section') && $this->article->sectionid) || ($this->params->get('show_category') && $this->article->catid)) : ?>
     <p class="filing">
