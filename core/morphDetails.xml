@@ -408,7 +408,7 @@
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
-	<param name="minify_js" default="1" type="itoggle" label="Minify js" tooltip="inline" description="Minifying will remove empty spaces and line returns that'll make the JS less readable, but faster loading. It'll also make it harder to «pirate» your style declarations. Since the minifying process is quite intense, it's recommended that you turn caching on for live sites.">
+	<param name="minify_js" default="1" type="itoggle" label="Minify js" tooltip="inline" description="Minifying will remove empty spaces and line returns that'll make the JS less readable, but faster loading. It'll also make it harder to Â«pirateÂ» your style declarations. Since the minifying process is quite intense, it's recommended that you turn caching on for live sites.">
 		<option value="1">Yes</option>
 		<option value="0">No</option>
 	</param>
