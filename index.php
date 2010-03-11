@@ -24,7 +24,7 @@ if(isset($_COOKIE['firebug']) && $_COOKIE['firebug'] == 'enabled'){
 }
 if ( $google_analytics !== "" ) { ?>
 <script type="text/javascript">
-$.trackPage('<?php echo $google_analytics; ?>')
+jQuery.trackPage('<?php echo $google_analytics; ?>')
 </script>
 <?php } if( $browser->getBrowser() == MBrowser::PLATFORM_IPHONE ) { ?>
 <meta name="viewport" content="width=320" />
