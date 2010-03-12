@@ -172,17 +172,27 @@ global $morph_tabs,$tabscount,$loadtabs,$istabsload;
 	$db->setQuery( $query );
 	$tabs_modfx = $db->loadResult();
 		
-	foreach ($themodules as $mod){
-		if ($mod->content){	
-			$currmod = new stdClass();
-			$currmod->position = $attribs['name'];	
-			$currmod->title = $mod->title;	
-			$currmod->content = $mod->content;
-			$morph_tabs[$attribs['name']][] = $currmod;
+	if(!isset($morph_tabs[$attribs['name']])){	
+		foreach ($themodules as $mod){
+			
+			if(!$mod->content){
+				ob_start();
+				$mod->content = JModuleHelper::renderModule($mod, array('name' => $attribs['name'], 'style' => 'none'));
+			 	ob_end_clean();
+			 }
+		
+			if ($mod->content){	
+				$currmod = new stdClass();
+				$currmod->position = $attribs['name'];	
+				$currmod->title = $mod->title;	
+				$currmod->content = $mod->content;
+				$morph_tabs[$attribs['name']][] = $currmod;
+			}
 		}
-	}
+	//}
 	
-	if ($countmodules == count($morph_tabs[ $attribs['name'] ] ) ){ $tabscount++; ?>
+	//if ($countmodules == count($morph_tabs[ $attribs['name'] ] ) ){
+		$tabscount++; ?>
 		<div id="tabs<?php echo $tabscount; ?>" class="mod<?php if($tabs_modfx){ echo ' ' . $tabs_modfx; } ?>">
 			<ul class="ui-tabs-nav">
 			<?php
@@ -205,7 +215,7 @@ global $morph_tabs,$tabscount,$loadtabs,$istabsload;
 <?php }
 }
 function modChrome_accordion($module, &$params, &$attribs) {
-global $morph_accordions,$accordionscount,$loadaccordions,$isaccordionsload;
+	global $mainframe,$morph_accordions,$accordionscount,$loadaccordions,$isaccordionsload;
 
 	$themodules = JModuleHelper::getModules($module->position);
 	$countmodules = count($themodules);
@@ -217,18 +227,27 @@ global $morph_accordions,$accordionscount,$loadaccordions,$isaccordionsload;
 	$query = "SELECT param_value FROM `#__configurator` WHERE `param_name` = '".$attribs['name']."_modfx';";
 	$db->setQuery( $query );
 	$accordion_modfx = $db->loadResult();
-	
-	foreach ($themodules as $mod){
-		if ($mod->content){	
-			$currmod = new stdClass();
-			$currmod->position = $attribs['name'];
-			$currmod->title = $mod->title;	
-			$currmod->content = $mod->content;
-			$morph_accordions[$attribs['name']][] = $currmod;
-		}
-	}
 
-	if ($countmodules == count($morph_accordions[ $attribs['name'] ] ) ){ $accordionscount++; ?>
+	if(!isset($morph_accordions[$attribs['name']])){
+		foreach ($themodules as $i => $mod){
+			
+			if(!$mod->content){
+				ob_start();
+				$mod->content = JModuleHelper::renderModule($mod, array('name' => $attribs['name'], 'style' => 'none'));
+			 	ob_end_clean();
+			 }
+			if ($mod->content){
+				$currmod = new stdClass();
+				$currmod->position = $attribs['name'];
+				$currmod->title = $mod->title;	
+				$currmod->content = $mod->content;
+				$morph_accordions[$attribs['name']][$mod->id] = $currmod;
+			}
+		}
+//	}
+
+//	if ($countmodules == count($morph_accordions[ $attribs['name'] ] ))){ 
+	$accordionscount++; ?>
 		<div id="accordions<?php echo $accordionscount; ?>" class="mod<?php if($accordion_modfx){ echo ' ' . $accordion_modfx; } ?>">
 			<?php
 			$curr_accordion = 1;
