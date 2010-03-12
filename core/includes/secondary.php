@@ -1,7 +1,7 @@
 <?php if (JDocumentHTML::countModules('outer1 or outer2 or outer3 or outer4 or outer5') || ($this->countMenuChildren()) ){ ?>
 <div class="sidebar yui-b" id="secondary-content">
  <?php if ( $secondary_inner == 1 ) { ?><div class="secondary-inner clearer"><?php } ?>
-    <?php if($this->countMenuChildren()){ ?>
+    <?php if($MORPH->countModules('outersplit')){ ?>
         <jdoc:include type="modules" name="outersplit" style="split" />
     <?php } ?>
     <?php

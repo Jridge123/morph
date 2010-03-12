@@ -249,7 +249,14 @@ class morphLoader {
 		{
 			// odd parts (modules)
 			$name		= strtolower($words[$i]);
-			$words[$i]	= ((isset($document->_buffer['modules'][$name])) && ($document->_buffer['modules'][$name] === false)) ? 0 : count(JModuleHelper::getModules($name));
+			$words[$i]	= 0;
+			
+			if(!isset($document->_buffer['modules'][$name])) 
+			{
+				$modules = JModuleHelper::getModules($name);
+				$result  = $document->getBuffer('modules', $name);
+				$words[$i] += !empty($result);
+			}
 		}
 
 		$str = 'return '.implode(' ', $words).';';

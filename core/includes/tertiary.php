@@ -1,8 +1,8 @@
-<?php if (JDocumentHTML::countModules( 'innersplit or inner1 or inner2 or inner3 or inner4 or inner5' ) > 0) { ?>
+<?php if ($MORPH->countModules( 'innersplit or inner1 or inner2 or inner3 or inner4 or inner5' ) > 0) { ?>
 <div class="sidebar yui-u" id="tertiary-content">
  <?php if ( $tertiary_inner == 1 ) { ?><div class="tertiary-inner clearer"><?php } ?>
     <?php
-    if($this->countMenuChildren() ) sidebar_module($innersplit_chrome, 'innersplit', $jj_const, $innersplit_modfx, $this, $debug_modules, $nojs);
+    if($MORPH->countModules('innersplit')) sidebar_module($innersplit_chrome, 'innersplit', $jj_const, $innersplit_modfx, $this, $debug_modules, $nojs);
     sidebar_module($inner1_chrome, 'inner1', $jj_const, $inner1_modfx, $this, $debug_modules, $nojs);
     sidebar_module($inner2_chrome, 'inner2', $jj_const, $inner2_modfx, $this, $debug_modules, $nojs);
     sidebar_module($inner3_chrome, 'inner3', $jj_const, $inner3_modfx, $this, $debug_modules, $nojs);

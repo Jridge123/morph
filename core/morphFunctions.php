@@ -620,7 +620,7 @@ function getYuiSuffix ($moduleName, $jj_const){
 }
 
 function sidebar_module($chrome, $position, $jj_const, $modfx, $glob, $debug_modules, $nojs){
-	if($glob->countModules($position) > 0){
+	if(morphLoader::countModules($position) > 0){
 		if($chrome === 'basic' or $chrome === 'outline' or $chrome === ''){ 
 			if ($modfx){ ?>
 			<div class="<?php echo $modfx ?>">
