@@ -30,7 +30,7 @@ var QueryLoader = {
 			QueryLoader.getImages(QueryLoader.selectorPreload);
 			QueryLoader.createPreloading();
 		} else {
-			$(document).ready(function() {
+			jQuery(document).ready(function() {
 				QueryLoader.spawnLoader();
 				QueryLoader.getImages(QueryLoader.selectorPreload);
 				QueryLoader.createPreloading();
@@ -57,13 +57,13 @@ var QueryLoader = {
 	},
 	
 	getImages: function(selector) {
-		var everything = $(selector).find("*:not(script)").each(function() {
+		var everything = jQuery(selector).find("*:not(script)").each(function() {
 			var url = "";
 			
-			if ($(this).css("background-image") != "none") {
-				var url = $(this).css("background-image");
-			} else if (typeof($(this).attr("src")) != "undefined" && $(this).attr("tagName").toLowerCase() == "img") {
-				var url = $(this).attr("src");
+			if (jQuery(this).css("background-image") != "none") {
+				var url = jQuery(this).css("background-image");
+			} else if (typeof(jQuery(this).attr("src")) != "undefined" && jQuery(this).attr("tagName").toLowerCase() == "img") {
+				var url = jQuery(this).attr("src");
 			}
 			
 			url = url.replace("url(\"", "");
@@ -78,8 +78,8 @@ var QueryLoader = {
 	},
 	
 	createPreloading: function() {
-		QueryLoader.preloader = $("<div></div>").appendTo(QueryLoader.selectorPreload);
-		$(QueryLoader.preloader).css({
+		QueryLoader.preloader = jQuery("<div></div>").appendTo(QueryLoader.selectorPreload);
+		jQuery(QueryLoader.preloader).css({
 			height: 	"0px",
 			width:		"0px",
 			overflow:	"hidden"
@@ -89,32 +89,32 @@ var QueryLoader = {
 		QueryLoader.doneStatus = length;
 		
 		for (var i = 0; i < length; i++) {
-			var imgLoad = $("<img></img>");
-			$(imgLoad).attr("src", QueryLoader.items[i]);
-			$(imgLoad).unbind("load");
-			$(imgLoad).bind("load error", function() {
+			var imgLoad = jQuery("<img></img>");
+			jQuery(imgLoad).attr("src", QueryLoader.items[i]);
+			jQuery(imgLoad).unbind("load");
+			jQuery(imgLoad).bind("load error", function() {
 				QueryLoader.imgCallback();
 			});
-			$(imgLoad).appendTo($(QueryLoader.preloader));
+			jQuery(imgLoad).appendTo(jQuery(QueryLoader.preloader));
 		}
 	},
 
 	spawnLoader: function() {
 		if (QueryLoader.selectorPreload == "body") {
-			var height = $(window).height();
-			var width = $(window).width();
+			var height = jQuery(window).height();
+			var width = jQuery(window).width();
 			var position = "fixed";
 		} else {
-			var height = $(QueryLoader.selectorPreload).outerHeight();
-			var width = $(QueryLoader.selectorPreload).outerWidth();
+			var height = jQuery(QueryLoader.selectorPreload).outerHeight();
+			var width = jQuery(QueryLoader.selectorPreload).outerWidth();
 			var position = "absolute";
 		}
-		var left = $(QueryLoader.selectorPreload).offset()['left'];
-		var top = $(QueryLoader.selectorPreload).offset()['top'];
+		var left = jQuery(QueryLoader.selectorPreload).offset()['left'];
+		var top = jQuery(QueryLoader.selectorPreload).offset()['top'];
 		
-		QueryLoader.overlay = $("<div></div>").appendTo($(QueryLoader.selectorPreload));
-		$(QueryLoader.overlay).addClass("QOverlay");
-		$(QueryLoader.overlay).css({
+		QueryLoader.overlay = jQuery("<div></div>").appendTo(jQuery(QueryLoader.selectorPreload));
+		jQuery(QueryLoader.overlay).addClass("QOverlay");
+		jQuery(QueryLoader.overlay).css({
 			position: position,
 			top: top,
 			left: left,
@@ -122,10 +122,10 @@ var QueryLoader = {
 			height: height + "px"
 		});
 		
-		QueryLoader.loadBar = $("<div></div>").appendTo($(QueryLoader.overlay));
-		$(QueryLoader.loadBar).addClass("QLoader");
+		QueryLoader.loadBar = jQuery("<div></div>").appendTo(jQuery(QueryLoader.overlay));
+		jQuery(QueryLoader.loadBar).addClass("QLoader");
 		
-		$(QueryLoader.loadBar).css({
+		jQuery(QueryLoader.loadBar).css({
 			position: "relative",
 			top: "50%",
 			width: "0%"
@@ -135,13 +135,13 @@ var QueryLoader = {
 	animateLoader: function() {
 		var perc = (100 / QueryLoader.doneStatus) * QueryLoader.doneNow;
 		if (perc > 99) {
-			$(QueryLoader.loadBar).stop().animate({
+			jQuery(QueryLoader.loadBar).stop().animate({
 				width: perc + "%"
 			}, 500, "linear", function() { 
 				QueryLoader.doneLoad();
 			});
 		} else {
-			$(QueryLoader.loadBar).stop().animate({
+			jQuery(QueryLoader.loadBar).stop().animate({
 				width: perc + "%"
 			}, 500, "linear", function() { });
 		}
@@ -153,18 +153,18 @@ var QueryLoader = {
 		
 		//determine the height of the preloader for the effect
 		if (QueryLoader.selectorPreload == "body") {
-			var height = $(window).height();
+			var height = jQuery(window).height();
 		} else {
-			var height = $(QueryLoader.selectorPreload).outerHeight();
+			var height = jQuery(QueryLoader.selectorPreload).outerHeight();
 		}
 		
 		//The end animation, adjust to your likings
-		$(QueryLoader.loadBar).animate({
+		jQuery(QueryLoader.loadBar).animate({
 			height: height + "px",
 			top: 0
 		}, 500, "linear", function() {
-			$(QueryLoader.overlay).fadeOut(800);
-			$(QueryLoader.preloader).remove();
+			jQuery(QueryLoader.overlay).fadeOut(800);
+			jQuery(QueryLoader.preloader).remove();
 		});
 	}
 }
