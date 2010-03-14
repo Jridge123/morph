@@ -150,8 +150,6 @@ jQuery.noConflict();
 	$('#shareit-field').click(function () {
 		$(this).select();
 	});
-	<?php } else { ?>
-	$('a[rel=shareit]').hide();
 	<?php } ?>
 		
 		
@@ -163,9 +161,7 @@ jQuery.noConflict();
 		
 		<?php if ( $this->js->fontsizer_enabled == 1 ) { ?>
 		fontSize("#fontsizer", "#article", 9, 12, 20);
-		<?php } else { ?>
-		$(".article-page #fontsizer").parent().hide();
-	    <?php } ?>
+		<?php } ?>
 	    <?php 
 	    	$js_equalizers = array('toolbar', 'masthead', 'subhead', 'topnav', 'topshelf', 'bottomshelf', 'bottomshelf2', 'bottomshelf3', 'user1', 'user2', 'inset1', 'inset2', 'inset3', 'inset4', 'outer1-grid', 'outer2-grid', 'outer3-grid', 'outer4-grid', 'outer5-grid', 'inner1-grid', 'inner2-grid', 'inner3-grid', 'inner4-grid', 'inner5-grid', 'footer-grid');
 	    	$equalizers = array();

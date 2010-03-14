@@ -49,8 +49,13 @@ function curPageURL() {
         <?php if (($this->params->get('show_author')) && ($this->article->author != "")) { ?>
     	<li class="author"><?php JText::printf('Written by', ($this->article->created_by_alias ? $this->escape($this->article->created_by_alias) : $this->escape($this->article->author))); ?></li>
         <?php } ?>
+        <?php $morph = Morph::getInstance() ?>
+        <?php if ($morph->shareit_enabled) : ?>
         <li class="share"><a href="<?php echo curPageURL(); ?>" title="<?php echo $this->escape($this->article->title); ?>" rel="shareit"><?php echo JText::_('Share Article'); ?></a></li>
+        <?php endif ?>
+        <?php if ($morph->fontsizer_enabled) : ?>
         <li class="fontsize"><span class="fontsize-label"><?php echo JText::_('Text Size'); ?>: </span><span id="fontsizer"></span></li>
+        <?php endif ?>
     	<?php if ($this->params->get('show_pdf_icon')) : ?>
     	<li class="icons pdf"><?php echo articleIcons::pdf($this->article, $this->params, $this->access); ?></li>
     	<?php endif; ?>

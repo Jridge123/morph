@@ -1,7 +1,9 @@
 <?php
 defined('_JEXEC') or die('Restricted access');
 // initiate morph
-require_once('templates/morph/core/morphLoader.php');
+require_once JPATH_ROOT . '/templates/morph/core/morphLoader.php';
+$MORPH = new Morph( getTemplateName( dirname(__FILE__).'/morphDetails.xml' ) );
+
 require_once('templates/morph/core/morphParams.php');
 require_once('templates/morph/core/browser.php');
 
@@ -620,7 +622,7 @@ function getYuiSuffix ($moduleName, $jj_const){
 }
 
 function sidebar_module($chrome, $position, $jj_const, $modfx, $glob, $debug_modules, $nojs){
-	if(morphLoader::countModules($position) > 0){
+	if(Morph::countModules($position) > 0){
 		if($chrome === 'basic' or $chrome === 'outline' or $chrome === ''){ 
 			if ($modfx){ ?>
 			<div class="<?php echo $modfx ?>">

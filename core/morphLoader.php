@@ -20,7 +20,7 @@ $morph_component_path = JPATH_ADMINISTRATOR.'/components/com_configurator';
 include_once ($morph_component_path . "/configurator.common.php");
 include_once ($morph_component_path . "/configurator.class.php");
 
-class morphLoader {
+class Morph {
 
 	public $scripts = array();
 	public $scriptsAfter = array();
@@ -28,7 +28,7 @@ class morphLoader {
 	public $styleSheets = array();
 	public $styleSheetsAfter = array();
 
-	public function morphLoader( $template = null )
+	public function __construct( $template = 'morph' )
 	{
 		$db = JFactory::getDBO();
 
@@ -86,6 +86,17 @@ class morphLoader {
 			if(JRequest::getCmd('gzip') == 'on') $this->gzip_compression = 1;
 			else if(JRequest::getCmd('nogzip', false, 'COOKIE') == 'off') $this->gzip_compression = 0;
 		}*/
+	}
+	
+	public static function &getInstance($template = 'morph')
+	{
+		static $instances;
+		
+		if (!$instances) $instances = array();
+		
+		if (empty($instances[$template])) $instances[$template] =& new Morph($template);
+		
+		return $instances[$template];
 	}
 	
 	public function cache()
@@ -264,5 +275,3 @@ class morphLoader {
 		return eval($str);
 	}
 }
-
-$MORPH = new morphLoader( getTemplateName( dirname(__FILE__).'/morphDetails.xml' ) );
