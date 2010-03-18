@@ -14,9 +14,10 @@ function curPageURL() {
  $pageURL = JFilterOutput::ampReplace($pageURL);
  return $pageURL;
 }
-
+if($override = Morph::override(__FILE__, $this)) {
+	if(file_exists($override)) include $override;
+} else {
 ?>
-
 <div class="article-page">
 
 	<?php if ($this->params->get('show_page_title', 1) && $this->params->get('page_title') != $this->article->title) : ?>
@@ -144,3 +145,4 @@ function curPageURL() {
 		<?php echo $this->article->event->afterDisplayContent; ?>
 	</div>
 </div>
+<?php } ?>

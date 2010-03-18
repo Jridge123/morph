@@ -25,7 +25,9 @@ function splitname($n){
 	return $html;
 }
 
-
+if($override = Morph::override(__FILE__, $this)) {
+	if(file_exists($override)) include $override;
+} else {
 
 ?>
 <?php if ( ( $this->contact->address || $this->contact->suburb  || $this->contact->state || $this->contact->country || $this->contact->postcode ) ) : ?>
@@ -113,3 +115,4 @@ function splitname($n){
 	
 </div>
 <?php endif; ?>
+<?php } ?>

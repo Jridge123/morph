@@ -18,6 +18,11 @@ foreach ($this->lists['sectioncategories'] as $k=>$items) {
 		echo "sectioncategories[".$i++."] = new Array( '$k','".addslashes( $v->id )."','".addslashes( $v->title )."' );\n\t\t";
 	}
 }
+
+if($override = Morph::override(__FILE__, $this)) {
+	if(file_exists($override)) include $override;
+} else {
+
 ?>
 
 
@@ -124,3 +129,4 @@ function submitbutton(pressbutton) {
 <input type="hidden" name="task" value="" />
 </form>
 <?php echo JHTML::_('behavior.keepalive'); ?>
+<?php } ?>

@@ -22,6 +22,11 @@ include_once ($morph_component_path . "/configurator.class.php");
 
 class Morph {
 
+	protected $_generated_override = '<?php defined( \'_JEXEC\' ) or die( JText::_( \'Restricted access\' ) );
+      if($override = Morph::override(__FILE__, $this)) {
+            if(file_exists($override)) include $override;
+      }';
+
 	public $scripts = array();
 	public $scriptsAfter = array();
 	
@@ -273,5 +278,136 @@ class Morph {
 		$str = 'return '.implode(' ', $words).';';
 
 		return eval($str);
+	}
+	
+	/**
+	 * Function for getting a themelet layout override
+	 *
+	 * Gives themelets the possibility to have html overrides on their own.
+	 *
+	 * @param  $layout	string		Should be the __FILE__ constant.
+	 * @param  $view	object		Should be the $this object available to the layout.
+	 * @return 			boolean		Returns true if the themelet had an override, false if not
+	 */
+	public function override($layout, $view)
+	{
+		$parts		= explode(DS, $layout);
+		foreach(array('file', 'layout', 'extension') as $name) $$name = array_pop($parts);
+		$override = '/html/' . $extension . '/' . $layout . '/' . $file;
+		if($extension == 'html') $override = '/html/' . $layout . '/' . $file;
+		$base 		= self::getThemeletPath();
+		$layout		= $base.$override;
+
+		if(file_exists($layout))
+		{
+			if(method_exists($view, 'addTemplatePath'))
+			{
+				$view->addTemplatePath(dirname($layout));
+				$tpl = str_replace('.php', null, $file);
+				$tpl = explode('_', $tpl);
+
+				if(count($tpl) > 1)
+				{
+					array_shift($tpl);
+					$tpl = implode('_', $tpl);
+				}
+				else
+				{
+					$tpl = null;
+				}
+				echo $view->loadTemplate($tpl);
+				
+				return true;
+			}
+			else
+			{
+				return $layout;
+			}
+		}
+		return false;
+	}
+	
+	/**
+	 * Utility function for creating layout overrides
+	 *
+	 * Makes it possible for a themelet to override a extension layout
+	 * that don't ship with Morph.
+	 *
+	 * @return void
+	 */
+	public function createOverrides()
+	{
+		$morph = self::getInstance();
+		$paths = array('morph' => JPATH_ROOT.'/templates/morph/html', 'themelet' => self::getThemeletPath().'/html');
+		
+		//If the themelet don't have a html folder, then there's no files to create.
+		if(!is_dir($paths['themelet'])) return;
+		
+		jimport('joomla.filesystem.folder');
+		jimport('joomla.filesystem.file');
+		
+		$files = array(
+			'morph'		=> JFolder::files($paths['morph']	, '\.php$', true, true),
+			'themelet'	=> JFolder::files($paths['themelet'], '\.php$', true, true)
+		);
+		foreach($files as $where => $folder)
+		{
+			$files[$where] = array();
+			foreach($folder as $file)
+			{
+				$parts = explode(DS, $file);
+				$count = count($parts);
+				if($parts[$count - 3] != 'html' && $parts[$count - 4] != 'html') continue;
+				$parts = array_reverse(array($parts[--$count], $parts[--$count], $parts[--$count]));
+				if($parts[0] == 'html') array_shift($parts); 
+				$key   = implode(DS, $parts);
+				$files[$where][$key] = $file;
+			}
+		}
+		
+		//Find the dynamically generated overrides
+		$generated = array_filter($files['morph'], array($morph, 'findGeneratedOverrides'));
+		
+		//Find the generated overrides that are no longer in use and delete them.
+		$deprecated = array_diff_key($generated, $files['themelet']);
+		JFile::delete($deprecated);
+		
+		//Find the layouts that only the themelet is overriding that don't already exist in morph
+		$missing = array_diff_key($files['themelet'], $files['morph']);
+		
+		foreach($missing as $relative => $absolute)
+		{
+			JFile::write($paths['morph'].'/'.$relative, $morph->_generated_override);
+		}
+	}
+	
+	/**
+	 * Finds generated override files
+	 *
+	 * @param  string  $file
+	 * @return boolean
+	 */
+	protected function findGeneratedOverrides($file)
+	{
+		$text = self::getInstance()->_generated_override;
+		if(@filesize($file) > strlen($text)) return false;
+		$buffer = JFile::read($file, false, strlen($text));
+
+		return $buffer == $text;
+
+	}
+	
+	/**
+	 * Get the base path for the current themelet, or optionally an specific one.
+	 *
+	 * @param  $themelet	string				Optionally specify the themelet
+	 * @return 				string || boolean	Returns the absolute basepath for a themelet.
+	 *											If the themelet path don't exist, return false.
+	 */
+	public function getThemeletPath($themelet = false)
+	{
+		if(!$themelet) $themelet = self::getInstance()->themelet;
+		$path = JPATH_ROOT.'/morph_assets/themelets/' . $themelet;
+		return is_dir($path) ? $path : false;
 	}
 }
