@@ -213,7 +213,7 @@ class Morph {
 		if(!$this->nojs)
 		{
 		
-			if(!$this->jquery_core) unset($this->scripts['/templates/'.$document->template .'/core/js/jquery.js']);
+			if(!$this->jquery_core) unset($this->scripts['/templates/'.$document->template.'/core/js/jquery.js']);
 			if($this->pack_js)
 			{
 				$document->_scripts = array_merge(array($renderjs => 'text/javascript'), $document->_scripts);
