@@ -4,6 +4,11 @@
  */
 defined( '_JEXEC' ) or die( 'Restricted access' );
 $cparams = JComponentHelper::getParams ('com_media');
+
+if($override = Morph::override(__FILE__, $this)) {
+	if(file_exists($override)) include $override;
+} else {
+
 ?>
 
 <div id="component-contact">
@@ -48,3 +53,4 @@ $cparams = JComponentHelper::getParams ('com_media');
 	    echo $this->loadTemplate('form');
     ?>
 </div>
+<?php } ?>

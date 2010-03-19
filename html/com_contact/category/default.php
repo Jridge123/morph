@@ -4,6 +4,9 @@
  */
 defined( '_JEXEC' ) or die( 'Restricted access' );
 $cparams =& JComponentHelper::getParams('com_media');
+if($override = Morph::override(__FILE__, $this)) {
+	if(file_exists($override)) include $override;
+} else {
 if ( $this->params->get( 'show_page_title', 1 ) ) : ?>
 <h1 class="componentheading clearer">
     <?php echo $this->escape($this->params->get('page_title')); ?>
@@ -92,3 +95,4 @@ if ( $this->params->get( 'show_page_title', 1 ) ) : ?>
     <input type="hidden" name="filter_order_Dir" value="" />
 </form>
 </div>
+<?php } ?>
