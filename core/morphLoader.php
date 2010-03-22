@@ -200,14 +200,26 @@ class Morph {
 	
 	public function updateJDocument()
 	{
-		$uri	= clone JFactory::getURI();
-		$cache	= $this->cache ? $uri->setVar('cache', $this->cachetime) : false;
-		$gzip	= $this->gzip_compression ? $uri->setVar('gzip', $this->gzip_compression) : false;
-		
-		$uri->setVar('render', 'js');
-		$renderjs = JFilterOutput::ampReplace($uri->toString());
-		$uri->setVar('render', 'css');
-		$rendercss = JFilterOutput::ampReplace($uri->toString());
+		if($this->plugin_url == 'juri')
+		{
+			$uri	= clone JFactory::getURI();
+			$cache	= $this->cache ? $uri->setVar('cache', $this->cachetime) : false;
+			$gzip	= $this->gzip_compression ? $uri->setVar('gzip', $this->gzip_compression) : false;
+			
+			$uri->setVar('render', 'js');
+			$renderjs = JFilterOutput::ampReplace($uri->toString());
+			$uri->setVar('render', 'css');
+			$rendercss = JFilterOutput::ampReplace($uri->toString());
+		}
+		//elseif($this->plugin_url == 'juri')
+		else
+		{
+			$cache	= $this->cache ? '&cache='.$this->cachetime : false;
+			$gzip	= $this->gzip_compression ? '&gzip='.$this->gzip_compression : false;
+
+			$rendercss = JRoute::_($cache.$gzip.'&render=js');
+			$rendercss = JRoute::_($cache.$gzip.'&render=css');
+		}
 
 		$document = JFactory::getDocument();
 		if(!$this->nojs)
