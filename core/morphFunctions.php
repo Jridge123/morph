@@ -145,7 +145,11 @@ $foot_override				= $absolutepath.'/html/foot.php';
 $footer_script				= $absolutepath.'/script.php';
 
 $moo = JURI::base(true).'/media/system/js/mootools.js';
-if($load_mootools == 0)
+$option = JRequest::getCmd('option');
+$load_com_mootools = $load_mootools;
+if(property_exists($MORPH, 'load_mootools_'.$option)) $load_com_mootools = $MORPH->{'load_mootools_'.$option};
+
+if($load_mootools == 0 && $load_com_mootools == 0)
 {
     if($user->get('guest') == 1 or $user->usertype == 'Registered')
     {
