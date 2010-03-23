@@ -217,7 +217,7 @@ class Morph {
 			$cache	= $this->cache ? '&cache='.$this->cachetime : false;
 			$gzip	= $this->gzip_compression ? '&gzip='.$this->gzip_compression : false;
 
-			$rendercss = JRoute::_($cache.$gzip.'&render=js');
+			$renderjs = JRoute::_($cache.$gzip.'&render=js');
 			$rendercss = JRoute::_($cache.$gzip.'&render=css');
 		}
 
