@@ -1,6 +1,7 @@
 <?php
 defined('_JEXEC') or die('Restricted access');
 include_once(dirname(__FILE__).'/../icon.php');
+$morph = Morph::getInstance()
 ?>
 
 <?php if ($this->item->params->get('show_title')) : ?>
@@ -67,7 +68,9 @@ endif; ?>
     <?php if ($this->item->params->get('show_readmore') && $this->item->readmore) : ?>
     <p class="readon">
     
-    <a href="<?php echo $this->item->readmore_link; ?>" title="<?php echo JText::sprintf($this->item->title); ?>" rel="article-preview" class="preview-link preview-disabled"><?php echo JText::_('Preview'); ?></a>
+	<?php if ($morph->article_preview) : ?>
+	<a href="<?php echo $this->item->readmore_link; ?>" title="<?php echo JText::sprintf($this->item->title); ?>" rel="article-preview" class="preview-link"><?php echo JText::_('Preview'); ?></a>
+	<?php endif ?>
 
 	<a href="<?php echo $this->item->readmore_link; ?>" title="<?php echo JText::sprintf($this->item->title); ?>">
 	<?php if ($this->item->readmore_register) :
