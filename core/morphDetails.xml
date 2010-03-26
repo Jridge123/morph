@@ -396,11 +396,15 @@
 </params>
 
 <params group="jomsocialdata">
-	<param name="js_enable_toolbar" default="0" type="itoggle" label="Show toolbar menu" tooltip="inline" description="Would you like the JomSocial toolbar menu to be displayed?">
+	<param name="js_enable_toolbar" default="0" type="itoggle" label="Enable the JomSocial menu" tooltip="inline" description="Would you like the JomSocial toolbar menu to be displayed?">
 		<option value="1">On</option>
 		<option value="0">Off</option>
 	</param>
-	<param name="js_enable_sidebar" default="1" type="itoggle" label="Show the Jomsocial sidebar" tooltip="inline" description="Would you like the JomSocial sidebar to be displayed?">
+	<param name="js_enable_header" default="1" type="itoggle" label="Enable the login/register block" tooltip="inline" description="Would you like the JomSocial welcome header to be displayed?">
+		<option value="1">On</option>
+		<option value="0">Off</option>
+	</param>
+	<param name="js_enable_sidebar" default="1" type="itoggle" label="Enable the JomSocial sidebar" tooltip="inline" description="Would you like the JomSocial sidebar to be displayed?">
 		<option value="1">On</option>
 		<option value="0">Off</option>
 	</param>
