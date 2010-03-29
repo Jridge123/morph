@@ -453,7 +453,9 @@ if(isset($_GET['hide_firebug'])){
 // activate rtl for testing
 // $direction = 'rtl';
 if(  $isiPhone && !$iPhoneCookie  ){
-	if ( file_exists($css_iphone)) { $MORPH->addStyleSheet($themeletpath .'/css/iphone.css'); } else { $MORPH->addStyleSheet($templatepath .'/core/css/iphone.css'); }	
+	if ( file_exists($css_iphone)) { $MORPH->addStyleSheet($themeletpath .'/css/iphone.css'); } else { $MORPH->addStyleSheet($templatepath .'/core/css/iphone.css'); }
+	
+	$MORPH->updateJDocument();
 //	if ( file_exists($css_iphone)) { $document->addStyleSheet($css_iphone); } else { $document->addStyleSheet($templatepath .'/core/css/jqtouch.css'); }	
 } else {
 	//if (!$pack_css) {
