@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <morph type="template">
 
 <params>
@@ -394,7 +394,36 @@
 	<param name="iphone_webclip" default="" type="imagelist" tooltip="inline" label="iPhone webclip" description="Select a 57px by 57px image to use for your webclip bookmark. Images uploaded to your morph_assets/iphone directory will automatically appear in this list. This option a work in progress and will hopefully be 100% working in the next release." directory="morph_assets/iphone" hide_none="true" />
 
 </params>
-	
+
+<params group="jomsocialdata">
+	<param name="js_enable_toolbar" default="0" type="itoggle" label="Enable the JomSocial menu" tooltip="inline" description="Would you like the JomSocial toolbar menu to be displayed?">
+		<option value="1">On</option>
+		<option value="0">Off</option>
+	</param>
+	<param name="js_enable_header" default="1" type="itoggle" label="Enable the login/register block" tooltip="inline" description="Would you like the JomSocial welcome header to be displayed?">
+		<option value="1">On</option>
+		<option value="0">Off</option>
+	</param>
+	<param name="js_enable_sidebar" default="1" type="itoggle" label="Enable the JomSocial sidebar" tooltip="inline" description="Would you like the JomSocial sidebar to be displayed?">
+		<option value="1">On</option>
+		<option value="0">Off</option>
+	</param>
+</params>
+<params group="jomsocialboxesdata">
+	<param name="js_box_search" type="text" label="Search box suffix" tooltip="inline" description="" />	
+	<param name="js_box_about" type="text" label="About box suffix" tooltip="inline" description="" />	
+	<param name="js_box_friends" type="text" label="Friends box suffix" tooltip="inline" description="" />	
+	<param name="js_box_members" type="text" label="Members box suffix" tooltip="inline" description="" />	
+	<param name="js_box_videos" type="text" label="Videos box suffix" tooltip="inline" description="" />	
+	<param name="js_box_activity" type="text" label="Activity box suffix" tooltip="inline" description="" />	
+	<param name="js_box_photos" type="text" label="Photos box suffix" tooltip="inline" description="" />	
+	<param name="js_box_whosonline" type="text" label="Whos online box suffix" tooltip="inline" description="" />	
+	<param name="js_box_group_members" type="text" label="Members box suffix" tooltip="inline" description="" />	
+	<param name="js_avatar_preview_large" type="text" label="Avatar large preview" tooltip="inline" description="" />	
+	<param name="js_avatar_preview_small" type="text" label="Avatar small preview" tooltip="inline" description="" />	
+</params>
+
+
 <params group="performancedata">
 	<param name="pack_css" default="1" type="itoggle" label="Enable css packing" tooltip="inline" description="CSS Packing (otherwise refered to as CSS Concatination) refers to the combining of multiple files into a single file. This boosts your sites performance as fewer http requests are needed.">
 		<option value="1">Yes</option>

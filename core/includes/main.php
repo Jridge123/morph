@@ -13,10 +13,7 @@
 						<div class="primary-inner clearer">
 							<?php $position = 'inset2'; include dirname(__FILE__).'/../morphBlockClasses.php'; echo blocks($position, $this, $jj_const, $classes, '', $debug_modules, $nojs); ?>
 							<?php if ((JRequest::getVar( 'view' ) != 'frontpage') && (JDocumentHTML::countModules('breadcrumb'))) { ?>
-								<div id="breadcrumbs">
-									<?php if($pathway_text_show == '1') { ?><span><?php echo $pathway_text ?> </span><?php } ?>
-									<jdoc:include type="modules" name="breadcrumb" />
-								</div>
+								<jdoc:include type="modules" name="breadcrumb" />
 							<?php } ?>
 							<jdoc:include type="message" />
 							<jdoc:include type="component" />

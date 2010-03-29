@@ -1,5 +1,8 @@
 <?php // no direct access
-defined('_JEXEC') or die('Restricted access'); ?>
+defined('_JEXEC') or die('Restricted access');if($override = Morph::override(__FILE__, $this)) {
+	if(file_exists($override)) include $override;
+} else {
+?>
 <form action="index.php" method="post">
 	<div class="search<?php if ( $button == 1 ) { ?> button-active<?php } ?>">
 		<?php
@@ -41,3 +44,4 @@ defined('_JEXEC') or die('Restricted access'); ?>
 	<input type="hidden" name="option" value="com_search" />
 	<input type="hidden" name="Itemid" value=<?php echo $mitemid; ?> />
 </form>
+<?php } ?>
