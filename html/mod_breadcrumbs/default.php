@@ -1,5 +1,9 @@
 <?php // no direct access
-defined('_JEXEC') or die('Restricted access'); ?>
+defined('_JEXEC') or die('Restricted access');
+$morph = Morph::getInstance();
+?>
+<div id="breadcrumbs">
+<?php if($morph->pathway_text_show == '1') { ?><span><?php echo $morph->pathway_text ?> </span><?php } ?>
 <ul class="breadcrumbs pathway">
 <?php for ($i = 0; $i < $count; $i ++) :
 	$linktext = explode(' # ',$list[$i]->name);
@@ -15,3 +19,4 @@ defined('_JEXEC') or die('Restricted access'); ?>
 	}
 endfor; ?>
 </ul>
+</div>
