@@ -418,6 +418,9 @@
 	<param name="js_box_activity" type="text" label="Activity box suffix" tooltip="inline" description="" />	
 	<param name="js_box_photos" type="text" label="Photos box suffix" tooltip="inline" description="" />	
 	<param name="js_box_whosonline" type="text" label="Whos online box suffix" tooltip="inline" description="" />	
+	<param name="js_box_group_members" type="text" label="Members box suffix" tooltip="inline" description="" />	
+	<param name="js_avatar_preview_large" type="text" label="Avatar large preview" tooltip="inline" description="" />	
+	<param name="js_avatar_preview_small" type="text" label="Avatar small preview" tooltip="inline" description="" />	
 </params>
 
 
