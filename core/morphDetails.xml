@@ -1,1500 +1,1501 @@
 <?xml version="1.0" encoding="utf-8"?>
 <morph type="template">
 
-<params>
-	<name>Morph</name>
-	<version>1.10</version>
-	<creationDate>28 May 09</creationDate>
-	<author>JoomlaJunkie</author>
-	<authorEmail>noreply@joomlajunkie.com</authorEmail>
-	<authorUrl>http://www.joomlajunkie.com</authorUrl>
-	<copyright>Copyright (C) 2009 JoomlaJunkie</copyright>
-	<license>Commercial</license>
-	<favicons>yes</favicons>
-	<description />
-</params>
+	<params>
+		<name>Morph</name>
+		<version>1.11</version>
+		<creationDate>28 May 09</creationDate>
+		<author>JoomlaJunkie</author>
+		<authorEmail>noreply@joomlajunkie.com</authorEmail>
+		<authorUrl>http://www.joomlajunkie.com</authorUrl>
+		<copyright>Copyright (C) 2009 JoomlaJunkie</copyright>
+		<license>Commercial</license>
+		<favicons>yes</favicons>
+		<description />
+	</params>
+	
+	<params addpath="/templates/morph/elements">
+		<param type="colorpicker" name="Color Picker Param" default="" />
+		<param type="filelist" name="Filelist Param" default="" />
+		<param type="folderlist" name="Folderlist Param" default="" />
+		<param type="heading" name="Heading Param" default="" />
+		<param type="imagelist" name="Imagelist Param" default="" />
+		<param type="list" name="List Param" default="" />
+		<param type="radio" name="Radio Param" default="" />
+		<param type="itoggle" name="iToggle Param" default="" />
+		<param type="spacer" name="Spacer Param" default="" />
+		<param type="text" name="Text Param" default="" />
+		<param type="textarea" name="Textarea Param" default="" />
+		<param type="themelet" name="Themelet Param" default="" />
+	</params>
+	
+	<params group="generaldata">
+		<param name="themelet" default="light-base" type="themelet" label="Select themelet" directory="morph_assets/themelets" hide_none="false" hide_default="false" tooltip="inline" description="Select which themelet you would like to use. The themelets are stored in your templates assets folder. Use the Installer tab on the right to install new themelets." />
+		<param name="site_width" default="doc4" type="list" label="Site width" tooltip="inline" description="Set your sites page width. The full width 100% option is a bit buggy at the moment - especially with the fixed 200px left and right sidebar layout defaults (ie, your inner and outer layouts).">
+			<option value="doc">750px</option>
+			<option value="doc2">950px</option>
+			<option value="doc4">974px</option>
+			<option value="doc3">100%</option>
+		</param>
+		<param name="global_wrap" default="0" type="itoggle" label="Enable global wrap" tooltip="inline" description="This option if enabled, will wrap the main structural blocks with a global wrapper">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+	    <param name="global_wrap_start" default="" type="list" label="Wrap start position" tooltip="inline" description="Set the position of the global wrap start position (ie, the opening div)">
+	    	<option value="0">Above toolbar</option>
+	    	<option value="1">Above masthead</option>
+	    	<option value="2">Above subhead</option>
+	        <option value="3">Above topnav</option>
+	        <option value="4">Above topshelf</option>
+	        <option value="5">Above main block</option>
+	    </param>	
+	    <param name="global_wrap_end" default="" type="list" label="Wrap end position" tooltip="inline" description="Set the position of the global wrap end position (ie, the closing div)">
+	        <option value="0">Below main block</option>
+	        <option value="1">Below bottomshelf</option>
+	        <option value="2">Below footer</option>
+	    </param>
+		<param name="remove_generator" default="0" type="itoggle" label="Remove Joomla! meta tag" tooltip="inline" description="The Joomla! meta generator is tag that is outputted in your sites xhtml, which will tell anyone who looks at the code that you are using Joomla!. This in most cases is fine, except when it comes to security. Its recommended that you leave this turned off.">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="ie6_upgrade" default="0" type="itoggle" label="Enable ie6 upgrade notice" tooltip="inline" description="This option will display an upgrade notice to anyone visiting your site in Internet Explorer 6. ">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="hide_ie6toolbar" default="0" type="itoggle" label="Disable ie6 image toolbar" tooltip="inline" description="">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="plugin_scrollto" default="1" type="itoggle" label="Display scroll to top link" tooltip="inline" description="This plugin will show a scroll-to-top link when you scroll to the bottom of your page.">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="chrome_frame" default="0" type="itoggle" label="Enable Google Chrome Frame" tooltip="inline" description="This will include the Google Chrome Frame meta tag in the Morph template. If the plugin is not installed on the users browser it will prompt the user to install the plugin on their browser. This is only for Internet Explorer versions 6-8.">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="google_analytics" default="" type="text" label="Google Analytics ID" tooltip="inline" description="Entering your Google Analytics ID will automatically load the needed tracking javascript, just above the closing body tag of your site. We plan on extending this to use any tracking or related javascript in the future, but for now this will have to do :)" />
+	</params>
+	
+	<params group="logodata">		
+		<param name="logo_type" default="0" type="list" label="Logo type" tooltip="inline" description="How would you like your logo to be outputed? A full tutorial explaining each of the options listed here will be added soon.">
+			<option value="0">Linked h1 text</option>
+			<option value="1">Linked h1 image replacement</option>
+			<option value="2">Linked inline image</option>
+			<option value="3">Module position (branding)</option>
+		</param>
+		<param name="logo_image" default="" type="imagelist" tooltip="inline" label="Logo image" directory="morph_assets/logos" hide_none="false" hide_default="false" description="If you haven't already, upload your logo using the Installer tool on the right, then once you have done that, select the logo from the list."  />
+		<param name="logo_autodimensions" default="1" type="itoggle" label="Logo dimensions" tooltip="inline" description="Select whether you would like Configurator to automatically determine your chosen image's dimensions. Using this with the 'Linked inline image' logo option will actually change the dimensions of the logo image, where as with the Linked h1 image replacement, it will just change the width and height of the linked h1 element.">
+			<option value="1">Automatic</option>
+			<option value="0">Manual</option>
+		</param>
+		<param name="logo_width" default="0" type="text" label="Logo width" tooltip="inline" description="Set your logo width" />
+		<param name="logo_height" default="0" type="text" label="Logo height" tooltip="inline" description="Set your logo height" />
+		<param name="display_ie_logo" default="0" type="itoggle" label="Display ie6 logo" tooltip="inline" description="Would you like to alternate logo displayed to Internet Explorer 6? This option is useful when you want to use a transparent png image for all standards compliant browsers and a less smooth transparent logo for ie6, which doesnt handle image transparency.">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="logo_image_ie" default="" type="imagelist" tooltip="inline" label="Logo image for IE6" directory="morph_assets/logos" hide_none="false" hide_default="false" description="We have added the option to have an alternate logo to display in IE6. This is useful if you are using a transparent png for your logo and would like to have a gif displayed for people browsing your site in Internet Explorer 6." />
+		<param name="logo_text" default="" type="text" label="Logo text" tooltip="inline" description="Set your logo text" />
+		<param name="logo_alttext" default="" type="text" label="Logo image alt text" tooltip="inline" description="Set your logo image alt text" />
+		<param name="logo_linktitle" default="" type="text" label="Logo link title text" tooltip="inline" description="Set your logo link title text" />
+		<param name="logo_textcolor" default="#666161" type="colorpicker" label="Logo text color" tooltip="inline" description="Set your logo text foreground color." />
+		<param name="logo_fontsize" default="4em" type="list" label="Logo font size" tooltip="inline" description="Adjust the font size of your custom logo text.">
+		    <option value="1em">1em</option>
+		    <option value="1.1em">1.1em</option>
+		    <option value="1.2em">1.2em</option>
+		    <option value="1.3em">1.3em</option>	
+		    <option value="1.4em">1.4em</option>
+		    <option value="1.5em">1.5em</option>
+		    <option value="1.6em">1.6em</option>	
+		    <option value="1.7em">1.7em</option>
+		    <option value="1.8em">1.8em</option>
+		    <option value="1.9em">1.9em</option>	
+		    <option value="2em">2em</option>
+		    <option value="2.1em">2.1em</option>
+		    <option value="2.2em">2.2em</option>
+		    <option value="2.3em">2.3em</option>
+		    <option value="2.4em">2.4em</option>
+		    <option value="2.5em">2.5em</option>	
+		    <option value="2.6em">2.6em</option>
+		    <option value="2.7em">2.7em</option>
+		    <option value="2.8em">2.8em</option>		    	    
+		    <option value="2.9em">2.9em</option>		    	    
+		    <option value="3em">3em</option>
+		    <option value="3.1em">3.1em</option>
+		    <option value="3.2em">3.2em</option>
+		    <option value="3.3em">3.3em</option>	
+		    <option value="3.4em">3.4em</option>
+		    <option value="3.5em">3.5em</option>
+		    <option value="3.6em">3.6em</option>	
+		    <option value="3.7em">3.7em</option>
+		    <option value="3.8em">3.8em</option>
+		    <option value="3.9em">3.9em</option>	
+		    <option value="4em">4em</option>
+		    <option value="4.1em">4.1em</option>
+		    <option value="4.2em">4.2em</option>
+		    <option value="4.3em">4.3em</option>
+		    <option value="4.4em">4.4em</option>
+		    <option value="4.5em">4.5em</option>	
+		    <option value="4.6em">4.6em</option>
+		    <option value="4.7em">4.7em</option>
+		    <option value="4.8em">4.8em</option>		    	    
+		    <option value="4.9em">4.9em</option>		    	    
+		    <option value="5em">5em</option>
+		</param>    	
+		<param name="logo_fontfamily" default="'Palatino Linotype', 'Book Antiqua', Palatino, serif" type="list" label="Logo font family" tooltip="inline" description="Choose which font family you would like to use.">
+		    <option value=""> </option>
+		    <option value="Arial, Helvetica, sans-serif">Arial</option>
+		    <option value="'Arial Black', Gadget, sans-serif">Arial Black</option>
+		    <option value="Impact, Charcoal, sans-serif">Impact</option>
+		    <option value="'MS Sans Serif', Geneva, sans-serif">MS Sans Serif</option>
+		    <option value="'MS Serif', 'New York', sans-serif">MS Serif</option>
+		    <option value="'Trebuchet MS', Helvetica, sans-serif">Trebuchet MS</option>
+		    <option value="Verdana, Geneva, sans-serif">Verdana</option>
+		    <option value="'Lucida Sans Unicode', 'Lucida Grande', sans-serif">Lucida Sans Unicode</option>
+		    <option value="Tahoma, Geneva, sans-serif">Tahoma</option>
+			<option value="'Bookman Old Style', serif">Bookman Old Style</option>
+			<option value="Garamond, serif">Garamond</option>
+			<option value="Georgia, serif">Georgia</option>
+			<option value="'Palatino Linotype', 'Book Antiqua', Palatino, serif">Palatino Linotype</option>
+			<option value="'Times New Roman', Times, serif">Times New Roman</option>
+		    <option value="Courier, monospace">Courier</option>
+		    <option value="'Courier New', Courier, monospace">Courier New</option>
+		    <option value="'Lucida Console', Monaco, monospace">Lucida Console</option>
+		    <option value="'Comic Sans MS', cursive">Comic Sans MS</option>
+		</param>
+		<param name="logo_top" default="10px" type="text" label="Logo top position" tooltip="inline" description="Set your logos x-coordinate (ie, the number of pixels it should be positioned from the top.  You can set the amount as either pixels, em's or a percentage. For example 10px, 10em or 10%. Please note that no spaces should be used." />
+		<param name="logo_left" default="20px" type="text" label="Logo left position" tooltip="inline" description="Set your logos y-coordinate (ie, the number of pixels it should be positioned from the left.  You can set the amount as either pixels, em's or a percentage. For example 10px, 10em or 10%. Please note that no spaces should be used." />
+		<param name="logo_stack" default="2" type="text" label="Logo stacking order" tooltip="inline" description="Set the stacking order (z-index) of your sites logo." />	
+	
+	</params>
+	
+	<params group="taglinedata">	
+		<param name="display_slogan" default="1" type="itoggle" label="Display tagline" tooltip="inline" description="Would you like to display a slogan.">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="slogan_text" default="Go live faster." type="textarea" rows="1" cols="32" tooltip="inline" label="Tagline text" description="Set the text to use for your sites slogan. This box will automatically expand as needed." />
+		<param name="slogan_textcolor" default="#aba9a9" type="colorpicker" label="Tagline text color" tooltip="inline" description="Set your slogans text foreground color." />
+		<param name="slogan_fontsize" default="1.4em" type="list" label="Tagline font size" tooltip="inline" description="Adjust the font size of your custom slogan text.">
+		    <option value="1em">1em</option>
+		    <option value="1.1em">1.1em</option>
+		    <option value="1.2em">1.2em</option>
+		    <option value="1.3em">1.3em</option>	
+		    <option value="1.4em">1.4em</option>
+		    <option value="1.5em">1.5em</option>
+		    <option value="1.6em">1.6em</option>	
+		    <option value="1.7em">1.7em</option>
+		    <option value="1.8em">1.8em</option>
+		    <option value="1.9em">1.9em</option>	
+		    <option value="2em">2em</option>
+		    <option value="2.1em">2.1em</option>
+		    <option value="2.2em">2.2em</option>
+		    <option value="2.3em">2.3em</option>
+		    <option value="2.4em">2.4em</option>
+		    <option value="2.5em">2.5em</option>	
+		    <option value="2.6em">2.6em</option>
+		    <option value="2.7em">2.7em</option>
+		    <option value="2.8em">2.8em</option>		    	    
+		    <option value="2.9em">2.9em</option>		    	    
+		    <option value="3em">3em</option>
+		    <option value="3.1em">3.1em</option>
+		    <option value="3.2em">3.2em</option>
+		    <option value="3.3em">3.3em</option>	
+		    <option value="3.4em">3.4em</option>
+		    <option value="3.5em">3.5em</option>
+		    <option value="3.6em">3.6em</option>	
+		    <option value="3.7em">3.7em</option>
+		    <option value="3.8em">3.8em</option>
+		    <option value="3.9em">3.9em</option>	
+		    <option value="4em">4em</option>
+		    <option value="4.1em">4.1em</option>
+		    <option value="4.2em">4.2em</option>
+		    <option value="4.3em">4.3em</option>
+		    <option value="4.4em">4.4em</option>
+		    <option value="4.5em">4.5em</option>	
+		    <option value="4.6em">4.6em</option>
+		    <option value="4.7em">4.7em</option>
+		    <option value="4.8em">4.8em</option>		    	    
+		    <option value="4.9em">4.9em</option>		    	    
+		    <option value="5em">5em</option>
+		</param>
+		<param name="slogan_fontfamily" default="'Trebuchet MS', Helvetica, sans-serif" type="list" label="Tagline font family" tooltip="inline" description="Choose which font family you would like to use.">
+		    <option value=""> </option>
+		    <option value="Arial, Helvetica, sans-serif">Arial</option>
+		    <option value="'Arial Black', Gadget, sans-serif">Arial Black</option>
+		    <option value="Impact, Charcoal, sans-serif">Impact</option>
+		    <option value="'MS Sans Serif', Geneva, sans-serif">MS Sans Serif</option>
+		    <option value="'MS Serif', 'New York', sans-serif">MS Serif</option>
+		    <option value="'Trebuchet MS', Helvetica, sans-serif">Trebuchet MS</option>
+		    <option value="Verdana, Geneva, sans-serif">Verdana</option>
+		    <option value="'Lucida Sans Unicode', 'Lucida Grande', sans-serif">Lucida Sans Unicode</option>
+		    <option value="Tahoma, Geneva, sans-serif">Tahoma</option>
+			<option value="'Bookman Old Style', serif">Bookman Old Style</option>
+			<option value="Garamond, serif">Garamond</option>
+			<option value="Georgia, serif">Georgia</option>
+			<option value="'Palatino Linotype', 'Book Antiqua', Palatino, serif">Palatino Linotype</option>
+			<option value="'Times New Roman', Times, serif">Times New Roman</option>
+		    <option value="Courier, monospace">Courier</option>
+		    <option value="'Courier New', Courier, monospace">Courier New</option>
+		    <option value="'Lucida Console', Monaco, monospace">Lucida Console</option>
+		    <option value="'Comic Sans MS', cursive">Comic Sans MS</option>
+		</param>
+		<param name="slogan_top" default="60px" type="text" label="Tagline top position" tooltip="inline" description="Set your slogan's x-coordinate (ie, the number of pixels it should be positioned from the top. You can set the amount as either pixels, em's or a percentage. For example 10px, 10em or 10%. Please note that no spaces should be used." />
+		<param name="slogan_left" default="0px" type="text" label="Tagline left position" tooltip="inline" description="Set your slogan's y-coordinate (ie, the number of pixels it should be positioned from the left. You can set the amount as either pixels, em's or a percentage. For example 10px, 10em or 10%. Please note that no spaces should be used." />
+		<param name="slogan_stack" default="1" type="text" label="Tagline stacking order" tooltip="inline" description="Set the stacking order (z-index) of your sites tagline." />	
+	</params>
+	
+	<params group="htmlbackgroundsdata">
+		<param name="html_bg_color" default="#fff" type="colorpicker" label="Background color" tooltip="inline" description="Setting a color here will adjust your sites background color." />
+		<param name="use_html_bg_image" default="0" type="itoggle" label="Use background image" tooltip="inline" description="Would you like to use a background image?">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="html_bg_image" default="" type="imagelist" tooltip="inline" label="Background image" description="Choose a background to use for your site. The backgrounds are located in your assets / backgrounds folder. You can upload new backgrounds using the Universal Installer tool in the Toolbox tab." directory="morph_assets/backgrounds" hide_none="true" />
+		<param name="html_bg_repeat" default="" type="list" label="Background repeat" tooltip="inline" description="If a background image is set, how should it repeat?" exclude="" stripext="">
+			<option value="no-repeat">None</option>
+			<option value="repeat">Repeat</option>
+			<option value="repeat-x">Repeat Horizontally</option>
+			<option value="repeat-y">Repeat Vertically</option>
+		</param>
+		<param name="html_bg_position" default="" type="list" label="Background position" tooltip="inline" description="Set the backgrounds position">
+			<option value="top left">top left</option>
+			<option value="top center">top center</option>
+			<option value="top right">top right</option>
+			<option value="center left">center left</option>
+			<option value="center center">center center</option>
+			<option value="center right">center right</option>
+			<option value="bottom left">bottom left</option>
+			<option value="bottom center">bottom center</option>
+			<option value="bottom right">bottom right</option>
+		</param>
+		<param name="html_bg_attachment" default="" type="list" tooltip="inline" label="Background attachment" description="Should be the background be fixed or should it scroll">
+			<option value="scroll">Scroll</option>
+			<option value="fixed">Fixed</option>
+		</param>
+	</params>
+	
+	<params group="bodybackgroundsdata">
+		<param name="body_bg_color" default="#fff" type="colorpicker" label="Background color" tooltip="inline" description="Setting a color here will adjust your sites background color." />
+		<param name="use_body_bg_image" default="0" type="itoggle" label="Use background image" tooltip="inline" description="Would you like to use a background image?">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="body_bg_image" default="" type="imagelist" tooltip="inline" label="Background image" description="Choose a background to use for your site. The backgrounds are located in your assets / backgrounds folder. You can upload new backgrounds using the Universal Installer tool in the Toolbox tab." directory="morph_assets/backgrounds" hide_none="true" />
+		<param name="body_bg_repeat" default="" type="list" label="Background repeat" tooltip="inline" description="If a background image is set, how should it repeat?" exclude="" stripext="">
+			<option value="no-repeat">None</option>
+			<option value="repeat">Repeat</option>
+			<option value="repeat-x">Repeat Horizontally</option>
+			<option value="repeat-y">Repeat Vertically</option>
+		</param>
+		<param name="body_bg_position" default="" type="list" label="Background position" tooltip="inline" description="Set the backgrounds position">
+			<option value="top left">top left</option>
+			<option value="top center">top center</option>
+			<option value="top right">top right</option>
+			<option value="center left">center left</option>
+			<option value="center center">center center</option>
+			<option value="center right">center right</option>
+			<option value="bottom left">bottom left</option>
+			<option value="bottom center">bottom center</option>
+			<option value="bottom right">bottom right</option>
+		</param>
+		<param name="body_bg_attachment" default="" type="list" tooltip="inline" label="Background attachment" description="Should be the background be fixed or should it scroll">
+			<option value="scroll">Scroll</option>
+			<option value="fixed">Fixed</option>
+		</param>
+	</params>
+	
+	
+	<params group="colordata">	
+		<param name="color_h1" default="default" type="colorpicker" tooltip="inline" label="Heading 1 color" description="Set the foreground color of your H1 headings." />
+		<param name="color_h2" default="default" type="colorpicker" tooltip="inline" label="Heading 2 color" description="Set the foreground color of your H2 headings." />	
+		<param name="color_h3" default="default" type="colorpicker" tooltip="inline" label="Heading 3 color" description="Set the foreground color of your H3 headings." />
+		<param name="color_h4" default="default" type="colorpicker" tooltip="inline" label="Heading 4 color" description="Set the foreground color of your H4 headings." />
+		<param name="color_h5" default="default" type="colorpicker" tooltip="inline" label="Heading 5 color" description="Set the foreground color of your H5 headings." />	
+		<param name="color_links" default="default" type="colorpicker" tooltip="inline" label="Links color" description="Set the foreground color of your links text." />	
+		<param name="color_linkshover" default="default" type="colorpicker" tooltip="inline" label="Links hover color" description="Set the hover color of your links text." />	
+		<param name="color_linksvisited" default="default" type="colorpicker" tooltip="inline" label="Links visited color" description="Set the visited color of your links text." />	
+		<param name="color_bodytext" default="default" type="colorpicker" tooltip="inline" label="Body text color" description="Set the foreground color of your sites main body text." />	
+	</params>
+	
+	<params group="progressivedata">
+	
+	</params>
+	
+	<params group="menudata">
+		<param name="topnav_hoverintent" default="1" type="itoggle" label="HoverIntent" tooltip="inline" description="HoverIntent is a plug-in that attempts to determine the user's intent... like a crystal ball, only with mouse movement! This generally improves the usability of your Superfish menu.">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="topnav_hoverfocus" default="1" type="itoggle" label="HoverFocus" tooltip="inline" description="HoverFocus is an experimental feature which fades out contents of the topshelf when you hover on to child items of the top navigation. This allows you to focus on the menu items rather than the underlying content. This feature is still a bit buggy.">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="topnav_actionlink" default="0" type="itoggle" label="Call for action link" tooltip="inline" description="A call for action link can be described as the primary action that you would like your visitors to take. This could be a newsletter signup link, registration link, or even a buy now link. All this option is doing is enabling a snippet of extra css that targets the last menu item to give it alternate styling.">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="topnav_supersubs" default="1" type="itoggle" label="Auto width on sub items" tooltip="inline" description="Would you like the sub menu items width to adjust automatically?">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="topnav_minwidth" default="12" type="list" label="Child items min width" tooltip="inline" description="Set the minimum width of child menu items.">
+			<option value="10">10em's</option>
+			<option value="11">11em's</option>
+			<option value="12">12em's</option>
+			<option value="13">13em's</option>
+			<option value="14">14em's</option>
+			<option value="15">15em's</option>
+			<option value="16">16em's</option>
+			<option value="17">17em's</option>
+			<option value="18">18em's</option>
+			<option value="19">19em's</option>
+			<option value="20">20em's</option>
+		</param>
+		<param name="topnav_maxwidth" default="27" type="list" label="Child items max width" tooltip="inline" description="Set the maximum width of child menu items.">
+			<option value="20">20em's</option>
+			<option value="21">21em's</option>
+			<option value="22">22em's</option>
+			<option value="23">23em's</option>
+			<option value="24">24em's</option>
+			<option value="25">25em's</option>
+			<option value="26">26em's</option>
+			<option value="27">27em's</option>
+			<option value="28">28em's</option>
+			<option value="29">29em's</option>
+			<option value="30">30em's</option>
+		</param>
+		<param name="topnav_delay" default="1000" type="list" label="Menu delay" tooltip="inline" description="How many seconds would you like the menu's animation to delay? IE, how long should the menu drop down stay after the user mouses off of it.">
+			<option value="1000">1 Second</option>
+			<option value="2000">2 Seconds</option>
+			<option value="3000">3 Seconds</option>
+			<option value="4000">4 Seconds</option>
+			<option value="5000">5 Seconds</option>
+			<option value="6000">6 Seconds</option>
+			<option value="7000">7 Seconds</option>
+			<option value="8000">8 Seconds</option>
+			<option value="9000">9 Seconds</option>
+			<option value="10000">10 Seconds</option>
+		</param>
+		<param name="topnav_animation" default="normal" type="list" label="Animation speed" tooltip="inline" description="This option sets the speed in which the top navigation animates.">
+			<option value="slow">Slow</option>
+			<option value="normal">Normal</option>
+			<option value="fast">Fast</option>
+		</param>
+	</params>
+	
+	<params group="iphonedata">
+		<param name="iphone_mode" default="1" type="itoggle" label="iPhone compatibility" tooltip="inline" description="Would you like your site to automatically be iPhone compatible?">
+			<option value="1">On</option>
+			<option value="0">Off</option>
+		</param>
+		<param name="iphone_header" default="" type="imagelist" tooltip="inline" label="iPhone header" description="Select a 320px x 50px header image to use on your iPhone optimized site. Images uploaded to your morph_assets/iphone directory will automatically appear in this list." directory="morph_assets/iphone" hide_none="true" />
+		<param name="iphone_webclip" default="" type="imagelist" tooltip="inline" label="iPhone webclip" description="Select a 57px by 57px image to use for your webclip bookmark. Images uploaded to your morph_assets/iphone directory will automatically appear in this list. This option a work in progress and will hopefully be 100% working in the next release." directory="morph_assets/iphone" hide_none="true" />
+	
+	</params>
+	
+	<params group="jomsocialdata">
+		<param name="js_enable_toolbar" default="0" type="itoggle" label="Enable the JomSocial menu" tooltip="inline" description="Would you like the JomSocial toolbar menu to be displayed?">
+			<option value="1">On</option>
+			<option value="0">Off</option>
+		</param>
+		<param name="js_enable_header" default="1" type="itoggle" label="Enable the login/register block" tooltip="inline" description="Would you like the JomSocial welcome header to be displayed?">
+			<option value="1">On</option>
+			<option value="0">Off</option>
+		</param>
+		<param name="js_enable_sidebar" default="1" type="itoggle" label="Enable the JomSocial sidebar" tooltip="inline" description="Would you like the JomSocial sidebar to be displayed?">
+			<option value="1">On</option>
+			<option value="0">Off</option>
+		</param>
+	</params>
+	<params group="jomsocialboxesdata">
+		<param name="js_box_search" type="text" label="Search box suffix" tooltip="inline" description="" />	
+		<param name="js_box_about" type="text" label="About box suffix" tooltip="inline" description="" />	
+		<param name="js_box_friends" type="text" label="Friends box suffix" tooltip="inline" description="" />	
+		<param name="js_box_members" type="text" label="Members box suffix" tooltip="inline" description="" />	
+		<param name="js_box_videos" type="text" label="Videos box suffix" tooltip="inline" description="" />	
+		<param name="js_box_activity" type="text" label="Activity box suffix" tooltip="inline" description="" />	
+		<param name="js_box_photos" type="text" label="Photos box suffix" tooltip="inline" description="" />	
+		<param name="js_box_whosonline" type="text" label="Whos online box suffix" tooltip="inline" description="" />	
+		<param name="js_box_group_members" type="text" label="Members box suffix" tooltip="inline" description="" />	
+		<param name="js_avatar_preview_large" type="text" label="Avatar large preview" tooltip="inline" description="" />	
+		<param name="js_avatar_preview_small" type="text" label="Avatar small preview" tooltip="inline" description="" />	
+	</params>
+	
+	
+	<params group="performancedata">
+		<param name="pack_css" default="1" type="itoggle" label="Enable css packing" tooltip="inline" description="CSS Packing (otherwise refered to as CSS Concatination) refers to the combining of multiple files into a single file. This boosts your sites performance as fewer http requests are needed.">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="minify_css" default="1" type="itoggle" label="Minify css" tooltip="inline" description="Minifying will remove empty spaces and line returns that'll make the CSS less readable, but faster loading. This process is often done manually when a site is completed and the code no longer neads to be readable. Since the minifying process is quite intense, it's recommended that you turn caching on for live sites.">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="pack_js" default="1" type="itoggle" label="Enable js packing" tooltip="inline" description="JS Packing (otherwise refered to as JS Concatination) refers to the combining of multiple files into a single file. This boosts your sites performance as fewer http requests are needed.">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="minify_js" default="1" type="itoggle" label="Minify js" tooltip="inline" description="Minifying will remove empty spaces and line returns that'll make the JS less readable, but faster loading. It'll also make it harder to «pirate» your style declarations. Since the minifying process is quite intense, it's recommended that you turn caching on for live sites.">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="cache" default="1" type="itoggle" label="Enable caching" tooltip="inline" description="Caching the dynamic css and js files will greatly improve performance regarding response time (the 'waiting for response' delay) and loadtimes. Turn on gzip too for the best possible performance.">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="cachetime" default="15" type="text" label="Cache Expire Time" tooltip="inline" description="Configurator will always purge the cache whenever you make an change in Morph's settings. But if you make changes affecting what css and/or js Morph loads outside of the configurator, like if you unpublish the simpletweet module, cache expire time will ensure that the cache refresh to reflect those changes. There's a balance on how quick you want the cache to refresh, and how snappy you want your site to load. We've found 15 minutes to have the most 'Zen' balance to it." />
+		<param name="gzip_compression" default="1" type="itoggle" label="Enable gzip" tooltip="inline" description="Gzip is a form of optimization that causes pages to be compressed before being transmitted from server to browser, making the transmitted data smaller, thus speeding up the delivery.">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="load_mootools" default="0" type="itoggle" label="Enable mootools" tooltip="inline" description="Mootools is a javascript framework that is used mostly in the backend of Joomla! There are a few instances in the frontend where it is needed (which we have taken into account), but in most cases this is not needed and in order to get optimal performance we have completely removed it from the frontend. This saves around 75kb from your sites total weight.">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="load_caption" default="0" type="itoggle" label="Enable caption.js" tooltip="inline" description="Like the Mootools explaination above (hover over the Mootools tooltip), the caption.js is a file that is loaded by default in Joomla! 1.5, irrespective of whether it is actually being used. We have removed this from loading to improve the overall performance of your site.">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="nojs" default="0" type="itoggle" label="Zero javascript mode" tooltip="inline" description="This option will disable all javascript from the loading on the frontend of Morph. There is only one small generic snippet of javascript that is loaded if you view your site in Internet Explorer 6, which is needed to add support for hover on non anchor (link) elements. This option is good for debugging javascript conflicts. Rule of thumb, if the javascript error persists with Morph's javascript disabled, then the problem is not related to Morph.">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+	</params>
+	
+	<params group="debuggingdata">
+		<param name="code_comments" default="0" type="itoggle" label="Enable code comments" tooltip="inline" description="Morph's code comments are currently in their infancy, but will be extensively improved before the stable release. The idea behind them is to make it super easy to find exactly where a section of code is being loaded from. Each comment will wrap around the specific section of code, include the filename in which it resides as well as the line number.">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="error_reporting" default="0" type="itoggle" label="Enable error reporting" tooltip="inline" description="This will enable all php errors and notices to be displayed.">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="jquery_core" default="1" type="itoggle" label="Enable jQuery" tooltip="inline" description="Morph uses jQuery extensively, so this should generally be left enabled. We have added the option to disable more for testing / debugging purposes.">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="debug_modules" default="0" type="itoggle" label="Enable module outlines" tooltip="inline" description="Enabling this option will globally override all module chromes to use the outline chrome option. This is good when you want to see which module positions are being used where.">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="debug" default="0" type="itoggle" label="Enable debug mode" tooltip="inline" description="Debug mode lets you control morph by the url. ">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="remove_outline" default="0" type="itoggle" label="Disable ?tp=1" tooltip="inline" description="This option will disable the ability to view your sites module positions using ?tp=1 appended to the url of your site.">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="plugin_url" default="jroute" type="list" label="CSS/JS render urls" tooltip="inline" description="Choose wether to use JRoute or JURI based on wether you get issues with your SEF extension or not. Using JRoute will allow you to tweak how the links to packed css and js files by custom SEF rules, while JURI is sometimes a more compatible option.">
+			<option value="jroute">JRoute - Core SEF url</option>
+			<option value="juri">JURI - Core non-SEF url</option>
+		</param>
+		<param name="developer_toolbar" default="0" type="itoggle" label="Show Developer Toolbar" tooltip="inline" description="Enabling this option will show a developer toolbar on your website with a list of tools that can be used to help debug your template.">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+	</params>
+	
+	<params group="captifydata">
+		<param name="captions_enabled" default="0" type="itoggle" label="Enable fancy captions" tooltip="inline" description="Would you like to enable the fancy captions plugin?">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="captions_animation" default="slide" type="radio" label="Caption animation" tooltip="inline" description="Choose whether to animate the caption or have it always displayed.">
+			<option value="slide">On</option>
+			<option value="always-on">Off</option>
+		</param>
+		<param name="captions_speedover" default="fast" type="list" label="Mouseover speed" tooltip="inline" description="Set the speed of the mouseover effect">
+			<option value="slow">Slow</option>
+			<option value="normal">Normal</option>
+			<option value="fast">Fast</option>
+		</param>	
+		<param name="captions_speedout" default="normal" type="list" label="Mouseout speed" tooltip="inline" description="Set the speed of the mouseout effect">
+			<option value="slow">Slow</option>
+			<option value="normal">Normal</option>
+			<option value="fast">Fast</option>
+		</param>	
+		<param name="captions_delay" default="500" type="list" label="Mouseout delay" tooltip="inline" description="How long to delay the hiding of the caption after mouseout (in milliseconds)">
+			<option value="100">1 Millisecond</option>
+			<option value="200">2 Milliseconds</option>
+			<option value="300">3 Milliseconds</option>
+			<option value="400">4 Milliseconds</option>
+			<option value="500">5 Milliseconds</option>
+			<option value="600">6 Milliseconds</option>
+			<option value="700">7 Milliseconds</option>
+			<option value="800">8 Milliseconds</option>
+			<option value="900">9 Milliseconds</option>
+			<option value="1000">10 Milliseconds</option>
+		</param>		
+		<param name="captions_opacity" default="0.7" type="list" label="Caption opacity" tooltip="inline" description="Set the opacity of the caption">
+			<option value="0.1">10%</option>
+			<option value="0.2">20%</option>
+			<option value="0.3">30%</option>
+			<option value="0.4">40%</option>
+			<option value="0.5">50%</option>
+			<option value="0.6">60%</option>
+			<option value="0.7">70%</option>
+			<option value="0.8">80%</option>
+			<option value="0.9">90%</option>
+			<option value="1">100%</option>
+		</param>	
+		<param name="captions_position" default="bottom" type="list" label="Caption position" tooltip="inline" description="Set the captions position to top or bottom.">
+			<option value="top">Top</option>
+			<option value="bottom">Bottom</option>
+		</param>
+		<param name="captions_prefix" default="" type="text" label="Caption prefix" tooltip="inline" description="You can optionally set a prefix to use on your captions." />
+		<param name="captions_bgcolor" default="#000" type="colorpicker" tooltip="inline" label="Caption background color" description="Set the captions background color." />
+		<param name="captions_textcolor" default="#fff" type="colorpicker" tooltip="inline" label="Caption text color" description="Set the captions background color." />
+		<param name="captions_bordercolor" default="#202020" type="colorpicker" tooltip="inline" label="Caption border color" description="Set the captions border color." />
+		<param name="captions_borderheight" default="5px" type="list" label="Captions border height" tooltip="inline" description="Set the height of the caption border.">
+			<option value="0px">0px</option>
+			<option value="1px">1px</option>
+			<option value="2px">2px</option>
+			<option value="3px">3px</option>
+			<option value="4px">4px</option>
+			<option value="5px">5px</option>
+			<option value="6px">6px</option>
+			<option value="7px">7px</option>
+			<option value="8px">8px</option>
+			<option value="9px">9px</option>
+			<option value="10px">10px</option>
+		</param>
+	</params>
+	
+	<params group="fontsizerdata">
+		<param name="fontsizer_enabled" default="0" type="itoggle" label="Enable fontsizer on articles" tooltip="inline" description="Would you like to enable the fontsizer plugin?">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+	</params>
+	
+	<params group="lazyloaddata">
+		<param name="lazyload_enabled" default="0" type="itoggle" label="Enable lazyload on images" tooltip="inline" description="Would you like to enable the lazyload image loading plugin?">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+	</params>	
+	
+	<params group="lightboxdata">
+		<param name="lightbox_enabled" default="0" type="itoggle" label="Enable Lightbox" tooltip="inline" description="Would you like to enable the Colorbox Lightbox plugin?">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="disable_scrollbar" default="1" type="itoggle" label="Disable browser scrollbar" tooltip="inline" description="Would you like the browser scrollbar disabled when colorbox is open?">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="article_preview" default="1" type="itoggle" label="Show preview link" tooltip="inline" description="Would you like to enable the article preview link in the blog and frontpage views?">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="colorbox_style" default="style1" type="list" label="Colorbox style" tooltip="inline" description="Would you like to enable the article preview link in the blog and frontpage views?">
+			<option value="style1">Style 1</option>
+			<option value="style2">Style 2</option>
+			<option value="style3">Style 3</option>
+			<option value="style4">Style 4</option>
+			<option value="style5">Style 5</option>
+		</param>	
+	</params>
+	
+	<params group="shareitdata">
+		<param name="shareit_enabled" default="0" type="itoggle" label="Enable shareit on articles" tooltip="inline" description="Would you like to enable the fontsizer plugin?">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+	</params>
+	
+	<params group="preloaderdata">
+		<param name="preloader_enabled" default="1" type="itoggle" label="Enable the preloader" tooltip="inline" description="Would you like to enable the preloader plugin?">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="preloader_all" default="1" type="itoggle" label="Enable on all pages" tooltip="modal" description="preloader.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="preloader_background" default="#172A37" type="colorpicker" label="Preloader background color" tooltip="inline" description="Set the color of the preloader background." />	
+		<param name="preloader_foreground" default="#fff" type="colorpicker" label="Preloader foreground color" tooltip="inline" description="Set the color of the preloader foreground." />	
+		<param name="preloader_height" default="1px" type="list" label="Loading bar height" tooltip="inline" description="Set the height of the loading bar.">
+			<option value="1px">1px</option>
+			<option value="2px">2px</option>
+			<option value="3px">3px</option>
+			<option value="4px">4px</option>
+			<option value="5px">5px</option>
+			<option value="6px">6px</option>
+			<option value="7px">7px</option>
+			<option value="8px">8px</option>
+			<option value="9px">9px</option>
+			<option value="10px">10px</option>
+		</param>	
+	</params>
+	
+	<params group="toolbardata">
+		<param name="toolbar_wrap" default="1" type="itoggle" label="Block wrapping" tooltip="modal" description="blockwrap.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="toolbar_inner" default="0" type="itoggle" label="Block inner" tooltip="modal" description="blockinner.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="toolbar_chrome" default="none" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
+			<option value="none">None</option>
+			<option value="basic">Basic</option>
+			<option value="grid">Grid</option>
+			<option value="tabs">Tabs</option>
+			<option value="accordion">Accordion</option>			
+			<option value="outline">Outline</option>
+		</param>
+		<param name="toolbar_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
+			<option value="1">Wrap heading &amp; content</option>
+			<option value="2">Wrap content only</option>
+			<option value="0">None</option>
+		</param>
+		<param name="toolbar_gridsplit" default="yui-g" type="list" label="Grid split" tooltip="modal" description="gridsplit.html">
+			<option value="yui-g">Default (50/50)</option>
+			<option value="yui-gc">66/33 Split</option>
+			<option value="yui-gd">33/66 Split</option>
+			<option value="yui-ge">75/25 Split</option>
+			<option value="yui-gf">25/75 Split</option>
+		</param>
+		<param name="toolbar_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="toolbar_position" default="0" type="list" label="Toolbar position" tooltip="inline" description="Where would you like the toolbar to be displayed.">
+			<option value="0">Above Master Head</option>
+			<option value="1">Above Sub Head</option>
+			<option value="1">Above Top Shelf</option>
+			<option value="2">Below Top Shelf</option>
+		</param>
+		<param name="toolbar_slider" default="1" type="itoggle" label="Toolbar slider" tooltip="modal" description="slider.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="toolbar_slider_text" default="toggle" type="text" label="Toolbar slider text" tooltip="inline" description="Define the toggle button text. You can either display a single word like toggle, or set different text for each state, for example 'open,close'. Its important that there are no spaces between the two words and that you use a comma to seperate them." />	
+		<param name="toolbar_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />
+		<param name="toolbar_show" default="0" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+	</params>
+	
+	<params group="mastheaddata">
+		<param name="masthead_wrap" default="0" type="itoggle" label="Block wrapping" tooltip="modal" description="blockwrap.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="masthead_inner" default="0" type="itoggle" label="Block inner" tooltip="modal" description="blockinner.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="masthead_height" default="" type="text" label="Masthead height" tooltip="inline" description="Set the height of your Master header block." />	
+		<param name="masthead_chrome" default="none" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
+			<option value="none">None</option>
+			<option value="basic">Basic</option>
+			<option value="grid">Grid</option>
+			<option value="tabs">Tabs</option>
+			<option value="accordion">Accordion</option>			
+			<option value="outline">Outline</option>			
+		</param>
+		<param name="masthead_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
+			<option value="1">Wrap heading &amp; content</option>
+			<option value="2">Wrap content only</option>
+			<option value="0">None</option>
+		</param>
+		<param name="masthead_gridsplit" default="yui-g" type="list" label="Grid split" tooltip="modal" description="gridsplit.html">
+			<option value="yui-g">Default (50/50)</option>
+			<option value="yui-gc">66/33 Split</option>
+			<option value="yui-gd">33/66 Split</option>
+			<option value="yui-ge">75/25 Split</option>
+			<option value="yui-gf">25/75 Split</option>
+		</param>
+		<param name="masthead_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="masthead_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
+		<param name="display_skipto" default="1" type="itoggle" label="Display skip to menu" tooltip="inline" description="Would you like to display a skip to content menu?">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="masthead_show" default="0" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+	</params>
+	
+	<params group="subheaddata">
+		<param name="subhead_wrap" default="0" type="itoggle" label="Block wrapping" tooltip="modal" description="blockwrap.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="subhead_inner" default="0" type="itoggle" label="Block inner" tooltip="modal" description="blockinner.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="subhead_chrome" default="none" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
+			<option value="none">None</option>
+			<option value="basic">Basic</option>
+			<option value="grid">Grid</option>
+			<option value="tabs">Tabs</option>
+			<option value="accordion">Accordion</option>			
+			<option value="outline">Outline</option>			
+		</param>
+		<param name="subhead_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
+			<option value="1">Wrap heading &amp; content</option>
+			<option value="2">Wrap content only</option>
+			<option value="0">None</option>
+		</param>
+		<param name="subhead_gridsplit" default="yui-g" type="list" label="Grid split" tooltip="modal" description="gridsplit.html">
+			<option value="yui-g">Default (50/50)</option>
+			<option value="yui-gc">66/33 Split</option>
+			<option value="yui-gd">33/66 Split</option>
+			<option value="yui-ge">75/25 Split</option>
+			<option value="yui-gf">25/75 Split</option>
+		</param>
+		<param name="subhead_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="subhead_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
+		<param name="subhead_show" default="0" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+	</params>
+	
+	<params group="topnavdata">
+		<param name="topnav_wrap" default="0" type="itoggle" label="Block wrapping" tooltip="modal" description="blockwrap.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="topnav_inner" default="0" type="itoggle" label="Block inner" tooltip="modal" description="blockinner.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="topnav_chrome" default="none" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
+			<option value="none">None</option>
+			<option value="basic">Basic</option>
+			<option value="grid">Grid</option>
+			<option value="tabs">Tabs</option>
+			<option value="accordion">Accordion</option>			
+			<option value="outline">Outline</option>			
+		</param>
+		<param name="topnav_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
+			<option value="1">Wrap heading &amp; content</option>
+			<option value="2">Wrap content only</option>
+			<option value="0">None</option>
+		</param>
+		<param name="topnav_gridsplit" default="yui-g" type="list" label="Grid split" tooltip="modal" description="gridsplit.html">
+			<option value="yui-g">Default (50/50)</option>
+			<option value="yui-gc">66/33 Split</option>
+			<option value="yui-gd">33/66 Split</option>
+			<option value="yui-ge">75/25 Split</option>
+			<option value="yui-gf">25/75 Split</option>
+		</param>
+		<param name="topnav_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="topnav_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
+		<param name="topnav_position" default="2" type="list" label="Top menu position" tooltip="inline" description="Where would you like the top menu to be displayed.">
+			<option value="0">Above Master Head</option>
+			<option value="1">Above Sub Head</option>
+			<option value="2">Above Top Shelf</option>
+			<option value="3">Below Top Shelf</option>
+		</param>
+		<param name="topnav_show" default="0" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+	</params>
+	
+	<params group="topshelfdata">
+		<param name="topshelf_wrap" default="1" type="itoggle" label="Block wrapping" tooltip="modal" description="blockwrap.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="topshelf_inner" default="1" type="itoggle" label="Topshelf inner" tooltip="modal" description="blockinner.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="topshelf_chrome" default="grid" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
+			<option value="none">None</option>
+			<option value="basic">Basic</option>
+			<option value="grid">Grid</option>
+			<option value="tabs">Tabs</option>
+			<option value="accordion">Accordion</option>			
+			<option value="outline">Outline</option>		
+		</param>
+		<param name="topshelf_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
+			<option value="1">Wrap heading &amp; content</option>
+			<option value="2">Wrap content only</option>
+			<option value="0">None</option>
+		</param>
+		<param name="topshelf_gridsplit" default="yui-g" type="list" label="Grid split" tooltip="modal" description="gridsplit.html">
+			<option value="yui-g">Default (50/50)</option>
+			<option value="yui-gc">66/33 Split</option>
+			<option value="yui-gd">33/66 Split</option>
+			<option value="yui-ge">75/25 Split</option>
+			<option value="yui-gf">25/75 Split</option>
+		</param>
+		<param name="topshelf_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="topshelf_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />
+		<param name="topshelf_slider" default="0" type="itoggle" label="Topshelf slider" tooltip="modal" description="slider.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="topshelf_slider_text" default="toggle" type="text" tooltip="inline" label="Topshelf Slider Text" description="toggletext.html" />
+		<param name="topshelf_show" default="0" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+	</params>
+	
+	<params group="bottomshelfdata">	
+		<param name="bottomshelf_wrap" default="0" type="itoggle" label="Block wrapping" tooltip="modal" description="blockwrap.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="bottomshelf_inner" default="1" type="itoggle" label="Block inner" tooltip="modal" description="blockinner.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="bottomshelf_chrome" default="grid" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
+			<option value="none">None</option>
+			<option value="basic">Basic</option>
+			<option value="grid">Grid</option>
+			<option value="tabs">Tabs</option>
+			<option value="accordion">Accordion</option>			
+			<option value="outline">Outline</option>
+		</param>
+		<param name="bottomshelf_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
+			<option value="1">Wrap heading &amp; content</option>
+			<option value="2">Wrap content only</option>
+			<option value="0">None</option>
+		</param>
+		<param name="bottomshelf_gridsplit" default="yui-g" type="list" label="Grid split" tooltip="modal" description="gridsplit.html">
+			<option value="yui-g">Default (50/50)</option>
+			<option value="yui-gc">66/33 Split</option>
+			<option value="yui-gd">33/66 Split</option>
+			<option value="yui-ge">75/25 Split</option>
+			<option value="yui-gf">25/75 Split</option>
+		</param>
+		<param name="bottomshelf_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="bottomshelf_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
+		<param name="bottomshelf_slider" default="0" type="itoggle" label="Topbar slider" tooltip="modal" description="slider.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="bottomshelf_slider_text" default="toggle" type="text" label="Bottomshelf slider text" tooltip="inline" description="toggletext.html" />
+		<param name="bottomshelf_show" default="0" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+	</params>
+	
+	<params group="bottomshelf2data">	
+		<param name="bottomshelf2_wrap" default="0" type="itoggle" label="Block wrapping" tooltip="modal" description="blockwrap.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="bottomshelf2_inner" default="1" type="itoggle" label="Block inner" tooltip="modal" description="blockinner.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="bottomshelf2_chrome" default="grid" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
+			<option value="none">None</option>
+			<option value="basic">Basic</option>
+			<option value="grid">Grid</option>
+			<option value="tabs">Tabs</option>
+			<option value="accordion">Accordion</option>			
+			<option value="outline">Outline</option>
+		</param>
+		<param name="bottomshelf2_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
+			<option value="1">Wrap heading &amp; content</option>
+			<option value="2">Wrap content only</option>
+			<option value="0">None</option>
+		</param>
+		<param name="bottomshelf2_gridsplit" default="yui-g" type="list" label="Grid split" tooltip="modal" description="gridsplit.html">
+			<option value="yui-g">Default (50/50)</option>
+			<option value="yui-gc">66/33 Split</option>
+			<option value="yui-gd">33/66 Split</option>
+			<option value="yui-ge">75/25 Split</option>
+			<option value="yui-gf">25/75 Split</option>
+		</param>
+		<param name="bottomshelf2_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="bottomshelf2_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
+		<param name="bottomshelf2_slider" default="0" type="itoggle" label="Topbar slider" tooltip="modal" description="slider.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="bottomshelf2_slider_text" default="toggle" type="text" label="Bottomshelf slider text" tooltip="inline" description="toggletext.html" />
+		<param name="bottomshelf2_show" default="1" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+	</params>
+	
+	<params group="bottomshelf3data">	
+		<param name="bottomshelf3_wrap" default="0" type="itoggle" label="Block wrapping" tooltip="modal" description="blockwrap.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="bottomshelf3_inner" default="1" type="itoggle" label="Block inner" tooltip="modal" description="blockinner.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="bottomshelf3_chrome" default="grid" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
+			<option value="none">None</option>
+			<option value="basic">Basic</option>
+			<option value="grid">Grid</option>
+			<option value="tabs">Tabs</option>
+			<option value="accordion">Accordion</option>			
+			<option value="outline">Outline</option>
+		</param>
+		<param name="bottomshelf3_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
+			<option value="1">Wrap heading &amp; content</option>
+			<option value="2">Wrap content only</option>
+			<option value="0">None</option>
+		</param>
+		<param name="bottomshelf3_gridsplit" default="yui-g" type="list" label="Grid split" tooltip="modal" description="gridsplit.html">
+			<option value="yui-g">Default (50/50)</option>
+			<option value="yui-gc">66/33 Split</option>
+			<option value="yui-gd">33/66 Split</option>
+			<option value="yui-ge">75/25 Split</option>
+			<option value="yui-gf">25/75 Split</option>
+		</param>
+		<param name="bottomshelf3_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="bottomshelf3_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
+		<param name="bottomshelf3_slider" default="0" type="itoggle" label="Topbar slider" tooltip="modal" description="slider.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="bottomshelf3_slider_text" default="toggle" type="text" label="Bottomshelf slider text" tooltip="inline" description="toggletext.html" />
+		<param name="bottomshelf3_show" default="1" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+	</params>
+	
+	<params group="user1data">	
+		<param name="user1_inner" default="0" type="itoggle" label="Block inner" tooltip="modal" description="blockinner.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="user1_chrome" default="grid" type="list" label="User1 chrome" tooltip="modal" description="chromefx.html">
+			<option value="none">None</option>
+			<option value="basic">Basic</option>
+			<option value="grid">Grid</option>
+			<option value="tabs">Tabs</option>
+			<option value="accordion">Accordion</option>			
+			<option value="outline">Outline</option>
+		</param>
+		<param name="user1_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
+			<option value="1">Wrap heading &amp; content</option>
+			<option value="2">Wrap content only</option>
+			<option value="0">None</option>
+		</param>
+		<param name="user1_gridsplit" default="yui-g" type="list" label="Grid split" tooltip="modal" description="gridsplit.html">
+			<option value="yui-g">Default (50/50)</option>
+			<option value="yui-gc">66/33 Split</option>
+			<option value="yui-gd">33/66 Split</option>
+			<option value="yui-ge">75/25 Split</option>
+			<option value="yui-gf">25/75 Split</option>
+		</param>
+		<param name="user1_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="user1_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
+		<param name="user1_show" default="0" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+	</params>
+	
+	<params group="user2data">
+		<param name="user2_inner" default="1" type="itoggle" label="Block inner" tooltip="modal" description="blockinner.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="user2_chrome" default="grid" type="list" label="User2 chrome" tooltip="modal" description="chromefx.html">
+			<option value="none">None</option>
+			<option value="basic">Basic</option>
+			<option value="grid">Grid</option>
+			<option value="tabs">Tabs</option>
+			<option value="accordion">Accordion</option>			
+			<option value="outline">Outline</option>
+		</param>
+		<param name="user2_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
+			<option value="1">Wrap heading &amp; content</option>
+			<option value="2">Wrap content only</option>
+			<option value="0">None</option>
+		</param>
+		<param name="user2_gridsplit" default="yui-g" type="list" label="Grid split" tooltip="modal" description="gridsplit.html">
+			<option value="yui-g">Default (50/50)</option>
+			<option value="yui-gc">66/33 Split</option>
+			<option value="yui-gd">33/66 Split</option>
+			<option value="yui-ge">75/25 Split</option>
+			<option value="yui-gf">25/75 Split</option>
+		</param>
+		<param name="user2_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="user2_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
+		<param name="user2_show" default="0" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+	</params>
+	
+	<params group="inset1data">
+		<param name="inset1_chrome" default="basic" type="list" label="Inset1 chrome" tooltip="modal" description="chromefx.html">
+			<option value="none">None</option>
+			<option value="basic">Basic</option>
+			<option value="grid">Grid</option>
+			<option value="tabs">Tabs</option>
+			<option value="accordion">Accordion</option>			
+			<option value="outline">Outline</option>
+		</param>
+		<param name="inset1_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
+			<option value="1">Wrap heading &amp; content</option>
+			<option value="2">Wrap content only</option>
+			<option value="0">None</option>
+		</param>
+		<param name="inset1_gridsplit" default="yui-g" type="list" label="Grid split" tooltip="modal" description="gridsplit.html">
+			<option value="yui-g">Default (50/50)</option>
+			<option value="yui-gc">66/33 Split</option>
+			<option value="yui-gd">33/66 Split</option>
+			<option value="yui-ge">75/25 Split</option>
+			<option value="yui-gf">25/75 Split</option>
+		</param>
+		<param name="inset1_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="inset1_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
+	</params>
+	
+	<params group="inset2data">	
+		<param name="inset2_chrome" default="basic" type="list" label="Inset2 chrome" tooltip="modal" description="chromefx.html">
+			<option value="none">None</option>
+			<option value="basic">Basic</option>
+			<option value="grid">Grid</option>
+			<option value="tabs">Tabs</option>
+			<option value="accordion">Accordion</option>			
+			<option value="outline">Outline</option>
+		</param>
+		<param name="inset2_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
+			<option value="1">Wrap heading &amp; content</option>
+			<option value="2">Wrap content only</option>
+			<option value="0">None</option>
+		</param>
+		<param name="inset2_gridsplit" default="yui-g" type="list" label="Grid split" tooltip="modal" description="gridsplit.html">
+			<option value="yui-g">Default (50/50)</option>
+			<option value="yui-gc">66/33 Split</option>
+			<option value="yui-gd">33/66 Split</option>
+			<option value="yui-ge">75/25 Split</option>
+			<option value="yui-gf">25/75 Split</option>
+		</param>
+		<param name="inset2_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="inset2_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
+	</params>
+	
+	<params group="inset3data">	
+		<param name="inset3_chrome" default="basic" type="list" label="Inset3 chrome" tooltip="modal" description="chromefx.html">
+			<option value="none">None</option>
+			<option value="basic">Basic</option>
+			<option value="grid">Grid</option>
+			<option value="tabs">Tabs</option>
+			<option value="accordion">Accordion</option>			
+			<option value="outline">Outline</option>
+		</param>
+		<param name="inset3_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
+			<option value="1">Wrap heading &amp; content</option>
+			<option value="2">Wrap content only</option>
+			<option value="0">None</option>
+		</param>
+		<param name="inset3_gridsplit" default="yui-g" type="list" label="Grid split" tooltip="modal" description="gridsplit.html">
+			<option value="yui-g">Default (50/50)</option>
+			<option value="yui-gc">66/33 Split</option>
+			<option value="yui-gd">33/66 Split</option>
+			<option value="yui-ge">75/25 Split</option>
+			<option value="yui-gf">25/75 Split</option>
+		</param>
+		<param name="inset3_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="inset3_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
+	</params>
+	
+	<params group="inset4data">		
+		<param name="inset4_chrome" default="basic" type="list" label="Inset4 chrome" tooltip="modal" description="chromefx.html">
+			<option value="none">None</option>
+			<option value="basic">Basic</option>
+			<option value="grid">Grid</option>
+			<option value="tabs">Tabs</option>
+			<option value="accordion">Accordion</option>			
+			<option value="outline">Outline</option>
+		</param>
+		<param name="inset4_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
+			<option value="1">Wrap heading &amp; content</option>
+			<option value="2">Wrap content only</option>
+			<option value="0">None</option>
+		</param>
+		<param name="inset4_gridsplit" default="yui-g" type="list" label="Grid split" tooltip="modal" description="gridsplit.html">
+			<option value="yui-g">Default (50/50)</option>
+			<option value="yui-gc">66/33 Split</option>
+			<option value="yui-gd">33/66 Split</option>
+			<option value="yui-ge">75/25 Split</option>
+			<option value="yui-gf">25/75 Split</option>
+		</param>
+		<param name="inset4_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="inset4_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
+	</params>
+	
+	<params group="maindata">	
+		<param name="main_wrap" default="0" type="itoggle" label="Block wrapping" tooltip="modal" description="blockwrap.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="main_inner" default="1" type="itoggle" label="Block inner" tooltip="modal" description="blockinner.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="pathway_text_show" default="1" type="itoggle" label="Enable pathway pre-text" tooltip="inline" description="This option lets you choose whether or not to display the text before the pathway module, eg: You are here">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="pathway_text" default="You are here:" type="textarea" cols="32" rows="1" tooltip="inline" label="Pathway pre-text" description="Would you like the pathway text to be displayed? This will not impact the actual pathway module itself." />		
+	</params>
+	
+	<params group="outersidebardata">	
+		<param name="outer_default" default="yui-t6" type="list" label="Outer layout default" tooltip="modal" description="outerlayout.html">
+			<option value="yui-t1">160px Left</option>
+			<option value="yui-t2">180px Left</option>
+			<option value="yui-t8">200px Left</option>
+			<option value="yui-t3">300px Left</option>
+			<option value="yui-t4">180px Right</option>
+			<option value="yui-t9">200px Right</option>
+			<option value="yui-t5">240px Right</option>
+			<option value="yui-t6">300px Right</option>
+			<option value="none">None</option>
+		</param>
+		<param name="secondary_inner" default="0" type="itoggle" label="Inner wrapping" tooltip="inline" description="Would you like the secondary content sidebar to have an inner wrap div? This is useful if you need to add padding to the contents of the sidebar.">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+	</params>
+	
+	<params group="outer1data">			
+		<param name="outer1_chrome" default="basic" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
+			<option value="none">None</option>
+			<option value="basic">Basic</option>
+			<option value="grid">Grid</option>
+			<option value="tabs">Tabs</option>
+			<option value="accordion">Accordion</option>			
+			<option value="outline">Outline</option>
+		</param>
+		<param name="outer1_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
+			<option value="1">Wrap heading &amp; content</option>
+			<option value="2">Wrap content only</option>
+			<option value="0">None</option>
+		</param>
+		<param name="outer1_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="outer1_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
+	</params>
+	
+	<params group="outer2data">			
+		<param name="outer2_chrome" default="basic" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
+			<option value="none">None</option>
+			<option value="basic">Basic</option>
+			<option value="grid">Grid</option>
+			<option value="tabs">Tabs</option>
+			<option value="accordion">Accordion</option>			
+			<option value="outline">Outline</option>
+		</param>
+		<param name="outer2_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
+			<option value="1">Wrap heading &amp; content</option>
+			<option value="2">Wrap content only</option>
+			<option value="0">None</option>
+		</param>
+		<param name="outer2_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="outer2_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
+	</params>
+	
+	<params group="outer3data">			
+		<param name="outer3_chrome" default="basic" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
+			<option value="none">None</option>
+			<option value="basic">Basic</option>
+			<option value="grid">Grid</option>
+			<option value="tabs">Tabs</option>
+			<option value="accordion">Accordion</option>			
+			<option value="outline">Outline</option>
+		</param>
+		<param name="outer3_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
+			<option value="1">Wrap heading &amp; content</option>
+			<option value="2">Wrap content only</option>
+			<option value="0">None</option>
+		</param>
+		<param name="outer3_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="outer3_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
+	</params>
+	
+	<params group="outer4data">			
+		<param name="outer4_chrome" default="basic" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
+			<option value="none">None</option>
+			<option value="basic">Basic</option>
+			<option value="grid">Grid</option>
+			<option value="tabs">Tabs</option>
+			<option value="accordion">Accordion</option>			
+			<option value="outline">Outline</option>
+		</param>
+		<param name="outer4_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
+			<option value="1">Wrap heading &amp; content</option>
+			<option value="2">Wrap content only</option>
+			<option value="0">None</option>
+		</param>
+		<param name="outer4_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="outer4_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
+	</params>
+	
+	<params group="outer5data">			
+		<param name="outer5_chrome" default="basic" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
+			<option value="none">None</option>
+			<option value="basic">Basic</option>
+			<option value="grid">Grid</option>
+			<option value="tabs">Tabs</option>
+			<option value="accordion">Accordion</option>			
+			<option value="outline">Outline</option>
+		</param>
+		<param name="outer5_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
+			<option value="1">Wrap heading &amp; content</option>
+			<option value="2">Wrap content only</option>
+			<option value="0">None</option>
+		</param>
+		<param name="outer5_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="outer5_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
+	</params>
+	
+	<params group="innersidebardata">	
+		<param name="inner_default" default="yui-gh" type="list" label="Inner layout default" tooltip="modal" description="innerlayout.html">
+			<option value="yui-g">50% Right</option>
+			<option value="yui-gc">33% Right</option>
+			<option value="yui-ge">25% Right</option>
+			<option value="yui-gi">200px Left</option>
+			<option value="yui-gh">200px Right</option>
+			<option value="none">None</option>
+		</param>
+		<param name="tertiary_inner" default="0" type="itoggle" label="Inner wrapping" tooltip="inline" description="Would you like the secondary content sidebar to have an inner wrap div? This is useful if you need to add padding to the contents of the sidebar.">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+	</params>
+	
+	<params group="inner1data">	
+		<param name="inner1_chrome" default="basic" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
+			<option value="none">None</option>
+			<option value="basic">Basic</option>
+			<option value="grid">Grid</option>
+			<option value="tabs">Tabs</option>
+			<option value="accordion">Accordion</option>			
+			<option value="outline">Outline</option>
+		</param>
+		<param name="inner1_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
+			<option value="1">Wrap heading &amp; content</option>
+			<option value="2">Wrap content only</option>
+			<option value="0">None</option>
+		</param>
+		<param name="inner1_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="inner1_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
+	</params>
+	
+	<params group="inner2data">	
+		<param name="inner2_chrome" default="basic" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
+			<option value="none">None</option>
+			<option value="basic">Basic</option>
+			<option value="grid">Grid</option>
+			<option value="tabs">Tabs</option>
+			<option value="accordion">Accordion</option>			
+			<option value="outline">Outline</option>
+		</param>
+		<param name="inner2_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
+			<option value="1">Wrap heading &amp; content</option>
+			<option value="2">Wrap content only</option>
+			<option value="0">None</option>
+		</param>
+		<param name="inner2_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="inner2_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
+	</params>
+	
+	<params group="inner3data">	
+		<param name="inner3_chrome" default="basic" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
+			<option value="none">None</option>
+			<option value="basic">Basic</option>
+			<option value="grid">Grid</option>
+			<option value="tabs">Tabs</option>
+			<option value="accordion">Accordion</option>			
+			<option value="outline">Outline</option>
+		</param>
+		<param name="inner3_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
+			<option value="1">Wrap heading &amp; content</option>
+			<option value="2">Wrap content only</option>
+			<option value="0">None</option>
+		</param>
+		<param name="inner3_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="inner3_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
+	</params>
+	
+	<params group="inner4data">	
+		<param name="inner4_chrome" default="basic" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
+			<option value="none">None</option>
+			<option value="basic">Basic</option>
+			<option value="grid">Grid</option>
+			<option value="tabs">Tabs</option>
+			<option value="accordion">Accordion</option>			
+			<option value="outline">Outline</option>
+		</param>
+		<param name="inner4_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
+			<option value="1">Wrap heading &amp; content</option>
+			<option value="2">Wrap content only</option>
+			<option value="0">None</option>
+		</param>
+		<param name="inner4_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="inner4_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
+	</params>
+	
+	<params group="inner5data">	
+		<param name="inner5_chrome" default="basic" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
+			<option value="none">None</option>
+			<option value="basic">Basic</option>
+			<option value="grid">Grid</option>
+			<option value="tabs">Tabs</option>
+			<option value="accordion">Accordion</option>			
+			<option value="outline">Outline</option>
+		</param>
+		<param name="inner5_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
+			<option value="1">Wrap heading &amp; content</option>
+			<option value="2">Wrap content only</option>
+			<option value="0">None</option>
+		</param>
+		<param name="inner5_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="inner5_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
+	</params>
+	
+	<params group="footerdata">	
+		<param name="footer_wrap" default="0" type="itoggle" label="Block wrapping" tooltip="modal" description="blockwrap.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="footer_type" default="0" type="list" label="Footer type" tooltip="modal" description="footer.html">
+			<option value="0">Copyright, credits and links</option>
+			<option value="1">Module position (footer)</option>
+		</param>	
+		<param name="footer_chrome" default="none" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
+			<option value="none">None</option>
+			<option value="basic">Basic</option>
+			<option value="grid">Grid</option>
+			<option value="tabs">Tabs</option>
+			<option value="accordion">Accordion</option>			
+			<option value="outline">Outline</option>
+		</param>
+		<param name="footer_module_inner" default="0" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
+			<option value="1">Wrap heading &amp; content</option>
+			<option value="2">Wrap content only</option>
+			<option value="0">None</option>
+		</param>
+		<param name="footer_gridsplit" default="yui-g" type="list" label="Grid split" tooltip="modal" description="gridsplit.html">
+			<option value="yui-g">Default (50/50)</option>
+			<option value="yui-gc">66/33 Split</option>
+			<option value="yui-gd">33/66 Split</option>
+			<option value="yui-ge">75/25 Split</option>
+			<option value="yui-gf">25/75 Split</option>
+		</param>
+		<param name="footer_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="footer_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
+		<param name="footer_copyright_show" default="1" type="itoggle" label="Display copyright" tooltip="inline" description="Would you like the footer copyright to be display?">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="footer_copyright" default="Copyright 2010 JoomlaJunkie.com - All Rights Reserved" type="textarea" cols="32" rows="2" label="Copyright text" tooltip="inline" description="Add your own copyright here" />
+		<param name="footer_credits_show" default="1" type="itoggle" label="Display credits" tooltip="inline" description="Would you like the footer credits to be display?">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="footer_credits" default="Template Designed by &lt;a href=&quot;http://www.joomlajunkie.com&quot; title=&quot;professional joomla templates&quot;&gt;JoomlaJunkie&lt;/a&gt;" type="textarea" cols="32" rows="2" label="Credits text" tooltip="inline" description="Add your own credits here" />
+		<param name="footer_textcolor" default="#777" type="colorpicker" label="Footer text color" tooltip="inline" description="" />
+		<param name="footer_linkscolor" default="#555" type="colorpicker" label="Footer links color" tooltip="inline" description="" />
+		<param name="footer_morphlink" default="1" type="itoggle" label="Show Powered by Morph" tooltip="inline" description="We've made it optional to disable the Morph Inside link, but please consider leaving it on.">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="footer_validation" default="1" type="itoggle" label="Show validation links" tooltip="inline" description="Should the xhtml validation link be displayed in the footer?">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="footer_show" default="0" type="itoggle" label="Disable the footer block" tooltip="inline" description="Would you like to disable this block?">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+	</params>
 
-<params addpath="/templates/morph/elements">
-	<param type="colorpicker" name="Color Picker Param" default="" />
-	<param type="filelist" name="Filelist Param" default="" />
-	<param type="folderlist" name="Folderlist Param" default="" />
-	<param type="heading" name="Heading Param" default="" />
-	<param type="imagelist" name="Imagelist Param" default="" />
-	<param type="list" name="List Param" default="" />
-	<param type="radio" name="Radio Param" default="" />
-	<param type="itoggle" name="iToggle Param" default="" />
-	<param type="spacer" name="Spacer Param" default="" />
-	<param type="text" name="Text Param" default="" />
-	<param type="textarea" name="Textarea Param" default="" />
-	<param type="themelet" name="Themelet Param" default="" />
-</params>
-
-<params group="generaldata">
-	<param name="themelet" default="light-base" type="themelet" label="Select themelet" directory="morph_assets/themelets" hide_none="false" hide_default="false" tooltip="inline" description="Select which themelet you would like to use. The themelets are stored in your templates assets folder. Use the Installer tab on the right to install new themelets." />
-	<param name="site_width" default="doc4" type="list" label="Site width" tooltip="inline" description="Set your sites page width. The full width 100% option is a bit buggy at the moment - especially with the fixed 200px left and right sidebar layout defaults (ie, your inner and outer layouts).">
-		<option value="doc">750px</option>
-		<option value="doc2">950px</option>
-		<option value="doc4">974px</option>
-		<option value="doc3">100%</option>
-	</param>
-	<param name="global_wrap" default="0" type="itoggle" label="Enable global wrap" tooltip="inline" description="This option if enabled, will wrap the main structural blocks with a global wrapper">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-    <param name="global_wrap_start" default="" type="list" label="Wrap start position" tooltip="inline" description="Set the position of the global wrap start position (ie, the opening div)">
-    	<option value="0">Above toolbar</option>
-    	<option value="1">Above masthead</option>
-    	<option value="2">Above subhead</option>
-        <option value="3">Above topnav</option>
-        <option value="4">Above topshelf</option>
-        <option value="5">Above main block</option>
-    </param>	
-    <param name="global_wrap_end" default="" type="list" label="Wrap end position" tooltip="inline" description="Set the position of the global wrap end position (ie, the closing div)">
-        <option value="0">Below main block</option>
-        <option value="1">Below bottomshelf</option>
-        <option value="2">Below footer</option>
-    </param>
-	<param name="remove_generator" default="0" type="itoggle" label="Remove Joomla! meta tag" tooltip="inline" description="The Joomla! meta generator is tag that is outputted in your sites xhtml, which will tell anyone who looks at the code that you are using Joomla!. This in most cases is fine, except when it comes to security. Its recommended that you leave this turned off.">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="ie6_upgrade" default="0" type="itoggle" label="Enable ie6 upgrade notice" tooltip="inline" description="This option will display an upgrade notice to anyone visiting your site in Internet Explorer 6. ">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="hide_ie6toolbar" default="0" type="itoggle" label="Disable ie6 image toolbar" tooltip="inline" description="">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="plugin_scrollto" default="1" type="itoggle" label="Display scroll to top link" tooltip="inline" description="This plugin will show a scroll-to-top link when you scroll to the bottom of your page.">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="chrome_frame" default="0" type="itoggle" label="Enable Google Chrome Frame" tooltip="inline" description="This will include the Google Chrome Frame meta tag in the Morph template. If the plugin is not installed on the users browser it will prompt the user to install the plugin on their browser. This is only for Internet Explorer versions 6-8.">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="google_analytics" default="" type="text" label="Google Analytics ID" tooltip="inline" description="Entering your Google Analytics ID will automatically load the needed tracking javascript, just above the closing body tag of your site. We plan on extending this to use any tracking or related javascript in the future, but for now this will have to do :)" />
-</params>
-
-<params group="logodata">		
-	<param name="logo_type" default="0" type="list" label="Logo type" tooltip="inline" description="How would you like your logo to be outputed? A full tutorial explaining each of the options listed here will be added soon.">
-		<option value="0">Linked h1 text</option>
-		<option value="1">Linked h1 image replacement</option>
-		<option value="2">Linked inline image</option>
-		<option value="3">Module position (branding)</option>
-	</param>
-	<param name="logo_image" default="" type="imagelist" tooltip="inline" label="Logo image" directory="morph_assets/logos" hide_none="false" hide_default="false" description="If you haven't already, upload your logo using the Installer tool on the right, then once you have done that, select the logo from the list."  />
-	<param name="logo_autodimensions" default="1" type="itoggle" label="Logo dimensions" tooltip="inline" description="Select whether you would like Configurator to automatically determine your chosen image's dimensions. Using this with the 'Linked inline image' logo option will actually change the dimensions of the logo image, where as with the Linked h1 image replacement, it will just change the width and height of the linked h1 element.">
-		<option value="1">Automatic</option>
-		<option value="0">Manual</option>
-	</param>
-	<param name="logo_width" default="0" type="text" label="Logo width" tooltip="inline" description="Set your logo width" />
-	<param name="logo_height" default="0" type="text" label="Logo height" tooltip="inline" description="Set your logo height" />
-	<param name="display_ie_logo" default="0" type="itoggle" label="Display ie6 logo" tooltip="inline" description="Would you like to alternate logo displayed to Internet Explorer 6? This option is useful when you want to use a transparent png image for all standards compliant browsers and a less smooth transparent logo for ie6, which doesnt handle image transparency.">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="logo_image_ie" default="" type="imagelist" tooltip="inline" label="Logo image for IE6" directory="morph_assets/logos" hide_none="false" hide_default="false" description="We have added the option to have an alternate logo to display in IE6. This is useful if you are using a transparent png for your logo and would like to have a gif displayed for people browsing your site in Internet Explorer 6." />
-	<param name="logo_text" default="" type="text" label="Logo text" tooltip="inline" description="Set your logo text" />
-	<param name="logo_alttext" default="" type="text" label="Logo image alt text" tooltip="inline" description="Set your logo image alt text" />
-	<param name="logo_linktitle" default="" type="text" label="Logo link title text" tooltip="inline" description="Set your logo link title text" />
-	<param name="logo_textcolor" default="#666161" type="colorpicker" label="Logo text color" tooltip="inline" description="Set your logo text foreground color." />
-	<param name="logo_fontsize" default="4em" type="list" label="Logo font size" tooltip="inline" description="Adjust the font size of your custom logo text.">
-	    <option value="1em">1em</option>
-	    <option value="1.1em">1.1em</option>
-	    <option value="1.2em">1.2em</option>
-	    <option value="1.3em">1.3em</option>	
-	    <option value="1.4em">1.4em</option>
-	    <option value="1.5em">1.5em</option>
-	    <option value="1.6em">1.6em</option>	
-	    <option value="1.7em">1.7em</option>
-	    <option value="1.8em">1.8em</option>
-	    <option value="1.9em">1.9em</option>	
-	    <option value="2em">2em</option>
-	    <option value="2.1em">2.1em</option>
-	    <option value="2.2em">2.2em</option>
-	    <option value="2.3em">2.3em</option>
-	    <option value="2.4em">2.4em</option>
-	    <option value="2.5em">2.5em</option>	
-	    <option value="2.6em">2.6em</option>
-	    <option value="2.7em">2.7em</option>
-	    <option value="2.8em">2.8em</option>		    	    
-	    <option value="2.9em">2.9em</option>		    	    
-	    <option value="3em">3em</option>
-	    <option value="3.1em">3.1em</option>
-	    <option value="3.2em">3.2em</option>
-	    <option value="3.3em">3.3em</option>	
-	    <option value="3.4em">3.4em</option>
-	    <option value="3.5em">3.5em</option>
-	    <option value="3.6em">3.6em</option>	
-	    <option value="3.7em">3.7em</option>
-	    <option value="3.8em">3.8em</option>
-	    <option value="3.9em">3.9em</option>	
-	    <option value="4em">4em</option>
-	    <option value="4.1em">4.1em</option>
-	    <option value="4.2em">4.2em</option>
-	    <option value="4.3em">4.3em</option>
-	    <option value="4.4em">4.4em</option>
-	    <option value="4.5em">4.5em</option>	
-	    <option value="4.6em">4.6em</option>
-	    <option value="4.7em">4.7em</option>
-	    <option value="4.8em">4.8em</option>		    	    
-	    <option value="4.9em">4.9em</option>		    	    
-	    <option value="5em">5em</option>
-	</param>    	
-	<param name="logo_fontfamily" default="'Palatino Linotype', 'Book Antiqua', Palatino, serif" type="list" label="Logo font family" tooltip="inline" description="Choose which font family you would like to use.">
-	    <option value=""> </option>
-	    <option value="Arial, Helvetica, sans-serif">Arial</option>
-	    <option value="'Arial Black', Gadget, sans-serif">Arial Black</option>
-	    <option value="Impact, Charcoal, sans-serif">Impact</option>
-	    <option value="'MS Sans Serif', Geneva, sans-serif">MS Sans Serif</option>
-	    <option value="'MS Serif', 'New York', sans-serif">MS Serif</option>
-	    <option value="'Trebuchet MS', Helvetica, sans-serif">Trebuchet MS</option>
-	    <option value="Verdana, Geneva, sans-serif">Verdana</option>
-	    <option value="'Lucida Sans Unicode', 'Lucida Grande', sans-serif">Lucida Sans Unicode</option>
-	    <option value="Tahoma, Geneva, sans-serif">Tahoma</option>
-		<option value="'Bookman Old Style', serif">Bookman Old Style</option>
-		<option value="Garamond, serif">Garamond</option>
-		<option value="Georgia, serif">Georgia</option>
-		<option value="'Palatino Linotype', 'Book Antiqua', Palatino, serif">Palatino Linotype</option>
-		<option value="'Times New Roman', Times, serif">Times New Roman</option>
-	    <option value="Courier, monospace">Courier</option>
-	    <option value="'Courier New', Courier, monospace">Courier New</option>
-	    <option value="'Lucida Console', Monaco, monospace">Lucida Console</option>
-	    <option value="'Comic Sans MS', cursive">Comic Sans MS</option>
-	</param>
-	<param name="logo_top" default="10px" type="text" label="Logo top position" tooltip="inline" description="Set your logos x-coordinate (ie, the number of pixels it should be positioned from the top.  You can set the amount as either pixels, em's or a percentage. For example 10px, 10em or 10%. Please note that no spaces should be used." />
-	<param name="logo_left" default="20px" type="text" label="Logo left position" tooltip="inline" description="Set your logos y-coordinate (ie, the number of pixels it should be positioned from the left.  You can set the amount as either pixels, em's or a percentage. For example 10px, 10em or 10%. Please note that no spaces should be used." />
-	<param name="logo_stack" default="2" type="text" label="Logo stacking order" tooltip="inline" description="Set the stacking order (z-index) of your sites logo." />	
-
-</params>
-
-<params group="taglinedata">	
-	<param name="display_slogan" default="1" type="itoggle" label="Display tagline" tooltip="inline" description="Would you like to display a slogan.">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="slogan_text" default="Go live faster." type="textarea" rows="1" cols="32" tooltip="inline" label="Tagline text" description="Set the text to use for your sites slogan. This box will automatically expand as needed." />
-	<param name="slogan_textcolor" default="#aba9a9" type="colorpicker" label="Tagline text color" tooltip="inline" description="Set your slogans text foreground color." />
-	<param name="slogan_fontsize" default="1.4em" type="list" label="Tagline font size" tooltip="inline" description="Adjust the font size of your custom slogan text.">
-	    <option value="1em">1em</option>
-	    <option value="1.1em">1.1em</option>
-	    <option value="1.2em">1.2em</option>
-	    <option value="1.3em">1.3em</option>	
-	    <option value="1.4em">1.4em</option>
-	    <option value="1.5em">1.5em</option>
-	    <option value="1.6em">1.6em</option>	
-	    <option value="1.7em">1.7em</option>
-	    <option value="1.8em">1.8em</option>
-	    <option value="1.9em">1.9em</option>	
-	    <option value="2em">2em</option>
-	    <option value="2.1em">2.1em</option>
-	    <option value="2.2em">2.2em</option>
-	    <option value="2.3em">2.3em</option>
-	    <option value="2.4em">2.4em</option>
-	    <option value="2.5em">2.5em</option>	
-	    <option value="2.6em">2.6em</option>
-	    <option value="2.7em">2.7em</option>
-	    <option value="2.8em">2.8em</option>		    	    
-	    <option value="2.9em">2.9em</option>		    	    
-	    <option value="3em">3em</option>
-	    <option value="3.1em">3.1em</option>
-	    <option value="3.2em">3.2em</option>
-	    <option value="3.3em">3.3em</option>	
-	    <option value="3.4em">3.4em</option>
-	    <option value="3.5em">3.5em</option>
-	    <option value="3.6em">3.6em</option>	
-	    <option value="3.7em">3.7em</option>
-	    <option value="3.8em">3.8em</option>
-	    <option value="3.9em">3.9em</option>	
-	    <option value="4em">4em</option>
-	    <option value="4.1em">4.1em</option>
-	    <option value="4.2em">4.2em</option>
-	    <option value="4.3em">4.3em</option>
-	    <option value="4.4em">4.4em</option>
-	    <option value="4.5em">4.5em</option>	
-	    <option value="4.6em">4.6em</option>
-	    <option value="4.7em">4.7em</option>
-	    <option value="4.8em">4.8em</option>		    	    
-	    <option value="4.9em">4.9em</option>		    	    
-	    <option value="5em">5em</option>
-	</param>
-	<param name="slogan_fontfamily" default="'Trebuchet MS', Helvetica, sans-serif" type="list" label="Tagline font family" tooltip="inline" description="Choose which font family you would like to use.">
-	    <option value=""> </option>
-	    <option value="Arial, Helvetica, sans-serif">Arial</option>
-	    <option value="'Arial Black', Gadget, sans-serif">Arial Black</option>
-	    <option value="Impact, Charcoal, sans-serif">Impact</option>
-	    <option value="'MS Sans Serif', Geneva, sans-serif">MS Sans Serif</option>
-	    <option value="'MS Serif', 'New York', sans-serif">MS Serif</option>
-	    <option value="'Trebuchet MS', Helvetica, sans-serif">Trebuchet MS</option>
-	    <option value="Verdana, Geneva, sans-serif">Verdana</option>
-	    <option value="'Lucida Sans Unicode', 'Lucida Grande', sans-serif">Lucida Sans Unicode</option>
-	    <option value="Tahoma, Geneva, sans-serif">Tahoma</option>
-		<option value="'Bookman Old Style', serif">Bookman Old Style</option>
-		<option value="Garamond, serif">Garamond</option>
-		<option value="Georgia, serif">Georgia</option>
-		<option value="'Palatino Linotype', 'Book Antiqua', Palatino, serif">Palatino Linotype</option>
-		<option value="'Times New Roman', Times, serif">Times New Roman</option>
-	    <option value="Courier, monospace">Courier</option>
-	    <option value="'Courier New', Courier, monospace">Courier New</option>
-	    <option value="'Lucida Console', Monaco, monospace">Lucida Console</option>
-	    <option value="'Comic Sans MS', cursive">Comic Sans MS</option>
-	</param>
-	<param name="slogan_top" default="60px" type="text" label="Tagline top position" tooltip="inline" description="Set your slogan's x-coordinate (ie, the number of pixels it should be positioned from the top. You can set the amount as either pixels, em's or a percentage. For example 10px, 10em or 10%. Please note that no spaces should be used." />
-	<param name="slogan_left" default="0px" type="text" label="Tagline left position" tooltip="inline" description="Set your slogan's y-coordinate (ie, the number of pixels it should be positioned from the left. You can set the amount as either pixels, em's or a percentage. For example 10px, 10em or 10%. Please note that no spaces should be used." />
-	<param name="slogan_stack" default="1" type="text" label="Tagline stacking order" tooltip="inline" description="Set the stacking order (z-index) of your sites tagline." />	
-</params>
-
-<params group="htmlbackgroundsdata">
-	<param name="html_bg_color" default="#fff" type="colorpicker" label="Background color" tooltip="inline" description="Setting a color here will adjust your sites background color." />
-	<param name="use_html_bg_image" default="0" type="itoggle" label="Use background image" tooltip="inline" description="Would you like to use a background image?">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="html_bg_image" default="" type="imagelist" tooltip="inline" label="Background image" description="Choose a background to use for your site. The backgrounds are located in your assets / backgrounds folder. You can upload new backgrounds using the Universal Installer tool in the Toolbox tab." directory="morph_assets/backgrounds" hide_none="true" />
-	<param name="html_bg_repeat" default="" type="list" label="Background repeat" tooltip="inline" description="If a background image is set, how should it repeat?" exclude="" stripext="">
-		<option value="no-repeat">None</option>
-		<option value="repeat">Repeat</option>
-		<option value="repeat-x">Repeat Horizontally</option>
-		<option value="repeat-y">Repeat Vertically</option>
-	</param>
-	<param name="html_bg_position" default="" type="list" label="Background position" tooltip="inline" description="Set the backgrounds position">
-		<option value="top left">top left</option>
-		<option value="top center">top center</option>
-		<option value="top right">top right</option>
-		<option value="center left">center left</option>
-		<option value="center center">center center</option>
-		<option value="center right">center right</option>
-		<option value="bottom left">bottom left</option>
-		<option value="bottom center">bottom center</option>
-		<option value="bottom right">bottom right</option>
-	</param>
-	<param name="html_bg_attachment" default="" type="list" tooltip="inline" label="Background attachment" description="Should be the background be fixed or should it scroll">
-		<option value="scroll">Scroll</option>
-		<option value="fixed">Fixed</option>
-	</param>
-</params>
-
-<params group="bodybackgroundsdata">
-	<param name="body_bg_color" default="#fff" type="colorpicker" label="Background color" tooltip="inline" description="Setting a color here will adjust your sites background color." />
-	<param name="use_body_bg_image" default="0" type="itoggle" label="Use background image" tooltip="inline" description="Would you like to use a background image?">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="body_bg_image" default="" type="imagelist" tooltip="inline" label="Background image" description="Choose a background to use for your site. The backgrounds are located in your assets / backgrounds folder. You can upload new backgrounds using the Universal Installer tool in the Toolbox tab." directory="morph_assets/backgrounds" hide_none="true" />
-	<param name="body_bg_repeat" default="" type="list" label="Background repeat" tooltip="inline" description="If a background image is set, how should it repeat?" exclude="" stripext="">
-		<option value="no-repeat">None</option>
-		<option value="repeat">Repeat</option>
-		<option value="repeat-x">Repeat Horizontally</option>
-		<option value="repeat-y">Repeat Vertically</option>
-	</param>
-	<param name="body_bg_position" default="" type="list" label="Background position" tooltip="inline" description="Set the backgrounds position">
-		<option value="top left">top left</option>
-		<option value="top center">top center</option>
-		<option value="top right">top right</option>
-		<option value="center left">center left</option>
-		<option value="center center">center center</option>
-		<option value="center right">center right</option>
-		<option value="bottom left">bottom left</option>
-		<option value="bottom center">bottom center</option>
-		<option value="bottom right">bottom right</option>
-	</param>
-	<param name="body_bg_attachment" default="" type="list" tooltip="inline" label="Background attachment" description="Should be the background be fixed or should it scroll">
-		<option value="scroll">Scroll</option>
-		<option value="fixed">Fixed</option>
-	</param>
-</params>
-
-
-<params group="colordata">	
-	<param name="color_h1" default="default" type="colorpicker" tooltip="inline" label="Heading 1 color" description="Set the foreground color of your H1 headings." />
-	<param name="color_h2" default="default" type="colorpicker" tooltip="inline" label="Heading 2 color" description="Set the foreground color of your H2 headings." />	
-	<param name="color_h3" default="default" type="colorpicker" tooltip="inline" label="Heading 3 color" description="Set the foreground color of your H3 headings." />
-	<param name="color_h4" default="default" type="colorpicker" tooltip="inline" label="Heading 4 color" description="Set the foreground color of your H4 headings." />
-	<param name="color_h5" default="default" type="colorpicker" tooltip="inline" label="Heading 5 color" description="Set the foreground color of your H5 headings." />	
-	<param name="color_links" default="default" type="colorpicker" tooltip="inline" label="Links color" description="Set the foreground color of your links text." />	
-	<param name="color_linkshover" default="default" type="colorpicker" tooltip="inline" label="Links hover color" description="Set the hover color of your links text." />	
-	<param name="color_linksvisited" default="default" type="colorpicker" tooltip="inline" label="Links visited color" description="Set the visited color of your links text." />	
-	<param name="color_bodytext" default="default" type="colorpicker" tooltip="inline" label="Body text color" description="Set the foreground color of your sites main body text." />	
-</params>
-
-<params group="progressivedata">
-
-</params>
-
-<params group="menudata">
-	<param name="topnav_hoverintent" default="1" type="itoggle" label="HoverIntent" tooltip="inline" description="HoverIntent is a plug-in that attempts to determine the user's intent... like a crystal ball, only with mouse movement! This generally improves the usability of your Superfish menu.">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="topnav_hoverfocus" default="1" type="itoggle" label="HoverFocus" tooltip="inline" description="HoverFocus is an experimental feature which fades out contents of the topshelf when you hover on to child items of the top navigation. This allows you to focus on the menu items rather than the underlying content. This feature is still a bit buggy.">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="topnav_actionlink" default="0" type="itoggle" label="Call for action link" tooltip="inline" description="A call for action link can be described as the primary action that you would like your visitors to take. This could be a newsletter signup link, registration link, or even a buy now link. All this option is doing is enabling a snippet of extra css that targets the last menu item to give it alternate styling.">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="topnav_supersubs" default="1" type="itoggle" label="Auto width on sub items" tooltip="inline" description="Would you like the sub menu items width to adjust automatically?">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="topnav_minwidth" default="12" type="list" label="Child items min width" tooltip="inline" description="Set the minimum width of child menu items.">
-		<option value="10">10em's</option>
-		<option value="11">11em's</option>
-		<option value="12">12em's</option>
-		<option value="13">13em's</option>
-		<option value="14">14em's</option>
-		<option value="15">15em's</option>
-		<option value="16">16em's</option>
-		<option value="17">17em's</option>
-		<option value="18">18em's</option>
-		<option value="19">19em's</option>
-		<option value="20">20em's</option>
-	</param>
-	<param name="topnav_maxwidth" default="27" type="list" label="Child items max width" tooltip="inline" description="Set the maximum width of child menu items.">
-		<option value="20">20em's</option>
-		<option value="21">21em's</option>
-		<option value="22">22em's</option>
-		<option value="23">23em's</option>
-		<option value="24">24em's</option>
-		<option value="25">25em's</option>
-		<option value="26">26em's</option>
-		<option value="27">27em's</option>
-		<option value="28">28em's</option>
-		<option value="29">29em's</option>
-		<option value="30">30em's</option>
-	</param>
-	<param name="topnav_delay" default="1000" type="list" label="Menu delay" tooltip="inline" description="How many seconds would you like the menu's animation to delay? IE, how long should the menu drop down stay after the user mouses off of it.">
-		<option value="1000">1 Second</option>
-		<option value="2000">2 Seconds</option>
-		<option value="3000">3 Seconds</option>
-		<option value="4000">4 Seconds</option>
-		<option value="5000">5 Seconds</option>
-		<option value="6000">6 Seconds</option>
-		<option value="7000">7 Seconds</option>
-		<option value="8000">8 Seconds</option>
-		<option value="9000">9 Seconds</option>
-		<option value="10000">10 Seconds</option>
-	</param>
-	<param name="topnav_animation" default="normal" type="list" label="Animation speed" tooltip="inline" description="This option sets the speed in which the top navigation animates.">
-		<option value="slow">Slow</option>
-		<option value="normal">Normal</option>
-		<option value="fast">Fast</option>
-	</param>
-</params>
-
-<params group="iphonedata">
-	<param name="iphone_mode" default="1" type="itoggle" label="iPhone compatibility" tooltip="inline" description="Would you like your site to automatically be iPhone compatible?">
-		<option value="1">On</option>
-		<option value="0">Off</option>
-	</param>
-	<param name="iphone_header" default="" type="imagelist" tooltip="inline" label="iPhone header" description="Select a 320px x 50px header image to use on your iPhone optimized site. Images uploaded to your morph_assets/iphone directory will automatically appear in this list." directory="morph_assets/iphone" hide_none="true" />
-	<param name="iphone_webclip" default="" type="imagelist" tooltip="inline" label="iPhone webclip" description="Select a 57px by 57px image to use for your webclip bookmark. Images uploaded to your morph_assets/iphone directory will automatically appear in this list. This option a work in progress and will hopefully be 100% working in the next release." directory="morph_assets/iphone" hide_none="true" />
-
-</params>
-
-<params group="jomsocialdata">
-	<param name="js_enable_toolbar" default="0" type="itoggle" label="Enable the JomSocial menu" tooltip="inline" description="Would you like the JomSocial toolbar menu to be displayed?">
-		<option value="1">On</option>
-		<option value="0">Off</option>
-	</param>
-	<param name="js_enable_header" default="1" type="itoggle" label="Enable the login/register block" tooltip="inline" description="Would you like the JomSocial welcome header to be displayed?">
-		<option value="1">On</option>
-		<option value="0">Off</option>
-	</param>
-	<param name="js_enable_sidebar" default="1" type="itoggle" label="Enable the JomSocial sidebar" tooltip="inline" description="Would you like the JomSocial sidebar to be displayed?">
-		<option value="1">On</option>
-		<option value="0">Off</option>
-	</param>
-</params>
-<params group="jomsocialboxesdata">
-	<param name="js_box_search" type="text" label="Search box suffix" tooltip="inline" description="" />	
-	<param name="js_box_about" type="text" label="About box suffix" tooltip="inline" description="" />	
-	<param name="js_box_friends" type="text" label="Friends box suffix" tooltip="inline" description="" />	
-	<param name="js_box_members" type="text" label="Members box suffix" tooltip="inline" description="" />	
-	<param name="js_box_videos" type="text" label="Videos box suffix" tooltip="inline" description="" />	
-	<param name="js_box_activity" type="text" label="Activity box suffix" tooltip="inline" description="" />	
-	<param name="js_box_photos" type="text" label="Photos box suffix" tooltip="inline" description="" />	
-	<param name="js_box_whosonline" type="text" label="Whos online box suffix" tooltip="inline" description="" />	
-	<param name="js_box_group_members" type="text" label="Members box suffix" tooltip="inline" description="" />	
-	<param name="js_avatar_preview_large" type="text" label="Avatar large preview" tooltip="inline" description="" />	
-	<param name="js_avatar_preview_small" type="text" label="Avatar small preview" tooltip="inline" description="" />	
-</params>
-
-
-<params group="performancedata">
-	<param name="pack_css" default="1" type="itoggle" label="Enable css packing" tooltip="inline" description="CSS Packing (otherwise refered to as CSS Concatination) refers to the combining of multiple files into a single file. This boosts your sites performance as fewer http requests are needed.">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="minify_css" default="1" type="itoggle" label="Minify css" tooltip="inline" description="Minifying will remove empty spaces and line returns that'll make the CSS less readable, but faster loading. This process is often done manually when a site is completed and the code no longer neads to be readable. Since the minifying process is quite intense, it's recommended that you turn caching on for live sites.">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="pack_js" default="1" type="itoggle" label="Enable js packing" tooltip="inline" description="JS Packing (otherwise refered to as JS Concatination) refers to the combining of multiple files into a single file. This boosts your sites performance as fewer http requests are needed.">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="minify_js" default="1" type="itoggle" label="Minify js" tooltip="inline" description="Minifying will remove empty spaces and line returns that'll make the JS less readable, but faster loading. It'll also make it harder to «pirate» your style declarations. Since the minifying process is quite intense, it's recommended that you turn caching on for live sites.">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="cache" default="1" type="itoggle" label="Enable caching" tooltip="inline" description="Caching the dynamic css and js files will greatly improve performance regarding response time (the 'waiting for response' delay) and loadtimes. Turn on gzip too for the best possible performance.">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="cachetime" default="15" type="text" label="Cache Expire Time" tooltip="inline" description="Configurator will always purge the cache whenever you make an change in Morph's settings. But if you make changes affecting what css and/or js Morph loads outside of the configurator, like if you unpublish the simpletweet module, cache expire time will ensure that the cache refresh to reflect those changes. There's a balance on how quick you want the cache to refresh, and how snappy you want your site to load. We've found 15 minutes to have the most 'Zen' balance to it." />
-	<param name="gzip_compression" default="1" type="itoggle" label="Enable gzip" tooltip="inline" description="Gzip is a form of optimization that causes pages to be compressed before being transmitted from server to browser, making the transmitted data smaller, thus speeding up the delivery.">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="load_mootools" default="0" type="itoggle" label="Enable mootools" tooltip="inline" description="Mootools is a javascript framework that is used mostly in the backend of Joomla! There are a few instances in the frontend where it is needed (which we have taken into account), but in most cases this is not needed and in order to get optimal performance we have completely removed it from the frontend. This saves around 75kb from your sites total weight.">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="load_caption" default="0" type="itoggle" label="Enable caption.js" tooltip="inline" description="Like the Mootools explaination above (hover over the Mootools tooltip), the caption.js is a file that is loaded by default in Joomla! 1.5, irrespective of whether it is actually being used. We have removed this from loading to improve the overall performance of your site.">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="nojs" default="0" type="itoggle" label="Zero javascript mode" tooltip="inline" description="This option will disable all javascript from the loading on the frontend of Morph. There is only one small generic snippet of javascript that is loaded if you view your site in Internet Explorer 6, which is needed to add support for hover on non anchor (link) elements. This option is good for debugging javascript conflicts. Rule of thumb, if the javascript error persists with Morph's javascript disabled, then the problem is not related to Morph.">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-</params>
-
-<params group="debuggingdata">
-	<param name="code_comments" default="0" type="itoggle" label="Enable code comments" tooltip="inline" description="Morph's code comments are currently in their infancy, but will be extensively improved before the stable release. The idea behind them is to make it super easy to find exactly where a section of code is being loaded from. Each comment will wrap around the specific section of code, include the filename in which it resides as well as the line number.">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="error_reporting" default="0" type="itoggle" label="Enable error reporting" tooltip="inline" description="This will enable all php errors and notices to be displayed.">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="jquery_core" default="1" type="itoggle" label="Enable jQuery" tooltip="inline" description="Morph uses jQuery extensively, so this should generally be left enabled. We have added the option to disable more for testing / debugging purposes.">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="debug_modules" default="0" type="itoggle" label="Enable module outlines" tooltip="inline" description="Enabling this option will globally override all module chromes to use the outline chrome option. This is good when you want to see which module positions are being used where.">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="debug" default="0" type="itoggle" label="Enable debug mode" tooltip="inline" description="Debug mode lets you control morph by the url. ">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="remove_outline" default="0" type="itoggle" label="Disable ?tp=1" tooltip="inline" description="This option will disable the ability to view your sites module positions using ?tp=1 appended to the url of your site.">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="plugin_url" default="jroute" type="list" label="CSS/JS render urls" tooltip="inline" description="Choose wether to use JRoute or JURI based on wether you get issues with your SEF extension or not. Using JRoute will allow you to tweak how the links to packed css and js files by custom SEF rules, while JURI is sometimes a more compatible option.">
-		<option value="jroute">JRoute - Core SEF url</option>
-		<option value="juri">JURI - Core non-SEF url</option>
-	</param>
-	<param name="developer_toolbar" default="0" type="itoggle" label="Show Developer Toolbar" tooltip="inline" description="Enabling this option will show a developer toolbar on your website with a list of tools that can be used to help debug your template.">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-</params>
-
-<params group="captifydata">
-	<param name="captions_enabled" default="0" type="itoggle" label="Enable fancy captions" tooltip="inline" description="Would you like to enable the fancy captions plugin?">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="captions_animation" default="slide" type="radio" label="Caption animation" tooltip="inline" description="Choose whether to animate the caption or have it always displayed.">
-		<option value="slide">On</option>
-		<option value="always-on">Off</option>
-	</param>
-	<param name="captions_speedover" default="fast" type="list" label="Mouseover speed" tooltip="inline" description="Set the speed of the mouseover effect">
-		<option value="slow">Slow</option>
-		<option value="normal">Normal</option>
-		<option value="fast">Fast</option>
-	</param>	
-	<param name="captions_speedout" default="normal" type="list" label="Mouseout speed" tooltip="inline" description="Set the speed of the mouseout effect">
-		<option value="slow">Slow</option>
-		<option value="normal">Normal</option>
-		<option value="fast">Fast</option>
-	</param>	
-	<param name="captions_delay" default="500" type="list" label="Mouseout delay" tooltip="inline" description="How long to delay the hiding of the caption after mouseout (in milliseconds)">
-		<option value="100">1 Millisecond</option>
-		<option value="200">2 Milliseconds</option>
-		<option value="300">3 Milliseconds</option>
-		<option value="400">4 Milliseconds</option>
-		<option value="500">5 Milliseconds</option>
-		<option value="600">6 Milliseconds</option>
-		<option value="700">7 Milliseconds</option>
-		<option value="800">8 Milliseconds</option>
-		<option value="900">9 Milliseconds</option>
-		<option value="1000">10 Milliseconds</option>
-	</param>		
-	<param name="captions_opacity" default="0.7" type="list" label="Caption opacity" tooltip="inline" description="Set the opacity of the caption">
-		<option value="0.1">10%</option>
-		<option value="0.2">20%</option>
-		<option value="0.3">30%</option>
-		<option value="0.4">40%</option>
-		<option value="0.5">50%</option>
-		<option value="0.6">60%</option>
-		<option value="0.7">70%</option>
-		<option value="0.8">80%</option>
-		<option value="0.9">90%</option>
-		<option value="1">100%</option>
-	</param>	
-	<param name="captions_position" default="bottom" type="list" label="Caption position" tooltip="inline" description="Set the captions position to top or bottom.">
-		<option value="top">Top</option>
-		<option value="bottom">Bottom</option>
-	</param>
-	<param name="captions_prefix" default="" type="text" label="Caption prefix" tooltip="inline" description="You can optionally set a prefix to use on your captions." />
-	<param name="captions_bgcolor" default="#000" type="colorpicker" tooltip="inline" label="Caption background color" description="Set the captions background color." />
-	<param name="captions_textcolor" default="#fff" type="colorpicker" tooltip="inline" label="Caption text color" description="Set the captions background color." />
-	<param name="captions_bordercolor" default="#202020" type="colorpicker" tooltip="inline" label="Caption border color" description="Set the captions border color." />
-	<param name="captions_borderheight" default="5px" type="list" label="Captions border height" tooltip="inline" description="Set the height of the caption border.">
-		<option value="0px">0px</option>
-		<option value="1px">1px</option>
-		<option value="2px">2px</option>
-		<option value="3px">3px</option>
-		<option value="4px">4px</option>
-		<option value="5px">5px</option>
-		<option value="6px">6px</option>
-		<option value="7px">7px</option>
-		<option value="8px">8px</option>
-		<option value="9px">9px</option>
-		<option value="10px">10px</option>
-	</param>
-</params>
-
-<params group="fontsizerdata">
-	<param name="fontsizer_enabled" default="0" type="itoggle" label="Enable fontsizer on articles" tooltip="inline" description="Would you like to enable the fontsizer plugin?">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-</params>
-
-<params group="lazyloaddata">
-	<param name="lazyload_enabled" default="0" type="itoggle" label="Enable lazyload on images" tooltip="inline" description="Would you like to enable the lazyload image loading plugin?">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-</params>	
-
-<params group="lightboxdata">
-	<param name="lightbox_enabled" default="0" type="itoggle" label="Enable Lightbox" tooltip="inline" description="Would you like to enable the Colorbox Lightbox plugin?">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="disable_scrollbar" default="1" type="itoggle" label="Disable browser scrollbar" tooltip="inline" description="Would you like the browser scrollbar disabled when colorbox is open?">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="article_preview" default="1" type="itoggle" label="Show preview link" tooltip="inline" description="Would you like to enable the article preview link in the blog and frontpage views?">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="colorbox_style" default="style1" type="list" label="Colorbox style" tooltip="inline" description="Would you like to enable the article preview link in the blog and frontpage views?">
-		<option value="style1">Style 1</option>
-		<option value="style2">Style 2</option>
-		<option value="style3">Style 3</option>
-		<option value="style4">Style 4</option>
-		<option value="style5">Style 5</option>
-	</param>	
-</params>
-
-<params group="shareitdata">
-	<param name="shareit_enabled" default="0" type="itoggle" label="Enable shareit on articles" tooltip="inline" description="Would you like to enable the fontsizer plugin?">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-</params>
-
-<params group="preloaderdata">
-	<param name="preloader_enabled" default="1" type="itoggle" label="Enable the preloader" tooltip="inline" description="Would you like to enable the preloader plugin?">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="preloader_all" default="1" type="itoggle" label="Enable on all pages" tooltip="modal" description="preloader.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="preloader_background" default="#172A37" type="colorpicker" label="Preloader background color" tooltip="inline" description="Set the color of the preloader background." />	
-	<param name="preloader_foreground" default="#fff" type="colorpicker" label="Preloader foreground color" tooltip="inline" description="Set the color of the preloader foreground." />	
-	<param name="preloader_height" default="1px" type="list" label="Loading bar height" tooltip="inline" description="Set the height of the loading bar.">
-		<option value="1px">1px</option>
-		<option value="2px">2px</option>
-		<option value="3px">3px</option>
-		<option value="4px">4px</option>
-		<option value="5px">5px</option>
-		<option value="6px">6px</option>
-		<option value="7px">7px</option>
-		<option value="8px">8px</option>
-		<option value="9px">9px</option>
-		<option value="10px">10px</option>
-	</param>	
-</params>
-
-<params group="toolbardata">
-	<param name="toolbar_wrap" default="1" type="itoggle" label="Block wrapping" tooltip="modal" description="blockwrap.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="toolbar_inner" default="0" type="itoggle" label="Block inner" tooltip="modal" description="blockinner.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="toolbar_chrome" default="none" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
-		<option value="none">None</option>
-		<option value="basic">Basic</option>
-		<option value="grid">Grid</option>
-		<option value="tabs">Tabs</option>
-		<option value="accordion">Accordion</option>			
-		<option value="outline">Outline</option>
-	</param>
-	<param name="toolbar_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
-		<option value="1">Wrap heading &amp; content</option>
-		<option value="2">Wrap content only</option>
-		<option value="0">None</option>
-	</param>
-	<param name="toolbar_gridsplit" default="yui-g" type="list" label="Grid split" tooltip="modal" description="gridsplit.html">
-		<option value="yui-g">Default (50/50)</option>
-		<option value="yui-gc">66/33 Split</option>
-		<option value="yui-gd">33/66 Split</option>
-		<option value="yui-ge">75/25 Split</option>
-		<option value="yui-gf">25/75 Split</option>
-	</param>
-	<param name="toolbar_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="toolbar_position" default="0" type="list" label="Toolbar position" tooltip="inline" description="Where would you like the toolbar to be displayed.">
-		<option value="0">Above Master Head</option>
-		<option value="1">Above Sub Head</option>
-		<option value="1">Above Top Shelf</option>
-		<option value="2">Below Top Shelf</option>
-	</param>
-	<param name="toolbar_slider" default="1" type="itoggle" label="Toolbar slider" tooltip="modal" description="slider.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="toolbar_slider_text" default="toggle" type="text" label="Toolbar slider text" tooltip="inline" description="Define the toggle button text. You can either display a single word like toggle, or set different text for each state, for example 'open,close'. Its important that there are no spaces between the two words and that you use a comma to seperate them." />	
-	<param name="toolbar_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />
-	<param name="toolbar_show" default="0" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-</params>
-
-<params group="mastheaddata">
-	<param name="masthead_wrap" default="0" type="itoggle" label="Block wrapping" tooltip="modal" description="blockwrap.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="masthead_inner" default="0" type="itoggle" label="Block inner" tooltip="modal" description="blockinner.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="masthead_height" default="" type="text" label="Masthead height" tooltip="inline" description="Set the height of your Master header block." />	
-	<param name="masthead_chrome" default="none" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
-		<option value="none">None</option>
-		<option value="basic">Basic</option>
-		<option value="grid">Grid</option>
-		<option value="tabs">Tabs</option>
-		<option value="accordion">Accordion</option>			
-		<option value="outline">Outline</option>			
-	</param>
-	<param name="masthead_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
-		<option value="1">Wrap heading &amp; content</option>
-		<option value="2">Wrap content only</option>
-		<option value="0">None</option>
-	</param>
-	<param name="masthead_gridsplit" default="yui-g" type="list" label="Grid split" tooltip="modal" description="gridsplit.html">
-		<option value="yui-g">Default (50/50)</option>
-		<option value="yui-gc">66/33 Split</option>
-		<option value="yui-gd">33/66 Split</option>
-		<option value="yui-ge">75/25 Split</option>
-		<option value="yui-gf">25/75 Split</option>
-	</param>
-	<param name="masthead_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="masthead_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
-	<param name="display_skipto" default="1" type="itoggle" label="Display skip to menu" tooltip="inline" description="Would you like to display a skip to content menu?">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="masthead_show" default="0" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-</params>
-
-<params group="subheaddata">
-	<param name="subhead_wrap" default="0" type="itoggle" label="Block wrapping" tooltip="modal" description="blockwrap.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="subhead_inner" default="0" type="itoggle" label="Block inner" tooltip="modal" description="blockinner.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="subhead_chrome" default="none" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
-		<option value="none">None</option>
-		<option value="basic">Basic</option>
-		<option value="grid">Grid</option>
-		<option value="tabs">Tabs</option>
-		<option value="accordion">Accordion</option>			
-		<option value="outline">Outline</option>			
-	</param>
-	<param name="subhead_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
-		<option value="1">Wrap heading &amp; content</option>
-		<option value="2">Wrap content only</option>
-		<option value="0">None</option>
-	</param>
-	<param name="subhead_gridsplit" default="yui-g" type="list" label="Grid split" tooltip="modal" description="gridsplit.html">
-		<option value="yui-g">Default (50/50)</option>
-		<option value="yui-gc">66/33 Split</option>
-		<option value="yui-gd">33/66 Split</option>
-		<option value="yui-ge">75/25 Split</option>
-		<option value="yui-gf">25/75 Split</option>
-	</param>
-	<param name="subhead_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="subhead_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
-	<param name="subhead_show" default="0" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-</params>
-
-<params group="topnavdata">
-	<param name="topnav_wrap" default="0" type="itoggle" label="Block wrapping" tooltip="modal" description="blockwrap.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="topnav_inner" default="0" type="itoggle" label="Block inner" tooltip="modal" description="blockinner.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="topnav_chrome" default="none" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
-		<option value="none">None</option>
-		<option value="basic">Basic</option>
-		<option value="grid">Grid</option>
-		<option value="tabs">Tabs</option>
-		<option value="accordion">Accordion</option>			
-		<option value="outline">Outline</option>			
-	</param>
-	<param name="topnav_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
-		<option value="1">Wrap heading &amp; content</option>
-		<option value="2">Wrap content only</option>
-		<option value="0">None</option>
-	</param>
-	<param name="topnav_gridsplit" default="yui-g" type="list" label="Grid split" tooltip="modal" description="gridsplit.html">
-		<option value="yui-g">Default (50/50)</option>
-		<option value="yui-gc">66/33 Split</option>
-		<option value="yui-gd">33/66 Split</option>
-		<option value="yui-ge">75/25 Split</option>
-		<option value="yui-gf">25/75 Split</option>
-	</param>
-	<param name="topnav_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="topnav_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
-	<param name="topnav_position" default="2" type="list" label="Top menu position" tooltip="inline" description="Where would you like the top menu to be displayed.">
-		<option value="0">Above Master Head</option>
-		<option value="1">Above Sub Head</option>
-		<option value="2">Above Top Shelf</option>
-		<option value="3">Below Top Shelf</option>
-	</param>
-	<param name="topnav_show" default="0" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-</params>
-
-<params group="topshelfdata">
-	<param name="topshelf_wrap" default="1" type="itoggle" label="Block wrapping" tooltip="modal" description="blockwrap.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="topshelf_inner" default="1" type="itoggle" label="Topshelf inner" tooltip="modal" description="blockinner.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="topshelf_chrome" default="grid" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
-		<option value="none">None</option>
-		<option value="basic">Basic</option>
-		<option value="grid">Grid</option>
-		<option value="tabs">Tabs</option>
-		<option value="accordion">Accordion</option>			
-		<option value="outline">Outline</option>		
-	</param>
-	<param name="topshelf_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
-		<option value="1">Wrap heading &amp; content</option>
-		<option value="2">Wrap content only</option>
-		<option value="0">None</option>
-	</param>
-	<param name="topshelf_gridsplit" default="yui-g" type="list" label="Grid split" tooltip="modal" description="gridsplit.html">
-		<option value="yui-g">Default (50/50)</option>
-		<option value="yui-gc">66/33 Split</option>
-		<option value="yui-gd">33/66 Split</option>
-		<option value="yui-ge">75/25 Split</option>
-		<option value="yui-gf">25/75 Split</option>
-	</param>
-	<param name="topshelf_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="topshelf_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />
-	<param name="topshelf_slider" default="0" type="itoggle" label="Topshelf slider" tooltip="modal" description="slider.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="topshelf_slider_text" default="toggle" type="text" tooltip="inline" label="Topshelf Slider Text" description="toggletext.html" />
-	<param name="topshelf_show" default="0" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-</params>
-
-<params group="bottomshelfdata">	
-	<param name="bottomshelf_wrap" default="0" type="itoggle" label="Block wrapping" tooltip="modal" description="blockwrap.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="bottomshelf_inner" default="1" type="itoggle" label="Block inner" tooltip="modal" description="blockinner.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="bottomshelf_chrome" default="grid" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
-		<option value="none">None</option>
-		<option value="basic">Basic</option>
-		<option value="grid">Grid</option>
-		<option value="tabs">Tabs</option>
-		<option value="accordion">Accordion</option>			
-		<option value="outline">Outline</option>
-	</param>
-	<param name="bottomshelf_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
-		<option value="1">Wrap heading &amp; content</option>
-		<option value="2">Wrap content only</option>
-		<option value="0">None</option>
-	</param>
-	<param name="bottomshelf_gridsplit" default="yui-g" type="list" label="Grid split" tooltip="modal" description="gridsplit.html">
-		<option value="yui-g">Default (50/50)</option>
-		<option value="yui-gc">66/33 Split</option>
-		<option value="yui-gd">33/66 Split</option>
-		<option value="yui-ge">75/25 Split</option>
-		<option value="yui-gf">25/75 Split</option>
-	</param>
-	<param name="bottomshelf_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="bottomshelf_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
-	<param name="bottomshelf_slider" default="0" type="itoggle" label="Topbar slider" tooltip="modal" description="slider.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="bottomshelf_slider_text" default="toggle" type="text" label="Bottomshelf slider text" tooltip="inline" description="toggletext.html" />
-	<param name="bottomshelf_show" default="0" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-</params>
-
-<params group="bottomshelf2data">	
-	<param name="bottomshelf2_wrap" default="0" type="itoggle" label="Block wrapping" tooltip="modal" description="blockwrap.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="bottomshelf2_inner" default="1" type="itoggle" label="Block inner" tooltip="modal" description="blockinner.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="bottomshelf2_chrome" default="grid" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
-		<option value="none">None</option>
-		<option value="basic">Basic</option>
-		<option value="grid">Grid</option>
-		<option value="tabs">Tabs</option>
-		<option value="accordion">Accordion</option>			
-		<option value="outline">Outline</option>
-	</param>
-	<param name="bottomshelf2_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
-		<option value="1">Wrap heading &amp; content</option>
-		<option value="2">Wrap content only</option>
-		<option value="0">None</option>
-	</param>
-	<param name="bottomshelf2_gridsplit" default="yui-g" type="list" label="Grid split" tooltip="modal" description="gridsplit.html">
-		<option value="yui-g">Default (50/50)</option>
-		<option value="yui-gc">66/33 Split</option>
-		<option value="yui-gd">33/66 Split</option>
-		<option value="yui-ge">75/25 Split</option>
-		<option value="yui-gf">25/75 Split</option>
-	</param>
-	<param name="bottomshelf2_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="bottomshelf2_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
-	<param name="bottomshelf2_slider" default="0" type="itoggle" label="Topbar slider" tooltip="modal" description="slider.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="bottomshelf2_slider_text" default="toggle" type="text" label="Bottomshelf slider text" tooltip="inline" description="toggletext.html" />
-	<param name="bottomshelf2_show" default="1" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-</params>
-
-<params group="bottomshelf3data">	
-	<param name="bottomshelf3_wrap" default="0" type="itoggle" label="Block wrapping" tooltip="modal" description="blockwrap.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="bottomshelf3_inner" default="1" type="itoggle" label="Block inner" tooltip="modal" description="blockinner.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="bottomshelf3_chrome" default="grid" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
-		<option value="none">None</option>
-		<option value="basic">Basic</option>
-		<option value="grid">Grid</option>
-		<option value="tabs">Tabs</option>
-		<option value="accordion">Accordion</option>			
-		<option value="outline">Outline</option>
-	</param>
-	<param name="bottomshelf3_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
-		<option value="1">Wrap heading &amp; content</option>
-		<option value="2">Wrap content only</option>
-		<option value="0">None</option>
-	</param>
-	<param name="bottomshelf3_gridsplit" default="yui-g" type="list" label="Grid split" tooltip="modal" description="gridsplit.html">
-		<option value="yui-g">Default (50/50)</option>
-		<option value="yui-gc">66/33 Split</option>
-		<option value="yui-gd">33/66 Split</option>
-		<option value="yui-ge">75/25 Split</option>
-		<option value="yui-gf">25/75 Split</option>
-	</param>
-	<param name="bottomshelf3_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="bottomshelf3_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
-	<param name="bottomshelf3_slider" default="0" type="itoggle" label="Topbar slider" tooltip="modal" description="slider.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="bottomshelf3_slider_text" default="toggle" type="text" label="Bottomshelf slider text" tooltip="inline" description="toggletext.html" />
-	<param name="bottomshelf3_show" default="1" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-</params>
-
-<params group="user1data">	
-	<param name="user1_inner" default="0" type="itoggle" label="Block inner" tooltip="modal" description="blockinner.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="user1_chrome" default="grid" type="list" label="User1 chrome" tooltip="modal" description="chromefx.html">
-		<option value="none">None</option>
-		<option value="basic">Basic</option>
-		<option value="grid">Grid</option>
-		<option value="tabs">Tabs</option>
-		<option value="accordion">Accordion</option>			
-		<option value="outline">Outline</option>
-	</param>
-	<param name="user1_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
-		<option value="1">Wrap heading &amp; content</option>
-		<option value="2">Wrap content only</option>
-		<option value="0">None</option>
-	</param>
-	<param name="user1_gridsplit" default="yui-g" type="list" label="Grid split" tooltip="modal" description="gridsplit.html">
-		<option value="yui-g">Default (50/50)</option>
-		<option value="yui-gc">66/33 Split</option>
-		<option value="yui-gd">33/66 Split</option>
-		<option value="yui-ge">75/25 Split</option>
-		<option value="yui-gf">25/75 Split</option>
-	</param>
-	<param name="user1_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="user1_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
-	<param name="user1_show" default="0" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-</params>
-
-<params group="user2data">
-	<param name="user2_inner" default="1" type="itoggle" label="Block inner" tooltip="modal" description="blockinner.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="user2_chrome" default="grid" type="list" label="User2 chrome" tooltip="modal" description="chromefx.html">
-		<option value="none">None</option>
-		<option value="basic">Basic</option>
-		<option value="grid">Grid</option>
-		<option value="tabs">Tabs</option>
-		<option value="accordion">Accordion</option>			
-		<option value="outline">Outline</option>
-	</param>
-	<param name="user2_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
-		<option value="1">Wrap heading &amp; content</option>
-		<option value="2">Wrap content only</option>
-		<option value="0">None</option>
-	</param>
-	<param name="user2_gridsplit" default="yui-g" type="list" label="Grid split" tooltip="modal" description="gridsplit.html">
-		<option value="yui-g">Default (50/50)</option>
-		<option value="yui-gc">66/33 Split</option>
-		<option value="yui-gd">33/66 Split</option>
-		<option value="yui-ge">75/25 Split</option>
-		<option value="yui-gf">25/75 Split</option>
-	</param>
-	<param name="user2_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="user2_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
-	<param name="user2_show" default="0" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-</params>
-
-<params group="inset1data">
-	<param name="inset1_chrome" default="basic" type="list" label="Inset1 chrome" tooltip="modal" description="chromefx.html">
-		<option value="none">None</option>
-		<option value="basic">Basic</option>
-		<option value="grid">Grid</option>
-		<option value="tabs">Tabs</option>
-		<option value="accordion">Accordion</option>			
-		<option value="outline">Outline</option>
-	</param>
-	<param name="inset1_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
-		<option value="1">Wrap heading &amp; content</option>
-		<option value="2">Wrap content only</option>
-		<option value="0">None</option>
-	</param>
-	<param name="inset1_gridsplit" default="yui-g" type="list" label="Grid split" tooltip="modal" description="gridsplit.html">
-		<option value="yui-g">Default (50/50)</option>
-		<option value="yui-gc">66/33 Split</option>
-		<option value="yui-gd">33/66 Split</option>
-		<option value="yui-ge">75/25 Split</option>
-		<option value="yui-gf">25/75 Split</option>
-	</param>
-	<param name="inset1_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="inset1_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
-</params>
-
-<params group="inset2data">	
-	<param name="inset2_chrome" default="basic" type="list" label="Inset2 chrome" tooltip="modal" description="chromefx.html">
-		<option value="none">None</option>
-		<option value="basic">Basic</option>
-		<option value="grid">Grid</option>
-		<option value="tabs">Tabs</option>
-		<option value="accordion">Accordion</option>			
-		<option value="outline">Outline</option>
-	</param>
-	<param name="inset2_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
-		<option value="1">Wrap heading &amp; content</option>
-		<option value="2">Wrap content only</option>
-		<option value="0">None</option>
-	</param>
-	<param name="inset2_gridsplit" default="yui-g" type="list" label="Grid split" tooltip="modal" description="gridsplit.html">
-		<option value="yui-g">Default (50/50)</option>
-		<option value="yui-gc">66/33 Split</option>
-		<option value="yui-gd">33/66 Split</option>
-		<option value="yui-ge">75/25 Split</option>
-		<option value="yui-gf">25/75 Split</option>
-	</param>
-	<param name="inset2_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="inset2_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
-</params>
-
-<params group="inset3data">	
-	<param name="inset3_chrome" default="basic" type="list" label="Inset3 chrome" tooltip="modal" description="chromefx.html">
-		<option value="none">None</option>
-		<option value="basic">Basic</option>
-		<option value="grid">Grid</option>
-		<option value="tabs">Tabs</option>
-		<option value="accordion">Accordion</option>			
-		<option value="outline">Outline</option>
-	</param>
-	<param name="inset3_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
-		<option value="1">Wrap heading &amp; content</option>
-		<option value="2">Wrap content only</option>
-		<option value="0">None</option>
-	</param>
-	<param name="inset3_gridsplit" default="yui-g" type="list" label="Grid split" tooltip="modal" description="gridsplit.html">
-		<option value="yui-g">Default (50/50)</option>
-		<option value="yui-gc">66/33 Split</option>
-		<option value="yui-gd">33/66 Split</option>
-		<option value="yui-ge">75/25 Split</option>
-		<option value="yui-gf">25/75 Split</option>
-	</param>
-	<param name="inset3_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="inset3_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
-</params>
-
-<params group="inset4data">		
-	<param name="inset4_chrome" default="basic" type="list" label="Inset4 chrome" tooltip="modal" description="chromefx.html">
-		<option value="none">None</option>
-		<option value="basic">Basic</option>
-		<option value="grid">Grid</option>
-		<option value="tabs">Tabs</option>
-		<option value="accordion">Accordion</option>			
-		<option value="outline">Outline</option>
-	</param>
-	<param name="inset4_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
-		<option value="1">Wrap heading &amp; content</option>
-		<option value="2">Wrap content only</option>
-		<option value="0">None</option>
-	</param>
-	<param name="inset4_gridsplit" default="yui-g" type="list" label="Grid split" tooltip="modal" description="gridsplit.html">
-		<option value="yui-g">Default (50/50)</option>
-		<option value="yui-gc">66/33 Split</option>
-		<option value="yui-gd">33/66 Split</option>
-		<option value="yui-ge">75/25 Split</option>
-		<option value="yui-gf">25/75 Split</option>
-	</param>
-	<param name="inset4_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="inset4_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
-</params>
-
-<params group="maindata">	
-	<param name="main_wrap" default="0" type="itoggle" label="Block wrapping" tooltip="modal" description="blockwrap.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="main_inner" default="1" type="itoggle" label="Block inner" tooltip="modal" description="blockinner.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="pathway_text_show" default="1" type="itoggle" label="Enable pathway pre-text" tooltip="inline" description="This option lets you choose whether or not to display the text before the pathway module, eg: You are here">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="pathway_text" default="You are here:" type="textarea" cols="32" rows="1" tooltip="inline" label="Pathway pre-text" description="Would you like the pathway text to be displayed? This will not impact the actual pathway module itself." />		
-</params>
-
-<params group="outersidebardata">	
-	<param name="outer_default" default="yui-t6" type="list" label="Outer layout default" tooltip="modal" description="outerlayout.html">
-		<option value="yui-t1">160px Left</option>
-		<option value="yui-t2">180px Left</option>
-		<option value="yui-t8">200px Left</option>
-		<option value="yui-t3">300px Left</option>
-		<option value="yui-t4">180px Right</option>
-		<option value="yui-t9">200px Right</option>
-		<option value="yui-t5">240px Right</option>
-		<option value="yui-t6">300px Right</option>
-		<option value="none">None</option>
-	</param>
-	<param name="secondary_inner" default="0" type="itoggle" label="Inner wrapping" tooltip="inline" description="Would you like the secondary content sidebar to have an inner wrap div? This is useful if you need to add padding to the contents of the sidebar.">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-</params>
-
-<params group="outer1data">			
-	<param name="outer1_chrome" default="basic" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
-		<option value="none">None</option>
-		<option value="basic">Basic</option>
-		<option value="grid">Grid</option>
-		<option value="tabs">Tabs</option>
-		<option value="accordion">Accordion</option>			
-		<option value="outline">Outline</option>
-	</param>
-	<param name="outer1_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
-		<option value="1">Wrap heading &amp; content</option>
-		<option value="2">Wrap content only</option>
-		<option value="0">None</option>
-	</param>
-	<param name="outer1_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="outer1_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
-</params>
-
-<params group="outer2data">			
-	<param name="outer2_chrome" default="basic" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
-		<option value="none">None</option>
-		<option value="basic">Basic</option>
-		<option value="grid">Grid</option>
-		<option value="tabs">Tabs</option>
-		<option value="accordion">Accordion</option>			
-		<option value="outline">Outline</option>
-	</param>
-	<param name="outer2_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
-		<option value="1">Wrap heading &amp; content</option>
-		<option value="2">Wrap content only</option>
-		<option value="0">None</option>
-	</param>
-	<param name="outer2_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="outer2_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
-</params>
-
-<params group="outer3data">			
-	<param name="outer3_chrome" default="basic" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
-		<option value="none">None</option>
-		<option value="basic">Basic</option>
-		<option value="grid">Grid</option>
-		<option value="tabs">Tabs</option>
-		<option value="accordion">Accordion</option>			
-		<option value="outline">Outline</option>
-	</param>
-	<param name="outer3_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
-		<option value="1">Wrap heading &amp; content</option>
-		<option value="2">Wrap content only</option>
-		<option value="0">None</option>
-	</param>
-	<param name="outer3_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="outer3_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
-</params>
-
-<params group="outer4data">			
-	<param name="outer4_chrome" default="basic" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
-		<option value="none">None</option>
-		<option value="basic">Basic</option>
-		<option value="grid">Grid</option>
-		<option value="tabs">Tabs</option>
-		<option value="accordion">Accordion</option>			
-		<option value="outline">Outline</option>
-	</param>
-	<param name="outer4_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
-		<option value="1">Wrap heading &amp; content</option>
-		<option value="2">Wrap content only</option>
-		<option value="0">None</option>
-	</param>
-	<param name="outer4_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="outer4_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
-</params>
-
-<params group="outer5data">			
-	<param name="outer5_chrome" default="basic" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
-		<option value="none">None</option>
-		<option value="basic">Basic</option>
-		<option value="grid">Grid</option>
-		<option value="tabs">Tabs</option>
-		<option value="accordion">Accordion</option>			
-		<option value="outline">Outline</option>
-	</param>
-	<param name="outer5_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
-		<option value="1">Wrap heading &amp; content</option>
-		<option value="2">Wrap content only</option>
-		<option value="0">None</option>
-	</param>
-	<param name="outer5_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="outer5_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
-</params>
-
-<params group="innersidebardata">	
-	<param name="inner_default" default="yui-gh" type="list" label="Inner layout default" tooltip="modal" description="innerlayout.html">
-		<option value="yui-g">50% Right</option>
-		<option value="yui-gc">33% Right</option>
-		<option value="yui-ge">25% Right</option>
-		<option value="yui-gi">200px Left</option>
-		<option value="yui-gh">200px Right</option>
-		<option value="none">None</option>
-	</param>
-	<param name="tertiary_inner" default="0" type="itoggle" label="Inner wrapping" tooltip="inline" description="Would you like the secondary content sidebar to have an inner wrap div? This is useful if you need to add padding to the contents of the sidebar.">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-</params>
-
-<params group="inner1data">	
-	<param name="inner1_chrome" default="basic" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
-		<option value="none">None</option>
-		<option value="basic">Basic</option>
-		<option value="grid">Grid</option>
-		<option value="tabs">Tabs</option>
-		<option value="accordion">Accordion</option>			
-		<option value="outline">Outline</option>
-	</param>
-	<param name="inner1_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
-		<option value="1">Wrap heading &amp; content</option>
-		<option value="2">Wrap content only</option>
-		<option value="0">None</option>
-	</param>
-	<param name="inner1_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="inner1_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
-</params>
-
-<params group="inner2data">	
-	<param name="inner2_chrome" default="basic" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
-		<option value="none">None</option>
-		<option value="basic">Basic</option>
-		<option value="grid">Grid</option>
-		<option value="tabs">Tabs</option>
-		<option value="accordion">Accordion</option>			
-		<option value="outline">Outline</option>
-	</param>
-	<param name="inner2_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
-		<option value="1">Wrap heading &amp; content</option>
-		<option value="2">Wrap content only</option>
-		<option value="0">None</option>
-	</param>
-	<param name="inner2_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="inner2_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
-</params>
-
-<params group="inner3data">	
-	<param name="inner3_chrome" default="basic" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
-		<option value="none">None</option>
-		<option value="basic">Basic</option>
-		<option value="grid">Grid</option>
-		<option value="tabs">Tabs</option>
-		<option value="accordion">Accordion</option>			
-		<option value="outline">Outline</option>
-	</param>
-	<param name="inner3_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
-		<option value="1">Wrap heading &amp; content</option>
-		<option value="2">Wrap content only</option>
-		<option value="0">None</option>
-	</param>
-	<param name="inner3_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="inner3_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
-</params>
-
-<params group="inner4data">	
-	<param name="inner4_chrome" default="basic" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
-		<option value="none">None</option>
-		<option value="basic">Basic</option>
-		<option value="grid">Grid</option>
-		<option value="tabs">Tabs</option>
-		<option value="accordion">Accordion</option>			
-		<option value="outline">Outline</option>
-	</param>
-	<param name="inner4_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
-		<option value="1">Wrap heading &amp; content</option>
-		<option value="2">Wrap content only</option>
-		<option value="0">None</option>
-	</param>
-	<param name="inner4_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="inner4_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
-</params>
-
-<params group="inner5data">	
-	<param name="inner5_chrome" default="basic" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
-		<option value="none">None</option>
-		<option value="basic">Basic</option>
-		<option value="grid">Grid</option>
-		<option value="tabs">Tabs</option>
-		<option value="accordion">Accordion</option>			
-		<option value="outline">Outline</option>
-	</param>
-	<param name="inner5_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
-		<option value="1">Wrap heading &amp; content</option>
-		<option value="2">Wrap content only</option>
-		<option value="0">None</option>
-	</param>
-	<param name="inner5_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="inner5_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
-</params>
-
-<params group="footerdata">	
-	<param name="footer_wrap" default="0" type="itoggle" label="Block wrapping" tooltip="modal" description="blockwrap.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="footer_type" default="0" type="list" label="Footer type" tooltip="modal" description="footer.html">
-		<option value="0">Copyright, credits and links</option>
-		<option value="1">Module position (footer)</option>
-	</param>	
-	<param name="footer_chrome" default="none" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
-		<option value="none">None</option>
-		<option value="basic">Basic</option>
-		<option value="grid">Grid</option>
-		<option value="tabs">Tabs</option>
-		<option value="accordion">Accordion</option>			
-		<option value="outline">Outline</option>
-	</param>
-	<param name="footer_module_inner" default="0" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
-		<option value="1">Wrap heading &amp; content</option>
-		<option value="2">Wrap content only</option>
-		<option value="0">None</option>
-	</param>
-	<param name="footer_gridsplit" default="yui-g" type="list" label="Grid split" tooltip="modal" description="gridsplit.html">
-		<option value="yui-g">Default (50/50)</option>
-		<option value="yui-gc">66/33 Split</option>
-		<option value="yui-gd">33/66 Split</option>
-		<option value="yui-ge">75/25 Split</option>
-		<option value="yui-gf">25/75 Split</option>
-	</param>
-	<param name="footer_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="footer_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
-	<param name="footer_copyright_show" default="1" type="itoggle" label="Display copyright" tooltip="inline" description="Would you like the footer copyright to be display?">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="footer_copyright" default="Copyright 2010 JoomlaJunkie.com - All Rights Reserved" type="textarea" cols="32" rows="2" label="Copyright text" tooltip="inline" description="Add your own copyright here" />
-	<param name="footer_credits_show" default="1" type="itoggle" label="Display credits" tooltip="inline" description="Would you like the footer credits to be display?">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="footer_credits" default="Template Designed by &lt;a href=&quot;http://www.joomlajunkie.com&quot; title=&quot;professional joomla templates&quot;&gt;JoomlaJunkie&lt;/a&gt;" type="textarea" cols="32" rows="2" label="Credits text" tooltip="inline" description="Add your own credits here" />
-	<param name="footer_textcolor" default="#777" type="colorpicker" label="Footer text color" tooltip="inline" description="" />
-	<param name="footer_linkscolor" default="#555" type="colorpicker" label="Footer links color" tooltip="inline" description="" />
-	<param name="footer_morphlink" default="1" type="itoggle" label="Show Powered by Morph" tooltip="inline" description="We've made it optional to disable the Morph Inside link, but please consider leaving it on.">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="footer_validation" default="1" type="itoggle" label="Show validation links" tooltip="inline" description="Should the xhtml validation link be displayed in the footer?">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-	<param name="footer_show" default="0" type="itoggle" label="Disable the footer block" tooltip="inline" description="Would you like to disable this block?">
-		<option value="1">Yes</option>
-		<option value="0">No</option>
-	</param>
-</params>
 </morph>
