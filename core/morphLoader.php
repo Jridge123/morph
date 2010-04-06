@@ -17,8 +17,8 @@
 
 defined('_JEXEC') or die('Restricted access');
 $morph_component_path = JPATH_ADMINISTRATOR.'/components/com_configurator';
-include_once ($morph_component_path . "/configurator.common.php");
-include_once ($morph_component_path . "/configurator.class.php");
+include_once $morph_component_path . '/configurator.common.php';
+include_once $morph_component_path . '/configurator.class.php';
 
 class Morph {
 
@@ -50,9 +50,12 @@ class Morph {
 		$morph_installed = $db->loadResult();
 
 		if ( isset( $morph_installed ) ) {
-			$query = "SELECT * FROM #__configurator WHERE `template_name` = '{$template}'";
-			$db->setQuery( $query );
-			$params = (array) $db->loadObjectList();
+			//$query = "SELECT * FROM #__configurator WHERE `template_name` = '{$template}'";
+			//$db->setQuery( $query );
+			//$params = (array) $db->loadObjectList();
+
+			JTable::addIncludePath(JPATH_ADMINISTRATOR.'/components/com_configurator/tables');
+			$params = JTable::getInstance('ConfiguratorTemplateSettings', 'Table')->template($template)->getConfigs();
 		} else {
 			$params = array();
 		}
