@@ -212,7 +212,7 @@ if(isset($_GET['gzip']) && $_GET['gzip'] == 'on'){
 // developer toolbar frontend switch
 if($MORPH->debug || $MORPH->developer_toolbar)
 {
-	$uri = JFactory::getURI();
+	$uri = clone JFactory::getURI();
 	if(isset($_GET['show_devbar'])||isset($_GET['showdev'])){
 		$_GET['morph']['developer_toolbar'] = true;
 		$uri->delVar('show_devbar');
@@ -717,32 +717,32 @@ function blocks($position, $glob, $jj_const, $classes, $site_width, $debug_modul
 }
 
 function pt_body_classes($menu, $view, $themelet){
-	$classes = 'class="';
-	$ids = '';  
-	$devbar = '';
-	$pageclass = '';
-	$view = $menu->query['view'];
-	$component = $menu->query['option'];
-	
 	$browser = new MBrowser();
 	$platform = ' '.strtolower($browser->getPlatform());
 	$thebrowser = ' '.strtolower(preg_replace("/[^A-Za-z]/i", "", $browser->getBrowser()));
 	$ver = $browser->getVersion();
 	$ver = str_replace('.', '', $ver);
-	
 	$params = new JParameter($menu->params);
 	$pageclass = $params->get('pageclass_sfx');
+	$user = JFactory::getUser();
+	$lang = JFactory::getLanguage();
+
+	$classes = array('js-disabled', 'morph', $lang->getTag(), Morph::getTimeofday());
+	if($menu->query['view'] !== '') $classes[] = $menu->query['view'];
+	if($menu->query['option'] !== '') $classes[] = $menu->query['option'];
+	if(isset($_COOKIE['morph_developer_toolbar'])) $classes[] = 'devbar';
+	if($pageclass !== '') $classes[] = $pageclass;
 	
-	if(isset($_COOKIE['morph_developer_toolbar'])){ $devbar = ' devbar'; }
-	if($pageclass !== ''){ $pageclass = ' '.$pageclass; }
-	if($view !== ''){ $view = ' '.$view; }
-	if($component !== ''){ $component = ' '.$component; }
-	if($themelet !== ''){ $ids = ' id="'.$themelet.'"'; }
+	//Classes based on user state and user type
+	if($user->guest) $classes[] = 'user-guest';
+	if($user->usertype) $classes[] = 'user-registered usertype-' . str_replace(array(' '), array('-'), strtolower($user->usertype));
 	
+	//Controller task
+	if($task = JRequest::getCmd('task', false)) $classes[] = 'task-' . $task;
 	
-	$classes .= 'js-disabled morph'.$thebrowser.$thebrowser.$ver.$platform.$pageclass.$view.$component.$devbar.'"';
+	//$class .= 'js-disabled morph'.$thebrowser.$thebrowser.$ver.$platform.$pageclass.$view.$component.$devbar.'"';
 	
-	return $classes.' '.$ids ;
+	return 'class="' . implode(' ', array_filter($classes)) . '" ' . ( $themelet ? 'id="' . $themelet . '"' : null );
 }
 
 function pt_classes($classes, $sitewidth=''){

@@ -32,6 +32,8 @@ class Morph {
 	
 	public $styleSheets = array();
 	public $styleSheetsAfter = array();
+	
+	public static $_timeofday;
 
 	public function __construct( $template = 'morph' )
 	{
@@ -163,7 +165,7 @@ class Morph {
 		if($this->developer_toolbar || $this->debug)
 		{
 			if(isset($_GET['morph'])){
-				$uri = JFactory::getURI();
+				$uri = clone JFactory::getURI();
 				$uri->delVar('morph');
 
 				header('Location: ' . $uri->toString());
@@ -424,5 +426,37 @@ class Morph {
 		if(!$themelet) $themelet = self::getInstance()->themelet;
 		$path = JPATH_ROOT.'/morph_assets/themelets/' . $themelet;
 		return is_dir($path) ? $path : false;
+	}
+	
+	/**
+	 * Get the time of day
+	 *
+	 *
+	 *
+	 * @return	string	da
+	 */
+	public function getTimeofday()
+	{
+		if(!isset(self::$_timeofday))
+		{
+			$user = JFactory::getUser();
+			$date = clone JFactory::getDate();
+
+			//Set timezone offset
+			if(!$user->guest) $date->setOffset($user->getParam('timezone'));
+
+			$time = $date->toFormat('%H'); 
+
+			$sunrise = date_sunrise($date->toUnix(), SUNFUNCS_RET_DOUBLE); 
+			$sunset = date_sunset($date->toUnix(), SUNFUNCS_RET_DOUBLE) + 1; 
+			if($time >= $sunrise && $time < $sunrise + 2) $style = 'sunrise'; 
+			elseif($time >= $sunrise + 2 && $time < $sunset) $style = 'day'; 
+			elseif($time >= $sunset && $time < $sunset + 2) $style = 'sunset'; 
+			else $style = 'night';
+			
+			self::$_timeofday = $style;
+		}
+		
+		return self::$_timeofday;
 	}
 }
