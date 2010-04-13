@@ -54,7 +54,7 @@
          
       </div>
       <?php if(JDocumentHTML::countModules('top')) { ?>
-      <div class="<?php echo pt_classes(array('default_menu' => $default_menu, 'subtext' => $subtext, 'topnav_actionlink' => $topnav_actionlink, 'topdrop' => $topdrop, 'topfish' => $topfish)); ?> primary-nav" id="top">
+      <div class="<?php echo pt_classes(array('default_menu' => $default_menu, 'subtext' => $subtext, 'topnav_actionlink' => $topnav_actionlink, 'topdrop' => $topdrop, 'topfish' => $topfish)); ?> primary-nav <?php echo getYuiSuffix('top', $jj_const); ?>" id="top">
          <jdoc:include type="modules" name="top" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } elseif(isset($nojs) && $nojs == 1) { echo 'basic'; } else { echo $masthead_chrome; } ?>" />
 	 </div>
       <?php } ?>
