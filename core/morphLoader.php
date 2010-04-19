@@ -43,8 +43,13 @@ class Morph {
 		
 		
 		// themelet settings
-		$db->setQuery("select param_value from #__configurator where param_name = 'themelet'");
+		$db->setQuery("select param_value from #__configurator where param_name = 'themelet' and template_name = 'morph'");
 		$themelet_name = $db->loadResult();
+		
+		$Itemid = (int) JRequest::getInt('Itemid');
+		$db->setQuery("select param_value from #__configurator where param_name = 'themelet' and template_name = '$Itemid.morph'");
+		if($themelet = $db->loadResult()) $themelet_name = $themelet;
+		
 		$themelet_params = array();
 		
 		
@@ -84,7 +89,7 @@ class Morph {
 			foreach($overrides as $name => $override)
 			{
 				if($name == 'debug') continue;
-				$this->$name = $override;
+				if($name != '' . "\0" . '*' . "\0" . '_generated_override') $this->$name = $override;
 			}
 		}
 		
@@ -126,14 +131,15 @@ class Morph {
 			$backup = array();
 			foreach(array('scripts', 'styleSheets', 'styleSheetsAfter') as $b) $backup[$b] = $this->$b;
 			$params = array_merge((array)$this, $params);
-			
-			
+
 			foreach($params as $name => $param)
 			{
 				if($name == 'debug') continue;
 				//if($name == 'scripts' && !$this->pack_js) continue;
 				//if(in_array($name, array('styleSheets', 'styleSheetsAfter')) && !$this->pack_css) continue;
-				$this->$name = $param;
+
+				// Just to avoid errors
+				if($name != '' . "\0" . '*' . "\0" . '_generated_override') $this->$name = $param;
 			}
 			
 			if(!$this->jquery_core) unset($this->scripts['/templates/morph/core/js/jquery.js']);
