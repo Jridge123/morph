@@ -186,6 +186,8 @@ global $morph_tabs,$tabscount,$loadtabs,$istabsload;
 				$currmod->position = $attribs['name'];	
 				$currmod->title = $mod->title;	
 				$currmod->content = $mod->content;
+				$params = new JParameter($mod->params);
+				$currmod->suffix = $params->toObject()->moduleclass_sfx;
 				$morph_tabs[$attribs['name']][] = $currmod;
 			}
 		}
@@ -200,9 +202,9 @@ global $morph_tabs,$tabscount,$loadtabs,$istabsload;
 			$tabs_contents = '';
 			foreach ( $morph_tabs[$attribs['name']] as $modul ){
 				if ($curr_tab == 1) { ?>
-					<li class="ui-state-default ui-tabs-selected"><a href="#tab<?php echo $curr_tab.'-'.$modul->position; ?>"><span class="icon"></span><?php echo moduleHeadings($modul->title);?></a></li>
+					<li class="ui-state-default <?php echo $modul->suffix ?> ui-tabs-selected"><a href="#tab<?php echo $curr_tab.'-'.$modul->position; ?>"><span class="icon"></span><?php echo moduleHeadings($modul->title);?></a></li>
 				<?php } else { ?>
-					<li class="ui-state-default"><a href="#tab<?php echo $curr_tab.'-'.$modul->position; ?>"><span class="icon"></span><?php echo moduleHeadings($modul->title);?></a></li>
+					<li class="ui-state-default <?php echo $modul->suffix ?>"><a href="#tab<?php echo $curr_tab.'-'.$modul->position; ?>"><span class="icon"></span><?php echo moduleHeadings($modul->title);?></a></li>
 				<?php 
 				}
                                 $hide = $curr_tab > 1 ? ' ui-tabs-hide' : '';
@@ -241,6 +243,8 @@ function modChrome_accordion($module, &$params, &$attribs) {
 				$currmod->position = $attribs['name'];
 				$currmod->title = $mod->title;	
 				$currmod->content = $mod->content;
+				$params = new JParameter($mod->params);
+				$currmod->suffix = $params->toObject()->moduleclass_sfx;
 				$morph_accordions[$attribs['name']][$mod->id] = $currmod;
 			}
 		}
@@ -254,6 +258,7 @@ function modChrome_accordion($module, &$params, &$attribs) {
 			$accordions_contents = '';
 			foreach ( $morph_accordions[$attribs['name']] as $modul ){ 
 				$curr_accordion++;
+				
 				if ($curr_accordion == 1) { ?>
 					<h3 class="ui-state-default ui-accordion-selected"><a href="#accordion<?php echo $curr_accordion.'-'.$modul->position; ?>"><?php echo moduleHeadings($modul->title);?></a></h3>
 				<?php } else { ?>
