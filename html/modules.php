@@ -260,9 +260,9 @@ function modChrome_accordion($module, &$params, &$attribs) {
 				$curr_accordion++;
 				
 				if ($curr_accordion == 1) { ?>
-					<h3 class="ui-state-default ui-accordion-selected"><a href="#accordion<?php echo $curr_accordion.'-'.$modul->position; ?>"><?php echo moduleHeadings($modul->title);?></a></h3>
+					<h3 class="ui-state-default <?php echo $modul->suffix ?> ui-accordion-selected"><a href="#accordion<?php echo $curr_accordion.'-'.$modul->position; ?>"><?php echo moduleHeadings($modul->title);?></a></h3>
 				<?php } else { ?>
-					<h3 class="ui-state-default"><a href="#accordion<?php echo $curr_accordion.'-'.$modul->position; ?>"><?php echo moduleHeadings($modul->title);?></a></h3>
+					<h3 class="ui-state-default <?php echo $modul->suffix ?>"><a href="#accordion<?php echo $curr_accordion.'-'.$modul->position; ?>"><?php echo moduleHeadings($modul->title);?></a></h3>
 				<?php 
 				}
 				echo '<div id="accordion'.$curr_accordion.'-'.$modul->position.'">'.$modul->content.'</div>';	
