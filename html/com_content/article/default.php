@@ -123,6 +123,7 @@ if($override = Morph::override(__FILE__, $this)) {
 		<p class="modified"><?php echo JText::sprintf('LAST_UPDATED2', JHTML::_('date', $this->article->modified, JText::_('DATE_FORMAT_LC2'))); ?>.</p>
 	    <?php endif; ?>
 	
+		<?php if ($morph->shareit_enabled) : ?>
 		<div id="shareit-box">
         	<div id="shareit-header"></div>
         	<div id="shareit-body">
@@ -141,6 +142,7 @@ if($override = Morph::override(__FILE__, $this)) {
         	</div>
         </div>
 		</div>
+		 <?php endif; ?>
 		
 		<?php echo $this->article->event->afterDisplayContent; ?>
 	</div>
