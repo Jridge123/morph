@@ -82,7 +82,7 @@ if( $isiPhone && !$iPhoneCookie ){
 ?>
 <jdoc:include type="modules" name="debug" />
 <?php include_once('core/includes/ga-code.php'); ?>
-<?php if ( $plugin_scrollto == 1 && $browser->getBrowser() !== MBrowser::PLATFORM_IPHONE ) { ?><a href="#top" id="top-link"><?php echo JText::_('Back to Top'); ?></a><?php } ?>
+<?php if ( $plugin_scrollto == 1 && $browser->getBrowser() !== MBrowser::PLATFORM_IPHONE ) { ?><a href="#top" id="top-link"><?php echo JText::_('TOP_OF_PAGE'); ?></a><?php } ?>
 
 <?php } 
 if(file_exists($footer_script) && is_readable($footer_script)){
