@@ -26,11 +26,13 @@ if ( $google_analytics !== "" ) { ?>
 <script type="text/javascript">
 jQuery.trackPage('<?php echo $google_analytics; ?>')
 </script>
-<?php } if( $browser->getBrowser() == MBrowser::PLATFORM_IPHONE ) { ?>
-<meta name="viewport" content="width=320" />
-<link rel="apple-touch-icon" href="<?php echo $assetspath; ?>/iphone/<?php echo $iphone_webclip; ?>" />
-<?php } ?>
-<?php if(isIE6() && $hide_ie6toolbar == 1 ){ ?><meta http-equiv="imagetoolbar" content="no" /><?php } ?>
+<?php } if( $browser->getBrowser() == MBrowser::PLATFORM_IPHONE && $iphone_viewport ) { 
+if ($iphone_scalable) { $content = "user-scalable=yes"; } else { $content = "user-scalable=no"; }
+if ($iphone_width) { $content .= ", width=" . $iphone_width; }
+if ($iphone_height) { $content .= ", height=" . $iphone_height; }
+if ($iphone_scale) { $content .= ", initial-scale=" . $iphone_scale; } ?>
+<meta name="viewport" content="<?php echo($content); ?>" />
+<?php } if(isIE6() && $hide_ie6toolbar == 1 ){ ?><meta http-equiv="imagetoolbar" content="no" /><?php } ?>
 <?php if( $browser->getBrowser() == MBrowser::BROWSER_IE && $chrome_frame == 1 ) {
 	$document->setMetaData('X-UA-Compatible', 'chrome=1', true);
 } ?>
