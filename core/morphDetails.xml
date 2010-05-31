@@ -641,7 +641,7 @@
 	</params>
 	
 	<params group="preloaderdata">
-		<param name="preloader_enabled" default="1" type="itoggle" label="Enable the preloader" tooltip="inline" description="Would you like to enable the preloader plugin?">
+		<param name="preloader_enabled" default="0" type="itoggle" label="Enable the preloader" tooltip="inline" description="Would you like to enable the preloader plugin?">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
