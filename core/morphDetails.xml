@@ -434,6 +434,27 @@
 		<param name="js_avatar_preview_small" type="text" label="Avatar small preview" tooltip="inline" description="" />	
 	</params>
 	
+	<params group="article_enhancementsdata">
+		<param name="enable_shareit" default="1" type="itoggle" label="Enable article sharing" tooltip="inline" description="Would you like the Share it box enabled on the article page?">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="enable_fontsizer" default="1" type="itoggle" label="Enable font sizer" tooltip="inline" description="Would you like the font sizer enabled on the article page?">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="enable_teaser" default="1" type="itoggle" label="Enable teaser styling" tooltip="inline" description="Would you like first paragraph of your articles to have the emphasized teaser styling?">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+	</params>
+	
+	<params group="blog_enhancementsdata">
+		<param name="enable_article_preview" default="1" type="itoggle" label="Enable article preview" tooltip="inline" description="Would you like the article preview enabled? Note, you'll need the lightbox plugin enabled if you select this.">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+	</params>
 	
 	<params group="performancedata">
 		<param name="pack_css" default="1" type="itoggle" label="Enable css packing" tooltip="inline" description="CSS Packing (otherwise refered to as CSS Concatination) refers to the combining of multiple files into a single file. This boosts your sites performance as fewer http requests are needed.">
