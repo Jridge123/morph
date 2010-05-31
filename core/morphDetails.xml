@@ -435,22 +435,26 @@
 	</params>
 	
 	<params group="article_enhancementsdata">
-		<param name="enable_shareit" default="1" type="itoggle" label="Enable article sharing" tooltip="inline" description="Would you like the Share it box enabled on the article page?">
+		<param name="shareit_enabled" default="1" type="itoggle" label="Enable article sharing" tooltip="inline" description="Would you like the Share it box enabled on the article page?">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
-		<param name="enable_fontsizer" default="1" type="itoggle" label="Enable font sizer" tooltip="inline" description="Would you like the font sizer enabled on the article page?">
+		<param name="fontsizer_enabled" default="1" type="itoggle" label="Enable font sizer" tooltip="inline" description="Would you like the font sizer enabled on the article page?">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
-		<param name="enable_teaser" default="1" type="itoggle" label="Enable teaser styling" tooltip="inline" description="Would you like first paragraph of your articles to have the emphasized teaser styling?">
+		<param name="teaser_enabled" default="1" type="itoggle" label="Enable teaser styling" tooltip="inline" description="Would you like first paragraph of your articles to have the emphasized teaser styling?">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="lazyload_enabled" default="0" type="itoggle" label="Lazy load images" tooltip="inline" description="Would you like to enable the lazyload image loading plugin?">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
 	</params>
 	
 	<params group="blog_enhancementsdata">
-		<param name="enable_article_preview" default="1" type="itoggle" label="Enable article preview" tooltip="inline" description="Would you like the article preview enabled? Note, you'll need the lightbox plugin enabled if you select this.">
+		<param name="article_preview_enabled" default="1" type="itoggle" label="Enable article preview" tooltip="inline" description="Would you like the article preview enabled? Note, you'll need the lightbox plugin enabled if you select this.">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
@@ -597,20 +601,6 @@
 		</param>
 	</params>
 	
-	<params group="fontsizerdata">
-		<param name="fontsizer_enabled" default="0" type="itoggle" label="Enable fontsizer on articles" tooltip="inline" description="Would you like to enable the fontsizer plugin?">
-			<option value="1">Yes</option>
-			<option value="0">No</option>
-		</param>
-	</params>
-	
-	<params group="lazyloaddata">
-		<param name="lazyload_enabled" default="0" type="itoggle" label="Enable lazyload on images" tooltip="inline" description="Would you like to enable the lazyload image loading plugin?">
-			<option value="1">Yes</option>
-			<option value="0">No</option>
-		</param>
-	</params>	
-	
 	<params group="lightboxdata">
 		<param name="lightbox_enabled" default="0" type="itoggle" label="Enable Lightbox" tooltip="inline" description="Would you like to enable the Colorbox Lightbox plugin?">
 			<option value="1">Yes</option>
@@ -633,13 +623,7 @@
 		</param>	
 	</params>
 	
-	<params group="shareitdata">
-		<param name="shareit_enabled" default="0" type="itoggle" label="Enable shareit on articles" tooltip="inline" description="Would you like to enable the fontsizer plugin?">
-			<option value="1">Yes</option>
-			<option value="0">No</option>
-		</param>
-	</params>
-	
+
 	<params group="preloaderdata">
 		<param name="preloader_enabled" default="0" type="itoggle" label="Enable the preloader" tooltip="inline" description="Would you like to enable the preloader plugin?">
 			<option value="1">Yes</option>
