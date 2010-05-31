@@ -392,8 +392,19 @@
 		</param>
 		<param name="iphone_header" default="" type="imagelist" tooltip="inline" label="iPhone header" description="Select a 320px x 50px header image to use on your iPhone optimized site. Images uploaded to your morph_assets/iphone directory will automatically appear in this list." directory="morph_assets/iphone" hide_none="true" />
 		<param name="iphone_webclip" default="" type="imagelist" tooltip="inline" label="iPhone webclip" description="Select a 57px by 57px image to use for your webclip bookmark. Images uploaded to your morph_assets/iphone directory will automatically appear in this list. This option a work in progress and will hopefully be 100% working in the next release." directory="morph_assets/iphone" hide_none="true" />
-	
+		<param name="iphone_viewport" default="1" type="itoggle" label="iPhone viewport" tooltip="inline" description="Would you like to manually select custom viewport settings? Not all setting require to be set as the iPhose OS will infer these based on what is set.">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="iphone_scalable" default="0" type="itoggle" label="iPhone user scalable" tooltip="inline" description="Would you like to allow users to scale the webpage? Set to Off for best results with iPhone webapps.">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="iphone_width" default="device-width" type="text" tooltip="inline" label="iPhone width" description="Set a custom width for the viewport (e.g. 974). Type device-width for best results with iPhone webapps." />
+		<param name="iphone_height" default="" type="text" tooltip="inline" label="iPhone height" description="Set a custom width for the viewport. Generally this setting can be left blank." />
+		<param name="iphone_scale" default="" type="text" tooltip="inline" label="iPhone scale" description="Set a custom scale for the viewport. Generally this setting can be left blank." />
 	</params>
+	
 	
 	<params group="jomsocialdata">
 		<param name="js_enable_toolbar" default="0" type="itoggle" label="Enable the JomSocial menu" tooltip="inline" description="Would you like the JomSocial toolbar menu to be displayed?">
