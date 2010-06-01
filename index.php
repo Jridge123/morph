@@ -36,6 +36,13 @@ if ($iphone_scale) { $content .= ", initial-scale=" . $iphone_scale; } ?>
 <?php if( $browser->getBrowser() == MBrowser::BROWSER_IE && $chrome_frame == 1 ) {
 	$document->setMetaData('X-UA-Compatible', 'chrome=1', true);
 } ?>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Josefin+Sans+Std+Light">
+<style>
+      #bd #primary-content h1{
+        font-family: 'Josefin Sans Std Light', arial, serif;
+        font-size: 58px;
+      }
+    </style>
 </head>
 <?php if ($error_reporting == 0) { error_reporting(E_ALL ^ E_NOTICE); } ?>
 <body <?php echo pt_body_classes($menu, $view, $themelet); ?>>
