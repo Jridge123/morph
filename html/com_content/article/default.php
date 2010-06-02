@@ -2,6 +2,7 @@
 defined('_JEXEC') or die('Restricted access');
 include_once(dirname(__FILE__).'/../icon.php');
 $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $this->user->authorize('com_content', 'edit', 'content', 'own'));
+$morph = Morph::getInstance();
 function curPageURL() {
  $pageURL = 'http';
  if (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
@@ -26,23 +27,20 @@ if($override = Morph::override(__FILE__, $this)) {
 	</h1>
 	<?php endif; ?>		
 
-	<?php if ($this->params->get('show_title') || $this->params->get('show_pdf_icon') || $this->params->get('show_print_icon') || $this->params->get('show_email_icon')) : ?>
     <!-- start article top -->
 	<?php if ($this->params->get('show_title')) : ?>
 	<h1 class="article-title">
 	<?php if ($this->params->get('link_titles') && $this->article->readmore_link != '') : ?>
-		<a href="<?php echo $this->article->readmore_link; ?>"><?php echo $this->escape($this->article->title); ?><?php if ($canEdit) : ?><span class="edit"> 
-		<?php echo JHTML::_('icon.edit', $this->article, $this->params, $this->access); ?></span><?php endif; ?></a>
+		<a href="<?php echo $this->article->readmore_link; ?>"><?php echo $this->escape($this->article->title); ?></a>
 	<?php else : ?>
-		<?php echo $this->escape($this->article->title); ?><?php if ($canEdit) : ?><span class="edit"> <?php echo JHTML::_('icon.edit', $this->article, $this->params, $this->access); ?>
-		</span><?php endif; ?>
+		<?php echo $this->escape($this->article->title); ?>
 	<?php endif; ?>
 	</h1>
 	<?php endif; ?>
     
     <?php if ($this->print) :
     	echo '<span class="print-icon">' . JHTML::_('icon.print_screen', $this->article, $this->params, $this->access) . '</span>';
-    elseif ($this->params->get('show_author') || $this->params->get('show_create_date') || $this->params->get('show_pdf_icon') || $this->params->get('show_print_icon') || $this->params->get('show_email_icon')) : ?>
+    elseif ($this->params->get('show_author') || $this->params->get('show_create_date') || $this->params->get('show_pdf_icon') || $this->params->get('show_print_icon') || $this->params->get('show_email_icon') || ($morph->fontsizer_enabled) || ($morph->shareit_enabled) || ($canEdit)) : ?>
     <ul class="article-info">		
         <?php if ($this->params->get('show_create_date')) { ?>
         <li class="created"><?php echo JHTML::_('date', $this->article->created, JText::_('%d %b %y')); ?></li>
@@ -50,7 +48,6 @@ if($override = Morph::override(__FILE__, $this)) {
         <?php if (($this->params->get('show_author')) && ($this->article->author != "")) { ?>
     	<li class="author"><?php JText::printf('Written by', ($this->article->created_by_alias ? $this->escape($this->article->created_by_alias) : $this->escape($this->article->author))); ?></li>
         <?php } ?>
-        <?php $morph = Morph::getInstance() ?>
         <?php if ($morph->shareit_enabled) : ?>
         <li class="share"><a href="<?php echo curPageURL(); ?>" title="<?php echo $this->escape($this->article->title); ?>" rel="shareit"><?php echo JText::_('Share Article'); ?></a></li>
         <?php endif; ?>
@@ -66,6 +63,7 @@ if($override = Morph::override(__FILE__, $this)) {
     	<?php if ($this->params->get('show_email_icon')) : ?>
     	<li class="icons email"><?php echo articleIcons::email($this->article, $this->params, $this->access); ?></li>
     	<?php endif; ?>
+    	<?php if ($canEdit) : ?><li class="icons edit"><span class="edit"><?php echo JHTML::_('icon.edit', $this->article, $this->params, $this->access); ?></span></li><?php endif; ?>
     </ul>
 	<?php endif; ?>
 
@@ -98,9 +96,6 @@ if($override = Morph::override(__FILE__, $this)) {
     	<?php endif; ?>
     </p>
     <?php endif; ?>
-
-	<!-- end article top -->
-	<?php endif; ?>
 
 	<!-- intro text -->
 	<?php  if (!$this->params->get('show_intro')) :	echo $this->article->event->afterDisplayTitle; endif; ?>
