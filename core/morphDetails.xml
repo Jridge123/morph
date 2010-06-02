@@ -434,7 +434,7 @@
 		<param name="js_avatar_preview_small" type="text" label="Avatar small preview" tooltip="inline" description="" />	
 	</params>
 	
-	<params group="article_enhancementsdata">
+	<params group="articleenhancementsdata">
 		<param name="shareit_enabled" default="1" type="itoggle" label="Enable article sharing" tooltip="inline" description="Would you like the Share it box enabled on the article page?">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
@@ -453,7 +453,7 @@
 		</param>
 	</params>
 	
-	<params group="blog_enhancementsdata">
+	<params group="blogenhancementsdata">
 		<param name="article_preview" default="1" type="itoggle" label="Show preview link" tooltip="inline" description="Would you like to enable the article preview link in the blog and frontpage views?">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
