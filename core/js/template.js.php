@@ -33,8 +33,10 @@ jQuery.noConflict();
 		});
 		
 		$(".search-results li:odd, .module-previews .mod:odd, table tr:even").addClass("alt");
-				
+		
+		<?php if ( $this->js->teaser_enabled == 1 ) { ?>	
 		$("#article-content p:first").addClass("teaser");
+		<?php } ?>
 		
 		$("#nav li:first, .sidebar li:first-child, .ui-tabs-nav li:first-child").addClass("first");
 		$(".sidebar li:last-child, .article_separator:last").addClass("last");
