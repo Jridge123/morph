@@ -41,8 +41,19 @@ if ($iphone_scale) { $content .= ", initial-scale=" . $iphone_scale; } ?>
       #bd #primary-content h1{
         font-family: 'Josefin Sans Std Light', arial, serif;
         font-size: 58px;
+        margin:0;
+        padding:0;
+        color:#111;
+      }
+      #bd #primary-content h2{
+        font-family: 'Josefin Sans Std Light', arial, serif;
+        font-size: 38px;
+        margin:0;
+        padding:0;
+        color:#333;
       }
     </style>
+	<?php include_once('core/includes/ga-code.php'); ?>
 </head>
 <?php if ($error_reporting == 0) { error_reporting(E_ALL ^ E_NOTICE); } ?>
 <body <?php echo pt_body_classes($menu, $view, $themelet); ?>>
@@ -90,7 +101,6 @@ if( $isiPhone && !$iPhoneCookie ){
 	if($isiPhone) include_once('core/includes/iphone_footer.php');
 ?>
 <jdoc:include type="modules" name="debug" />
-<?php include_once('core/includes/ga-code.php'); ?>
 <?php if ( $plugin_scrollto == 1 && $browser->getBrowser() !== MBrowser::PLATFORM_IPHONE ) { ?><a href="#top" id="top-link"><?php echo JText::_('TOP_OF_PAGE'); ?></a><?php } ?>
 
 <?php } 
