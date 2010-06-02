@@ -1,7 +1,7 @@
 <?php
 defined('_JEXEC') or die('Restricted access');
 include_once(dirname(__FILE__).'/../icon.php');
-$morph = Morph::getInstance()
+$morph = Morph::getInstance();
 ?>
 
 <?php if ($this->item->params->get('show_title')) : ?>
@@ -12,15 +12,11 @@ $morph = Morph::getInstance()
 	<?php else : ?>
 		<?php echo $this->escape($this->item->title); ?>
 	<?php endif; ?>
-	
-    <?php if ($this->user->authorize('com_content', 'edit', 'content', 'all') || $this->user->authorize('com_content', 'edit', 'content', 'own')) : ?>
-    	<?php echo JHTML::_('icon.edit', $this->item, $this->item->params, $this->access); ?>
-    <?php endif; ?>
 </h2>
 <?php endif; ?>
 
 <!-- created date and author -->
-<?php if ($this->item->params->get('show_author') && ($this->item->author != "") ||	$this->item->params->get('show_create_date') ||	$this->item->params->get('show_pdf_icon') || $this->item->params->get('show_print_icon') || $this->item->params->get('show_email_icon')){ ?>	
+<?php if ($this->item->params->get('show_author') && ($this->item->author != "") ||	$this->item->params->get('show_create_date') ||	$this->item->params->get('show_pdf_icon') || $this->item->params->get('show_print_icon') || $this->item->params->get('show_email_icon') || ($this->user->authorize('com_content', 'edit', 'content', 'all') || $this->user->authorize('com_content', 'edit', 'content', 'own'))){ ?>	
 <ul class="article-info">		
 <?php if ($this->item->params->get('show_create_date')) { ?>
     <li class="created"><?php echo JHTML::_('date', $this->item->created, JText::_('%d %b %y')); ?></li>
@@ -33,6 +29,9 @@ $morph = Morph::getInstance()
 <?php } if ($this->item->params->get('show_email_icon')) { ?>
     <li class="icons"><?php echo articleIcons::email($this->item, $this->item->params, $this->access); ?></li>
 <?php } ?>
+<?php if ($this->user->authorize('com_content', 'edit', 'content', 'all') || $this->user->authorize('com_content', 'edit', 'content', 'own')) : ?>
+	<?php echo JHTML::_('icon.edit', $this->item, $this->item->params, $this->access); ?>
+<?php endif; ?>
 </ul>
 <?php } ?>
 

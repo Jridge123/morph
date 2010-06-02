@@ -16,15 +16,12 @@ $morph = Morph::getInstance()
 		<?php else : ?>
 			<?php echo $this->escape($this->item->title); ?>
 		<?php endif; ?>
-    	<?php if ($canEdit) : ?>
-    		<?php echo JHTML::_('icon.edit', $this->item, $this->item->params, $this->access); ?>
-    	<?php endif; ?>
 	</h2>
 
 	<?php endif; ?>
 
     <!-- created date and author -->
-    <?php if ($this->item->params->get('show_author') && ($this->item->author != "") ||	$this->item->params->get('show_create_date') ||	$this->item->params->get('show_section') ||	$this->item->params->get('show_category') || $this->item->params->get('show_pdf_icon') || $this->item->params->get('show_print_icon') || $this->item->params->get('show_email_icon')) { ?>
+    <?php if ($this->item->params->get('show_author') && ($this->item->author != "") ||	$this->item->params->get('show_create_date') ||	$this->item->params->get('show_section') ||	$this->item->params->get('show_category') || $this->item->params->get('show_pdf_icon') || $this->item->params->get('show_print_icon') || $this->item->params->get('show_email_icon') || ($canEdit)) { ?>
     <ul class="article-info">		
         <?php if ($this->item->params->get('show_create_date')) { ?>
         <li class="created">
@@ -37,14 +34,17 @@ $morph = Morph::getInstance()
     	</li>
         <?php endif; ?>
         <?php if ($this->item->params->get('show_pdf_icon')) { ?>
-        <li class="icons"><?php echo articleIcons::pdf($this->item, $this->item->params, $this->access); ?></li>
+        <li class="icons pdf"><?php echo articleIcons::pdf($this->item, $this->item->params, $this->access); ?></li>
         <?php } ?>
         <?php if ($this->item->params->get('show_print_icon')) { ?>
-        <li class="icons"><?php echo articleIcons::print_popup($this->item, $this->item->params, $this->access); ?></li>
+        <li class="icons print"><?php echo articleIcons::print_popup($this->item, $this->item->params, $this->access); ?></li>
         <?php } ?>
         <?php if ($this->item->params->get('show_email_icon')) { ?>
-        <li class="icons"><?php echo articleIcons::email($this->item, $this->item->params, $this->access); ?></li>
+        <li class="icons email"><?php echo articleIcons::email($this->item, $this->item->params, $this->access); ?></li>
         <?php } ?>
+        <?php if ($canEdit) : ?>
+        <li class="icons edit"><?php echo JHTML::_('icon.edit', $this->item, $this->item->params, $this->access); ?></li>
+        <?php endif; ?>
     </ul>
     <?php } ?>
         <!-- section & category -->
