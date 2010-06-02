@@ -316,7 +316,118 @@
 		<param name="color_links" default="default" type="colorpicker" tooltip="inline" label="Links color" description="Set the foreground color of your links text." />	
 		<param name="color_linkshover" default="default" type="colorpicker" tooltip="inline" label="Links hover color" description="Set the hover color of your links text." />	
 		<param name="color_linksvisited" default="default" type="colorpicker" tooltip="inline" label="Links visited color" description="Set the visited color of your links text." />	
-		<param name="color_bodytext" default="default" type="colorpicker" tooltip="inline" label="Body text color" description="Set the foreground color of your sites main body text." />	
+		<param name="color_bodytext" default="default" type="colorpicker" tooltip="inline" label="Body text color" description="Set the foreground color of your sites main body text." />
+	</params>
+	
+	<params group="googlefontsdata">
+		<param name="use_googlefonts_h1" default="0" type="itoggle" label="Enable Custom H1 Font" tooltip="inline" description="">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="googlefonts_h1" default="" type="list" label="H1 Font" tooltip="inline" description="">
+			<option value="Cantarell">Cantarell</option>
+			<option value="Cantarell:italic">Cantarell Italic</option>
+			<option value="Cantarell:bold">Cantarell Bold</option>
+			<option value="Cantarell:bolditalic">Cantarell Bold Italic</option>
+			<option value="Cardo">Cardo</option>
+			<option value="Crimson+Text">Crimson Text</option>
+			<option value="Droid+Sans">Droid Sans</option>
+			<option value="Droid+Sans+Mono">Droid Sans Mono</option>
+			<option value="Droid+Serif">Droid Serif</option>
+			<option value="IM+Fell+DW+Pica">IM Fell DW Pica</option>
+			<option value="IM+Fell+DW+Pica+SC">IM Fell DW Pica SC</option>
+			<option value="IM+Fell+Double+Pica">IM Fell Double Pica</option>
+			<option value="IM+Fell+Double+Pica+SC">IM Fell Double Pica SC</option>
+			<option value="IM+Fell+English">IM Fell English</option>
+			<option value="IM+Fell+English+SC">IM Fell English SC</option>
+			<option value="IM+Fell+French+Canon">IM Fell French Canon</option>
+			<option value="IM+Fell+French+Canon+SC">IM Fell French Canon SC</option>
+			<option value="IM+Fell+Great+Primer">IM Fell Great Primer</option>
+			<option value="IM+Fell+Great+Primer+SC">IM Fell Great Primer SC</option>
+			<option value="Inconsolata">Inconsolata</option>
+			<option value="Josefin+Sans+Std+Light">Josefin Sans Std Light</option>
+			<option value="Lobster">Lobster</option>
+			<option value="Molengo">Molengo</option>
+			<option value="Nobile">Nobile</option>
+			<option value="OFL+Sorts+Mill+Goudy+TT">OFL Sorts Mill Goudy TT</option>
+			<option value="Old+Standard+TT">Old Standard TT</option>
+			<option value="Reenie+Beanie">Reenie Beanie</option>
+			<option value="Tangerine">Tangerine</option>
+			<option value="Vollkorn">Vollkorn</option>
+			<option value="Yanone+Kaffeesatz">Yanone Kaffeesatz</option>
+		</param>
+		<param name="use_googlefonts_h2" default="0" type="itoggle" label="Enable Custom H2 Font" tooltip="inline" description="">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="googlefonts_h2" default="" type="list" label="H2 Font" tooltip="inline" description="">
+			<option value="Cantarell">Cantarell</option>
+			<option value="Cantarell:italic">Cantarell Italic</option>
+			<option value="Cantarell:bold">Cantarell Bold</option>
+			<option value="Cantarell:bolditalic">Cantarell Bold Italic</option>
+			<option value="Cardo">Cardo</option>
+			<option value="Crimson+Text">Crimson Text</option>
+			<option value="Droid+Sans">Droid Sans</option>
+			<option value="Droid+Sans+Mono">Droid Sans Mono</option>
+			<option value="Droid+Serif">Droid Serif</option>
+			<option value="IM+Fell+DW+Pica">IM Fell DW Pica</option>
+			<option value="IM+Fell+DW+Pica+SC">IM Fell DW Pica SC</option>
+			<option value="IM+Fell+Double+Pica">IM Fell Double Pica</option>
+			<option value="IM+Fell+Double+Pica+SC">IM Fell Double Pica SC</option>
+			<option value="IM+Fell+English">IM Fell English</option>
+			<option value="IM+Fell+English+SC">IM Fell English SC</option>
+			<option value="IM+Fell+French+Canon">IM Fell French Canon</option>
+			<option value="IM+Fell+French+Canon+SC">IM Fell French Canon SC</option>
+			<option value="IM+Fell+Great+Primer">IM Fell Great Primer</option>
+			<option value="IM+Fell+Great+Primer+SC">IM Fell Great Primer SC</option>
+			<option value="Inconsolata">Inconsolata</option>
+			<option value="Josefin+Sans+Std+Light">Josefin Sans Std Light</option>
+			<option value="Lobster">Lobster</option>
+			<option value="Molengo">Molengo</option>
+			<option value="Nobile">Nobile</option>
+			<option value="OFL+Sorts+Mill+Goudy+TT">OFL Sorts Mill Goudy TT</option>
+			<option value="Old+Standard+TT">Old Standard TT</option>
+			<option value="Reenie+Beanie">Reenie Beanie</option>
+			<option value="Tangerine">Tangerine</option>
+			<option value="Vollkorn">Vollkorn</option>
+			<option value="Yanone+Kaffeesatz">Yanone Kaffeesatz</option>
+		</param>
+		<param name="use_googlefonts_h3" default="0" type="itoggle" label="Enable Custom H3 Font" tooltip="inline" description="">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="googlefonts_h3" default="" type="list" label="H3 Font" tooltip="inline" description="">
+			<option value="Cantarell">Cantarell</option>
+			<option value="Cantarell:italic">Cantarell Italic</option>
+			<option value="Cantarell:bold">Cantarell Bold</option>
+			<option value="Cantarell:bolditalic">Cantarell Bold Italic</option>
+			<option value="Cardo">Cardo</option>
+			<option value="Crimson+Text">Crimson Text</option>
+			<option value="Droid+Sans">Droid Sans</option>
+			<option value="Droid+Sans+Mono">Droid Sans Mono</option>
+			<option value="Droid+Serif">Droid Serif</option>
+			<option value="IM+Fell+DW+Pica">IM Fell DW Pica</option>
+			<option value="IM+Fell+DW+Pica+SC">IM Fell DW Pica SC</option>
+			<option value="IM+Fell+Double+Pica">IM Fell Double Pica</option>
+			<option value="IM+Fell+Double+Pica+SC">IM Fell Double Pica SC</option>
+			<option value="IM+Fell+English">IM Fell English</option>
+			<option value="IM+Fell+English+SC">IM Fell English SC</option>
+			<option value="IM+Fell+French+Canon">IM Fell French Canon</option>
+			<option value="IM+Fell+French+Canon+SC">IM Fell French Canon SC</option>
+			<option value="IM+Fell+Great+Primer">IM Fell Great Primer</option>
+			<option value="IM+Fell+Great+Primer+SC">IM Fell Great Primer SC</option>
+			<option value="Inconsolata">Inconsolata</option>
+			<option value="Josefin+Sans+Std+Light">Josefin Sans Std Light</option>
+			<option value="Lobster">Lobster</option>
+			<option value="Molengo">Molengo</option>
+			<option value="Nobile">Nobile</option>
+			<option value="OFL+Sorts+Mill+Goudy+TT">OFL Sorts Mill Goudy TT</option>
+			<option value="Old+Standard+TT">Old Standard TT</option>
+			<option value="Reenie+Beanie">Reenie Beanie</option>
+			<option value="Tangerine">Tangerine</option>
+			<option value="Vollkorn">Vollkorn</option>
+			<option value="Yanone+Kaffeesatz">Yanone Kaffeesatz</option>
+		</param>
 	</params>
 	
 	<params group="progressivedata">
