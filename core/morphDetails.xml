@@ -562,6 +562,10 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
+		<param name="article_title" default="0" type="itoggle" label="Disable the article title" tooltip="inline" description="Would you like to disable the article title on the details page? This is generally only ever used along side the SimpleTitle module.">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
 	</params>
 	
 	<params group="blogenhancementsdata">

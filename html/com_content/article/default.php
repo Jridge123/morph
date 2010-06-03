@@ -28,6 +28,7 @@ if($override = Morph::override(__FILE__, $this)) {
 	<?php endif; ?>		
 
     <!-- start article top -->
+    <?php if ($morph->article_title) : ?>
 	<?php if ($this->params->get('show_title')) : ?>
 	<h1 class="article-title">
 	<?php if ($this->params->get('link_titles') && $this->article->readmore_link != '') : ?>
@@ -37,6 +38,7 @@ if($override = Morph::override(__FILE__, $this)) {
 	<?php endif; ?>
 	</h1>
 	<?php endif; ?>
+    <?php endif; ?>
     
     <?php if ($this->print) :
     	echo '<span class="print-icon">' . JHTML::_('icon.print_screen', $this->article, $this->params, $this->access) . '</span>';
