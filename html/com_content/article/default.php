@@ -83,6 +83,7 @@ if($override = Morph::override(__FILE__, $this)) {
     		<?php endif; ?>
     	</span>
     	<?php endif; ?>
+    	
     	<?php if ($this->params->get('show_category') && $this->article->catid) : ?>
     	<span class="article-category">
     		<?php if ($this->params->get('link_category')) : ?>
@@ -113,7 +114,7 @@ if($override = Morph::override(__FILE__, $this)) {
 		<div id="article-content">
 		<?php echo $this->article->text; ?>
 
-	<!-- date modified -->
+		<!-- date modified -->
 		<?php if ( intval($this->article->modified) !=0 && $this->params->get('show_modify_date')) : ?>
 		<p class="modified"><?php echo JText::sprintf('LAST_UPDATED2', JHTML::_('date', $this->article->modified, JText::_('DATE_FORMAT_LC2'))); ?>.</p>
 	    <?php endif; ?>
@@ -136,8 +137,9 @@ if($override = Morph::override(__FILE__, $this)) {
         		</div>
         	</div>
         </div>
-		</div>
-		 <?php endif; ?>
+        <?php endif; ?>
+        
+		</div> 
 		
 		<?php echo $this->article->event->afterDisplayContent; ?>
 	</div>
