@@ -109,7 +109,7 @@ class Morph {
 		
 		if (!$instances) $instances = array();
 		
-		if (empty($instances[$template])) $instances[$template] =& new Morph($template);
+		if (empty($instances[$template])) $instances[$template] = new Morph($template);
 		
 		return $instances[$template];
 	}
