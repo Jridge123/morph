@@ -36,23 +36,11 @@ if ($iphone_scale) { $content .= ", initial-scale=" . $iphone_scale; } ?>
 <?php if( $browser->getBrowser() == MBrowser::BROWSER_IE && $chrome_frame == 1 ) {
 	$document->setMetaData('X-UA-Compatible', 'chrome=1', true);
 } ?>
-<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Josefin+Sans+Std+Light">
-<style>
-      #bd #primary-content h1{
-        font-family: 'Josefin Sans Std Light', arial, serif;
-        font-size: 58px;
-        margin:0;
-        padding:0;
-        color:#111;
-      }
-      #bd #primary-content h2{
-        font-family: 'Josefin Sans Std Light', arial, serif;
-        font-size: 38px;
-        margin:0;
-        padding:0;
-        color:#333;
-      }
-    </style>
+	<!--<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Josefin+Sans+Std+Light">
+	<style>
+      #bd #primary-content h1{font-family: 'Josefin Sans Std Light', arial, serif;font-size:58px;margin:0;padding:0;}
+      #bd #primary-content h2{font-family: 'Josefin Sans Std Light', arial, serif;font-size:38px;margin:0;padding:0;}
+	</style>-->
 	<?php include_once('core/includes/ga-code.php'); ?>
 </head>
 <?php if ($error_reporting == 0) { error_reporting(E_ALL ^ E_NOTICE); } ?>
