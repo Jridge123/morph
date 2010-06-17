@@ -50,7 +50,7 @@ jQuery.noConflict();
 		
 		$('img[align*=right]').addClass("img-right");
 		$('img[align*=left]').addClass("img-left");
-    	
+		
     	<?php if ( $this->js->captions_enabled == 1 ) { ?>
     	$('img.caption').captify(<?php echo json_encode(array_filter(array(
     		'speedOver' => $this->js->captions_speedover,
@@ -63,8 +63,7 @@ jQuery.noConflict();
     		'prefix' => $this->js->captions_prefix
     	))) ?>);
 		$('#primary-content img.img-left.caption').parent('span').css({'margin-right' : '20px', 'float' : 'left'});
-		$('#primary-content img.img-right.caption').parent('span').css({'margin-left' : '20px', 'float' : 'right'});
-																  
+		$('#primary-content img.img-right.caption').parent('span').css({'margin-left' : '20px', 'float' : 'right'});		
     	<?php } if ( $this->js->lazyload_enabled == 1 ) { ?>
 		$("#primary-content img").lazyload(<?php echo json_encode(array(
 			'placeholder' => 'img/grey.gif',
