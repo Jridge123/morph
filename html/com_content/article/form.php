@@ -51,6 +51,10 @@ function submitbutton(pressbutton) {
 		}
 	}
 	<?php echo $this->editor->save( 'text' ); ?>
+	if(pressbutton == 'apply') {
+		pressbutton = 'edit';
+		form.action += '&ret=<?php echo base64_encode(JFactory::getURI()->toString()) ?>';
+	}
 	submitform(pressbutton);
 }
 //-->
@@ -69,6 +73,7 @@ function submitbutton(pressbutton) {
         <input class="editor-alias" type="hidden" id="alias" name="alias" value="<?php echo $this->escape($this->article->alias); ?>" />
     
         <button type="button save" onclick="submitbutton('save')"><?php echo JText::_('Save') ?></button>
+        <button type="button apply" onclick="submitbutton('apply')"><?php echo JText::_('Apply') ?></button>
         <button type="button cancel" onclick="submitbutton('cancel')"><?php echo JText::_('Cancel') ?></button>
     </div>
     <?php echo $this->editor->display('text', $this->article->text, '100%', '400', '70', '15'); ?>
