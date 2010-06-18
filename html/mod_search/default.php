@@ -10,9 +10,9 @@ defined('_JEXEC') or die('Restricted access');if($override = Morph::override(__F
 
 			if ($button) :
 			    if ($imagebutton) :
-			        $button = '<input type="image" value="'.$button_text.'" class="search-btn" src="'.$img.'" onclick="this.form.searchword.focus();"/>';
+			        $button = '<input type="image" value="'.$button_text.'" class="search-btn" src="'.$img.'" onclick="this.form.searchword.focus();" />';
 			    else :
-			        $button = '<input type="submit" value="'.$button_text.'" class="search-btn" onclick="this.form.searchword.focus();"/>';
+			        $button = '<input type="submit" value="'.$button_text.'" class="search-btn" onclick="this.form.searchword.focus();" />';
 			    endif;
 			endif;
 
@@ -40,8 +40,8 @@ defined('_JEXEC') or die('Restricted access');if($override = Morph::override(__F
 			echo $output;
 		?>
 	</div>
-	<input type="hidden" name="task"   value="search" />
+	<input type="hidden" name="task" value="search" />
 	<input type="hidden" name="option" value="com_search" />
-	<input type="hidden" name="Itemid" value=<?php echo $mitemid; ?> />
+	<input type="hidden" name="Itemid" value="<?php echo $mitemid; ?>" />
 </form>
 <?php } ?>
