@@ -53,7 +53,7 @@ function submitbutton(pressbutton) {
 	<?php echo $this->editor->save( 'text' ); ?>
 	if(pressbutton == 'apply') {
 		pressbutton = 'edit';
-		form.action += '&ret=<?php echo base64_encode(JFactory::getURI()->toString()) ?>';
+		form.action += '&ret=<?php echo base64_encode(clone JFactory::getURI()->toString()) ?>';
 	}
 	submitform(pressbutton);
 }
