@@ -46,7 +46,6 @@
 				you can edit, debug, and monitor CSS, HTML, and JavaScript live.</span>
 			</span>
 		</li>
-		<?php if($cache) : ?>
 		<li class="dev-cache">
 		    <strong class="tool-label">Clear cache:</strong>
 			<a href="#" class="dev-close-devbar">&nbsp;</a>
@@ -55,7 +54,6 @@
 				<span>Morph cache your dynamic css, js and params used in dynamic files. If you've made a change to your themelet with caching turned on that doesn't show, clear the cache.</span>
 			</span>
 		</li>
-		<?php endif ?>
 		<?php } ?>
 		
 		<li class="dev-nojs">
