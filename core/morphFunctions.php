@@ -144,7 +144,8 @@ $themeletfunctions			= $absolutepath.'/themelet.php';
 $foot_override				= $absolutepath.'/html/foot.php';
 $footer_script				= $absolutepath.'/script.php';
 
-$moo = JURI::base(true).'/media/system/js/mootools.js';
+$moo = JFactory::getConfig()->getValue('debug') ? '-uncompressed.js' : '.js';
+$moo = JURI::base(true).'/media/system/js/mootools'.$moo;
 $option = JRequest::getCmd('option');
 $load_com_mootools = $load_mootools;
 if(property_exists($MORPH, 'load_mootools_'.$option)) $load_com_mootools = $MORPH->{'load_mootools_'.$option};
