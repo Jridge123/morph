@@ -68,6 +68,7 @@ class Morph {
 			$params = array();
 		}
 
+
 		$xml_params = ComConfiguratorHelperUtilities::getTemplateParamList( realpath(dirname(__FILE__).'/morphDetails.xml'), TRUE );
 		if(isset($themelet_name)) $themelet_params = getTemplateParamList( JPATH_ROOT.'/morph_assets/themelets/'.$themelet_name.'/themeletDetails.xml', TRUE );
 

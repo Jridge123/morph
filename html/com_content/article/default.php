@@ -19,7 +19,6 @@ if($override = Morph::override(__FILE__, $this)) {
 	if(file_exists($override)) include $override;
 } else {
 
-echo $morph->article_title;
 ?>
 <div class="article-page">
 
