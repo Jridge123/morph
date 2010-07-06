@@ -18,6 +18,8 @@ function curPageURL() {
 if($override = Morph::override(__FILE__, $this)) {
 	if(file_exists($override)) include $override;
 } else {
+
+echo $morph->article_title;
 ?>
 <div class="article-page">
 
@@ -29,15 +31,13 @@ if($override = Morph::override(__FILE__, $this)) {
 
     <!-- start article top -->
     <?php if ($morph->article_title) : ?>
-	<?php if ($this->params->get('show_title')) : ?>
-	<h1 class="article-title">
-	<?php if ($this->params->get('link_titles') && $this->article->readmore_link != '') : ?>
-		<a href="<?php echo $this->article->readmore_link; ?>"><?php echo $this->escape($this->article->title); ?></a>
-	<?php else : ?>
-		<?php echo $this->escape($this->article->title); ?>
-	<?php endif; ?>
-	</h1>
-	<?php endif; ?>
+		<h1 class="article-title">
+			<?php if ($this->params->get('link_titles') && $this->article->readmore_link != '') : ?>
+				<a href="<?php echo $this->article->readmore_link; ?>"><?php echo $this->escape($this->article->title); ?></a>
+			<?php else : ?>
+				<?php echo $this->escape($this->article->title); ?>
+			<?php endif; ?>
+		</h1>
     <?php endif; ?>
     
     <?php if ($this->print) :
