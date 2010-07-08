@@ -59,7 +59,7 @@ class Morph {
 
 		if ( isset( $morph_installed ) ) {
 			//$query = "SELECT * FROM #__configurator WHERE `template_name` = '{$template}'";
-			//$db->setQuery( $query );
+			//$db->setQuery($query);
 			//$params = (array) $db->loadObjectList();
 
 			JTable::addIncludePath(JPATH_ADMINISTRATOR.'/components/com_configurator/tables');
