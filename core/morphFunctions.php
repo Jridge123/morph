@@ -213,7 +213,7 @@ if(isset($_GET['gzip']) && $_GET['gzip'] == 'on'){
 // developer toolbar frontend switch
 if($MORPH->debug || $MORPH->developer_toolbar)
 {
-	$uri = clone JFactory::getURI();
+	$uri = JFactory::getURI();
 	if(isset($_GET['show_devbar'])||isset($_GET['showdev'])){
 		$_GET['morph']['developer_toolbar'] = true;
 		$uri->delVar('show_devbar');

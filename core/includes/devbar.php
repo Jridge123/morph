@@ -64,7 +64,7 @@
 					Zero JS Mode:	
 				<?php }?>
 			</strong>
-			<a href="<?php if($nojs == 1){ if($_SERVER['QUERY_STRING'] == ''){ echo '?nojs=off'; }else{ echo '?'.$_SERVER['QUERY_STRING'].'&nojs=off'; }}else{ echo '#'; } ?>"<?php if($nojs == 0){ ?> class="dev-nojs-on">On<?php }else{ ?>class="dev-nojs-off">Off<?php }?></a>
+			<a href="<?php if($nojs == 1){ if($_SERVER['QUERY_STRING'] == ''){ echo '?json=1'; }else{ echo '?'.$_SERVER['QUERY_STRING'].'&json=1'; }}else{ echo '#'; } ?>"<?php if($nojs == 0){ ?> class="dev-nojs-on">On<?php }else{ ?>class="dev-nojs-off">Off<?php }?></a>
 			<span class="desc">
 				<strong>Zero Jasascript Mode</strong>
 				<span>Enable or Disable the zero Javascript mode.</span>
