@@ -130,6 +130,8 @@ class Morph {
 			$app = JFactory::getApplication();
 			$params = JRequest::getVar('morph', array(), 'get', 'array');
 			$params = array_merge((array)$app->getUserState('morph'), $params);
+			
+			/*
 			$backup = array();
 			foreach(array('scripts', 'styleSheets', 'styleSheetsAfter') as $b) $backup[$b] = $this->$b;
 			$params = array_merge((array)$this, $params);
@@ -149,8 +151,9 @@ class Morph {
 			if($this->developer_toolbar) $this->addStyleSheetAfter('/templates/morph/core/css/devbar.css');
 			
 			foreach($backup as $name => $b) $this->$name = $b;
+			//*/
 			
-			$app->setUserState('morph', (array)$this);
+			$app->setUserState('morph', $params);
 		}
 		
 		jimport('joomla.filesystem.file');
