@@ -470,13 +470,13 @@ if(  $isiPhone && !$iPhoneCookie  ){
 		if ( $topdrop >= 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/topnav-topdrop.css'); }
 		if ( $sidenav_count >= 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/sidenav-default.css'); }
 		if ( $sidefish >= 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/sidenav-sidefish.css'); }
-		$MORPH->addStyleSheet($themeletpath .'/css/modfx.css');	
 		if ( $tabscount >= 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/tabs.css'); }
 		if ( $accordionscount >= 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/accordions.css'); }
 		$MORPH->addStyleSheet($themeletpath .'/css/typo.css');
 		$MORPH->addStyleSheet($themeletpath .'/css/joomla.css');
 		$MORPH->addStyleSheet($themeletpath .'/css/modules.css');
 		$MORPH->addStyleSheet($themeletpath .'/css/themelet.css');
+		$MORPH->addStyleSheet($themeletpath .'/css/modfx.css');	
 		if ( $simpleticker == 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/simpleticker.css'); }
 		if ( $simpletweet == 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/simpletweet.css'); }
 		if ( $simplecontact == 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/simplecontact.css'); }
