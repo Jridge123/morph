@@ -418,6 +418,9 @@ if ( $isiPhone && !$iPhoneCookie ) {
     }
 }
 
+//Facile Forms/Breezing Forms fix
+if(isset($document->_scripts[$breeze = JURI::root(1).'/components/com_breezingforms/libraries/jquery/jquery.min.js'])) unset($document->_scripts[$breeze]);
+
 if(isset($document->_scripts[JURI::root().'components/com_k2/js/k2.js']))
 {
 	unset($document->_scripts[JURI::root().'components/com_k2/js/k2.js']);
