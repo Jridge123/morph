@@ -605,10 +605,6 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
-		<param name="load_caption" default="0" type="itoggle" label="Enable caption.js" tooltip="inline" description="Like the Mootools explaination above (hover over the Mootools tooltip), the caption.js is a file that is loaded by default in Joomla! 1.5, irrespective of whether it is actually being used. We have removed this from loading to improve the overall performance of your site.">
-			<option value="1">Yes</option>
-			<option value="0">No</option>
-		</param>
 		<param name="nojs" default="0" type="itoggle" label="Zero javascript mode" tooltip="inline" description="This option will disable all javascript from the loading on the frontend of Morph. There is only one small generic snippet of javascript that is loaded if you view your site in Internet Explorer 6, which is needed to add support for hover on non anchor (link) elements. This option is good for debugging javascript conflicts. Rule of thumb, if the javascript error persists with Morph's javascript disabled, then the problem is not related to Morph.">
 			<option value="1">Yes</option>
 			<option value="0">No</option>

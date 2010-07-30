@@ -172,9 +172,6 @@ if (isset($document->_scripts[$moo])) {
     unset($document->_scripts[$moo]);
     $MORPH->addScript(str_replace(JURI::base(true), '', $moo));
 }
-if (isset($document->_scripts[JURI::base(true).'/media/system/js/caption.js'])) {
-    unset($document->_scripts[JURI::base(true).'/media/system/js/caption.js']);
-}
 
 if ( $remove_generator == 1 ) {
 $document->setGenerator(null);
@@ -373,6 +370,10 @@ if ( $isiPhone && !$iPhoneCookie ) {
     	//if (!$pack_js) {
     		if(in_array(1, $js_jquery)) { $MORPH->addScript($templatepath .'/core/js/jquery.js'); }
     		if(in_array(1, $js_jqueryui)) { $MORPH->addScript($templatepath .'/core/js/ui.js'); }
+    		if (isset($document->_scripts[JURI::base(true).'/media/system/js/caption.js'])) {
+    		    unset($document->_scripts[JURI::base(true).'/media/system/js/caption.js']);
+    		    if(!$MORPH->captions_enabled) $MORPH->addScript($templatepath.'/core/js/caption.js');
+    		}
     		if(in_array(1, $js_cookie)) { $MORPH->addScript($templatepath .'/core/js/cookie.js'); }
     		if(in_array(1, $js_equalize)) { $MORPH->addScript($templatepath .'/core/js/equalheights.js');}
     		if(in_array(1, $js_slider)) { $MORPH->addScript($templatepath .'/core/js/slider.js');}
