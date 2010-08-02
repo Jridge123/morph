@@ -2,14 +2,14 @@ jQuery(function($){
 	$('img.caption').load(function(){
 		if(!$(this).attr('title')) return this;
 
-		var container = $('<div></div>', {
-			'class': 'img_caption '+$(this).attr('align'),
+		var container = $('<span></span>', {
+			'class': 'caption-wrap img-'+$(this).attr('align'),
 			'css': {
-				'float': $(this).attr('align'),
-				'width': $(this).width()
+				'width': $(this).width(),
+				'height': $(this).height()
 			}
 		});
-		
-		$(this).after($('<p class="img_caption">'+$(this).attr('title')+'</p>')).wrap(container);
+		$(this).after($('<strong>'+$(this).attr('title')+'</strong>'));
+		$(this).wrap(container);
 	});
 });
