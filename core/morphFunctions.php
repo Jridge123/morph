@@ -10,13 +10,13 @@ if(isset($_COOKIE['nogzip'])){
 	$conf = JFactory::getConfig();
 	if($conf->getValue('config.gzip') !== '0'){
 		$path = JPATH_CONFIGURATION.'/configuration.php';
-		JPath::setPermissions($path, '0777');
-		if(file_exists($path) && is_writable($path)){			
-			$str = file_get_contents($path);
-			$line = str_replace('var $gzip = \'1\';', 'var $gzip = \'0\';', $str);
-			file_put_contents($path, $line);
-		}		
-		JPath::setPermissions($path, '0644');
+		if(JFile::exists($path)) {
+			JPath::setPermissions($path, '0644');
+			$search  = JFile::read($path);
+			$replace = str_replace('var $gzip = \'1\';', 'var $gzip = \'0\';', $search);
+			JFile::write($path, $replace);
+			JPath::setPermissions($path, '0444');
+		}	
 	}
 	$gzip_compression = 0;
 }
@@ -32,13 +32,13 @@ if ( $gzip_compression == 1 ) {
 	$conf = JFactory::getConfig();
 	if($conf->getValue('config.gzip') !== '1'){
 		$path = JPATH_CONFIGURATION.'/configuration.php';
-		JPath::setPermissions($path, '0777');
-		if(file_exists($path) && is_writable($path)){			
-			$str = file_get_contents($path);
-			$line = str_replace('var $gzip = \'0\';', 'var $gzip = \'1\';', $str);
-			file_put_contents($path, $line);
-		}		
-		JPath::setPermissions($path, '0644');
+		if(JFile::exists($path)) {
+			JPath::setPermissions($path, '0644');
+			$search  = JFile::read($path);
+			$replace = str_replace('var $gzip = \'0\';', 'var $gzip = \'1\';', $search);
+			JFile::write($path, $replace);
+			JPath::setPermissions($path, '0444');
+		}
 	}
 }
 // set the various paths:
@@ -196,13 +196,13 @@ if(isset($_GET['gzip']) && $_GET['gzip'] == 'on'){
 	$conf = JFactory::getConfig();
 	if($conf->getValue('config.gzip') !== '1'){
 		$path = JPATH_CONFIGURATION.'/configuration.php';
-		JPath::setPermissions($path, '0777');
-		if(file_exists($path) && is_writable($path)){			
-			$str = file_get_contents($path);
-			$line = str_replace('var $gzip = \'0\';', 'var $gzip = \'1\';', $str);
-			file_put_contents($path, $line);
-		}		
-		JPath::setPermissions($path, '0644');
+		if(JFile::exists($path)) {
+			JPath::setPermissions($path, '0644');
+			$search  = JFile::read($path);
+			$replace = str_replace('var $gzip = \'0\';', 'var $gzip = \'1\';', $search);
+			JFile::write($path, $replace);
+			JPath::setPermissions($path, '0444');
+		}
 	}
 }
 
