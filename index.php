@@ -89,7 +89,7 @@ if( $isiPhone && !$iPhoneCookie ){
 	if($isiPhone) include_once('core/includes/iphone_footer.php');
 ?>
 <jdoc:include type="modules" name="debug" />
-<?php if ( $plugin_scrollto == 1 && $browser->getBrowser() !== MBrowser::PLATFORM_IPHONE ) { ?><a href="#top" id="top-link"><?php echo JText::_('Back to top'); ?></a><?php } ?>
+<?php if ( $plugin_scrollto == 1 && $browser->getBrowser() !== MBrowser::PLATFORM_IPHONE ) { ?><a href="#top" id="top-link"><?php echo JText::_('BACK_TO_TOP'); ?></a><?php } ?>
 
 <?php } 
 if(file_exists($footer_script) && is_readable($footer_script)){
