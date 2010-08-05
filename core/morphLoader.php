@@ -19,6 +19,7 @@ $morph_component_path = JPATH_ADMINISTRATOR.'/components/com_configurator';
 include_once $morph_component_path . '/configurator.common.php';
 include_once $morph_component_path . '/configurator.class.php';
 include_once $morph_component_path . '/depencies.php';
+jimport('joomla.filesystem.file');
 
 class Morph {
 
@@ -154,8 +155,6 @@ class Morph {
 			
 			$app->setUserState('morph', $params);
 		}
-		
-		jimport('joomla.filesystem.file');
 
 		$path = JPATH_CACHE.'/morph/data.json';
 		if(file_exists($path))

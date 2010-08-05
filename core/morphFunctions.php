@@ -202,7 +202,7 @@ if(isset($_GET['gzip']) && $_GET['gzip'] == 'on'){
 			$line = str_replace('var $gzip = \'0\';', 'var $gzip = \'1\';', $str);
 			file_put_contents($path, $line);
 		}		
-		JPath::setPermissions($path, '0444');
+		JPath::setPermissions($path, '0644');
 	}
 }
 

@@ -1,4 +1,4 @@
-<?php
+<?php defined( '_JEXEC' ) or die( 'Restricted access' );
 /**
  * File: Browser.php
  * Author: Chris Schuld (http://chrisschuld.com/)
