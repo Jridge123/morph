@@ -1,3 +1,4 @@
+<?php defined( '_JEXEC' ) or die( 'Restricted access' ); ?>
 <?php if ($MORPH->countModules( 'innersplit or inner1 or inner2 or inner3 or inner4 or inner5' ) > 0) { ?>
 <div class="sidebar yui-u" id="tertiary-content">
  <?php if ( $tertiary_inner == 1 ) { ?><div class="tertiary-inner clearer"><?php } ?>

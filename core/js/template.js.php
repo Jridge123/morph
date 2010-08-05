@@ -1,3 +1,4 @@
+<?php defined( '_JEXEC' ) or die( 'Restricted access' ); ?>
 /**
  * Prevent errors from Mootools scripts
  * 

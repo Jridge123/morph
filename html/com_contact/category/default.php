@@ -1,8 +1,4 @@
-<?php
-/**
- * $Id: default.php 11917 2009-05-29 19:37:05Z ian $
- */
-defined( '_JEXEC' ) or die( 'Restricted access' );
+<?php defined( '_JEXEC' ) or die( 'Restricted access' );
 $cparams =& JComponentHelper::getParams('com_media');
 if($override = Morph::override(__FILE__, $this)) {
 	if(file_exists($override)) include $override;

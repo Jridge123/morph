@@ -1,3 +1,4 @@
+<?php defined( '_JEXEC' ) or die( 'Restricted access' ); ?>
 <?php if ( $footer_show == 0 ) { ?>
     <?php if ( $footer_wrap == 1 ) { ?><div id="footer-wrap"><?php } ?>  
         <?php if ( $footer_type == 0 ) { ?>

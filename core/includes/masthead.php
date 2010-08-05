@@ -1,3 +1,4 @@
+<?php defined( '_JEXEC' ) or die( 'Restricted access' ); ?>
 <?php if ( $masthead_show == 0 ) { ?>
     <?php if($global_wrap == 1 && $global_wrap_start == 1){ ?><div id="global-wrap" class="<?php echo $site_width; ?>"><?php } ?>
     

@@ -1,4 +1,4 @@
-<?php
+<?php defined( '_JEXEC' ) or die( 'Restricted access' );
 /**
  * jsmin.php - PHP implementation of Douglas Crockford's JSMin.
  *

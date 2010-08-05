@@ -1,5 +1,4 @@
-<?php // @version $Id: blog_links.php 10770 2008-08-23 11:36:27Z willebil $
-defined('_JEXEC') or die('Restricted access');
+<?php defined( '_JEXEC' ) or die( 'Restricted access' );
 ?>
 <h3><?php echo JText::_('More Articles...'); ?></h3>
 <ul>

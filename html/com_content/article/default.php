@@ -1,5 +1,4 @@
-<?php // no direct access
-defined('_JEXEC') or die('Restricted access');
+<?php defined( '_JEXEC' ) or die( 'Restricted access' );
 include_once(dirname(__FILE__).'/../icon.php');
 $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $this->user->authorize('com_content', 'edit', 'content', 'own'));
 $morph = Morph::getInstance();

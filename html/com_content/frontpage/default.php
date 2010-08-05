@@ -1,6 +1,4 @@
-<?php // @version $Id: default.php 11917 2009-05-29 19:37:05Z ian $
-defined('_JEXEC') or die('Restricted access');
-?>
+<?php defined( '_JEXEC' ) or die( 'Restricted access' ); ?>
 
 <?php if ($this->params->get('show_page_title',1)) : ?>
 <h1 class="componentheading frontpage clearer">
