@@ -214,8 +214,8 @@ jQuery.noConflict();
 		initSlider('#bottomshelf2', '<?php echo $this->js->bottomshelf2_slider_text; ?>');	
 		<?php } if ( $this->js->bottomshelf3_slider == 1 ) { ?>
 		initSlider('#bottomshelf3', '<?php echo $this->js->bottomshelf3_slider_text; ?>');	
-		<?php } if ( $this->js->topnav_hoverfocus == 1 ) { ?>
-		$('#nav ul.menu ul').hover( function(){ $('#user1').fadeTo("fast", "0.1");},function(){	$('#user1').fadeTo("fast", "1"); } );
+		<?php } if ( $this->js->topnav_hoverfocus == 1 ) { ?>		
+		$('#nav ul.menu ul').hover( function(){ $('#<?php echo $this->js->topnav_hoverfocus_block; ?>').fadeTo("fast", "0.1");},function(){	$('#<?php echo $this->js->topnav_hoverfocus_block; ?>').fadeTo("fast", "1"); } );
 		<?php } if ( $this->js->tabscount > 0 ) { ?>
 		var taboptions = {fx:{opacity:'toggle',duration: 1},cookie:{expires:7,path:'/'}};
 		<?php foreach(range(1, $this->js->tabscount) as $n){ ?>

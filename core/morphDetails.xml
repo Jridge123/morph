@@ -443,6 +443,11 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
+		<param name="topnav_hoverfocus_block" default="1" type="list" label="HoverFocus block" tooltip="inline" description="Which block is active below the menu? Please note that the blocks 'Block Inner' option needs to be enabled for the block you choose.">
+			<option value="subhead-inner">Subhead block</option>
+			<option value="topshelf-inner">Topshelf block</option>
+			<option value="user1-inner">User1 block</option>
+		</param>
 		<param name="topnav_actionlink" default="0" type="itoggle" label="Call for action link" tooltip="inline" description="A call for action link can be described as the primary action that you would like your visitors to take. This could be a newsletter signup link, registration link, or even a buy now link. All this option is doing is enabling a snippet of extra css that targets the last menu item to give it alternate styling.">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
