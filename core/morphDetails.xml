@@ -430,10 +430,6 @@
 		</param>
 	</params>
 	
-	<params group="progressivedata">
-	
-	</params>
-	
 	<params group="menudata">
 		<param name="topnav_hoverintent" default="1" type="itoggle" label="HoverIntent" tooltip="inline" description="HoverIntent is a plug-in that attempts to determine the user's intent... like a crystal ball, only with mouse movement! This generally improves the usability of your Superfish menu.">
 			<option value="1">Yes</option>
@@ -800,11 +796,11 @@
 			<option value="1">Above Top Shelf</option>
 			<option value="2">Below Top Shelf</option>
 		</param>
-		<param name="toolbar_slider" default="1" type="itoggle" label="Toolbar slider" tooltip="modal" description="slider.html">
+		<param name="toolbar_slider" default="1" type="itoggle" label="Enable slider" tooltip="modal" description="slider.html">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
-		<param name="toolbar_slider_text" default="toggle" type="text" label="Toolbar slider text" tooltip="inline" description="Define the toggle button text. You can either display a single word like toggle, or set different text for each state, for example 'open,close'. Its important that there are no spaces between the two words and that you use a comma to seperate them." />	
+		<param name="toolbar_slider_text" default="toggle" type="text" label="Slider text" tooltip="inline" description="Define the toggle button text. You can either display a single word like toggle, or set different text for each state, for example 'open,close'. Its important that there are no spaces between the two words and that you use a comma to seperate them." />	
 		<param name="toolbar_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />
 		<param name="toolbar_show" default="0" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
 			<option value="1">Yes</option>
@@ -977,11 +973,11 @@
 			<option value="0">No</option>
 		</param>
 		<param name="topshelf_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />
-		<param name="topshelf_slider" default="0" type="itoggle" label="Topshelf slider" tooltip="modal" description="slider.html">
+		<param name="topshelf_slider" default="0" type="itoggle" label="Enable slider" tooltip="modal" description="slider.html">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
-		<param name="topshelf_slider_text" default="toggle" type="text" tooltip="inline" label="Topshelf Slider Text" description="toggletext.html" />
+		<param name="topshelf_slider_text" default="toggle" type="text" tooltip="inline" label="Slider text" description="toggletext.html" />
 		<param name="topshelf_show" default="0" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
@@ -1022,11 +1018,11 @@
 			<option value="0">No</option>
 		</param>
 		<param name="bottomshelf_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
-		<param name="bottomshelf_slider" default="0" type="itoggle" label="Topbar slider" tooltip="modal" description="slider.html">
+		<param name="bottomshelf_slider" default="0" type="itoggle" label="Enable slider" tooltip="modal" description="slider.html">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
-		<param name="bottomshelf_slider_text" default="toggle" type="text" label="Bottomshelf slider text" tooltip="inline" description="toggletext.html" />
+		<param name="bottomshelf_slider_text" default="toggle" type="text" label="Slider text" tooltip="inline" description="toggletext.html" />
 		<param name="bottomshelf_show" default="0" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
@@ -1067,11 +1063,11 @@
 			<option value="0">No</option>
 		</param>
 		<param name="bottomshelf2_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
-		<param name="bottomshelf2_slider" default="0" type="itoggle" label="Topbar slider" tooltip="modal" description="slider.html">
+		<param name="bottomshelf2_slider" default="0" type="itoggle" label="Enable slider" tooltip="modal" description="slider.html">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
-		<param name="bottomshelf2_slider_text" default="toggle" type="text" label="Bottomshelf slider text" tooltip="inline" description="toggletext.html" />
+		<param name="bottomshelf2_slider_text" default="toggle" type="text" label="Slider text" tooltip="inline" description="toggletext.html" />
 		<param name="bottomshelf2_show" default="1" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
@@ -1112,11 +1108,11 @@
 			<option value="0">No</option>
 		</param>
 		<param name="bottomshelf3_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
-		<param name="bottomshelf3_slider" default="0" type="itoggle" label="Topbar slider" tooltip="modal" description="slider.html">
+		<param name="bottomshelf3_slider" default="0" type="itoggle" label="Enable slider" tooltip="modal" description="slider.html">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
-		<param name="bottomshelf3_slider_text" default="toggle" type="text" label="Bottomshelf slider text" tooltip="inline" description="toggletext.html" />
+		<param name="bottomshelf3_slider_text" default="toggle" type="text" label="Slider text" tooltip="inline" description="toggletext.html" />
 		<param name="bottomshelf3_show" default="1" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
