@@ -307,6 +307,22 @@ class Morph {
 	}
 	
 	/**
+	 * Parse relative layout path
+	 *
+	 * @param  $layout	string		Should be the __FILE__ constant.
+	 * @return string				The new path
+	 */
+	protected static function parsePath($layout)
+	{
+		$parts		= explode(DIRECTORY_SEPARATOR, $layout);
+		foreach(array('file', 'layout', 'extension') as $name) $$name = array_pop($parts);
+		$override = '/html/' . $extension . '/' . $layout . '/' . $file;
+		if($extension == 'html') $override = '/html/' . $layout . '/' . $file;
+		$base 		= self::getThemeletPath();
+		return $base.$override;
+	}
+	
+	/**
 	 * Function for getting a themelet layout override
 	 *
 	 * Gives themelets the possibility to have html overrides on their own.
@@ -317,18 +333,27 @@ class Morph {
 	 */
 	public function override($layout, $view)
 	{
-		$parts		= explode(DS, $layout);
-		foreach(array('file', 'layout', 'extension') as $name) $$name = array_pop($parts);
-		$override = '/html/' . $extension . '/' . $layout . '/' . $file;
-		if($extension == 'html') $override = '/html/' . $layout . '/' . $file;
-		$base 		= self::getThemeletPath();
-		$layout		= $base.$override;
+		$tmpl		= self::parsePath($layout);
 
-		if(file_exists($layout))
+
+		//Prevent eternal recursing
+		static $paths;
+		if(!isset($paths)) $paths = array();
+		
+		if(isset($paths[$tmpl])) {
+			list(, $caller) = debug_backtrace(false);
+			$calling_file	= self::parsePath($caller['file']);
+			if($calling_file == $tmpl) return false;
+		} else {
+			$paths[$tmpl] = $tmpl;
+		}
+
+
+		if(file_exists($tmpl))
 		{
 			if(method_exists($view, 'addTemplatePath'))
 			{
-				$view->addTemplatePath(dirname($layout));
+				$view->addTemplatePath(dirname($tmpl));
 				$tpl = str_replace('.php', null, $file);
 				$tpl = explode('_', $tpl);
 
@@ -347,7 +372,7 @@ class Morph {
 			}
 			else
 			{
-				return $layout;
+				return $tmpl;
 			}
 		}
 		return false;
@@ -432,9 +457,17 @@ class Morph {
 	 */
 	public function getThemeletPath($themelet = false)
 	{
+		static $path;
+		static $themelet;
+
 		if(!$themelet) $themelet = self::getInstance()->themelet;
-		$path = JPATH_ROOT.'/morph_assets/themelets/' . $themelet;
-		return is_dir($path) ? $path : false;
+
+		if(!$path) {
+			$path = JPATH_ROOT.'/morph_assets/themelets/' . $themelet;
+			$path = is_dir($path) ? $path : false;
+		}
+
+		return $path;
 	}
 	
 	/**

@@ -16,7 +16,7 @@ if(isset($_COOKIE['nogzip'])){
 			$replace = str_replace('var $gzip = \'1\';', 'var $gzip = \'0\';', $search);
 			JFile::write($path, $replace);
 			JPath::setPermissions($path, '0444');
-		}	
+		}
 	}
 	$gzip_compression = 0;
 }
