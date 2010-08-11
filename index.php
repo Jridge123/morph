@@ -64,7 +64,9 @@ if( $isiPhone && !$iPhoneCookie ){
 	include_once('core/includes/iphone_footer.php');
 } else{
 	if(isIE6() && $ie6_upgrade == 1){ include_once('core/includes/ie6upgrade.php');}
-	if($this->countModules('advert1')){'<div id="advert1"><jdoc:include type="modules" name="advert1" style="none" /></div>';}
+
+	if($this->countModules('advert1')){include_once('core/includes/advert1.php');}
+
 	if($toolbar_position == 0){include_once('core/includes/toolbar.php');}
 	if($topnav_position == 0){include_once('core/includes/topnav.php');}
 	include_once('core/includes/masthead.php');
@@ -85,7 +87,7 @@ if( $isiPhone && !$iPhoneCookie ){
 	} else {
 		 include_once('core/includes/foot.php');
 	}
-	if($this->countModules('advert2')) {'<div id="advert2"><jdoc:include type="modules" name="advert2" style="none" /></div>';}
+	if($this->countModules('advert2')){include_once('core/includes/advert2.php');}
 	if($isiPhone) include_once('core/includes/iphone_footer.php');
 ?>
 <jdoc:include type="modules" name="debug" />
