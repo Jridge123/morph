@@ -637,9 +637,9 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
-		<param name="plugin_url" default="jroute" type="list" label="CSS/JS render urls" tooltip="inline" description="Choose wether to use JRoute or JURI based on wether you get issues with your SEF extension or not. Using JRoute will allow you to tweak how the links to packed css and js files by custom SEF rules, while JURI is sometimes a more compatible option.">
-			<option value="jroute">JRoute - Core SEF url</option>
-			<option value="juri">JURI - Core non-SEF url</option>
+		<param name="plugin_url" default="jroute" type="list" label="Core or 3rd Party SEF Support" tooltip="inline" description="Choose wether to use JRoute or JURI based on wether you get issues with your SEF extension or not. Using JRoute will allow you to tweak how the links to packed css and js files by custom SEF rules, while JURI is sometimes a more compatible option.">
+			<option value="jroute">Joomla Core SEF</option>
+			<option value="juri">3rd Party Extension SEF</option>
 		</param>
 		<param name="developer_toolbar" default="0" type="itoggle" label="Show Developer Toolbar" tooltip="inline" description="Enabling this option will show a developer toolbar on your website with a list of tools that can be used to help debug your template.">
 			<option value="1">Yes</option>
