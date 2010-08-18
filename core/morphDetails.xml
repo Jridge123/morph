@@ -479,6 +479,7 @@
 			<option value="30">30em's</option>
 		</param>
 		<param name="topnav_delay" default="1000" type="list" label="Menu delay" tooltip="inline" description="How many seconds would you like the menu's animation to delay? IE, how long should the menu drop down stay after the user mouses off of it.">
+			<option value="0">0 Seconds</option>
 			<option value="1000">1 Second</option>
 			<option value="2000">2 Seconds</option>
 			<option value="3000">3 Seconds</option>
