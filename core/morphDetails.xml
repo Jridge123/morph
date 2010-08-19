@@ -479,6 +479,7 @@
 			<option value="30">30em's</option>
 		</param>
 		<param name="topnav_delay" default="1000" type="list" label="Menu delay" tooltip="inline" description="How many seconds would you like the menu's animation to delay? IE, how long should the menu drop down stay after the user mouses off of it.">
+			<option value="0">0 Seconds</option>
 			<option value="1000">1 Second</option>
 			<option value="2000">2 Seconds</option>
 			<option value="3000">3 Seconds</option>
@@ -637,9 +638,9 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
-		<param name="plugin_url" default="jroute" type="list" label="CSS/JS render urls" tooltip="inline" description="Choose wether to use JRoute or JURI based on wether you get issues with your SEF extension or not. Using JRoute will allow you to tweak how the links to packed css and js files by custom SEF rules, while JURI is sometimes a more compatible option.">
-			<option value="jroute">JRoute - Core SEF url</option>
-			<option value="juri">JURI - Core non-SEF url</option>
+		<param name="plugin_url" default="jroute" type="list" label="Core or 3rd Party SEF Support" tooltip="inline" description="Choose wether to use JRoute or JURI based on wether you get issues with your SEF extension or not. Using JRoute will allow you to tweak how the links to packed css and js files by custom SEF rules, while JURI is sometimes a more compatible option.">
+			<option value="jroute">Joomla Core SEF</option>
+			<option value="juri">3rd Party Extension SEF</option>
 		</param>
 		<param name="developer_toolbar" default="0" type="itoggle" label="Show Developer Toolbar" tooltip="inline" description="Enabling this option will show a developer toolbar on your website with a list of tools that can be used to help debug your template.">
 			<option value="1">Yes</option>
