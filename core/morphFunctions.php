@@ -144,6 +144,7 @@ $foot_override				= $absolutepath.'/html/foot.php';
 $footer_script				= $absolutepath.'/script.php';
 
 $moo = JFactory::getConfig()->getValue('debug') ? '-uncompressed.js' : '.js';
+$mtu = JURI::base(true).'/plugins/system/mtupgrade/mootools'.$moo;
 $moo = JURI::base(true).'/media/system/js/mootools'.$moo;
 $option = JRequest::getCmd('option');
 $load_com_mootools = $load_mootools;
@@ -164,12 +165,19 @@ if($load_mootools == 0 && $load_com_mootools == 0)
     		if (isset($document->_scripts[$moo])) {
     		    unset($document->_scripts[$moo]);
     		}
+    		if (isset($document->_scripts[$mtu])) {
+    		    unset($document->_scripts[$mtu]);
+    		}
     	}
 	}
 }
 if (isset($document->_scripts[$moo])) {
     unset($document->_scripts[$moo]);
     $MORPH->addScript(str_replace(JURI::base(true), '', $moo));
+}
+if (isset($document->_scripts[$mtu])) {
+    unset($document->_scripts[$mtu]);
+    $MORPH->addScript(str_replace(JURI::base(true), '', $mtu));
 }
 
 if ( $remove_generator == 1 ) {
