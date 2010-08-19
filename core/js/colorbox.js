@@ -649,7 +649,6 @@
 		} else {
 			$div().appendTo($loadingBay).load(href, function (data, status, xhr) {
 				prep(status === 'error' ? 'Request unsuccessful: ' + xhr.statusText : this);
-				console.warn('this', this, data);
 			});
 		}
 	};
