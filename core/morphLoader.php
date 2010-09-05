@@ -121,9 +121,6 @@ class Morph {
 		jimport('joomla.filesystem.folder');
 		$cache = JPATH_CACHE.'/morph';
 		if(JRequest::getCmd('empty', false) == 'cache' && JFolder::exists($cache)) JFolder::delete($cache);
-		
-		//Where passing the menu item id, so that the cache works with menu item.
-		$_SESSION['menuid'] = JRequest::getInt('Itemid');
 
 		if($this->developer_toolbar || $this->debug)
 		{
@@ -156,7 +153,25 @@ class Morph {
 			$app->setUserState('morph', $params);
 		}
 
-		$path = JPATH_CACHE.'/morph/data.json';
+		//Generate name for the morph json formatted params that are passed to the css and js views
+		$uri	= clone JFactory::getURI();
+		$base	= JPATH_CACHE.'/morph-sessions/'.session_id().'/';
+		$parts	= array_filter(explode('/', $uri->getPath()));
+		//Sometimes index.php are added even if not present in main url. So remove it just in case
+		if(end($parts) == 'index.php') array_pop($parts);
+//		die('<pre>'.var_export($parts, true).'</pre>');
+		$parts[]= $uri->getHost();
+		$pre	= implode('.', $parts);
+		$path	= $base.$pre;
+		$data	= array();
+		$query	= array_flip($uri->getQuery(1));
+		asort($query);
+		foreach($query as $value => $key)
+		{
+			$data[] = $key.'='.$value;
+		}
+		$path = $path.'?'.implode('&', $data);
+		
 		if(file_exists($path))
 		{
 			$created	= time()-date('U', filemtime($path));

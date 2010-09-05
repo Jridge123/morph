@@ -15,9 +15,98 @@ if(typeof MooTools == 'undefined')
 	Class.prototype.implement = $lambda;
 }
 
+(function(){
+	
+	var rscript = /<script(.|\s)*?\/script>/gi,
+		rselectTextarea = /select|textarea/i,
+		rinput = /color|date|datetime|email|hidden|month|number|password|range|search|tel|text|time|url|week/i,
+		jsre = /=\?(&|$)/,
+		rquery = /\?/,
+		rts = /(\?|&)_=.*?(&|$)/,
+		rurl = /^(\w+:)?\/\/([^\/?#]+)/,
+		r20 = /%20/g,
+	
+		// Keep a copy of the old load method
+		_load = jQuery.fn.load;
+
+	/**
+	 * Fixing error in .load when MooTools is loaded
+	 * 
+	 * jQuery("<div />").append(res.responseText.replace(rscript, "")).find(selector)
+	 * fails because MooTools replaces Element.getElementById and others,
+	 * And calls them on the document object instead internally.
+	 * Since the html is in a variable and not in the document,
+	 * the .find(selector) will fail terribly and return nothing.
+	 * The fix is to call jQuery("<div />").hide().appendTo(document.body).append(res.responseText.replace(rscript, "")).find(selector)
+	 * .hide() makes sure the ajax fetched content are invisible,
+	 * and .append(document.body) makes sure the html elements are inside the document.
+	 * That way it works, even when MooTools overrides those methods.
+	 *
+	 */
+	jQuery.fn.extend({
+		load: function( url, params, callback ) {
+			if ( typeof url !== "string" ) {
+				return _load.call( this, url );
+		
+			// Don't do a request if no elements are being requested
+			} else if ( !this.length ) {
+				return this;
+			}
+		
+			var off = url.indexOf(" ");
+			if ( off >= 0 ) {
+				var selector = url.slice(off, url.length);
+				url = url.slice(0, off);
+			}
+		
+			// Default to a GET request
+			var type = "GET";
+		
+			// If the second parameter was provided
+			if ( params ) {
+				// If it's a function
+				if ( jQuery.isFunction( params ) ) {
+					// We assume that it's the callback
+					callback = params;
+					params = null;
+		
+				// Otherwise, build a param string
+				} else if ( typeof params === "object" ) {
+					params = jQuery.param( params, jQuery.ajaxSettings.traditional );
+					type = "POST";
+				}
+			}
+		
+			var self = this;
+		
+			// Request the remote document
+			jQuery.ajax({
+				url: url,
+				type: type,
+				dataType: "html",
+				data: params,
+				complete: function( res, status ) {
+					// If successful, inject the HTML into all the matched elements
+					if ( status === "success" || status === "notmodified" ) {
+						// See if a selector was specified
+						self.html( selector ? jQuery("<div />").hide().appendTo(document.body).append(res.responseText.replace(rscript, "")).find(selector) : res.responseText );
+					}
+		
+					if ( callback ) {
+						self.each( callback, [res.responseText, status, res] );
+					}
+				}
+			});
+		
+			return this;
+		}
+	});
+})();
+
 jQuery.noConflict();
 (function($) {
 	$(document).ready(function(){
+		alert('hi');
 		$('#gcf_placeholder').css('z-index','9999');
 		$("#topnav.call-for-action li:last").addClass("action-link");
 		$("#topnav.call-for-action li:last").prev("li").addClass("second-last");
