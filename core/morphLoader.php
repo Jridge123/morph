@@ -159,7 +159,6 @@ class Morph {
 		$parts	= array_filter(explode('/', $uri->getPath()));
 		//Sometimes index.php are added even if not present in main url. So remove it just in case
 		if(end($parts) == 'index.php') array_pop($parts);
-//		die('<pre>'.var_export($parts, true).'</pre>');
 		$parts[]= $uri->getHost();
 		$pre	= implode('.', $parts);
 		$path	= $base.$pre;

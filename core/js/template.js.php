@@ -106,7 +106,6 @@ if(typeof MooTools == 'undefined')
 jQuery.noConflict();
 (function($) {
 	$(document).ready(function(){
-		alert('hi');
 		$('#gcf_placeholder').css('z-index','9999');
 		$("#topnav.call-for-action li:last").addClass("action-link");
 		$("#topnav.call-for-action li:last").prev("li").addClass("second-last");
