@@ -203,15 +203,26 @@ class Morph {
 		if(!isset($param_name)) return null;
 		return $this->$param_name;
 	}
-	
+
 	public function addScript($url, $type = 'text/javascript')
 	{
 		$this->scripts[$url] = $type;
 	}
 	
+	/**
+	 * Adds a script declaration (inline javascript) to Morph
+	 *
+	 * This allows the js to be optionally packed, minified, gzipped and cached
+	 *
+	 * @param	string	$script		The script are injected very last in template.js.php.
+	 *								This means you'll have to do domready yourself, but gives you full freedom.
+	 * @return	object	$this
+	 */
 	public function addScriptDeclaration($script)
 	{
 		$this->scriptDeclarations .= $script;
+
+		return $this;
 	}
 	
 	public function addScriptAfter($url, $type = 'text/javascript')
