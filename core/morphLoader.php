@@ -391,19 +391,8 @@ class Morph {
 			if(method_exists($view, 'addTemplatePath'))
 			{
 				$view->addTemplatePath(dirname($tmpl));
-				$tpl = str_replace('.php', null, $file);
-				$tpl = explode('_', $tpl);
 
-				if(count($tpl) > 1)
-				{
-					array_shift($tpl);
-					$tpl = implode('_', $tpl);
-				}
-				else
-				{
-					$tpl = null;
-				}
-				echo $view->loadTemplate($tpl);
+				echo $view->loadTemplate();
 				
 				return true;
 			}
