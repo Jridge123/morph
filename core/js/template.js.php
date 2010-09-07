@@ -386,3 +386,5 @@ foreach($this->js->scriptsAfter as $js => $type)
 } ?>
 	});
 })(jQuery);
+<?php /* use Morph::getInstance()->addScriptDeclaration() to output here */ ?>
+<?php echo $this->js->scriptDeclarations ?>

@@ -1,7 +1,7 @@
 <?php defined( '_JEXEC' ) or die( 'Restricted access' );
 // initiate morph
 require_once JPATH_ROOT . '/templates/morph/core/morphLoader.php';
-$MORPH = new Morph( getTemplateName( dirname(__FILE__).'/morphDetails.xml' ) );
+$MORPH = Morph::getInstance();
 
 require_once('templates/morph/core/morphParams.php');
 require_once('templates/morph/core/browser.php');
@@ -446,10 +446,10 @@ if(isset($document->_scripts[JURI::root().'components/com_k2/js/k2.js']))
 }
 
 if(file_exists($themeletfunctions) && is_readable($themeletfunctions)){
-include_once($absolutepath.'/themelet.php');
+	include_once($absolutepath.'/themelet.php');
 }
 if(file_exists($customfunctions) && is_readable($customfunctions)){
-include_once($absolutepath.'/custom.php');
+	include_once($absolutepath.'/custom.php');
 }
 
 // enable/disble firebug lite

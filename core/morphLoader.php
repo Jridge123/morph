@@ -30,9 +30,11 @@ class Morph {
 
 	public $scripts = array();
 	public $scriptsAfter = array();
+	public $scriptDeclarations = '';
 	
 	public $styleSheets = array();
 	public $styleSheetsAfter = array();
+	public $styleDeclarations = '';
 	
 	public static $_timeofday;
 
@@ -184,7 +186,7 @@ class Morph {
 			$json = json_encode($this);
 			JFile::write($path, $json);
 		}
-		
+
 		if($this->developer_toolbar || $this->debug)
 		{
 			if(isset($_GET['morph'])){
@@ -207,6 +209,11 @@ class Morph {
 		$this->scripts[$url] = $type;
 	}
 	
+	public function addScriptDeclaration($script)
+	{
+		$this->scriptDeclarations .= $script;
+	}
+	
 	public function addScriptAfter($url, $type = 'text/javascript')
 	{
 		$this->scriptsAfter[$url] = $type;
@@ -217,6 +224,11 @@ class Morph {
 		$this->styleSheets[$url]['mime']	= $type;
 		$this->styleSheets[$url]['media']	= $media;
 		$this->styleSheets[$url]['attribs']	= $attribs;
+	}
+	
+	public function addStyleDeclaration($style)
+	{
+		$this->styleDeclarations .= $style;
 	}
 	
 	public function addStyleSheetAfter($url, $type = 'text/css', $media = null, $attribs = array())
