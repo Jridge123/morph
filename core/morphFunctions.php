@@ -739,23 +739,30 @@ function blocks($position, $glob, $jj_const, $classes, $site_width, $debug_modul
 }
 
 function pt_body_classes($menu, $view, $themelet){
+
 	$morph = Morph::getInstance();
-	$browser = new MBrowser();
-	$platform = ' '.strtolower($browser->getPlatform());
-	$thebrowser = ' '.strtolower(preg_replace("/[^A-Za-z]/i", "", $browser->getBrowser()));
-	$ver = $browser->getVersion();
-	$ver = str_replace('.', '', $ver);
 	$params = new JParameter($menu->params);
 	$pageclass = $params->get('pageclass_sfx');
 	$user = JFactory::getUser();
 	$lang = JFactory::getLanguage();
-	$custom_body_sfx = $morph->custom_body_sfx;
+	$browser = new MBrowser();
+	$engine = strtolower(preg_replace("/[^A-Za-z]/i", "", $browser->getBrowser()));
+	$version = $engine.str_replace('.', '', $browser->getVersion());
 
-	$classes = array('js-disabled', 'morph', $lang->getTag(), Morph::getTimeofday(), $custom_body_sfx);
-	if($menu->query['view'] !== '') $classes[] = $menu->query['view'];
+	$classes = array(
+		'js-disabled',
+		'morph',
+		$engine,
+		$version,
+		strtolower($browser->getPlatform()),
+		$params->get('pageclass_sfx'),
+		$view,
+		$lang->getTag(),
+		Morph::getTimeofday(),
+		$morph->custom_body_sfx
+	);
 	if($menu->query['option'] !== '') $classes[] = $menu->query['option'];
 	if(isset($_COOKIE['morph_developer_toolbar'])) $classes[] = 'devbar';
-	if($pageclass !== '') $classes[] = $pageclass;
 	
 	//Classes based on user state and user type
 	if($user->guest) $classes[] = 'user-guest';
@@ -763,8 +770,6 @@ function pt_body_classes($menu, $view, $themelet){
 	
 	//Controller task
 	if($task = JRequest::getCmd('task', false)) $classes[] = 'task-' . $task;
-	
-	//$class .= 'js-disabled morph'.$thebrowser.$thebrowser.$ver.$platform.$pageclass.$view.$component.$devbar.'"';
 	
 	return 'class="' . implode(' ', array_filter($classes)) . '" ' . ( $themelet ? 'id="' . $themelet . '"' : null );
 }
