@@ -1,4 +1,4 @@
-<?php
+<?php defined( '_JEXEC' ) or die( 'Restricted access' );
 
 // javascript arrays
 $js_jquery = array($jquery_core, (bool)$tabscount, (bool)$accordionscount, $lazyload_enabled, $captions_enabled, $lightbox_enabled, $fontsizer_enabled, $shareit_enabled);

@@ -1,5 +1,4 @@
-<?php // no direct access
-defined('_JEXEC') or die('Restricted access'); ?>
+<?php defined('_JEXEC') or die('Restricted access'); ?>
 <form id="jForm" action="<?php JRoute::_('index.php')?>" method="post">
 <?php if ($this->params->get('show_page_title', 1)) : ?>
 <h1 class="componentheading"><?php echo $this->escape($this->params->get('page_title')); ?></h1>

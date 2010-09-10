@@ -1,8 +1,7 @@
-<?php
-defined('_JEXEC') or die('Restricted access');
+<?php defined( '_JEXEC' ) or die( 'Restricted access' );
 // initiate morph
 require_once JPATH_ROOT . '/templates/morph/core/morphLoader.php';
-$MORPH = new Morph( getTemplateName( dirname(__FILE__).'/morphDetails.xml' ) );
+$MORPH = Morph::getInstance();
 
 require_once('templates/morph/core/morphParams.php');
 require_once('templates/morph/core/browser.php');

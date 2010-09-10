@@ -1,4 +1,4 @@
-<?php
+<?php defined( '_JEXEC' ) or die( 'Restricted access' );
 if(!isset(${$position.'_wrap'})){ ${$position.'_wrap'} = ''; }else{ ${$position.'_wrap'} = ${$position.'_wrap'}; }
 if(!isset(${$position.'_show'})){ ${$position.'_show'} = ''; }else{ ${$position.'_show'} = ${$position.'_show'}; }
 if(!isset(${$position.'_inner'})){ ${$position.'_inner'} = ''; }else{ ${$position.'_inner'} = ${$position.'_inner'}; }

@@ -1,4 +1,4 @@
-<?php
+<?php defined( '_JEXEC' ) or die( 'Restricted access' );
 /*
  * Morph loader
  *
@@ -15,11 +15,11 @@
  *
  */
 
-defined('_JEXEC') or die('Restricted access');
 $morph_component_path = JPATH_ADMINISTRATOR.'/components/com_configurator';
 include_once $morph_component_path . '/configurator.common.php';
 include_once $morph_component_path . '/configurator.class.php';
 include_once $morph_component_path . '/depencies.php';
+jimport('joomla.filesystem.file');
 
 class Morph {
 

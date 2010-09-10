@@ -1,3 +1,4 @@
+<?php defined( '_JEXEC' ) or die( 'Restricted access' ); ?>
 html{
 background-color:<?php echo $this->css->html_bg_color; ?>;
 <?php if ( $this->css->use_html_bg_image == 1 ) { ?>

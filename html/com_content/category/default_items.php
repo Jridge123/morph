@@ -1,6 +1,4 @@
-<?php // @version: $Id: default_items.php 10381 2008-06-01 03:35:53Z pasamio $
-defined('_JEXEC') or die('Restricted access');
-?>
+<?php defined( '_JEXEC' ) or die( 'Restricted access' ); ?>
 
 <script language="javascript" type="text/javascript">
 <!--

@@ -1,3 +1,4 @@
+<?php defined( '_JEXEC' ) or die( 'Restricted access' ); ?>
 <?php $this->addScript(JURI::root().$templatepath .'/core/js/iphone_switch.js') ?>
 <?php $switch = isset($_COOKIE['iPhone']) ? $_COOKIE['iPhone'] : 'optimized' ?>
 <?php $swichActive = array($switch == 'optimized' ? 'active-mode' : '', $switch == 'normal' ? 'active-mode' : '') ?>

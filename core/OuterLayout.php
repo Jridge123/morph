@@ -1,4 +1,4 @@
-<?php
+<?php defined( '_JEXEC' ) or die( 'Restricted access' );
 $outerPageSuffix = array (
 	'0' => 'yui-t0',
 	'1' => 'yui-t1',
