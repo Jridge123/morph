@@ -1,4 +1,3 @@
-<?php defined( '_JEXEC' ) or die( 'Restricted access' ); ?>
 <!--[if lt IE 7]>
 <div id="ie6Warning">
 	<h2>Time to upgrade your browser</h2>

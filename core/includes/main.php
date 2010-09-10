@@ -1,4 +1,3 @@
-<?php defined( '_JEXEC' ) or die( 'Restricted access' ); ?>
 <?php if($global_wrap == 1 && $global_wrap_start == 5){ ?><div id="global-wrap" class="<?php echo $site_width; ?>"><?php } ?>
 <?php if ( $main_wrap == 1 ) { ?><div id="bd-wrap"><?php } ?>
 	<!-- apply outer scheme -->
@@ -13,11 +12,13 @@
 					<div class="yui-u first" id="primary-content">
 						<div class="primary-inner clearer">
 							<?php $position = 'inset2'; include dirname(__FILE__).'/../morphBlockClasses.php'; echo blocks($position, $this, $jj_const, $classes, '', $debug_modules, $nojs); ?>
+							<div class="content-wrap">
 							<?php if ((JRequest::getVar( 'view' ) != 'frontpage') && (JDocumentHTML::countModules('breadcrumb'))) { ?>
 								<jdoc:include type="modules" name="breadcrumb" />
 							<?php } ?>
 							<jdoc:include type="message" />
 							<jdoc:include type="component" />
+							</div>
 							<?php $position = 'inset3'; include dirname(__FILE__).'/../morphBlockClasses.php'; echo blocks($position, $this, $jj_const, $classes, '', $debug_modules, $nojs); ?>
 						</div>
 					</div>

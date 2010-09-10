@@ -1,9 +1,8 @@
-<?php defined( '_JEXEC' ) or die( 'Restricted access' ); ?>
 <?php if ( $footer_show == 0 ) { ?>
-    <?php if ( $footer_wrap == 1 ) { ?><div id="footer-wrap"><?php } ?>  
+    <?php if ( $footer_wrap == 1 ) { ?><div id="footer-wrap" class="block wrap <?php echo $footer_blockfx; ?>"><?php } ?>  
         <?php if ( $footer_type == 0 ) { ?>
             <?php echo codeComments('s','Footer Block','includes/foot.php','5', $code_comments); ?>
-            <div id="footer" class="<?php echo $site_width; ?>">
+            <div id="footer" class="<?php echo $site_width; ?> block <?php echo $footer_blockfx;?>">
                 <div class="footer-left">
                     <?php if(JDocumentHTML::countModules('footernav')) { ?>
                     <jdoc:include type="modules" name="footernav" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo 'none'; } ?>" />

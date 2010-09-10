@@ -1,20 +1,19 @@
-<?php defined( '_JEXEC' ) or die( 'Restricted access' );
+<?php // no direct access
+defined('_JEXEC') or die('Restricted access');
 include_once(dirname(__FILE__).'/../icon.php');
 $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $this->user->authorize('com_content', 'edit', 'content', 'own'));
 $morph = Morph::getInstance();
-if(!function_exists('curPageURL')) {
-	function curPageURL() {
-	 $pageURL = 'http';
-	 if (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
-	 $pageURL .= "://";
-	 if ($_SERVER["SERVER_PORT"] != "80") {
-	  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
-	 } else {
-	  $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
-	 }
-	 $pageURL = JFilterOutput::ampReplace($pageURL);
-	 return $pageURL;
-	}
+function curPageURL() {
+ $pageURL = 'http';
+ if (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
+ $pageURL .= "://";
+ if ($_SERVER["SERVER_PORT"] != "80") {
+  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+ } else {
+  $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+ }
+ $pageURL = JFilterOutput::ampReplace($pageURL);
+ return $pageURL;
 }
 if($override = Morph::override(__FILE__, $this)) {
 	if(file_exists($override)) include $override;

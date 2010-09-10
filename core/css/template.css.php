@@ -1,4 +1,3 @@
-<?php defined( '_JEXEC' ) or die( 'Restricted access' ); ?>
 html{
 background-color:<?php echo $this->css->html_bg_color; ?>;
 <?php if ( $this->css->use_html_bg_image == 1 ) { ?>
@@ -17,11 +16,44 @@ background-position:<?php echo $this->css->body_bg_position; ?>;
 background-attachment:<?php echo $this->css->body_bg_attachment; ?>;
 <?php } ?>
 }
+/* Start andys mods
+*******************************************************/
+<?php if ( $this->css->logowrap_height ) { ?>
+#branding {
+height:<?php echo $this->css->logowrap_height; ?>;
+}
+<?php } ?>
+
+<?php 
+//set dynamic width on branding-secondary div
+if ($this->css->site_width == 'doc') {
+	$site_width = 750;
+}
+else if ($this->css->site_width == 'doc2') {
+	$site_width = 950;
+}
+//doc3 cant wont as its 100% and cant detect browser width with php..??? testing suggests nothing is needed for this to work with doc3 100%
+//else if ($this->css->site_width == 'doc3') {
+//	$site_width = 100;
+//}
+else if ($this->css->site_width == 'doc4') {
+	$site_width = 974;
+}
+
+?>
+
+/* End andy mods
+*******************************************************/
+
 <?php if ( $this->css->masthead_height ) { ?>
 #masthead{
 height:<?php echo $this->css->masthead_height; ?>;
 }
 <?php } if ( $this->css->logo_type == 0 ) { ?>
+<?php $branding_secwidth = $site_width - 30 - $this->css->logo_width; ?>
+.branding-secondary  {
+	width: <?php echo $branding_secwidth; ?>px;
+}
 #branding h1{
 top:<?php echo $this->css->logo_top; ?>;
 left:<?php echo $this->css->logo_left; ?>;
@@ -33,6 +65,10 @@ font-family:<?php echo $this->css->logo_fontfamily; ?>;
 color:<?php echo $this->css->logo_textcolor; ?>;
 }
 <?php } if ( $this->css->logo_type == 1 ) { ?>
+<?php $branding_secwidth = $site_width - 30 - $this->css->logo_size[0];?>
+.branding-secondary  {
+	width: <?php echo $branding_secwidth; ?>px;
+}
 #branding h1{
 top:<?php echo $this->css->logo_top; ?>;
 left:<?php echo $this->css->logo_left; ?>;
@@ -97,5 +133,3 @@ body{color:<?php echo $this->css->color_bodytext; ?>;}
 .caption-top{border-bottom:<?php echo $this->css->captions_borderheight; ?> solid <?php echo $this->css->captions_bordercolor; ?>;}
 .caption-bottom{border-top:<?php echo $this->css->captions_borderheight; ?> solid <?php echo $this->css->captions_bordercolor; ?>;}
 <?php } ?>
-<?php /* use Morph::getInstance()->addStyleDeclaration() to output here */ ?>
-<?php echo $this->css->styleDeclarations ?>

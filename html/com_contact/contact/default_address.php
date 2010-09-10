@@ -1,4 +1,6 @@
-<?php defined( '_JEXEC' ) or die( 'Restricted access' );
+<?php
+/** $Id: default_address.php 12387 2009-06-30 01:17:44Z ian $ */
+defined( '_JEXEC' ) or die( 'Restricted access' );
  
 function splitname($n){	
 	$split = explode(' ', $n);

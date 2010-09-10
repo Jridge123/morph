@@ -1,2 +1,2 @@
-<?php defined( '_JEXEC' ) or die( 'Restricted access' );
+<?php
 // @TODO decide wether to purge this file or not.

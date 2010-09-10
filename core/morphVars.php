@@ -1,4 +1,4 @@
-<?php defined( '_JEXEC' ) or die( 'Restricted access' );
+<?php
 if ( $logo_type == 1 or $logo_type == 2 ) {
 	if( isIE6() && $logo_image_ie !== ''){ 
 		$logo = $assetspath.'/logos/'.$logo_image_ie; 

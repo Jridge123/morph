@@ -1,4 +1,3 @@
-<?php defined( '_JEXEC' ) or die( 'Restricted access' ); ?>
 <div id="top" class="skipto">
     <ul>
         <li><a href="#iphone4">skip to bottom</a></li>

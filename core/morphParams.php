@@ -1,4 +1,5 @@
-<?php defined( '_JEXEC' ) or die( 'Restricted access' );
+<?php
+defined('_JEXEC') or die('Restricted access');
 
 // Transforms $MORPH->variable into $variable
 extract((array)$MORPH, EXTR_SKIP);

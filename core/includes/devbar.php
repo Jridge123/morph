@@ -1,4 +1,3 @@
-<?php defined( '_JEXEC' ) or die( 'Restricted access' ); ?>
 <div id="dev-toolbar">
 	<ul<?php echo ' class="'.$site_width.'"'; ?>>
 		<?php if($nojs == 0){ ?>

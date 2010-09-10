@@ -1,4 +1,4 @@
-<?php defined( '_JEXEC' ) or die( 'Restricted access' );
+<?php
 $innerPageSuffix = array (
     '0' => 'none',
 	'1' => 'yui-g',

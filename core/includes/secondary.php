@@ -1,7 +1,6 @@
-<?php defined( '_JEXEC' ) or die( 'Restricted access' ); ?>
 <?php if (JDocumentHTML::countModules('outer1 or outer2 or outer3 or outer4 or outer5') || ($this->countMenuChildren()) ){ ?>
-<div class="sidebar yui-b" id="secondary-content">
- <?php if ( $secondary_inner == 1 ) { ?><div class="secondary-inner clearer"><?php } ?>
+<div class="sidebar yui-b block <?php echo $outer_blockfx; ?>" id="secondary-content">
+ <?php if ( $secondary_inner == 1 ) { ?><div class="secondary-inner inner block <?php echo $outer_blockfx; ?> clearer"><?php } ?>
     <?php if($MORPH->countModules('outersplit')){ ?>
         <jdoc:include type="modules" name="outersplit" style="split" />
     <?php } ?>

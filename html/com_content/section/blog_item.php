@@ -1,4 +1,5 @@
-<?php defined( '_JEXEC' ) or die( 'Restricted access' );
+<?php // @version $Id: blog_item.php 11215 2008-10-26 02:25:51Z ian $
+defined('_JEXEC') or die('Restricted access');
 include_once(dirname(__FILE__).'/../icon.php');
 ?>
 

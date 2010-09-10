@@ -1,4 +1,4 @@
-<?php defined( '_JEXEC' ) or die( 'Restricted access' );
+<?php
 $themeletpath = dirname(__FILE__).'/../../../morph_assets/themelets/'.$themelet;
 $css_yui = $themeletpath.'/css/yui.css';
 $css_joomla = $themeletpath.'/css/joomla.css';

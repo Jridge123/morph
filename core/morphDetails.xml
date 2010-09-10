@@ -3,7 +3,7 @@
 
 	<params>
 		<name>Morph</name>
-		<version>1.16</version>
+		<version>1.13</version>
 		<creationDate>28 May 09</creationDate>
 		<author>JoomlaJunkie</author>
 		<authorEmail>noreply@joomlajunkie.com</authorEmail>
@@ -41,6 +41,7 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
+		<param name="custom_body_sfx" default="" type="text" cols="32" rows="1" tooltip="inline" label="Custom Body Suffix" description="Set a suffix to appear on the body as a class to use for additional styling with css" />
 	    <param name="global_wrap_start" default="" type="list" label="Wrap start position" tooltip="inline" description="Set the position of the global wrap start position (ie, the opening div)">
 	    	<option value="0">Above toolbar</option>
 	    	<option value="1">Above masthead</option>
@@ -77,7 +78,18 @@
 		<param name="google_analytics" default="" type="text" label="Google Analytics ID" tooltip="inline" description="Entering your Google Analytics ID will automatically load the needed tracking javascript, just above the closing body tag of your site. We plan on extending this to use any tracking or related javascript in the future, but for now this will have to do :)" />
 	</params>
 	
-	<params group="logodata">		
+	<params group="logodata">
+		<param name="logo_show_inblock" default="masthead_logo" type="list" label="Which block to show logo in?" tooltip="inline" description="In which of Morphs blocks listed here would you like to display your logo in">
+			<option value="toolbar_logo">Toolbar</option>
+			<option value="masthead_logo">Main Header</option>
+			<option value="subhead_logo">Sub Header</option>
+			<option value="topnav_logo">Top Navigation</option>
+			<option value="topshelf_logo">Top Shelf</option>
+			<option value="user1_logo">User1</option>
+			<option value="inset1_logo">Inset1</option>
+			<option value="inset2_logo">Inset2</option>
+		</param>
+		<param name="logowrap_height" default="" type="text" label="Logo containers height" tooltip="inline" description="Set the height of the logos wrapping container." />
 		<param name="logo_type" default="0" type="list" label="Logo type" tooltip="inline" description="How would you like your logo to be outputed? A full tutorial explaining each of the options listed here will be added soon.">
 			<option value="0">Linked h1 text</option>
 			<option value="1">Linked h1 image replacement</option>
@@ -430,6 +442,10 @@
 		</param>
 	</params>
 	
+	<params group="progressivedata">
+	
+	</params>
+	
 	<params group="menudata">
 		<param name="topnav_hoverintent" default="1" type="itoggle" label="HoverIntent" tooltip="inline" description="HoverIntent is a plug-in that attempts to determine the user's intent... like a crystal ball, only with mouse movement! This generally improves the usability of your Superfish menu.">
 			<option value="1">Yes</option>
@@ -438,11 +454,6 @@
 		<param name="topnav_hoverfocus" default="1" type="itoggle" label="HoverFocus" tooltip="inline" description="HoverFocus is an experimental feature which fades out contents of the topshelf when you hover on to child items of the top navigation. This allows you to focus on the menu items rather than the underlying content. This feature is still a bit buggy.">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
-		</param>
-		<param name="topnav_hoverfocus_block" default="1" type="list" label="HoverFocus block" tooltip="inline" description="Which block is active below the menu? Please note that the blocks 'Block Inner' option needs to be enabled for the block you choose.">
-			<option value="subhead-inner">Subhead block</option>
-			<option value="topshelf-inner">Topshelf block</option>
-			<option value="user1-inner">User1 block</option>
 		</param>
 		<param name="topnav_actionlink" default="0" type="itoggle" label="Call for action link" tooltip="inline" description="A call for action link can be described as the primary action that you would like your visitors to take. This could be a newsletter signup link, registration link, or even a buy now link. All this option is doing is enabling a snippet of extra css that targets the last menu item to give it alternate styling.">
 			<option value="1">Yes</option>
@@ -479,7 +490,6 @@
 			<option value="30">30em's</option>
 		</param>
 		<param name="topnav_delay" default="1000" type="list" label="Menu delay" tooltip="inline" description="How many seconds would you like the menu's animation to delay? IE, how long should the menu drop down stay after the user mouses off of it.">
-			<option value="0">0 Seconds</option>
 			<option value="1000">1 Second</option>
 			<option value="2000">2 Seconds</option>
 			<option value="3000">3 Seconds</option>
@@ -638,9 +648,9 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
-		<param name="plugin_url" default="jroute" type="list" label="Core or 3rd Party SEF Support" tooltip="inline" description="Choose wether to use JRoute or JURI based on wether you get issues with your SEF extension or not. Using JRoute will allow you to tweak how the links to packed css and js files by custom SEF rules, while JURI is sometimes a more compatible option.">
-			<option value="jroute">Joomla Core SEF</option>
-			<option value="juri">3rd Party Extension SEF</option>
+		<param name="plugin_url" default="jroute" type="list" label="CSS/JS render urls" tooltip="inline" description="Choose wether to use JRoute or JURI based on wether you get issues with your SEF extension or not. Using JRoute will allow you to tweak how the links to packed css and js files by custom SEF rules, while JURI is sometimes a more compatible option.">
+			<option value="jroute">JRoute - Core SEF url</option>
+			<option value="juri">JURI - Core non-SEF url</option>
 		</param>
 		<param name="developer_toolbar" default="0" type="itoggle" label="Show Developer Toolbar" tooltip="inline" description="Enabling this option will show a developer toolbar on your website with a list of tools that can be used to help debug your template.">
 			<option value="1">Yes</option>
@@ -797,11 +807,12 @@
 			<option value="1">Above Top Shelf</option>
 			<option value="2">Below Top Shelf</option>
 		</param>
-		<param name="toolbar_slider" default="1" type="itoggle" label="Enable slider" tooltip="modal" description="slider.html">
+		<param name="toolbar_slider" default="1" type="itoggle" label="Toolbar slider" tooltip="modal" description="slider.html">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
-		<param name="toolbar_slider_text" default="toggle" type="text" label="Slider text" tooltip="inline" description="Define the toggle button text. You can either display a single word like toggle, or set different text for each state, for example 'open,close'. Its important that there are no spaces between the two words and that you use a comma to seperate them." />	
+		<param name="toolbar_slider_text" default="toggle" type="text" label="Toolbar slider text" tooltip="inline" description="Define the toggle button text. You can either display a single word like toggle, or set different text for each state, for example 'open,close'. Its important that there are no spaces between the two words and that you use a comma to seperate them." />	
+		<param name="toolbar_blockfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Block style" description="blockfx-default.html" />
 		<param name="toolbar_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />
 		<param name="toolbar_show" default="0" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
 			<option value="1">Yes</option>
@@ -843,6 +854,7 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
+		<param name="masthead_blockfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Block style" description="blockfx-default.html" />
 		<param name="masthead_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
 		<param name="display_skipto" default="1" type="itoggle" label="Display skip to menu" tooltip="inline" description="Would you like to display a skip to content menu?">
 			<option value="1">Yes</option>
@@ -887,6 +899,7 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
+		<param name="subhead_blockfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Block style" description="blockfx-default.html" />
 		<param name="subhead_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
 		<param name="subhead_show" default="0" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
 			<option value="1">Yes</option>
@@ -927,6 +940,7 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
+		<param name="topnav_blockfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Block style" description="blockfx-default.html" />
 		<param name="topnav_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
 		<param name="topnav_position" default="2" type="list" label="Top menu position" tooltip="inline" description="Where would you like the top menu to be displayed.">
 			<option value="0">Above Master Head</option>
@@ -974,18 +988,18 @@
 			<option value="0">No</option>
 		</param>
 		<param name="topshelf_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />
-		<param name="topshelf_slider" default="0" type="itoggle" label="Enable slider" tooltip="modal" description="slider.html">
+		<param name="topshelf_slider" default="0" type="itoggle" label="Topshelf slider" tooltip="modal" description="slider.html">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
-		<param name="topshelf_slider_text" default="toggle" type="text" tooltip="inline" label="Slider text" description="toggletext.html" />
+		<param name="topshelf_slider_text" default="toggle" type="text" tooltip="inline" label="Topshelf Slider Text" description="toggletext.html" />
 		<param name="topshelf_show" default="0" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
 	</params>
 	
-	<params group="bottomshelfdata">	
+	<params group="bottomshelfdata">
 		<param name="bottomshelf_wrap" default="0" type="itoggle" label="Block wrapping" tooltip="modal" description="blockwrap.html">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
@@ -1018,12 +1032,13 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
+		<param name="bottomshelf_blockfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Block style" description="blockfx-default.html" />
 		<param name="bottomshelf_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
-		<param name="bottomshelf_slider" default="0" type="itoggle" label="Enable slider" tooltip="modal" description="slider.html">
+		<param name="bottomshelf_slider" default="0" type="itoggle" label="Topbar slider" tooltip="modal" description="slider.html">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
-		<param name="bottomshelf_slider_text" default="toggle" type="text" label="Slider text" tooltip="inline" description="toggletext.html" />
+		<param name="bottomshelf_slider_text" default="toggle" type="text" label="Bottomshelf slider text" tooltip="inline" description="toggletext.html" />
 		<param name="bottomshelf_show" default="0" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
@@ -1063,19 +1078,20 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
+		<param name="bottomshelf2_blockfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Block style" description="blockfx-default.html" />
 		<param name="bottomshelf2_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
-		<param name="bottomshelf2_slider" default="0" type="itoggle" label="Enable slider" tooltip="modal" description="slider.html">
+		<param name="bottomshelf2_slider" default="0" type="itoggle" label="Topbar slider" tooltip="modal" description="slider.html">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
-		<param name="bottomshelf2_slider_text" default="toggle" type="text" label="Slider text" tooltip="inline" description="toggletext.html" />
+		<param name="bottomshelf2_slider_text" default="toggle" type="text" label="Bottomshelf slider text" tooltip="inline" description="toggletext.html" />
 		<param name="bottomshelf2_show" default="1" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
 	</params>
 	
-	<params group="bottomshelf3data">	
+	<params group="bottomshelf3data">
 		<param name="bottomshelf3_wrap" default="0" type="itoggle" label="Block wrapping" tooltip="modal" description="blockwrap.html">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
@@ -1108,19 +1124,20 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
+		<param name="bottomshelf3_blockfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Block style" description="blockfx-default.html" />
 		<param name="bottomshelf3_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
-		<param name="bottomshelf3_slider" default="0" type="itoggle" label="Enable slider" tooltip="modal" description="slider.html">
+		<param name="bottomshelf3_slider" default="0" type="itoggle" label="Topbar slider" tooltip="modal" description="slider.html">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
-		<param name="bottomshelf3_slider_text" default="toggle" type="text" label="Slider text" tooltip="inline" description="toggletext.html" />
+		<param name="bottomshelf3_slider_text" default="toggle" type="text" label="Bottomshelf slider text" tooltip="inline" description="toggletext.html" />
 		<param name="bottomshelf3_show" default="1" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
 	</params>
 	
-	<params group="user1data">	
+	<params group="user1data">
 		<param name="user1_inner" default="0" type="itoggle" label="Block inner" tooltip="modal" description="blockinner.html">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
@@ -1149,6 +1166,7 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
+		<param name="user1_blockfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Block style" description="blockfx-default.html" />
 		<param name="user1_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
 		<param name="user1_show" default="0" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
 			<option value="1">Yes</option>
@@ -1185,6 +1203,7 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
+		<param name="user2_blockfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Block style" description="blockfx-default.html" />
 		<param name="user2_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
 		<param name="user2_show" default="0" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
 			<option value="1">Yes</option>
@@ -1193,6 +1212,10 @@
 	</params>
 	
 	<params group="inset1data">
+		<param name="inset1_inner" default="0" type="itoggle" label="Block inner" tooltip="modal" description="blockinner.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
 		<param name="inset1_chrome" default="basic" type="list" label="Inset1 chrome" tooltip="modal" description="chromefx.html">
 			<option value="none">None</option>
 			<option value="basic">Basic</option>
@@ -1217,10 +1240,15 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
+		<param name="inset1_blockfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Block style" description="blockfx-default.html" />
 		<param name="inset1_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
 	</params>
 	
-	<params group="inset2data">	
+	<params group="inset2data">
+		<param name="inset2_inner" default="0" type="itoggle" label="Block inner" tooltip="modal" description="blockinner.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
 		<param name="inset2_chrome" default="basic" type="list" label="Inset2 chrome" tooltip="modal" description="chromefx.html">
 			<option value="none">None</option>
 			<option value="basic">Basic</option>
@@ -1245,6 +1273,7 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
+		<param name="inset2_blockfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Block style" description="blockfx-default.html" />
 		<param name="inset2_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
 	</params>
 	
@@ -1273,6 +1302,7 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
+		<param name="inset3_blockfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Block style" description="blockfx-default.html" />
 		<param name="inset3_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
 	</params>
 	
@@ -1301,6 +1331,7 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
+		<param name="inset4_blockfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Block style" description="blockfx-default.html" />
 		<param name="inset4_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
 	</params>
 	
@@ -1332,6 +1363,7 @@
 			<option value="yui-t6">300px Right</option>
 			<option value="none">None</option>
 		</param>
+		<param name="outer_blockfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Block style" description="blockfx-default.html" />
 		<param name="secondary_inner" default="0" type="itoggle" label="Inner wrapping" tooltip="inline" description="Would you like the secondary content sidebar to have an inner wrap div? This is useful if you need to add padding to the contents of the sidebar.">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
@@ -1452,6 +1484,7 @@
 			<option value="yui-gh">200px Right</option>
 			<option value="none">None</option>
 		</param>
+		<param name="inner_blockfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Block style" description="blockfx-default.html" />
 		<param name="tertiary_inner" default="0" type="itoggle" label="Inner wrapping" tooltip="inline" description="Would you like the secondary content sidebar to have an inner wrap div? This is useful if you need to add padding to the contents of the sidebar.">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
@@ -1568,6 +1601,7 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
+		<param name="footer_blockfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Block style" description="blockfx-default.html" />
 		<param name="footer_type" default="0" type="list" label="Footer type" tooltip="modal" description="footer.html">
 			<option value="0">Copyright, credits and links</option>
 			<option value="1">Module position (footer)</option>
@@ -1596,6 +1630,7 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
+		<param name="footer_blockfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Block style" description="blockfx-default.html" />
 		<param name="footer_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
 		<param name="footer_copyright_show" default="1" type="itoggle" label="Display copyright" tooltip="inline" description="Would you like the footer copyright to be display?">
 			<option value="1">Yes</option>

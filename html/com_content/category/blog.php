@@ -1,4 +1,5 @@
-<?php defined( '_JEXEC' ) or die( 'Restricted access' );
+<?php // @version $Id: blog.php 10381 2008-06-01 03:35:53Z pasamio $
+defined('_JEXEC') or die('Restricted access');
 $cparams = JComponentHelper::getParams ('com_media');
 ?>
 

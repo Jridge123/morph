@@ -1,4 +1,5 @@
-<?php defined( '_JEXEC' ) or die( 'Restricted access' );
+<?php
+defined('_JEXEC') or die('Restricted access');
 include_once(dirname(__FILE__).'/../icon.php');
 $morph = Morph::getInstance();
 ?>

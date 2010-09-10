@@ -1,4 +1,4 @@
-<?php defined( '_JEXEC' ) or die( 'Restricted access' );
+<?php
 /**
  * Class Minify_CSS_Compressor 
  * @package Minify

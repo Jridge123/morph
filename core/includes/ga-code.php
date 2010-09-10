@@ -1,4 +1,3 @@
-<?php defined( '_JEXEC' ) or die( 'Restricted access' ); ?>
 <?php if ( $google_analytics !== "" ) { ?>
 <script type="text/javascript">
   var _gaq = _gaq || [];

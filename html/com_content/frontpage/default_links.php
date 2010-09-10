@@ -1,4 +1,5 @@
-<?php defined( '_JEXEC' ) or die( 'Restricted access' ); ?>
+<?php // no direct access
+defined('_JEXEC') or die('Restricted access'); ?>
 <h3><?php echo JText::_( 'More Articles...' ); ?></h3>
 <ul class="more-links">
 <?php foreach ($this->links as $link) : ?>

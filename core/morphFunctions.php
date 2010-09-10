@@ -1,7 +1,8 @@
-<?php defined( '_JEXEC' ) or die( 'Restricted access' );
+<?php
+defined('_JEXEC') or die('Restricted access');
 // initiate morph
 require_once JPATH_ROOT . '/templates/morph/core/morphLoader.php';
-$MORPH = Morph::getInstance();
+$MORPH = new Morph( getTemplateName( dirname(__FILE__).'/morphDetails.xml' ) );
 
 require_once('templates/morph/core/morphParams.php');
 require_once('templates/morph/core/browser.php');
@@ -10,13 +11,13 @@ if(isset($_COOKIE['nogzip'])){
 	$conf = JFactory::getConfig();
 	if($conf->getValue('config.gzip') !== '0'){
 		$path = JPATH_CONFIGURATION.'/configuration.php';
-		if(JFile::exists($path)) {
-			JPath::setPermissions($path, '0644');
-			$search  = JFile::read($path);
-			$replace = str_replace('var $gzip = \'1\';', 'var $gzip = \'0\';', $search);
-			JFile::write($path, $replace);
-			JPath::setPermissions($path, '0444');
-		}
+		JPath::setPermissions($path, '0777');
+		if(file_exists($path) && is_writable($path)){			
+			$str = file_get_contents($path);
+			$line = str_replace('var $gzip = \'1\';', 'var $gzip = \'0\';', $str);
+			file_put_contents($path, $line);
+		}		
+		JPath::setPermissions($path, '0644');
 	}
 	$gzip_compression = 0;
 }
@@ -32,20 +33,20 @@ if ( $gzip_compression == 1 ) {
 	$conf = JFactory::getConfig();
 	if($conf->getValue('config.gzip') !== '1'){
 		$path = JPATH_CONFIGURATION.'/configuration.php';
-		if(JFile::exists($path)) {
-			JPath::setPermissions($path, '0644');
-			$search  = JFile::read($path);
-			$replace = str_replace('var $gzip = \'0\';', 'var $gzip = \'1\';', $search);
-			JFile::write($path, $replace);
-			JPath::setPermissions($path, '0444');
-		}
+		JPath::setPermissions($path, '0777');
+		if(file_exists($path) && is_writable($path)){			
+			$str = file_get_contents($path);
+			$line = str_replace('var $gzip = \'0\';', 'var $gzip = \'1\';', $str);
+			file_put_contents($path, $line);
+		}		
+		JPath::setPermissions($path, '0644');
 	}
 }
 // set the various paths:
 // @TODO drop this later
-$templatepath = JURI::root(1) . '/templates/morph';
+$templatepath = JURI::root(1) . '/templates/'.$this->template;
 // new path
-$templatepath = '/templates/morph';
+$templatepath = '/templates/'.$this->template;
 
 // @TODO drop this later
 $themeletpath = JURI::root(1) . '/morph_assets/themelets/'.$themelet;
@@ -144,7 +145,6 @@ $foot_override				= $absolutepath.'/html/foot.php';
 $footer_script				= $absolutepath.'/script.php';
 
 $moo = JFactory::getConfig()->getValue('debug') ? '-uncompressed.js' : '.js';
-$mtu = JURI::base(true).'/plugins/system/mtupgrade/mootools'.$moo;
 $moo = JURI::base(true).'/media/system/js/mootools'.$moo;
 $option = JRequest::getCmd('option');
 $load_com_mootools = $load_mootools;
@@ -165,19 +165,12 @@ if($load_mootools == 0 && $load_com_mootools == 0)
     		if (isset($document->_scripts[$moo])) {
     		    unset($document->_scripts[$moo]);
     		}
-    		if (isset($document->_scripts[$mtu])) {
-    		    unset($document->_scripts[$mtu]);
-    		}
     	}
 	}
 }
 if (isset($document->_scripts[$moo])) {
     unset($document->_scripts[$moo]);
     $MORPH->addScript(str_replace(JURI::base(true), '', $moo));
-}
-if (isset($document->_scripts[$mtu])) {
-    unset($document->_scripts[$mtu]);
-    $MORPH->addScript(str_replace(JURI::base(true), '', $mtu));
 }
 
 if ( $remove_generator == 1 ) {
@@ -204,13 +197,13 @@ if(isset($_GET['gzip']) && $_GET['gzip'] == 'on'){
 	$conf = JFactory::getConfig();
 	if($conf->getValue('config.gzip') !== '1'){
 		$path = JPATH_CONFIGURATION.'/configuration.php';
-		if(JFile::exists($path)) {
-			JPath::setPermissions($path, '0644');
-			$search  = JFile::read($path);
-			$replace = str_replace('var $gzip = \'0\';', 'var $gzip = \'1\';', $search);
-			JFile::write($path, $replace);
-			JPath::setPermissions($path, '0444');
-		}
+		JPath::setPermissions($path, '0777');
+		if(file_exists($path) && is_writable($path)){			
+			$str = file_get_contents($path);
+			$line = str_replace('var $gzip = \'0\';', 'var $gzip = \'1\';', $str);
+			file_put_contents($path, $line);
+		}		
+		JPath::setPermissions($path, '0644');
 	}
 }
 
@@ -446,10 +439,10 @@ if(isset($document->_scripts[JURI::root().'components/com_k2/js/k2.js']))
 }
 
 if(file_exists($themeletfunctions) && is_readable($themeletfunctions)){
-	include_once($absolutepath.'/themelet.php');
+include_once($absolutepath.'/themelet.php');
 }
 if(file_exists($customfunctions) && is_readable($customfunctions)){
-	include_once($absolutepath.'/custom.php');
+include_once($absolutepath.'/custom.php');
 }
 
 // enable/disble firebug lite
@@ -709,14 +702,23 @@ function blocks($position, $glob, $jj_const, $classes, $site_width, $debug_modul
 	}
 	$position_class = str_replace(array(1,2,3,4,5,6,7,8,9,10), '', $position);
 	
-	if($glob->countModules($position) && ${$position.'_show'} == 0 ){
-		if ( ${$position.'_wrap'} == 1 ) { ?><div id="<?php echo $position; ?>-wrap"><?php } ?>
+	global $mainframe;
+	$morph = Morph::getInstance();
+	if ($morph->logo_show_inblock == $position.'_logo') {$logo_show = 1;}
+	if($glob->countModules($position) && ${$position.'_show'} == 0 || $logo_show == 1 ){
+		if ( ${$position.'_wrap'} == 1 ) { ?><div id="<?php echo $position; ?>-wrap" class="block wrap modcount<?php ${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }if(${$position.'_blockfx'} !== ''){ echo ' '.${$position.'_blockfx'}; }?>"><?php } ?>
 			<?php if ( ${$position.'_chrome'} == 'grid' ) { ?>
-			<div id="<?php echo $position; ?>" class="<?php echo $position_class; ?> <?php echo $site_width ?> <?php getYuiSuffix($position, $jj_const); ?> clearer modcount<?php echo ${$position . '_count'}.' '.${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }?>">
+			<div id="<?php echo $position; ?>" class="block <?php if ( $logo_show == 1 ) { echo 'logo-active '; } ?> <?php echo $position_class; ?> <?php echo $site_width ?> <?php getYuiSuffix($position, $jj_const); ?> clearer modcount<?php echo ${$position . '_count'}.' '.${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }if(${$position.'_blockfx'} !== ''){ echo ' '.${$position.'_blockfx'}; }?>">
 			<?php } else { ?>	
-			<div id="<?php echo $position; ?>" class="<?php echo $position_class; ?> <?php echo $site_width ?> clearer modcount<?php echo ${$position . '_count'}.' '.${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }?>">
+			<div id="<?php echo $position; ?>" class="block <?php if ( $logo_show == 1 ) { echo 'logo-active '; } ?> <?php echo $position_class; ?> <?php echo $site_width ?> clearer modcount<?php echo ${$position . '_count'}.' '.${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }if(${$position.'_blockfx'} !== ''){ echo ' '.${$position.'_blockfx'}; }?>">
 			<?php } ?>
-			<?php if ( ${$position.'_inner'} == 1 ) { ?><div id="<?php echo $position; ?>-inner" class="clearer"><?php } ?>
+			<?php if ( ${$position.'_inner'} == 1 ) { ?><div id="<?php echo $position; ?>-inner" class="inner clearer"><?php } ?>
+			<?php if ( $logo_show == 1 ) { ?>
+			<?php include 'includes/logo.php'; ?>
+			<?php } ?>
+			<?php if ($logo_show == 1 ) { ?>
+				<div class="branding-secondary">
+			<?php } ?>
 			<?php if(${$position . '_chrome'} === 'tabs' or ${$position . '_chrome'} === 'accordion' ){ ?>
 				<jdoc:include type="modules" name="<?php echo $position; ?>" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } elseif(isset($nojs) && $nojs == 1) { echo 'basic'; } else { echo ${$position.'_chrome'}; } ?>" />
 			<?php } else { ?>
@@ -724,33 +726,29 @@ function blocks($position, $glob, $jj_const, $classes, $site_width, $debug_modul
 			<?php } ?>
 			<?php if ( ${$position.'_inner'} == 1 ) { ?></div><?php } ?>
 			</div>
+			<?php if ($logo_show == 1 ) { ?></div><?php } ?>
 		<?php if ( ${$position.'_wrap'} == 1 ) { ?></div><?php }
 	}
 }
 
 function pt_body_classes($menu, $view, $themelet){
-
+	$morph = Morph::getInstance();
+	$browser = new MBrowser();
+	$platform = ' '.strtolower($browser->getPlatform());
+	$thebrowser = ' '.strtolower(preg_replace("/[^A-Za-z]/i", "", $browser->getBrowser()));
+	$ver = $browser->getVersion();
+	$ver = str_replace('.', '', $ver);
 	$params = new JParameter($menu->params);
 	$pageclass = $params->get('pageclass_sfx');
 	$user = JFactory::getUser();
 	$lang = JFactory::getLanguage();
-	$browser = new MBrowser();
-	$engine = strtolower(preg_replace("/[^A-Za-z]/i", "", $browser->getBrowser()));
-	$version = $engine.str_replace('.', '', $browser->getVersion());
+	$custom_body_sfx = $morph->custom_body_sfx;
 
-	$classes = array(
-		'js-disabled',
-		'morph',
-		$engine,
-		$version,
-		strtolower($browser->getPlatform()),
-		$params->get('pageclass_sfx'),
-		$view,
-		$lang->getTag(),
-		Morph::getTimeofday()
-	);
+	$classes = array('js-disabled', 'morph', $lang->getTag(), Morph::getTimeofday(), $custom_body_sfx);
+	if($menu->query['view'] !== '') $classes[] = $menu->query['view'];
 	if($menu->query['option'] !== '') $classes[] = $menu->query['option'];
 	if(isset($_COOKIE['morph_developer_toolbar'])) $classes[] = 'devbar';
+	if($pageclass !== '') $classes[] = $pageclass;
 	
 	//Classes based on user state and user type
 	if($user->guest) $classes[] = 'user-guest';
@@ -758,6 +756,8 @@ function pt_body_classes($menu, $view, $themelet){
 	
 	//Controller task
 	if($task = JRequest::getCmd('task', false)) $classes[] = 'task-' . $task;
+	
+	//$class .= 'js-disabled morph'.$thebrowser.$thebrowser.$ver.$platform.$pageclass.$view.$component.$devbar.'"';
 	
 	return 'class="' . implode(' ', array_filter($classes)) . '" ' . ( $themelet ? 'id="' . $themelet . '"' : null );
 }
