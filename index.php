@@ -47,7 +47,7 @@ if ($iphone_scale) { $content .= ", initial-scale=" . $iphone_scale; } ?>
 <body <?php echo pt_body_classes($menu, $view, $themelet); ?>>
 <?php
 if($developer_toolbar == 1){
-include_once('core/includes/devbar.php');
+	include_once('core/includes/devbar.php');
 }
 // check if google chrome frame is installed on the browser, if not show a info box
 if( $browser->getBrowser() == MBrowser::BROWSER_IE && $chrome_frame == 1 ) { 

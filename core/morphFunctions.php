@@ -43,9 +43,9 @@ if ( $gzip_compression == 1 ) {
 }
 // set the various paths:
 // @TODO drop this later
-$templatepath = JURI::root(1) . '/templates/'.$this->template;
+$templatepath = JURI::root(1) . '/templates/morph';
 // new path
-$templatepath = '/templates/'.$this->template;
+$templatepath = '/templates/morph';
 
 // @TODO drop this later
 $themeletpath = JURI::root(1) . '/morph_assets/themelets/'.$themelet;
