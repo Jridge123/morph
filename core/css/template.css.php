@@ -17,8 +17,7 @@ background-position:<?php echo $this->css->body_bg_position; ?>;
 background-attachment:<?php echo $this->css->body_bg_attachment; ?>;
 <?php } ?>
 }
-/* Start andys mods
-*******************************************************/
+
 <?php if ( $this->css->logowrap_height ) { ?>
 #branding {
 height:<?php echo $this->css->logowrap_height; ?>;
@@ -42,9 +41,6 @@ else if ($this->css->site_width == 'doc4') {
 }
 
 ?>
-
-/* End andy mods
-*******************************************************/
 
 <?php if ( $this->css->masthead_height ) { ?>
 #masthead{
@@ -134,3 +130,5 @@ body{color:<?php echo $this->css->color_bodytext; ?>;}
 .caption-top{border-bottom:<?php echo $this->css->captions_borderheight; ?> solid <?php echo $this->css->captions_bordercolor; ?>;}
 .caption-bottom{border-top:<?php echo $this->css->captions_borderheight; ?> solid <?php echo $this->css->captions_bordercolor; ?>;}
 <?php } ?>
+<?php /* use Morph::getInstance()->addStyleDeclaration() to output here */ ?>
+<?php echo $this->css->styleDeclarations ?>

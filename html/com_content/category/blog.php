@@ -1,4 +1,4 @@
-<?php defined('_JEXEC') or die('Restricted access');
+<?php defined( '_JEXEC' ) or die( 'Restricted access' );
 $cparams = JComponentHelper::getParams ('com_media');
 ?>
 

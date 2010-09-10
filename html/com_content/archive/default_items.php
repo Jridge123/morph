@@ -1,4 +1,4 @@
-<?php defined('_JEXEC') or die('Restricted access'); ?>
+<?php defined( '_JEXEC' ) or die( 'Restricted access' ); ?>
 <ul id="archive-list" style="list-style: none;">
 <?php foreach ($this->items as $item) : ?>
 	<li class="row<?php echo ($item->odd +1 ); ?>">

@@ -30,9 +30,11 @@ class Morph {
 
 	public $scripts = array();
 	public $scriptsAfter = array();
+	public $scriptDeclarations = '';
 	
 	public $styleSheets = array();
 	public $styleSheetsAfter = array();
+	public $styleDeclarations = '';
 	
 	public static $_timeofday;
 
@@ -121,9 +123,6 @@ class Morph {
 		jimport('joomla.filesystem.folder');
 		$cache = JPATH_CACHE.'/morph';
 		if(JRequest::getCmd('empty', false) == 'cache' && JFolder::exists($cache)) JFolder::delete($cache);
-		
-		//Where passing the menu item id, so that the cache works with menu item.
-		$_SESSION['menuid'] = JRequest::getInt('Itemid');
 
 		if($this->developer_toolbar || $this->debug)
 		{
@@ -155,10 +154,25 @@ class Morph {
 			
 			$app->setUserState('morph', $params);
 		}
-		
-		jimport('joomla.filesystem.file');
 
-		$path = JPATH_CACHE.'/morph/data.json';
+		//Generate name for the morph json formatted params that are passed to the css and js views
+		$uri	= clone JFactory::getURI();
+		$base	= JPATH_CACHE.'/morph-sessions/'.session_id().'/';
+		$parts	= array_filter(explode('/', $uri->getPath()));
+		//Sometimes index.php are added even if not present in main url. So remove it just in case
+		if(end($parts) == 'index.php') array_pop($parts);
+		$parts[]= $uri->getHost();
+		$pre	= implode('.', $parts);
+		$path	= $base.$pre;
+		$data	= array();
+		$query	= array_flip($uri->getQuery(1));
+		asort($query);
+		foreach($query as $value => $key)
+		{
+			$data[] = $key.'='.$value;
+		}
+		$path = $path.'?'.implode('&', $data);
+		
 		if(file_exists($path))
 		{
 			$created	= time()-date('U', filemtime($path));
@@ -172,7 +186,7 @@ class Morph {
 			$json = json_encode($this);
 			JFile::write($path, $json);
 		}
-		
+
 		if($this->developer_toolbar || $this->debug)
 		{
 			if(isset($_GET['morph'])){
@@ -189,10 +203,26 @@ class Morph {
 		if(!isset($param_name)) return null;
 		return $this->$param_name;
 	}
-	
+
 	public function addScript($url, $type = 'text/javascript')
 	{
 		$this->scripts[$url] = $type;
+	}
+	
+	/**
+	 * Adds a script declaration (inline javascript) to Morph
+	 *
+	 * This allows the js to be optionally packed, minified, gzipped and cached
+	 *
+	 * @param	string	$script		The script are injected very last in template.js.php.
+	 *								This means you'll have to do domready yourself, but gives you full freedom.
+	 * @return	object	$this
+	 */
+	public function addScriptDeclaration($script)
+	{
+		$this->scriptDeclarations .= $script;
+
+		return $this;
 	}
 	
 	public function addScriptAfter($url, $type = 'text/javascript')
@@ -205,6 +235,11 @@ class Morph {
 		$this->styleSheets[$url]['mime']	= $type;
 		$this->styleSheets[$url]['media']	= $media;
 		$this->styleSheets[$url]['attribs']	= $attribs;
+	}
+	
+	public function addStyleDeclaration($style)
+	{
+		$this->styleDeclarations .= $style;
 	}
 	
 	public function addStyleSheetAfter($url, $type = 'text/css', $media = null, $attribs = array())
@@ -309,6 +344,22 @@ class Morph {
 	}
 	
 	/**
+	 * Parse relative layout path
+	 *
+	 * @param  $layout	string		Should be the __FILE__ constant.
+	 * @return string				The new path
+	 */
+	protected static function parsePath($layout)
+	{
+		$parts		= explode(DIRECTORY_SEPARATOR, $layout);
+		foreach(array('file', 'layout', 'extension') as $name) $$name = array_pop($parts);
+		$override = '/html/' . $extension . '/' . $layout . '/' . $file;
+		if($extension == 'html') $override = '/html/' . $layout . '/' . $file;
+		$base 		= self::getThemeletPath();
+		return $base.$override;
+	}
+	
+	/**
 	 * Function for getting a themelet layout override
 	 *
 	 * Gives themelets the possibility to have html overrides on their own.
@@ -319,37 +370,35 @@ class Morph {
 	 */
 	public function override($layout, $view)
 	{
-		$parts		= explode(DS, $layout);
-		foreach(array('file', 'layout', 'extension') as $name) $$name = array_pop($parts);
-		$override = '/html/' . $extension . '/' . $layout . '/' . $file;
-		if($extension == 'html') $override = '/html/' . $layout . '/' . $file;
-		$base 		= self::getThemeletPath();
-		$layout		= $base.$override;
+		$tmpl		= self::parsePath($layout);
 
-		if(file_exists($layout))
+
+		//Prevent eternal recursing
+		static $paths;
+		if(!isset($paths)) $paths = array();
+		
+		if(isset($paths[$tmpl])) {
+			list(, $caller) = debug_backtrace(false);
+			$calling_file	= self::parsePath($caller['file']);
+			if($calling_file == $tmpl) return false;
+		} else {
+			$paths[$tmpl] = $tmpl;
+		}
+
+
+		if(file_exists($tmpl))
 		{
 			if(method_exists($view, 'addTemplatePath'))
 			{
-				$view->addTemplatePath(dirname($layout));
-				$tpl = str_replace('.php', null, $file);
-				$tpl = explode('_', $tpl);
+				$view->addTemplatePath(dirname($tmpl));
 
-				if(count($tpl) > 1)
-				{
-					array_shift($tpl);
-					$tpl = implode('_', $tpl);
-				}
-				else
-				{
-					$tpl = null;
-				}
-				echo $view->loadTemplate($tpl);
+				echo $view->loadTemplate();
 				
 				return true;
 			}
 			else
 			{
-				return $layout;
+				return $tmpl;
 			}
 		}
 		return false;
@@ -434,9 +483,17 @@ class Morph {
 	 */
 	public function getThemeletPath($themelet = false)
 	{
+		static $path;
+		static $themelet;
+
 		if(!$themelet) $themelet = self::getInstance()->themelet;
-		$path = JPATH_ROOT.'/morph_assets/themelets/' . $themelet;
-		return is_dir($path) ? $path : false;
+
+		if(!$path) {
+			$path = JPATH_ROOT.'/morph_assets/themelets/' . $themelet;
+			$path = is_dir($path) ? $path : false;
+		}
+
+		return $path;
 	}
 	
 	/**

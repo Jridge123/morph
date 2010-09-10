@@ -10,13 +10,13 @@ if(isset($_COOKIE['nogzip'])){
 	$conf = JFactory::getConfig();
 	if($conf->getValue('config.gzip') !== '0'){
 		$path = JPATH_CONFIGURATION.'/configuration.php';
-		JPath::setPermissions($path, '0777');
-		if(file_exists($path) && is_writable($path)){			
-			$str = file_get_contents($path);
-			$line = str_replace('var $gzip = \'1\';', 'var $gzip = \'0\';', $str);
-			file_put_contents($path, $line);
-		}		
-		JPath::setPermissions($path, '0644');
+		if(JFile::exists($path)) {
+			JPath::setPermissions($path, '0644');
+			$search  = JFile::read($path);
+			$replace = str_replace('var $gzip = \'1\';', 'var $gzip = \'0\';', $search);
+			JFile::write($path, $replace);
+			JPath::setPermissions($path, '0444');
+		}
 	}
 	$gzip_compression = 0;
 }
@@ -32,20 +32,20 @@ if ( $gzip_compression == 1 ) {
 	$conf = JFactory::getConfig();
 	if($conf->getValue('config.gzip') !== '1'){
 		$path = JPATH_CONFIGURATION.'/configuration.php';
-		JPath::setPermissions($path, '0777');
-		if(file_exists($path) && is_writable($path)){			
-			$str = file_get_contents($path);
-			$line = str_replace('var $gzip = \'0\';', 'var $gzip = \'1\';', $str);
-			file_put_contents($path, $line);
-		}		
-		JPath::setPermissions($path, '0644');
+		if(JFile::exists($path)) {
+			JPath::setPermissions($path, '0644');
+			$search  = JFile::read($path);
+			$replace = str_replace('var $gzip = \'0\';', 'var $gzip = \'1\';', $search);
+			JFile::write($path, $replace);
+			JPath::setPermissions($path, '0444');
+		}
 	}
 }
 // set the various paths:
 // @TODO drop this later
-$templatepath = JURI::root(1) . '/templates/'.$this->template;
+$templatepath = JURI::root(1) . '/templates/morph';
 // new path
-$templatepath = '/templates/'.$this->template;
+$templatepath = '/templates/morph';
 
 // @TODO drop this later
 $themeletpath = JURI::root(1) . '/morph_assets/themelets/'.$themelet;
@@ -144,6 +144,7 @@ $foot_override				= $absolutepath.'/html/foot.php';
 $footer_script				= $absolutepath.'/script.php';
 
 $moo = JFactory::getConfig()->getValue('debug') ? '-uncompressed.js' : '.js';
+$mtu = JURI::base(true).'/plugins/system/mtupgrade/mootools'.$moo;
 $moo = JURI::base(true).'/media/system/js/mootools'.$moo;
 $option = JRequest::getCmd('option');
 $load_com_mootools = $load_mootools;
@@ -164,12 +165,19 @@ if($load_mootools == 0 && $load_com_mootools == 0)
     		if (isset($document->_scripts[$moo])) {
     		    unset($document->_scripts[$moo]);
     		}
+    		if (isset($document->_scripts[$mtu])) {
+    		    unset($document->_scripts[$mtu]);
+    		}
     	}
 	}
 }
 if (isset($document->_scripts[$moo])) {
     unset($document->_scripts[$moo]);
     $MORPH->addScript(str_replace(JURI::base(true), '', $moo));
+}
+if (isset($document->_scripts[$mtu])) {
+    unset($document->_scripts[$mtu]);
+    $MORPH->addScript(str_replace(JURI::base(true), '', $mtu));
 }
 
 if ( $remove_generator == 1 ) {
@@ -196,13 +204,13 @@ if(isset($_GET['gzip']) && $_GET['gzip'] == 'on'){
 	$conf = JFactory::getConfig();
 	if($conf->getValue('config.gzip') !== '1'){
 		$path = JPATH_CONFIGURATION.'/configuration.php';
-		JPath::setPermissions($path, '0777');
-		if(file_exists($path) && is_writable($path)){			
-			$str = file_get_contents($path);
-			$line = str_replace('var $gzip = \'0\';', 'var $gzip = \'1\';', $str);
-			file_put_contents($path, $line);
-		}		
-		JPath::setPermissions($path, '0644');
+		if(JFile::exists($path)) {
+			JPath::setPermissions($path, '0644');
+			$search  = JFile::read($path);
+			$replace = str_replace('var $gzip = \'0\';', 'var $gzip = \'1\';', $search);
+			JFile::write($path, $replace);
+			JPath::setPermissions($path, '0444');
+		}
 	}
 }
 
@@ -438,10 +446,10 @@ if(isset($document->_scripts[JURI::root().'components/com_k2/js/k2.js']))
 }
 
 if(file_exists($themeletfunctions) && is_readable($themeletfunctions)){
-include_once($absolutepath.'/themelet.php');
+	include_once($absolutepath.'/themelet.php');
 }
 if(file_exists($customfunctions) && is_readable($customfunctions)){
-include_once($absolutepath.'/custom.php');
+	include_once($absolutepath.'/custom.php');
 }
 
 // enable/disble firebug lite
