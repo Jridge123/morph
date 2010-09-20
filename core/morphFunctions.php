@@ -543,11 +543,26 @@ if(  $isiPhone && !$iPhoneCookie  ){
 		if(file_exists($css_ie6) && preg_match('/MSIE 6/i', $_SERVER['HTTP_USER_AGENT'])) $MORPH->addStyleSheetAfter($themeletpath .'/css/ie6.css');
 		if(file_exists($css_ie7) && preg_match('/MSIE 7/i', $_SERVER['HTTP_USER_AGENT'])) $MORPH->addStyleSheetAfter($themeletpath .'/css/ie7.css');
 		if(file_exists($css_ie8) && preg_match('/MSIE 8/i', $_SERVER['HTTP_USER_AGENT'])) $MORPH->addStyleSheetAfter($themeletpath .'/css/ie8.css');		
-		if($isiPad){ if(file_exists($css_ipad)){ $MORPH->addStyleSheet($themeletpath .'/css/ipad.css'); }
-		if($isiPod){ if(file_exists($css_ipod)){ $MORPH->addStyleSheet($themeletpath .'/css/ipod.css'); }
-		if($isBlackberry){ if(file_exists($css_blackberry)){ $MORPH->addStyleSheet($themeletpath .'/css/blackberry.css'); }
-		if($isAndroid){ if(file_exists($css_android)){ $MORPH->addStyleSheet($themeletpath .'/css/android.css'); }
-			
+		if($isiPad){ 
+			if(file_exists($css_ipad)){ 
+				$MORPH->addStyleSheet($themeletpath .'/css/ipad.css');
+			}
+		}
+		if($isiPod){ 
+			if(file_exists($css_ipod)){
+				$MORPH->addStyleSheet($themeletpath .'/css/ipod.css');
+			}
+		}
+		if($isBlackberry){ 
+			if(file_exists($css_blackberry)){ 
+				$MORPH->addStyleSheet($themeletpath .'/css/blackberry.css'); 
+			}
+		}
+		if($isAndroid){
+			if(file_exists($css_android)){ 
+				$MORPH->addStyleSheet($themeletpath .'/css/android.css');
+			}
+		}
 		$MORPH->addStyleSheet($templatepath .'/core/css/print.css');
 		
 	//} else {
