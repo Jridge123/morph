@@ -24,7 +24,6 @@ if($override = Morph::override(__FILE__, $this)) {
 
 ?>
 
-
 function submitbutton(pressbutton) {
 	var form = document.adminForm;
 	if (pressbutton == 'cancel') {
