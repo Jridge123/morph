@@ -35,7 +35,8 @@ if ($iphone_scale) { $content .= ", initial-scale=" . $iphone_scale; } ?>
 <?php } if(isIE6() && $hide_ie6toolbar == 1 ){ ?><meta http-equiv="imagetoolbar" content="no" /><?php } ?>
 <?php if( $browser->getBrowser() == MBrowser::BROWSER_IE && $chrome_frame == 1 ) {
 	$document->setMetaData('X-UA-Compatible', 'chrome=1', true);
-} ?><?php include_once('core/includes/ga-code.php'); ?></head>
+} ?><?php include_once('core/includes/ga-code.php'); ?>
+</head>
 <?php if ($error_reporting == 0) { error_reporting(E_ALL ^ E_NOTICE); } 
 include_once('core/includes/skipto.php');
 ?>
