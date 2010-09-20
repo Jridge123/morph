@@ -133,6 +133,10 @@ $css_browsers				= $absolutepath.'/css/browsers.css';
 $css_yui					= $absolutepath.'/css/yui.css';
 $css_rtl					= $absolutepath.'/css/rtl.css';
 $css_iphone					= $absolutepath.'/css/iphone.css';
+$css_ipod					= $absolutepath.'/css/ipod.css';
+$css_ipad					= $absolutepath.'/css/ipad.css';
+$css_blackberry				= $absolutepath.'/css/blackberry.css';
+$css_android				= $absolutepath.'/css/android.css';
 $customcss					= $absolutepath.'/css/custom.css.php';
 $customjs					= $absolutepath.'/js/custom.js.php';
 $custom_css_file    		= $absolutepath.'/css/custom.css';
@@ -362,6 +366,10 @@ if($MORPH->debug || $MORPH->developer_toolbar)
 include 'morphArrays.php';
 
 $isiPhone		= $browser->getBrowser() == MBrowser::PLATFORM_IPHONE && $iphone_mode == 1;
+$isiPad			= $browser->getBrowser() == MBrowser::PLATFORM_IPAD;
+$isiPod			= $browser->getBrowser() == MBrowser::PLATFORM_IPOD;
+$isBlackberry	= $browser->getBrowser() == MBrowser::PLATFORM_BLACKBERRY;
+$isAndroid		= $browser->getBrowser() == MBrowser::PLATFORM_ANDROID;
 $iPhoneCookie	= isset($_COOKIE['iPhone']) ? $_COOKIE['iPhone'] == 'normal' : false;
 $isComWP		= (bool)JComponentHelper::isEnabled('com_wordpress', true);
 $isModUtilWP	= JModuleHelper::isEnabled('wordpress_utility');
@@ -534,7 +542,12 @@ if(  $isiPhone && !$iPhoneCookie  ){
 		// ie specific
 		if(file_exists($css_ie6) && preg_match('/MSIE 6/i', $_SERVER['HTTP_USER_AGENT'])) $MORPH->addStyleSheetAfter($themeletpath .'/css/ie6.css');
 		if(file_exists($css_ie7) && preg_match('/MSIE 7/i', $_SERVER['HTTP_USER_AGENT'])) $MORPH->addStyleSheetAfter($themeletpath .'/css/ie7.css');
-		if(file_exists($css_ie8) && preg_match('/MSIE 8/i', $_SERVER['HTTP_USER_AGENT'])) $MORPH->addStyleSheetAfter($themeletpath .'/css/ie8.css');
+		if(file_exists($css_ie8) && preg_match('/MSIE 8/i', $_SERVER['HTTP_USER_AGENT'])) $MORPH->addStyleSheetAfter($themeletpath .'/css/ie8.css');		
+		if($isiPad){ if(file_exists($css_ipad)){ $MORPH->addStyleSheet($themeletpath .'/css/ipad.css'); }
+		if($isiPod){ if(file_exists($css_ipod)){ $MORPH->addStyleSheet($themeletpath .'/css/ipod.css'); }
+		if($isBlackberry){ if(file_exists($css_blackberry)){ $MORPH->addStyleSheet($themeletpath .'/css/blackberry.css'); }
+		if($isAndroid){ if(file_exists($css_android)){ $MORPH->addStyleSheet($themeletpath .'/css/android.css'); }
+			
 		$MORPH->addStyleSheet($templatepath .'/core/css/print.css');
 		
 	//} else {
