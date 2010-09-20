@@ -24,7 +24,7 @@ $morph = Morph::getInstance();
     <ul class="article-info">		
         <?php if ($this->item->params->get('show_create_date')) { ?>
         <li class="created">
-            <?php echo JHTML::_('date', $this->item->created, JText::_('%d %b %y')); ?>
+            <?php echo JHTML::_('date', $this->item->created, JText::_('<span class="date-wrap"><span class="day-week">%A</span>, <span class="day-month">%d</span> <span class="month">%B</span> <span class="year">%Y</span></span>')); ?>
         </li>
         <?php } ?>
         <?php if (($this->item->params->get('show_author')) && ($this->item->author != "")) : ?>
