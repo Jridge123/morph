@@ -154,11 +154,12 @@ jQuery.noConflict();
 		$('#primary-content img.img-left.caption').parent('span').css({'margin-right' : '20px', 'float' : 'left'});
 		$('#primary-content img.img-right.caption').parent('span').css({'margin-left' : '20px', 'float' : 'right'});		
     	<?php } if ( $this->js->lazyload_enabled == 1 ) { ?>
+    	if (!navigator.userAgent.toLowerCase().match('ipad')) {   	
 		$("#primary-content img").lazyload(<?php echo json_encode(array(
 			'placeholder' => 'img/grey.gif',
 			'effect' => 'fadeIn'
 		)) ?>);
-		
+		}
 		
     	<?php } if ( $this->js->lightbox_enabled == 1 ) { ?>
         
