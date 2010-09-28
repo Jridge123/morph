@@ -5,7 +5,8 @@
 .yui-t3 .yui-b{width:22.5em;}
 .yui-t3 #yui-main .yui-b{margin-left:23em;}
 .doc,.doc2,.doc3,.doc4,.yui-t1,.yui-t2,.yui-t3,.yui-t4,.yui-t5,.yui-t6,.yui-t7{width:56.25em;}
-.doc2{width:71.25em;}
+.internetexplorer60 .doc2{width:71.25em;}
+.internetexplorer70 .doc2{width:73.5em;}
 .doc4{width:73.05em;}
 .yui-t8,.yui-t9{width:56.25em;}
 .yui-t8 .yui-b{width:15.0003em;}

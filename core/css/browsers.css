@@ -1,10 +1,6 @@
 /* @group Cross Browser fixes - MUST MOVE TO BROWSER.CSS */
 
 	/* @group IE7 grid supporting styles */
-	
-/* user1 */
-.internetexplorer70 #user1.grid.modcount3 .mod-grid.yui-u{width:32.38%;}
-.internetexplorer70 #user2.grid.modcount3 .mod-grid.yui-u{width:32.38%;}
 
 /* grid adjustments for 3 modules */
 .internetexplorer70 .grid.modcount3 .yui-u {width:32.45%;}
