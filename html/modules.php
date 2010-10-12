@@ -78,10 +78,8 @@ function moduleHeadings($modtitle){
 
 function modChrome_basic($module, &$params, &$attribs) {
 $pub_modules = JModuleHelper::getModules($module->position);
-
-$db = JFactory::getDBO();
-$query = "SELECT param_value FROM `#__configurator` WHERE `param_name` = '".$module->position."_module_inner';";
-$db->setQuery( $query ); $innerwrap = $db->loadResult();
+$morph = Morph::getInstance();
+$innerwrap = $morph->{$attribs['name'].'_module_inner'};
 
 if ($pub_modules[0]->id == $module->id) {
 	$posSuffix = ' '.$params->get('moduleclass_sfx') . ' first';
@@ -101,10 +99,8 @@ if ($pub_modules[0]->id == $module->id) {
 
 function modChrome_grid($module, &$params, &$attribs) {
 $pub_modules = JModuleHelper::getModules($module->position);
-
-$db = JFactory::getDBO();
-$query = "SELECT param_value FROM `#__configurator` WHERE `param_name` = '".$module->position."_module_inner';";
-$db->setQuery( $query ); $innerwrap = $db->loadResult();
+$morph = Morph::getInstance();
+$innerwrap = $morph->{$attribs['name'].'_module_inner'};
 
 if ($pub_modules[0]->id == $module->id) {
 	$posSuffix = ' '.$params->get('moduleclass_sfx') . ' first';
@@ -123,20 +119,21 @@ if ($pub_modules[0]->id == $module->id) {
 <?php }
 
 function modChrome_split($module, &$params, &$attribs) {
-$pub_modules = JModuleHelper::getModules($module->position);
-$menu = JSite::getMenu();
-$active_item = $menu->getActive();
-$parent_id = $active_item->tree[0];
-$parent_item = $menu->getItem($parent_id);
-$submenu_heading = $parent_item->name;
-$heading = explode(' # ',$submenu_heading);
-if ($pub_modules[0]->id == $module->id) {
-	$posSuffix = ' '.$params->get('moduleclass_sfx') . ' first';
-} elseif ($pub_modules[count($pub_modules)-1]->id == $module->id) {
-	$posSuffix = ' '.$params->get('moduleclass_sfx') . ' last';
-} else {
-	$posSuffix = ' '.$params->get('moduleclass_sfx');
-} ?>
+	$pub_modules = JModuleHelper::getModules($module->position);
+	$menu = JSite::getMenu();
+	$active_item = $menu->getActive();
+	$parent_id = $active_item->tree[0];
+	$parent_item = $menu->getItem($parent_id);
+	$submenu_heading = $parent_item->name;
+	$heading = explode(' # ',$submenu_heading);
+	if ($pub_modules[0]->id == $module->id) {
+		$posSuffix = ' '.$params->get('moduleclass_sfx') . ' first';
+	} elseif ($pub_modules[count($pub_modules)-1]->id == $module->id) {
+		$posSuffix = ' '.$params->get('moduleclass_sfx') . ' last';
+	} else {
+		$posSuffix = ' '.$params->get('moduleclass_sfx');
+	} 
+?>
 <div class="mod mod-basic splitmenu<?php echo ' ' . $posSuffix; ?>" id="mod<?php echo $module->id; ?>">
     <h3 class="modhead"><span class="icon"></span><?php echo $heading[0]; ?></h3>
 	<div class="modinner">
@@ -150,14 +147,8 @@ global $morph_tabs,$tabscount,$loadtabs,$istabsload;
 
 	$themodules = JModuleHelper::getModules($module->position);
 	$countmodules = count($themodules);
-	$db=& JFactory::getDBO();
-	$query = "SELECT COUNT(*) FROM `#__configurator` WHERE `param_value` = 'tabs' ";
-	$db->setQuery( $query );
-	$thetabscount = $db->loadResult();
-	
-	$query = "SELECT param_value FROM `#__configurator` WHERE `param_name` = '".$attribs['name']."_modfx';";
-	$db->setQuery( $query );
-	$tabs_modfx = $db->loadResult();
+	$morph = Morph::getInstance();
+	$tabs_modfx = $morph->{$attribs['name'].'_modfx'};
 		
 	if(!isset($morph_tabs[$attribs['name']])){	
 		foreach ($themodules as $mod){
@@ -178,9 +169,7 @@ global $morph_tabs,$tabscount,$loadtabs,$istabsload;
 				$morph_tabs[$attribs['name']][] = $currmod;
 			}
 		}
-	//}
-	
-	//if ($countmodules == count($morph_tabs[ $attribs['name'] ] ) ){
+
 		$tabscount++; ?>
 		<div id="tabs<?php echo $tabscount; ?>" class="mod<?php if($tabs_modfx){ echo ' ' . $tabs_modfx; } ?>">
 			<ul class="ui-tabs-nav">
@@ -208,14 +197,8 @@ function modChrome_accordion($module, &$params, &$attribs) {
 
 	$themodules = JModuleHelper::getModules($module->position);
 	$countmodules = count($themodules);
-	$db=& JFactory::getDBO();
-	$query = "SELECT COUNT(*) FROM `#__configurator` WHERE `param_value` = 'accordion' ";
-	$db->setQuery( $query );
-	$theaccordioncount = $db->loadResult();
-	
-	$query = "SELECT param_value FROM `#__configurator` WHERE `param_name` = '".$attribs['name']."_modfx';";
-	$db->setQuery( $query );
-	$accordion_modfx = $db->loadResult();
+	$morph = Morph::getInstance();
+	$accordion_modfx = $morph->{$attribs['name'].'_modfx'};
 
 	if(!isset($morph_accordions[$attribs['name']])){
 		foreach ($themodules as $i => $mod){
@@ -235,9 +218,7 @@ function modChrome_accordion($module, &$params, &$attribs) {
 				$morph_accordions[$attribs['name']][$mod->id] = $currmod;
 			}
 		}
-//	}
 
-//	if ($countmodules == count($morph_accordions[ $attribs['name'] ] ))){ 
 	$accordionscount++; ?>
 		<div id="accordions<?php echo $accordionscount; ?>" class="mod<?php if($accordion_modfx){ echo ' ' . $accordion_modfx; } ?>">
 			<?php
@@ -254,7 +235,6 @@ function modChrome_accordion($module, &$params, &$attribs) {
 				}
 				echo '<div id="accordion'.$curr_accordion.'-'.$modul->position.'">'.$modul->content.'</div>';	
 			}
-			//echo $accordions_contents; 
 			?>
 		</div>
 <?php }
