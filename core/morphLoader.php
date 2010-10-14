@@ -499,9 +499,7 @@ class Morph {
 	/**
 	 * Get the time of day
 	 *
-	 *
-	 *
-	 * @return	string	da
+	 * @return	string
 	 */
 	public function getTimeofday()
 	{
@@ -526,5 +524,28 @@ class Morph {
 		}
 		
 		return self::$_timeofday;
+	}
+	
+	/**
+	 * Formats date acording to configuration
+	 *
+	 * @param	$date	datetime
+	 * @return	string
+	 */
+	public function date($date)
+	{
+		$pattern = array(
+			'[weekday1]'	=> '<span class="weekday">%a</span>',
+			'[weekday2]'	=> '<span class="weekday">%A</span>',
+			'[dayofmonth1]' => '<span class="dayofmonth">%d</span>',
+			'[dayofmonth2]'	=> '<span class="dayofmonth">%E</span>',
+			'[month1]'		=> '<span class="month">%b</span>',
+			'[month2]'		=> '<span class="month">%B</span>',
+			'[month3]'		=> '<span class="month">%m</span>',
+			'[year1]'		=> '<span class="year">%g</span>',
+			'[year2]'		=> '<span class="year">%G</span>'
+		);
+	
+		return JHTML::_('date', $date, str_ireplace(array_keys($pattern), array_values($pattern), $this->dateformat));
 	}
 }
