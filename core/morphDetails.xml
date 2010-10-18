@@ -583,7 +583,7 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
-		<param name="dateformat" default="#weekday[1], #dayofmonth[1] #month[1] #year[1]" type="textarea" cols="32" rows="1" tooltip="modal" label="Date format" description="date-format.html" />
+		<param name="dateformat" default="[weekday2], [dayofmonth1] [month2] [year2]" type="textarea" cols="32" rows="1" tooltip="modal" label="Date format" description="date-format.html" />
 	</params>
 	
 	<params group="blogenhancementsdata">
