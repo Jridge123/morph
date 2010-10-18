@@ -23,9 +23,7 @@ $morph = Morph::getInstance();
     <?php if ($this->item->params->get('show_author') && ($this->item->author != "") ||	$this->item->params->get('show_create_date') ||	$this->item->params->get('show_section') ||	$this->item->params->get('show_category') || $this->item->params->get('show_pdf_icon') || $this->item->params->get('show_print_icon') || $this->item->params->get('show_email_icon') || ($canEdit)) { ?>
     <ul class="article-info">		
         <?php if ($this->item->params->get('show_create_date')) { ?>
-        <li class="created">
-            <?php echo $morph->date($this->item->created); ?>
-        </li>
+            <li class="created"><?php echo $morph->date($this->item->created); ?></li>
         <?php } ?>
         <?php if (($this->item->params->get('show_author')) && ($this->item->author != "")) : ?>
     	<li class="author">
