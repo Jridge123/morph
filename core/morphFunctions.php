@@ -810,9 +810,8 @@ function pt_classes($classes, $sitewidth=''){
 	if(is_array($classes)){
 		foreach($classes as $classname => $p){
 			switch($classname){
-				
 				case 'subtext':
-				if($p >= 1){ $c .= 'subtext'; }else{ $c .= 'no-subtext'; }
+				$p >= 2 ? $c .= 'subtext' : $c .= 'no-subtext';
 				break;
 				case 'topnav_actionlink':
 				if($p >= 1){ $c .= ' call-for-action'; }
