@@ -602,6 +602,10 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
+		<param name="data_uris" default="1" type="itoggle" label="dataURIs" tooltip="inline" description="Encoding css images to dataURI dramatically improve pageload performance in a number of ways. It reduces the image size. And it reduces the amount of HTTP Requests done to the page. In order to further optimize this we've got a separate cache in Morph that makes sure that the image encoding process is only run once per image. If you make changes to an image, just clear your Joomla cache to refresh the image.">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
 		<param name="pack_js" default="1" type="itoggle" label="Enable js packing" tooltip="inline" description="JS Packing (otherwise refered to as JS Concatination) refers to the combining of multiple files into a single file. This boosts your sites performance as fewer http requests are needed.">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
