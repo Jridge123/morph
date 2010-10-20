@@ -303,6 +303,10 @@ body{text-align:center;}
 
 #branding{height:100%;float:left;width:auto;}
 
+.block.logo-active { position: relative;}
+
+.branding-secondary { float: right; }
+
 #branding a:hover{text-decoration:none;}
 
 #bottomshelf{overflow: hidden; }

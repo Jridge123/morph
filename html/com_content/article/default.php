@@ -44,7 +44,7 @@ if($override = Morph::override(__FILE__, $this)) {
     elseif ($this->params->get('show_author') || $this->params->get('show_create_date') || $this->params->get('show_pdf_icon') || $this->params->get('show_print_icon') || $this->params->get('show_email_icon') || ($morph->fontsizer_enabled) || ($morph->shareit_enabled) || ($canEdit)) : ?>
     <ul class="article-info">		
         <?php if ($this->params->get('show_create_date')) { ?>
-        <li class="created"><?php echo JHTML::_('date', $this->article->created, JText::_('<span class="date-wrap"><span class="day-week">%A</span>, <span class="day-month">%d</span> <span class="month">%B</span> <span class="year">%Y</span></span>')); ?></li>
+   		<li class="created"><?php echo $morph->date($this->article->created); ?></li>
         <?php } ?>
         <?php if (($this->params->get('show_author')) && ($this->article->author != "")) { ?>
     	<li class="author"><?php JText::printf('Written by', ($this->article->created_by_alias ? $this->escape($this->article->created_by_alias) : $this->escape($this->article->author))); ?></li>

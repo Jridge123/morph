@@ -606,6 +606,7 @@ $jj_const = array(
 		"toolbar"		=>$document->params->get('toolbar_gridsplit'),
 		"top"			=>$document->params->get('top_gridsplit'),
 		"topnav"		=>$document->params->get('topnav_gridsplit'),
+		"subhead" 		=>$document->params->get('subhead_gridsplit'),
 	  	"topshelf"      =>$document->params->get('topshelf_gridsplit'), 
 		"user1"			=>$document->params->get('user1_gridsplit'),
 		"inset1"		=>$document->params->get('inset1_gridsplit'),
@@ -809,9 +810,8 @@ function pt_classes($classes, $sitewidth=''){
 	if(is_array($classes)){
 		foreach($classes as $classname => $p){
 			switch($classname){
-				
 				case 'subtext':
-				if($p >= 1){ $c .= 'subtext'; }else{ $c .= 'no-subtext'; }
+				$p >= 2 ? $c .= 'subtext' : $c .= 'no-subtext';
 				break;
 				case 'topnav_actionlink':
 				if($p >= 1){ $c .= ' call-for-action'; }
