@@ -270,8 +270,8 @@ class Morph {
 			$gzip	= $this->gzip_compression ? '&gzip='.$this->gzip_compression : false;
 			$duris	= $this->data_uris ? '&data_uris='.$this->data_uris : false;
 
-			$renderjs = JRoute::_($cache.$gzip.$duris.'&render=js');
-			$rendercss = JRoute::_($cache.$gzip.'&render=css');
+			$renderjs = JRoute::_($cache.$gzip.'&render=js');
+			$rendercss = JRoute::_($cache.$gzip.$duris.'&render=css');
 		}
 
 		$document = JFactory::getDocument();
