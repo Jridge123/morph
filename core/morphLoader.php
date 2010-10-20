@@ -256,6 +256,7 @@ class Morph {
 			$uri	= clone JFactory::getURI();
 			$cache	= $this->cache ? $uri->setVar('cache', $this->cachetime) : false;
 			$gzip	= $this->gzip_compression ? $uri->setVar('gzip', $this->gzip_compression) : false;
+			$duris	= $this->data_uris ? $uri->setVar('data_uris', $this->data_uris) : false;
 			
 			$uri->setVar('render', 'js');
 			$renderjs = JFilterOutput::ampReplace($uri->toString());
@@ -267,8 +268,9 @@ class Morph {
 		{
 			$cache	= $this->cache ? '&cache='.$this->cachetime : false;
 			$gzip	= $this->gzip_compression ? '&gzip='.$this->gzip_compression : false;
+			$duris	= $this->data_uris ? '&data_uris='.$this->data_uris : false;
 
-			$renderjs = JRoute::_($cache.$gzip.'&render=js');
+			$renderjs = JRoute::_($cache.$gzip.$duris.'&render=js');
 			$rendercss = JRoute::_($cache.$gzip.'&render=css');
 		}
 
