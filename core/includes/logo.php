@@ -16,7 +16,7 @@
 		<?php if ( $morph->logo_type == 2 ) { ?>
 		<!-- inline image logo -->
 		<a class="logo-img" href="<?php echo JURI::root() ?>" title="<?php if ($morph->logo_linktitle != ""){ echo $morph->logo_linktitle; } else { echo $mainframe->getCfg('sitename'); } ?>">
-		<img src="<?php echo $logo; ?>" width="<?php echo $morph->logo_size[0]; ?>" height="<?php echo $morph->logo_size[1]; ?>" alt="<?php if ( $morph->logo_alttext != ""){ echo $morph->logo_alttext; } else { echo $mainframe->getCfg('sitename'); } ?>" border="0" /></a>
+		<img src="<?php echo $morph->logo; ?>" width="<?php echo $morph->logo_size[0]; ?>" height="<?php echo $morph->logo_size[1]; ?>" alt="<?php if ( $morph->logo_alttext != ""){ echo $morph->logo_alttext; } else { echo $mainframe->getCfg('sitename'); } ?>" border="0" /></a>
 	<?php } ?>
 
 		<?php if ( $morph->logo_type == 3 ) { ?>

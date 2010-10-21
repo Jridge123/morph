@@ -83,6 +83,32 @@ class Morph {
 		foreach( $params as $param ) {
 			$this->{$param->param_name} = $param->param_value;
 		}
+		
+		//Logo stuff
+		//@TODO this code is copied from morphVars.php and needs a cleanup
+		if ( $this->logo_type == 1 or $this->logo_type == 2 ) {
+			if(preg_match('/MSIE 6/i', @$_SERVER['HTTP_USER_AGENT']) && $this->logo_image_ie !== ''){ 
+				$this->logo = JURI::root() . 'morph_assets/logos/'.$this->logo_image_ie; 
+				if($this->logo_autodimensions == 1) {
+					$this->logo_size = getimagesize(JPATH_SITE.'/morph_assets/logos/'.$this->logo_image_ie);
+				}else{
+					$this->logo_size[0] = $this->logo_width;
+					$this->logo_size[1] = $this->logo_height;
+				}	
+			} else{ 
+				$this->logo = JURI::root() . 'morph_assets/logos/'.$this->logo_image; 
+				if($this->logo_autodimensions == 1) {
+					$this->logo_size = getimagesize(JPATH_SITE.'/morph_assets/logos/'.$this->logo_image);
+				}else{
+					$this->logo_size[0] = $this->logo_width;
+					$this->logo_size[1] = $this->logo_height;
+				}
+			}
+		} else {
+			$this->logo_size[0] = 'null';
+			$this->logo_size[1] = 'null';
+			$this->logo = 'null';
+		}
 
 		if($this->developer_toolbar || $this->debug)
 		{
