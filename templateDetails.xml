@@ -60,6 +60,8 @@
 		<language tag="sv-SE">sv-SE.tpl_morph.ini</language>
 	</languages>
 	<positions>		
+		<position>advert1</position>
+		<position>advert2</position>
 		<position>banner</position>
 		<position>breadcrumb</position>
 		<position>toolbar</position>		
