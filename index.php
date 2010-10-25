@@ -59,9 +59,9 @@ if( $isiPhone && !$iPhoneCookie ){
 	include_once('core/includes/iphone.php');
 	include_once('core/includes/iphone_footer.php');
 } else{
-	if(isIE6() && $ie6_upgrade == 1){ include_once('core/includes/ie6upgrade.php');}
-	if($this->countModules('advert1')){'<div id="advert1"><jdoc:include type="modules" name="advert1" style="none" /></div>';}
-	if($toolbar_position == 0){include_once('core/includes/toolbar.php');}
+	if(isIE6() && $ie6_upgrade == 1){ include_once('core/includes/ie6upgrade.php'); } ?>
+	<?php if($this->countModules('advert1')) : ?><jdoc:include type="modules" name="advert1" style="none" /><?php endif; ?>
+	<?php if($toolbar_position == 0){include_once('core/includes/toolbar.php');}
 	if($topnav_position == 0){include_once('core/includes/topnav.php');}
 	include_once('core/includes/masthead.php');
 	if($toolbar_position == 1){include_once('core/includes/toolbar.php');}
@@ -81,17 +81,19 @@ if( $isiPhone && !$iPhoneCookie ){
 	} else {
 		 include_once('core/includes/foot.php');
 	}
-	if($this->countModules('advert2')) {'<div id="advert2"><jdoc:include type="modules" name="advert2" style="none" /></div>';}
 	if($isiPhone) include_once('core/includes/iphone_footer.php');
 ?>
 <jdoc:include type="modules" name="debug" />
-<?php if ( $plugin_scrollto == 1 && $browser->getBrowser() !== MBrowser::PLATFORM_IPHONE ) { ?><a href="#top" id="top-link"><?php echo JText::_('Back to top'); ?></a><?php } ?>
+<?php if($this->countModules('advert2')) : ?><jdoc:include type="modules" name="advert2" style="none" /><?php endif; ?>
+<?php if ( $plugin_scrollto == 1 && $browser->getBrowser() !== MBrowser::PLATFORM_IPHONE ) { ?>
+	<a href="#top" id="top-link"><?php echo JText::_('Back to top'); ?></a>
+<?php } ?>
 
 <?php } 
 if(file_exists($footer_script) && is_readable($footer_script)){
 	 include_once('morph_assets/themelets/'.$themelet.'/script.php');
 } 
-if($preloader_enabled == 1){include_once('core/includes/preloader.php');}	
+if($preloader_enabled == 1){include_once('core/includes/preloader.php');}
 ?>
 </body>
 </html>
