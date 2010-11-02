@@ -267,7 +267,7 @@ jQuery.noConflict();
 	    ?>
 		<?php echo implode($equalizers) ?>
 		<?php if ( $this->js->topfish >= 1  ) { ?>
-		$("#top.primary-nav .menu, #topnav.primary-nav .menu")<?php if ($this->js->topnav_supersubs == 1 ) { ?>.supersubs({
+		$("#topnav .menu, #masthead .menu")<?php if ($this->js->topnav_supersubs == 1 ) { ?>.supersubs({
 			minWidth: <?php echo $this->js->topnav_minwidth; ?>,
 		 	maxWidth: <?php echo $this->js->topnav_maxwidth; ?>,
 		 	extraWidth: 1
@@ -282,7 +282,7 @@ jQuery.noConflict();
  			disableHI: <?php echo json_encode(!$this->js->topnav_hoverintent) ?>
 		});
 		<?php } if ( $this->js->topdrop >= 1 ) { ?>
-		$("#topnav .menu, #top .menu").superfish({pathClass:'active'});
+		$("#topnav .menu, #masthead .menu").superfish({pathClass:'active'});
 		<?php } if ( $this->js->sidefish >= 1 ) { ?> 
 	    $(".mod.sidefish ul.menu").superfish({ 
 	    	animation: {height:'show'},   // slide-down effect without fade-in 
