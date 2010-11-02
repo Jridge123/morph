@@ -839,7 +839,6 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
-		<param name="masthead_height" default="" type="text" label="Masthead height" tooltip="inline" description="Set the height of your Master header block." />	
 		<param name="masthead_chrome" default="none" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
 			<option value="none">None</option>
 			<option value="basic">Basic</option>
