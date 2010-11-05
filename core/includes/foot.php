@@ -37,5 +37,5 @@
         	</div>
         <?php } ?>
     <?php if ( $footer_wrap == 1 ) { ?></div><?php } ?>
-<?php } ?>
-<?php if($global_wrap_end == 2){ ?></div><?php } ?>
+<?php }
+if($global_wrap == 1 && $global_wrap_end == 4){ ?></div><?php } ?>
