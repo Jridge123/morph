@@ -7,7 +7,7 @@
 	<copyright>Commercial</copyright>
 	<authorEmail>noreply@joomlajunkie.com</authorEmail>
 	<authorUrl>htp://www.joomlajunkie.com</authorUrl>
-	<version>1.17</version>
+	<version>1.18</version>
 	<description>
 		<![CDATA[
 		<style type="text/css" media="screen">
@@ -38,7 +38,7 @@
 		}
 		</style>
 			<div id="templateWrap">
-			<p>Looking for Morph's settings? <a href="index2.php?option=com_configurator&task=manage">Click here</a> to get started with Configurator!</p>
+			<p>Looking for Morph's settings? <a href="index.php?option=com_configurator">Click here</a> to get started with Configurator!</p>
 			</div>
 		]]>
     </description>	
@@ -68,8 +68,10 @@
 		<position>branding</position>
 		<position>subhead</position>
 		<position>masthead</position>
-		<position>topshelf</position>
-		<position>bottomshelf</position>		
+		<position>topshelf1</position>
+		<position>topshelf2</position>
+		<position>topshelf3</position>
+		<position>bottomshelf1</position>		
 		<position>bottomshelf2</position>		
 		<position>bottomshelf3</position>		
 		<position>inset1</position>

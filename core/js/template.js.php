@@ -254,7 +254,7 @@ jQuery.noConflict();
 		fontSize("#fontsizer", "#article", 9, 12, 20);
 		<?php } ?>
 	    <?php 
-	    	$js_equalizers = array('toolbar', 'masthead', 'subhead', 'topnav', 'topshelf', 'bottomshelf', 'bottomshelf2', 'bottomshelf3', 'user1', 'user2', 'inset1', 'inset2', 'inset3', 'inset4', 'outer1-grid', 'outer2-grid', 'outer3-grid', 'outer4-grid', 'outer5-grid', 'inner1-grid', 'inner2-grid', 'inner3-grid', 'inner4-grid', 'inner5-grid', 'footer-grid');
+	    	$js_equalizers = array('toolbar', 'masthead', 'subhead', 'topnav', 'topshelf1', 'topshelf2', 'topshelf3', 'bottomshelf1', 'bottomshelf2', 'bottomshelf3', 'user1', 'user2', 'inset1', 'inset2', 'inset3', 'inset4', 'outer1-grid', 'outer2-grid', 'outer3-grid', 'outer4-grid', 'outer5-grid', 'inner1-grid', 'inner2-grid', 'inner3-grid', 'inner4-grid', 'inner5-grid', 'footer-grid');
 	    	$equalizers = array();
 	    	foreach($js_equalizers as $equalize)
 	    	{
@@ -295,11 +295,15 @@ jQuery.noConflict();
 	    
 		<?php } if ( $this->js->toolbar_slider == 1 ) { ?>
    		initSlider('#toolbar', '<?php echo $this->js->toolbar_slider_text; ?>'); 
-		<?php } if ( $this->js->topshelf_slider == 1 ) { ?>
-   		initSlider('#topshelf', '<?php echo $this->js->topshelf_slider_text; ?>');
-		<?php } if ( $this->js->bottomshelf_slider == 1 ) { ?>
-	    initSlider('#bottomshelf', '<?php echo $this->js->bottomshelf_slider_text; ?>');	
-		<?php } if ( $this->js->bottomshelf2_slider == 1 ) { ?>
+		<?php } if ( $this->js->topshelf1_slider == 1 ) { ?>
+   		initSlider('#topshelf1', '<?php echo $this->js->topshelf1_slider_text; ?>');
+   		<?php } if ( $this->js->topshelf2_slider == 1 ) { ?>
+   		initSlider('#topshelf2', '<?php echo $this->js->topshelf2_slider_text; ?>');
+   		<?php } if ( $this->js->topshelf3_slider == 1 ) { ?>
+   		initSlider('#topshelf3', '<?php echo $this->js->topshelf2_slider_text; ?>');
+		<?php } if ( $this->js->bottomshelf1_slider == 1 ) { ?>
+	    initSlider('#bottomshelf1', '<?php echo $this->js->bottomshelf1_slider_text; ?>');	
+		<?php } if ( $this->js->bottomshelf1_slider == 1 ) { ?>
 		initSlider('#bottomshelf2', '<?php echo $this->js->bottomshelf2_slider_text; ?>');	
 		<?php } if ( $this->js->bottomshelf3_slider == 1 ) { ?>
 		initSlider('#bottomshelf3', '<?php echo $this->js->bottomshelf3_slider_text; ?>');	
