@@ -958,10 +958,13 @@
 		<param name="topnav_blockfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Block style" description="blockfx-default.html" />
 		<param name="topnav_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
 		<param name="topnav_position" default="2" type="list" label="Top menu position" tooltip="inline" description="Where would you like the top menu to be displayed.">
-			<option value="0">Above Master Head</option>
-			<option value="1">Above Sub Head</option>
-			<option value="2">Above Top Shelf</option>
-			<option value="3">Below Top Shelf</option>
+			<option value="0">Above Toolbar</option>
+			<option value="1">Above Masthead</option>
+			<option value="2">Above Subhead</option>
+			<option value="3">Above Topshelf1</option>
+			<option value="4">Above Topshelf2</option>
+			<option value="5">Above Topshelf3</option>
+			<option value="6">Above Main</option>
 		</param>
 		<param name="topnav_show" default="0" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
 			<option value="1">Yes</option>
