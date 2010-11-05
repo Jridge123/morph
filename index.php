@@ -56,32 +56,31 @@ if( $browser->getBrowser() == MBrowser::BROWSER_IE && $chrome_frame == 1 ) {
 $isiPhone = $browser->getBrowser() == MBrowser::PLATFORM_IPHONE && $iphone_mode == 1;
 $iPhoneCookie = isset($_COOKIE['iPhone']) ? $_COOKIE['iPhone'] == 'normal' : false;
 if( $isiPhone && !$iPhoneCookie ){
-	include_once('core/includes/iphone.php');
-	include_once('core/includes/iphone_footer.php');
+	if ( file_exists($inc_iphone)) { include_once($inc_iphone); } else { include_once('core/includes/iphone.php'); }
+	if ( file_exists($inc_iphonefooter)) { include_once($inc_iphonefooter); } else { include_once('core/includes/iphone_footer.php'); }
 } else{
 	if(isIE6() && $ie6_upgrade == 1){ include_once('core/includes/ie6upgrade.php'); } ?>
 	<?php if($this->countModules('advert1')) : ?><jdoc:include type="modules" name="advert1" style="none" /><?php endif; ?>
-	<?php if($toolbar_position == 0){include_once('core/includes/toolbar.php');}
-	if($topnav_position == 0){include_once('core/includes/topnav.php');}
-	include_once('core/includes/masthead.php');
-	if($toolbar_position == 1){include_once('core/includes/toolbar.php');}
-	if($topnav_position == 1){include_once('core/includes/topnav.php');}
-	include_once('core/includes/subhead.php');
-	if($toolbar_position == 2){include_once('core/includes/toolbar.php');}	
-	if($topnav_position == 2){include_once('core/includes/topnav.php');}
-	include_once('core/includes/topshelf.php');
-	if($toolbar_position == 3){include_once('core/includes/toolbar.php');}	
-	if($topnav_position == 3){include_once('core/includes/topnav.php');}
-	include_once('core/includes/main.php');
-	include_once('core/includes/bottomshelf.php');
-	include_once('core/includes/bottomshelf2.php');
-	include_once('core/includes/bottomshelf3.php');
-	if(file_exists($foot_override) && is_readable($foot_override)){
-		 include_once('morph_assets/themelets/'.$themelet.'/html/foot.php');
-	} else {
-		 include_once('core/includes/foot.php');
-	}
-	if($isiPhone) include_once('core/includes/iphone_footer.php');
+<?php 
+	if(($toolbar_position == 0) && file_exists($inc_toolbar)) { include_once($inc_toolbar); } else { include_once('core/includes/toolbar.php'); }
+	if(($topnav_position == 0) && file_exists($inc_topnav)) { include_once($inc_topnav); } else { include_once('core/includes/topnav.php'); }
+	if ( file_exists($inc_masthead)) { include_once($inc_masthead); } else { include_once('core/includes/masthead.php'); }
+	if(($toolbar_position == 1) && file_exists($inc_toolbar)) { include_once($inc_toolbar); } else { include_once('core/includes/toolbar.php'); }
+	if(($topnav_position == 1) && file_exists($inc_topnav)) { include_once($inc_topnav); } else { include_once('core/includes/topnav.php'); }
+	if ( file_exists($inc_subhead)) { include_once($inc_subhead); } else { include_once('core/includes/subhead.php'); }
+	if(($toolbar_position == 2) && file_exists($inc_toolbar)) { include_once($inc_toolbar); } else { include_once('core/includes/toolbar.php'); }
+	if(($topnav_position == 2) && file_exists($inc_topnav)) { include_once($inc_topnav); } else { include_once('core/includes/topnav.php'); }
+	if ( file_exists($inc_topshelf1)) { include_once($inc_topshelf1); } else { include_once('core/includes/topshelf1.php'); }
+	if ( file_exists($inc_topshelf2)) { include_once($inc_topshelf2); } else { include_once('core/includes/topshelf2.php'); }
+	if ( file_exists($inc_topshelf3)) { include_once($inc_topshelf3); } else { include_once('core/includes/topshelf3.php'); }
+	if(($toolbar_position == 3) && file_exists($inc_toolbar)) { include_once($inc_toolbar); } else { include_once('core/includes/toolbar.php'); }
+	if(($topnav_position == 3) && file_exists($inc_topnav)) { include_once($inc_topnav); } else { include_once('core/includes/topnav.php'); }
+	if ( file_exists($inc_main)) { include_once($inc_main); } else { include_once('core/includes/main.php'); }
+	if ( file_exists($inc_bottomshelf1)) { include_once($inc_bottomshelf1); } else { include_once('core/includes/bottomshelf1.php'); }
+	if ( file_exists($inc_bottomshelf2)) { include_once($inc_bottomshelf2); } else { include_once('core/includes/bottomshelf2.php'); }
+	if ( file_exists($inc_bottomshelf3)) { include_once($inc_bottomshelf3); } else { include_once('core/includes/bottomshelf3.php'); }
+	if ( file_exists($inc_footer)) { include_once($inc_footer); } else { include_once('core/includes/foot.php'); }
+	if(($isiPhone) && file_exists($inc_iphonefooter)) { include_once($inc_iphonefooter); } else { include_once('core/includes/iphone_footer.php'); }
 ?>
 <jdoc:include type="modules" name="debug" />
 <?php if($this->countModules('advert2')) : ?><jdoc:include type="modules" name="advert2" style="none" /><?php endif; ?>
