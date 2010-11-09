@@ -87,10 +87,10 @@ class Morph {
 		//Logo stuff
 		//@TODO this code is copied from morphVars.php and needs a cleanup
 		if ( $this->logo_type == 1 or $this->logo_type == 2 ) {
-			if(preg_match('/MSIE 6/i', @$_SERVER['HTTP_USER_AGENT']) && $this->logo_image_ie !== ''){ 
-				$this->logo = JURI::root() . 'morph_assets/logos/'.$this->logo_image_ie; 
+			if(preg_match('/MSIE 6/i', @$_SERVER['HTTP_USER_AGENT']) && ($this->logo_ielogo_image) !== ''){ 
+				$this->logo = JURI::root() . 'morph_assets/logos/'.$this->logo_ielogo_image; 
 				if($this->logo_autodimensions == 1) {
-					$this->logo_size = getimagesize(JPATH_SITE.'/morph_assets/logos/'.$this->logo_image_ie);
+					$this->logo_size = getimagesize(JPATH_SITE.'/morph_assets/logos/'.$this->logo_ielogo_image);
 				}else{
 					$this->logo_size[0] = $this->logo_width;
 					$this->logo_size[1] = $this->logo_height;
