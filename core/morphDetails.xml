@@ -254,7 +254,7 @@
 		    <option value="4.9em">4.9em</option>		    	    
 		    <option value="5em">5em</option>
 		</param>
-		<param name="slogan_fontfamily" default="'Trebuchet MS', Helvetica, sans-serif" type="list" label="Tagline font family" tooltip="inline" description="Choose which font family you would like to use.">
+		<param name="slogan_fontfamily" default="'Trebuchet MS', Helvetica, sans-serif" type="list" label="Font family" tooltip="inline" description="Choose which font family you would like to use.">
 		    <option value=""> </option>
 		    <option value="Arial, Helvetica, sans-serif">Arial</option>
 		    <option value="'Arial Black', Gadget, sans-serif">Arial Black</option>
@@ -275,9 +275,9 @@
 		    <option value="'Lucida Console', Monaco, monospace">Lucida Console</option>
 		    <option value="'Comic Sans MS', cursive">Comic Sans MS</option>
 		</param>
-		<param name="slogan_top" default="60px" type="text" label="Tagline top position" tooltip="inline" description="Set your slogan's x-coordinate (ie, the number of pixels it should be positioned from the top. You can set the amount as either pixels, em's or a percentage. For example 10px, 10em or 10%. Please note that no spaces should be used." />
-		<param name="slogan_left" default="0px" type="text" label="Tagline left position" tooltip="inline" description="Set your slogan's y-coordinate (ie, the number of pixels it should be positioned from the left. You can set the amount as either pixels, em's or a percentage. For example 10px, 10em or 10%. Please note that no spaces should be used." />
-		<param name="slogan_stack" default="1" type="text" label="Tagline stacking order" tooltip="inline" description="Set the stacking order (z-index) of your sites tagline." />	
+		<param name="slogan_top" default="60px" type="text" label="Top position" tooltip="inline" description="Set your slogan's x-coordinate (ie, the number of pixels it should be positioned from the top. You can set the amount as either pixels, em's or a percentage. For example 10px, 10em or 10%. Please note that no spaces should be used." />
+		<param name="slogan_left" default="0px" type="text" label="Left position" tooltip="inline" description="Set your slogan's y-coordinate (ie, the number of pixels it should be positioned from the left. You can set the amount as either pixels, em's or a percentage. For example 10px, 10em or 10%. Please note that no spaces should be used." />
+		<param name="slogan_stack" default="1" type="text" label="Stacking order" tooltip="inline" description="Set the stacking order (z-index) of your sites tagline." />	
 	</params>
 	
 	<params group="htmlbackgroundsdata">
