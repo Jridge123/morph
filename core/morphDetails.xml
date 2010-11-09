@@ -83,23 +83,10 @@
 	</params>
 	
 	<params group="logodata">
-		<param name="logo_show_inblock" default="masthead_logo" type="list" label="Which block to show logo in?" tooltip="inline" description="In which of Morphs blocks listed here would you like to display your logo in">
-			<option value="toolbar_logo">Toolbar</option>
-			<option value="masthead_logo">Main Header</option>
-			<option value="subhead_logo">Sub Header</option>
-			<option value="topnav_logo">Top Navigation</option>
-			<option value="topshelf1_logo">Top Shelf 1</option>
-			<option value="topshelf2_logo">Top Shelf 2</option>
-			<option value="topshelf3_logo">Top Shelf 3</option>
-			<option value="user1_logo">User1</option>
-			<option value="inset1_logo">Inset1</option>
-			<option value="inset2_logo">Inset2</option>
-		</param>
-		<param name="logowrap_height" default="" type="text" label="Logo containers height" tooltip="inline" description="Set the height of the logos wrapping container." />
 		<param name="logo_type" default="0" type="list" label="Logo type" tooltip="inline" description="How would you like your logo to be outputed? A full tutorial explaining each of the options listed here will be added soon.">
-			<option value="0">Linked h1 text</option>
-			<option value="1">Linked h1 image replacement</option>
-			<option value="2">Linked inline image</option>
+			<option value="0">Text based</option>
+			<option value="1">CSS Image Replacement</option>
+			<option value="2">Inline Image</option>
 			<option value="3">Module position (branding)</option>
 		</param>
 		<param name="logo_image" default="" type="imagelist" tooltip="inline" label="Logo image" directory="morph_assets/logos" hide_none="false" hide_default="false" description="If you haven't already, upload your logo using the Installer tool on the right, then once you have done that, select the logo from the list."  />
