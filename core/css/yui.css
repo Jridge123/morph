@@ -305,7 +305,7 @@ body{text-align:center;}
 
 .block.logo-active { position: relative;}
 
-.branding-secondary { float: right; }
+#branding-secondary { float: right; }
 
 #branding a:hover{text-decoration:none;}
 
@@ -313,7 +313,7 @@ body{text-align:center;}
 #bottomshelf2{overflow: hidden; }
 #bottomshelf3{overflow: hidden; }
 
-#top{float:right;}
+#branding-secondary{float:right;}
 
 .slider-toolbar{width:100%;}
 #toolbar-wrap .slider-toolbar a {display:block;position:absolute;right:0;z-index:999;cursor: pointer; }
