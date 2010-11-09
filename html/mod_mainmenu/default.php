@@ -83,11 +83,12 @@ function modNewMainMenuXMLCallback(&$node, $args)
 			}
 		}
 	}
-
-	if (isset($path) && $node->attributes('id') == $path[0]) {
-		$node->addAttribute('id', 'current');
+	if (isset($path) && ($id = $node->attributes('id'))) {
+		$node->addAttribute('id', 'item'.$id);
+		//$node->addAttribute('id', 'current');
 	} else {
-		$node->removeAttribute('id');
+		$node->addAttribute('id', 'item'.$id);
+		//$node->removeAttribute('id');
 	}
 	$node->removeAttribute('level');
 	$node->removeAttribute('access');
