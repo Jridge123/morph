@@ -51,8 +51,6 @@ $templatepath = '/templates/morph';
 $themeletpath = JURI::root(1) . '/morph_assets/themelets/'.$themelet;
 // new path
 $themeletpath = '/morph_assets/themelets/'.$themelet;
-
-
 $assetspath = JURI::root() . 'morph_assets';
 $assetsroot = JPATH_SITE.'/morph_assets';
 $imagespath = JURI::root() . 'morph_assets/themelets/'.$themelet.'/images/';
@@ -152,7 +150,7 @@ $foot_override				= $absolutepath.'/html/foot.php';
 $footer_script				= $absolutepath.'/script.php';
 
 // Overriding includes via the themelet:
-$inc_bottomshelf1			= $absolutepath.'/includes/bottomshelf.php';
+$inc_bottomshelf1			= $absolutepath.'/includes/bottomshelf1.php';
 $inc_bottomshelf2			= $absolutepath.'/includes/bottomshelf2.php';
 $inc_bottomshelf3			= $absolutepath.'/includes/bottomshelf3.php';
 $inc_footer					= $absolutepath.'/includes/foot.php';
