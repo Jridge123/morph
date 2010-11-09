@@ -96,16 +96,35 @@
 		</param>
 		<param name="logo_width" default="0" type="text" label="Logo width" tooltip="inline" description="Set your logo width" />
 		<param name="logo_height" default="0" type="text" label="Logo height" tooltip="inline" description="Set your logo height" />
-		<param name="display_ie_logo" default="0" type="itoggle" label="Display ie6 logo" tooltip="inline" description="Would you like to alternate logo displayed to Internet Explorer 6? This option is useful when you want to use a transparent png image for all standards compliant browsers and a less smooth transparent logo for ie6, which doesnt handle image transparency.">
+		<param name="logo_ielogo" default="0" type="itoggle" label="Display ie6 logo" tooltip="inline" description="Would you like to alternate logo displayed to Internet Explorer 6? This option is useful when you want to use a transparent png image for all standards compliant browsers and a less smooth transparent logo for ie6, which doesnt handle image transparency.">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
-		<param name="logo_image_ie" default="" type="imagelist" tooltip="inline" label="Logo image for IE6" directory="morph_assets/logos" hide_none="false" hide_default="false" description="We have added the option to have an alternate logo to display in IE6. This is useful if you are using a transparent png for your logo and would like to have a gif displayed for people browsing your site in Internet Explorer 6." />
-		<param name="logo_text" default="" type="text" label="Logo text" tooltip="inline" description="Set your logo text" />
-		<param name="logo_alttext" default="" type="text" label="Logo image alt text" tooltip="inline" description="Set your logo image alt text" />
-		<param name="logo_linktitle" default="" type="text" label="Logo link title text" tooltip="inline" description="Set your logo link title text" />
-		<param name="logo_textcolor" default="#666161" type="colorpicker" label="Logo text color" tooltip="inline" description="Set your logo text foreground color." />
-		<param name="logo_fontsize" default="4em" type="list" label="Logo font size" tooltip="inline" description="Adjust the font size of your custom logo text.">
+		<param name="logo_ielogo_image" default="" type="imagelist" tooltip="inline" label="IE6 logo image" directory="morph_assets/logos" hide_none="false" hide_default="false" description="We have added the option to have an alternate logo to display in IE6. This is useful if you are using a transparent png for your logo and would like to have a gif displayed for people browsing your site in Internet Explorer 6." />
+		<!-- Text Based -->
+		<param name="logo0_text" default="" type="text" label="Logo text" tooltip="inline" description="Set your logo text" />
+		<param name="logo0_fontfamily" default="'Palatino Linotype', 'Book Antiqua', Palatino, serif" type="list" label="Logo font" tooltip="inline" description="Choose which font family you would like to use.">
+		    <option value=""> </option>
+		    <option value="Arial, Helvetica, sans-serif">Arial</option>
+		    <option value="'Arial Black', Gadget, sans-serif">Arial Black</option>
+		    <option value="Impact, Charcoal, sans-serif">Impact</option>
+		    <option value="'MS Sans Serif', Geneva, sans-serif">MS Sans Serif</option>
+		    <option value="'MS Serif', 'New York', sans-serif">MS Serif</option>
+		    <option value="'Trebuchet MS', Helvetica, sans-serif">Trebuchet MS</option>
+		    <option value="Verdana, Geneva, sans-serif">Verdana</option>
+		    <option value="'Lucida Sans Unicode', 'Lucida Grande', sans-serif">Lucida Sans Unicode</option>
+		    <option value="Tahoma, Geneva, sans-serif">Tahoma</option>
+			<option value="'Bookman Old Style', serif">Bookman Old Style</option>
+			<option value="Garamond, serif">Garamond</option>
+			<option value="Georgia, serif">Georgia</option>
+			<option value="'Palatino Linotype', 'Book Antiqua', Palatino, serif">Palatino Linotype</option>
+			<option value="'Times New Roman', Times, serif">Times New Roman</option>
+		    <option value="Courier, monospace">Courier</option>
+		    <option value="'Courier New', Courier, monospace">Courier New</option>
+		    <option value="'Lucida Console', Monaco, monospace">Lucida Console</option>
+		    <option value="'Comic Sans MS', cursive">Comic Sans MS</option>
+		</param>
+		<param name="logo0_textsize" default="4em" type="list" label="Text size" tooltip="inline" description="Adjust the font size of your custom logo text.">
 		    <option value="1em">1em</option>
 		    <option value="1.1em">1.1em</option>
 		    <option value="1.2em">1.2em</option>
@@ -148,41 +167,51 @@
 		    <option value="4.9em">4.9em</option>		    	    
 		    <option value="5em">5em</option>
 		</param>    	
-		<param name="logo_fontfamily" default="'Palatino Linotype', 'Book Antiqua', Palatino, serif" type="list" label="Logo font family" tooltip="inline" description="Choose which font family you would like to use.">
-		    <option value=""> </option>
-		    <option value="Arial, Helvetica, sans-serif">Arial</option>
-		    <option value="'Arial Black', Gadget, sans-serif">Arial Black</option>
-		    <option value="Impact, Charcoal, sans-serif">Impact</option>
-		    <option value="'MS Sans Serif', Geneva, sans-serif">MS Sans Serif</option>
-		    <option value="'MS Serif', 'New York', sans-serif">MS Serif</option>
-		    <option value="'Trebuchet MS', Helvetica, sans-serif">Trebuchet MS</option>
-		    <option value="Verdana, Geneva, sans-serif">Verdana</option>
-		    <option value="'Lucida Sans Unicode', 'Lucida Grande', sans-serif">Lucida Sans Unicode</option>
-		    <option value="Tahoma, Geneva, sans-serif">Tahoma</option>
-			<option value="'Bookman Old Style', serif">Bookman Old Style</option>
-			<option value="Garamond, serif">Garamond</option>
-			<option value="Georgia, serif">Georgia</option>
-			<option value="'Palatino Linotype', 'Book Antiqua', Palatino, serif">Palatino Linotype</option>
-			<option value="'Times New Roman', Times, serif">Times New Roman</option>
-		    <option value="Courier, monospace">Courier</option>
-		    <option value="'Courier New', Courier, monospace">Courier New</option>
-		    <option value="'Lucida Console', Monaco, monospace">Lucida Console</option>
-		    <option value="'Comic Sans MS', cursive">Comic Sans MS</option>
+		<param name="logo0_textcolor" default="#666161" type="colorpicker" label="Text color" tooltip="inline" description="Set your logo text foreground color." />
+		<param name="logo0_linktitle" default="" type="text" label="Link title text" tooltip="inline" description="Set your logo link title text" />
+		<param name="logo0_top" default="10px" type="text" label="Top position" tooltip="inline" description="Set your logos x-coordinate (ie, the number of pixels it should be positioned from the top.  You can set the amount as either pixels, em's or a percentage. For example 10px, 10em or 10%. Please note that no spaces should be used." />
+		<param name="logo0_left" default="20px" type="text" label="Left position" tooltip="inline" description="Set your logos y-coordinate (ie, the number of pixels it should be positioned from the left.  You can set the amount as either pixels, em's or a percentage. For example 10px, 10em or 10%. Please note that no spaces should be used." />
+		<param name="logo0_stack" default="2" type="text" label="Stacking order" tooltip="inline" description="Set the stacking order (z-index) of your sites logo." />
+
+		
+		<!-- CSS Image Replacement -->
+		<param name="logo1_text" default="" type="text" label="Logo text" tooltip="inline" description="Set your logo text" />
+		<param name="logo1_linktitle" default="" type="text" label="Link title text" tooltip="inline" description="Set your logo link title text" />
+		<param name="logo1_top" default="10px" type="text" label="Top position" tooltip="inline" description="Set your logos x-coordinate (ie, the number of pixels it should be positioned from the top.  You can set the amount as either pixels, em's or a percentage. For example 10px, 10em or 10%. Please note that no spaces should be used." />
+		<param name="logo1_left" default="20px" type="text" label="Left position" tooltip="inline" description="Set your logos y-coordinate (ie, the number of pixels it should be positioned from the left.  You can set the amount as either pixels, em's or a percentage. For example 10px, 10em or 10%. Please note that no spaces should be used." />
+		<param name="logo1_stack" default="2" type="text" label="Stacking order" tooltip="inline" description="Set the stacking order (z-index) of your sites logo." />	
+		
+		<!-- Inline Image -->
+
+		<param name="logo2_alttext" default="" type="text" label="Logo text" tooltip="inline" description="Set your logo text" />
+		<param name="logo2_linktitle" default="" type="text" label="Link title text" tooltip="inline" description="Set your logo link title text" />
+		<param name="logo2_top" default="10px" type="text" label="Top position" tooltip="inline" description="Set your logos x-coordinate (ie, the number of pixels it should be positioned from the top.  You can set the amount as either pixels, em's or a percentage. For example 10px, 10em or 10%. Please note that no spaces should be used." />
+		<param name="logo2_left" default="20px" type="text" label="Left position" tooltip="inline" description="Set your logos y-coordinate (ie, the number of pixels it should be positioned from the left.  You can set the amount as either pixels, em's or a percentage. For example 10px, 10em or 10%. Please note that no spaces should be used." />
+		<param name="logo2_stack" default="2" type="text" label="Stacking order" tooltip="inline" description="Set the stacking order (z-index) of your sites logo." />	
+		
+		<param name="logo_block" default="masthead_logo" type="list" label="Which block to show logo in?" tooltip="inline" description="In which of Morphs blocks listed here would you like to display your logo in">
+			<option value="toolbar_logo">Toolbar</option>
+			<option value="masthead_logo">Masthead</option>
+			<option value="subhead_logo">Subheader</option>
+			<option value="topnav_logo">Topnav</option>
+			<option value="topshelf1_logo">Top Shelf 1</option>
+			<option value="topshelf2_logo">Top Shelf 2</option>
+			<option value="topshelf3_logo">Top Shelf 3</option>
+			<option value="user1_logo">User1</option>
+			<option value="inset1_logo">Inset1</option>
+			<option value="inset2_logo">Inset2</option>
 		</param>
-		<param name="logo_top" default="10px" type="text" label="Logo top position" tooltip="inline" description="Set your logos x-coordinate (ie, the number of pixels it should be positioned from the top.  You can set the amount as either pixels, em's or a percentage. For example 10px, 10em or 10%. Please note that no spaces should be used." />
-		<param name="logo_left" default="20px" type="text" label="Logo left position" tooltip="inline" description="Set your logos y-coordinate (ie, the number of pixels it should be positioned from the left.  You can set the amount as either pixels, em's or a percentage. For example 10px, 10em or 10%. Please note that no spaces should be used." />
-		<param name="logo_stack" default="2" type="text" label="Logo stacking order" tooltip="inline" description="Set the stacking order (z-index) of your sites logo." />	
-	
+		<param name="logowrap_height" default="" type="text" label="Logo containers height" tooltip="inline" description="Set the height of the logos wrapping container." />	
 	</params>
-	
+
 	<params group="taglinedata">	
 		<param name="display_slogan" default="1" type="itoggle" label="Display tagline" tooltip="inline" description="Would you like to display a slogan.">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
 		<param name="slogan_text" default="Go live faster." type="textarea" rows="1" cols="32" tooltip="inline" label="Tagline text" description="Set the text to use for your sites slogan. This box will automatically expand as needed." />
-		<param name="slogan_textcolor" default="#aba9a9" type="colorpicker" label="Tagline text color" tooltip="inline" description="Set your slogans text foreground color." />
-		<param name="slogan_fontsize" default="1.4em" type="list" label="Tagline font size" tooltip="inline" description="Adjust the font size of your custom slogan text.">
+		<param name="slogan_textcolor" default="#aba9a9" type="colorpicker" label="Text color" tooltip="inline" description="Set your slogans text foreground color." />
+		<param name="slogan_fontsize" default="1.4em" type="list" label="Text size" tooltip="inline" description="Adjust the font size of your custom slogan text.">
 		    <option value="1em">1em</option>
 		    <option value="1.1em">1.1em</option>
 		    <option value="1.2em">1.2em</option>
