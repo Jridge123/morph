@@ -767,7 +767,7 @@ function blocks($position, $glob, $jj_const, $classes, $site_width, $debug_modul
 	
 	global $mainframe;
 	$morph = Morph::getInstance();
-	if ($morph->logo_show_inblock == $position.'_logo') {$logo_show = 1;}
+	if ($morph->logo_block == $position.'_logo') {$logo_show = 1;}
 	if($glob->countModules($position) && ${$position.'_show'} == 0 || $logo_show == 1 ){
 		if ( ${$position.'_wrap'} == 1 ) { ?><div id="<?php echo $position; ?>-wrap" class="block wrap modcount<?php ${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }if(${$position.'_blockfx'} !== ''){ echo ' '.${$position.'_blockfx'}; }?>"><?php } ?>
 			<?php if ( ${$position.'_chrome'} == 'grid' ) { ?>
@@ -780,7 +780,7 @@ function blocks($position, $glob, $jj_const, $classes, $site_width, $debug_modul
 			<?php include 'includes/logo.php'; ?>
 			<?php } ?>
 			<?php if ($logo_show == 1 ) { ?>
-				<div class="branding-secondary">
+				<div id="branding-secondary">
 			<?php } ?>
 			<?php if(${$position . '_chrome'} === 'tabs' or ${$position . '_chrome'} === 'accordion' ){ ?>
 				<jdoc:include type="modules" name="<?php echo $position; ?>" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } elseif(isset($nojs) && $nojs == 1) { echo 'basic'; } else { echo ${$position.'_chrome'}; } ?>" />
