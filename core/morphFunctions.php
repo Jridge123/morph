@@ -511,6 +511,8 @@ if(  $isiPhone && !$iPhoneCookie  ){
 		if ( $simpletweet == 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/simpletweet.css'); }
 		if ( $simplecontact == 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/simplecontact.css'); }
 		if ( $simplesocial == 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/simplesocial.css'); }
+		if ( $googlefonts == 1 ) { $doc->addStyleSheet('http://fonts.googleapis.com/css?family='.str_replace(" ", "+", $heading_font)); }
+		
 		// add css for simple flickr module
 		$morphflickr_css = $themeletpath .'/css/simpleflickr.css';
 		$defaultflickr_css = '/modules/mod_simpleflickr/css/simpleflickr.css';
@@ -592,6 +594,11 @@ function isIE6($string=''){
 		return false;
 	}
 }
+
+ob_start();
+	if($googlefonts == 1) echo "#$themelet h1, #$themelet h2 {font-family: '".$heading_font."', Arial, Helvetica, sans-serif;}";
+$doc->addStyleDeclaration(ob_get_clean());
+
 
 // get layout functions
 include_once('InnerLayout.php');
