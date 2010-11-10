@@ -102,9 +102,9 @@
 			<option value="1">Automatic</option>
 			<option value="0">Manual</option>
 		</param>
-		<param name="logo_width" default="0" type="text" label="Logo width" tooltip="inline" description="Set your logo width" />
-		<param name="logo_height" default="0" type="text" label="Logo height" tooltip="inline" description="Set your logo height" />
-		<param name="logo_ielogo" default="0" type="itoggle" label="Display ie6 logo" tooltip="inline" description="Would you like to alternate logo displayed to Internet Explorer 6? This option is useful when you want to use a transparent png image for all standards compliant browsers and a less smooth transparent logo for ie6, which doesnt handle image transparency.">
+		<param name="logo_width" default="" type="text" label="Logo width" tooltip="inline" description="Set your logo width" />
+		<param name="logo_height" default="" type="text" label="Logo height" tooltip="inline" description="Set your logo height" />
+		<param name="logo_ielogo" default="" type="itoggle" label="Display ie6 logo" tooltip="inline" description="Would you like to alternate logo displayed to Internet Explorer 6? This option is useful when you want to use a transparent png image for all standards compliant browsers and a less smooth transparent logo for ie6, which doesnt handle image transparency.">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
@@ -177,7 +177,7 @@
 		</param>    	
 		<param name="logo0_textcolor" default="#666161" type="colorpicker" label="Text color" tooltip="inline" description="Set your logo text foreground color." />
 		<param name="logo0_linktitle" default="" type="text" label="Link title text" tooltip="inline" description="Set your logo link title text" />
-		<param name="logo0_top" default="10px" type="text" label="Top position" tooltip="inline" description="Set your logos x-coordinate (ie, the number of pixels it should be positioned from the top.  You can set the amount as either pixels, em's or a percentage. For example 10px, 10em or 10%. Please note that no spaces should be used." />
+		<param name="logo0_top" default="15px" type="text" label="Top position" tooltip="inline" description="Set your logos x-coordinate (ie, the number of pixels it should be positioned from the top.  You can set the amount as either pixels, em's or a percentage. For example 10px, 10em or 10%. Please note that no spaces should be used." />
 		<param name="logo0_left" default="20px" type="text" label="Left position" tooltip="inline" description="Set your logos y-coordinate (ie, the number of pixels it should be positioned from the left.  You can set the amount as either pixels, em's or a percentage. For example 10px, 10em or 10%. Please note that no spaces should be used." />
 		<param name="logo0_stack" default="2" type="text" label="Stacking order" tooltip="inline" description="Set the stacking order (z-index) of your sites logo." />
 
@@ -283,8 +283,8 @@
 		    <option value="'Lucida Console', Monaco, monospace">Lucida Console</option>
 		    <option value="'Comic Sans MS', cursive">Comic Sans MS</option>
 		</param>
-		<param name="slogan_top" default="60px" type="text" label="Top position" tooltip="inline" description="Set your slogan's x-coordinate (ie, the number of pixels it should be positioned from the top. You can set the amount as either pixels, em's or a percentage. For example 10px, 10em or 10%. Please note that no spaces should be used." />
-		<param name="slogan_left" default="0px" type="text" label="Left position" tooltip="inline" description="Set your slogan's y-coordinate (ie, the number of pixels it should be positioned from the left. You can set the amount as either pixels, em's or a percentage. For example 10px, 10em or 10%. Please note that no spaces should be used." />
+		<param name="slogan_top" default="65px" type="text" label="Top position" tooltip="inline" description="Set your slogan's x-coordinate (ie, the number of pixels it should be positioned from the top. You can set the amount as either pixels, em's or a percentage. For example 10px, 10em or 10%. Please note that no spaces should be used." />
+		<param name="slogan_left" default="20px" type="text" label="Left position" tooltip="inline" description="Set your slogan's y-coordinate (ie, the number of pixels it should be positioned from the left. You can set the amount as either pixels, em's or a percentage. For example 10px, 10em or 10%. Please note that no spaces should be used." />
 		<param name="slogan_stack" default="1" type="text" label="Stacking order" tooltip="inline" description="Set the stacking order (z-index) of your sites tagline." />	
 	</params>
 	
