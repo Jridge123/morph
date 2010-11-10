@@ -86,7 +86,7 @@ if($isiPhone && !$iPhoneCookie) {
 	<jdoc:include type="modules" name="debug" />
 	<?php if($this->countModules('advert2')) { ?><jdoc:include type="modules" name="advert2" style="none" /><?php } ?>
 	<?php if ( $plugin_scrollto == 1 && !$isiPhone ) { ?>
-		<a href="#top" id="top-link"><?php echo JText::_('Back to top'); ?></a>
+		<a href="#top" id="top-link"><?php echo JText::_('TPL_MORPH_BACK_TO_TOP'); ?></a>
 	<?php } ?>
 <?php }
 	if(file_exists($footer_script)) { include_once($footer_script); }
