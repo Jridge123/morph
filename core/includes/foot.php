@@ -38,4 +38,5 @@
         <?php } ?>
     <?php if ( $footer_wrap == 1 ) { ?></div><?php } ?>
 <?php }
-if($global_wrap == 1 && $global_wrap_end == 4){ ?></div><?php } ?>
+if($global_wrap == 1 && $global_wrap_end == 4){ echo '</div>'; }
+?>
