@@ -1,4 +1,7 @@
 <?php defined( '_JEXEC' ) or die( 'Restricted access' );
+if($override = Morph::override(__FILE__, $this)) {
+	if(file_exists($override)) include $override;
+} else {
 include_once(dirname(__FILE__).'/../icon.php');
 $lang =& JFactory::getLanguage();
 $lang->load('tpl_morph', JPATH_SITE);
@@ -76,4 +79,5 @@ $morph = Morph::getInstance();
     	echo JText::sprintf('READMORE', '<span>', $this->escape($this->item->title), '</span>');
     endif; ?></a>
 
-<?php echo $this->item->event->afterDisplayContent;
+<?php echo $this->item->event->afterDisplayContent; ?>
+<?php } ?><!-- close the themelet override check -->

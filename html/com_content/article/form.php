@@ -1,6 +1,9 @@
 <?php defined( '_JEXEC' ) or die( 'Restricted access' );
-$document = Jfactory::getDocument();  
-$document->addStyleSheet('templates/morph/core/css/frontendedit.css');
+if($override = Morph::override(__FILE__, $this)) {
+	if(file_exists($override)) include $override;
+} else {
+$morph = Morph::getInstance();
+$morph->addStyleSheet($templatepath'/css/frontendedit.css');
 ?>
 <script language="javascript" type="text/javascript">
 <!--
@@ -132,4 +135,4 @@ function submitbutton(pressbutton) {
 <input type="hidden" name="task" value="" />
 </form>
 <?php echo JHTML::_('behavior.keepalive'); ?>
-<?php } ?>
+<?php } ?><!-- close the themelet override check -->

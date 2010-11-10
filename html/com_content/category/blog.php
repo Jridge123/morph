@@ -1,31 +1,27 @@
 <?php defined( '_JEXEC' ) or die( 'Restricted access' );
+if($override = Morph::override(__FILE__, $this)) {
+	if(file_exists($override)) include $override;
+} else {
 $cparams = JComponentHelper::getParams ('com_media');
 ?>
-
 <?php if ($this->params->get('show_page_title')) : ?>
 <h1 class="componentheading">
 	<?php echo $this->escape($this->params->get('page_title')); ?>
 </h1>
 <?php endif; ?>
-
 <?php if ($this->params->def('show_description', 1) || $this->params->def('show_description_image', 1)) : ?>
 <div class="desc">
-
 	<?php if ($this->params->get('show_description_image') && $this->category->image) : ?>
 	<img src="<?php echo $this->baseurl . $cparams->get('image_path') . '/' . $this->category->image; ?>" class="image-<?php echo $this->category->image_position; ?>" />
 	<?php endif; ?>
-
 	<?php if ($this->params->get('show_description') && $this->category->description) :
 		echo $this->category->description;
 	endif; ?>
-
 	<?php if ($this->params->get('show_description_image') && $this->category->image) : ?>
 	<div class="wrap_image">&nbsp;</div>
 	<?php endif; ?>
-
 </div>
 <?php endif; ?>
-	
 <div class="blog">
 	<?php $i = $this->pagination->limitstart;
 	$rowcount = $this->params->def('num_leading_articles', 1);
@@ -35,7 +31,6 @@ $cparams = JComponentHelper::getParams ('com_media');
 		echo $this->loadTemplate('item'); ?>
 	</div>
 	<?php endfor; ?>
-
 	<?php $introcount = $this->params->def('num_intro_articles', 4);
 	if ($introcount) :
 		$colcount = $this->params->def('num_columns', 2);
@@ -63,7 +58,6 @@ $cparams = JComponentHelper::getParams ('com_media');
 			</div>
 		<?php endfor;
 	endif; ?>
-
 	<?php $numlinks = $this->params->def('num_links', 4);
 	if ($numlinks && $i < $this->total) : ?>
 	<div class="blog-more">
@@ -71,9 +65,6 @@ $cparams = JComponentHelper::getParams ('com_media');
 		echo $this->loadTemplate('links'); ?>
 	</div>
 	<?php endif; ?>
-
-
-
 	<?php if ($this->params->def('show_pagination', 2) == 1  || ($this->params->get('show_pagination') == 2 && $this->pagination->get('pages.total') > 1)) : ?>
 	<div id="pagination-wrap">
 		<?php if( $this->pagination->get('pages.total') > 1 ) : ?>
@@ -86,5 +77,5 @@ $cparams = JComponentHelper::getParams ('com_media');
 		<?php endif; ?>
 	</div>		
 	<?php endif; ?>
-
 </div>
+<?php } ?><!-- close the themelet override check -->

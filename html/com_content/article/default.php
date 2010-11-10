@@ -1,4 +1,7 @@
 <?php defined( '_JEXEC' ) or die( 'Restricted access' );
+if($override = Morph::override(__FILE__, $this)) {
+	if(file_exists($override)) include $override;
+} else {
 include_once(dirname(__FILE__).'/../icon.php');
 $lang =& JFactory::getLanguage();
 $lang->load('tpl_morph', JPATH_SITE);
@@ -19,9 +22,6 @@ if(!function_exists('curPageURL')) {
 	 return $pageURL;
 	}
 }
-if($override = Morph::override(__FILE__, $this)) {
-	if(file_exists($override)) include $override;
-} else {
 ?>
 <div class="article-page">
 
@@ -148,4 +148,4 @@ if($override = Morph::override(__FILE__, $this)) {
 		<?php echo $this->article->event->afterDisplayContent; ?>
 	</div>
 </div>
-<?php } ?>
+<?php } ?><!-- close the themelet override check -->

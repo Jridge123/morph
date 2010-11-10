@@ -1,4 +1,7 @@
 <?php defined( '_JEXEC' ) or die( 'Restricted access' );
+if($override = Morph::override(__FILE__, $this)) {
+	if(file_exists($override)) include $override;
+} else {
 $cparams = JComponentHelper::getParams ('com_media');
 ?>
 <?php if ($this->params->get('show_page_title',1)) : ?>
@@ -24,3 +27,4 @@ echo $this->loadTemplate('items'); ?>
 <?php if ($this->access->canEdit || $this->access->canEditOwn) : ?>
 <?php echo JHTML::_('icon.create', $this->category, $this->params, $this->access); ?>
 <?php endif; ?>
+<?php } ?><!-- close the themelet override check -->

@@ -1,11 +1,12 @@
-<?php defined( '_JEXEC' ) or die( 'Restricted access' ); ?>
-
+<?php defined( '_JEXEC' ) or die( 'Restricted access' );
+if($override = Morph::override(__FILE__, $this)) {
+	if(file_exists($override)) include $override;
+} else { ?>
 <?php if ($this->params->get('show_page_title',1)) : ?>
 <h1 class="componentheading frontpage clearer">
 	<?php echo $this->escape($this->params->get('page_title')); ?>
 </h1>
 <?php endif; ?>
-
 <div class="frontpage-blog blog clearer">
 	<?php $i = $this->pagination->limitstart; $rowcount = $this->params->def('num_leading_articles', 1); 
 	for ($y = 0; $y < $rowcount && $i < $this->total; $y++, $i++) : ?>
@@ -23,7 +24,6 @@
 	$rowcount = (int) $introcount / $colcount;
 	$ii = 0;
 	for ($y = 0; $y < $rowcount && $i < $this->total; $y++) : ?>
-	
 	<div class="article-row clearer">
 		<?php for ($z = 0; $z < $colcount && $ii < $introcount && $i < $this->total; $z++, $i++, $ii++) : ?>
 			<div id="article<?php $this->item =& $this->getItem($i, $this->params); echo $this->item->id; ?>" class="article-column column<?php echo $z + 1; ?> cols<?php echo $colcount; ?>" >
@@ -32,18 +32,14 @@
 			</div>
 		<?php endfor; ?>
 	</div>
-
 	<?php endfor; endif; ?>
-
 	<?php $numlinks = $this->params->def('num_links', 4);
 	if ($numlinks && $i < $this->total) : ?>
-
 	<div class="blog-more clearer">
 		<?php $this->links = array_slice($this->items, $i - $this->pagination->limitstart, $i - $this->pagination->limitstart + $numlinks);
 		echo $this->loadTemplate('links'); ?>
 	</div>
 	<?php endif; ?>
-
 	<?php if ($this->params->def('show_pagination', 2) == 1  || ($this->params->get('show_pagination') == 2 && $this->pagination->get('pages.total') > 1)) : ?>
 	<div id="pagination-wrap">
 		<?php if( $this->pagination->get('pages.total') > 1 ) : ?>
@@ -56,5 +52,5 @@
 		<?php endif; ?>
 	</div>
 	<?php endif; ?>
-
 </div>
+<?php } ?><!-- close the themelet override check -->

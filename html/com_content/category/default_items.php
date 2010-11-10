@@ -1,5 +1,7 @@
-<?php defined( '_JEXEC' ) or die( 'Restricted access' ); ?>
-
+<?php defined( '_JEXEC' ) or die( 'Restricted access' );
+if($override = Morph::override(__FILE__, $this)) {
+	if(file_exists($override)) include $override;
+} else { ?>
 <script language="javascript" type="text/javascript">
 <!--
 function tableOrdering( order, dir, task )
@@ -12,9 +14,7 @@ document.adminForm.submit( task );
 }
 // -->
 </script>
-
 <form action="<?php echo $this->action; ?>" method="post" name="adminForm">
-
 <?php if ($this->params->get('filter')) : ?>
 <div class="filter">
 	<p>
@@ -23,16 +23,13 @@ document.adminForm.submit( task );
 	</p>
 </div>
 <?php endif; ?>
-
 <?php if ($this->params->get('show_pagination_limit')) : ?>
 <div class="display">
 	<?php echo JText::_('Display Num'); ?>&nbsp;
 	<?php echo $this->pagination->getLimitBox(); ?>
 </div>
 <?php endif; ?>
-
 <table class="category-table" cellspacing="0" cellpadding="0" width="100%">
-
 	<?php if ($this->params->get('show_headings')) : ?>
 	<thead>
 	<tr>
@@ -109,7 +106,6 @@ document.adminForm.submit( task );
 	<?php endforeach; ?>
 	</tbody>
 </table>
-
 <?php if ($this->params->get('show_pagination')) : ?>
 <div id="pagination-wrap">
 	<div class="pagination-links">
@@ -118,10 +114,10 @@ document.adminForm.submit( task );
 	<?php echo $this->pagination->getPagesLinks(); ?>
 </div>
 <?php endif; ?>
-
 <input type="hidden" name="id" value="<?php echo $this->category->id; ?>" />
 <input type="hidden" name="sectionid" value="<?php echo $this->category->sectionid; ?>" />
 <input type="hidden" name="task" value="<?php echo $this->lists['task']; ?>" />
 <input type="hidden" name="filter_order" value="<?php echo $this->lists['order']; ?>" />
 <input type="hidden" name="filter_order_Dir" value="" />
 </form>
+<?php } ?><!-- close the themelet override check -->

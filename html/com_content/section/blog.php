@@ -1,4 +1,7 @@
 <?php defined( '_JEXEC' ) or die( 'Restricted access' );
+if($override = Morph::override(__FILE__, $this)) {
+	if(file_exists($override)) include $override;
+} else {
 $cparams = JComponentHelper::getParams ('com_media');
 ?>
 
@@ -86,5 +89,5 @@ $cparams = JComponentHelper::getParams ('com_media');
 		<?php endif; ?>
 	</div>
 	<?php endif; ?>
-
 </div>
+<?php } ?><!-- close the themelet override check -->
