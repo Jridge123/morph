@@ -1,9 +1,10 @@
 <?php defined( '_JEXEC' ) or die( 'Restricted access' );
 include_once(dirname(__FILE__).'/../icon.php');
 $lang =& JFactory::getLanguage();
-$lang->load('tpl_morph', JPATH_SITE);
+$lang->load('tpl_nameoftemplate', JPATH_SITE);
 $canEdit = ($this->user->authorize('com_content', 'edit', 'content', 'all') || $this->user->authorize('com_content', 'edit', 'content', 'own'));
 $morph = Morph::getInstance();
+
 if(!function_exists('curPageURL')) {
 	function curPageURL() {
 	 $pageURL = 'http';

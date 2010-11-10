@@ -62,7 +62,10 @@ $blockclassespath = JPATH_SITE.'/templates/morph/core/morphBlockClasses.php';
 $params	= new JParameter(null);
 $params->loadObject($MORPH);
 $document->params = $params;
-
+$document 					= Jfactory::getDocument();  
+$menus      				= JSite::getMenu();
+$user 						= JFactory::getUser();
+$menu      					= $menus->getActive();
 $option 					= JRequest::getCmd('option');
 $task 						= JRequest::getCmd('task');
 $view 						= JRequest::getCmd('view');
@@ -74,15 +77,10 @@ $itemid 					= JRequest::getCmd('Itemid');
 $pageclass   				= "";
 $cache						= $MORPH->cache ? '&cache='.$MORPH->cachetime : false;
 $gzip						= $MORPH->gzip_compression ? '&gzip='.$MORPH->gzip_compression : false;
-$document 					= Jfactory::getDocument();  
-$menus      				= JSite::getMenu();
-$menu      					= $menus->getActive();
 if (is_object( $menu )) :
 $params 					= new JParameter( $menu->params );
 $pageclass 					= $params->get( 'pageclass_sfx' );
 endif;
-$user 						= JFactory::getUser();
-$document					= JFactory::getDocument();
 $toolbar_count 				= $MORPH->countModules('toolbar');
 $masthead_count 			= $MORPH->countModules('masthead');
 $subhead_count 				= $MORPH->countModules('subhead');

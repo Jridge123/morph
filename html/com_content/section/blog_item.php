@@ -1,10 +1,10 @@
 <?php defined( '_JEXEC' ) or die( 'Restricted access' );
 include_once(dirname(__FILE__).'/../icon.php');
-$lang->load('tpl_morph', JPATH_SITE);
-$morph = Morph::getInstance();
+$lang =& JFactory::getLanguage();
+$lang->load('tpl_nameoftemplate', JPATH_SITE);
+$canEdit = ($this->user->authorize('com_content', 'edit', 'content', 'all') || $this->user->authorize('com_content', 'edit', 'content', 'own'));
 $morph = Morph::getInstance();
 ?>
-
 <?php if ($this->item->params->get('show_title')) : ?>
 <h2 class="contentheading">
 	<?php if ($this->item->params->get('link_titles') && $this->item->readmore_link != '') : ?>
