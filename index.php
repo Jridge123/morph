@@ -82,7 +82,7 @@ if($isiPhone && !$iPhoneCookie) {
 	if(file_exists($inc_bottomshelf2)) { include_once($inc_bottomshelf2); } else { include_once('core/includes/bottomshelf2.php'); }
 	if(file_exists($inc_bottomshelf3)) { include_once($inc_bottomshelf3); } else { include_once('core/includes/bottomshelf3.php'); }
 	if(file_exists($inc_footer)) { include_once($inc_footer); } else { include_once('core/includes/foot.php'); }
-	if($isiPhone && file_exists($inc_iphonefooter)) { include_once($inc_iphonefooter); } else { include_once('core/includes/iphone_footer.php'); } ?>
+	if($isiPhone) { include_once('core/includes/iphone_footer.php'); } ?>
 	<jdoc:include type="modules" name="debug" />
 	<?php if($this->countModules('advert2')) { ?><jdoc:include type="modules" name="advert2" style="none" /><?php } ?>
 	<?php if ( $plugin_scrollto == 1 && !$isiPhone ) { ?>
