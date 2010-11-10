@@ -1,5 +1,7 @@
 <?php defined( '_JEXEC' ) or die( 'Restricted access' );
 include_once(dirname(__FILE__).'/../icon.php');
+$lang =& JFactory::getLanguage();
+$lang->load('tpl_morph', JPATH_SITE);
 $morph = Morph::getInstance();
 ?>
 
@@ -67,7 +69,7 @@ endif; ?>
     <p class="readon">
     
 	<?php if ($morph->article_preview) : ?>
-	<a href="<?php echo $this->item->readmore_link; ?>" title="<?php echo JText::sprintf($this->item->title); ?>" rel="article-preview" class="preview-link"><?php echo JText::_('Preview'); ?></a>
+	<a href="<?php echo $this->item->readmore_link; ?>" title="<?php echo JText::sprintf($this->item->title); ?>" rel="article-preview" class="preview-link"><?php echo JText::_('TPL_MORPH_ARTICLE_PREVIEW'); ?></a>
 	<?php endif ?>
 
 	<a href="<?php echo $this->item->readmore_link; ?>" title="<?php echo JText::sprintf($this->item->title); ?>">

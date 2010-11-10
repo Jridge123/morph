@@ -1,6 +1,8 @@
 <?php defined( '_JEXEC' ) or die( 'Restricted access' );
 include_once(dirname(__FILE__).'/../icon.php');
-$canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $this->user->authorize('com_content', 'edit', 'content', 'own'));
+$lang->load('tpl_morph', JPATH_SITE);
+$morph = Morph::getInstance();
+$canEdit = ($this->user->authorize('com_content', 'edit', 'content', 'all') || $this->user->authorize('com_content', 'edit', 'content', 'own'));
 $morph = Morph::getInstance();
 ?>
 <?php if ($this->item->state == 0) : ?>
@@ -76,12 +78,11 @@ $morph = Morph::getInstance();
 	<?php if ( intval($this->item->modified) != 0 && $this->item->params->get('show_modify_date')) : ?>
 		<p class="modified"><?php echo JText::sprintf('LAST_UPDATED2', JHTML::_('date', $this->item->modified, JText::_('DATE_FORMAT_LC2'))); ?>.</p>
 	<?php endif; ?>
-	
 
     <?php if ($this->item->params->get('show_readmore') && $this->item->readmore) : ?>
     <p class="readon">    
     <?php if ($morph->article_preview) : ?>
-    <a href="<?php echo $this->item->readmore_link; ?>" title="<?php echo JText::sprintf($this->item->title); ?>" rel="article-preview" class="preview-link"><?php echo JText::_('Preview'); ?></a>
+    <a href="<?php echo $this->item->readmore_link; ?>" title="<?php echo JText::sprintf($this->item->title); ?>" rel="article-preview" class="preview-link"><?php echo JText::_('TPL_MORPH_ARTICLE_PREVIEW'); ?></a>
     <?php endif; ?>
 	<a href="<?php echo $this->item->readmore_link; ?>" title="<?php echo JText::sprintf($this->item->title); ?>">
 	<?php if ($this->item->readmore_register) :
@@ -90,7 +91,7 @@ $morph = Morph::getInstance();
 		echo $readmore;
 	else :
 		echo JText::sprintf('READMORE', '<span>', $this->escape($this->item->title), '</span>');
-	endif; ?></a>		
+	endif; ?></a>
 		
     </p>
     <?php endif; ?>

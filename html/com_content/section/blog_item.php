@@ -1,5 +1,7 @@
 <?php defined( '_JEXEC' ) or die( 'Restricted access' );
 include_once(dirname(__FILE__).'/../icon.php');
+$lang->load('tpl_morph', JPATH_SITE);
+$morph = Morph::getInstance();
 $morph = Morph::getInstance();
 ?>
 
@@ -61,15 +63,17 @@ $morph = Morph::getInstance();
 	<?php endif; ?>
 
     <?php if ($this->item->params->get('show_readmore') && $this->item->readmore) : ?>
-    <p class="readon"><a href="<?php echo $this->item->readmore_link; ?>" title="<?php echo JText::sprintf($this->item->title); ?>">
-    	<?php if ($this->item->readmore_register) :
-    		echo JText::_('Register to read more...');
-    	elseif ($readmore = $this->item->params->get('readmore')) :
-    		echo $readmore;
-    	else :
-    		echo JText::sprintf('READMORE', '<span>', $this->escape($this->item->title), '</span>');
-    	endif; ?></a>
-    </p>
+    <p class="readon">    
+    <?php if ($morph->article_preview) : ?>
+    <a href="<?php echo $this->item->readmore_link; ?>" title="<?php echo JText::sprintf($this->item->title); ?>" rel="article-preview" class="preview-link"><?php echo JText::_('TPL_MORPH_ARTICLE_PREVIEW'); ?></a>
     <?php endif; ?>
+    <a href="<?php echo $this->item->readmore_link; ?>" title="<?php echo JText::sprintf($this->item->title); ?>">
+    <?php if ($this->item->readmore_register) :
+    	echo JText::_('Register to read more...');
+    elseif ($readmore = $this->item->params->get('readmore')) :
+    	echo $readmore;
+    else :
+    	echo JText::sprintf('READMORE', '<span>', $this->escape($this->item->title), '</span>');
+    endif; ?></a>
 
 <?php echo $this->item->event->afterDisplayContent;
