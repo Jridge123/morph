@@ -787,8 +787,14 @@ function blocks($position, $glob, $jj_const, $classes, $site_width, $debug_modul
 	}
 }
 
-function pt_body_classes($menu, $view, $themelet){
+/* Set the menu blocks position via Morph's Hooks */
+function addMenu () {
+  include_once('core/includes/topnav.php');
+}
+$action->add_action($topnav_position, 'addMenu');
 
+/* body classes function */
+function pt_body_classes($menu, $view, $themelet){
 	$morph = Morph::getInstance();
 	$params = new JParameter($menu->params);
 	$pageclass = $params->get('pageclass_sfx');

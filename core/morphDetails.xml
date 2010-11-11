@@ -468,6 +468,88 @@
 			<option value="fast">Fast</option>
 		</param>
 	</params>
+	<params group="topnavdata">
+		<param name="topnav_position" default="2" type="list" label="Topnav position" tooltip="inline" description="Where would you like the top menu to be displayed.">
+			<option value="">Select menu position:</option>
+			<option value="">-------------------------------------</option>
+			<option value="toolbar_above">Above Toolbar</option>
+			<option value="toolbar_below">Below Toolbar</option>
+			<option value="">-------------------------------------</option>
+			<option value="above_masthead">Above Masthead</option>
+			<option value="below_masthead">Below Masthead</option>
+			<option value="">-------------------------------------</option>
+			<option value="above_subhead">Above Subhead</option>
+			<option value="below_subhead">Below Subhead</option>
+			<option value="">-------------------------------------</option>
+			<option value="above_topshelf1">Above Topshelf1</option>
+			<option value="below_topshelf1">Below Topshelf1</option>
+			<option value="">-------------------------------------</option>
+			<option value="above_topshelf2">Above Topshelf2</option>
+			<option value="below_topshelf2">Below Topshelf2</option>
+			<option value="">-------------------------------------</option>
+			<option value="above_topshelf3">Above Topshelf3</option>
+			<option value="below_topshelf3">Below Topshelf3</option>
+			<option value="">-------------------------------------</option>
+			<option value="above_user1">Above User1</option>
+			<option value="below_user1">Below User1</option>
+			<option value="">-------------------------------------</option>
+			<option value="above_main">Above Main</option>
+			<option value="below_main">Below Main</option>
+			<option value="">-------------------------------------</option>
+			<option value="above_user2">Above User2</option>
+			<option value="below_user2">Below User2</option>
+			<option value="">-------------------------------------</option>
+			<option value="above_bottomshelf1">Above Bottomshelf1</option>
+			<option value="below_bottomshelf1">Below Bottomshelf1</option>
+			<option value="">-------------------------------------</option>
+			<option value="above_bottomshelf2">Above Bottomshelf2</option>
+			<option value="below_bottomshelf2">Below Bottomshelf2</option>
+			<option value="">-------------------------------------</option>
+			<option value="above_bottomshelf3">Above Bottomshelf3</option>
+			<option value="below_bottomshelf3">Below Bottomshelf3</option>
+			<option value="">-------------------------------------</option>
+			<option value="above_footer">Above Footer</option>
+			<option value="below_footer">Below Footer</option>
+		</param>
+		<param name="topnav_wrap" default="0" type="itoggle" label="Block wrapping" tooltip="modal" description="blockwrap.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="topnav_inner" default="0" type="itoggle" label="Block inner" tooltip="modal" description="blockinner.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="topnav_chrome" default="none" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
+			<option value="none">None</option>
+			<option value="basic">Basic</option>
+			<option value="grid">Grid</option>
+			<option value="tabs">Tabs</option>
+			<option value="accordion">Accordion</option>			
+			<option value="outline">Outline</option>			
+		</param>
+		<param name="topnav_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
+			<option value="1">Wrap heading &amp; content</option>
+			<option value="2">Wrap content only</option>
+			<option value="0">None</option>
+		</param>
+		<param name="topnav_gridsplit" default="yui-g" type="list" label="Grid split" tooltip="modal" description="gridsplit.html">
+			<option value="yui-g">Default (50/50)</option>
+			<option value="yui-gc">66/33 Split</option>
+			<option value="yui-gd">33/66 Split</option>
+			<option value="yui-ge">75/25 Split</option>
+			<option value="yui-gf">25/75 Split</option>
+		</param>
+		<param name="topnav_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="topnav_blockfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Block style" description="blockfx-default.html" />
+		<param name="topnav_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
+		<param name="topnav_show" default="0" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+	</params>
 	
 	<params group="iphonedata">
 		<param name="iphone_mode" default="1" type="itoggle" label="iPhone compatibility" tooltip="inline" description="Would you like your site to automatically be iPhone compatible?">
@@ -871,57 +953,7 @@
 			<option value="0">No</option>
 		</param>
 	</params>
-	
-	<params group="topnavdata">
-		<param name="topnav_wrap" default="0" type="itoggle" label="Block wrapping" tooltip="modal" description="blockwrap.html">
-			<option value="1">Yes</option>
-			<option value="0">No</option>
-		</param>
-		<param name="topnav_inner" default="0" type="itoggle" label="Block inner" tooltip="modal" description="blockinner.html">
-			<option value="1">Yes</option>
-			<option value="0">No</option>
-		</param>
-		<param name="topnav_chrome" default="none" type="list" label="Module chrome" tooltip="modal" description="chromefx.html">
-			<option value="none">None</option>
-			<option value="basic">Basic</option>
-			<option value="grid">Grid</option>
-			<option value="tabs">Tabs</option>
-			<option value="accordion">Accordion</option>			
-			<option value="outline">Outline</option>			
-		</param>
-		<param name="topnav_module_inner" default="2" type="list" label="Module inner wrap" tooltip="modal" description="modinner.html">
-			<option value="1">Wrap heading &amp; content</option>
-			<option value="2">Wrap content only</option>
-			<option value="0">None</option>
-		</param>
-		<param name="topnav_gridsplit" default="yui-g" type="list" label="Grid split" tooltip="modal" description="gridsplit.html">
-			<option value="yui-g">Default (50/50)</option>
-			<option value="yui-gc">66/33 Split</option>
-			<option value="yui-gd">33/66 Split</option>
-			<option value="yui-ge">75/25 Split</option>
-			<option value="yui-gf">25/75 Split</option>
-		</param>
-		<param name="topnav_equalize" default="0" type="itoggle" label="Equalize modules" tooltip="modal" description="equalize.html">
-			<option value="1">Yes</option>
-			<option value="0">No</option>
-		</param>
-		<param name="topnav_blockfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Block style" description="blockfx-default.html" />
-		<param name="topnav_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
-		<param name="topnav_position" default="2" type="list" label="Top menu position" tooltip="inline" description="Where would you like the top menu to be displayed.">
-			<option value="0">Above Toolbar</option>
-			<option value="1">Above Masthead</option>
-			<option value="2">Above Subhead</option>
-			<option value="3">Above Topshelf1</option>
-			<option value="4">Above Topshelf2</option>
-			<option value="5">Above Topshelf3</option>
-			<option value="6">Above Main</option>
-		</param>
-		<param name="topnav_show" default="0" type="itoggle" label="Disable block" tooltip="inline" description="Would you like to disable this block?">
-			<option value="1">Yes</option>
-			<option value="0">No</option>
-		</param>
-	</params>
-	
+		
 	<params group="topshelf1data">
 		<param name="topshelf1_wrap" default="1" type="itoggle" label="Block wrapping" tooltip="modal" description="blockwrap.html">
 			<option value="1">Yes</option>

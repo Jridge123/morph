@@ -61,22 +61,15 @@ if($isiPhone && !$iPhoneCookie) {
 	include_once('core/includes/skipto.php');
 	if($this->countModules('advert1')) { ?><jdoc:include type="modules" name="advert1" style="none" /><?php } ?>
 	<?php 
-	if($topnav_position == 0) { include_once('core/includes/topnav.php'); }
 	if($toolbar_position == 0) { include_once('core/includes/toolbar.php'); }
-	if($topnav_position == 1) { include_once('core/includes/topnav.php'); }
 	if(file_exists($inc_masthead)) { include_once($inc_masthead); } else { include_once('core/includes/masthead.php'); }
 	if($toolbar_position == 1) { include_once('core/includes/toolbar.php'); }
-	if($topnav_position == 2) { include_once('core/includes/topnav.php'); }
 	if(file_exists($inc_subhead)) { include_once($inc_subhead); } else { include_once('core/includes/subhead.php'); }
 	if($toolbar_position == 2) { include_once('core/includes/toolbar.php'); }
-	if($topnav_position == 3) { include_once('core/includes/topnav.php'); }
 	if(file_exists($inc_topshelf1)) { include_once($inc_topshelf1); } else { include_once('core/includes/topshelf1.php'); }
-	if($topnav_position == 4) { include_once('core/includes/topnav.php'); }
 	if(file_exists($inc_topshelf2)) { include_once($inc_topshelf2); } else { include_once('core/includes/topshelf2.php'); }
-	if($topnav_position == 5) { include_once('core/includes/topnav.php'); }
 	if(file_exists($inc_topshelf3)) { include_once($inc_topshelf3); } else { include_once('core/includes/topshelf3.php'); }
 	if($toolbar_position == 3) { include_once('core/includes/toolbar.php'); }
-	if($topnav_position == 6) { include_once('core/includes/topnav.php'); }
 	if(file_exists($inc_main)) { include_once($inc_main); } else { include_once('core/includes/main.php'); }
 	if(file_exists($inc_bottomshelf1)) { include_once($inc_bottomshelf1); } else { include_once('core/includes/bottomshelf1.php'); }
 	if(file_exists($inc_bottomshelf2)) { include_once($inc_bottomshelf2); } else { include_once('core/includes/bottomshelf2.php'); }
