@@ -9,7 +9,7 @@
 #cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow{cursor:pointer;}
 #cboxOverlay{background:url(../cbstyle1/overlay.png) 0 0 repeat;}
 #colorbox{}
-#cboxTopLeft{width:21px; height:21px; background:url(templates/morph/core/cbstyle1/controls.png) -100px 0 no-repeat;}
+#cboxTopLeft{width:21px; height:21px; background:url(../cbstyle1/controls.png) -100px 0 no-repeat;}
 #cboxTopRight{width:21px; height:21px; background:url(../cbstyle1/controls.png) -129px 0 no-repeat;}
 #cboxBottomLeft{width:21px; height:21px; background:url(../cbstyle1/controls.png) -100px -29px no-repeat;}
 #cboxBottomRight{width:21px; height:21px; background:url(../cbstyle1/controls.png) -129px -29px no-repeat;}
