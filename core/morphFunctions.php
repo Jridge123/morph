@@ -2,34 +2,12 @@
 // initiate morph
 require_once JPATH_ROOT . '/templates/morph/core/morphLoader.php';
 $MORPH = Morph::getInstance();
-//require_once('templates/morph/core/phphooks.class.php');
+require_once('templates/morph/core/phphooks.class.php');
 require_once('templates/morph/core/morphParams.php');
 require_once('templates/morph/core/browser.php');
 
-//create instance of class
-//$hook = new morphhooks();
-//function do_action($tag, $args) {
-//	global $hook;
-//	$hook->execute_hook ($tag, $args);
-//}
-
-//function add_action($tag, $function, $priority = 10) {
-//	global $hook;
-//	$hook->add_hook ( $tag, $function, $priority );
-//}
-
-//function has_action($tag) {
-//	global $hook;
-//	if ($hook->hook_exist ($tag)) {
-//		return true;
-//	} else {
-//		return false;
-//	}
-//}
-//$hook->add_hook ('a_hook');
-//echo '<pre>';
-//print_r($hook);
-//echo '</pre>';
+// add morph action hooks
+$action = new morphactions();
 
 if(isset($_COOKIE['nogzip'])){
 	$conf = JFactory::getConfig();
