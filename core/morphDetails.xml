@@ -481,8 +481,8 @@
 			<option value="above_subhead">Above Subhead</option>
 			<option value="below_subhead">Below Subhead</option>
 			<option value="">-------------------------------------</option>
-			<option value="above_topshelf1">Above Topshelf1</option>
-			<option value="below_topshelf1">Below Topshelf1</option>
+			<option value="topshelf1_before">Above Topshelf1</option>
+			<option value="topshelf1_after">Below Topshelf1</option>
 			<option value="">-------------------------------------</option>
 			<option value="above_topshelf2">Above Topshelf2</option>
 			<option value="below_topshelf2">Below Topshelf2</option>

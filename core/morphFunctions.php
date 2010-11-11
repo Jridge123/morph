@@ -789,9 +789,9 @@ function blocks($position, $glob, $jj_const, $classes, $site_width, $debug_modul
 
 /* Set the menu blocks position via Morph's Hooks */
 function addMenu () {
-  include_once('core/includes/topnav.php');
+include_once('templates/morph/core/includes/topnav.php');
 }
-$action->add_action($topnav_position, 'addMenu');
+$action->add_action ($topnav_position, 'addMenu');
 
 /* body classes function */
 function pt_body_classes($menu, $view, $themelet){
