@@ -831,13 +831,14 @@ function pt_body_classes($menu, $view, $themelet){
 
 function pt_classes($classes, $sitewidth=''){
 	$c = '';
+	$morph = Morph::getInstance();
 	if($sitewidth !== ''){ $c .= $sitewidth.' clearer '; }
 	
 	if(is_array($classes)){
 		foreach($classes as $classname => $p){
 			switch($classname){
 				case 'subtext':
-				$p >= 2 ? $c .= 'subtext' : $c .= 'no-subtext';
+				$p >= 0 ? $c .= 'subtext' : $c .= 'no-subtext';
 				break;
 				case 'topnav_actionlink':
 				if($p >= 1){ $c .= ' call-for-action'; }
