@@ -1,0 +1,1 @@
+/* This file is simply here to prevent error displaying the JFolder error, due to the template.css not being present in the templates/morph/css/template.css folder. Morph's real css is located at templates/morph/core/css/, which is so that we can maintain 4 levels deep (in terms of the folder structure), whether css packing is on or off. */
