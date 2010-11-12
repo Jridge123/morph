@@ -786,6 +786,34 @@ function blocks($position, $glob, $jj_const, $classes, $site_width, $debug_modul
 		<?php if ( ${$position.'_wrap'} == 1 ) { ?></div><?php }
 	}
 }
+function mastheadBlock($position, $glob, $jj_const, $classes, $debug_modules){
+	
+	foreach($classes as $key => $val){
+		${$key} = $val;
+	}
+	$position_class = str_replace(array(1,2,3,4,5,6,7,8,9,10), '', $position);
+	
+	global $mainframe;
+	$morph = Morph::getInstance();
+	if ($morph->logo_block == $position.'_logo') {$logo_show = 1;}
+	if($glob->countModules($position) && ${$position.'_show'} == 0 || $logo_show == 1 ){
+			<div id="<?php echo $position; ?>" class="block<?php if ( $logo_show == 1 ) { echo ' logo-active '; } ?> <?php echo $position_class; ?> <?php echo $site_width ?> <?php getYuiSuffix($position, $jj_const); ?> clearer modcount<?php echo ${$position . '_count'}.' '.${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }if(${$position.'_blockfx'} !== ''){ echo ' '.${$position.'_blockfx'}; }?>">
+			<?php } else { ?>	
+			<div id="<?php echo $position; ?>" class="block <?php if ( $logo_show == 1 ) { echo 'logo-active '; } ?> <?php echo $position_class; ?> <?php echo $site_width ?> clearer modcount<?php echo ${$position . '_count'}.' '.${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }if(${$position.'_blockfx'} !== ''){ echo ' '.${$position.'_blockfx'}; }?>">
+			<?php } ?>
+			<?php if ( ${$position.'_inner'} == 1 ) { ?><div id="<?php echo $position; ?>-inner" class="inner clearer"><?php } ?>
+			<?php if ( $logo_show == 1 ) { ?>
+			<?php include 'includes/logo.php'; ?>
+			<?php } ?>
+			<?php if ($topnav_position == 'masthead_inner' ) { ?>
+				<?php include 'includes/topnav.php'; ?>
+			<?php } ?>
+			<?php if ( ${$position.'_inner'} == 1 ) { ?></div><?php } ?>
+			</div>
+			<?php if ($logo_show == 1 ) { ?></div><?php } ?>
+		<?php
+	}
+}
 
 /* Set the menu blocks position via Morph's Hooks */
 function addMenu () {

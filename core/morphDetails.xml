@@ -476,6 +476,7 @@
 			<option value="toolbar_after">After Toolbar</option>
 			<option value="">-------------------------------------</option>
 			<option value="masthead_before">Before Masthead</option>
+			<option value="masthead_inside">Inside Masthead</option>
 			<option value="masthead_after">After Masthead</option>
 			<option value="">-------------------------------------</option>
 			<option value="subhead_before">Before Subhead</option>
