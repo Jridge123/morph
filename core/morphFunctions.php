@@ -165,6 +165,7 @@ $inc_subhead				= $absolutepath.'/includes/subhead.php';
 $inc_tertiary				= $absolutepath.'/includes/tertiary.php';
 $inc_toolbar				= $absolutepath.'/includes/toolbar.php';
 $inc_topnav					= $absolutepath.'/includes/topnav.php';
+$inc_mastheadnav			= $absolutepath.'/includes/mastheadnav.php';
 $inc_topshelf1				= $absolutepath.'/includes/topshelf1.php';
 $inc_topshelf2				= $absolutepath.'/includes/topshelf2.php';
 $inc_topshelf3				= $absolutepath.'/includes/topshelf3.php';
@@ -805,8 +806,8 @@ function mastheadBlock($position, $glob, $jj_const, $classes, $debug_modules){
 			<?php if ( $logo_show == 1 ) { ?>
 				<?php include 'includes/logo.php'; ?>
 			<?php } ?>
-			<?php if ($topnav_position == 'masthead_inner' ) { ?>
-				<?php include 'includes/topnav.php'; ?>
+			<?php if ($morph->topnav_position == 'masthead_inside' ) { ?>
+				<?php include 'includes/mastheadnav.php'; ?>
 			<?php } ?>
 			<?php if ( ${$position.'_inner'} == 1 ) { ?></div><?php } ?>
 			</div>
