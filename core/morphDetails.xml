@@ -641,11 +641,11 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
-		<param name="minify_css" default="1" type="itoggle" label="Minify css" tooltip="inline" description="Minifying will remove empty spaces and line returns that'll make the CSS less readable, but faster loading. This process is often done manually when a site is completed and the code no longer neads to be readable. Since the minifying process is quite intense, it's recommended that you turn caching on for live sites.">
+		<param name="minify_css" default="0" type="itoggle" label="Minify css" tooltip="inline" description="Minifying will remove empty spaces and line returns that'll make the CSS less readable, but faster loading. This process is often done manually when a site is completed and the code no longer neads to be readable. The minify process is very intense, so if a lot of css it'll make your site load slower than if disabled.">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
-		<param name="data_uris" default="1" type="itoggle" label="dataURIs" tooltip="inline" description="Encoding css images to dataURI dramatically improve pageload performance in a number of ways. It reduces the image size. And it reduces the amount of HTTP Requests done to the page. In order to further optimize this we've got a separate cache in Morph that makes sure that the image encoding process is only run once per image. If you make changes to an image, just clear your Joomla cache to refresh the image.">
+		<param name="data_uris" default="0" type="itoggle" label="dataURIs (experimental)" tooltip="inline" description="Encoding css images to dataURI dramatically improve pageload performance in a number of ways. It reduces the image size. And it reduces the amount of HTTP Requests done to the page. In order to further optimize this we've got a separate cache in Morph that makes sure that the image encoding process is only run once per image. If you make changes to an image, just clear your Joomla cache to refresh the image.">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
@@ -653,7 +653,7 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
-		<param name="minify_js" default="1" type="itoggle" label="Minify js" tooltip="inline" description="Minifying will remove empty spaces and line returns that'll make the JS less readable, but faster loading. It'll also make it harder to «pirate» your style declarations. Since the minifying process is quite intense, it's recommended that you turn caching on for live sites.">
+		<param name="minify_js" default="0" type="itoggle" label="Minify js" tooltip="inline" description="Minifying will remove empty spaces and line returns that'll make the JS less readable, but demand lesser bandwidth. This process can be very intense if you got a lot of JS, so for larger sites it'll load faster if minification is off.">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
