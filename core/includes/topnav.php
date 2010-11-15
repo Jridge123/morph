@@ -1,7 +1,7 @@
 <?php defined( '_JEXEC' ) or die( 'Restricted access' );
 $morph = Morph::getInstance(); ?>
 <?php if(file_exists($inc_topnav)) { include_once($inc_topnav); } else { ?>
-	<?php if($morph->global_wrap == 1 && $morph->global_wrap_start == 3 && $morph->topnav_wrap !== 'topnav_inside')){ ?>
+	<?php if($morph->global_wrap == 1 && $morph->global_wrap_start == 3 && $morph->topnav_wrap !== 'topnav_inside'){ ?>
 		<div id="global-wrap" class="<?php echo $morph->site_width; ?>">
 	<?php } ?>
 	<?php if (Morph::countModules( 'user3 or user4' ) && $morph->topnav_show == 0 ) { ?>
@@ -32,6 +32,5 @@ $morph = Morph::getInstance(); ?>
 		<?php if($morph->topnav_wrap !== 'topnav_inside') { ?>
 			<?php if ( $morph->topnav_wrap == 1 ) { ?></div><?php } ?>
 		<?php } ?>
-		<?php if ( $morph->topdrop >= 1 ) { ?><div id="topdrop-bar-wrap"  class="topnav <?php if ( $morph->topnav_wrap == 0 ) {  echo pt_classes(array(), $morph->site_width); } ?>"></div><?php } ?>
-	<?php } ?>
+	<?php if ( $morph->topdrop >= 1 ) { ?><div id="topdrop-bar-wrap"  class="topnav <?php if ( $morph->topnav_wrap == 0 ) {  echo pt_classes(array(), $morph->site_width); } ?>"></div><?php } ?>
 <?php } ?>
