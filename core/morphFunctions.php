@@ -799,6 +799,7 @@ function mastheadBlock($position, $glob, $jj_const, $classes, $debug_modules){
 	$morph = Morph::getInstance();
 	if ($morph->logo_block == $position.'_logo') { $logo_show = 1; }
 	if($glob->countModules($position) && ${$position.'_show'} == 0 || $logo_show == 1 ){ ?>
+		<?php if ( ${$position.'_wrap'} == 1 ) { ?><div id="<?php echo $position; ?>-wrap" class="clearer block wrap modcount<?php ${$position . '_chrome'}; if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; } if(${$position.'_blockfx'} !== ''){ echo ' '.${$position.'_blockfx'}; } ?>"><?php } ?>
 			<div id="<?php echo $position; ?>" class="block<?php if ( $logo_show == 1 ) { echo ' logo-active '; } ?> <?php echo $morph->position_class; ?> <?php echo $morph->site_width; ?> <?php getYuiSuffix($position, $jj_const); ?> clearer modcount<?php echo ${$position . '_count'}.' '.${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }if(${$position.'_blockfx'} !== ''){ echo ' '.${$position.'_blockfx'}; }?>">
 		<?php } else { ?>	
 			<div id="<?php echo $position; ?>" class="block <?php if ( $logo_show == 1 ) { echo 'logo-active '; } ?> <?php echo $position_class; ?> <?php echo $site_width ?> clearer modcount<?php echo ${$position . '_count'}.' '.${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }if(${$position.'_blockfx'} !== ''){ echo ' '.${$position.'_blockfx'}; }?>">
@@ -813,6 +814,7 @@ function mastheadBlock($position, $glob, $jj_const, $classes, $debug_modules){
 			<?php if ( ${$position.'_inner'} == 1 ) { ?></div><?php } ?>
 			</div>
 			<?php if ($logo_show == 1 ) { ?></div><?php } ?>
+			<?php if ( ${$position.'_wrap'} == 1 ) { ?></div><?php } ?>
 		<?php
 	}
 
