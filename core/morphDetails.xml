@@ -83,6 +83,10 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
+		<param name="selectivizr" default="0" type="itoggle" label="Enable Selectivizr" tooltip="inline" description="Selectivizr is a JavaScript utility that emulates CSS3 pseudo-classes and attribute selectors in Internet Explorer 6-8. Simply include the script in your pages and selectivizr will do the rest.. Learn more at http://selectivizr.com/">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
 		<param name="css3pie" default="0" type="itoggle" label="Enable CSS3 PIE" tooltip="inline" description="CSS3 PIE adds CSS3 border-radius, linear-gradients &amp; box-shadow support to Internet Explorer 6 to 8. Learn more at css3pie.com">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
