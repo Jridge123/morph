@@ -52,5 +52,4 @@ $cparams = JComponentHelper::getParams ('com_media');
 	<?php endforeach; ?>
 </ul>
 <?php endif; ?>
-<?php } ?>
 <?php } ?><!-- close the themelet override check -->
