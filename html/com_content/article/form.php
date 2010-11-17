@@ -3,7 +3,7 @@ if($override = Morph::override(__FILE__, $this)) {
 	if(file_exists($override)) include $override;
 } else {
 $morph = Morph::getInstance();
-$morph->addStyleSheet($templatepath'/css/frontendedit.css');
+$morph->addStyleSheet('templates/morph/core/css/frontendedit.css');
 ?>
 <script language="javascript" type="text/javascript">
 <!--
@@ -20,11 +20,6 @@ foreach ($this->lists['sectioncategories'] as $k=>$items) {
 		echo "sectioncategories[".$i++."] = new Array( '$k','".addslashes( $v->id )."','".addslashes( $v->title )."' );\n\t\t";
 	}
 }
-
-if($override = Morph::override(__FILE__, $this)) {
-	if(file_exists($override)) include $override;
-} else {
-
 ?>
 
 function submitbutton(pressbutton) {
@@ -61,9 +56,9 @@ function submitbutton(pressbutton) {
 //-->
 </script>
 
-<?php if ($this->params->get('show_page_title', 1)) : ?>
+<?php if ($this->params->get('show_page_title', 1)) { ?>
 <h1 class="componentheading"><?php echo $this->escape($this->params->get('page_title')); ?></h1>
-<?php endif; ?>
+<?php } ?>
 
 <form action="<?php echo $this->action ?>" method="post" name="adminForm" onSubmit="setgood();" id="edit-content">
 
@@ -73,9 +68,9 @@ function submitbutton(pressbutton) {
         <input class="editor-title" type="text" id="title" name="title" size="50" maxlength="100" value="<?php echo $this->escape($this->article->title); ?>" />
         <input class="editor-alias" type="hidden" id="alias" name="alias" value="<?php echo $this->escape($this->article->alias); ?>" />
     
-        <button type="button save" onclick="submitbutton('save')"><?php echo JText::_('Save') ?></button>
-        <button type="button apply" onclick="submitbutton('apply')"><?php echo JText::_('Apply') ?></button>
-        <button type="button cancel" onclick="submitbutton('cancel')"><?php echo JText::_('Cancel') ?></button>
+        <button type="button save" class="btn-save" onclick="submitbutton('save')"><?php echo JText::_('Save') ?></button>
+        <button type="button apply" class="btn-apply" onclick="submitbutton('apply')"><?php echo JText::_('Apply') ?></button>
+        <button type="button cancel" class="btn-cancel" onclick="submitbutton('cancel')"><?php echo JText::_('Cancel') ?></button>
     </div>
     <?php echo $this->editor->display('text', $this->article->text, '100%', '400', '70', '15'); ?>
 
@@ -113,7 +108,6 @@ function submitbutton(pressbutton) {
         <li class="last"><label for="ordering" class="label"><?php echo JText::_( 'Ordering' ); ?>:</label>
         <?php echo $this->lists['ordering']; ?></li>
     </ul>
-
 </fieldset>
 
 <h2><?php echo JText::_('Metadata'); ?></h2>
