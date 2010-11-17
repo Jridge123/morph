@@ -2,8 +2,7 @@
 if($override = Morph::override(__FILE__, $this)) {
 	if(file_exists($override)) include $override;
 } else {
-
-include_once(dirname(__FILE__).'/../icon.php');
+include_once(JPATH_ROOT.'/templates/morph/html/com_content/icon.php');
 $lang =& JFactory::getLanguage();
 $lang->load('tpl_morph', JPATH_SITE);
 $canEdit = ($this->user->authorize('com_content', 'edit', 'content', 'all') || $this->user->authorize('com_content', 'edit', 'content', 'own'));
