@@ -810,6 +810,14 @@ function mastheadBlock($position, $glob, $jj_const, $classes, $debug_modules){
 			<?php } ?>
 			<?php if ($morph->topnav_position == 'masthead_inside' ) { ?>
 				<?php include 'includes/mastheadnav.php'; ?>
+			<?php } else { ?>
+				<div id="branding-secondary">
+				<?php if(${$position . '_chrome'} === 'tabs' or ${$position . '_chrome'} === 'accordion' ){ ?>
+					<jdoc:include type="modules" name="<?php echo $position; ?>" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } elseif(isset($nojs) && $nojs == 1) { echo 'basic'; } else { echo ${$position.'_chrome'}; } ?>" />
+				<?php } else { ?>
+					<jdoc:include type="modules" name="<?php echo $position; ?>" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo ${$position.'_chrome'}; } ?>" />
+				<?php } ?>
+				</div>
 			<?php } ?>
 			<?php if ( ${$position.'_inner'} == 1 ) { ?></div><?php } ?>
 			</div>
