@@ -3,7 +3,7 @@
 
 	<params>
 		<name>Morph</name>
-		<version>1.18</version>
+		<version>2.0.0</version>
 		<creationDate>28 May 09</creationDate>
 		<author>JoomlaJunkie</author>
 		<authorEmail>noreply@joomlajunkie.com</authorEmail>
@@ -365,12 +365,23 @@
 		<param name="color_bodytext" default="default" type="colorpicker" tooltip="inline" label="Body text color" description="Set the foreground color of your sites main body text." />
 	</params>
 	
-	<params group="googlefontsdata">
-		<param name="googlefonts" default="0" type="itoggle" label="Enable Google Fonts" tooltip="inline" description="">
+	<params group="customfontsdata">
+		<param name="custom_fonts" default="0" type="itoggle" label="Enable custom fonts" tooltip="inline" description="">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
-		<param name="heading_font" default="" type="list" label="Select font" tooltip="inline" description="">
+		<param name="font_providers" default="0" type="list" label="Font providers" tooltip="inline" description="">
+			<option value="">Select a font provider</option>
+			<option value="googlefonts">Google fonts</option>
+			<option value="fontdeck">Fontdeck</option>
+			<option value="typekit">Typekit</option>
+			<option value="fontspring">Fontspring</option>
+			<option value="fontsdotcom">Fonts.com</option>
+			<option value="fontslive">Fontslive</option>
+			<option value="webtype">Webtype</option>
+		</param>
+		<!-- Google Fonts -->
+		<param name="googlefonts_font" default="" type="list" label="Select font" tooltip="inline" description="">
 			<option value=" ">Select a font</option>
 			<option value="Cantarell">Cantarell</option>
 			<option value="Cardo">Cardo</option>
@@ -400,12 +411,22 @@
 			<option value="Vollkorn">Vollkorn</option>
 			<option value="Yanone Kaffeesatz">Yanone Kaffeesatz</option>
 		</param>
+		<!-- Fontdeck -->
+		<param name="fontdeck_fontid" default="" type="text" label="Font id" tooltip="inline" description="" />	
+		<param name="fontdeck_domain" default="" type="text" label="Font domain" tooltip="inline" description="" />	
+		<param name="fontdeck_projectid" default="" type="text" label="Fontdeck project id" tooltip="inline" description="" />	
+		<!-- Typekit -->
+		<param name="typekit_id" default="" type="text" label="Typekit id" tooltip="inline" description="" />
+		<!-- Fontspring -->
+		<param name="fontspring_id" default="" type="text" label="Fontspring id" tooltip="inline" description="" />	
+		<!-- Fonts.com -->
+		<param name="fontsdotcom_id" default="" type="text" label="Fonts.com id" tooltip="inline" description="" />
+		<!-- Fontslive -->
+		<param name="fontslive_id" default="" type="text" label="Fontslive id" tooltip="inline" description="" />
+		<!-- WebType -->
+		<param name="webtype_id" default="" type="text" label="WebType id" tooltip="inline" description="" />
 	</params>
-	
-	<params group="progressivedata">
-	
-	</params>
-	
+		
 	<params group="menudata">
 		<param name="topnav_hoverintent" default="1" type="itoggle" label="HoverIntent" tooltip="inline" description="HoverIntent is a plug-in that attempts to determine the user's intent... like a crystal ball, only with mouse movement! This generally improves the usability of your Superfish menu.">
 			<option value="1">Yes</option>
