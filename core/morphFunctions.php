@@ -435,12 +435,12 @@ if ( $isiPhone && !$iPhoneCookie ) {
     		if( $selectivizr == 1 ) { $MORPH->addScript($templatepath .'/core/js/selectivizr.js');}
     		if(file_exists(JPATH_ROOT.$themeletpath .'/js/themelet.js')) $MORPH->addScriptAfter($themeletpath .'/js/themelet.js');
     		if(file_exists(JPATH_ROOT.$themeletpath .'/js/custom.js')) $MORPH->addScriptAfter($themeletpath .'/js/custom.js');
-			if ( $customfonts == 1 && $font_providers == 'typekit' ) { 
+			if ( $custom_fonts == 1 && $font_providers == 'typekit' ) { 
 				$doc->addScript('http://use.typekit.com/'.$googlefonts_font.'.js'); 
 				$typekitjs = "try{Typekit.load();}catch(e){}";
 				$document->addScriptDeclaration( $typekitjs ); 
 			}
-			if ( $customfonts == 1 && $font_providers == 'fontsdotcom' ) { $doc->addStyleSheet('http://fast.fonts.com/jsapi/'.$fontsdotcom_id.'.js'); }
+			if ( $custom_fonts == 1 && $font_providers == 'fontsdotcom' ) { $doc->addStyleSheet('http://fast.fonts.com/jsapi/'.$fontsdotcom_id.'.js'); }
 			    		
 			if($isModUtilWP || $isComWP){
 				$wp_images_js = '/images/wordpress/themes/morph/js/images.js';
@@ -520,10 +520,10 @@ if(  $isiPhone && !$iPhoneCookie  ){
 		if ( $simpletweet == 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/simpletweet.css'); }
 		if ( $simplecontact == 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/simplecontact.css'); }
 		if ( $simplesocial == 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/simplesocial.css'); }
-		if ( $customfonts == 1 && $font_providers == 'googlefonts' ) { $doc->addStyleSheet('http://fonts.googleapis.com/css?family='.str_replace(" ", "+", $googlefonts_font)); }
-		if ( $customfonts == 1 && $font_providers == 'fontdeck' ) { $doc->addStyleSheet('http://f.fontdeck.com/s/css/'.$fontdeck_fontid.'/'.$fontdeck_domain.'/'.$fontdeck_projectid.'.css'); }
-		if ( $customfonts == 1 && $font_providers == 'fontslive' ) { $doc->addStyleSheet('http://webfonts.fontslive.com/css/'.$fontslive_id.'.css'); }
-		if ( $customfonts == 1 && $font_providers == 'webtype' ) { $doc->addStyleSheet('http://cloud.webtype.com/css/'.$webtype_id.'.css'); }
+		if ( $custom_fonts == 1 && $font_providers == 'googlefonts' ) { $doc->addStyleSheet('http://fonts.googleapis.com/css?family='.str_replace(" ", "+", $googlefonts_font)); }
+		if ( $custom_fonts == 1 && $font_providers == 'fontdeck' ) { $doc->addStyleSheet('http://f.fontdeck.com/s/css/'.$fontdeck_fontid.'/'.$fontdeck_domain.'/'.$fontdeck_projectid.'.css'); }
+		if ( $custom_fonts == 1 && $font_providers == 'fontslive' ) { $doc->addStyleSheet('http://webfonts.fontslive.com/css/'.$fontslive_id.'.css'); }
+		if ( $custom_fonts == 1 && $font_providers == 'webtype' ) { $doc->addStyleSheet('http://cloud.webtype.com/css/'.$webtype_id.'.css'); }
 		
 		
 		
