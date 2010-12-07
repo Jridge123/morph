@@ -13,28 +13,28 @@
 	</a>
 	</div>
 	
-	<?php if(JDocumentHTML::countModules('iphonenav')) { ?>
+	<?php if(Morph::countModules('iphonenav')) { ?>
 	<div id="iphone-nav">
 		<jdoc:include type="modules" name="iphonenav" style="basic" />
 	</div>
 	<?php } ?>
 	
-	<?php if(JDocumentHTML::countModules('iphone1')) { ?>
+	<?php if(Morph::countModules('iphone1')) { ?>
 	<div id="iphone1"><jdoc:include type="modules" name="iphone1" style="basic" /></div>
     <?php } ?>
 
 	<div id="content" class="iphone-inner">			
-	    <?php if(JDocumentHTML::countModules('iphone2')) { ?>
+	    <?php if(Morph::countModules('iphone2')) { ?>
 		    <div id="iphone2"><jdoc:include type="modules" name="iphone2" style="basic" /></div>
 	    <?php } ?>
 	        <jdoc:include type="message" />
 	        <jdoc:include type="component" />
-	    <?php if(JDocumentHTML::countModules('iphone3')) { ?>
+	    <?php if(Morph::countModules('iphone3')) { ?>
 		    <div id="iphone3"><jdoc:include type="modules" name="iphone3" style="basic" /></div>
 	    <?php } ?>
     </div>
 
-	<?php if(JDocumentHTML::countModules('iphone4')) { ?>
+	<?php if(Morph::countModules('iphone4')) { ?>
 	<div id="iphone4"><jdoc:include type="modules" name="iphone4" style="basic" /></div>
     <?php } ?>
 

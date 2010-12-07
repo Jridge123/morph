@@ -13,28 +13,28 @@
 	</a>
 	</div>
 	
-	<?php if(JDocumentHTML::countModules('ipadnav')) { ?>
+	<?php if(Morph::countModules('ipadnav')) { ?>
 	<div id="ipad-nav">
 		<jdoc:include type="modules" name="ipadnav" style="basic" />
 	</div>
 	<?php } ?>
 	
-	<?php if(JDocumentHTML::countModules('ipad1')) { ?>
+	<?php if(Morph::countModules('ipad1')) { ?>
 	<div id="ipad1"><jdoc:include type="modules" name="ipad1" style="basic" /></div>
     <?php } ?>
 
 	<div id="content" class="ipad-inner">			
-	    <?php if(JDocumentHTML::countModules('ipad2')) { ?>
+	    <?php if(Morph::countModules('ipad2')) { ?>
 		    <div id="ipad2"><jdoc:include type="modules" name="ipad2" style="basic" /></div>
 	    <?php } ?>
 	        <jdoc:include type="message" />
 	        <jdoc:include type="component" />
-	    <?php if(JDocumentHTML::countModules('ipad3')) { ?>
+	    <?php if(Morph::countModules('ipad3')) { ?>
 		    <div id="ipad3"><jdoc:include type="modules" name="ipad3" style="basic" /></div>
 	    <?php } ?>
     </div>
 
-	<?php if(JDocumentHTML::countModules('ipad4')) { ?>
+	<?php if(Morph::countModules('ipad4')) { ?>
 	<div id="ipad4"><jdoc:include type="modules" name="ipad4" style="basic" /></div>
     <?php } ?>
 

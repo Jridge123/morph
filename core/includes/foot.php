@@ -5,7 +5,7 @@
             <?php echo codeComments('s','Footer Block','includes/foot.php','5', $code_comments); ?>
             <div id="footer" class="<?php echo $site_width; ?> block <?php echo $footer_blockfx;?>">
                 <div class="footer-left">
-                    <?php if(JDocumentHTML::countModules('footernav')) { ?>
+                    <?php if(Morph::countModules('footernav')) { ?>
                     <jdoc:include type="modules" name="footernav" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo 'none'; } ?>" />
                     <?php } ?>
                     <?php if ($footer_copyright_show == 1) { ?>

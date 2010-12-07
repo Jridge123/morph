@@ -621,7 +621,7 @@ include_once('OuterLayout.php');
 $document = JFactory::getDocument();
 if (!$MORPH->countModules('outersplit or outer1 or outer2 or outer3 or outer4 or outer5')) $CurrentOuterScheme = '';
 if (!$MORPH->countModules('innersplit or inner1 or inner2 or inner3 or inner4 or inner5')) $CurrentInnerScheme = '';
-if (!$MORPH->countModules('user4')) $no_search = 'no_search';
+if (!Morph::countModules('user4')) $no_search = 'no_search';
 
 // intelli mods array
 $jj_const = array(

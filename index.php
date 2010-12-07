@@ -59,7 +59,7 @@ if($isiPhone && !$iPhoneCookie) {
 } else {
 	if(isIE6() && ($ie6_upgrade == 1)) { include_once('core/includes/ie6upgrade.php'); }
 	include_once('core/includes/skipto.php');
-	if($this->countModules('advert1')) { ?><jdoc:include type="modules" name="advert1" style="none" /><?php } ?>
+	if(Morph::countModules('advert1')) { ?><jdoc:include type="modules" name="advert1" style="none" /><?php } ?>
 	<?php 
 	if($toolbar_position == 0) { include_once('core/includes/toolbar.php'); }
 	if(file_exists($inc_masthead)) { include_once($inc_masthead); } else { include_once('core/includes/masthead.php'); }
@@ -77,7 +77,7 @@ if($isiPhone && !$iPhoneCookie) {
 	if(file_exists($inc_footer)) { include_once($inc_footer); } else { include_once('core/includes/foot.php'); }
 	if($isiPhone) { include_once('core/includes/iphone_footer.php'); } ?>
 	<jdoc:include type="modules" name="debug" />
-	<?php if($this->countModules('advert2')) { ?><jdoc:include type="modules" name="advert2" style="none" /><?php } ?>
+	<?php if(Morph::countModules('advert2')) { ?><jdoc:include type="modules" name="advert2" style="none" /><?php } ?>
 	<?php if ( $plugin_scrollto == 1 && !$isiPhone ) { ?>
 		<a href="#top" id="top-link"><?php echo JText::_('TPL_MORPH_BACK_TO_TOP'); ?></a>
 	<?php } ?>
