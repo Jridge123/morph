@@ -132,6 +132,7 @@ $css_ie					    = $absolutepath.'/css/ie.css';
 $css_ie6				    = $absolutepath.'/css/ie6.css';
 $css_ie7				    = $absolutepath.'/css/ie7.css';
 $css_ie8				    = $absolutepath.'/css/ie8.css';
+$css_ie9				    = $absolutepath.'/css/ie9.css';
 $css_browsers				= $absolutepath.'/css/browsers.css';
 $css_yui					= $absolutepath.'/css/yui.css';
 $css_rtl					= $absolutepath.'/css/rtl.css';
