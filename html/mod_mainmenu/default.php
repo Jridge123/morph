@@ -73,8 +73,10 @@ function modNewMainMenuXMLCallback(&$node, $args)
 	if (($node->name() == 'li') && ($id = $node->attributes('id'))) {
 	
 		if ($node->attributes('class')) {
+		    $node->addAttribute('id', 'item'.$id);
 			$node->addAttribute('class', $node->attributes('class').' item'.$id);
 		} else {
+		    $node->addAttribute('id', 'item'.$id);
 			$node->addAttribute('class', 'item'.$id);
 		}
 		foreach($node->children() as $child){
@@ -83,13 +85,13 @@ function modNewMainMenuXMLCallback(&$node, $args)
 			}
 		}
 	}
-	if (isset($path) && ($id = $node->attributes('id'))) {
-		$node->addAttribute('id', 'item'.$id);
+//	if (isset($path) && ($id = $node->attributes('id'))) {
+		//$node->addAttribute('id', 'item'.$id);
 		//$node->addAttribute('id', 'current');
-	} else {
-		$node->addAttribute('id', 'item'.$id);
+//	} else {
+		//$node->addAttribute('id', 'item'.$id);
 		//$node->removeAttribute('id');
-	}
+//	}
 	$node->removeAttribute('level');
 	$node->removeAttribute('access');
 }
