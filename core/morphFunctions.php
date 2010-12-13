@@ -570,6 +570,7 @@ if(  $isiPhone && !$iPhoneCookie  ){
 		if(file_exists($css_ie6) && preg_match('/MSIE 6/i', $_SERVER['HTTP_USER_AGENT'])) $MORPH->addStyleSheetAfter($themeletpath .'/css/ie6.css');
 		if(file_exists($css_ie7) && preg_match('/MSIE 7/i', $_SERVER['HTTP_USER_AGENT'])) $MORPH->addStyleSheetAfter($themeletpath .'/css/ie7.css');
 		if(file_exists($css_ie8) && preg_match('/MSIE 8/i', $_SERVER['HTTP_USER_AGENT'])) $MORPH->addStyleSheetAfter($themeletpath .'/css/ie8.css');		
+		if(file_exists($css_ie9) && preg_match('/MSIE 9/i', $_SERVER['HTTP_USER_AGENT'])) $MORPH->addStyleSheetAfter($themeletpath .'/css/ie9.css');		
 		if($isiPad){ 
 			if(file_exists($css_ipad)){ 
 				$MORPH->addStyleSheet($themeletpath .'/css/ipad.css');
