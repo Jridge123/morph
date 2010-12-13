@@ -172,6 +172,8 @@ $inc_topshelf2				= $absolutepath.'/includes/topshelf2.php';
 $inc_topshelf3				= $absolutepath.'/includes/topshelf3.php';
 $inc_user1					= $absolutepath.'/includes/user1.php';
 $inc_user2					= $absolutepath.'/includes/user2.php';
+$morph 						= Morph::getInstance();
+$morph->slogan_text 		= str_replace("&", "&amp;", $morph->slogan_text);
 
 $moo = JFactory::getConfig()->getValue('debug') ? '-uncompressed.js' : '.js';
 $mtu = JURI::base(true).'/plugins/system/mtupgrade/mootools'.$moo;
@@ -811,37 +813,45 @@ function mastheadBlock($position, $glob, $jj_const, $classes, $debug_modules){
 	global $mainframe;
 	$morph = Morph::getInstance();
 	if ($morph->logo_block == $position.'_logo') { $logo_show = 1; }
+	
 	if($glob->countModules($position) && ${$position.'_show'} == 0 || $logo_show == 1 ){ ?>
-		<?php if ( ${$position.'_wrap'} == 1 ) { ?><div id="<?php echo $position; ?>-wrap" class="clearer block wrap modcount<?php ${$position . '_chrome'}; if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; } if(${$position.'_blockfx'} !== ''){ echo ' '.${$position.'_blockfx'}; } ?>"><?php } ?>
-			<div id="<?php echo $position; ?>" class="block<?php if ( $logo_show == 1 ) { echo ' logo-active '; } ?> <?php echo $morph->position_class; ?> <?php echo $morph->site_width; ?> <?php getYuiSuffix($position, $jj_const); ?> clearer modcount<?php echo ${$position . '_count'}.' '.${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }if(${$position.'_blockfx'} !== ''){ echo ' '.${$position.'_blockfx'}; }?>">
+		<?php if ( ${$position.'_wrap'} == 1 ) { ?>
+			<div id="<?php echo $position; ?>-wrap" class="clearer block wrap modcount<?php ${$position . '_chrome'}; if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; } if(${$position.'_blockfx'} !== ''){ echo ' '.${$position.'_blockfx'}; } ?>"><?php } ?>
+				<div id="<?php echo $position; ?>" class="block<?php if ( $logo_show == 1 ) { echo ' logo-active '; } ?> <?php echo $morph->position_class; ?> <?php echo $morph->site_width; ?> <?php getYuiSuffix($position, $jj_const); ?> clearer modcount<?php echo ${$position . '_count'}.' '.${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }if(${$position.'_blockfx'} !== ''){ echo ' '.${$position.'_blockfx'}; }?>">
 		<?php } else { ?>	
 			<div id="<?php echo $position; ?>" class="block <?php if ( $logo_show == 1 ) { echo 'logo-active '; } ?> <?php echo $position_class; ?> <?php echo $site_width ?> clearer modcount<?php echo ${$position . '_count'}.' '.${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }if(${$position.'_blockfx'} !== ''){ echo ' '.${$position.'_blockfx'}; }?>">
-			<?php } ?>
-			<?php if ( ${$position.'_inner'} == 1 ) { ?><div id="<?php echo $position; ?>-inner" class="inner clearer"><?php } ?>
-			<?php if ( $logo_show == 1 ) { ?>
-				<?php include 'includes/logo.php'; ?>
-			<?php } ?>
-			<?php if ($morph->topnav_position == 'masthead_inside' ) { ?>
-				<?php include 'includes/mastheadnav.php'; ?>
-			<?php } else { ?>
-				<div id="branding-secondary">
+		<?php } ?>
+		
+		<?php if ( ${$position.'_inner'} == 1 ) { ?>
+			<div id="<?php echo $position; ?>-inner" class="inner clearer">
+		<?php } ?>
+		
+		<?php if ( $logo_show == 1 ) { ?>
+			<?php include 'includes/logo.php'; ?>
+		<?php } ?>
+		
+		<?php if ($morph->topnav_position == 'masthead_inside' ) { ?>
+			<?php include 'includes/mastheadnav.php'; ?>
+		<?php } else { ?>
+			<div id="branding-secondary">
 				<?php if(${$position . '_chrome'} === 'tabs' or ${$position . '_chrome'} === 'accordion' ){ ?>
 					<jdoc:include type="modules" name="<?php echo $position; ?>" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } elseif(isset($nojs) && $nojs == 1) { echo 'basic'; } else { echo ${$position.'_chrome'}; } ?>" />
 				<?php } else { ?>
 					<jdoc:include type="modules" name="<?php echo $position; ?>" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo ${$position.'_chrome'}; } ?>" />
 				<?php } ?>
-				</div>
-			<?php } ?>
-			<?php if ( ${$position.'_inner'} == 1 ) { ?></div><?php } ?>
 			</div>
-			<?php if ($logo_show == 1 ) { ?></div><?php } ?>
-			<?php if ( ${$position.'_wrap'} == 1 ) { ?></div><?php } ?>
+		<?php } ?>
+		
+		<?php if ( ${$position.'_inner'} == 1 ) { ?></div><?php } ?>
+					
+		<?php if ($logo_show == 1 ) { ?></div><?php } ?>
+	<?php if ( ${$position.'_wrap'} == 1 ) { ?></div><?php } ?>
 		<?php
 	}
 
 /* Set the menu blocks position via Morph's Hooks */
 function addMenu () {
-include_once('templates/morph/core/includes/topnav.php');
+	include_once('templates/morph/core/includes/topnav.php');
 }
 $action->add_action ($topnav_position, 'addMenu');
 
