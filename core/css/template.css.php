@@ -13,6 +13,30 @@ elseif ($this->css->site_width == 'doc4') {
 	$site_width = 974;
 }
 ?>
+<?php 
+include JPATH_ROOT.'/templates/morph/core/morphLayouts.php';
+$layouts = new morphLayouts();
+if ($layouts->innerLayouts['outer_count'] == 1) { 
+?>
+#bd.left-pos-secondary #inner-wrap.left-tertiary #tertiary-content {
+	margin-left:<?php echo $layouts->innerLayouts['sidebars_gutter'].$layouts->innerLayouts['type']; ?>;
+}
+
+#bd.right-pos-secondary #inner-wrap.left-tertiary #primary-content {
+	margin-right:<?php echo $layouts->innerLayouts['sidebars_gutter'].$layouts->innerLayouts['type']; ?>;
+}
+
+#bd.left-pos-secondary #inner-wrap.right-tertiary #primary-content {
+	margin-left:<?php echo $layouts->innerLayouts['sidebars_gutter'].$layouts->innerLayouts['type']; ?>;
+}
+
+#bd.right-pos-secondary #inner-wrap.right-tertiary #tertiary-content {
+	margin-right:<?php echo $layouts->innerLayouts['sidebars_gutter'].$layouts->innerLayouts['type']; ?>;
+}
+<?php } ?>
+
+.bd-inner {padding: <?php echo $layouts->innerLayouts['padding_bdinner']; ?>;}
+
 <?php if ( $this->css->logowrap_height ) { ?>#branding{height:<?php echo $this->css->logowrap_height; ?>;}<?php } ?>
 <?php if ( $this->css->logo_type == 0 ) { ?>/* Text Based Logo */
 #<?php echo $this->css->themelet; ?> #branding h1{top:<?php echo $this->css->logo0_top; ?>;left:<?php echo $this->css->logo0_left; ?>;z-index:<?php echo $this->css->logo0_stack; ?>;font-size:<?php echo $this->css->logo0_textsize; ?>;}

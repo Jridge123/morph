@@ -1460,6 +1460,10 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
+		<param name="padding_bdinner" default="0em 0em 0em 0em" type="text" tooltip="inline" label="Padding for main content wrap" description="This will add padding to the left and right of the div that wraps around both sidebars (inner and outer) and main content" />
+		
+		<param name="sidebars_gutter" default="1em" type="text" tooltip="inline" label="Gap between sidebars &amp; content" description="This will add padding equal to this value between sidebars" />
+		
 		<param name="pathway_text_show" default="1" type="itoggle" label="Enable pathway pre-text" tooltip="inline" description="This option lets you choose whether or not to display the text before the pathway module, eg: You are here">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
@@ -1591,15 +1595,16 @@
 		<param name="outer5_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />	
 	</params>
 	
-	<params group="innersidebardata">	
-		<param name="inner_default" default="yui-gh" type="list" label="Inner layout default" tooltip="modal" description="innerlayout.html">
-			<option value="yui-g">50% Right</option>
-			<option value="yui-gc">33% Right</option>
-			<option value="yui-ge">25% Right</option>
-			<option value="yui-gi">200px Left</option>
-			<option value="yui-gh">200px Right</option>
-			<option value="none">None</option>
+	<params group="innersidebardata">
+		<param name="inner_pos" default="right" type="list" label="Inner sidebar position" tooltip="inline" description="Position the sidebar to the left or right of the main content?">
+			<option value="left">Left of main content</option>
+			<option value="right">Right of main content</option>
 		</param>
+		<param name="inner_width" default="200" type="text" tooltip="inline" label="Width of inner sidebar" description="Set a width in % or px for the inner sidebar" />
+		<param name="inner_width_type" default="px" type="list" label="Use px or %" tooltip="inline" description="">
+			<option value="%">Percentage</option>
+			<option value="px">Pixels</option>
+		</param>	
 		<param name="inner_blockfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Block style" description="blockfx-default.html" />
 		<param name="tertiary_inner" default="0" type="itoggle" label="Inner wrapping" tooltip="inline" description="Would you like the secondary content sidebar to have an inner wrap div? This is useful if you need to add padding to the contents of the sidebar.">
 			<option value="1">Yes</option>
