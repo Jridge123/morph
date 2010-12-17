@@ -6,8 +6,30 @@ require_once('templates/morph/core/phphooks.class.php');
 require_once('templates/morph/core/morphParams.php');
 require_once('templates/morph/core/browser.php');
 
+require_once('morphLayouts.php');
+
+function addLayoutCSS() {
+	$layouts = new morphLayouts();
+	$morph = Morph::getInstance();
+	$inner_css = '
+#tertiary-content {
+	width:'.$layouts->innerLayouts['inner_width'].$layouts->innerLayouts['type'].';
+	float:'.$layouts->innerLayouts['inner_sidebar_position'].'
+}';
+	$primary_css = '
+#primary-content {
+	width:'.$layouts->innerLayouts['main_width'].$layouts->innerLayouts['type'].';
+	float:'.$layouts->innerLayouts['main_pos'].'
+}';
+	$morph->addStyleDeclaration($inner_css.$primary_css);
+}
+
+// call add layout css function
+addLayoutCSS();
+
 // add morph action hooks
 $action = new morphactions();
+
 
 if(isset($_COOKIE['nogzip'])){
 	$conf = JFactory::getConfig();
@@ -172,8 +194,7 @@ $inc_topshelf2				= $absolutepath.'/includes/topshelf2.php';
 $inc_topshelf3				= $absolutepath.'/includes/topshelf3.php';
 $inc_user1					= $absolutepath.'/includes/user1.php';
 $inc_user2					= $absolutepath.'/includes/user2.php';
-$morph 						= Morph::getInstance();
-$morph->slogan_text 		= str_replace("&", "&amp;", $morph->slogan_text);
+$MORPH->slogan_text 		= str_replace("&", "&amp;", $MORPH->slogan_text);
 
 $moo = JFactory::getConfig()->getValue('debug') ? '-uncompressed.js' : '.js';
 $mtu = JURI::base(true).'/plugins/system/mtupgrade/mootools'.$moo;
@@ -617,16 +638,13 @@ ob_start();
 	if($googlefonts == 1) echo "#$themelet h1, #$themelet h2 {font-family: '".$heading_font."', Arial, Helvetica, sans-serif;}";
 $doc->addStyleDeclaration(ob_get_clean());
 
-
-// get layout functions
-include_once('InnerLayout.php');
-include_once('OuterLayout.php');
+// add outer layout class
+$layouts = new morphLayouts();
+if (!$MORPH->countModules('outersplit or outer1 or outer2 or outer3 or outer4 or outer5')) $layouts->CurrentOuterScheme = '';
+if (!$MORPH->countModules('innersplit or inner1 or inner2 or inner3 or inner4 or inner5')) $layouts->CurrentInnerScheme = '';
+if (!$MORPH->countModules('user4')) $no_search = 'no_search';
 
 $document = JFactory::getDocument();
-if (!$MORPH->countModules('outersplit or outer1 or outer2 or outer3 or outer4 or outer5')) $CurrentOuterScheme = '';
-if (!$MORPH->countModules('innersplit or inner1 or inner2 or inner3 or inner4 or inner5')) $CurrentInnerScheme = '';
-if (!Morph::countModules('user4')) $no_search = 'no_search';
-
 // intelli mods array
 $jj_const = array(
 	"yui_suffix" => array(
