@@ -197,7 +197,7 @@ class Morph {
 		{
 			$data[] = $key.'='.$value;
 		}
-		$path = $path.'#'.implode('&', $data);
+		$path = $path.'&'.implode('&', $data);
 		
 		if(file_exists($path))
 		{
