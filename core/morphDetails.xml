@@ -1601,7 +1601,6 @@
 			<option value="0">No</option>
 		</param>
 		<param name="inner_pos" default="right" type="list" label="Inner sidebar position" tooltip="inline" description="Position the sidebar to the left or right of the main content?">
-			<option value="none">None - hide inner sidebar</option>
 			<option value="left">Left of main content</option>
 			<option value="right">Right of main content</option>
 		</param>
