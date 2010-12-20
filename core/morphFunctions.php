@@ -6,30 +6,8 @@ require_once('templates/morph/core/phphooks.class.php');
 require_once('templates/morph/core/morphParams.php');
 require_once('templates/morph/core/browser.php');
 
-require_once('morphLayouts.php');
-
-function addLayoutCSS() {
-	$layouts = new morphLayouts();
-	$morph = Morph::getInstance();
-	$inner_css = '
-#tertiary-content {
-	width:'.$layouts->innerLayouts['inner_width'].$layouts->innerLayouts['type'].';
-	float:'.$layouts->innerLayouts['inner_sidebar_position'].'
-}';
-	$primary_css = '
-#primary-content {
-	width:'.$layouts->innerLayouts['main_width'].$layouts->innerLayouts['type'].';
-	float:'.$layouts->innerLayouts['main_pos'].'
-}';
-	$morph->addStyleDeclaration($inner_css.$primary_css);
-}
-
-// call add layout css function
-addLayoutCSS();
-
 // add morph action hooks
 $action = new morphactions();
-
 
 if(isset($_COOKIE['nogzip'])){
 	$conf = JFactory::getConfig();
@@ -518,6 +496,16 @@ if(isset($_GET['hide_firebug'])){
 	header('Location: ' . str_replace(array('?hide_firebug','&hide_firebug'), '', $curr_url));
 }
 
+//render layouts and layout css
+require_once('morphLayouts.php');
+// call add layout css function
+morphLayouts::addLayoutCSS();
+// add outer layout class
+$layouts = new morphLayouts();
+if (!$MORPH->countModules('outersplit or outer1 or outer2 or outer3 or outer4 or outer5')) $layouts->CurrentOuterScheme = '';
+if (!$MORPH->countModules('innersplit or inner1 or inner2 or inner3 or inner4 or inner5')) $layouts->CurrentInnerScheme = '';
+if (!$MORPH->countModules('user4')) $no_search = 'no_search';
+
 // Activate rtl for testing
 // $direction = 'rtl';
 if(  $isiPhone && !$iPhoneCookie  ){
@@ -637,12 +625,6 @@ function isIE6($string=''){
 ob_start();
 	if($font_providers == 'googlefonts') echo "#$themelet h1, #$themelet h2 {font-family: '".$heading_font."', Arial, Helvetica, sans-serif;}";
 $doc->addStyleDeclaration(ob_get_clean());
-
-// add outer layout class
-$layouts = new morphLayouts();
-if (!$MORPH->countModules('outersplit or outer1 or outer2 or outer3 or outer4 or outer5')) $layouts->CurrentOuterScheme = '';
-if (!$MORPH->countModules('innersplit or inner1 or inner2 or inner3 or inner4 or inner5')) $layouts->CurrentInnerScheme = '';
-if (!$MORPH->countModules('user4')) $no_search = 'no_search';
 
 $document = JFactory::getDocument();
 // intelli mods array

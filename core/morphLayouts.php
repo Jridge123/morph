@@ -1,7 +1,5 @@
 <?php defined( '_JEXEC' ) or die( 'Restricted access' );
 
-require_once JPATH_ROOT . '/templates/morph/core/morphLoader.php';
-
 class morphLayouts {
 
 	
@@ -161,16 +159,31 @@ class morphLayouts {
 		$inner3_count 				= $morph->countModules('inner3');
 		$inner4_count 				= $morph->countModules('inner4');
 		$inner5_count 				= $morph->countModules('inner5');
-
-		if (isset($this->innerLayouts['inner_width']) == 0) {
-			$inner_active = 0;
-		}
-		if ($inner1_count or $inner2_count or $inner3_count or $inner4_count or $inner5_count){ 
-			$inner_active = 1;
+		
+		$this->inner_width = $morph->inner_width;
+		$this->inner_show = $morph->inner_show;
+		
+		
+		if ($inner1_count or $inner2_count or $inner3_count or $inner4_count or $inner5_count) {
+			$this->hasModsPublished = 1;
 		} else {
-			$inner_active = 0;
+			$this->hasModsPublished = 0;
 		}
-		return $inner_active;
+		
+		if ($this->inner_width == 0 or $this->inner_show == 0) {
+			$this->hasInner = 0;
+			$morph->inner_width = 0;
+		} else {
+			$this->hasInner = 1;
+		}
+		
+		if ($this->hasModsPublished == 1 and $this->hasInner == 1) {
+			$inner_count = 1;
+		} else if ($this->hasInner == 0) {
+			$inner_count = 0;
+		}
+
+		return $inner_count;
 	}
 
 	public function innerLayout()
@@ -206,7 +219,7 @@ class morphLayouts {
 		
 		$this->innerScheme='';
 		if(!preg_match('/administrator/i', $_SERVER['REQUEST_URI'])){
-			$this->innerScheme = array ('default'=>$morph->inner_default);	
+			$this->innerScheme = array ();	
 			foreach($morph as $k => $v){
 		 		if(preg_match('/id_/i', $k)){
 		 			$k = str_replace('id_', '', $k);
@@ -363,6 +376,26 @@ class morphLayouts {
 				
 		return $this->innerLayouts;
 	}
+	
+	static function addLayoutCSS() {
+		$layouts = new morphLayouts();
+		$morph = Morph::getInstance();	
+		$inner_css = '
+#tertiary-content {width:'.$layouts->innerLayouts['inner_width'].$layouts->innerLayouts['type'].';float:'.$layouts->innerLayouts['inner_sidebar_position'].';}';
+		$primary_css = '
+#primary-content {width:'.$layouts->innerLayouts['main_width'].$layouts->innerLayouts['type'].';float:'.$layouts->innerLayouts['main_pos'].';}';
+		$bd_inner_css = '
+#bd .bd-inner {padding: '. $layouts->innerLayouts['padding_bdinner'].';}';
+	if ($layouts->innerLayouts['outer_count'] == 1) {
+		$margin_css = '
+#bd.left-pos-secondary #inner-wrap.left-tertiary #tertiary-content {margin-left:'. $layouts->innerLayouts['sidebars_gutter'].$layouts->innerLayouts['type'] .';}
+#bd.right-pos-secondary #inner-wrap.left-tertiary #primary-content {margin-right:'.$layouts->innerLayouts['sidebars_gutter'].$layouts->innerLayouts['type'] .';}
+#bd.left-pos-secondary #inner-wrap.right-tertiary #primary-content {margin-left:'. $layouts->innerLayouts['sidebars_gutter'].$layouts->innerLayouts['type'] .';}
+#bd.right-pos-secondary #inner-wrap.right-tertiary #tertiary-content {margin-right:'. $layouts->innerLayouts['sidebars_gutter'].$layouts->innerLayouts['type'] .';}';
+	}
+		$morph->addStyleDeclaration($inner_css.$primary_css.$bd_inner_css.$margin_css);
+	}
+	
 
 }
 
