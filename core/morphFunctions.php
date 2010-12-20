@@ -635,7 +635,7 @@ function isIE6($string=''){
 }
 
 ob_start();
-	if($googlefonts == 1) echo "#$themelet h1, #$themelet h2 {font-family: '".$heading_font."', Arial, Helvetica, sans-serif;}";
+	if($font_providers == 'googlefonts') echo "#$themelet h1, #$themelet h2 {font-family: '".$heading_font."', Arial, Helvetica, sans-serif;}";
 $doc->addStyleDeclaration(ob_get_clean());
 
 // add outer layout class
