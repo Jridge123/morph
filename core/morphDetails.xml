@@ -658,7 +658,7 @@
 	</params>
 	
 	<params group="performancedata">
-		<param name="pack_css" default="1" type="itoggle" label="Enable css packing" tooltip="inline" description="CSS Packing (otherwise refered to as CSS Concatination) refers to the combining of multiple files into a single file. This boosts your sites performance as fewer http requests are needed.">
+		<param name="pack_css" default="0" type="itoggle" label="Enable css packing" tooltip="inline" description="CSS Packing (otherwise refered to as CSS Concatination) refers to the combining of multiple files into a single file. This boosts your sites performance as fewer http requests are needed.">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
@@ -670,7 +670,7 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
-		<param name="pack_js" default="1" type="itoggle" label="Enable js packing" tooltip="inline" description="JS Packing (otherwise refered to as JS Concatination) refers to the combining of multiple files into a single file. This boosts your sites performance as fewer http requests are needed.">
+		<param name="pack_js" default="0" type="itoggle" label="Enable js packing" tooltip="inline" description="JS Packing (otherwise refered to as JS Concatination) refers to the combining of multiple files into a single file. This boosts your sites performance as fewer http requests are needed.">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
@@ -678,7 +678,7 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
-		<param name="cache" default="1" type="itoggle" label="Enable caching" tooltip="inline" description="Caching the dynamic css and js files will greatly improve performance regarding response time (the 'waiting for response' delay) and loadtimes. Turn on gzip too for the best possible performance.">
+		<param name="cache" default="0" type="itoggle" label="Enable caching" tooltip="inline" description="Caching the dynamic css and js files will greatly improve performance regarding response time (the 'waiting for response' delay) and loadtimes. Turn on gzip too for the best possible performance.">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
