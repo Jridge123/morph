@@ -494,7 +494,7 @@
 		</param>
 	</params>
 	<params group="topnavdata">
-		<param name="topnav_position" default="2" type="list" label="Topnav position" tooltip="inline" description="Where would you like the top menu to be displayed.">
+		<param name="topnav_position" default="masthead_after" type="list" label="Topnav position" tooltip="inline" description="Where would you like the top menu to be displayed.">
 			<option value="">Select menu position:</option>
 			<option value="">-------------------------------------</option>
 			<option value="toolbar_before">Before Toolbar</option>
