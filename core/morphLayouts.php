@@ -154,6 +154,8 @@ class morphLayouts {
 	
 	public function innerCount() {
 		$morph = Morph::getInstance();
+		
+		$inner_count = '';
 		$inner1_count 				= $morph->countModules('inner1');
 		$inner2_count 				= $morph->countModules('inner2');
 		$inner3_count 				= $morph->countModules('inner3');
@@ -306,6 +308,11 @@ class morphLayouts {
 										
 		//. Goal: get total padding for bd-inner and inner-wrap from Configurator options
 		$this->total_padding = '';
+		
+		// if be inner padding is shorthand, lets build the array
+		if (strlen($morph->padding_bdinner) == 3) {
+			$morph->padding_bdinner = $morph->padding_bdinner.' '.$morph->padding_bdinner.' '.$morph->padding_bdinner.' '.$morph->padding_bdinner;
+		}
 		
 			// 1. get total bdinner padding - left and right only						
 			$this->padding_bdinner = explode("em ", $morph->padding_bdinner);
