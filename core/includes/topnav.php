@@ -9,7 +9,7 @@ if(file_exists($inc_topnav)) { include_once($inc_topnav); } else { ?>
 		<div id="topnav-wrap" class="wrap block <?php echo $morph->topnav_blockfx.' '; echo pt_classes(array('subtext' => $morph->subtext, 'topdrop' => $morph->topdrop, 'topfish' => $morph->topfish)); ?>">
 	<?php } ?>
 	<?php if ($morph->topnav_position !== 'topnav_inside' ) { ?>
-		<div id="topnav" class="block<?php if($morph->topnav_position == 'topnav_inside'){ echo ' masthead-nav '; } ?><?php echo $morph->topnav_blockfx.' '; echo pt_classes(array('subtext' => $morph->subtext, 'topnav_actionlink' => $morph->topnav_actionlink, 'topdrop' => $morph->topdrop, 'topfish' => $morph->topfish), $morph->site_width); ?><?php if ( $morph->topnav_wrap == 1 && $morph->topnav_position !== 'topnav_inside' ) { echo ' wrap-on'; } else { echo ' wrap-off'; } ?> primary-nav">	
+		<div id="topnav" class="block <?php if($morph->topnav_position == 'topnav_inside'){ echo ' masthead-nav '; } ?><?php echo $morph->topnav_blockfx.' '; echo pt_classes(array('subtext' => $morph->subtext, 'topnav_actionlink' => $morph->topnav_actionlink, 'topdrop' => $morph->topdrop, 'topfish' => $morph->topfish), $morph->site_width); ?><?php if ( $morph->topnav_wrap == 1 && $morph->topnav_position !== 'topnav_inside' ) { echo ' wrap-on'; } else { echo ' wrap-off'; } ?> primary-nav">	
 			<?php if ( $morph->topnav_inner == 1 ) { ?>
 				<div id="topnav-inner" class="inner clearer">
 			<?php } ?>
