@@ -329,10 +329,16 @@ class morphLayouts {
 			// double gutter if outer sidebar active
 			if ($this->outerCount() && $this->innerCount()) {
 				$this->gutter_multiply = 2;
+			} else if (!$this->outerCount() && !$this->innerCount()) { 
+				$this->gutter_multiply = 0;
 			} else {
 				$this->gutter_multiply = 1;
 			}
 									
+		// if no inner sidebar make width 0
+		if (!$this->innerCount()) {
+			$morph->inner_width = 0;
+		}
 		
 		// Goal result : lastly get total padding from both to get total gutter to reduce width by that amount
 		$this->total_padding = $total_bdinner;
