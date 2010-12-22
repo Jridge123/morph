@@ -623,7 +623,7 @@ function isIE6($string=''){
 }
 
 ob_start();
-	if($font_providers == 'googlefonts') echo "#$themelet h1, #$themelet h2 {font-family: '".$heading_font."', Arial, Helvetica, sans-serif;}";
+	if($font_providers == 'googlefonts') echo "$gfont_selectors{font-family: '".$googlefonts_font."', Arial, Helvetica, sans-serif;}";
 $doc->addStyleDeclaration(ob_get_clean());
 
 $document = JFactory::getDocument();

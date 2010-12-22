@@ -411,6 +411,7 @@
 			<option value="Vollkorn">Vollkorn</option>
 			<option value="Yanone Kaffeesatz">Yanone Kaffeesatz</option>
 		</param>
+		<param name="gfont_selectors" default="h1, h2" type="text" label="Add selectors to target here" tooltip="inline" description="Add a string of selectors seperated by a comma that you would like to apply the font to." />	
 		<!-- Fontdeck -->
 		<param name="fontdeck_fontid" default="" type="text" label="Font id" tooltip="inline" description="" />	
 		<param name="fontdeck_domain" default="" type="text" label="Font domain" tooltip="inline" description="" />	
