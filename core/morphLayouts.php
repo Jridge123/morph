@@ -218,7 +218,7 @@ class morphLayouts {
 			'10' => array('300', 'px', ' right'),
 		);
 		
-		
+		// component layouts
 		$this->innerScheme='';
 		if(!preg_match('/administrator/i', $_SERVER['REQUEST_URI'])){
 			$this->innerScheme = array ();	
@@ -241,19 +241,21 @@ class morphLayouts {
 			}
 		};
 		
+		// per page layouts - page class sfx
 		$this->get_pageClass();
 		if(isset($this->pageclass)){
-			$this->innerSfxArr = (explode("inner",$this->pageclass));
+			$this->pageSfxArr = (explode(" ",$this->pageclass));
+			$this->innerSfxArr = (explode("inner",$this->pageSfxArr[0]));
 			if(array_key_exists(1,$this->innerSfxArr)) {
 				$this->CurrentInnerScheme = $this->innerPageSuffix[substr($this->innerSfxArr[1],0,1)];
 				if (isset($this->innerPageSuffix[$this->innerSfxArr[1]][0])) {
 				$morph->inner_width=$this->innerPageSuffix[$this->innerSfxArr[1]][0];
 				}
-				if (isset($this->innerPageSuffix[$this->innerSfxArr[1]][2])) {
-				$morph->inner_pos=trim($this->innerPageSuffix[$this->innerSfxArr[1]][2]);
-				}
 				if (isset($this->innerPageSuffix[$this->innerSfxArr[1]][1])) {
 				$morph->inner_width_type=$this->innerPageSuffix[$this->innerSfxArr[1]][1];
+				}
+				if (isset($this->innerPageSuffix[$this->innerSfxArr[1]][2])) {
+				$morph->inner_pos=trim($this->innerPageSuffix[$this->innerSfxArr[1]][2]);
 				}
 			}
 		}
