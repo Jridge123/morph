@@ -1,5 +1,5 @@
 <?php defined( '_JEXEC' ) or die( 'Restricted access' );
-if($global_wrap == 1 && $global_wrap_end == 0){ echo '<div id="global-wrap" class="'.$site_width.'">'; }
+if($global_wrap == 1 && $global_wrap_start == 0){ echo '<div id="global-wrap" class="'.$site_width.'">'; }
 $position = 'toolbar'; 
 $action->do_action ('toolbar_before');
 include ($blockclassespath); 

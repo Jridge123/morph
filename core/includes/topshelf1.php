@@ -1,5 +1,5 @@
 <?php defined( '_JEXEC' ) or die( 'Restricted access' );
-if($global_wrap == 1 && $global_wrap_end == 4){ echo '<div id="global-wrap" class="'.$site_width.'">'; }
+if($global_wrap == 1 && $global_wrap_start == 4){ echo '<div id="global-wrap" class="'.$site_width.'">'; }
 $position = 'topshelf1'; 
 $action->do_action($position.'_before');
 include ($blockclassespath); 
