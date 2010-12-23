@@ -1014,6 +1014,7 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
+		<param name="topshelf1_blockfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Block style" description="blockfx-default.html" />
 		<param name="topshelf1_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />
 		<param name="topshelf1_slider" default="0" type="itoggle" label="Enable slider" tooltip="modal" description="slider.html">
 			<option value="1">Yes</option>
@@ -1059,6 +1060,7 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
+		<param name="topshelf2_blockfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Block style" description="blockfx-default.html" />
 		<param name="topshelf2_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />
 		<param name="topshelf2_slider" default="0" type="itoggle" label="Enable slider" tooltip="modal" description="slider.html">
 			<option value="1">Yes</option>
@@ -1104,6 +1106,7 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
+		<param name="topshelf3_blockfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Block style" description="blockfx-default.html" />
 		<param name="topshelf3_modfx" default="" type="textarea" cols="32" rows="1" tooltip="modal" label="Default module style" description="modfx-default.html" />
 		<param name="topshelf3_slider" default="0" type="itoggle" label="Enable slider" tooltip="modal" description="slider.html">
 			<option value="1">Yes</option>
