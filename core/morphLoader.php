@@ -49,6 +49,9 @@ class Morph {
 		$db->setQuery("select param_value from #__configurator where param_name = 'themelet' and template_name = 'morph'");
 		$themelet_name = $db->loadResult();
 		
+		$this->themeletpath = JURI::root(1) . '/morph_assets/themelets/'.$themelet_name;
+		$this->absolutepath = JPATH_SITE.'/morph_assets/themelets/'.$themelet_name;
+		
 		$Itemid = (int) JRequest::getInt('Itemid');
 		$db->setQuery("select param_value from #__configurator where param_name = 'themelet' and template_name = '$Itemid.morph'");
 		if($themelet = $db->loadResult()) $themelet_name = $themelet;
