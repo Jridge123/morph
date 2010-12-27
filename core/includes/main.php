@@ -1,5 +1,5 @@
-<?php defined( '_JEXEC' ) or die( 'Restricted access' ); 
-if($global_wrap == 1 && $global_wrap_start == 5){ ?>
+<?php defined( '_JEXEC' ) or die( 'Restricted access' );
+if($global_wrap == 1 && $global_wrap_start == 7){ ?>
 <div id="global-wrap" class="<?php echo $site_width; ?>"><?php } ?>
 <?php if ( $main_wrap == 1 ) { ?><div id="bd-wrap"><?php } ?>
 	<!-- apply outer scheme -->
