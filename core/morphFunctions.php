@@ -123,6 +123,7 @@ $dashes 					= "";
 $mod_chrome					= "";
 $ver 						= str_replace($dots , $dashes , $ver);
 $lcbrowser 					= strtolower($thebrowser);
+$css_aida					= $absolutepath.'/css/aidanews.css';
 $css_firefox				= $absolutepath.'/css/firefox.css';
 $css_safari					= $absolutepath.'/css/safari.css';
 $css_opera					= $absolutepath.'/css/opera.css';
@@ -529,6 +530,7 @@ if(  $isiPhone && !$iPhoneCookie  ){
 		$MORPH->addStyleSheet($themeletpath .'/css/themelet.css');
 		$MORPH->addStyleSheet($themeletpath .'/css/modfx.css');	
 		if ( $simpleticker == 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/simpleticker.css'); }
+		if ( $aidanews == 1 && file_exists($css_aida)) { $MORPH->addStyleSheet($themeletpath .'/css/aidanews.css'); }
 		if ( $simpletweet == 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/simpletweet.css'); }
 		if ( $simplecontact == 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/simplecontact.css'); }
 		if ( $simplesocial == 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/simplesocial.css'); }

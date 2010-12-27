@@ -38,6 +38,7 @@ $simpleticker = JModuleHelper::isEnabled( 'simpleticker' );
 $simpletweet = JModuleHelper::isEnabled( 'simpletweet' );
 $simplecontact = JModuleHelper::isEnabled( 'simplecontact' );
 $simplesocial = JModuleHelper::isEnabled( 'simplesocial' );
+$aidanews = JModuleHelper::isEnabled( 'aidanews' );
 
 // Let's pass session variables to the js and css views so we only have to run the sql queries once.
 $counts = array('tabscount', 'accordionscount', 'roundedcount', 'topdrop', 'topfish', 'subtext', 'animate_top', 'sidefish', 'sidenav_count', 'topnav_count', 'simpleticker', 'simpletweet', 'simplecontact', 'simplesocial');
