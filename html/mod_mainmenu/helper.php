@@ -281,6 +281,7 @@ class MainMenuTree extends JTree
 	function _getItemData(&$params, $item)
 	{
 		$data = null;
+		$tmp  = false;
 
 		// Menu Link is a special type that is a link to another item
 		if ($item->type == 'menulink')
@@ -312,7 +313,6 @@ class MainMenuTree extends JTree
 		$iParams = new JParameter($tmp->params);
 		if ($params->get('menu_images') && $iParams->get('menu_image') && $iParams->get('menu_image') != -1) {
 			
-			$menu_text = '<span>'.$item->name.'</span>';
 			if($params->get('class_sfx') && $params->get('class_sfx') == 'image-only'){
 				$menu_text = null;
 			}
