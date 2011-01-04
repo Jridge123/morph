@@ -48,7 +48,7 @@ function submitbutton(pressbutton) {
 	}
 	<?php echo $this->editor->save( 'text' ); ?>
 	if(pressbutton == 'apply') {
-		pressbutton = 'edit';
+		pressbutton = 'save';
 		<?php $uri = clone JFactory::getURI() ?>
 		<?php $uri->delVar('ret') ?>
 		form.action += '&ret=<?php echo base64_encode($uri->toString()) ?>';
