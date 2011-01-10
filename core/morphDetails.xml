@@ -87,10 +87,6 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
-		<param name="css3pie" default="0" type="itoggle" label="Enable CSS3 PIE" tooltip="inline" description="CSS3 PIE adds CSS3 border-radius, linear-gradients &amp; box-shadow support to Internet Explorer 6 to 8. Learn more at css3pie.com">
-			<option value="1">Yes</option>
-			<option value="0">No</option>
-		</param>
 		<param name="google_analytics" default="" type="text" label="Google Analytics ID" tooltip="inline" description="Entering your Google Analytics ID will automatically load the needed tracking javascript, just above the closing body tag of your site. We plan on extending this to use any tracking or related javascript in the future, but for now this will have to do :)" />
 	</params>
 	
