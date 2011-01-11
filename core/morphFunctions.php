@@ -808,7 +808,7 @@ function blocks($position, $glob, $jj_const, $classes, $site_width, $debug_modul
 		<?php if ( ${$position.'_wrap'} == 1 ) { ?></div><?php }
 	}
 }
-function mastheadBlock($position, $glob, $jj_const, $classes, $debug_modules){
+function mastheadBlock($position, $glob, $jj_const, $classes, $site_width, $debug_modules){
 	
 	foreach($classes as $key => $val){
 		${$key} = $val;
