@@ -87,10 +87,6 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
-		<param name="css3pie" default="0" type="itoggle" label="Enable CSS3 PIE" tooltip="inline" description="CSS3 PIE adds CSS3 border-radius, linear-gradients &amp; box-shadow support to Internet Explorer 6 to 8. Learn more at css3pie.com">
-			<option value="1">Yes</option>
-			<option value="0">No</option>
-		</param>
 		<param name="google_analytics" default="" type="text" label="Google Analytics ID" tooltip="inline" description="Entering your Google Analytics ID will automatically load the needed tracking javascript, just above the closing body tag of your site. We plan on extending this to use any tracking or related javascript in the future, but for now this will have to do :)" />
 	</params>
 	
@@ -723,9 +719,9 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
-		<param name="plugin_url" default="jroute" type="list" label="Joomla SEF Setup" tooltip="inline" description="Choose wether to use JRoute or JURI based on wether you get issues with your SEF extension or not. Using JRoute will allow you to tweak how the links to packed css and js files by custom SEF rules, while JURI is sometimes a more compatible option.">
-			<option value="jroute">Standard Joomla SEF</option>
-			<option value="juri">3rd Party SEF Extension</option>
+		<param name="plugin_url" default="juri" type="list" label="Morph url routing " tooltip="inline" description="Choose wether to use JRoute or JURI based on wether you get issues with your extensions not loading the css correctly. Using JRoute will allow you to tweak how the links to packed css and js files by 3rd party extensions, while JURI is sometimes a more compatible option.">
+			<option value="jroute">JRoute</option>
+			<option value="juri">JURI</option>
 		</param>
 		<param name="developer_toolbar" default="0" type="itoggle" label="Show Developer Toolbar" tooltip="inline" description="Enabling this option will show a developer toolbar on your website with a list of tools that can be used to help debug your template.">
 			<option value="1">Yes</option>

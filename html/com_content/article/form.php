@@ -3,7 +3,7 @@ if($override = Morph::override(__FILE__, $this)) {
 	if(file_exists($override)) include $override;
 } else {
 $morph = Morph::getInstance();
-$morph->addStyleSheet('templates/morph/core/css/frontendedit.css');
+$morph->addStyleSheet('/templates/morph/core/css/frontendedit.css');
 ?>
 <script language="javascript" type="text/javascript">
 <!--
@@ -48,7 +48,7 @@ function submitbutton(pressbutton) {
 	}
 	<?php echo $this->editor->save( 'text' ); ?>
 	if(pressbutton == 'apply') {
-		pressbutton = 'edit';
+		pressbutton = 'save';
 		<?php $uri = clone JFactory::getURI() ?>
 		<?php $uri->delVar('ret') ?>
 		form.action += '&ret=<?php echo base64_encode($uri->toString()) ?>';
