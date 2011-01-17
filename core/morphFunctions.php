@@ -779,7 +779,7 @@ function blocks($position, $glob, $jj_const, $classes, $site_width, $debug_modul
 	
 	global $mainframe;
 	$morph = Morph::getInstance();
-	if ($morph->logo_block == $position.'_logo') {$logo_show = 1;}
+	$logo_show = ($morph->logo_block == $position.'_logo') ? 1 : false;
 	${$position.'_inner'} == 1 ? $hasInner = 'hasinner' : $hasInner = 'no-inner';
 	if($morph->countModules($position) && ${$position.'_show'} == 0 || $logo_show == 1 ){
 		if ( ${$position.'_wrap'} == 1 ) {  $hasWrap = 'haswrap'; ?>
@@ -817,7 +817,7 @@ function mastheadBlock($position, $glob, $jj_const, $classes, $site_width, $debu
 	
 	global $mainframe;
 	$morph = Morph::getInstance();
-	if ($morph->logo_block == $position.'_logo') { $logo_show = 1; }
+	$logo_show = ($morph->logo_block == $position.'_logo') ? 1 : false;
 	${$position.'_inner'} == 1 ? $hasInner = 'hasinner' : $hasInner = 'no-inner';
 	if($glob->countModules($position) && ${$position.'_show'} == 0 || $logo_show == 1 ){ ?>
 		<?php if ( ${$position.'_wrap'} == 1 ) { $hasWrap = 'haswrap' ; ?>
