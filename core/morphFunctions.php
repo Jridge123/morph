@@ -907,20 +907,35 @@ function pt_classes($classes, $sitewidth=''){
 		foreach($classes as $classname => $p){
 			switch($classname){
 				case 'subtext':
-				$p >= 0 ? $c .= 'subtext' : $c .= 'no-subtext';
+				$p == 0 ? $c .= 'no-subtext ' : $c .= 'subtext ';
 				break;
 				case 'topnav_actionlink':
-				if($p >= 1){ $c .= ' call-for-action'; }
+				if($p >= 1){ $c .= 'call-for-action '; }
 				break;
 				case 'topfish':
-				if($p >= 1){ $c .= ' topfish'; }
+				if($p >= 1){ $c .= 'topfish '; }
 				break;
 				case 'topdrop':
-				if($p >= 1){ $c .= ' topdrop'; }
+				if($p >= 1){ $c .= 'topdrop '; }
 				break;
 			}
 		}
 	}
 	
 	return $c;
+}
+
+
+function topnav_classes() {
+	$morph = Morph::getInstance();
+	$topnav_position_class = $morph->topnav_position;
+	$topnav_position_class = str_replace("_", "-", $topnav_position_class);
+	$topnavClass = 'block primary-nav ';
+	$topnavClass .= $topnav_position_class.' ';
+	$topnavClass .= $morph->topnav_blockfx.' ';
+	$topnavClass .= pt_classes(array('subtext' => $morph->subtext, 'topnav_actionlink' => $morph->topnav_actionlink, 'topdrop' => $morph->topdrop, 'topfish' => $morph->topfish), $morph->site_width);
+	$topnavClass .= ($morph->topnav_position == 'masthead_inside') ? 'masthead-nav ' : ''; 
+	$topnavClass .= ($morph->topnav_wrap == 1 && $morph->topnav_position !== 'topnav_inside' ) ? 'haswrap ' :  'no-wrap ';
+	$topnavClass .= ($morph->topnav_inner == 1) ? 'hasinner ' :  'no-inner ';
+	return $topnavClass;
 }
