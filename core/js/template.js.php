@@ -273,9 +273,9 @@ jQuery.noConflict();
 		 	extraWidth: 1
 		})<?php } ?>
 		.superfish({
-			delay: <?php echo $this->js->topnav_delay; ?>,
+			<?php if($this->js->topnav_delay != ''){ ?>delay:<?php echo $this->js->topnav_delay; ?>,<?php } ?>
 			animation: {opacity:'show'},
-			speed: '<?php echo $this->js->topnav_animation; ?>',
+			<?php if($this->js->topnav_animation != ''){ ?>speed: '<?php echo $this->js->topnav_animation; ?>',<?php } ?>
 			autoArrows: true,
 			dropShadows: false,
 			hoverClass: 'sfHover',
