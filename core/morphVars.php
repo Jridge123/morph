@@ -10,9 +10,6 @@ $db->setQuery( $query ); $tabscount = $db->loadResult();
 $query = "SELECT COUNT(*) FROM `#__configurator` WHERE `param_value` = 'accordion' ";
 $db->setQuery( $query ); $accordionscount = $db->loadResult();
 
-$query = "SELECT COUNT(*) FROM `#__modules` WHERE `params` LIKE '%moduleclass_sfx=rounded%' ";
-$db->setQuery( $query ); $roundedcount = $db->loadResult();
-
 // use module helper to check for menu suffixes
 $modules = JModuleHelper::getModules( 'user3' );
 
@@ -30,9 +27,6 @@ $morph->topfish = strstr($hasTopfish, 'topfish') ? 1 : false;
 $hasSubtext = $modules[0]->params;
 $subtext = strstr($hasSubtext, 'subtext') ? 1 : false;
 $morph->subtext = strstr($hasSubtext, 'subtext') ? 1 : false;
-
-$query = "SELECT COUNT(*) FROM `#__modules` WHERE `position` = 'user3' AND `params` LIKE '%moduleclass_sfx=animate%' OR `position` = 'user3' AND `params` LIKE '% animate%'";
-$db->setQuery( $query ); $animate_top = $db->loadResult();
 
 $query = "SELECT COUNT(*) FROM `#__modules` WHERE `params` LIKE '%moduleclass_sfx=sidefish%' OR `params` LIKE '%sidefish%'";
 $db->setQuery( $query ); $sidefish = $db->loadResult();
