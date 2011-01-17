@@ -1,5 +1,5 @@
 <?php defined( '_JEXEC' ) or die( 'Restricted access' );
-
+$morph = Morph::getInstance();
 $db=& JFactory::getDBO();
 $doc =& JFactory::getDocument();
 jimport('joomla.application.module.helper');
@@ -13,14 +13,23 @@ $db->setQuery( $query ); $accordionscount = $db->loadResult();
 $query = "SELECT COUNT(*) FROM `#__modules` WHERE `params` LIKE '%moduleclass_sfx=rounded%' ";
 $db->setQuery( $query ); $roundedcount = $db->loadResult();
 
-$query = "SELECT COUNT(*) FROM `#__modules` WHERE `position` = 'user3'  AND published = '1' AND `params` LIKE '%moduleclass_sfx=topdrop%' OR `position` = 'user3' AND published = '1' AND `params` LIKE '% topdrop%' OR `position` = 'masthead' AND published = '1' AND `params` LIKE '%moduleclass_sfx=topdrop%' OR `position` = 'masthead' AND published = '1' AND `params` LIKE '% topdrop%'";
-$db->setQuery( $query ); $topdrop = $db->loadResult();
+// use module helper to check for menu suffixes
+$modules = JModuleHelper::getModules( 'user3' );
 
-$query = "SELECT COUNT(*) FROM `#__modules` WHERE `position` = 'user3' AND published = '1' AND `params` LIKE '%moduleclass_sfx=topfish%' OR `position` = 'user3' AND published = '1' AND `params` LIKE '% topfish%' OR `position` = 'masthead' AND published = '1' AND `params` LIKE '%moduleclass_sfx=topfish%' OR `position` = 'masthead' AND published = '1' AND `params` LIKE '% topfish%'";
-$db->setQuery( $query ); $topfish = $db->loadResult();
+//topdrop
+$hasTopdrop = $modules[0]->params;
+$topdrop = strstr($hasTopdrop, 'topdrop') ? 1 : false;
+$morph->topdrop = strstr($hasTopdrop, 'topdrop') ? 1 : false;
 
-$query = "SELECT COUNT(*) FROM `#__modules` WHERE `position` = 'user3' AND published = '1' AND `params` LIKE '%moduleclass_sfx=subtext%' OR `position` = 'user3' AND published = '1' AND `params` LIKE '% subtext%' OR `position` = 'masthead' AND published = '1' AND `params` LIKE '%moduleclass_sfx=subtext%' OR `position` = 'masthead' AND published = '1' AND `params` LIKE '% subtext%'";
-$db->setQuery( $query ); $subtext = $db->loadResult();
+//topfish
+$hasTopfish = $modules[0]->params;
+$topfish = strstr($hasTopfish, 'topfish') ? 1 : false;
+$morph->topfish = strstr($hasTopfish, 'topfish') ? 1 : false;
+
+//subtext
+$hasSubtext = $modules[0]->params;
+$subtext = strstr($hasSubtext, 'subtext') ? 1 : false;
+$morph->subtext = strstr($hasSubtext, 'subtext') ? 1 : false;
 
 $query = "SELECT COUNT(*) FROM `#__modules` WHERE `position` = 'user3' AND `params` LIKE '%moduleclass_sfx=animate%' OR `position` = 'user3' AND `params` LIKE '% animate%'";
 $db->setQuery( $query ); $animate_top = $db->loadResult();
