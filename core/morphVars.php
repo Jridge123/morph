@@ -10,23 +10,28 @@ $db->setQuery( $query ); $tabscount = $db->loadResult();
 $query = "SELECT COUNT(*) FROM `#__configurator` WHERE `param_value` = 'accordion' ";
 $db->setQuery( $query ); $accordionscount = $db->loadResult();
 
+if ($morph->countModules('user3')) {
 // use module helper to check for menu suffixes
-$modules = JModuleHelper::getModules( 'user3' );
+$get_topnav = JModuleHelper::getModules( 'user3' );
+$getParams = $get_topnav[0]->params;
 
 //topdrop
-$hasTopdrop = $modules[0]->params;
-$topdrop = strstr($hasTopdrop, 'topdrop') ? 1 : false;
-$morph->topdrop = strstr($hasTopdrop, 'topdrop') ? 1 : false;
+$topdrop = strstr($getParams, 'topdrop') ? 1 : false;
+$morph->topdrop = strstr($getParams, 'topdrop') ? 1 : false;
 
 //topfish
-$hasTopfish = $modules[0]->params;
-$topfish = strstr($hasTopfish, 'topfish') ? 1 : false;
-$morph->topfish = strstr($hasTopfish, 'topfish') ? 1 : false;
+$topfish = strstr($getParams, 'topfish') ? 1 : false;
+$morph->topfish = strstr($getParams, 'topfish') ? 1 : false;
 
 //subtext
-$hasSubtext = $modules[0]->params;
-$subtext = strstr($hasSubtext, 'subtext') ? 1 : false;
-$morph->subtext = strstr($hasSubtext, 'subtext') ? 1 : false;
+$subtext = strstr($getParams, 'subtext') ? 1 : false;
+$morph->subtext = strstr($getParams, 'subtext') ? 1 : false;
+
+} else {
+	$topdrop = false;
+	$subtext = false;
+	$topfish = false;
+}
 
 $query = "SELECT COUNT(*) FROM `#__modules` WHERE `params` LIKE '%moduleclass_sfx=sidefish%' OR `params` LIKE '%sidefish%'";
 $db->setQuery( $query ); $sidefish = $db->loadResult();
@@ -44,7 +49,7 @@ $simplesocial = JModuleHelper::isEnabled( 'simplesocial' );
 $aidanews = JModuleHelper::isEnabled( 'aidanews' );
 
 // Let's pass session variables to the js and css views so we only have to run the sql queries once.
-$counts = array('tabscount', 'accordionscount', 'roundedcount', 'topdrop', 'topfish', 'subtext', 'animate_top', 'sidefish', 'sidenav_count', 'topnav_count', 'simpleticker', 'simpletweet', 'simplecontact', 'simplesocial');
+$counts = array('tabscount', 'accordionscount', 'topdrop', 'topfish', 'subtext', 'sidefish', 'sidenav_count', 'topnav_count', 'simpleticker', 'simpletweet', 'simplecontact', 'simplesocial');
 foreach($counts as $count)
 {
 	$_SESSION[$count] = $$count;
