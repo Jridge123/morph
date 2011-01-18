@@ -156,7 +156,7 @@ jQuery.noConflict();
     	<?php } if ( $this->js->lazyload_enabled == 1 ) { ?>
     	if (!navigator.userAgent.toLowerCase().match('ipad')) {   	
 		$("#primary-content img").lazyload(<?php echo json_encode(array(
-			'placeholder' => 'img/grey.gif',
+			'placeholder' => '/templates/morph/core/images/grey.gif',
 			'effect' => 'fadeIn'
 		)) ?>);
 		}
