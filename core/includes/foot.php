@@ -3,7 +3,7 @@
     <?php if ( $footer_wrap == 1 ) { ?><div id="footer-wrap" class="block wrap <?php echo $footer_blockfx; ?>"><?php } ?>  
         <?php if ( $footer_type == 0 ) { ?>
             <?php echo codeComments('s','Footer Block','includes/foot.php','5', $code_comments); ?>
-            <div id="footer" class="<?php echo $site_width; ?> block <?php echo $footer_blockfx;?>">
+            <div id="footer" class="<?php echo $site_width; ?> block <?php echo $footer_blockfx;?> clearer">
                 <div class="footer-left">
                     <?php if(Morph::countModules('footernav')) { ?>
                     <jdoc:include type="modules" name="footernav" style="<?php if( $debug_modules == 1 ){ echo 'outline'; } else { echo 'none'; } ?>" />
