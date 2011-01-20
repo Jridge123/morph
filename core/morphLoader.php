@@ -67,8 +67,7 @@ class Morph {
 			//$db->setQuery($query);
 			//$params = (array) $db->loadObjectList();
 
-			JTable::addIncludePath(JPATH_ADMINISTRATOR.'/components/com_configurator/tables');
-			$params = JTable::getInstance('ConfiguratorTemplateSettings', 'Table')->template($template)->getConfigs();
+			$params = KFactory::get('admin::com.configurator.database.table.templatesettings')->template($template)->getConfigs();
 		} else {
 			$params = array();
 		}
