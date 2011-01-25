@@ -2,6 +2,6 @@
 $position = 'user2'; 
 $action->do_action($position.'_before');
 include ($blockclassespath); 
-echo blocks($position, $this, $jj_const, $classes, $site_width, $debug_modules); 
+echo blocks($position, $this, $jj_const, $classes, '', $debug_modules); 
 $action->do_action($position.'_after');
 ?>
