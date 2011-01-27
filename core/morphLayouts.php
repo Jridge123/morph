@@ -394,7 +394,8 @@ class morphLayouts {
 	
 	static function addLayoutCSS() {
 		$layouts = new morphLayouts();
-		$morph = Morph::getInstance();	
+		$morph = Morph::getInstance();
+		$margin_css = '';
 		$inner_css = '
 #tertiary-content {width:'.$layouts->innerLayouts['inner_width'].$layouts->innerLayouts['type'].';float:'.$layouts->innerLayouts['inner_sidebar_position'].';}';
 		$primary_css = '
