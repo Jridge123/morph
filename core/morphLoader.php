@@ -16,7 +16,6 @@
  */
 
 $morph_component_path = JPATH_ADMINISTRATOR.'/components/com_configurator';
-include_once $morph_component_path . '/configurator.common.php';
 include_once $morph_component_path . '/depencies.php';
 jimport('joomla.filesystem.file');
 
@@ -72,7 +71,7 @@ class Morph {
 		}
 
 		$xml_params = KFactory::get('admin::com.configurator.helper.utilities')->getTemplateParamList( realpath(dirname(__FILE__).'/morphDetails.xml'), TRUE );
-		if(isset($themelet_name)) $themelet_params = getTemplateParamList( JPATH_ROOT.'/morph_assets/themelets/'.$themelet_name.'/themeletDetails.xml', TRUE );
+		if(isset($themelet_name)) $themelet_params = KFactory::get('admin::com.configurator.helper.utilities')->getTemplateParamList( JPATH_ROOT.'/morph_assets/themelets/'.$themelet_name.'/themeletDetails.xml', TRUE );
 
 		foreach(array_merge($xml_params, $themelet_params) as $key => $value)
 		{
