@@ -428,7 +428,6 @@ if ( $isiPhone && !$iPhoneCookie ) {
     		if( $plugin_scrollto == 1 ) { $MORPH->addScript($templatepath .'/core/js/scrollto.js'); }
     		if( $simpleticker == 1 ) { $MORPH->addScript($templatepath .'/core/js/innerfade.js');}
     		if( $simpletweet == 1 ) { $MORPH->addScript('/modules/mod_simpletweet/js/simpletweet.js'); }
-    		if( $google_analytics !== '' ) { $MORPH->addScript($templatepath .'/core/js/googleanalytics.js');}
     		if( $lazyload_enabled == 1 ) { $MORPH->addScript($templatepath .'/core/js/lazyload.js'); }
     		if( $captions_enabled == 1 ) { $MORPH->addScript($templatepath .'/core/js/captify.js'); }
     		if( $lightbox_enabled == 1 ) { $MORPH->addScript($templatepath .'/core/js/colorbox.js');}
