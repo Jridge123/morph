@@ -21,12 +21,8 @@ if(isset($_COOKIE['firebug']) && $_COOKIE['firebug'] == 'enabled'){
 			firebug.env.css = "'.$templatepath.'/core/css/firebug-lite.css";
 		</script>
 	');
-}
-if ( $google_analytics !== "" ) { ?>
-<script type="text/javascript">
-jQuery.trackPage('<?php echo $google_analytics; ?>')
-</script>
-<?php } if( $browser->getBrowser() == MBrowser::PLATFORM_IPHONE && $iphone_viewport ) { 
+} ?>
+<?php if( $browser->getBrowser() == MBrowser::PLATFORM_IPHONE && $iphone_viewport ) { 
 if ($iphone_scalable) { $content = "user-scalable=yes"; } else { $content = "user-scalable=no"; }
 if ($iphone_width) { $content .= ", width=" . $iphone_width; }
 if ($iphone_height) { $content .= ", height=" . $iphone_height; }
