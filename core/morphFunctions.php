@@ -510,8 +510,6 @@ if (!$MORPH->countModules('user4')) $no_search = 'no_search';
 // $direction = 'rtl';
 if(  $isiPhone && !$iPhoneCookie  ){
 	if ( file_exists($css_iphone)) { $MORPH->addStyleSheet($themeletpath .'/css/iphone.css'); } else { $MORPH->addStyleSheet($templatepath .'/core/css/iphone.css'); }
-	
-	$MORPH->updateJDocument();
 //	if ( file_exists($css_iphone)) { $document->addStyleSheet($css_iphone); } else { $document->addStyleSheet($templatepath .'/core/css/jqtouch.css'); }	
 } else {
 	//if (!$pack_css) {
@@ -608,9 +606,20 @@ if(  $isiPhone && !$iPhoneCookie  ){
 	//} else {
 	//	$document->addStyleSheet(JRoute::_('&render=css'.$cache.$gzip));
 	//}
-	
-	//Sends Morphs scripts to JDocument, loading them at the top to avoid issues with missing jQuery in JomSocial and such.
-	$MORPH->updateJDocument();
+}
+
+//Sends Morphs scripts to JDocument, loading them at the top to avoid issues with missing jQuery in JomSocial and such.
+$MORPH->updateJDocument();
+
+//Removing conflicting jQuery instances
+if(isset($MORPH->jquery_blacklist))
+{
+	$scripts = explode(',', $MORPH->jquery_blacklist);
+	$scripts = array_map('trim', $scripts);
+	foreach($scripts as $script)
+	{
+		if(isset($document->_scripts[$script])) unset($document->_scripts[$script]);
+	}
 }
 
 function isIE6($string=''){
