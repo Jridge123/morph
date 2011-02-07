@@ -379,12 +379,37 @@
 		<!-- Google Fonts -->
 		<param name="googlefonts_font" default="" type="list" label="Select font" tooltip="inline" description="">
 			<option value=" ">Select a font</option>
+			<option value="Allan">Allan</option>
+			<option value="Allerta">Allerta</option>
+			<option value="Allerta Stencil">Allerta Stencil</option>
+			<option value="Arimo">Arimo</option>
+			<option value="Anonymous Pro">Anonymous Pro</option>
+			<option value="Arvo">Arvo</option>
+			<option value="Bentham">Bentham</option>
+			<option value="Buda">Buda</option>
+			<option value="Cabin">Cabin</option>
+			<option value="Calligraffitti">Calligraffitti</option>
 			<option value="Cantarell">Cantarell</option>
 			<option value="Cardo">Cardo</option>
+			<option value="Cherry Cream Soda">Cherry Cream Soda</option>
+			<option value="Chewy">Chewy</option>
+			<option value="Coda">Coda</option>
+			<option value="Coming Soon">Coming Soon</option>
+			<option value="Copse">Copse</option>
+			<option value="Corben">Corben</option>
+			<option value="Cousine">Cousine</option>
+			<option value="Covered By Your Grace">Covered By Your Grace</option>
+			<option value="Crafty Girls">Crafty Girls</option>
 			<option value="Crimson Text">Crimson Text</option>
+			<option value="Crushed">Crushed</option>
+			<option value="Cuprum">Cuprum</option>
 			<option value="Droid Sans">Droid Sans</option>
 			<option value="Droid Sans Mono">Droid Sans Mono</option>
 			<option value="Droid Serif">Droid Serif</option>
+			<option value="Fontdiner Swanky">Fontdiner Swanky</option>
+			<option value="Geo">Geo</option>
+			<option value="Gruppo">Gruppo</option>
+			<option value="Homemade Apple">Homemade Apple</option>
 			<option value="IM Fell DW Pica">IM Fell DW Pica</option>
 			<option value="IM Fell DW Pica SC">IM Fell DW Pica SC</option>
 			<option value="IM Fell Double Pica">IM Fell Double Pica</option>
@@ -396,15 +421,51 @@
 			<option value="IM Fell Great Primer">IM Fell Great Primer</option>
 			<option value="IM Fell Great Primer SC">IM Fell Great Primer SC</option>
 			<option value="Inconsolata">Inconsolata</option>
+			<option value="Irish Growler">Irish Growler</option>
 			<option value="Josefin Sans Std Light">Josefin Sans Std Light</option>
+			<option value="Josefin Slab">Josefin Slab</option>
+			<option value="Just Another Hand">Just Another Hand</option>
+			<option value="Just Me Again Down Here">Just Me Again Down Here</option>
+			<option value="Kenia">Kenia</option>
+			<option value="Kranky">Kranky</option>
+			<option value="Kristi">Kristi</option>
+			<option value="Lato">Lato</option>
+			<option value="Lekton">Lekton</option>
 			<option value="Lobster">Lobster</option>
+			<option value="Luckiest Guy">Luckiest Guy</option>
+			<option value="Maiden Orange">Maiden Orange</option>
+			<option value="Merriweather">Merriweather</option>
 			<option value="Molengo">Molengo</option>
+			<option value="Mountains of Christmas">Mountains of Christmas</option>
+			<option value="Neucha">Neucha</option>
+			<option value="Neuton">Neuton</option>
 			<option value="Nobile">Nobile</option>
 			<option value="OFL Sorts Mill Goudy TT">OFL Sorts Mill Goudy TT</option>
 			<option value="Old Standard TT">Old Standard TT</option>
+			<option value="Orbitron">Orbitron</option>
+			<option value="PT Sans">PT Sans</option>
+			<option value="PT Sans Caption">PT Sans Caption</option>
+			<option value="PT Sans Narrow">PT Sans Narrow</option>
+			<option value="Permanent Marker">Permanent Marker</option>
+			<option value="Philosopher">Philosopher</option>
+			<option value="Puritan">Puritan</option>
+			<option value="Raleway">Raleway</option>
 			<option value="Reenie Beanie">Reenie Beanie</option>
+			<option value="Rock Salt">Rock Salt</option>
+			<option value="Schoolbell">Schoolbell</option>
+			<option value="Slackey">Slackey</option>
+			<option value="Sniglet">Sniglet</option>
+			<option value="Sunshiney">Sunshiney</option>
+			<option value="Syncopate">Syncopate</option>
 			<option value="Tangerine">Tangerine</option>
+			<option value="Tinos">Tinos</option>
+			<option value="Ubuntu">Ubuntu</option>
+			<option value="UnifrakturCook">UnifrakturCook</option>
+			<option value="UnifrakturMaguntia">UnifrakturMaguntia</option>
+			<option value="Unkempt">Unkempt</option>
+			<option value="Vibur">Vibur</option>
 			<option value="Vollkorn">Vollkorn</option>
+			<option value="Walter Turncoat">Walter Turncoat</option>
 			<option value="Yanone Kaffeesatz">Yanone Kaffeesatz</option>
 		</param>
 		<param name="gfont_selectors" default="h1, h2" type="text" label="Add selectors to target here" tooltip="inline" description="Add a string of selectors seperated by a comma that you would like to apply the font to." />	
@@ -708,6 +769,7 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
+		<param name="jquery_blacklist" default="" type="textarea" label="Unload jQuery" tooltip="inline" description="If an extension is loading jQuery, you can list them here and Morph will remove them to avoid javascript errors due to multiple jQuery instances on the same page. List is separated with commas." />
 		<param name="debug_modules" default="0" type="itoggle" label="Enable module outlines" tooltip="inline" description="Enabling this option will globally override all module chromes to use the outline chrome option. This is good when you want to see which module positions are being used where.">
 			<option value="1">Yes</option>
 			<option value="0">No</option>

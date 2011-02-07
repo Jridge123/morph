@@ -156,9 +156,10 @@ jQuery.noConflict();
     	<?php } if ( $this->js->lazyload_enabled == 1 ) { ?>
     	if (!navigator.userAgent.toLowerCase().match('ipad')) {   	
 		$("#primary-content img").lazyload(<?php echo json_encode(array(
-			'placeholder' => '/templates/morph/core/images/grey.gif',
+			'placeholder' => JURI::root().'templates/morph/core/images/grey.gif',		
 			'effect' => 'fadeIn'
 		)) ?>);
+				
 		}
 		
     	<?php } if ( $this->js->lightbox_enabled == 1 ) { ?>
