@@ -769,6 +769,7 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
+		<param name="jquery_blacklist" default="" type="textarea" label="Unload jQuery" tooltip="inline" description="If an extension is loading jQuery, you can list them here and Morph will remove them to avoid javascript errors due to multiple jQuery instances on the same page. List is separated with commas." />
 		<param name="debug_modules" default="0" type="itoggle" label="Enable module outlines" tooltip="inline" description="Enabling this option will globally override all module chromes to use the outline chrome option. This is good when you want to see which module positions are being used where.">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
