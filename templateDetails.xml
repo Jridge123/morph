@@ -56,7 +56,15 @@
 		<filename>templateDetails.xml</filename>
 	</files>
 	<languages folder="languages">
+		<language tag="de-DE">de-DE.tpl_morph.ini</language>
 		<language tag="en-GB">en-GB.tpl_morph.ini</language>
+		<language tag="en-US">en-US.tpl_morph.ini</language>
+		<language tag="es-ES">es-ES.tpl_morph.ini</language>
+		<language tag="fr-FR">fr-FR.tpl_morph.ini</language>
+		<language tag="sv-SE">sv-SE.tpl_morph.ini</language>
+		<language tag="it-IT">it-IT.tpl_morph.ini</language>
+		<language tag="nl-NL">nl-NL.tpl_morph.ini</language>
+		<language tag="no-NO">no-NO.tpl_morph.ini</language>
 		<language tag="sv-SE">sv-SE.tpl_morph.ini</language>
 	</languages>
 	<positions>		
