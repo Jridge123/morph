@@ -1,20 +1,11 @@
 <?php defined( '_JEXEC' ) or die( 'Restricted access' ); ?>
 html{background-color:<?php echo $this->css->html_bg_color; ?>;<?php if ( $this->css->use_html_bg_image == 1 ) { ?>background-image:url(<?php echo JURI::root(1) ?>/morph_assets/backgrounds/<?php echo $this->css->html_bg_image; ?>);background-repeat:<?php echo $this->css->html_bg_repeat; ?>;background-position:<?php echo $this->css->html_bg_position; ?>;background-attachment:<?php echo $this->css->html_bg_attachment; ?>;<?php } ?>}
 body{background-color:<?php echo $this->css->body_bg_color; ?>;<?php if ( $this->css->use_body_bg_image == 1 ) { ?>background-image:url(<?php echo JURI::root(1) ?>/morph_assets/backgrounds/<?php echo $this->css->body_bg_image; ?>);background-repeat:<?php echo $this->css->body_bg_repeat; ?>;background-position:<?php echo $this->css->body_bg_position; ?>;background-attachment:<?php echo $this->css->body_bg_attachment; ?>;<?php } ?>}
-<?php 
-//set dynamic width on branding-secondary div
-if ($this->css->site_width == 'doc') {
-	$site_width = 750;
-}
-elseif ($this->css->site_width == 'doc2') {
-	$site_width = 950;
-}
-elseif ($this->css->site_width == 'doc4') {
-	$site_width = 974;
-}
-?>
-
-<?php if ( $this->css->logowrap_height ) { ?>#branding{height:<?php echo $this->css->logowrap_height; ?>;}<?php } ?>
+<?php //set dynamic width on branding-secondary div
+if ($this->css->site_width == 'doc') { $site_width = 750; }
+elseif ($this->css->site_width == 'doc2') {	$site_width = 950; }
+elseif ($this->css->site_width == 'doc4') {	$site_width = 974; }
+if ( $this->css->logowrap_height ) { ?>#branding{height:<?php echo $this->css->logowrap_height; ?>;}<?php } ?>
 <?php if ( $this->css->logo_type == 0 ) { ?>/* Text Based Logo */
 #<?php echo $this->css->themelet; ?> #branding h1{top:<?php echo $this->css->logo0_top; ?>;left:<?php echo $this->css->logo0_left; ?>;z-index:<?php echo $this->css->logo0_stack; ?>;font-size:<?php echo $this->css->logo0_textsize; ?>;}
 #<?php echo $this->css->themelet; ?> #branding h1 a{font-family:<?php echo $this->css->logo0_fontfamily; ?>;color:<?php echo $this->css->logo0_textcolor; ?>;}
