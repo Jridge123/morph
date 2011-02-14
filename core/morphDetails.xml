@@ -769,7 +769,7 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
-		<param name="jquery_blacklist" default="" type="textarea" label="Unload jQuery" tooltip="inline" description="If an extension is loading jQuery, you can list them here and Morph will remove them to avoid javascript errors due to multiple jQuery instances on the same page. List is separated with commas." />
+		<param name="jquery_blacklist" default="" type="textarea" label="Prevent css/js from loading" tooltip="inline" description="This option can be used to remove any css or js files from loading on the frontend of your. For example, if you are using an extension that loads its own instance of jQuery, you can list path to the file (as outputted in your sites fronend html) here and Morph will remove it from the frontend html output. This will help avoid javascript errors due to multiple jQuery instances on the same page. List is separated with commas." />
 		<param name="debug_modules" default="0" type="itoggle" label="Enable module outlines" tooltip="inline" description="Enabling this option will globally override all module chromes to use the outline chrome option. This is good when you want to see which module positions are being used where.">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
