@@ -885,7 +885,19 @@ function pt_body_classes($menu, $view, $themelet){
 	$browser = new MBrowser();
 	$engine = strtolower(preg_replace("/[^A-Za-z]/i", "", $browser->getBrowser()));
 	$version = $engine.str_replace('.', '', $browser->getVersion());
-
+	
+	$zoo_installed = 0;
+	jimport('joomla.application.component.helper');
+	if(JComponentHelper::isEnabled('com_zoo', true)){
+		$zoo_installed = 1;
+	}
+	if($zoo_installed == 1) {
+		require_once(JPATH_ADMINISTRATOR.'/components/com_zoo/config.php'); 
+		if ($zooapp = Zoo::getApplication()) {
+			$zooapp = strtolower('zoo-'.$zooapp->name);
+		}
+	}
+	
 	$classes = array(
 		'js-disabled',
 		'morph',
@@ -896,7 +908,8 @@ function pt_body_classes($menu, $view, $themelet){
 		$view,
 		$lang->getTag(),
 		Morph::getTimeofday(),
-		$morph->custom_body_sfx
+		$morph->custom_body_sfx,
+		$zooapp
 	);
 	if($menu->query['option'] !== '') $classes[] = $menu->query['option'];
 	if(isset($_COOKIE['morph_developer_toolbar'])) $classes[] = 'devbar';
