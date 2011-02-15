@@ -632,9 +632,12 @@ function isIE6($string=''){
 	}
 }
 
-ob_start();
-	if($font_providers == 'googlefonts') echo "$gfont_selectors{font-family: '".$googlefonts_font."', Arial, Helvetica, sans-serif;}";
-$doc->addStyleDeclaration(ob_get_clean());
+if($custom_fonts)
+{
+	ob_start();
+		if($font_providers == 'googlefonts') echo "$gfont_selectors{font-family: '".$googlefonts_font."', Arial, Helvetica, sans-serif;}";
+	$doc->addStyleDeclaration(ob_get_clean());
+}
 
 $document = JFactory::getDocument();
 // intelli mods array
