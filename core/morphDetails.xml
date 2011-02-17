@@ -898,6 +898,13 @@
 		</param>	
 	</params>
 	
+	<params group="megamenudata">
+		<param name="megamenu_enabled" default="1" type="itoggle" label="Enable the megamenu" tooltip="inline" description="Would you like to enable the megamenu plugin?">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+	</params>
+	
 	<params group="toolbardata">
 		<param name="toolbar_wrap" default="1" type="itoggle" label="Block wrapping" tooltip="modal" description="blockwrap.html">
 			<option value="1">Yes</option>
