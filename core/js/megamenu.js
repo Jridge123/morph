@@ -7,24 +7,17 @@
  */
 
 (function($){
-
 	$.fn.megamenu = function(container, options){
 
-		console.log(this, container);
-	
-		$(this).each(function(){
-			//Do stuff here
-		});
-		
-		//$(this).find('a').click(alert);
-		$($(this).find('a')[0]).click(function(event){
+		if(typeof container == 'string') var container = $('#'+container);
+
+		this.click(function(event){
 			event.preventDefault();
 			
-			$('#products').toggle('slow');
+			this.toggleClass('active');
+			container.slideToggle('slow');
 		});
-		console.warn();
-	
+
 		return this;
 	};
-
 })(jQuery);
