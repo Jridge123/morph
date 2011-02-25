@@ -435,6 +435,7 @@ if ( $isiPhone && !$iPhoneCookie ) {
     		if( $preloader_enabled == 1 ) { $MORPH->addScript($templatepath .'/core/js/preloader.js');}
     		if( $modernizr == 1 ) { $MORPH->addScript($templatepath .'/core/js/modernizr.js');}    		
     		if( $selectivizr == 1 ) { $MORPH->addScript($templatepath .'/core/js/selectivizr.js');}
+    		if( $megamenu_enabled == 1 ) { $MORPH->addScript($templatepath .'/core/js/megamenu.js');}
     		if(file_exists(JPATH_ROOT.$themeletpath .'/js/themelet.js')) $MORPH->addScriptAfter($themeletpath .'/js/themelet.js');
     		if(file_exists(JPATH_ROOT.$themeletpath .'/js/custom.js')) $MORPH->addScriptAfter($themeletpath .'/js/custom.js');
 			if ( $custom_fonts == 1 && $font_providers == 'typekit' ) { 
