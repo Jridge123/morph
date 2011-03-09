@@ -46,6 +46,8 @@
 		<folder>core</folder>  
 		<folder>elements</folder>
 		<folder>html</folder>  
+		<folder>html_j15</folder>
+		<folder>html_j16</folder>
 		<filename>index.php</filename>
 		<filename>index.html</filename>
 		<filename>component.php</filename>
