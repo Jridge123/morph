@@ -8,20 +8,22 @@ $lang->load('tpl_morph', JPATH_SITE);
 $canEdit = ($this->user->authorize('com_content', 'edit', 'content', 'all') || $this->user->authorize('com_content', 'edit', 'content', 'own'));
 $morph = Morph::getInstance();
 
-if(!function_exists('curPageURL')) {
-	function curPageURL() {
-	 $pageURL = 'http';
-	 if (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
-	 $pageURL .= "://";
-	 if ($_SERVER["SERVER_PORT"] != "80") {
-	  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
-	 } else {
-	  $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
-	 }
-	 $pageURL = JFilterOutput::ampReplace($pageURL);
-	 return $pageURL;
-	}
+//gets the data from a URL  
+function get_tiny_url($url){  
+	$ch = curl_init();  
+	$timeout = 5;  
+	curl_setopt($ch,CURLOPT_URL,'http://tinyurl.com/api-create.php?url='.$url);  
+	curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);  
+	curl_setopt($ch,CURLOPT_CONNECTTIMEOUT,$timeout);  
+	$data = curl_exec($ch);  
+	curl_close($ch);  
+	return $data;  
 }
+
+//test it out!
+$current_url = JURI::getInstance()->toString();
+$tiny_url = get_tiny_url($current_url);
+
 ?>
 <div class="article-page">
 
@@ -53,7 +55,10 @@ if(!function_exists('curPageURL')) {
     	<li class="author"><?php JText::printf('Written by', ($this->article->created_by_alias ? $this->escape($this->article->created_by_alias) : $this->escape($this->article->author))); ?></li>
         <?php } ?>
         <?php if ($morph->shareit_enabled) : ?>
-        <li class="share"><a href="<?php echo curPageURL(); ?>" title="<?php echo $this->escape($this->article->title); ?>" rel="shareit"><?php echo JText::_('TPL_MORPH_SHARE_ARTICLE'); ?></a></li>
+        <li class="share"><a href="<?php echo $tiny_url; ?>" title="<?php echo $this->escape($this->article->title); ?>" rel="shareit"><?php echo JText::_('TPL_MORPH_SHARE_ARTICLE'); ?></a></li>
+        <?php endif; ?>
+        <?php if ($morph->shorturl_enabled) : ?>
+        <li class="shorturl"><a href="<?php echo $tiny_url; ?>">Short URL</a></li>
         <?php endif; ?>
         <?php if ($morph->fontsizer_enabled) : ?>
         <li class="fontsize"><span class="fontsize-label"><?php echo JText::_('TPL_MORPH_TEXT_SIZE'); ?>: </span><span id="fontsizer"></span></li>
@@ -122,7 +127,6 @@ if(!function_exists('curPageURL')) {
 		<?php if ( intval($this->article->modified) !=0 && $this->params->get('show_modify_date')) : ?>
 		<p class="modified"><?php echo JText::sprintf('LAST_UPDATED2', JHTML::_('date', $this->article->modified, JText::_('DATE_FORMAT_LC2'))); ?>.</p>
 	    <?php endif; ?>
-	
 		<?php if ($morph->shareit_enabled) : ?>
 		<div id="shareit-box">
         	<div id="shareit-header"></div>

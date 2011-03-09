@@ -189,14 +189,8 @@ class Morph {
 		$parts[]= $uri->getHost();
 		$pre	= implode('.', $parts);
 		$path	= $base.$pre;
-		$data	= array();
-		$query	= array_flip($uri->getQuery(1));
-		asort($query);
-		foreach($query as $value => $key)
-		{
-			$data[] = $key.'='.$value;
-		}
-		$path = $path.'&'.implode('&', $data).'.json';
+		$query	= $uri->getQuery(1);
+		$path = $path.'&'.http_build_query($query).'.json';
 
 		if(file_exists($path))
 		{

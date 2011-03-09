@@ -690,6 +690,10 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
+		<param name="shorturl_enabled" default="1" type="itoggle" label="Enable short url" tooltip="inline" description="Would you like a tiny url of your article added to your articles meta information?">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
 		<param name="fontsizer_enabled" default="1" type="itoggle" label="Enable font sizer" tooltip="inline" description="Would you like the font sizer enabled on the article page?">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
