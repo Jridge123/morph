@@ -65,7 +65,7 @@ class Morph {
 			//$db->setQuery($query);
 			//$params = (array) $db->loadObjectList();
 
-			$params = KFactory::get('admin::com.configurator.database.table.templatesettings')->template($template)->getConfigs();
+			$params = KFactory::get('admin::com.configurator.model.configurations')->template($template)->getParams();
 		} else {
 			$params = array();
 		}
