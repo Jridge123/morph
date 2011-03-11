@@ -127,5 +127,4 @@ function pagination_item_active($item) {
 function pagination_item_inactive($item) {
 	return "<span>".$item->text."</span>";
 }
-?>
-<?php } ?><!-- close the themelet override check -->
+} ?><!-- close the themelet override check -->
