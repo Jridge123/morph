@@ -1,28 +1,14 @@
-<?php
-/**
- * @version		$Id: item.php 303 2010-01-07 02:56:33Z joomlaworks $
- * @package		K2
- * @author    JoomlaWorks http://www.joomlaworks.gr
- * @copyright	Copyright (c) 2006 - 2010 JoomlaWorks Ltd. All rights reserved.
- * @license		GNU/GPL license: http://www.gnu.org/copyleft/gpl.html
- */
-
-// no direct access
-defined('_JEXEC') or die('Restricted access');
-
-?>
-
+<?php defined( '_JEXEC' ) or die( 'Restricted access' );
+if($override = Morph::override(__FILE__, $this)) {
+	if(file_exists($override)) include $override;
+} else { ?>
 <!-- Start K2 Item Layout -->
 <span id="startOfPageId<?php echo JRequest::getInt('id'); ?>"></span>
-
 <div id="k2Container" class="itemView<?php if($this->item->params->get('pageclass_sfx')) echo ' '.$this->item->params->get('pageclass_sfx'); ?>">
-
 	<!-- Plugins: BeforeDisplay -->
 	<?php echo $this->item->event->BeforeDisplay; ?>
-	
 	<!-- K2 Plugins: K2BeforeDisplay -->
 	<?php echo $this->item->event->K2BeforeDisplay; ?>
-
 	<?php if(isset($this->item->editLink)): ?>
 	<!-- Item edit link -->
 	<span class="itemEditLink">
@@ -31,14 +17,11 @@ defined('_JEXEC') or die('Restricted access');
 		</a>
 	</span>
 	<?php endif; ?>
-
 	<div class="itemHeader">
-	
 	  <?php if($this->item->params->get('itemTitle')): ?>
 	  <!-- Item title -->
 	  <h1>
 	  	<?php echo $this->item->title; ?>
-	  	
 	  	<?php if($this->item->params->get('itemFeaturedNotice') && $this->item->featured): ?>
 	  	<!-- Featured flag -->
 	  	<span>
@@ -47,10 +30,8 @@ defined('_JEXEC') or die('Restricted access');
 		  	</sup>
 	  	</span>
 	  	<?php endif; ?>
-
 	  </h1>
 	  <?php endif; ?>
-	  
         <?php if($this->item->params->get('itemDateCreated')): ?>
         <!-- Date created -->
         <span class="itemDateCreated">
@@ -64,15 +45,11 @@ defined('_JEXEC') or die('Restricted access');
 			<?php echo K2HelperUtilities::writtenBy($this->item->author->profile->gender); ?> <a href="<?php echo $this->item->author->link; ?>"><?php echo $this->item->author->name; ?></a>
 		</span>
 		<?php endif; ?>
-	
   </div>
-
   <!-- Plugins: AfterDisplayTitle -->
   <?php echo $this->item->event->AfterDisplayTitle; ?>
-  
-  <!-- K2 Plugins: K2AfterDisplayTitle -->
+    <!-- K2 Plugins: K2AfterDisplayTitle -->
   <?php echo $this->item->event->K2AfterDisplayTitle; ?>
-
 	<?php if(
 		$this->item->params->get('itemFontResizer') || 
 		$this->item->params->get('itemPrintButton') || 
@@ -98,7 +75,6 @@ defined('_JEXEC') or die('Restricted access');
 				</a>
 			</li>
 			<?php endif; ?>
-			
 			<?php if($this->item->params->get('itemPrintButton')): ?>
 			<!-- Print Button -->
 			<li>
@@ -113,7 +89,6 @@ defined('_JEXEC') or die('Restricted access');
 				<?php endif; ?>
 			</li>
 			<?php endif; ?>
-
 			<?php if($this->item->params->get('itemEmailButton') && (!JRequest::getInt('print')) ): ?>
 			<!-- Email Button -->
 			<li>
@@ -122,28 +97,24 @@ defined('_JEXEC') or die('Restricted access');
 				</a>
 			</li>
 			<?php endif; ?>
-
 			<?php if($this->item->params->get('itemSocialButton') && !is_null($this->item->params->get('socialButtonCode', NULL))): ?>
 			<!-- Item Social Button -->
 			<li>
 				<?php echo $this->item->params->get('socialButtonCode'); ?>
 			</li>
 			<?php endif; ?>
-			
 			<?php if($this->item->params->get('itemVideoAnchor') && !empty($this->item->video)): ?>
 			<!-- Anchor link to item video below - if it exists -->
 			<li>
 				<a class="itemVideoLink" href="<?php echo $this->item->link; ?>#itemVideoAnchor"><?php echo JText::_('Video'); ?></a>
 			</li>
 			<?php endif; ?>
-			
 			<?php if($this->item->params->get('itemImageGalleryAnchor') && !empty($this->item->gallery)): ?>
 			<!-- Anchor link to item image gallery below - if it exists -->
 			<li>
 				<a class="itemImageGalleryLink" href="<?php echo $this->item->link; ?>#itemImageGalleryAnchor"><?php echo JText::_('Image Gallery'); ?></a>
 			</li>
 			<?php endif; ?>
-			
 			<?php if($this->item->params->get('itemCommentsAnchor') && $this->item->params->get('itemComments') && ( ($this->item->params->get('comments') == '2' && !$this->user->guest) || ($this->item->params->get('comments') == '1')) ): ?>
 			<!-- Anchor link to comments below - if enabled -->
 			<li>
@@ -166,7 +137,6 @@ defined('_JEXEC') or die('Restricted access');
 		<div class="clr"></div>
   </div>
 	<?php endif; ?>
-
 	<?php if($this->item->params->get('itemRating')): ?>
 	<!-- Item Rating -->
 	<div class="itemRatingBlock">
@@ -186,15 +156,11 @@ defined('_JEXEC') or die('Restricted access');
 		<div class="clr"></div>
 	</div>
 	<?php endif; ?>
-
   <div class="itemBody">
-
 	  <!-- Plugins: BeforeDisplayContent -->
 	  <?php echo $this->item->event->BeforeDisplayContent; ?>
-	  
 	  <!-- K2 Plugins: K2BeforeDisplayContent -->
 	  <?php echo $this->item->event->K2BeforeDisplayContent; ?>
-
 	  <?php if($this->item->params->get('itemImage') && !empty($this->item->image)): ?>
 	  <!-- Item Image -->
 	  <div class="itemImageBlock">
@@ -203,48 +169,37 @@ defined('_JEXEC') or die('Restricted access');
 		  		<img src="<?php echo $this->item->image; ?>" alt="<?php if(!empty($this->item->image_caption)) echo $this->item->image_caption; else echo $this->item->title; ?>" style="width:<?php echo $this->item->imageWidth; ?>px; height:auto;" />
 		  	</a>
 		  </span>
-		  
 		  <?php if($this->item->params->get('itemImageMainCaption') && !empty($this->item->image_caption)): ?>
 		  <!-- Image caption -->
 		  <span class="itemImageCaption"><?php echo $this->item->image_caption; ?></span>
 		  <?php endif; ?>
-		  
 		  <?php if($this->item->params->get('itemImageMainCredits') && !empty($this->item->image_credits)): ?>
 		  <!-- Image credits -->
 		  <span class="itemImageCredits"><?php echo $this->item->image_credits; ?></span>
 		  <?php endif; ?>
-		  
 		  <div class="clr"></div>
 	  </div>
 	  <?php endif; ?>
-	  
 	  <?php if(!empty($this->item->fulltext)): ?>
-	  
 	  <?php if($this->item->params->get('itemIntroText')): ?>
 	  <!-- Item introtext -->
 	  <div class="itemIntroText">
 	  	<?php echo $this->item->introtext; ?>
 	  </div>
 	  <?php endif; ?>
-
 	  <?php if($this->item->params->get('itemFullText')): ?>
 	  <!-- Item fulltext -->
 	  <div class="itemFullText">
 	  	<?php echo $this->item->fulltext; ?>
 	  </div>
 	  <?php endif; ?>
-	  
 	  <?php else: ?>
-	  
 	  <!-- Item text -->
 	  <div class="itemFullText">
 	  	<?php echo $this->item->introtext; ?>
 	  </div>
-	  
 	  <?php endif; ?>
-		
-		<div class="clr"></div>
-
+	  <div class="clr"></div>
 	  <?php if($this->item->params->get('itemExtraFields') && count($this->item->extra_fields)): ?>
 	  <!-- Item extra fields -->  
 	  <div class="itemExtraFields">
@@ -261,7 +216,6 @@ defined('_JEXEC') or die('Restricted access');
 	    <div class="clr"></div>
 	  </div>
 	  <?php endif; ?>
-	  
 		<?php if($this->item->params->get('itemDateModified') && intval($this->item->modified)!=0):?>
 		<!-- Item date modified -->
 		<?php if($this->item->created != $this->item->modified): ?>
@@ -270,16 +224,12 @@ defined('_JEXEC') or die('Restricted access');
 		</span>
 		<?php endif; ?>
 		<?php endif; ?>
-
 	  <!-- Plugins: AfterDisplayContent -->
 	  <?php echo $this->item->event->AfterDisplayContent; ?>
-	  
 	  <!-- K2 Plugins: K2AfterDisplayContent -->
 	  <?php echo $this->item->event->K2AfterDisplayContent; ?>
-
 	  <div class="clr"></div>
   </div>
-
   <?php if(
   $this->item->params->get('itemHits') || 
   $this->item->params->get('itemTwitterLink') || 
@@ -289,7 +239,6 @@ defined('_JEXEC') or die('Restricted access');
   $this->item->params->get('itemAttachments')
   ): ?>
   <div class="itemLinks">
-
 		<?php if($this->item->params->get('itemHits') || $this->item->params->get('itemTwitterLink')): ?>
 		<div class="itemHitsTwitter">
 			<?php if($this->item->params->get('itemHits')): ?>
@@ -298,11 +247,9 @@ defined('_JEXEC') or die('Restricted access');
 				<?php echo JText::_('Read'); ?> <b><?php echo $this->item->hits; ?></b> <?php echo JText::_('times'); ?>
 			</span>
 			<?php endif; ?>
-			
 			<?php if($this->item->params->get('itemHits') && $this->item->params->get('itemTwitterLink')): ?>
 			<span class="itemHitsTwitterSep">|</span>
 			<?php endif; ?>
-		
 			<?php if($this->item->params->get('itemTwitterLink') && $this->item->params->get('twitterUsername')): ?>
 			<!-- Twitter Link -->
 			<span class="itemTwitterLink">
@@ -311,11 +258,9 @@ defined('_JEXEC') or die('Restricted access');
 				</a>
 			</span>
 			<?php endif; ?>
-			
 			<div class="clr"></div>
 		</div>
 		<?php endif; ?>
-
 		<?php if($this->item->params->get('itemCategory')): ?>
 		<!-- Item category name -->
 		<div class="itemCategory">
@@ -323,7 +268,6 @@ defined('_JEXEC') or die('Restricted access');
 			<a href="<?php echo $this->item->category->link; ?>"><?php echo $this->item->category->name; ?></a>
 		</div>
 		<?php endif; ?>
-		
 	  <?php if($this->item->params->get('itemTags') && count($this->item->tags)): ?>
 	  <!-- Item tags -->
 	  <div class="itemTagsBlock">
@@ -336,7 +280,6 @@ defined('_JEXEC') or die('Restricted access');
 		  <div class="clr"></div>
 	  </div>
 	  <?php endif; ?>
-
 	  <?php if($this->item->params->get('itemShareLinks')): ?>
 	  <!-- Item social links -->
 		<div class="itemSocialLinksBlock">
@@ -354,7 +297,6 @@ defined('_JEXEC') or die('Restricted access');
 			<div class="clr"></div>
 		</div>
 	  <?php endif; ?>
-	  
 	  <?php if($this->item->params->get('itemAttachments') && count($this->item->attachments)): ?>
 	  <!-- Item attachments -->
 	  <div class="itemAttachmentsBlock">
@@ -377,37 +319,29 @@ defined('_JEXEC') or die('Restricted access');
 		<div class="clr"></div>
   </div>
   <?php endif; ?>  
-  
   <?php if($this->item->params->get('itemAuthorBlock') && empty($this->item->created_by_alias)):?>
   <!-- Author Block -->
   <div class="itemAuthorBlock">
-
   	<?php if($this->item->params->get('itemAuthorImage') && !empty($this->item->author->avatar)):?>
   	<img class="itemAuthorAvatar" src="<?php echo $this->item->author->avatar; ?>" alt="<?php echo $this->item->author->name; ?>" />
   	<?php endif; ?>
-  	
     <div class="itemAuthorDetails">
       <h3 class="itemAuthorName">
       	<a href="<?php echo $this->item->author->link; ?>"><?php echo $this->item->author->name; ?></a>
       </h3>
-      
       <?php if($this->item->params->get('itemAuthorDescription') && !empty($this->item->author->profile->description)):?>
       <p><?php echo $this->item->author->profile->description; ?></p>
       <?php endif; ?>
-      
       <?php if($this->item->params->get('itemAuthorURL') && !empty($this->item->author->profile->url)):?>
       <span class="itemAuthorUrl"><?php echo JText::_("Website:"); ?> <a href="<?php echo $this->item->author->profile->url; ?>" target="_blank"><?php echo str_replace('http://','',$this->item->author->profile->url); ?></a></span>
       <?php endif; ?>
-      
       <?php if($this->item->params->get('itemAuthorEmail')):?>
       <span class="itemAuthorEmail"><?php echo JText::_("E-mail:"); ?> <?php echo JHTML::_('Email.cloak', $this->item->author->email); ?></span>
       <?php endif; ?>
-            
     </div>
     <div class="clr"></div>
   </div>  
   <?php endif; ?>
-
   <?php if($this->item->params->get('itemAuthorLatest') && empty($this->item->created_by_alias) && isset($this->authorLatestItems)): ?>
   <!-- Latest items from author -->
 	<div class="itemAuthorLatest">
@@ -422,7 +356,6 @@ defined('_JEXEC') or die('Restricted access');
 		<div class="clr"></div>
 	</div>
 	<?php endif; ?>
-
   <?php if($this->item->params->get('itemRelated') && isset($this->relatedItems)): ?>
   <!-- Related items by tag -->
 	<div class="itemRelated">
@@ -437,30 +370,22 @@ defined('_JEXEC') or die('Restricted access');
 		<div class="clr"></div>
 	</div>
 	<?php endif; ?>
-
 	<div class="clr"></div>
-
   <?php if($this->item->params->get('itemVideo') && !empty($this->item->video)): ?>
   <!-- Item video -->
   <a name="itemVideoAnchor" id="itemVideoAnchor"></a>
-
   <div class="itemVideoBlock">
   	<h3><?php echo JText::_('Related Video'); ?></h3>
-  	
 	  <span class="itemVideo<?php if($this->item->videoType=='embedded'): ?> embedded<?php endif; ?>"><?php echo $this->item->video; ?></span>
-	  
 	  <?php if($this->item->params->get('itemVideoCaption') && !empty($this->item->video_caption)): ?>
 	  <span class="itemVideoCaption"><?php echo $this->item->video_caption; ?></span>
 	  <?php endif; ?>
-	  
 	  <?php if($this->item->params->get('itemVideoCredits') && !empty($this->item->video_credits)): ?>
 	  <span class="itemVideoCredits"><?php echo $this->item->video_credits; ?></span>
 	  <?php endif; ?>
-	  
 	  <div class="clr"></div>
   </div>
   <?php endif; ?>
-  
   <?php if($this->item->params->get('itemImageGallery') && !empty($this->item->gallery)): ?>
   <!-- Item image gallery -->
   <a name="itemImageGalleryAnchor" id="itemImageGalleryAnchor"></a>
@@ -469,7 +394,6 @@ defined('_JEXEC') or die('Restricted access');
 	  <?php echo $this->item->gallery; ?>
   </div>
   <?php endif; ?>
-
   <?php if($this->item->params->get('itemNavigation') && !JRequest::getCmd('print') && (isset($this->item->nextLink) || isset($this->item->previousLink))): ?>
   <!-- Item navigation -->
   <div class="itemNavigation">
@@ -489,18 +413,14 @@ defined('_JEXEC') or die('Restricted access');
 		
   </div>
   <?php endif; ?>
-
   <!-- Plugins: AfterDisplay -->
   <?php echo $this->item->event->AfterDisplay; ?>
-  
   <!-- K2 Plugins: K2AfterDisplay -->
   <?php echo $this->item->event->K2AfterDisplay; ?>
-
   <?php if($this->item->params->get('itemComments') && ( ($this->item->params->get('comments') == '2' && !$this->user->guest) || ($this->item->params->get('comments') == '1'))):?>
   	<!-- K2 Plugins: K2CommentsBlock -->
   	<?php echo $this->item->event->K2CommentsBlock; ?>
   <?php endif;?>
-  
  <?php if(
 	 $this->item->params->get('itemComments') 
 	 && !JRequest::getInt('print') 
@@ -509,40 +429,32 @@ defined('_JEXEC') or die('Restricted access');
   ):?>
   <!-- Item comments -->
   <a name="itemCommentsAnchor" id="itemCommentsAnchor"></a>
-  
   <div class="itemComments">
-  
 	  <?php if($this->item->params->get('commentsFormPosition')=='above' && $this->item->params->get('itemComments') && !JRequest::getInt('print') && ($this->item->params->get('comments') == '1' || ($this->item->params->get('comments') == '2' && K2HelperPermissions::canAddComment($this->item->catid)))): ?>
 	  <!-- Item comments form -->
 	  <div class="itemCommentsForm">
 	  	<?php echo $this->loadTemplate('comments_form'); ?>
 	  </div>
 	  <?php endif; ?>
-	  
 	  <?php if($this->item->numOfComments>0 && $this->item->params->get('itemComments') && !JRequest::getInt('print') && ($this->item->params->get('comments') == '1' || ($this->item->params->get('comments') == '2'))): ?>
 	  <!-- Item user comments -->
 	  <h3 class="itemCommentsCounter">
 	  	<span><?php echo $this->item->numOfComments; ?></span> <?php echo ($this->item->numOfComments>1) ? JText::_('comments') : JText::_('comment'); ?>
 	  </h3>
-	  
 	  <ul class="itemCommentsList">
 	    <?php foreach ($this->item->comments as $key=>$comment): ?>
 	    <li class="<?php echo ($key%2) ? "odd" : "even"; ?>">
-	    
 	    	<span class="commentLink">
 		    	<a href="<?php echo $this->item->link; ?>#comment<?php echo $comment->id; ?>" name="comment<?php echo $comment->id; ?>" id="comment<?php echo $comment->id; ?>">
 		    		<?php echo JText::_('Comment Link'); ?>
 		    	</a>
 		    </span>
-		    
 				<?php if($comment->userImage):?>
 				<img src="<?php echo $comment->userImage; ?>" alt="<?php echo $comment->userName; ?>" width="<?php echo $this->item->params->get('commenterImgWidth'); ?>" />
 				<?php endif; ?>
-			
 				<span class="commentDate">
 		    	<?php echo JHTML::_('date', $comment->commentDate, JText::_('DATE_FORMAT_LC2')); ?>
 		    </span>
-		    
 		    <span class="commentAuthorName">
 			    <?php echo JText::_("posted by"); ?>
 			    <?php if(!empty($comment->userLink)): ?>
@@ -553,41 +465,30 @@ defined('_JEXEC') or die('Restricted access');
 			    <?php echo $comment->userName; ?>
 			    <?php endif; ?>
 		    </span>
-		    
 		    <p><?php echo $comment->commentText; ?></p>
-		    
 		    <span class="commentAuthorEmail">
 		    	<?php echo JHTML::_('Email.cloak', $comment->commentEmail, 0); ?>
 		    </span>
-		    
-				<br class="clr" />
+			<br class="clr" />
 	    </li>
 	    <?php endforeach; ?>
 	  </ul>
-	  
 	  <div class="itemCommentsPagination">
 	  	<?php echo $this->pagination->getPagesLinks(); ?>
 	  	<div class="clr"></div>
 	  </div>
 		<?php endif; ?>
-
 		<?php if($this->item->params->get('commentsFormPosition')=='below' && $this->item->params->get('itemComments') && !JRequest::getInt('print') && ($this->item->params->get('comments') == '1' || ($this->item->params->get('comments') == '2' && K2HelperPermissions::canAddComment($this->item->catid)))): ?>
 	  <!-- Item comments form -->
 	  <div class="itemCommentsForm">
 	  	<?php echo $this->loadTemplate('comments_form'); ?>
 	  </div>
 	  <?php endif; ?>
-	  
 	  <?php $user = &JFactory::getUser(); if ($this->item->params->get('comments') == '2' && $user->guest):?>
 	  		<div><?php echo JText::_('Login to post comments');?></div>
 	  <?php endif; ?>
-	  
   </div>
   <?php endif; ?>
-
-	<!--<div class="itemBackToTop">
-		<a href="<?php echo $this->item->link; ?>#startOfPageId<?php echo JRequest::getInt('id'); ?>"><?php echo JText::_("back to top"); ?></a>
-	</div>-->
-	
 </div>
 <!-- End K2 Item Layout -->
+<?php } ?><!-- close the themelet override check -->

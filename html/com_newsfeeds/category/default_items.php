@@ -1,5 +1,7 @@
-<?php // no direct access
-defined('_JEXEC') or die('Restricted access'); ?>
+<?php defined( '_JEXEC' ) or die( 'Restricted access' );
+if($override = Morph::override(__FILE__, $this)) {
+	if(file_exists($override)) include $override;
+} else { ?>
 <form action="<?php echo JRoute::_('index.php?view=category&id='.$this->category->slug); ?>" method="post" name="adminForm">
 <?php if ($this->params->get('show_limit')) : ?>
 	<?php echo JText::_('Display Num') .'&nbsp;'; echo $this->pagination->getLimitBox(); ?>
@@ -26,3 +28,4 @@ defined('_JEXEC') or die('Restricted access'); ?>
 	<?php echo $this->pagination->getPagesLinks(); ?>
 </div>	
 </form>
+<?php } ?><!-- close the themelet override check -->

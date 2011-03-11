@@ -1,11 +1,12 @@
-<?php // no direct access
-defined('_JEXEC') or die('Restricted access'); ?>
+<?php defined( '_JEXEC' ) or die( 'Restricted access' );
+if($override = Morph::override(__FILE__, $this)) {
+	if(file_exists($override)) include $override;
+} else { ?>
 <?php if ( $this->params->def( 'show_page_title', 1 ) ) : ?>
-    <h1 class="componentheading clearer">
+    <h1>
 		<?php echo $this->escape($this->params->get('page_title')); ?>
 	</h1>
 <?php endif; ?>
-
 <?php if ( ($this->params->def('image', -1) != -1) || $this->params->def('show_comp_description', 1) ) : ?>
 <div class="desc">
 	<?php if ( isset($this->image) ) : echo $this->image; endif;
@@ -21,3 +22,4 @@ defined('_JEXEC') or die('Restricted access'); ?>
 	</li>
 <?php endforeach; ?>
 </ul>
+<?php } ?><!-- close the themelet override check -->

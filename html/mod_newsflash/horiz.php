@@ -1,5 +1,8 @@
 <?php // no direct access
-defined('_JEXEC') or die('Restricted access'); ?>
+defined('_JEXEC') or die('Restricted access');
+if($override = Morph::override(__FILE__, $this)) {
+	if(file_exists($override)) include $override;
+} else { ?>
 <table class="moduletable<?php echo $params->get('moduleclass_sfx') ?>">
 	<tr>
 	<?php foreach ($list as $item) : ?>
@@ -9,3 +12,4 @@ defined('_JEXEC') or die('Restricted access'); ?>
 	<?php endforeach; ?>
 	</tr>
 </table>
+<?php } ?><!-- close the themelet override check -->

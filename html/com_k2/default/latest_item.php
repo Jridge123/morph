@@ -1,26 +1,13 @@
-<?php
-/**
- * @version		$Id: latest_item.php 329 2010-01-15 19:39:21Z joomlaworks $
- * @package		K2
- * @author    JoomlaWorks http://www.joomlaworks.gr
- * @copyright	Copyright (c) 2006 - 2010 JoomlaWorks Ltd. All rights reserved.
- * @license		GNU/GPL license: http://www.gnu.org/copyleft/gpl.html
- */
-
-// no direct access
-defined('_JEXEC') or die('Restricted access');
-
-?>
-
+<?php defined( '_JEXEC' ) or die( 'Restricted access' );
+if($override = Morph::override(__FILE__, $this)) {
+	if(file_exists($override)) include $override;
+} else { ?>
 <!-- Start K2 Item Layout -->
 <div class="latestItemView">
-
 	<!-- Plugins: BeforeDisplay -->
 	<?php echo $this->item->event->BeforeDisplay; ?>
-
 	<!-- K2 Plugins: K2BeforeDisplay -->
 	<?php echo $this->item->event->K2BeforeDisplay; ?>
-
 	<div class="latestItemHeader">
 	  <?php if($this->item->params->get('latestItemTitle')): ?>
 	  <!-- Item title -->
@@ -35,28 +22,21 @@ defined('_JEXEC') or die('Restricted access');
 	  </h2>
 	  <?php endif; ?>
   </div>
-  
 	<?php if($this->item->params->get('latestItemDateCreated')): ?>
 	<!-- Date created -->
 	<span class="latestItemDateCreated">
 		<?php echo JHTML::_('date', $this->item->created , JText::_('DATE_FORMAT_LC2')); ?>
 	</span>
 	<?php endif; ?>
-
   <!-- Plugins: AfterDisplayTitle -->
   <?php echo $this->item->event->AfterDisplayTitle; ?>
-
   <!-- K2 Plugins: K2AfterDisplayTitle -->
   <?php echo $this->item->event->K2AfterDisplayTitle; ?>
-
   <div class="latestItemBody">
-
 	  <!-- Plugins: BeforeDisplayContent -->
 	  <?php echo $this->item->event->BeforeDisplayContent; ?>
-
 	  <!-- K2 Plugins: K2BeforeDisplayContent -->
 	  <?php echo $this->item->event->K2BeforeDisplayContent; ?>
-
 	  <?php if($this->item->params->get('latestItemImage') && !empty($this->item->image)): ?>
 	  <!-- Item Image -->
 	  <div class="latestItemImageBlock">
@@ -68,28 +48,21 @@ defined('_JEXEC') or die('Restricted access');
 		  <div class="clr"></div>
 	  </div>
 	  <?php endif; ?>
-
 	  <?php if($this->item->params->get('latestItemIntroText')): ?>
 	  <!-- Item introtext -->
 	  <div class="latestItemIntroText">
 	  	<?php echo $this->item->introtext; ?>
 	  </div>
 	  <?php endif; ?>
-
 		<div class="clr"></div>
-
 	  <!-- Plugins: AfterDisplayContent -->
 	  <?php echo $this->item->event->AfterDisplayContent; ?>
-
 	  <!-- K2 Plugins: K2AfterDisplayContent -->
 	  <?php echo $this->item->event->K2AfterDisplayContent; ?>
-
 	  <div class="clr"></div>
   </div>
-
   <?php if($this->item->params->get('latestItemCategory') || $this->item->params->get('latestItemTags')): ?>
   <div class="latestItemLinks">
-
 		<?php if($this->item->params->get('latestItemCategory')): ?>
 		<!-- Item category name -->
 		<div class="latestItemCategory">
@@ -97,7 +70,6 @@ defined('_JEXEC') or die('Restricted access');
 			<a href="<?php echo $this->item->category->link; ?>"><?php echo $this->item->category->name; ?></a>
 		</div>
 		<?php endif; ?>
-
 	  <?php if($this->item->params->get('latestItemTags') && count($this->item->tags)): ?>
 	  <!-- Item tags -->
 	  <div class="latestItemTagsBlock">
@@ -110,13 +82,10 @@ defined('_JEXEC') or die('Restricted access');
 		  <div class="clr"></div>
 	  </div>
 	  <?php endif; ?>
-
 		<div class="clr"></div>
   </div>
   <?php endif; ?>
-
 	<div class="clr"></div>
-
   <?php if($this->params->get('latestItemVideo') && !empty($this->item->video)): ?>
   <!-- Item video -->
   <div class="latestItemVideoBlock">
@@ -124,7 +93,6 @@ defined('_JEXEC') or die('Restricted access');
 	  <span class="latestItemVideo<?php if($this->item->videoType=='embedded'): ?> embedded<?php endif; ?>"><?php echo $this->item->video; ?></span>
   </div>
   <?php endif; ?>
-
 	<?php if($this->item->params->get('latestItemCommentsAnchor') && ( ($this->item->params->get('comments') == '2' && !$this->user->guest) || ($this->item->params->get('comments') == '1')) ): ?>
 	<!-- Anchor link to comments below -->
 	<div class="latestItemCommentsLink">
@@ -139,7 +107,6 @@ defined('_JEXEC') or die('Restricted access');
 		<?php endif; ?>
 	</div>
 	<?php endif; ?>
-
 	<?php if ($this->item->params->get('latestItemReadMore')): ?>
 	<!-- Item "read more..." link -->
 	<div class="latestItemReadMore">
@@ -148,15 +115,13 @@ defined('_JEXEC') or die('Restricted access');
 		</a>
 	</div>
 	<?php endif; ?>
-
 	<div class="clr"></div>
-
   <!-- Plugins: AfterDisplay -->
   <?php echo $this->item->event->AfterDisplay; ?>
-
   <!-- K2 Plugins: K2AfterDisplay -->
   <?php echo $this->item->event->K2AfterDisplay; ?>
 
 	<div class="clr"></div>
 </div>
 <!-- End K2 Item Layout -->
+<?php } ?><!-- close the themelet override check -->

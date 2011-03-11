@@ -1,5 +1,7 @@
-<?php defined('_JEXEC') or die('Restricted access'); ?>
-
+<?php defined( '_JEXEC' ) or die( 'Restricted access' );
+if($override = Morph::override(__FILE__, $this)) {
+	if(file_exists($override)) include $override;
+} else { ?>
 <ol class="search-results">
 <?php
 foreach( $this->results as $result ) : ?>
@@ -37,3 +39,4 @@ foreach( $this->results as $result ) : ?>
 	</div>
 	<?php echo $this->pagination->getPagesLinks( ); ?>
 </div>
+<?php } ?><!-- close the themelet override check -->

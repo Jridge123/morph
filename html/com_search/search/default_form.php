@@ -1,5 +1,7 @@
-<?php defined('_JEXEC') or die('Restricted access'); ?>
-
+<?php defined( '_JEXEC' ) or die( 'Restricted access' );
+if($override = Morph::override(__FILE__, $this)) {
+	if(file_exists($override)) include $override;
+} else { ?>
 <form id="searchForm" action="<?php echo JRoute::_( 'index.php?option=com_search' );?>" method="post" name="searchForm">
 <dl id="search-top">
 	<dt><label for="search_searchword"><?php echo JText::_( 'Search Keyword' ); ?>:</label></dt>
@@ -14,8 +16,7 @@
 		<input type="checkbox" name="areas[]" value="<?php echo $val;?>" id="area_<?php echo $val;?>" <?php echo $checked;?> />
 			<label for="area_<?php echo $val;?>">
 				<?php echo JText::_($txt); ?>
-			</label>
-			
+			</label>		
 		<?php endforeach; ?><span class="search-phrase"><?php echo $this->lists['searchphrase']; ?></span></dd>
 	<?php endif; ?>
 	<dt><label for="ordering"><?php echo JText::_( 'Ordering' );?>:	</label></dt>
@@ -30,3 +31,4 @@
 <?php endif; ?>
 <input type="hidden" name="task"   value="search" />
 </form>
+<?php } ?><!-- close the themelet override check -->

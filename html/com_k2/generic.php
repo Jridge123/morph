@@ -1,34 +1,21 @@
-<?php
-/**
- * @version		$Id: generic.php 329 2010-01-15 19:39:21Z joomlaworks $
- * @package		K2
- * @author    JoomlaWorks http://www.joomlaworks.gr
- * @copyright	Copyright (c) 2006 - 2010 JoomlaWorks Ltd. All rights reserved.
- * @license		GNU/GPL license: http://www.gnu.org/copyleft/gpl.html
- */
-
-// no direct access
-defined('_JEXEC') or die('Restricted access');
-
-?>
-
+<?php defined( '_JEXEC' ) or die( 'Restricted access' );
+if($override = Morph::override(__FILE__, $this)) {
+	if(file_exists($override)) include $override;
+} else { ?>
 <!-- Start K2 Generic Layout -->
 <div id="k2Container" class="genericView">
-
 	<?php if($this->params->get('show_page_title')): ?>
 	<!-- Page title -->
 	<h1>
 		<?php echo $this->escape($this->params->get('page_title')); ?>
 	</h1>
 	<?php endif; ?>
-
 	<?php if($this->params->get('userFeed')): ?>
 	<!-- RSS feed icon -->
 		<a class="feedicon" href="<?php echo $this->feed; ?>" title="<?php echo JText::_('Subscribe to this RSS feed'); ?>">
 			<span><?php echo JText::_('Subscribe to this RSS feed'); ?></span>
 		</a>
 	<?php endif; ?>
-
 	<?php if(count($this->items)): ?>
 	<div class="genericItemList">
 		<?php foreach($this->items as $item): ?>
@@ -57,7 +44,6 @@ defined('_JEXEC') or die('Restricted access');
 			  </h2>
 			  <?php endif; ?>
 		  </div>
-
 		  <div class="genericItemBody">
 			  <?php if($item->params->get('genericItemImage') && !empty($item->imageGeneric)): ?>
 			  <!-- Item Image -->
@@ -69,16 +55,13 @@ defined('_JEXEC') or die('Restricted access');
 				  </span>
 			  </div>
 			  <?php endif; ?>
-			  
 			  <?php if($item->params->get('genericItemIntroText')): ?>
 			  <!-- Item introtext -->
 			  <div class="genericItemIntroText">
 			  	<?php echo $item->introtext; ?>
 			  </div>
 			  <?php endif; ?>
-
 		  </div>
-		  		  
 		  <?php if($item->params->get('genericItemExtraFields') && count($item->extra_fields)): ?>
 		  <!-- Item extra fields -->  
 		  <div class="genericItemExtraFields">
@@ -94,7 +77,6 @@ defined('_JEXEC') or die('Restricted access');
 				</ul>
 		  </div>
 		  <?php endif; ?>
-		  
 			<?php if($item->params->get('genericItemCategory')): ?>
 			<!-- Item category name -->
 			<div class="genericItemCategory">
@@ -102,7 +84,6 @@ defined('_JEXEC') or die('Restricted access');
 				<a href="<?php echo $item->category->link; ?>"><?php echo $item->category->name; ?></a>
 			</div>
 			<?php endif; ?>
-			
 			<?php if ($item->params->get('genericItemReadMore')): ?>
 			<!-- Item "read more..." link -->
 			<div class="genericItemReadMore">
@@ -111,13 +92,10 @@ defined('_JEXEC') or die('Restricted access');
 				</a>
 			</div>
 			<?php endif; ?>
-
 		</div>
 		<!-- End K2 Item Layout -->
-		
 		<?php endforeach; ?>
 	</div>
-
 	<!-- Pagination -->
 	<?php if($this->pagination->getPagesLinks()): ?>
 	<div id="pagination-wrap">
@@ -125,8 +103,6 @@ defined('_JEXEC') or die('Restricted access');
 		<?php echo $this->pagination->getPagesCounter(); ?>
 	</div>
 	<?php endif; ?>
-
 	<?php endif; ?>
-	
 </div>
-<!-- End K2 Generic Layout -->
+<?php } ?><!-- close the themelet override check -->

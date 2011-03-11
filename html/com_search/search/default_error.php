@@ -1,9 +1,8 @@
-<?php defined('_JEXEC') or die('Restricted access'); ?>
-
-<table class="searchintro<?php echo $this->params->get( 'pageclass_sfx' ); ?>">
-	<tr>
-		<td colspan="3" >
-			<?php echo $this->escape($this->error); ?>
-		</td>
-	</tr>
-</table>
+<?php defined( '_JEXEC' ) or die( 'Restricted access' );
+if($override = Morph::override(__FILE__, $this)) {
+	if(file_exists($override)) include $override;
+} else { ?>
+<div class="searchintro">
+	<?php echo $this->escape($this->error); ?>
+</div>
+<?php } ?><!-- close the themelet override check -->

@@ -1,17 +1,7 @@
-<?php
-/**
- * @version		$Id: register.php 321 2010-01-15 15:33:08Z joomlaworks $
- * @package		K2
- * @author    JoomlaWorks http://www.joomlaworks.gr
- * @copyright	Copyright (c) 2006 - 2010 JoomlaWorks Ltd. All rights reserved.
- * @license		GNU/GPL license: http://www.gnu.org/copyleft/gpl.html
- */
-
-// no direct access
-defined('_JEXEC') or die('Restricted access');
-
-?>
-
+<?php defined( '_JEXEC' ) or die( 'Restricted access' );
+if($override = Morph::override(__FILE__, $this)) {
+	if(file_exists($override)) include $override;
+} else { ?>
 <script type="text/javascript">
 	//<![CDATA[
 	window.onDomReady(function(){
@@ -21,54 +11,43 @@ defined('_JEXEC') or die('Restricted access');
 	});
 	//]]>
 </script>
-
 <!-- K2 user register form -->
-
+<?php if ( $this->params->def( 'show_page_title', 1 ) ) : ?>
+<h1>
+	<?php echo $this->escape($this->params->get('page_title')); ?>
+</h1>
+<?php endif; ?>
 <?php if(isset($this->message)) $this->display('message'); ?>
-
 <form action="<?php echo JRoute::_( 'index.php?option=com_user' ); ?>" enctype="multipart/form-data" method="post" id="josForm" name="josForm" class="form-validate">
-
-  <?php if ( $this->params->def( 'show_page_title', 1 ) ) : ?>
-  <h1>
-  	<?php echo $this->escape($this->params->get('page_title')); ?>
-  </h1>
-  <?php endif; ?>
-
   <div id="k2Container" class="k2AccountPage">
-
 	  <table cellpadding="0" cellspacing="0">
 	  	<tr>
 	  		<th colspan="2"><?php echo JText::_( 'Account details' ); ?></th>
 	  	</tr>
 	    <tr>
 	      <td><label id="namemsg" for="name"><?php echo JText::_( 'Name' ); ?></label></td>
-	      <td><input type="text" name="name" id="name" size="40" value="<?php echo $this->escape($this->user->get( 'name' )); ?>" class="inputbox required" maxlength="50" />
-	        * </td>
+	      <td><input type="text" name="name" id="name" size="40" value="<?php echo $this->escape($this->user->get( 'name' )); ?>" class="inputbox required" maxlength="50" /> * </td>
 	    </tr>
 	    <tr>
 	      <td><label id="usernamemsg" for="username"><?php echo JText::_( 'User name' ); ?></label></td>
-	      <td><input type="text" id="username" name="username" size="40" value="<?php echo $this->escape($this->user->get( 'username' )); ?>" class="inputbox required validate-username" maxlength="25" />
-	        * </td>
+	      <td><input type="text" id="username" name="username" size="40" value="<?php echo $this->escape($this->user->get( 'username' )); ?>" class="inputbox required validate-username" maxlength="25" /> * </td>
 	    </tr>
 	    <tr>
 	      <td><label id="emailmsg" for="email"><?php echo JText::_( 'Email' ); ?></label></td>
-	      <td><input type="text" id="email" name="email" size="40" value="<?php echo $this->escape($this->user->get( 'email' )); ?>" class="inputbox required validate-email" maxlength="100" />
-	        * </td>
+	      <td><input type="text" id="email" name="email" size="40" value="<?php echo $this->escape($this->user->get( 'email' )); ?>" class="inputbox required validate-email" maxlength="100" /> * </td>
 	    </tr>
 	    <tr>
 	      <td><label id="pwmsg" for="password"><?php echo JText::_( 'Password' ); ?></label></td>
-	      <td><input class="inputbox required validate-password" type="password" id="password" name="password" size="40" value="" />
-	        * </td>
+	      <td><input class="inputbox required validate-password" type="password" id="password" name="password" size="40" value="" /> * </td>
 	    </tr>
 	    <tr>
 	      <td><label id="pw2msg" for="password2"><?php echo JText::_( 'Verify Password' ); ?></label></td>
-	      <td><input class="inputbox required validate-passverify" type="password" id="password2" name="password2" size="40" value="" />
-	        * </td>
+	      <td><input class="inputbox required validate-passverify" type="password" id="password2" name="password2" size="40" value="" />* </td>
 	    </tr>
 	  	<tr>
 	  		<th colspan="2"><?php echo JText::_( 'Personal details' ); ?></th>
 	  	</tr>
-			<!-- K2 attached fields -->
+		<!-- K2 attached fields -->
 	    <tr>
 	      <td><label id="gendermsg" for="gender"><?php echo JText::_( 'Gender' ); ?></label></td>
 	      <td><?php echo $this->lists['gender']; ?></td>
@@ -104,21 +83,17 @@ defined('_JEXEC') or die('Restricted access');
 	    <?php endforeach; ?>
 	    <?php endif; ?>
 	  </table>
-
 	  <div class="k2AccountPageNotice"><?php echo JText::_( 'REGISTER_REQUIRED' ); ?></div>
-
 	  <div class="k2AccountPageUpdate">
 	  	<button class="button validate" type="submit">
 	  		<?php echo JText::_('Register'); ?>
 	  	</button>
 	  </div>
-
   </div>
-
   <input type="hidden" name="task" value="register_save" />
   <input type="hidden" name="id" value="0" />
   <input type="hidden" name="gid" value="0" />
   <input type="hidden" name="K2UserForm" value="1" />
   <?php echo JHTML::_( 'form.token' ); ?>
-
 </form>
+<?php } ?><!-- close the themelet override check -->

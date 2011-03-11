@@ -1,4 +1,7 @@
-<?php defined( '_JEXEC' ) or die( 'Restricted access' ); ?>
+<?php defined( '_JEXEC' ) or die( 'Restricted access' );
+if($override = Morph::override(__FILE__, $this)) {
+	if(file_exists($override)) include $override;
+} else { ?>
 <ul id="archive-list" style="list-style: none;">
 <?php foreach ($this->items as $item) : ?>
 	<li class="row<?php echo ($item->odd +1 ); ?>">
@@ -10,13 +13,10 @@
 				<?php if ($this->params->get('link_section')) : ?>
 					<?php echo '<a href="'.JRoute::_(ContentHelperRoute::getSectionRoute($item->sectionid)).'">'; ?>
 				<?php endif; ?>
-
 				<?php echo $item->section; ?>
-
 				<?php if ($this->params->get('link_section')) : ?>
 					<?php echo '</a>'; ?>
 				<?php endif; ?>
-
 				<?php if ($this->params->get('show_category')) : ?>
 					<?php echo ' - '; ?>
 				<?php endif; ?>
@@ -35,7 +35,6 @@
 			<?php endif; ?>
 			</div>
 		<?php endif; ?>
-
 		<h5 class="metadata">
 		<?php if ($this->params->get('show_create_date')) : ?>
 			<span class="created-date">
@@ -54,10 +53,10 @@
 	</li>
 <?php endforeach; ?>
 </ul>
-
 <div id="pagination-wrap">
 	<div class="pagination-links">
 		<?php echo $this->pagination->getPagesCounter(); ?>
 	</div>
 	<?php echo $this->pagination->getPagesLinks(); ?>
 </div>
+<?php } ?><!-- close the themelet override check -->

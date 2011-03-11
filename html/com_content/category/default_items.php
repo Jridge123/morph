@@ -36,25 +36,21 @@ document.adminForm.submit( task );
 		<th class="sectiontableheader" id="ct-count">
 			<?php echo JText::_('Num'); ?>
 		</th>
-
 		<?php if ($this->params->get('show_title')) : ?>
 		<th class="sectiontableheader" id="ct-title">
 			<?php echo JHTML::_('grid.sort', 'Item Title', 'a.title', $this->lists['order_Dir'], $this->lists['order']); ?>
 		</th>
 		<?php endif; ?>
-
 		<?php if ($this->params->get('show_date')) : ?>
 		<th class="sectiontableheader" id="ct-date">
 			<?php echo JHTML::_('grid.sort', 'Date', 'a.created', $this->lists['order_Dir'], $this->lists['order']); ?>
 		</th>
 		<?php endif; ?>
-
 		<?php if ($this->params->get('show_author')) : ?>
 		<th class="sectiontableheader" id="ct-author">
 			<?php echo JHTML::_('grid.sort', 'Author', 'author', $this->lists['order_Dir'], $this->lists['order']); ?>
 		</th>
 		<?php endif; ?>
-
 		<?php if ($this->params->get('show_hits')) : ?>
 		<th class="sectiontableheader" id="ct-hits">
 			<?php echo JHTML::_('grid.sort', 'Hits', 'a.hits', $this->lists['order_Dir'], $this->lists['order']); ?>
@@ -69,7 +65,6 @@ document.adminForm.submit( task );
 		<td headers="ct-count" class="ct-count">
 			<?php echo $this->pagination->getRowOffset($item->count); ?>
 		</td>
-
 		<?php if ($this->params->get('show_title')) : ?>
 		<td headers="ct-title" class="ct-title">
 			<?php if ($item->access <= $this->user->get('aid', 0)) : ?>
@@ -83,25 +78,21 @@ document.adminForm.submit( task );
 			<?php endif; ?>
 		</td>
 		<?php endif; ?>
-
 		<?php if ($this->params->get('show_date')) : ?>
 		<td  headers="ct-date" class="ct-date">
 			<?php echo $item->created; ?>
 		</td>
 		<?php endif; ?>
-
 		<?php if ($this->params->get('show_author')) : ?>
 		<td headers="ct-author" class="ct-author">
 			<?php echo $item->created_by_alias ? $item->created_by_alias : $item->author; ?>
 		</td>
 		<?php endif; ?>
-
 		<?php if ($this->params->get('show_hits')) : ?>
 		<td headers="ct-hits" class="ct-hits">
 			<?php echo $item->hits ? $item->hits : '-'; ?>
 		</td>
 		<?php endif; ?>
-
 	</tr>
 	<?php endforeach; ?>
 	</tbody>
