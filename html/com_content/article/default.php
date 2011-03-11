@@ -75,7 +75,6 @@ $tiny_url = get_tiny_url($current_url);
     	<?php if ($canEdit) : ?><li class="icons edit"><span class="edit"><?php echo JHTML::_('icon.edit', $this->article, $this->params, $this->access); ?></span></li><?php endif; ?>
     </ul>
 	<?php endif; ?>
-
     <?php if (($this->params->get('show_section') && $this->article->sectionid) || ($this->params->get('show_category') && $this->article->catid)) : ?>
     <p class="filing">
     	<?php if ($this->params->get('show_section') && $this->article->sectionid) : ?>
