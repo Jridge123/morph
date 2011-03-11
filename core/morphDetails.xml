@@ -726,6 +726,57 @@
 		<param name="dateformat" default="[weekday2], [dayofmonth1] [month2] [year2]" type="textarea" cols="32" rows="1" tooltip="modal" label="Date format" description="date-format.html" />
 	</params>
 	
+<!--	<params group="articlepositionsdata">
+		<param name="article_top1_chrome" default="none" type="list" label="Top1 Module chrome" tooltip="modal" description="chromefx.html">
+			<option value="none">None</option>
+			<option value="basic">Basic</option>
+			<option value="grid">Grid</option>
+			<option value="tabs">Tabs</option>
+			<option value="accordion">Accordion</option>			
+			<option value="outline">Outline</option>			
+		</param>
+		<param name="article_top2_chrome" default="none" type="list" label="Top2 Module chrome" tooltip="modal" description="chromefx.html">
+			<option value="none">None</option>
+			<option value="basic">Basic</option>
+			<option value="grid">Grid</option>
+			<option value="tabs">Tabs</option>
+			<option value="accordion">Accordion</option>			
+			<option value="outline">Outline</option>			
+		</param>
+		<param name="article_top3_chrome" default="none" type="list" label="Top3 Module chrome" tooltip="modal" description="chromefx.html">
+			<option value="none">None</option>
+			<option value="basic">Basic</option>
+			<option value="grid">Grid</option>
+			<option value="tabs">Tabs</option>
+			<option value="accordion">Accordion</option>			
+			<option value="outline">Outline</option>			
+		</param>
+		<param name="article_bottom1_chrome" default="none" type="list" label="Bottom1 Module chrome" tooltip="modal" description="chromefx.html">
+			<option value="none">None</option>
+			<option value="basic">Basic</option>
+			<option value="grid">Grid</option>
+			<option value="tabs">Tabs</option>
+			<option value="accordion">Accordion</option>			
+			<option value="outline">Outline</option>			
+		</param>
+		<param name="article_bottom2_chrome" default="none" type="list" label="Bottom2 Module chrome" tooltip="modal" description="chromefx.html">
+			<option value="none">None</option>
+			<option value="basic">Basic</option>
+			<option value="grid">Grid</option>
+			<option value="tabs">Tabs</option>
+			<option value="accordion">Accordion</option>			
+			<option value="outline">Outline</option>			
+		</param>
+		<param name="article_bottom3_chrome" default="none" type="list" label="Bottom3 Module chrome" tooltip="modal" description="chromefx.html">
+			<option value="none">None</option>
+			<option value="basic">Basic</option>
+			<option value="grid">Grid</option>
+			<option value="tabs">Tabs</option>
+			<option value="accordion">Accordion</option>			
+			<option value="outline">Outline</option>			
+		</param>
+	</params>-->
+	
 	<params group="blogenhancementsdata">
 		<param name="article_preview" default="1" type="itoggle" label="Show preview link" tooltip="inline" description="Would you like to enable the article preview link in the blog and frontpage views?">
 			<option value="1">Yes</option>
