@@ -2,9 +2,9 @@
 #tertiary-content{display:none;}
 #bd #primary-content{width:100%;}
 #bd #primary-content .primary-inner{border:0;padding:0;}
-#editor-top{margin-bottom:1em;}
+#editor-top{float:right;margin:0;}
 #editor-top label{font-size:1.3em;}
-#editor-top .editor-title{padding:5px;width:80%;}
+#editor-top .editor-title{padding:5px;width:500px;}
 #editor-top button{padding:4px;margin-left:5px;}
 #yui-main .yui-b{margin:0!important;}
 #yui-main .yui-u{width:100%;}
@@ -30,4 +30,16 @@
 #edit-content #meta textarea{width:99%;margin-bottom:.5em;}
 #edit-content #meta #metadesc{margin-bottom:1em;}
 #edit-content #editor textarea#text{width:99%!important;}
-#primary-content #text_tbl td{padding:0;}​
+#editform-tabs #editor tr.mceFirst td.mceToolbar{padding:5px;background:background-color: #eee;background-image: -moz-linear-gradient(top, #fff, #eee);background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #fff),color-stop(1, #eee));background-image: -webkit-linear-gradient(#fff, #eee);background-image: linear-gradient(top, #fff, #eee);filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#fff', EndColorStr='#eee');}​
+#editform-tabs #editor tr.mceFirst td.mceToolbar td{background:none;}
+td.mceToolbar{position:relative;}
+td.mceToolbar #text_toolbar1,
+td.mceToolbar #text_toolbar2,
+td.mceToolbar #text_toolbar3{display:block;float:left!important;}
+#editform-tabs #editor .mceToolbar{background:none;padding:0;}
+#editform-tabs #editor .defaultSkin .mceToolbar{height:22px;}
+#editform-tabs #editor .defaultSkin table{background:none;}
+#editform-tabs #editor .mceToolbarStart.mceToolbarStartButton.mceFirst{display:none;}
+#editform-tabs #editor .defaultSkin .mceButton{background:#fff;border:1px solid;border-color:#eee #ddd #ddd #eee;}
+#editform-tabs #editor .defaultSkin .mceButton:hover{background:#eee;border:1px solid;border-color:#ddd #ccc #ccc #ddd;}
+#editform-tabs #editor .defaultSkin .mceSeparator{opacity:.5;}
