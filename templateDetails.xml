@@ -46,6 +46,7 @@
 		<folder>core</folder>  
 		<folder>elements</folder>
 		<folder>html</folder>  
+		<folder>css</folder>  
 		<filename>index.php</filename>
 		<filename>index.html</filename>
 		<filename>component.php</filename>
