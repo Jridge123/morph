@@ -1,4 +1,7 @@
-<?php defined('_JEXEC') or die; ?>
+<?php defined( '_JEXEC' ) or die( 'Restricted access' );
+if($override = Morph::override(__FILE__, $this)) {
+	if(file_exists($override)) include $override;
+} else { ?>
 <div id="user-remind">
 	<div id="login-wrap">
 	<?php if ( $this->params->def( 'show_page_title', 1 ) ) : ?>
@@ -17,3 +20,4 @@
 	</form>
 	</div>
 </div>
+<?php } ?><!-- close the themelet override check -->

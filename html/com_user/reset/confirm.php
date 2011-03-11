@@ -1,4 +1,7 @@
-<?php defined('_JEXEC') or die; ?>
+<?php defined( '_JEXEC' ) or die( 'Restricted access' );
+if($override = Morph::override(__FILE__, $this)) {
+	if(file_exists($override)) include $override;
+} else { ?>
 <div id="login-wrap">
 <h1><?php echo JText::_('Confirm your Account'); ?></h1>
 <p class="login-description"><?php echo JText::_('RESET_PASSWORD_CONFIRM_DESCRIPTION'); ?></p>
@@ -19,3 +22,4 @@
 	<?php echo JHTML::_( 'form.token' ); ?>
 	</form>
 </div>
+<?php } ?><!-- close the themelet override check -->
