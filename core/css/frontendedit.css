@@ -43,3 +43,79 @@ td.mceToolbar #text_toolbar3{display:block;float:left!important;}
 #editform-tabs #editor .defaultSkin .mceButton{background:#fff;border:1px solid;border-color:#eee #ddd #ddd #eee;}
 #editform-tabs #editor .defaultSkin .mceButton:hover{background:#eee;border:1px solid;border-color:#ddd #ccc #ccc #ddd;}
 #editform-tabs #editor .defaultSkin .mceSeparator{opacity:.5;}
+
+#editform-tabs #editor .defaultSkin table.mceLayout {
+border: 1px solid #ccc;
+border-top: 0;
+}
+#editform-tabs #editor .defaultSkin table.mceLayout tr.mceLast td {
+border-bottom: 0 none;
+margin-bottom: -1px;
+}
+#text_path_row{
+color:#999;
+line-height: 21px;
+margin: 0;
+padding-left: 2px;
+}
+
+#editor-buttons,
+#editor-buttons li{
+margin:0;
+padding:0;
+list-style:none;
+}
+#editor-buttons{
+overflow:hidden;
+margin-top:15px;
+}
+#editor-buttons li{
+float:left;
+margin-right:10px;
+}
+#editor-buttons li.toggle-editor{
+float:right;
+margin-right:0;
+}
+#editor-buttons a{
+display:block;
+border:1px solid;
+border-color:#ddd #ccc #ccc #ddd;
+color:#999;
+background-color: #eee;
+background-image: -moz-linear-gradient(top, #fff, #eee);
+background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #fff),color-stop(1, #eee));
+background-image: -webkit-linear-gradient(#fff, #eee);
+background-image: linear-gradient(top, #fff, #eee);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#fff', EndColorStr='#eee');
+}
+#editor-buttons a:hover{
+cursor:pointer;
+text-decoration:none;
+background-color: #ddd;
+background-image: -moz-linear-gradient(top, #fff, #ddd);
+background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #fff),color-stop(1, #ddd));
+background-image: -webkit-linear-gradient(#fff, #ddd);
+background-image: linear-gradient(top, #fff, #ddd);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#fff', EndColorStr='#ddd');
+border-color:#ccc;
+}
+#editor-buttons a:focus{
+background-color: #eee;
+background-image: -moz-linear-gradient(top, #eee, #fff);
+background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #eee),color-stop(1, #fff));
+background-image: -webkit-linear-gradient(#eee, #fff);
+background-image: linear-gradient(top, #eee, #fff);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#eee', EndColorStr='#fff');
+}
+#editor-buttons a span{
+border:1px solid #fff;
+display:block;
+font-size: 0.8em;
+padding: 1px 7px;
+}
+#edit-content .button2-left{
+display:none;
+}
+
+

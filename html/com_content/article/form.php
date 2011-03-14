@@ -74,27 +74,26 @@ function submitbutton(pressbutton) {
 		</ul>
 		<div id="editor">
 		    <?php echo $this->editor->display('text', $this->article->text, '100%', '400', '70', '15', false); ?>
+		    <ul id="editor-buttons">
 		    <?php foreach($this->editor->getButtons(false) as $button) : ?>
 		    	<?php if($button->modal) : ?>
-		    		<?php /* Chris, change this ;) */ ?>
-		    		<div class="button2-left">
-		    			<div class="<?php echo $button->get('name') ?>">
-		    				<a class="modal-button" title="<?php echo $button->get('text') ?>" href="<?php echo JURI::base().$button->get('link') ?>" rel="<?php echo $button->get('options') ?>">
-		    					<?php echo $button->get('text') ?>
-		    				</a>
-		    			</div>
-		    		</div>
+	    		<li class="<?php echo $button->get('name') ?>">
+    				<a class="modal-button" title="<?php echo $button->get('text') ?>" href="<?php echo JURI::base().$button->get('link') ?>" rel="<?php echo $button->get('options') ?>">
+    					<span><?php echo $button->get('text') ?></span>
+    				</a>
+	    		</li>
 		    	<?php else : ?>
-		    		<?php /* This too if you have a moment*/ ?>
-		    		<div class="button2-left">
-		    			<div class="<?php echo $button->get('name') ?>">
-		    				<a title="<?php echo $button->get('text') ?>" onclick="<?php echo $button->get('onclick') ?>">
-		    					<?php echo $button->get('text') ?>
-		    				</a>
-		    			</div>
-		    		</div>
+    			<li class="<?php echo $button->get('name') ?>">
+    				<a title="<?php echo $button->get('text') ?>" onclick="<?php echo $button->get('onclick') ?>">
+    					<span><?php echo $button->get('text') ?></span>
+    				</a>
+    			</li>
 		    	<?php endif ?>
 		    <?php endforeach ?>
+		    	<li class="toggle-editor">
+		    		<a href="#" onclick="javascript:tinyMCE.execCommand('mceToggleEditor', false, 'text');return false;"><span>Toggle Editor</span></a>
+		    	</li>
+		    </ul>
 		</div>
 		<div id="publishing">
 		    <ul>
