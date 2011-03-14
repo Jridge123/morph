@@ -63,9 +63,9 @@ function submitbutton(pressbutton) {
 		<div id="editor-top">
 		    <input class="editor-title" type="text" id="title" name="title" size="50" maxlength="100" value="<?php echo $this->escape($this->article->title); ?>" />
 		    <input class="editor-alias" type="hidden" id="alias" name="alias" value="<?php echo $this->escape($this->article->alias); ?>" />
-		    <button type="button save" class="btn-save" onclick="submitbutton('save')"><?php echo JText::_('Save') ?></button>
-		    <button type="button apply" class="btn-apply" onclick="submitbutton('apply')"><?php echo JText::_('Apply') ?></button>
-		    <button type="button cancel" class="btn-cancel" onclick="submitbutton('cancel')"><?php echo JText::_('Cancel') ?></button>
+		    <a href="#" class="btn btn-apply" onclick="submitbutton('save')"><span><?php echo JText::_('Save') ?></span></a>
+		    <a href="#" class="btn btn-apply" onclick="submitbutton('apply')"><span><?php echo JText::_('Apply') ?></span></a>
+		    <a href="#" class="btn-cancel" onclick="submitbutton('cancel')"><?php echo JText::_('Cancel') ?></a>
 		</div>
 		<ul>
 			<li><a href="#editor"><?php echo JText::_('Editor'); ?></a></li>
