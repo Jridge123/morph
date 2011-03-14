@@ -73,7 +73,28 @@ function submitbutton(pressbutton) {
 			<li><a href="#metadata"><?php echo JText::_('Metadata'); ?></a></li>
 		</ul>
 		<div id="editor">
-		    <?php echo $this->editor->display('text', $this->article->text, '100%', '400', '70', '15'); ?>
+		    <?php echo $this->editor->display('text', $this->article->text, '100%', '400', '70', '15', false); ?>
+		    <?php foreach($this->editor->getButtons(false) as $button) : ?>
+		    	<?php if($button->modal) : ?>
+		    		<?php /* Chris, change this ;) */ ?>
+		    		<div class="button2-left">
+		    			<div class="<?php echo $button->get('name') ?>">
+		    				<a class="modal-button" title="<?php echo $button->get('text') ?>" href="<?php echo JURI::base().$button->get('link') ?>" rel="<?php echo $button->get('options') ?>">
+		    					<?php echo $button->get('text') ?>
+		    				</a>
+		    			</div>
+		    		</div>
+		    	<?php else : ?>
+		    		<?php /* This too if you have a moment*/ ?>
+		    		<div class="button2-left">
+		    			<div class="<?php echo $button->get('name') ?>">
+		    				<a title="<?php echo $button->get('text') ?>" onclick="<?php echo $button->get('onclick') ?>">
+		    					<?php echo $button->get('text') ?>
+		    				</a>
+		    			</div>
+		    		</div>
+		    	<?php endif ?>
+		    <?php endforeach ?>
 		</div>
 		<div id="publishing">
 		    <ul>
