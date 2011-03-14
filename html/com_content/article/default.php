@@ -9,9 +9,10 @@ $canEdit = ($this->user->authorize('com_content', 'edit', 'content', 'all') || $
 $morph = Morph::getInstance();
 $document = &JFactory::getDocument();
 $renderer = $document->loadRenderer('modules');
-$article1_chrome = array('style' => $morph->article_article1_chrome);
-$article1_chrome = array('style' => $morph->article_article2_chrome);
-$article1_chrome = array('style' => $morph->article_article3_chrome);
+$option = array('style' => 'xhtml');
+//$article1_chrome = array('style' => $morph->article_article1_chrome);
+//$article1_chrome = array('style' => $morph->article_article2_chrome);
+//$article1_chrome = array('style' => $morph->article_article3_chrome);
 //gets the data from a URL  
 function get_tiny_url($url){  
 	$ch = curl_init();  
@@ -27,7 +28,7 @@ $current_url = JURI::getInstance()->toString();
 $tiny_url = get_tiny_url($current_url);
 ?>
 <div class="article-page">
-	<?php echo $renderer->render('article1', $article1_chrome, null); ?>
+	<?php echo $renderer->render('article1', $option, null); ?>
 	<?php if ($this->params->get('show_page_title', 1) && $this->params->get('page_title') != $this->article->title) : ?>
 		<div class="page-title">
 			<?php echo $this->escape($this->params->get('page_title')); ?>
@@ -104,7 +105,7 @@ $tiny_url = get_tiny_url($current_url);
     </p>
     <?php endif; ?>
 	<!-- intro text -->
-	<?php echo $renderer->render('article2', $article2_chrome, null); ?>
+	<?php echo $renderer->render('article2', $option, null); ?>
 	<?php if (!$this->params->get('show_intro')) : echo $this->article->event->afterDisplayTitle; endif; ?>
 	<!-- article body -->
 	<div class="article-body clearer<?php if (isset ($this->article->toc)) : ?> toc<?php endif; ?>" id="article">
@@ -117,7 +118,7 @@ $tiny_url = get_tiny_url($current_url);
 		<!-- start content output -->
 		<div id="article-content">	
 		<?php echo $this->article->text; ?>
-		<?php echo $renderer->render('article3', $article3_chrome, null); ?>
+		<?php echo $renderer->render('article3', $option, null); ?>
 		<!-- date modified -->
 		<?php if ( intval($this->article->modified) !=0 && $this->params->get('show_modify_date')) : ?>
 		<p class="modified"><?php echo JText::sprintf('LAST_UPDATED2', JHTML::_('date', $this->article->modified, JText::_('DATE_FORMAT_LC2'))); ?>.</p>
@@ -142,7 +143,7 @@ $tiny_url = get_tiny_url($current_url);
         </div>
         <?php endif; ?>
 		</div> 
-		<?php echo $renderer->render('article4', $article4_chrome, null); ?>
+		<?php echo $renderer->render('article4', $option, null); ?>
 		<?php echo $this->article->event->afterDisplayContent; ?>
 	</div>
 </div>
