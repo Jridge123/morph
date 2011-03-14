@@ -50,13 +50,13 @@ td.mceToolbar #text_toolbar3{display:block;float:left!important;}
 #editor-buttons li{float:left;margin-right:10px;}
 #editor-buttons li.toggle-editor{float:right;margin-right:0;}
 #editor-top .btn,
-#editor-buttons a{display:block;border:1px solid;border-color:#ddd #ccc #ccc #ddd;color:#999;background-color:#eee;background-image:-moz-linear-gradient(top, #fff, #eee);background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0, #fff),color-stop(1, #eee));background-image:-webkit-linear-gradient(#fff, #eee);background-image:linear-gradient(top, #fff, #eee);filter:progid:DXImageTransform.Microsoft.gradient(startColorStr='#fff', EndColorStr='#eee');}
+#editor-buttons a{border-right:1px solid #fff;border-bottom:1px solid #fff;display:block;color:#999;background-color:#eee;background-image:-moz-linear-gradient(top, #fff, #eee);background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0, #fff),color-stop(1, #eee));background-image:-webkit-linear-gradient(#fff, #eee);background-image:linear-gradient(top, #fff, #eee);filter:progid:DXImageTransform.Microsoft.gradient(startColorStr='#fff', EndColorStr='#eee');}
 #editor-top .btn:hover,
-#editor-buttons a:hover{cursor:pointer;text-decoration:none;background-color:#ddd;background-image:-moz-linear-gradient(top, #fff, #ddd);background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0, #fff),color-stop(1, #ddd));background-image:-webkit-linear-gradient(#fff, #ddd);background-image:linear-gradient(top, #fff, #ddd);filter:progid:DXImageTransform.Microsoft.gradient(startColorStr='#fff', EndColorStr='#ddd');border-color:#ccc;}
+#editor-buttons a:hover{cursor:pointer;text-decoration:none;background-color:#ddd;background-image:-moz-linear-gradient(top, #fff, #ddd);background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0, #fff),color-stop(1, #ddd));background-image:-webkit-linear-gradient(#fff, #ddd);background-image:linear-gradient(top, #fff, #ddd);filter:progid:DXImageTransform.Microsoft.gradient(startColorStr='#fff', EndColorStr='#ddd');}
 #editor-top .btn:focus,
 #editor-buttons a:focus{background-color:#eee;background-image:-moz-linear-gradient(top, #eee, #fff);background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0, #eee),color-stop(1, #fff));background-image:-webkit-linear-gradient(#eee, #fff);background-image:linear-gradient(top, #eee, #fff);filter:progid:DXImageTransform.Microsoft.gradient(startColorStr='#eee', EndColorStr='#fff');}
 #editor-top .btn span,
-#editor-buttons a span{display:block;font-size:0.8em;padding:1px 7px;}
+#editor-buttons a span{border:1px solid;border-color:#ddd #ccc #ccc #ddd;display:block;font-size:0.8em;padding:1px 7px;}
 #editor-top .btn span{padding:5px 10px;font-size:1em;}
 #edit-content .button2-left{display:none;}
 #editform-tabs ul.ui-tabs-nav{float:right;margin-right:-3px;}
