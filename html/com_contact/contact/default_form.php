@@ -72,5 +72,4 @@ if($override = Morph::override(__FILE__, $this)) {
 		<?php echo JHTML::_( 'form.token' ); ?>
 	</form>
 </div>
-<?php } ?>
 <?php } ?><!-- close the themelet override check -->
