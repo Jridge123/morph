@@ -6,7 +6,7 @@ body.com_content.task-edit .primary-inner{border:0;padding:0!important;margin-bo
 #yui-main .yui-u{width:100%;}
 #editor-top{float:left;margin:0;}
 #editor-top label{font-size:1.3em;}
-#editor-top .editor-title{padding:5px;width:450px;float:left;}
+#editor-top .editor-title{padding:5px;width:450px;float:left;border-color:#ccc #ddd #ddd #ccc;}
 #editor-top a{margin-left:7px;float:left;}
 #editor-top a.btn-cancel{color:red;font-size:12px;height:25px;line-height:28px;margin-left:10px;}
 #edit-content fieldset{margin-bottom:1em;padding:1em;}
@@ -65,3 +65,4 @@ td.mceToolbar #text_toolbar3{display:block;float:left!important;}
 #editform-tabs ul.ui-tabs-nav .ui-state-active a{color:#444;}
 #editor .defaultSkin .mceIframeContainer{padding:0!important;}
 #editor .defaultSkin iframe#text_ifr{height:340px!important;}
+body#tinymce{line-height:1.5em;}

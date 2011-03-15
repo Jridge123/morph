@@ -223,7 +223,7 @@ if ($option=="com_content" && $task=="edit" ) {
 	$isEditForm = 0;
 }
 if($isEditForm == 1){
-	$editformtabs = "$('#editform-tabs').tabs();";
+	$editformtabs = "jQuery(function($){ $('#editform-tabs').tabs(); });";
 	$document->addScriptDeclaration( $editformtabs ); 
 }
 // echo $isEditForm;

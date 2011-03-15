@@ -120,9 +120,9 @@ function submitbutton(pressbutton) {
 		    </ul>
 		</div>
 		<div id="metadata">
-		    <label for="metadesc" class="block"><?php echo JText::_( 'Description' ); ?>:</label>
+		    <label for="metadesc" class="label"><?php echo JText::_( 'Description' ); ?>:</label>
 		    <textarea rows="1" id="metadesc" name="metadesc"><?php echo str_replace('&','&amp;',$this->article->metadesc); ?></textarea>
-		    <label for="metakey" class="block"><?php echo JText::_( 'Keywords' ); ?>:</label>
+		    <label for="metakey" class="label"><?php echo JText::_( 'Keywords' ); ?>:</label>
 		    <textarea rows="1" id="metakey" name="metakey"><?php echo str_replace('&','&amp;',$this->article->metakey); ?></textarea>		
 		</div>
 	</div>
