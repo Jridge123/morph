@@ -1,4 +1,7 @@
-<?php defined('_JEXEC') or die('Restricted access'); ?>
+<?php defined( '_JEXEC' ) or die( 'Restricted access' );
+if($override = Morph::override(__FILE__, $this)) {
+	if(file_exists($override)) include $override;
+} else { ?>
 <script language="javascript" type="text/javascript">
 	function tableOrdering( order, dir, task ) {
 	var form = document.adminForm;
@@ -33,3 +36,4 @@ echo $this->pagination->getLimitBox();
 <input type="hidden" name="filter_order" value="<?php echo $this->lists['order']; ?>" />
 <input type="hidden" name="filter_order_Dir" value="" />
 </form>
+<?php } ?><!-- close the themelet override check -->

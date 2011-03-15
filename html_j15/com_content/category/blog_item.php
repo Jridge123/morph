@@ -18,7 +18,6 @@ $morph = Morph::getInstance();
 	<?php endif; ?>
 </h2>
 <?php endif; ?>
-
 <!-- created date and author -->
 <?php if ($this->item->params->get('show_author') && ($this->item->author != "") ||	$this->item->params->get('show_create_date') ||	$this->item->params->get('show_pdf_icon') || $this->item->params->get('show_print_icon') || $this->item->params->get('show_email_icon') || ($this->user->authorize('com_content', 'edit', 'content', 'all') || $this->user->authorize('com_content', 'edit', 'content', 'own'))){ ?>	
 <ul class="article-info">		
@@ -38,7 +37,6 @@ $morph = Morph::getInstance();
 <?php endif; ?>
 </ul>
 <?php } ?>
-
 <!-- section & category -->
 <?php if (($this->item->params->get('show_section') && $this->item->sectionid) || ($this->item->params->get('show_category') && $this->item->catid)) { ?>
 <p class="filing">
@@ -54,27 +52,20 @@ $morph = Morph::getInstance();
 	<?php } ?>
 </p>
 <?php } ?>		
-
 <?php echo $this->item->event->beforeDisplayContent; ?>
-
 <?php if (isset ($this->item->toc)) :
 	echo $this->item->toc;
 endif; ?>
-
 <?php echo JFilterOutput::ampReplace($this->item->text);  ?>
-
 	<!-- date modified -->
 	<?php if ( intval($this->item->modified) != 0 && $this->item->params->get('show_modify_date')) : ?>
 		<p class="modified"><?php echo JText::sprintf('LAST_UPDATED2', JHTML::_('date', $this->item->modified, JText::_('DATE_FORMAT_LC2'))); ?>.</p>
 	<?php endif; ?>
-
     <?php if ($this->item->params->get('show_readmore') && $this->item->readmore) : ?>
     <p class="readon">
-    
 	<?php if ($morph->article_preview) : ?>
 	<a href="<?php echo $this->item->readmore_link; ?>" title="<?php echo JText::sprintf($this->item->title); ?>" rel="article-preview" class="preview-link"><?php echo JText::_('TPL_MORPH_ARTICLE_PREVIEW'); ?></a>
 	<?php endif ?>
-
 	<a href="<?php echo $this->item->readmore_link; ?>" title="<?php echo JText::sprintf($this->item->title); ?>">
 	<?php if ($this->item->readmore_register) :
 		echo JText::_('Register to read more...');
@@ -82,10 +73,8 @@ endif; ?>
 		echo $readmore;
 	else :
 		echo JText::sprintf('READMORE', '<span>', $this->escape($this->item->title), '</span>');
-	endif; ?></a>		
-		
+	endif; ?></a>
     </p>
     <?php endif; ?>
-
 <?php echo $this->item->event->afterDisplayContent; ?>
 <?php } ?><!-- close the themelet override check -->

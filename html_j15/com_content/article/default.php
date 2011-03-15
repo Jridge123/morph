@@ -7,7 +7,12 @@ $lang =& JFactory::getLanguage();
 $lang->load('tpl_morph', JPATH_SITE);
 $canEdit = ($this->user->authorize('com_content', 'edit', 'content', 'all') || $this->user->authorize('com_content', 'edit', 'content', 'own'));
 $morph = Morph::getInstance();
-
+$document = &JFactory::getDocument();
+$renderer = $document->loadRenderer('modules');
+$option = array('style' => 'xhtml');
+//$article1_chrome = array('style' => $morph->article_article1_chrome);
+//$article1_chrome = array('style' => $morph->article_article2_chrome);
+//$article1_chrome = array('style' => $morph->article_article3_chrome);
 //gets the data from a URL  
 function get_tiny_url($url){  
 	$ch = curl_init();  
@@ -19,20 +24,16 @@ function get_tiny_url($url){
 	curl_close($ch);  
 	return $data;  
 }
-
-//test it out!
 $current_url = JURI::getInstance()->toString();
 $tiny_url = get_tiny_url($current_url);
-
 ?>
 <div class="article-page">
-
+	<?php echo $renderer->render('article1', $option, null); ?>
 	<?php if ($this->params->get('show_page_title', 1) && $this->params->get('page_title') != $this->article->title) : ?>
-	<h1 class="article-title">
-		<?php echo $this->escape($this->params->get('page_title')); ?>
-	</h1>
+		<div class="page-title">
+			<?php echo $this->escape($this->params->get('page_title')); ?>
+		</div>
 	<?php endif; ?>		
-
     <!-- start article top -->
     <?php if ($morph->article_title) : ?>
 		<h1 class="article-title">
@@ -43,7 +44,6 @@ $tiny_url = get_tiny_url($current_url);
 			<?php endif; ?>
 		</h1>
     <?php endif; ?>
-    
     <?php if ($this->print) :
     	echo '<span class="print-icon">' . JHTML::_('icon.print_screen', $this->article, $this->params, $this->access) . '</span>';
     elseif ($this->params->get('show_author') || $this->params->get('show_create_date') || $this->params->get('show_pdf_icon') || $this->params->get('show_print_icon') || $this->params->get('show_email_icon') || ($morph->fontsizer_enabled) || ($morph->shareit_enabled) || ($canEdit)) : ?>
@@ -75,7 +75,6 @@ $tiny_url = get_tiny_url($current_url);
     	<?php if ($canEdit) : ?><li class="icons edit"><span class="edit"><?php echo JHTML::_('icon.edit', $this->article, $this->params, $this->access); ?></span></li><?php endif; ?>
     </ul>
 	<?php endif; ?>
-
     <?php if (($this->params->get('show_section') && $this->article->sectionid) || ($this->params->get('show_category') && $this->article->catid)) : ?>
     <p class="filing">
     	<?php if ($this->params->get('show_section') && $this->article->sectionid) : ?>
@@ -92,7 +91,6 @@ $tiny_url = get_tiny_url($current_url);
     		<?php endif; ?>
     	</span>
     	<?php endif; ?>
-    	
     	<?php if ($this->params->get('show_category') && $this->article->catid) : ?>
     	<span class="article-category">
     		<?php if ($this->params->get('link_category')) : ?>
@@ -106,10 +104,9 @@ $tiny_url = get_tiny_url($current_url);
     	<?php endif; ?>
     </p>
     <?php endif; ?>
-
 	<!-- intro text -->
-	<?php  if (!$this->params->get('show_intro')) :	echo $this->article->event->afterDisplayTitle; endif; ?>
-
+	<?php echo $renderer->render('article2', $option, null); ?>
+	<?php if (!$this->params->get('show_intro')) : echo $this->article->event->afterDisplayTitle; endif; ?>
 	<!-- article body -->
 	<div class="article-body clearer<?php if (isset ($this->article->toc)) : ?> toc<?php endif; ?>" id="article">
 		<?php echo $this->article->event->beforeDisplayContent; ?>
@@ -118,11 +115,10 @@ $tiny_url = get_tiny_url($current_url);
 		<!-- article table of contents -->
 		<?php echo $this->article->toc; ?>
 		<?php endif; ?>
-		
 		<!-- start content output -->
-		<div id="article-content">
+		<div id="article-content">	
 		<?php echo $this->article->text; ?>
-
+		<?php echo $renderer->render('article3', $option, null); ?>
 		<!-- date modified -->
 		<?php if ( intval($this->article->modified) !=0 && $this->params->get('show_modify_date')) : ?>
 		<p class="modified"><?php echo JText::sprintf('LAST_UPDATED2', JHTML::_('date', $this->article->modified, JText::_('DATE_FORMAT_LC2'))); ?>.</p>
@@ -146,9 +142,8 @@ $tiny_url = get_tiny_url($current_url);
         	</div>
         </div>
         <?php endif; ?>
-        
 		</div> 
-		
+		<?php echo $renderer->render('article4', $option, null); ?>
 		<?php echo $this->article->event->afterDisplayContent; ?>
 	</div>
 </div>

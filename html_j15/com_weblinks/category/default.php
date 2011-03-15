@@ -1,10 +1,12 @@
-<?php defined('_JEXEC') or die('Restricted access'); ?>
+<?php defined( '_JEXEC' ) or die( 'Restricted access' );
+if($override = Morph::override(__FILE__, $this)) {
+	if(file_exists($override)) include $override;
+} else { ?>
 <?php if ( $this->params->def( 'show_page_title', 1 ) ) : ?>
-    <h1 class="componentheading clearer">
+    <h1>
 		<?php echo $this->escape($this->params->get('page_title')); ?>
 	</h1>
 <?php endif; ?>
-
 <div id="weblinks-wrap">
 <?php if ( @$this->category->image || @$this->category->description ) : ?>
     <div class="desc">
@@ -14,9 +16,7 @@
 	?>
     </div>
 <?php endif; ?>
-
 <?php echo $this->loadTemplate('items'); ?>
-
 <?php if ($this->params->get('show_other_cats', 1)): ?>
 <h3><?php echo JText::_('Browse link categories:') ?></h3>
 <ul class="other-categories">
@@ -28,3 +28,4 @@
 </ul>
 <?php endif; ?>
 </div>
+<?php } ?><!-- close the themelet override check -->

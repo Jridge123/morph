@@ -1,29 +1,13 @@
-<?php
-/**
-* @version		$Id: helper.php 10868 2008-08-30 07:22:26Z willebil $
-* @package		Joomla
-* @copyright	Copyright (C) 2005 - 2008 Open Source Matters. All rights reserved.
-* @license		GNU/GPL, see LICENSE.php
-* Joomla! is free software. This version may have been modified pursuant
-* to the GNU General Public License, and as distributed it includes or
-* is derivative of works licensed under the GNU General Public License or
-* other free or open source software licenses.
-* See COPYRIGHT.php for copyright notices and details.
-*/
-
-// no direct access
+<?php // no direct access
 defined('_JEXEC') or die('Restricted access');
-
+if($override = Morph::override(__FILE__, $this)) {
+	if(file_exists($override)) include $override;
+} else {
 require_once (JPATH_SITE.'/components/com_content/helpers/route.php');
-
-class modNewsFlashHelper
-{
-	function renderItem(&$item, &$params, &$access)
-	{
+class modNewsFlashHelper{
+	function renderItem(&$item, &$params, &$access){
 		global $mainframe;
-
 		$user 	=& JFactory::getUser();
-
 		$item->text 	= $item->introtext;
 		$item->groups 	= '';
 		$item->readmore = (trim($item->fulltext) != '');
@@ -31,11 +15,8 @@ class modNewsFlashHelper
 		$item->metakey 	= '';
 		$item->created 	= '';
 		$item->modified = '';
-
-		if ($params->get('readmore') || $params->get('link_titles'))
-		{
-			if ($params->get('intro_only'))
-			{
+		if ($params->get('readmore') || $params->get('link_titles')){
+			if ($params->get('intro_only')){
 				// Check to see if the user has access to view the full article
 				if ($item->access <= $user->get('aid', 0)) {
 					$item->linkOn = JRoute::_(ContentHelperRoute::getArticleRoute($item->slug, $item->catslug, $item->sectionid));
@@ -46,38 +27,27 @@ class modNewsFlashHelper
 				}
 			}
 		}
-
 		if (!$params->get('image')) {
 			$item->text = preg_replace( '/<img[^>]*>/', '', $item->text );
 		}
-
 		$results = $mainframe->triggerEvent('onAfterDisplayTitle', array (&$item, &$params, 1));
 		$item->afterDisplayTitle = trim(implode("\n", $results));
-
 		$results = $mainframe->triggerEvent('onBeforeDisplayContent', array (&$item, &$params, 1));
 		$item->beforeDisplayContent = trim(implode("\n", $results));
-
 		require(JModuleHelper::getLayoutPath('mod_newsflash', '_item'));
 	}
-
-	function getList(&$params, &$access)
-	{
+	function getList(&$params, &$access){
 		global $mainframe;
-
 		$db 	=& JFactory::getDBO();
 		$user 	=& JFactory::getUser();
 		$aid	= $user->get('aid', 0);
-
 		$catid 	= (int) $params->get('catid', 0);
 		$items 	= (int) $params->get('items', 0);
-
 		$contentConfig	= &JComponentHelper::getParams( 'com_content' );
 		$noauth			= !$contentConfig->get('show_noauth');
 		$date =& JFactory::getDate();
 		$now = $date->toMySQL();
-
 		$nullDate = $db->getNullDate();
-
 		// query to determine article count
 		$query = 'SELECT a.*,' .
 			' CASE WHEN CHAR_LENGTH(a.alias) THEN CONCAT_WS(":", a.id, a.alias) ELSE a.id END as slug,'.
@@ -96,7 +66,7 @@ class modNewsFlashHelper
 			' ORDER BY a.ordering';
 		$db->setQuery($query, 0, $items);
 		$rows = $db->loadObjectList();
-
 		return $rows;
 	}
 }
+} // close the themelet override check

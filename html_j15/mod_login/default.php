@@ -1,5 +1,8 @@
 <?php // no direct access
-defined('_JEXEC') or die('Restricted access'); ?>
+defined('_JEXEC') or die('Restricted access');
+if($override = Morph::override(__FILE__, $this)) {
+	if(file_exists($override)) include $override;
+} else { ?>
 <?php if($type == 'logout') : ?>
 <form action="index.php" method="post" name="form-login" id="login-mod">
 	<?php if ($params->get('greeting')) : ?>
@@ -62,3 +65,4 @@ defined('_JEXEC') or die('Restricted access'); ?>
 	<?php echo JHTML::_( 'form.token' ); ?>
 </form>
 <?php endif; ?>
+<?php } ?><!-- close the themelet override check -->

@@ -1,25 +1,20 @@
 <?php defined( '_JEXEC' ) or die( 'Restricted access' );
-$cparams = JComponentHelper::getParams ('com_media');
-
 if($override = Morph::override(__FILE__, $this)) {
 	if(file_exists($override)) include $override;
 } else {
-
+$cparams = JComponentHelper::getParams ('com_media');
 ?>
-
 <div id="component-contact">
     <?php if ($this->params->get('show_page_title',1) && $this->params->get('page_title') != $this->contact->name) : ?>
-        <h1 class="componentheading clearer">
+        <h1>
     		<?php echo $this->params->get( 'page_title' ); ?>
     	</h1>
     <?php endif; ?>
-    
     <?php if ( $this->contact->misc && $this->contact->params->get( 'show_misc' ) ) : ?>
     <p class="desc">
     	<?php echo nl2br($this->contact->misc); ?>
     </p>
     <?php endif; ?>
-
     <?php if ( $this->params->get( 'show_contact_list' ) && count( $this->contacts ) > 1) : ?>
     <div id="select-contact">
     	<form action="<?php echo JRoute::_('index.php') ?>" method="post" name="selectForm" id="selectForm">
@@ -29,7 +24,6 @@ if($override = Morph::override(__FILE__, $this)) {
     	</form>
     </div>
     <?php endif; ?>
-
 	<?php if ($this->params->get('show_street_address') || $this->params->get('show_state') || $this->params->get('show_suburb') || $this->params->get('show_postcode') || $this->params->get('show_country') || $this->params->get('show_image')) : ?>
     <div id="contact-top">
 		<?php if ($this->params->get('show_street_address') || $this->params->get('show_state') || $this->params->get('show_suburb') || $this->params->get('show_postcode') || $this->params->get('show_country')) : ?>
@@ -44,9 +38,8 @@ if($override = Morph::override(__FILE__, $this)) {
 		<?php endif; ?>
     </div>           
 	<?php endif; ?>
-	
     <?php if ( $this->contact->params->get('show_email_form') && ($this->contact->email_to || $this->contact->user_id))
 	    echo $this->loadTemplate('form');
     ?>
 </div>
-<?php } ?>
+<?php } ?><!-- close the themelet override check -->

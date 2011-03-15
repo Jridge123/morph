@@ -1,20 +1,11 @@
-<?php
-/**
- * @version		$Id: calendar.php 303 2010-01-07 02:56:33Z joomlaworks $
- * @package		K2
- * @author    JoomlaWorks http://www.joomlaworks.gr
- * @copyright	Copyright (c) 2006 - 2010 JoomlaWorks Ltd. All rights reserved.
- * @license		GNU/GPL license: http://www.gnu.org/copyleft/gpl.html
- */
-
-// no direct access
+<?php // no direct access
 defined('_JEXEC') or die('Restricted access');
-
-function minify($str)
-{
+if($override = Morph::override(__FILE__, $this)) {
+	if(file_exists($override)) include $override;
+} else {
+function minify($str){
 	return str_replace(array("\n", "\t", ' ', "\r"), '', $str);
 }
-
 ob_start('minify');
 ?>
 (function($){
@@ -30,8 +21,8 @@ ob_start('minify');
 	});
 })(jQuery);
 <?php $this->_doc->addScriptDeclaration(str_replace(array('  ', '   ', "\n", "\t", "\r"), array(' ', ' ', ''), ob_get_clean())) ?>
-
 <div id="k2ModuleBox<?php echo $module->id; ?>" class="k2CalendarBlock <?php echo $params->get('moduleclass_sfx'); ?>">
 	<?php echo $calendar; ?>
 	<div class="clr"></div>
 </div>
+<?php } ?><!-- close the themelet override check -->

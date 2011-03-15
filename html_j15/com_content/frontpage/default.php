@@ -3,7 +3,7 @@ if($override = Morph::override(__FILE__, $this)) {
 	if(file_exists($override)) include $override;
 } else { ?>
 <?php if ($this->params->get('show_page_title',1)) : ?>
-<h1 class="componentheading frontpage clearer">
+<h1 class="frontpage clearer">
 	<?php echo $this->escape($this->params->get('page_title')); ?>
 </h1>
 <?php endif; ?>

@@ -5,8 +5,8 @@ if($override = Morph::override(__FILE__, $this)) {
 $cparams = JComponentHelper::getParams ('com_media');
 ?>
 <?php if ($this->params->get('show_page_title',1)) : ?>
-<h1 class="componentheading clearer">
-<?php echo $this->escape($this->params->get('page_title')); ?>
+<h1>
+	<?php echo $this->escape($this->params->get('page_title')); ?>
 </h1>
 <?php endif; ?>
 <?php if ($this->params->def('show_description', 1) || $this->params->def('show_description_image', 1)) : ?>

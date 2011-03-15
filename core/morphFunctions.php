@@ -215,6 +215,19 @@ if (isset($document->_scripts[$mtu])) {
 if ( $remove_generator == 1 ) {
 $document->setGenerator(null);
 }
+
+/* activate the tabs for the article edit mode */
+if ($option=="com_content" && $task=="edit" ) {
+	$isEditForm = 1;
+} else {
+	$isEditForm = 0;
+}
+if($isEditForm == 1){
+	$editformtabs = "jQuery(function($){ $('#editform-tabs').tabs(); });";
+	$document->addScriptDeclaration( $editformtabs ); 
+}
+// echo $isEditForm;
+
 function debug_chrome($pt_debug, $pt_mod_chrome){
 	if( $pt_debug == 1 ){ 
 		return 'outline'; 
@@ -412,7 +425,7 @@ if ( $isiPhone && !$iPhoneCookie ) {
     if(!$MORPH->nojs) {
     	//if (!$pack_js) {
     		if(in_array(1, $js_jquery)) { $MORPH->addScript($templatepath .'/core/js/jquery.js'); }
-    		if(in_array(1, $js_jqueryui)) { $MORPH->addScript($templatepath .'/core/js/ui.js'); }
+    		if(in_array(1, $js_jqueryui) || ($isEditForm == 1)) { $MORPH->addScript($templatepath .'/core/js/ui.js'); }
     		if (isset($document->_scripts[JURI::base(true).'/media/system/js/caption.js'])) {
     		    unset($document->_scripts[JURI::base(true).'/media/system/js/caption.js']);
     		    if(!$MORPH->captions_enabled) $MORPH->addScript($templatepath.'/core/js/caption.js');
@@ -420,7 +433,7 @@ if ( $isiPhone && !$iPhoneCookie ) {
     		if(in_array(1, $js_cookie)) { $MORPH->addScript($templatepath .'/core/js/cookie.js'); }
     		if(in_array(1, $js_equalize)) { $MORPH->addScript($templatepath .'/core/js/equalheights.js');}
     		if(in_array(1, $js_slider)) { $MORPH->addScript($templatepath .'/core/js/slider.js');}
-    		if( $tabscount >= 1 ) { $MORPH->addScript($templatepath .'/core/js/tabs.js'); }
+    		if( $tabscount >= 1  || $isEditForm == 1) { $MORPH->addScript($templatepath .'/core/js/tabs.js'); }
     		if( $accordionscount >= 1 ) { $MORPH->addScript($templatepath .'/core/js/accordion.js'); }
     		if( $topfish >= 1 && $topnav_hoverintent == 1 ) { $MORPH->addScript($templatepath .'/core/js/hoverintent.js'); }
     		if( $sidefish >= 1 or $topfish >= 1 or $topdrop >= 1  ) { $MORPH->addScript($templatepath .'/core/js/superfish.js'); }
@@ -520,7 +533,7 @@ if(  $isiPhone && !$iPhoneCookie  ){
 		if ( $topdrop >= 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/topnav-topdrop.css'); }
 		if ( $sidenav_count >= 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/sidenav-default.css'); }
 		if ( $sidefish >= 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/sidenav-sidefish.css'); }
-		if ( $tabscount >= 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/tabs.css'); }
+		if ( $tabscount >= 1 || $isEditForm == 1) { $MORPH->addStyleSheet($themeletpath .'/css/tabs.css'); }
 		if ( $accordionscount >= 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/accordions.css'); }
 		$MORPH->addStyleSheet($themeletpath .'/css/typo.css');
 		$MORPH->addStyleSheet($themeletpath .'/css/joomla.css');
@@ -536,8 +549,6 @@ if(  $isiPhone && !$iPhoneCookie  ){
 		if ( $custom_fonts == 1 && $font_providers == 'fontdeck' ) { $doc->addStyleSheet('http://f.fontdeck.com/s/css/'.$fontdeck_fontid.'/'.$fontdeck_domain.'/'.$fontdeck_projectid.'.css'); }
 		if ( $custom_fonts == 1 && $font_providers == 'fontslive' ) { $doc->addStyleSheet('http://webfonts.fontslive.com/css/'.$fontslive_id.'.css'); }
 		if ( $custom_fonts == 1 && $font_providers == 'webtype' ) { $doc->addStyleSheet('http://cloud.webtype.com/css/'.$webtype_id.'.css'); }
-		
-		
 		
 		// add css for simple flickr module
 		$morphflickr_css = $themeletpath .'/css/simpleflickr.css';

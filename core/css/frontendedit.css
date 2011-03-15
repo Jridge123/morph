@@ -1,13 +1,14 @@
 #secondary-content,
 #tertiary-content{display:none;}
 #bd #primary-content{width:100%;}
-#bd #primary-content .primary-inner{border:0;padding:0;}
-#editor-top{margin-bottom:1em;}
-#editor-top label{font-size:1.3em;}
-#editor-top .editor-title{padding:5px;width:80%;}
-#editor-top button{padding:4px;margin-left:5px;}
+body.com_content.task-edit .primary-inner{border:0;padding:0!important;margin-bottom:0!important;}
 #yui-main .yui-b{margin:0!important;}
 #yui-main .yui-u{width:100%;}
+#editor-top{float:left;margin:0;}
+#editor-top label{font-size:1.3em;}
+#editor-top .editor-title{padding:5px;width:450px;float:left;border-color:#ccc #ddd #ddd #ccc;}
+#editor-top a{margin-left:7px;float:left;}
+#editor-top a.btn-cancel{color:red;font-size:12px;height:25px;line-height:28px;margin-left:10px;}
 #edit-content fieldset{margin-bottom:1em;padding:1em;}
 #edit-content h2{font-size:1.5em;padding:.5em .6em;margin:0 0 1px 0;}
 #edit-content #publishing ul{margin:0;padding:0;}
@@ -20,9 +21,6 @@
 #edit-content #publishing li{position:relative;margin:0;padding:5px 0 5px 150px;list-style:none;}
 #edit-content #publishing li.last{border-bottom:0;}
 #edit-content #publishing .label{position:absolute;top:8px;left:0;}
-#edit-content .button2-left{float:left;padding:1px;margin:.8em .7em 0 0;}
-#edit-content .button2-left a{float:left;font-size:.9em;padding:2px 5px;text-decoration:none;}
-#edit-content .button2-left a:hover{text-decoration:none;}
 #edit-content #access{width:15em;overflow:hidden;}
 #edit-content #access option{background:none;}
 #edit-content #ordering option{font-size:.9em;}
@@ -30,4 +28,42 @@
 #edit-content #meta textarea{width:99%;margin-bottom:.5em;}
 #edit-content #meta #metadesc{margin-bottom:1em;}
 #edit-content #editor textarea#text{width:99%!important;}
-#primary-content #text_tbl td{padding:0;}​
+#editform-tabs #editor tr.mceFirst td.mceToolbar{padding:5px;background:background-color: #eee;background-image:-moz-linear-gradient(top, #fff, #eee);background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0, #fff),color-stop(1, #eee));background-image:-webkit-linear-gradient(#fff, #eee);background-image:linear-gradient(top, #fff, #eee);filter:progid:DXImageTransform.Microsoft.gradient(startColorStr='#fff', EndColorStr='#eee');}
+#editform-tabs #editor tr.mceFirst td.mceToolbar td{background:none;}
+td.mceToolbar{position:relative;}
+td.mceToolbar #text_toolbar1,
+td.mceToolbar #text_toolbar2,
+td.mceToolbar #text_toolbar3{display:block;float:left!important;}
+#editform-tabs #editor .mceToolbar{background:none;padding:0;}
+#editform-tabs #editor .defaultSkin .mceToolbar{height:22px;}
+#editform-tabs #editor .defaultSkin table{background:none;}
+#editform-tabs #editor .mceToolbarStart.mceToolbarStartButton.mceFirst{display:none;}
+#editform-tabs #editor .defaultSkin .mceButton{background:#fff;border:1px solid;border-color:#eee #ddd #ddd #eee;}
+#editform-tabs #editor .defaultSkin .mceButton:hover{background:#eee;border:1px solid;border-color:#ddd #ccc #ccc #ddd;}
+#editform-tabs #editor .defaultSkin .mceSeparator{opacity:.5;}
+#editform-tabs #editor .defaultSkin table.mceLayout{border:1px solid #ccc;border-top:0;height:405px!important;}
+#editform-tabs #editor .defaultSkin table.mceLayout tr.mceLast td{border-bottom:0 none;margin-bottom:-1px;}
+#text_path_row{color:#999;line-height:21px;margin:0;padding-left:2px;}
+#editor-buttons,
+#editor-buttons li{margin:0;padding:0;list-style:none;}
+#editor-buttons{overflow:hidden;margin-top:15px;}
+#editor-buttons li{float:left;margin-right:10px;}
+#editor-buttons li.toggle-editor{float:right;margin-right:0;}
+#editor-top .btn,
+#editor-buttons a{border-right:1px solid #fff;border-bottom:1px solid #fff;display:block;color:#999;background-color:#eee;background-image:-moz-linear-gradient(top, #fff, #eee);background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0, #fff),color-stop(1, #eee));background-image:-webkit-linear-gradient(#fff, #eee);background-image:linear-gradient(top, #fff, #eee);filter:progid:DXImageTransform.Microsoft.gradient(startColorStr='#fff', EndColorStr='#eee');}
+#editor-top .btn:hover,
+#editor-buttons a:hover{cursor:pointer;text-decoration:none;background-color:#ddd;background-image:-moz-linear-gradient(top, #fff, #ddd);background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0, #fff),color-stop(1, #ddd));background-image:-webkit-linear-gradient(#fff, #ddd);background-image:linear-gradient(top, #fff, #ddd);filter:progid:DXImageTransform.Microsoft.gradient(startColorStr='#fff', EndColorStr='#ddd');}
+#editor-top .btn:focus,
+#editor-buttons a:focus{background-color:#eee;background-image:-moz-linear-gradient(top, #eee, #fff);background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0, #eee),color-stop(1, #fff));background-image:-webkit-linear-gradient(#eee, #fff);background-image:linear-gradient(top, #eee, #fff);filter:progid:DXImageTransform.Microsoft.gradient(startColorStr='#eee', EndColorStr='#fff');}
+#editor-top .btn span,
+#editor-buttons a span{border:1px solid;border-color:#ddd #ccc #ccc #ddd;display:block;font-size:0.8em;padding:1px 7px;}
+#editor-top .btn span{padding:5px 10px;font-size:1em;}
+#edit-content .button2-left{display:none;}
+#editform-tabs ul.ui-tabs-nav{float:right;margin-right:-3px;}
+#editform-tabs ul.ui-tabs-nav a{color:#999;}
+#editform-tabs ul.ui-tabs-nav a:hover{color:#555;}
+#editform-tabs ul.ui-tabs-nav .ui-state-active a{color:#444;}
+#editor .defaultSkin .mceIframeContainer{padding:0!important;}
+#editor .defaultSkin iframe#text_ifr{height:340px!important;overflow-x:hidden;}
+body#tinymce{line-height:1.5em;}
+.advcode_toggle{display:none;}

@@ -1,5 +1,7 @@
-<?php // no direct access
-defined('_JEXEC') or die('Restricted access'); ?>
+<?php defined( '_JEXEC' ) or die( 'Restricted access' );
+if($override = Morph::override(__FILE__, $this)) {
+	if(file_exists($override)) include $override;
+} else { ?>
 <div id="user-register">
 <script type="text/javascript">
 <!--
@@ -48,3 +50,4 @@ defined('_JEXEC') or die('Restricted access'); ?>
 	</form>
 </div>
 </div>
+<?php } ?><!-- close the themelet override check -->

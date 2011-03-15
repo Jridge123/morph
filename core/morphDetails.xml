@@ -348,7 +348,6 @@
 		</param>
 	</params>
 	
-	
 	<params group="colordata">	
 		<param name="color_h1" default="default" type="colorpicker" tooltip="inline" label="Heading 1 color" description="Set the foreground color of your H1 headings." />
 		<param name="color_h2" default="default" type="colorpicker" tooltip="inline" label="Heading 2 color" description="Set the foreground color of your H2 headings." />	
@@ -382,13 +381,18 @@
 			<option value="Allan">Allan</option>
 			<option value="Allerta">Allerta</option>
 			<option value="Allerta Stencil">Allerta Stencil</option>
-			<option value="Arimo">Arimo</option>
 			<option value="Anonymous Pro">Anonymous Pro</option>
+			<option value="Anton">Anton</option>
+			<option value="Architects Daughter">Architects Daughter</option>
+			<option value="Arimo">Arimo</option>
 			<option value="Arvo">Arvo</option>
+			<option value="Astloch">Astloch</option>
 			<option value="Bentham">Bentham</option>
+			<option value="Bevan">Bevan</option>
 			<option value="Buda">Buda</option>
 			<option value="Cabin">Cabin</option>
 			<option value="Calligraffitti">Calligraffitti</option>
+			<option value="Candal">Candal</option>
 			<option value="Cantarell">Cantarell</option>
 			<option value="Cardo">Cardo</option>
 			<option value="Cherry Cream Soda">Cherry Cream Soda</option>
@@ -403,11 +407,14 @@
 			<option value="Crimson Text">Crimson Text</option>
 			<option value="Crushed">Crushed</option>
 			<option value="Cuprum">Cuprum</option>
+			<option value="Dancing Script">Dancing Script</option>
 			<option value="Droid Sans">Droid Sans</option>
 			<option value="Droid Sans Mono">Droid Sans Mono</option>
 			<option value="Droid Serif">Droid Serif</option>
+			<option value="Expletus Sans">Expletus Sans</option>
 			<option value="Fontdiner Swanky">Fontdiner Swanky</option>
 			<option value="Geo">Geo</option>
+			<option value="Goudy Bookletter 1911">Goudy Bookletter 1911</option>
 			<option value="Gruppo">Gruppo</option>
 			<option value="Homemade Apple">Homemade Apple</option>
 			<option value="IM Fell DW Pica">IM Fell DW Pica</option>
@@ -421,6 +428,7 @@
 			<option value="IM Fell Great Primer">IM Fell Great Primer</option>
 			<option value="IM Fell Great Primer SC">IM Fell Great Primer SC</option>
 			<option value="Inconsolata">Inconsolata</option>
+			<option value="Indie Flower">Indie Flower</option>
 			<option value="Irish Growler">Irish Growler</option>
 			<option value="Josefin Sans Std Light">Josefin Sans Std Light</option>
 			<option value="Josefin Slab">Josefin Slab</option>
@@ -428,12 +436,14 @@
 			<option value="Just Me Again Down Here">Just Me Again Down Here</option>
 			<option value="Kenia">Kenia</option>
 			<option value="Kranky">Kranky</option>
+			<option value="Kreon">Kreon</option>
 			<option value="Kristi">Kristi</option>
 			<option value="Lato">Lato</option>
+			<option value="League Script">League Script</option>
 			<option value="Lekton">Lekton</option>
 			<option value="Lobster">Lobster</option>
 			<option value="Luckiest Guy">Luckiest Guy</option>
-			<option value="Maiden Orange">Maiden Orange</option>
+			<option value="Meddon">Meddon</option>
 			<option value="Merriweather">Merriweather</option>
 			<option value="Molengo">Molengo</option>
 			<option value="Mountains of Christmas">Mountains of Christmas</option>
@@ -446,9 +456,11 @@
 			<option value="PT Sans">PT Sans</option>
 			<option value="PT Sans Caption">PT Sans Caption</option>
 			<option value="PT Sans Narrow">PT Sans Narrow</option>
+			<option value="Pacifico">Pacifico</option>
 			<option value="Permanent Marker">Permanent Marker</option>
 			<option value="Philosopher">Philosopher</option>
 			<option value="Puritan">Puritan</option>
+			<option value="Radley">Radley</option>
 			<option value="Raleway">Raleway</option>
 			<option value="Reenie Beanie">Reenie Beanie</option>
 			<option value="Rock Salt">Rock Salt</option>
@@ -463,6 +475,7 @@
 			<option value="UnifrakturCook">UnifrakturCook</option>
 			<option value="UnifrakturMaguntia">UnifrakturMaguntia</option>
 			<option value="Unkempt">Unkempt</option>
+			<option value="VT232">VT232</option>
 			<option value="Vibur">Vibur</option>
 			<option value="Vollkorn">Vollkorn</option>
 			<option value="Walter Turncoat">Walter Turncoat</option>
@@ -712,6 +725,57 @@
 		</param>
 		<param name="dateformat" default="[weekday2], [dayofmonth1] [month2] [year2]" type="textarea" cols="32" rows="1" tooltip="modal" label="Date format" description="date-format.html" />
 	</params>
+	
+<!--	<params group="articlepositionsdata">
+		<param name="article_top1_chrome" default="none" type="list" label="Top1 Module chrome" tooltip="modal" description="chromefx.html">
+			<option value="none">None</option>
+			<option value="basic">Basic</option>
+			<option value="grid">Grid</option>
+			<option value="tabs">Tabs</option>
+			<option value="accordion">Accordion</option>			
+			<option value="outline">Outline</option>			
+		</param>
+		<param name="article_top2_chrome" default="none" type="list" label="Top2 Module chrome" tooltip="modal" description="chromefx.html">
+			<option value="none">None</option>
+			<option value="basic">Basic</option>
+			<option value="grid">Grid</option>
+			<option value="tabs">Tabs</option>
+			<option value="accordion">Accordion</option>			
+			<option value="outline">Outline</option>			
+		</param>
+		<param name="article_top3_chrome" default="none" type="list" label="Top3 Module chrome" tooltip="modal" description="chromefx.html">
+			<option value="none">None</option>
+			<option value="basic">Basic</option>
+			<option value="grid">Grid</option>
+			<option value="tabs">Tabs</option>
+			<option value="accordion">Accordion</option>			
+			<option value="outline">Outline</option>			
+		</param>
+		<param name="article_bottom1_chrome" default="none" type="list" label="Bottom1 Module chrome" tooltip="modal" description="chromefx.html">
+			<option value="none">None</option>
+			<option value="basic">Basic</option>
+			<option value="grid">Grid</option>
+			<option value="tabs">Tabs</option>
+			<option value="accordion">Accordion</option>			
+			<option value="outline">Outline</option>			
+		</param>
+		<param name="article_bottom2_chrome" default="none" type="list" label="Bottom2 Module chrome" tooltip="modal" description="chromefx.html">
+			<option value="none">None</option>
+			<option value="basic">Basic</option>
+			<option value="grid">Grid</option>
+			<option value="tabs">Tabs</option>
+			<option value="accordion">Accordion</option>			
+			<option value="outline">Outline</option>			
+		</param>
+		<param name="article_bottom3_chrome" default="none" type="list" label="Bottom3 Module chrome" tooltip="modal" description="chromefx.html">
+			<option value="none">None</option>
+			<option value="basic">Basic</option>
+			<option value="grid">Grid</option>
+			<option value="tabs">Tabs</option>
+			<option value="accordion">Accordion</option>			
+			<option value="outline">Outline</option>			
+		</param>
+	</params>-->
 	
 	<params group="blogenhancementsdata">
 		<param name="article_preview" default="1" type="itoggle" label="Show preview link" tooltip="inline" description="Would you like to enable the article preview link in the blog and frontpage views?">

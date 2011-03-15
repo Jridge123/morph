@@ -1,17 +1,7 @@
-<?php
-/**
- * @version		$Id: profile.php 321 2010-01-15 15:33:08Z joomlaworks $
- * @package		K2
- * @author    JoomlaWorks http://www.joomlaworks.gr
- * @copyright	Copyright (c) 2006 - 2010 JoomlaWorks Ltd. All rights reserved.
- * @license		GNU/GPL license: http://www.gnu.org/copyleft/gpl.html
- */
-
-// no direct access
-defined('_JEXEC') or die('Restricted access');
-
-?>
-
+<?php defined( '_JEXEC' ) or die( 'Restricted access' );
+if($override = Morph::override(__FILE__, $this)) {
+	if(file_exists($override)) include $override;
+} else { ?>
 <script type="text/javascript">
 	//<![CDATA[
 	window.onDomReady(function(){
@@ -21,26 +11,21 @@ defined('_JEXEC') or die('Restricted access');
 	});
 	//]]>
 </script>
-
 <!-- K2 user profile form -->
-
+<?php if ( $this->params->def( 'show_page_title', 1 ) ) : ?>
+<h1>
+	<?php echo $this->escape($this->params->get('page_title')); ?>
+</h1>
+<?php endif; ?>
 <form action="<?php echo JRoute::_( 'index.php' ); ?>" enctype="multipart/form-data" method="post" name="userform" autocomplete="off" class="form-validate">
-
-  <?php if ( $this->params->def( 'show_page_title', 1 ) ) : ?>
-  <h1>
-  	<?php echo $this->escape($this->params->get('page_title')); ?>
-  </h1>
-  <?php endif; ?>
-
   <div id="k2Container" class="k2AccountPage">
-
 	  <table cellpadding="0" cellspacing="0">
 	  	<tr>
 	  		<th colspan="2"><?php echo JText::_( 'Account details' ); ?></th>
 	  	</tr>
 	    <tr>
-      	<td><label for="username"> <?php echo JText::_( 'User Name' ); ?></label></td>
-      	<td><span><?php echo $this->user->get('username');?></span></td>
+      		<td><label for="username"> <?php echo JText::_( 'User Name' ); ?></label></td>
+      		<td><span><?php echo $this->user->get('username');?></span></td>
 	    </tr>
 	    <tr>
 	      <td><label id="namemsg" for="name"><?php echo JText::_( 'Name' ); ?></label></td>
@@ -61,7 +46,7 @@ defined('_JEXEC') or die('Restricted access');
 	  	<tr>
 	  		<th colspan="2"><?php echo JText::_( 'Personal details' ); ?></th>
 	  	</tr>
-			<!-- K2 attached fields -->
+		<!-- K2 attached fields -->
 	    <tr>
 	      <td><label id="gendermsg" for="gender"><?php echo JText::_( 'Gender' ); ?></label></td>
 	      <td><?php echo $this->lists['gender']; ?></td>
@@ -72,9 +57,8 @@ defined('_JEXEC') or die('Restricted access');
 	    </tr>
 	    <tr>
 	      <td><label id="imagemsg" for="image"><?php echo JText::_( 'User image (avatar)' ); ?></label></td>
-	      <td><input type="file" id="image" name="image"/>
+	      <td><input type="file" id="image" name="image" />
 	        <?php if ($this->K2User->image): ?>
-
 	        <img class="k2AccountPageImage" src="<?php echo JURI::root().'media/k2/users/'.$this->K2User->image; ?>" alt="<?php echo $this->user->name; ?>" />
 	        <input type="checkbox" name="del_image" id="del_image" />
 	        <label for="del_image"><?php echo JText::_('Check this box to delete current image or just upload a new image to replace the existing one'); ?></label>
@@ -98,20 +82,16 @@ defined('_JEXEC') or die('Restricted access');
 	    <?php endforeach; ?>
 	    <?php endif; ?>
 	  </table>
-
 		<?php if(isset($this->params)): ?>
 		<h3><?php echo JText::_( 'Administrative details' ); ?></h3>
 		<?php echo $this->params->render('params'); ?>
 		<?php endif; ?>
-
 	  <div class="k2AccountPageUpdate">
 	  	<button class="button validate" type="submit" onclick="submitbutton( this.form );return false;">
 	  		<?php echo JText::_('Save'); ?>
 	  	</button>
 	  </div>
-
   </div>
-
   <input type="hidden" name="username" value="<?php echo $this->user->get('username');?>" />
   <input type="hidden" name="id" value="<?php echo $this->user->get('id');?>" />
   <input type="hidden" name="gid" value="<?php echo $this->user->get('gid');?>" />
@@ -120,3 +100,4 @@ defined('_JEXEC') or die('Restricted access');
   <input type="hidden" name="K2UserForm" value="1" />
   <?php echo JHTML::_( 'form.token' ); ?>
 </form>
+<?php } ?><!-- close the themelet override check -->

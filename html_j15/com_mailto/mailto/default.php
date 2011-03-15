@@ -1,10 +1,11 @@
-<?php // no direct access
-defined('_JEXEC') or die('Restricted access'); ?>
+<?php defined( '_JEXEC' ) or die( 'Restricted access' );
+if($override = Morph::override(__FILE__, $this)) {
+	if(file_exists($override)) include $override;
+} else { ?>
 <script language="javascript" type="text/javascript">
 <!--
 	function submitbutton(pressbutton) {
 	    var form = document.mailtoForm;
-
 		// do field validation
 		if (form.mailto.value == "" || form.from.value == "") {
 			alert( '<?php echo JText::_('EMAIL_ERR_NOINFO'); ?>' );
@@ -44,3 +45,4 @@ $data	= $this->get('data');
     <input type="hidden" name="link" value="<?php echo $data->link; ?>" />
     <?php echo JHTML::_( 'form.token' ); ?>
 </form>
+<?php } ?><!-- close the themelet override check -->

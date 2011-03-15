@@ -39,4 +39,4 @@ if($override = Morph::override(__FILE__, $this)) {
 	<?php endif; ?>
 </tr>
 <?php endforeach; ?>
-<?php } ?>
+<?php } ?><!-- close the themelet override check -->

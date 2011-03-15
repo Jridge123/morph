@@ -2,13 +2,11 @@
 defined('_JEXEC') or die('Restricted access');
 if($override = Morph::override(__FILE__, $this)) {
 	if(file_exists($override)) include $override;
-} else {
-?>
+} else { ?>
 <form action="index.php" method="post">
 	<div class="search<?php if ( $button == 1 ) { ?> button-active<?php } ?>">
 		<?php
 		    $output = '<input name="searchword" id="mod_search_searchword" maxlength="'.$maxlength.'" alt="'.$button_text.'" class="search-input" type="text" size="'.$width.'" value="'.$text.'"  onblur="if(this.value==\'\') this.value=\''.$text.'\';" onfocus="if(this.value==\''.$text.'\') this.value=\'\';" />';
-
 			if ($button) :
 			    if ($imagebutton) :
 			        $button = '<input type="image" value="'.$button_text.'" class="search-btn" src="'.$img.'" onclick="this.form.searchword.focus();" />';
@@ -16,28 +14,23 @@ if($override = Morph::override(__FILE__, $this)) {
 			        $button = '<input type="submit" value="'.$button_text.'" class="search-btn" onclick="this.form.searchword.focus();" />';
 			    endif;
 			endif;
-
 			switch ($button_pos) :
 			    case 'top' :
 				    $button = $button.'<br />';
 				    $output = $button.$output;
 				    break;
-
 			    case 'bottom' :
 				    $button = '<br />'.$button;
 				    $output = $output.$button;
 				    break;
-
 			    case 'right' :
 				    $output = $output.$button;
 				    break;
-
 			    case 'left' :
 			    default :
 				    $output = $button.$output;
 				    break;
 			endswitch;
-
 			echo $output;
 		?>
 	</div>
