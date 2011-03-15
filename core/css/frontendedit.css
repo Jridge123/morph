@@ -64,6 +64,6 @@ td.mceToolbar #text_toolbar3{display:block;float:left!important;}
 #editform-tabs ul.ui-tabs-nav a:hover{color:#555;}
 #editform-tabs ul.ui-tabs-nav .ui-state-active a{color:#444;}
 #editor .defaultSkin .mceIframeContainer{padding:0!important;}
-#editor .defaultSkin iframe#text_ifr{height:340px!important;}
+#editor .defaultSkin iframe#text_ifr{height:340px!important;overflow-x:hidden;}
 body#tinymce{line-height:1.5em;}
 .advcode_toggle{display:none;}
