@@ -66,3 +66,4 @@ td.mceToolbar #text_toolbar3{display:block;float:left!important;}
 #editor .defaultSkin .mceIframeContainer{padding:0!important;}
 #editor .defaultSkin iframe#text_ifr{height:340px!important;}
 body#tinymce{line-height:1.5em;}
+.advcode_toggle{display:none;}
