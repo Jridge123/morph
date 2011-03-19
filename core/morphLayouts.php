@@ -358,22 +358,22 @@ class morphLayouts {
 		// Goal result : lastly get total padding from both to get total gutter to reduce width by that amount
 		$this->total_padding = $total_bdinner;
 		
-		// Calculate main width by deducting all padding and gutters from available main inner
-		$this->main_w = $this->available_maininner - $morph->inner_width - $this->total_padding - ($this->sidebar_gutter * $this->gutter_multiply);
+		// Calculate content width by deducting all padding and gutters from available main inner
+		$this->primary_w = $this->available_maininner - $morph->inner_width - $this->total_padding - ($this->sidebar_gutter * $this->gutter_multiply);
 		if($this->isIE6) {
-			$this->main_w = $this->available_maininner - $morph->inner_width - $this->total_padding - ($this->sidebar_gutter * $this->gutter_multiply) - ($this->sidebar_gutter *2);
+			$this->primary_w = $this->available_maininner - $morph->inner_width - $this->total_padding - ($this->sidebar_gutter * $this->gutter_multiply) - ($this->sidebar_gutter *2);
 		}
-		//change main_w if the user selects % instead of px
+		//change primary_w if the user selects % instead of px
 		if ($morph->inner_width_type == '%') {
 			$this->sidebar_gutter = str_replace('%', '', $morph->sidebars_gutter);
 			if (strstr($morph->sidebars_gutter, 'em')) {
 				$this->sidebar_gutter = str_replace('em', '', $morph->sidebars_gutter);
 			}
-			$this->main_w = 100 - $morph->inner_width - $this->sidebar_gutter;
+			$this->primary_w = 100 - $morph->inner_width - $this->sidebar_gutter;
 			$morph->inner_width = $morph->inner_width - $this->sidebar_gutter;
 		}
 		
-		//echo $this->main_w;
+		//echo $this->primary_w;
 		
 		$this->innerLayouts = '';
 		
@@ -381,7 +381,7 @@ class morphLayouts {
 			"site_width" => $this->site_w,
 			"outer_width" => $this->outer_w,
 			"available_main_inner" => $this->available_maininner,
-			"main_width" => $this->main_w,
+			"primary_width" => $this->primary_w,
 			"padding_bdinner" => $morph->padding_bdinner,
 			"padding_total" =>$this->total_padding,
 			"sidebars_gutter" =>$this->sidebar_gutter,
@@ -407,7 +407,7 @@ class morphLayouts {
 		$tertiary_css = '
 #tertiary-content {width:'.$layouts->innerLayouts['inner_width'].$layouts->innerLayouts['type'].';float:'.$layouts->innerLayouts['inner_sidebar_position'].';}';
 		$primary_css = '
-#primary-content {width:'.$layouts->innerLayouts['main_width'].$layouts->innerLayouts['type'].';float:'.$layouts->innerLayouts['main_pos'].';}';
+#primary-content {width:'.$layouts->innerLayouts['primary_width'].$layouts->innerLayouts['type'].';float:'.$layouts->innerLayouts['main_pos'].';}';
 	if ($layouts->innerLayouts['outer_count'] == 1) {
 		$pos_margin_css = '
 #bd.left-pos-secondary #inset1,
