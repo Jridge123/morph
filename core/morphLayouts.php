@@ -402,20 +402,25 @@ class morphLayouts {
 		$layouts = new morphLayouts();
 		$morph = Morph::getInstance();
 		$margin_css = '';
-		$inner_css = '
+		$bd_inner_css = '
+#bd .bd-inner {padding: '. $layouts->innerLayouts['padding_bdinner'].';}';
+		$tertiary_css = '
 #tertiary-content {width:'.$layouts->innerLayouts['inner_width'].$layouts->innerLayouts['type'].';float:'.$layouts->innerLayouts['inner_sidebar_position'].';}';
 		$primary_css = '
 #primary-content {width:'.$layouts->innerLayouts['main_width'].$layouts->innerLayouts['type'].';float:'.$layouts->innerLayouts['main_pos'].';}';
-		$bd_inner_css = '
-#bd .bd-inner {padding: '. $layouts->innerLayouts['padding_bdinner'].';}';
 	if ($layouts->innerLayouts['outer_count'] == 1) {
-		$margin_css = '
+		$pos_margin_css = '
+#bd.left-pos-secondary #inset1,
+#bd.left-pos-secondary #inset4,
+#bd.left-pos-secondary #inner-wrap.right-tertiary #primary-content,
 #bd.left-pos-secondary #inner-wrap.left-tertiary #tertiary-content {margin-left:'. $layouts->innerLayouts['sidebars_gutter'].$layouts->innerLayouts['type'] .';}
-#bd.right-pos-secondary #inner-wrap.left-tertiary #primary-content {margin-right:'.$layouts->innerLayouts['sidebars_gutter'].$layouts->innerLayouts['type'] .';}
-#bd.left-pos-secondary #inner-wrap.right-tertiary #primary-content {margin-left:'. $layouts->innerLayouts['sidebars_gutter'].$layouts->innerLayouts['type'] .';}
-#bd.right-pos-secondary #inner-wrap.right-tertiary #tertiary-content {margin-right:'. $layouts->innerLayouts['sidebars_gutter'].$layouts->innerLayouts['type'] .';}';
+
+#bd.right-pos-secondary #inset1,
+#bd.right-pos-secondary #inset4,
+#bd.right-pos-secondary #inner-wrap.left-tertiary #primary-content,
+#bd.right-pos-secondary #inner-wrap.right-tertiary #tertiary-content {margin-right:'.$layouts->innerLayouts['sidebars_gutter'].$layouts->innerLayouts['type'] .';}';
 	}
-		$morph->addStyleDeclaration($inner_css.$primary_css.$bd_inner_css.$margin_css);
+		$morph->addStyleDeclaration($bd_inner_css.$tertiary_css.$primary_css.$pos_margin_css);
 	}
 	
 
