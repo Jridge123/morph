@@ -314,7 +314,7 @@ class morphLayouts {
 		$this->isIE6 = $this->isIE6();
 		$this->isIE6 ? $em_multiply = 12.9333 : $em_multiply = 13;
 										
-		//. Goal: get total padding for bd-inner and inner-wrap from Configurator options
+		// Goal: get total padding for bd-inner and inner-wrap from Configurator options
 		$this->total_padding = '';
 		
 		// if be inner padding is shorthand, lets build the array
@@ -322,26 +322,53 @@ class morphLayouts {
 			$morph->padding_bdinner = $morph->padding_bdinner.' '.$morph->padding_bdinner.' '.$morph->padding_bdinner.' '.$morph->padding_bdinner;
 		}
 		
-			// 1. get total bdinner padding - left and right only						
-			$this->padding_bdinner = explode("em ", $morph->padding_bdinner);
-			$right_padding_bdinner = $this->padding_bdinner[1] *$em_multiply;
-			$left_padding_bdinner = $this->padding_bdinner[3] *$em_multiply;
+			// 1. get total bdinner padding - left and right only
+			if (strstr($morph->padding_bdinner, 'em')) {
+				$this->padding_bdinner_unit = "em ";
+			}	else if (strstr($morph->padding_bdinner, 'px')) {
+				$this->padding_bdinner_unit = "px ";
+				$em_multiply = 1;
+			}
+												
+			$this->padding_bdinner = explode($this->padding_bdinner_unit, $morph->padding_bdinner);
+			// adjustment to be able to use all css shorthand options for padding ie.. "1px 3px" or "3px 3px 2px" etc
+			// take string array that was just exploded from padding string and count it
+			$padding_bdinner_unitcount = count($this->padding_bdinner);
+			// now create position variables for each count to say which item in array is left and right padding
+			if ($padding_bdinner_unitcount == 1) {
+				$right_padding_bdinner_pos = 0;
+				$left_padding_bdinner_pos = 0;
+			} else if ($padding_bdinner_unitcount == 2 or $padding_bdinner_unitcount == 3) {
+				$right_padding_bdinner_pos = 1;
+				$left_padding_bdinner_pos = 1;
+			} else if ($padding_bdinner_unitcount == 4) {
+				$right_padding_bdinner_pos = 1;
+				$left_padding_bdinner_pos = 3;
+			}
+			
+			$right_padding_bdinner = $this->padding_bdinner[$right_padding_bdinner_pos] *$em_multiply;
+			$left_padding_bdinner = $this->padding_bdinner[$left_padding_bdinner_pos] *$em_multiply;
 			
 			$total_bdinner = $right_padding_bdinner + $left_padding_bdinner;
 			
-			// 3 sidebar gutter
-			// get gutter value, remove the "em" and then multiply by em_multiply
+			// 2 sidebar gutter
+			// get gutter value, check unit used then remove the "em or px unit" and then multiply by em_multiply
 			
-			
-			
-			$this->sidebar_gutter = str_replace('em', '', $morph->sidebars_gutter) * $em_multiply;
+			if (strstr($morph->sidebars_gutter, 'em')) {
+				$this->sidebars_gutter_unit = 'em';
+			}	else if (strstr($morph->padding_bdinner, 'px')) {
+				$this->sidebars_gutter_unit = 'px';
+				$em_multiply = 1;
+			}
+						
+			$this->sidebar_gutter = str_replace($this->sidebars_gutter_unit, '', $morph->sidebars_gutter) * $em_multiply;
 			
 			// divide margin by 2 if its IE6 to fix the double padding bug
 			if($this->isIE6) {
-				$this->sidebar_gutter = str_replace('em', '', $morph->sidebars_gutter) * $em_multiply / 2;
+				$this->sidebar_gutter = str_replace($this->sidebars_gutter_unit, '', $morph->sidebars_gutter) * $em_multiply / 2;
 			}
 						
-			// double gutter if outer sidebar active
+			// double gutter if outer sidebar active.. ie.. both sidebars are in use
 			if ($this->outerCount() && $this->innerCount()) {
 				$this->gutter_multiply = 2;
 			} else if (!$this->outerCount() && !$this->innerCount()) { 
@@ -372,28 +399,30 @@ class morphLayouts {
 			$this->primary_w = 100 - $morph->inner_width - $this->sidebar_gutter;
 			$morph->inner_width = $morph->inner_width - $this->sidebar_gutter;
 		}
-		
-		//echo $this->primary_w;
-		
+				
 		$this->innerLayouts = '';
 		
 		$this->innerLayouts = array(
 			"site_width" => $this->site_w,
 			"outer_width" => $this->outer_w,
 			"available_main_inner" => $this->available_maininner,
-			"primary_width" => $this->primary_w,
-			"padding_bdinner" => $morph->padding_bdinner,
-			"padding_total" =>$this->total_padding,
-			"sidebars_gutter" =>$this->sidebar_gutter,
-			"outer_count" =>$this->outerCount(),
-			"inner_count" =>$this->innerCount(),
-			"gutter_multiply"=>$this->gutter_multiply,
-			"main_pos"=>$this->main_pos,
-			"isIE6"=>$this->isIE6,
 			// morph vars from Configurator input
 			"inner_width" => $morph->inner_width,
 			"type" => $morph->inner_width_type,
-			"inner_sidebar_position" => $morph->inner_pos);
+			"inner_sidebar_position" => $morph->inner_pos,
+			"padding_bdinner" => $morph->padding_bdinner,
+			"padding_bdinner unit" => $this->padding_bdinner_unit,
+			"padding_total_left+right" =>$this->total_padding,
+			"sidebars_gutter" =>$this->sidebar_gutter,
+			"gutter_multiply"=>$this->gutter_multiply,
+			//gutter total = gutter x multiply
+			"gutter_total" =>$this->sidebar_gutter * $this->gutter_multiply,
+			"sidebar_gutter_unit" =>$this->sidebars_gutter_unit,
+			"primary_width" => $this->primary_w,
+			"outer_count" =>$this->outerCount(),
+			"inner_count" =>$this->innerCount(),
+			"main_pos"=>$this->main_pos,
+			"isIE6"=>$this->isIE6);
 				
 		return $this->innerLayouts;
 	}
