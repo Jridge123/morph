@@ -292,6 +292,7 @@ class morphLayouts {
 		if ($morph->site_width == 'doc') : $this->site_w = 750;
 		elseif ($morph->site_width == 'doc2') : $this->site_w = 950;
 		elseif ($morph->site_width == 'doc4') : $this->site_w = 974;
+		elseif ($morph->site_width == 'doc3') : $this->site_w = "100%";
 		endif;
 		
 		//3. get available width
@@ -391,13 +392,21 @@ class morphLayouts {
 			$this->primary_w = $this->available_maininner - $morph->inner_width - $this->total_padding - ($this->sidebar_gutter * $this->gutter_multiply) - ($this->sidebar_gutter *2);
 		}
 		//change primary_w if the user selects % instead of px
-		if ($morph->inner_width_type == '%') {
+		if ($morph->inner_width_type == '%' and $morph->site_width != 'doc3') {
 			$this->sidebar_gutter = str_replace('%', '', $morph->sidebars_gutter);
 			if (strstr($morph->sidebars_gutter, 'em')) {
 				$this->sidebar_gutter = str_replace('em', '', $morph->sidebars_gutter);
 			}
 			$this->primary_w = 100 - $morph->inner_width - $this->sidebar_gutter;
 			$morph->inner_width = $morph->inner_width - $this->sidebar_gutter;
+		}
+		
+		if ($morph->site_width == 'doc3') {
+			$this->available_maininner = "undefined";
+			$this->primary_w = 100 - $morph->inner_width - $this->sidebar_gutter;
+			if ($this->gutter_multiply == 2) {
+				$morph->inner_width = $morph->inner_width - $this->sidebar_gutter;
+			}
 		}
 				
 		$this->innerLayouts = '';
