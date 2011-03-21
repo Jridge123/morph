@@ -144,11 +144,17 @@ class morphLayouts {
 		$outer4_count 				= $morph->countModules('outer4');
 		$outer5_count 				= $morph->countModules('outer5');
 
-		if ($outer1_count or $outer2_count or $outer3_count or $outer4_count or $outer5_count){ 
-			$outer_active = 1;
-		} else {
-			$outer_active = 0;
+		$this->get_pageClass();
+		if(isset($this->pageclass)){
+			strstr($this->pageclass, 'outer0') ? $this->outer_hide=1 : $this->outer_hide=0;
 		}
+				
+		if ($this->outer_hide == 1){ 
+			$outer_active = 0;
+		} else if ($outer1_count or $outer2_count or $outer3_count or $outer4_count or $outer5_count) {
+			$outer_active = 1;
+		}
+		
 		return $outer_active;
 	}
 	
@@ -165,20 +171,20 @@ class morphLayouts {
 		$this->inner_width = $morph->inner_width;
 		$this->inner_show = $morph->inner_show;
 		
-		
+		// first check if modules are published and set var
 		if ($inner1_count or $inner2_count or $inner3_count or $inner4_count or $inner5_count) {
 			$this->hasModsPublished = 1;
 		} else {
 			$this->hasModsPublished = 0;
 		}
-		
+		// check if inner width or show is 1 or 0
 		if ($this->inner_width == 0 or $this->inner_show == 0) {
 			$this->hasInner = 0;
 			$morph->inner_width = 0;
 		} else {
 			$this->hasInner = 1;
 		}
-		
+		// finally check if published or show and set count 1 or 0
 		if ($this->hasModsPublished == 1 and $this->hasInner == 1) {
 			$inner_count = 1;
 		} else if ($this->hasInner == 0) {
