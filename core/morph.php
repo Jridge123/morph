@@ -1,6 +1,6 @@
 <?php defined( '_JEXEC' ) or die( 'Restricted access' );
 /*
- * Morph loader
+ * Morph
  *
  * This file is part of the Morph template component for Joomla.
  *
@@ -15,11 +15,9 @@
  *
  */
 
-$morph_component_path = JPATH_ADMINISTRATOR.'/components/com_configurator';
-
 jimport('joomla.filesystem.file');
 
-class Morph {
+class Morph extends KObject {
 
 	protected $_generated_override = '<?php defined( \'_JEXEC\' ) or die( JText::_( \'Restricted access\' ) );
       if($override = Morph::override(__FILE__, $this)) {
@@ -34,13 +32,22 @@ class Morph {
 	public $styleSheetsAfter = array();
 	public $styleDeclarations = '';
 	
-	public static $_timeofday;
+	
+	
+	/**
+	 * The object identifier
+	 *
+	 * @var KIdentifierInterface
+	 */
+	protected $_identifier;
 
-	public function __construct( $template = 'morph' )
+	public function __construct(KConfig $config)
 	{
+		parent::__construct($config);
+	
+		$this->mixin(KFactory::get('lib.morph.mixin.date'));
+	
 		$db = JFactory::getDBO();
-
-		if( $template == null ) return;
 		
 		
 		// themelet settings
@@ -65,7 +72,7 @@ class Morph {
 			//$db->setQuery($query);
 			//$params = (array) $db->loadObjectList();
 
-			$params = KFactory::get('admin::com.configurator.model.configurations')->template($template)->getParams();
+			$params = KFactory::get('admin::com.configurator.model.configurations')->template('morph')->getParams();
 		} else {
 			$params = array();
 		}
@@ -131,6 +138,17 @@ class Morph {
 			else if(JRequest::getCmd('nogzip', false, 'COOKIE') == 'off') $this->gzip_compression = 0;
 		}*/
 	}
+
+	/**
+	 * Get the object identifier
+	 * 
+	 * @return	KIdentifier	
+	 * @see 	KObjectIdentifiable
+	 */
+	public function getIdentifier()
+	{
+		return $this->_identifier;
+	}
 	
 	public static function &getInstance($template = 'morph')
 	{
@@ -138,7 +156,7 @@ class Morph {
 		
 		if (!$instances) $instances = array();
 		
-		if (empty($instances[$template])) $instances[$template] = new Morph($template);
+		if (empty($instances[$template])) $instances[$template] = KFactory::get('lib.morph');
 		
 		return $instances[$template];
 	}
@@ -512,58 +530,5 @@ class Morph {
 		}
 
 		return $path;
-	}
-	
-	/**
-	 * Get the time of day
-	 *
-	 * @return	string
-	 */
-	public function getTimeofday()
-	{
-		if(!isset(self::$_timeofday))
-		{
-			$user = JFactory::getUser();
-			$date = clone JFactory::getDate();
-
-			//Set timezone offset
-			if(!$user->guest) $date->setOffset($user->getParam('timezone'));
-
-			$time = $date->toFormat('%H'); 
-
-			$sunrise = date_sunrise($date->toUnix(), SUNFUNCS_RET_DOUBLE); 
-			$sunset = date_sunset($date->toUnix(), SUNFUNCS_RET_DOUBLE) + 1; 
-			if($time >= $sunrise && $time < $sunrise + 2) $style = 'sunrise'; 
-			elseif($time >= $sunrise + 2 && $time < $sunset) $style = 'day'; 
-			elseif($time >= $sunset && $time < $sunset + 2) $style = 'sunset'; 
-			else $style = 'night';
-			
-			self::$_timeofday = $style;
-		}
-		
-		return self::$_timeofday;
-	}
-	
-	/**
-	 * Formats date acording to configuration
-	 *
-	 * @param	$date	datetime
-	 * @return	string
-	 */
-	public function date($date)
-	{
-		$pattern = array(
-			'[weekday1]'	=> '<span class="weekday">%a</span>',
-			'[weekday2]'	=> '<span class="weekday">%A</span>',
-			'[dayofmonth1]' => '<span class="dayofmonth">%d</span>',
-			'[dayofmonth2]'	=> '<span class="dayofmonth">%E</span>',
-			'[month1]'		=> '<span class="month">%b</span>',
-			'[month2]'		=> '<span class="month">%B</span>',
-			'[month3]'		=> '<span class="month">%m</span>',
-			'[year1]'		=> '<span class="year">%g</span>',
-			'[year2]'		=> '<span class="year">%G</span>'
-		);
-	
-		return JHTML::_('date', $date, str_ireplace(array_keys($pattern), array_values($pattern), $this->dateformat));
 	}
 }

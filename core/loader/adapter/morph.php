@@ -26,6 +26,18 @@ class MorphLoaderAdapterMorph extends KLoaderAdapterAbstract
 	{
 		return $this->_prefix;
 	}
+
+	/**
+	 * Sets the basepath during construct
+	 *
+	 * @author your name
+	 * @param $param
+	 * @return return type
+	 */
+	public function __construct()
+	{
+		$this->_basepath .= '/templates/morph/core';
+	}
 	
 	/**
 	 * Get the path based on a class name
@@ -35,66 +47,56 @@ class MorphLoaderAdapterMorph extends KLoaderAdapterAbstract
 	 */
 	protected function _pathFromClassname($classname)
 	{
-		$path = false; 
+		$path     = false;
 		
-		if (strpos($classname, $this->_prefix) === 0) 
-		{
-			$word  = strtolower(preg_replace('/(?<=\\w)([A-Z])/', '_\\1', $classname));
-			$parts = explode('_', $word);
-			
-			if (array_shift($parts) == 'com') 
-			{
-				$component = 'com_'.strtolower(array_shift($parts));
-				$file 	   = array_pop($parts);
+		$word  = preg_replace('/(?<=\\w)([A-Z])/', '_\\1',  $classname);
+		$parts = explode('_', $word);
+		
+		// If class start with a 'Morph' it is a Morph framework class and we handle it
+		if(array_shift($parts) == $this->_prefix)
+		{	
+			$basepath = $this->_basepath;
+			$path     = strtolower(implode('/', $parts));
 				
-				if(count($parts)) 
-				{
-					foreach($parts as $key => $value) {
-						$parts[$key] = KInflector::pluralize($value);
-					}
-					
-					$path = implode('/', $parts);
-					$path = $path.'/'.$file;
-				} 
-				else $path = $file;
-			
-				$path = $this->_basepath.'/templates/'.$component.'/'.$path.'.php';
+			if(count($parts) == 1) {
+				$path = $path.'/'.$path;
 			}
+			
+			if(!is_file($basepath.'/'.$path.'.php')) {
+				$path = $path.'/'.strtolower(array_pop($parts));
+			}
+
+			$path = $basepath.'/'.$path.'.php';
 		}
 		
 		return $path;
-	}
-
+	}	
+	
 	/**
 	 * Get the path based on an identifier
 	 *
-	 * @param  object  			An Identifier object - [application::]com.component.view.[.path].name
+	 * @param  object  			An Identifier object - lib.joomla.[.path].name
 	 * @return string|false		Returns the path on success FALSE on failure
 	 */
 	protected function _pathFromIdentifier($identifier)
 	{
 		$path = false;
-
-		if($identifier->type == 'morph')
+		
+		if($identifier->type == 'lib' && $identifier->package == 'morph')
 		{
-			$parts = $identifier->path;
+			$basepath = $this->_basepath;
 			
-			$component = 'com_'.strtolower($identifier->package);
+			if(count($identifier->path)) {
+				$path .= implode('/',$identifier->path);
+			}
 
-			if(!empty($identifier->name))
-			{
-				if(count($parts)) 
-				{
-					$path    = KInflector::pluralize(array_shift($parts));
-					$path   .= count($parts) ? '/'.implode('/', $parts) : '';
-					$path   .= '/'.strtolower($identifier->name);	
-				} 
-				else $path  = strtolower($identifier->name);	
+			if(!empty($this->name)) {
+				$path .= '/'.$identifier->name;
 			}
 				
-			$path = $this->_basepath.'/templates/'.$component.'/'.$path.'.php';
+			$path = $basepath.'/'.$path.'.php';
 		}
-
+		
 		return $path;
 	}
 }

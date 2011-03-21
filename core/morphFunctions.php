@@ -1,6 +1,5 @@
 <?php defined( '_JEXEC' ) or die( 'Restricted access' );
 // initiate morph
-require_once JPATH_ROOT . '/templates/morph/core/morphLoader.php';
 $MORPH = Morph::getInstance();
 require_once('templates/morph/core/phphooks.class.php');
 require_once('templates/morph/core/morphParams.php');
@@ -919,7 +918,7 @@ function pt_body_classes($menu, $view, $themelet){
 		$params->get('pageclass_sfx'),
 		$view,
 		$lang->getTag(),
-		Morph::getTimeofday(),
+		$morph->getTimeofday(),
 		$morph->custom_body_sfx,
 		$zooapp
 	);
