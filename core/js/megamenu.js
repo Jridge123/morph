@@ -9,6 +9,38 @@
 (function($){
 	$.fn.megamenu = function(container, options){
 
+		var settings = {
+			effects: {
+				openMegaMenu: {
+					properties: {
+						height: 'show',
+						opacity: 'show'
+					},
+					duration: 'slow'
+				},
+				closeMegaMenu: {
+					properties: {
+						height: 'hide',
+						opacity: 'hide'
+					},
+					duration: 'slow'
+				},
+				fadeInMegaMenu: {
+					properties: {
+						opacity: 'show'
+					},
+					duration: 'slow'
+				},
+				fadeOutMegaMenu: {
+					properties: {
+						opacity: 'hide'
+					},
+					duration: 'slow'
+				}
+			}
+		};
+		$.extend(settings, options);
+
 		if(!container.jquery) var container = $(container);
 
 		
@@ -17,7 +49,7 @@
 		if(prev.length && prev.data('megamenu')) {
 			sandbox = prev;
 		} else {
-			sandbox = $('<div />', {css: {position: 'relative'}}).data('megamenu', true);
+			sandbox = $('<div />', {id: 'mega-wrap', css: {position: 'relative'}}).data('megamenu', true);
 		}
 		
 		//Our nice animation requires a sandbox
@@ -50,32 +82,23 @@
 			}
 		});
 		container.bind('openMegaMenu', function(){
+			self.parent().find('.active').removeClass('active');
 			self.addClass('active');
-			container.addClass('active').animate({
-				height: 'show',
-				opacity: 'show'
-			}, 'slow');
+			container.addClass('active').animate(settings.effects.openMegaMenu.properties, settings.effects.openMegaMenu.duration);
 		});
 		container.bind('closeMegaMenu', function(){
 			self.removeClass('active');
-			container.removeClass('active').animate({
-				height: 'hide',
-				opacity: 'hide'
-			}, 'slow', function(){
+			container.removeClass('active').animate(settings.effects.closeMegaMenu.properties, settings.effects.closeMegaMenu.duration, function(){
 				container.css('position', 'static');
 			});
 		});
 		container.bind('fadeInMegaMenu', function(){
 			self.addClass('active');
-			container.addClass('active').animate({
-				opacity: 'show'
-			}, 'slow');
+			container.addClass('active').animate(settings.effects.fadeInMegaMenu.properties, settings.effects.fadeInMegaMenu.duration);
 		});
 		container.bind('fadeOutMegaMenu', function(){
 			self.removeClass('active');
-			container.removeClass('active').animate({
-				opacity: 'hide'
-			}, 'slow', function(){
+			container.removeClass('active').animate(settings.effects.fadeOutMegaMenu.properties, settings.effects.fadeOutMegaMenu.duration, function(){
 				container.css('position', 'static');
 			});
 		});
@@ -87,6 +110,9 @@
 			
 			container.trigger('toggleMegaMenu');
 		});
+		
+		//Allowing styling to target mega menu links
+		this.addClass('mega-item');
 
 		return this;
 	};
