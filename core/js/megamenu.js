@@ -7,33 +7,44 @@
  */
 
 (function($){
+
+	$.extend($.easing,
+	{
+		easeInQuad: function (x, t, b, c, d) {
+			return c*(t/=d)*t + b;
+		},
+		easeOutQuad: function (x, t, b, c, d) {
+			return -c *(t/=d)*(t-2) + b;
+		}
+	});
+
 	$.fn.megamenu = function(container, options){
 
 		var settings = {
 			effects: {
 				openMegaMenu: {
 					properties: {
-						height: 'show',
+						height: ['show', 'easeOutQuad'],
 						opacity: 'show'
 					},
 					duration: 'slow'
 				},
 				closeMegaMenu: {
 					properties: {
-						height: 'hide',
+						height: ['hide', 'easeInQuad'],
 						opacity: 'hide'
 					},
 					duration: 'slow'
 				},
 				fadeInMegaMenu: {
 					properties: {
-						opacity: 'show'
+						opacity: ['show', 'easeInQuad']
 					},
 					duration: 'slow'
 				},
 				fadeOutMegaMenu: {
 					properties: {
-						opacity: 'hide'
+						opacity: ['hide', 'easeOutQuad']
 					},
 					duration: 'slow'
 				}
@@ -65,7 +76,7 @@
 				var siblings = container.siblings('.active');
 				if(siblings.length) {
 					//sandbox.css('height', sandbox.height());
-					sandbox.animate({height: container.height()}, 'slow', function(){
+					sandbox.animate({height: container.height()}, 'slow', 'swing', function(){
 						sandbox.css('height', '');
 					});
 					var offset = siblings.offset();
