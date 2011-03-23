@@ -50,6 +50,10 @@
 					},
 					duration: 'slow'
 				}
+			},
+			closeButton: {
+				text: 'Close',
+				title: ''
 			}
 		};
 		$.extend(settings, options);
@@ -126,6 +130,18 @@
 		
 		//Allowing styling to target mega menu links
 		this.addClass('mega-item');
+		
+		if(settings.closeButton) {
+			var closeButton = $('<a />', {href: '#', title: settings.closeButton.title || settings.closeButton.text})
+									.text(settings.closeButton.text);
+			container.append(closeButton);
+			
+			closeButton.click(function(event){
+				event.preventDefault();
+				
+				container.trigger('toggleMegaMenu');
+			});
+		}
 
 		if(settings.persistent && ($.fn.cookie || window.localStorage)){
 			var storage, namespace = settings.namespace+'-selected', index = sandbox.children().index(container);
