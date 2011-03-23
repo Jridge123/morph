@@ -21,6 +21,8 @@
 	$.fn.megamenu = function(container, options){
 
 		var settings = {
+			namespace: 'mega',
+			persistent: true,
 			effects: {
 				openMegaMenu: {
 					properties: {
@@ -124,6 +126,40 @@
 		
 		//Allowing styling to target mega menu links
 		this.addClass('mega-item');
+
+		if(settings.persistent && ($.fn.cookie || window.localStorage)){
+			var storage, namespace = settings.namespace+'-selected', index = sandbox.children().index(container);
+			
+			if(window.localStorage) {
+				storage = {
+					set: function(value){
+						localStorage[namespace] = value;
+					},
+					get: function(){
+						return localStorage[namespace];
+					}
+				};
+			} else {
+				storage = {
+					set: function(value){
+						$.cookie(namespace, value);
+					},
+					get: function(){
+						return $.cookie(namespace);
+					}
+				};
+			}
+			
+			container.bind('toggleMegaMenu', function(){
+				var selected = sandbox.children().index(container);
+				
+				storage.set(container.data('activeMegaMenu') ? selected : '');
+			});
+			
+			if(storage.get() === index.toString()) {
+				container.trigger('toggleMegaMenu');
+			}
+		}
 
 		return this;
 	};
