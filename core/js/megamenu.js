@@ -7,7 +7,56 @@
  */
 
 (function($){
+
+	$.extend($.easing,
+	{
+		easeInQuad: function (x, t, b, c, d) {
+			return c*(t/=d)*t + b;
+		},
+		easeOutQuad: function (x, t, b, c, d) {
+			return -c *(t/=d)*(t-2) + b;
+		}
+	});
+
 	$.fn.megamenu = function(container, options){
+
+		var settings = {
+			namespace: 'mega',
+			persistent: true,
+			effects: {
+				openMegaMenu: {
+					properties: {
+						height: ['show', 'easeOutQuad'],
+						opacity: 'show'
+					},
+					duration: 'slow'
+				},
+				closeMegaMenu: {
+					properties: {
+						height: ['hide', 'easeInQuad'],
+						opacity: 'hide'
+					},
+					duration: 'slow'
+				},
+				fadeInMegaMenu: {
+					properties: {
+						opacity: ['show', 'easeInQuad']
+					},
+					duration: 'slow'
+				},
+				fadeOutMegaMenu: {
+					properties: {
+						opacity: ['hide', 'easeOutQuad']
+					},
+					duration: 'slow'
+				}
+			},
+			closeButton: {
+				text: 'Close',
+				title: ''
+			}
+		};
+		$.extend(settings, options);
 
 		if(!container.jquery) var container = $(container);
 
@@ -17,7 +66,7 @@
 		if(prev.length && prev.data('megamenu')) {
 			sandbox = prev;
 		} else {
-			sandbox = $('<div />', {css: {position: 'relative'}}).data('megamenu', true);
+			sandbox = $('<div />', {id: 'mega-wrap', css: {position: 'relative'}}).data('megamenu', true);
 		}
 		
 		//Our nice animation requires a sandbox
@@ -33,7 +82,7 @@
 				var siblings = container.siblings('.active');
 				if(siblings.length) {
 					//sandbox.css('height', sandbox.height());
-					sandbox.animate({height: container.height()}, 'slow', function(){
+					sandbox.animate({height: container.height()}, 'slow', 'swing', function(){
 						sandbox.css('height', '');
 					});
 					var offset = siblings.offset();
@@ -50,32 +99,23 @@
 			}
 		});
 		container.bind('openMegaMenu', function(){
+			self.parent().find('.active').removeClass('active');
 			self.addClass('active');
-			container.addClass('active').animate({
-				height: 'show',
-				opacity: 'show'
-			}, 'slow');
+			container.addClass('active').animate(settings.effects.openMegaMenu.properties, settings.effects.openMegaMenu.duration);
 		});
 		container.bind('closeMegaMenu', function(){
 			self.removeClass('active');
-			container.removeClass('active').animate({
-				height: 'hide',
-				opacity: 'hide'
-			}, 'slow', function(){
+			container.removeClass('active').animate(settings.effects.closeMegaMenu.properties, settings.effects.closeMegaMenu.duration, function(){
 				container.css('position', 'static');
 			});
 		});
 		container.bind('fadeInMegaMenu', function(){
 			self.addClass('active');
-			container.addClass('active').animate({
-				opacity: 'show'
-			}, 'slow');
+			container.addClass('active').animate(settings.effects.fadeInMegaMenu.properties, settings.effects.fadeInMegaMenu.duration);
 		});
 		container.bind('fadeOutMegaMenu', function(){
 			self.removeClass('active');
-			container.removeClass('active').animate({
-				opacity: 'hide'
-			}, 'slow', function(){
+			container.removeClass('active').animate(settings.effects.fadeOutMegaMenu.properties, settings.effects.fadeOutMegaMenu.duration, function(){
 				container.css('position', 'static');
 			});
 		});
@@ -87,6 +127,55 @@
 			
 			container.trigger('toggleMegaMenu');
 		});
+		
+		//Allowing styling to target mega menu links
+		this.addClass('mega-item');
+		
+		if(settings.closeButton) {
+			var closeButton = $('<a />', {href: '#', class: 'close-shelf', title: settings.closeButton.title || settings.closeButton.text})
+									.text(settings.closeButton.text);
+			container.append(closeButton);
+			
+			closeButton.click(function(event){
+				event.preventDefault();
+				
+				container.trigger('toggleMegaMenu');
+			});
+		}
+
+		if(settings.persistent && ($.fn.cookie || window.localStorage)){
+			var storage, namespace = settings.namespace+'-selected', index = sandbox.children().index(container);
+			
+			if(window.localStorage) {
+				storage = {
+					set: function(value){
+						localStorage[namespace] = value;
+					},
+					get: function(){
+						return localStorage[namespace];
+					}
+				};
+			} else {
+				storage = {
+					set: function(value){
+						$.cookie(namespace, value);
+					},
+					get: function(){
+						return $.cookie(namespace);
+					}
+				};
+			}
+			
+			container.bind('toggleMegaMenu', function(){
+				var selected = sandbox.children().index(container);
+				
+				storage.set(container.data('activeMegaMenu') ? selected : '');
+			});
+			
+			if(storage.get() === index.toString()) {
+				container.trigger('toggleMegaMenu');
+			}
+		}
 
 		return this;
 	};

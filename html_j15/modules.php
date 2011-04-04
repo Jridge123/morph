@@ -106,7 +106,7 @@ function modChrome_split($module, &$params, &$attribs) {
 	} 
 ?>
 <div class="mod mod-basic splitmenu<?php echo ' ' . $posSuffix; ?>" id="mod<?php echo $module->id; ?>">
-    <h3 class="modhead"><span class="icon"></span><?php echo $heading[0]; ?></h3>
+    <?php if ($module->showtitle != 0) : ?><h3 class="modhead"><span class="icon"></span><?php echo $heading[0]; ?></h3><?php endif; ?>
 	<div class="modinner">
 	    <?php echo $module->content; ?>
 	</div>
