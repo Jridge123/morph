@@ -137,7 +137,7 @@ global $morph_tabs,$tabscount,$loadtabs,$istabsload;
 		}
 		$tabscount++; ?>
 		<div id="tabs<?php echo $tabscount; ?>" class="mod<?php if($tabs_modfx){ echo ' ' . $tabs_modfx; } ?>">
-			<ul class="ui-tabs-nav">
+			<ul class="ui-tabs-nav clearer">
 			<?php
 			$curr_tab = 1;
 			$tabs_contents = '';
