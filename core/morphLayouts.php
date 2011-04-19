@@ -153,6 +153,8 @@ class morphLayouts {
 			$outer_active = 0;
 		} else if ($outer1_count or $outer2_count or $outer3_count or $outer4_count or $outer5_count) {
 			$outer_active = 1;
+		} else {
+			$outer_active ='';
 		}
 		
 		return $outer_active;
@@ -251,8 +253,15 @@ class morphLayouts {
 		$this->get_pageClass();
 		if(isset($this->pageclass)){
 			$this->pageSfxArr = (explode(" ",$this->pageclass));
-			$this->innerSfxArr = (explode("inner",$this->pageSfxArr[0]));
+			if (strstr($this->pageSfxArr[0], 'inner')){
+				$this->innerSfxArr = (explode("inner",$this->pageSfxArr[0]));
+			} elseif (strstr($this->pageSfxArr[1], 'inner')){
+				$this->innerSfxArr = (explode("inner",$this->pageSfxArr[1]));
+			} else {
+				$this->innerSfxArr = (explode("inner",$this->pageSfxArr[0]));
+			}
 			if(array_key_exists(1,$this->innerSfxArr)) {
+				$morph->inner_show = 1;
 				$this->CurrentInnerScheme = $this->innerPageSuffix[substr($this->innerSfxArr[1],0,1)];
 				if (isset($this->innerPageSuffix[$this->innerSfxArr[1]][0])) {
 				$morph->inner_width=$this->innerPageSuffix[$this->innerSfxArr[1]][0];
@@ -329,6 +338,8 @@ class morphLayouts {
 			}	else if (strstr($morph->padding_bdinner, 'px')) {
 				$this->padding_bdinner_unit = "px ";
 				$em_multiply = 1;
+			} else {
+				$this->padding_bdinner_unit = '';
 			}
 												
 			$this->padding_bdinner = explode($this->padding_bdinner_unit, $morph->padding_bdinner);
@@ -357,9 +368,11 @@ class morphLayouts {
 			
 			if (strstr($morph->sidebars_gutter, 'em')) {
 				$this->sidebars_gutter_unit = 'em';
-			}	else if (strstr($morph->padding_bdinner, 'px')) {
+			}	else if (strstr($morph->sidebars_gutter, 'px')) {
 				$this->sidebars_gutter_unit = 'px';
 				$em_multiply = 1;
+			}	else {
+				$this->sidebars_gutter_unit = '';
 			}
 						
 			$this->sidebar_gutter = str_replace($this->sidebars_gutter_unit, '', $morph->sidebars_gutter) * $em_multiply;
