@@ -439,6 +439,7 @@ class morphLayouts {
 	static function addLayoutCSS() {
 		$layouts = new morphLayouts();
 		$morph = Morph::getInstance();
+		$pos_margin_css = '';
 		$margin_css = '';
 		$bd_inner_css = '
 #bd .bd-inner {padding: '. $layouts->innerLayouts['padding_bdinner'].';}';
@@ -447,21 +448,28 @@ class morphLayouts {
 		$primary_css = '
 #primary-content {width:'.$layouts->innerLayouts['primary_width'].$layouts->innerLayouts['type'].';float:'.$layouts->innerLayouts['main_pos'].';}';
 	if ($layouts->innerLayouts['outer_count'] == 1) {
-		$pos_margin_css = '
+		if ($layouts->innerLayouts['sidebars_gutter'] == 0) {
+			$pos_margin_css = '
+#bd.left-pos-secondary #inset1,
+#bd.left-pos-secondary #inset4 {margin-left:13px;}
+
+#bd.right-pos-secondary #inset1,
+#bd.right-pos-secondary #inset4 {margin-right:13px}';
+			} else {
+			$pos_margin_css = '
 #bd.left-pos-secondary #inset1,
 #bd.left-pos-secondary #inset4,
 #bd.left-pos-secondary #inner-wrap.right-tertiary #primary-content,
 #bd.left-pos-secondary #inner-wrap.left-tertiary #tertiary-content {margin-left:'. $layouts->innerLayouts['sidebars_gutter'].$layouts->innerLayouts['type'] .';}
-
+		
 #bd.right-pos-secondary #inset1,
 #bd.right-pos-secondary #inset4,
 #bd.right-pos-secondary #inner-wrap.left-tertiary #primary-content,
 #bd.right-pos-secondary #inner-wrap.right-tertiary #tertiary-content {margin-right:'.$layouts->innerLayouts['sidebars_gutter'].$layouts->innerLayouts['type'] .';}';
-	}
+			}
+		}
 		$morph->addStyleDeclaration($bd_inner_css.$tertiary_css.$primary_css.$pos_margin_css);
 	}
-	
-
 }
 
 
