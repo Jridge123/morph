@@ -132,7 +132,7 @@
 		this.addClass('mega-item');
 		
 		if(settings.closeButton) {
-			var closeButton = $('<a />', {href: '#', class: 'close-shelf', title: settings.closeButton.title || settings.closeButton.text})
+			var closeButton = $('<a />', {href: '#', 'class': 'close-shelf', title: settings.closeButton.title || settings.closeButton.text})
 									.text(settings.closeButton.text);
 			container.append(closeButton);
 			

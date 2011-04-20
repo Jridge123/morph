@@ -863,7 +863,9 @@ function mastheadBlock($position, $glob, $jj_const, $classes, $site_width, $debu
 		<?php } ?>
 		
 		<?php if ($morph->topnav_position == 'masthead_inside' ) { ?>
+		<div id="branding-secondary">
 			<?php include 'includes/mastheadnav.php'; ?>
+		</div>
 		<?php } else { ?>
 			<?php if ( $logo_show == 1 ) { ?><div id="branding-secondary"><?php } ?>
 				<?php if(${$position . '_chrome'} === 'tabs' or ${$position . '_chrome'} === 'accordion' ){ ?>
