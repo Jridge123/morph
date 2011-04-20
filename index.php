@@ -49,7 +49,7 @@ if( $browser->getBrowser() == MBrowser::BROWSER_IE && $chrome_frame == 1 ) {
 }
 $isiPhone = $browser->getBrowser() == MBrowser::PLATFORM_IPHONE && $iphone_mode == 1;
 $iPhoneCookie = isset($_COOKIE['iPhone']) ? $_COOKIE['iPhone'] == 'normal' : false;
-if($isiPhone && !$iPhoneCookie) {
+if($isiPhone && !$iPhoneCookie && $iphone_mode == 1) {
 	if (file_exists($inc_iphone)) { include_once($inc_iphone); } else { include_once('core/includes/iphone.php'); }
 	if (file_exists($inc_iphonefooter)) { include_once($inc_iphonefooter); } else { include_once('core/includes/iphone_footer.php'); }
 } else {
