@@ -250,8 +250,9 @@ class morphLayouts {
 		};
 		
 		// per page layouts - page class sfx
+		if(!preg_match('/administrator/i', $_SERVER['REQUEST_URI'])){
 		$this->get_pageClass();
-		if(isset($this->pageclass)){
+		if(isset($this->pageclass) && strstr($this->pageclass, 'inner') || strstr($this->pageclass, 'outer')){
 			$this->pageSfxArr = (explode(" ",$this->pageclass));
 			if (strstr($this->pageSfxArr[0], 'inner')){
 				$this->innerSfxArr = (explode("inner",$this->pageSfxArr[0]));
@@ -259,7 +260,7 @@ class morphLayouts {
 				$this->innerSfxArr = (explode("inner",$this->pageSfxArr[1]));
 			} else {
 				$this->innerSfxArr = (explode("inner",$this->pageSfxArr[0]));
-			}
+			} 
 			if(array_key_exists(1,$this->innerSfxArr)) {
 				$morph->inner_show = 1;
 				$this->CurrentInnerScheme = $this->innerPageSuffix[substr($this->innerSfxArr[1],0,1)];
@@ -274,6 +275,8 @@ class morphLayouts {
 				}
 			}
 		}
+		}
+
 		return $this->CurrentInnerScheme;
 	}
 	
