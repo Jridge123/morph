@@ -16,10 +16,10 @@ if($override = Morph::override(__FILE__, $this)) {
 		<?php $tabcnt = 1 - $tabcnt; ?>
 		<?php endfor; ?>
 	</ul>
-	<div align="center">
-	<input type="submit" name="task_button" class="button poll-vote" value="<?php echo JText::_('Vote'); ?>" />
-	&nbsp;
-	<input type="button" name="option" class="button poll-results" value="<?php echo JText::_('Results'); ?>" onclick="document.location.href='<?php echo JRoute::_("index.php?option=com_poll&id=$poll->slug".$itemid); ?>'" />
+	<div class="poll-actions">
+		<button type="submit" name="task_button" class="button poll-vote"><?php echo JText::_('Vote'); ?></button>
+		&nbsp;
+		<button type="submit" name="option" class="button poll-results" onclick="document.location.href='<?php echo JRoute::_("index.php?option=com_poll&id=$poll->slug".$itemid); ?>'"><?php echo JText::_('Results'); ?></button>
 	</div>
 	<input type="hidden" name="option" value="com_poll" />
 	<input type="hidden" name="task" value="vote" />
