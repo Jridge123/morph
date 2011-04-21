@@ -250,6 +250,7 @@ class morphLayouts {
 		};
 		
 		// per page layouts - page class sfx
+		if(!preg_match('/administrator/i', $_SERVER['REQUEST_URI'])){
 		$this->get_pageClass();
 		if(isset($this->pageclass)){
 			$this->pageSfxArr = (explode(" ",$this->pageclass));
@@ -274,6 +275,8 @@ class morphLayouts {
 				}
 			}
 		}
+		}
+
 		return $this->CurrentInnerScheme;
 	}
 	
