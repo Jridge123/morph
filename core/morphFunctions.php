@@ -586,7 +586,7 @@ if(  $isiPhone && !$iPhoneCookie  ){
 		if ($lcbrowser == 'safari' && file_exists($css_safari)) $MORPH->addStyleSheetAfter($themeletpath .'/css/safari.css');
 		if ($lcbrowser == 'opera' && file_exists($css_opera)) $MORPH->addStyleSheetAfter($themeletpath .'/css/opera.css');
 		if ($lcbrowser == 'chrome' && file_exists($css_chrome)) $MORPH->addStyleSheetAfter($themeletpath .'/css/chrome.css');
-		if (($lcbrowser == 'chrome' || $lcbrowser == 'safari') && file_exists($css_webkit)) $MORPH->addStyleSheetAfter($themeletpath .'/css/webkit.css');
+		if (($lcbrowser == 'chrome' || $lcbrowser == 'safari' || $browser->getBrowser() == MBrowser::PLATFORM_IPHONE) && file_exists($css_webkit)) $MORPH->addStyleSheetAfter($themeletpath .'/css/webkit.css');
 		if ($lcbrowser == 'internetexplorer' && file_exists($css_ie)) $MORPH->addStyleSheetAfter($themeletpath .'/css/ie.css');
 		// ie specific
 		if(file_exists($css_ie6) && preg_match('/MSIE 6/i', $_SERVER['HTTP_USER_AGENT'])) $MORPH->addStyleSheetAfter($themeletpath .'/css/ie6.css');
