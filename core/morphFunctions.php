@@ -899,17 +899,33 @@ function pt_body_classes($menu, $view, $themelet){
 	$browser = new MBrowser();
 	$engine = strtolower(preg_replace("/[^A-Za-z]/i", "", $browser->getBrowser()));
 	$version = $engine.str_replace('.', '', $browser->getVersion());
+	$zoo_installed = 0;	
 	
-	$zoo_installed = 0;
 	jimport('joomla.application.component.helper');
 	if(JComponentHelper::isEnabled('com_zoo', true)){
 		$zoo_installed = 1;
 	}
 	if($zoo_installed == 1) {
 		require_once(JPATH_ADMINISTRATOR.'/components/com_zoo/config.php'); 
-		if ($zooapp = Zoo::getApplication()) {
-			$zooapp = strtolower('zoo-'.$zooapp->name);
+		$path_to_xml = JPATH_ADMINISTRATOR . '/components/com_zoo/manifest.xml';
+	
+		if (JFile::exists($path_to_xml) && ($data = JApplicationHelper::parseXMLInstallFile($path_to_xml))) {
+			// version compare
+			$old_zoo_version = (version_compare($data['version'], '2.4') < 0);
+			// version
+			$version = $data['version'];
 		}
+	
+		if($version < '2.4'){
+			if ($zooapp = Zoo::getApplication()) {
+			$zooapp = strtolower('zoo-'.$zooapp->name);
+			}
+		} else {
+			if ($app = App::getInstance('zoo')->zoo->getApplication()) {
+			$zooapp = strtolower('zoo-'.$app->name);
+			}  
+		}
+	
 	}
 	
 	$classes = array(
