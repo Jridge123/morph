@@ -525,6 +525,10 @@ if (!$MORPH->countModules('outersplit or outer1 or outer2 or outer3 or outer4 or
 if (!$MORPH->countModules('innersplit or inner1 or inner2 or inner3 or inner4 or inner5')) $layouts->CurrentInnerScheme = '';
 if (!$MORPH->countModules('user4')) $no_search = 'no_search';
 
+if ($logo_text == ""){ 
+	$logo_text = $mainframe->getCfg('sitename');
+}
+
 // Activate rtl for testing
 // $direction = 'rtl';
 if(  $isiPhone && !$iPhoneCookie  ){
@@ -540,17 +544,17 @@ if(  $isiPhone && !$iPhoneCookie  ){
 		if ( $sidefish >= 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/sidenav-sidefish.css'); }
 		if ( $tabscount >= 1 || $isEditForm == 1) { $MORPH->addStyleSheet($themeletpath .'/css/tabs.css'); }
 		if ( $accordionscount >= 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/accordions.css'); }
-		$MORPH->addStyleSheet($themeletpath .'/css/typo.css');
-		$MORPH->addStyleSheet($themeletpath .'/css/joomla.css');
-		$MORPH->addStyleSheet($themeletpath .'/css/modules.css');
-		$MORPH->addStyleSheet($themeletpath .'/css/themelet.css');
-		$MORPH->addStyleSheet($themeletpath .'/css/modfx.css');	
+		if ( file_exists($css_typo)) { $MORPH->addStyleSheet($themeletpath .'/css/typo.css'); }
+		if ( file_exists($css_joomla)) { $MORPH->addStyleSheet($themeletpath .'/css/joomla.css'); }
+		if ( file_exists($css_modules)) { $MORPH->addStyleSheet($themeletpath .'/css/modules.css'); }
+		if ( file_exists($css_themelet)) { $MORPH->addStyleSheet($themeletpath .'/css/themelet.css'); }
+		if ( file_exists($css_modfx)) { $MORPH->addStyleSheet($themeletpath .'/css/modfx.css');	}
 		if ( $simpleticker == 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/simpleticker.css'); }
 		if ( $aidanews == 1 && file_exists($css_aida)) { $MORPH->addStyleSheet($themeletpath .'/css/aidanews.css'); }
 		if ( $simpletweet == 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/simpletweet.css'); }
 		if ( $simplecontact == 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/simplecontact.css'); }
 		if ( $simplesocial == 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/simplesocial.css'); }
-		if ( $custom_fonts == 1 && $font_providers == 'googlefonts' ) { $doc->addStyleSheet('http://fonts.googleapis.com/css?family='.str_replace(" ", "+", $googlefonts_font)); }
+		if ( $custom_fonts == 1 && $font_providers == 'googlefonts' ) { $doc->addStyleSheet('http://fonts.googleapis.com/css?family='.str_replace(" ", "+", $googlefonts_font).'&text='.$logo_text); }
 		if ( $custom_fonts == 1 && $font_providers == 'fontdeck' ) { $doc->addStyleSheet('http://f.fontdeck.com/s/css/'.$fontdeck_fontid.'/'.$fontdeck_domain.'/'.$fontdeck_projectid.'.css'); }
 		if ( $custom_fonts == 1 && $font_providers == 'fontslive' ) { $doc->addStyleSheet('http://webfonts.fontslive.com/css/'.$fontslive_id.'.css'); }
 		if ( $custom_fonts == 1 && $font_providers == 'webtype' ) { $doc->addStyleSheet('http://cloud.webtype.com/css/'.$webtype_id.'.css'); }
