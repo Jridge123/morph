@@ -479,6 +479,10 @@
 			<option value="Walter Turncoat">Walter Turncoat</option>
 			<option value="Yanone Kaffeesatz">Yanone Kaffeesatz</option>
 		</param>
+		<param name="gfont_text_enabled" default="1" type="itoggle" label="Logo only" tooltip="inline" description="By selecting the logo only option, the font you select will be customized via Googles servers to only include support for the characters used in your logo, meaning a smaller font file.">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
 		<param name="gfont_selectors" default="h1, h2" type="text" label="Add selectors to target here" tooltip="inline" description="Add a string of selectors seperated by a comma that you would like to apply the font to." />	
 		<!-- Fontdeck -->
 		<param name="fontdeck_fontid" default="" type="text" label="Font id" tooltip="inline" description="" />	
