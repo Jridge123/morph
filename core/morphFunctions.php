@@ -658,10 +658,13 @@ function isIE6($string=''){
 	}
 }
 
-if($custom_fonts)
-{
+if($custom_fonts && $font_providers == 'googlefonts'){
 	ob_start();
-		if($font_providers == 'googlefonts') echo "$gfont_selectors{font-family: '".$googlefonts_font."', Arial, Helvetica, sans-serif;}";
+		if ($gfont_text_enabled == 1){ 
+			echo "#branding h1{font-family: '$googlefonts_font', Arial, Helvetica, sans-serif;}";
+		} else{
+			echo "$gfont_selectors{font-family: '$googlefonts_font', Arial, Helvetica, sans-serif;}";
+		}
 	$doc->addStyleDeclaration(ob_get_clean());
 }
 
