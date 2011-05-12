@@ -528,6 +528,11 @@ if (!$MORPH->countModules('user4')) $no_search = 'no_search';
 if ($logo_text == ""){ 
 	$logo_text = $mainframe->getCfg('sitename');
 }
+if ($gfont_text_enabled == 1){ 
+	$gfont_text = '&text='.str_replace(" ", "", $logo_text);
+} else {
+	$gfont_text = '';
+}
 
 // Activate rtl for testing
 // $direction = 'rtl';
@@ -554,7 +559,7 @@ if(  $isiPhone && !$iPhoneCookie  ){
 		if ( $simpletweet == 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/simpletweet.css'); }
 		if ( $simplecontact == 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/simplecontact.css'); }
 		if ( $simplesocial == 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/simplesocial.css'); }
-		if ( $custom_fonts == 1 && $font_providers == 'googlefonts' ) { $doc->addStyleSheet('http://fonts.googleapis.com/css?family='.str_replace(" ", "+", $googlefonts_font).'&text='.$logo_text); }
+		if ( $custom_fonts == 1 && $font_providers == 'googlefonts' ) { $doc->addStyleSheet('http://fonts.googleapis.com/css?family='.str_replace(" ", "+", $googlefonts_font).$gfont_text); }
 		if ( $custom_fonts == 1 && $font_providers == 'fontdeck' ) { $doc->addStyleSheet('http://f.fontdeck.com/s/css/'.$fontdeck_fontid.'/'.$fontdeck_domain.'/'.$fontdeck_projectid.'.css'); }
 		if ( $custom_fonts == 1 && $font_providers == 'fontslive' ) { $doc->addStyleSheet('http://webfonts.fontslive.com/css/'.$fontslive_id.'.css'); }
 		if ( $custom_fonts == 1 && $font_providers == 'webtype' ) { $doc->addStyleSheet('http://cloud.webtype.com/css/'.$webtype_id.'.css'); }
