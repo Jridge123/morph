@@ -109,10 +109,10 @@
 			<option value="0">No</option>
 		</param>
 		<param name="logo_ielogo_image" default="" type="imagelist" tooltip="inline" label="IE6 logo image" directory="morph_assets/logos" hide_none="false" hide_default="false" description="We have added the option to have an alternate logo to display in IE6. This is useful if you are using a transparent png for your logo and would like to have a gif displayed for people browsing your site in Internet Explorer 6." />
+		<param name="logo_text" default="" type="text" label="Logo text" tooltip="inline" description="Set your logo text" />
 		<!-- Text Based -->
-		<param name="logo0_text" default="" type="text" label="Logo text" tooltip="inline" description="Set your logo text" />
-		<param name="logo0_fontfamily" default="'Palatino Linotype', 'Book Antiqua', Palatino, serif" type="list" label="Logo font" tooltip="inline" description="Choose which font family you would like to use.">
-		    <option value=""> </option>
+		<param name="logo0_fontfamily" default="" type="list" label="Logo font" tooltip="inline" description="Choose which font family you would like to use.">
+		    <option value=" "> </option>
 		    <option value="Arial, Helvetica, sans-serif">Arial</option>
 		    <option value="'Arial Black', Gadget, sans-serif">Arial Black</option>
 		    <option value="Impact, Charcoal, sans-serif">Impact</option>
@@ -183,14 +183,12 @@
 
 		
 		<!-- CSS Image Replacement -->
-		<param name="logo1_text" default="" type="text" label="Logo text" tooltip="inline" description="Set your logo text" />
 		<param name="logo1_linktitle" default="" type="text" label="Link title text" tooltip="inline" description="Set your logo link title text" />
 		<param name="logo1_top" default="10px" type="text" label="Top position" tooltip="inline" description="Set your logos x-coordinate (ie, the number of pixels it should be positioned from the top.  You can set the amount as either pixels, em's or a percentage. For example 10px, 10em or 10%. Please note that no spaces should be used." />
 		<param name="logo1_left" default="20px" type="text" label="Left position" tooltip="inline" description="Set your logos y-coordinate (ie, the number of pixels it should be positioned from the left.  You can set the amount as either pixels, em's or a percentage. For example 10px, 10em or 10%. Please note that no spaces should be used." />
 		<param name="logo1_stack" default="2" type="text" label="Stacking order" tooltip="inline" description="Set the stacking order (z-index) of your sites logo." />	
 		
 		<!-- Inline Image -->
-
 		<param name="logo2_alttext" default="" type="text" label="Logo text" tooltip="inline" description="Set your logo text" />
 		<param name="logo2_linktitle" default="" type="text" label="Link title text" tooltip="inline" description="Set your logo link title text" />
 		<param name="logo2_top" default="10px" type="text" label="Top position" tooltip="inline" description="Set your logos x-coordinate (ie, the number of pixels it should be positioned from the top.  You can set the amount as either pixels, em's or a percentage. For example 10px, 10em or 10%. Please note that no spaces should be used." />
