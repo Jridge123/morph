@@ -336,13 +336,11 @@ class morphLayouts {
 		}
 		
 			// 1. get total bdinner padding - left and right only
-			if (strstr($morph->padding_bdinner, 'em')) {
-				$this->padding_bdinner_unit = "em ";
-			}	else if (strstr($morph->padding_bdinner, 'px')) {
+			if (strstr($morph->padding_bdinner, 'px')) {
 				$this->padding_bdinner_unit = "px ";
 				$em_multiply = 1;
 			} else {
-				$this->padding_bdinner_unit = '';
+				$this->padding_bdinner_unit = "em ";
 			}
 												
 			$this->padding_bdinner = explode($this->padding_bdinner_unit, $morph->padding_bdinner);
