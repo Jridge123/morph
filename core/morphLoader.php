@@ -366,6 +366,50 @@ class Morph {
 	}
 	
 	/**
+	 * count to see if any modules are using morph's tabs chrome
+	 *
+	 * @return return true or false
+	 */
+	public function tabscount() {
+		$db=& JFactory::getDBO();
+		$query = "SELECT * FROM `#__configurator` WHERE `param_value` = 'tabs' ";
+		$db->setQuery( $query );
+		$tabInstances = $db->loadObjectList();
+		if (!empty($tabInstances)) {
+			foreach ($tabInstances as $instance) :
+				$pieces = explode("_", $instance->param_name);
+				$position = $pieces[0];
+				$query = 'SELECT COUNT(*) FROM `#__modules` WHERE `position` = "'.$position.'" AND `published` = 1 ';
+				$db->setQuery( $query ); $result = $db->loadResult();
+				$tabscount = $result != 0 ? 1 : 0;
+			endforeach;
+		}
+		return $tabscount;
+	}
+	
+	/**
+	 * count to see if any modules are using morph's accordion chrome
+	 *
+	 * @return return true or false
+	 */
+	public function accordionscount() {
+		$db=& JFactory::getDBO();
+		$query = "SELECT * FROM `#__configurator` WHERE `param_value` = 'accordion' ";
+		$db->setQuery( $query );
+		$accInstances = $db->loadObjectList();
+		if (!empty($accInstances)) {
+			foreach ($accInstances as $instance) :
+				$pieces = explode("_", $instance->param_name);
+				$position = $pieces[0];
+				$query = 'SELECT COUNT(*) FROM `#__modules` WHERE `position` = "'.$position.'" AND `published` = 1 ';
+				$db->setQuery( $query ); $result = $db->loadResult();
+				$accordionscount = $result != 0 ? 1 : 0;
+			endforeach;
+		}
+		return $accordionscount;
+	}
+	
+	/**
 	 * Parse relative layout path
 	 *
 	 * @param  $layout	string		Should be the __FILE__ constant.
