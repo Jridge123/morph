@@ -19,10 +19,11 @@
 	});
 
 	$.fn.megamenu = function(container, options){
-
+		namespace = $(container).attr('rel');
 		var settings = {
-			namespace: 'mega',
+			namespace: namespace,
 			persistent: true,
+			wrapclass: '',
 			effects: {
 				openMegaMenu: {
 					properties: {
@@ -60,13 +61,12 @@
 
 		if(!container.jquery) var container = $(container);
 
-		
 		var self = this, prev = container.prev(), sandbox;
 		//Get the previous item, in case it's also a sibling megamenu panel
 		if(prev.length && prev.data('megamenu')) {
 			sandbox = prev;
 		} else {
-			sandbox = $('<div />', {id: 'mega-wrap', css: {position: 'relative'}}).data('megamenu', true);
+			sandbox = $('<div />', {id: namespace, Class: 'mega-wrap '+settings.wrapclass, css: {position: 'relative'}}).data('megamenu', true);
 		}
 		
 		//Our nice animation requires a sandbox
@@ -101,22 +101,27 @@
 		container.bind('openMegaMenu', function(){
 			self.parent().find('.active').removeClass('active');
 			self.addClass('active');
+			sandbox.show();
 			container.addClass('active').animate(settings.effects.openMegaMenu.properties, settings.effects.openMegaMenu.duration);
 		});
 		container.bind('closeMegaMenu', function(){
 			self.removeClass('active');
 			container.removeClass('active').animate(settings.effects.closeMegaMenu.properties, settings.effects.closeMegaMenu.duration, function(){
-				container.css('position', 'static');
+				//container.css('position', 'static');
+				sandbox.hide();
 			});
 		});
 		container.bind('fadeInMegaMenu', function(){
 			self.addClass('active');
+			sandbox.show();
 			container.addClass('active').animate(settings.effects.fadeInMegaMenu.properties, settings.effects.fadeInMegaMenu.duration);
 		});
 		container.bind('fadeOutMegaMenu', function(){
 			self.removeClass('active');
 			container.removeClass('active').animate(settings.effects.fadeOutMegaMenu.properties, settings.effects.fadeOutMegaMenu.duration, function(){
-				container.css('position', 'static');
+				// the container needs to be relative to position the close button so lets rather set left to 0
+				//container.css('position', 'static');
+				container.css({position: 'relative', left: 0});
 			});
 		});
 		
@@ -124,7 +129,6 @@
 		
 		this.click(function(event){
 			event.preventDefault();
-			
 			container.trigger('toggleMegaMenu');
 		});
 		

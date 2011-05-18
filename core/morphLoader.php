@@ -29,6 +29,8 @@ class Morph {
       }';
 
 	public $scripts = array();
+	public $scriptsAfterJQuery = array();
+	public $scriptsBeforeRender = array();
 	public $scriptsAfter = array();
 	public $scriptDeclarations = '';
 	
@@ -237,9 +239,19 @@ class Morph {
 		return $this->$param_name;
 	}
 
-	public function addScript($url, $type = 'text/javascript')
+	public function addScriptAfterJQuery($url, $getFirstCmd='', $firstFilter='', $getSecondCmd='', $secondFilter='', $type = 'text/javascript')
 	{
-		$this->scripts[$url] = $type;
+		if ($getFirstCmd && $getSecondCmd) {
+			if($getFirstCmd == $firstFilter && $getSecondCmd == $secondFilter) {
+				$this->scripts[$url] = $type;
+			}
+		} else if ($getFirstCmd) {
+			if($getFirstCmd == $firstFilter) {
+				$this->scripts[$url] = $type;
+			}
+		} else {
+			$this->scripts[$url] = $type;
+		}
 	}
 	
 	/**
@@ -251,16 +263,92 @@ class Morph {
 	 *								This means you'll have to do domready yourself, but gives you full freedom.
 	 * @return	object	$this
 	 */
-	public function addScriptDeclaration($script)
+	public function addScriptDeclaration($script, $getFirstCmd='', $firstFilter='', $getSecondCmd='', $secondFilter='')
 	{
-		$this->scriptDeclarations .= $script;
+		
+		if ($getFirstCmd && $getSecondCmd) {
+			if($getFirstCmd == $firstFilter && $getSecondCmd == $secondFilter) {
+				$this->scriptDeclarations .= $script; 
+			}
+		} else if ($getFirstCmd) {
+			if($getFirstCmd == $firstFilter) {
+				$this->scriptDeclarations .= $script;
+			}
+		} else {
+			$this->scriptDeclarations .= $script; 
+		}
 
 		return $this;
 	}
 	
-	public function addScriptAfter($url, $type = 'text/javascript')
+	
+	/**
+	 * Adds a script ALWAYS just after morph loads jquery
+	 *
+	 * This allows the js to be optionally packed, minified, gzipped and cached
+	 *
+	 * @param	string	$script		The script is injected just after Morph's version of jQuery
+	 * @return	object	$this
+	 */
+	public function addScriptAfterJQuery($url, $getFirstCmd='', $firstFilter='', $getSecondCmd='', $secondFilter='', $type = 'text/javascript')
 	{
-		$this->scriptsAfter[$url] = $type;
+		if ($getFirstCmd && $getSecondCmd) {
+			if($getFirstCmd == $firstFilter && $getSecondCmd == $secondFilter) {
+				$this->scriptsAfterJQuery[$url] = $type; 
+			}
+		} else if ($getFirstCmd) {
+			if($getFirstCmd == $firstFilter) {
+				$this->scriptsAfterJQuery[$url] = $type; 
+			}
+		} else {
+			$this->scriptsAfterJQuery[$url] = $type; 
+		}
+	}
+	
+	/**
+	 * Adds a script ALWAYS just before the render.js file (template.js.php)
+	 *
+	 * This allows the js to be optionally packed, minified, gzipped and cached
+	 *
+	 * @param	string	$script		The script is injected before the template.js.php loads.
+	 * @return	object	$this
+	 */
+	public function addScriptBeforeRender($url, $getFirstCmd='', $firstFilter='', $getSecondCmd='', $secondFilter='', $type = 'text/javascript')
+	{
+		if ($getFirstCmd && $getSecondCmd) {
+			if($getFirstCmd == $firstFilter && $getSecondCmd == $secondFilter) {
+				$this->scriptsBeforeRender[$url] = $type; 
+			}
+		} else if ($getFirstCmd) {
+			if($getFirstCmd == $firstFilter) {
+				$this->scriptsBeforeRender[$url] = $type; 
+			}
+		} else {
+			$this->scriptsBeforeRender[$url] = $type; 
+		}
+	}
+	
+	/**
+	 * Adds a script ALWAYS inside the render.js file
+	 *
+	 * This allows the js to be optionally packed, minified, gzipped and cached
+	 *
+	 * @param	string	$script		The script are injected in the end of the template.js.php but before the declarations.
+	 * @return	object	$this
+	 */
+	public function addScriptAfter($url, $getFirstCmd='', $firstFilter='', $getSecondCmd='', $secondFilter='', $type = 'text/javascript')
+	{	
+		if ($getFirstCmd && $getSecondCmd) {
+			if($getFirstCmd == $firstFilter && $getSecondCmd == $secondFilter) {
+				$this->scriptsAfter .= $type; 
+			}
+		} else if ($getFirstCmd) {
+			if($getFirstCmd == $firstFilter) {
+				$this->scriptsAfter .= $type;
+			}
+		} else {
+			$this->scriptsAfter .= $type; 
+		}
 	}
 	
 	public function addStyleSheet($url, $type = 'text/css', $media = null, $attribs = array())
@@ -363,6 +451,50 @@ class Morph {
 		$str = 'return '.implode(' ', $words).';';
 
 		return eval($str);
+	}
+	
+	/**
+	 * count to see if any modules are using morph's tabs chrome
+	 *
+	 * @return return true or false
+	 */
+	public function tabscount() {
+		$db=& JFactory::getDBO();
+		$query = "SELECT * FROM `#__configurator` WHERE `param_value` = 'tabs' ";
+		$db->setQuery( $query );
+		$tabInstances = $db->loadObjectList();
+		if (!empty($tabInstances)) {
+			foreach ($tabInstances as $instance) :
+				$pieces = explode("_", $instance->param_name);
+				$position = $pieces[0];
+				$query = 'SELECT COUNT(*) FROM `#__modules` WHERE `position` = "'.$position.'" AND `published` = 1 ';
+				$db->setQuery( $query ); $result = $db->loadResult();
+				$tabscount = $result != 0 ? 1 : 0;
+			endforeach;
+		}
+		return $tabscount;
+	}
+	
+	/**
+	 * count to see if any modules are using morph's accordion chrome
+	 *
+	 * @return return true or false
+	 */
+	public function accordionscount() {
+		$db=& JFactory::getDBO();
+		$query = "SELECT * FROM `#__configurator` WHERE `param_value` = 'accordion' ";
+		$db->setQuery( $query );
+		$accInstances = $db->loadObjectList();
+		if (!empty($accInstances)) {
+			foreach ($accInstances as $instance) :
+				$pieces = explode("_", $instance->param_name);
+				$position = $pieces[0];
+				$query = 'SELECT COUNT(*) FROM `#__modules` WHERE `position` = "'.$position.'" AND `published` = 1 ';
+				$db->setQuery( $query ); $result = $db->loadResult();
+				$accordionscount = $result != 0 ? 1 : 0;
+			endforeach;
+		}
+		return $accordionscount;
 	}
 	
 	/**

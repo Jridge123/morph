@@ -4,11 +4,13 @@ $db=& JFactory::getDBO();
 $doc =& JFactory::getDocument();
 jimport('joomla.application.module.helper');
 
-$query = "SELECT COUNT(*) FROM `#__configurator` WHERE `param_value` = 'tabs' ";
-$db->setQuery( $query ); $tabscount = $db->loadResult();
+/* tabs count
+*******************************************************/
+$tabscount = $morph->tabscount();
 
-$query = "SELECT COUNT(*) FROM `#__configurator` WHERE `param_value` = 'accordion' ";
-$db->setQuery( $query ); $accordionscount = $db->loadResult();
+/* accordion count
+*******************************************************/
+$accordionscount = $morph->accordionscount();
 
 if ($morph->countModules('user3')) {
 // use module helper to check for menu suffixes

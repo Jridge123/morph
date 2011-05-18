@@ -430,6 +430,9 @@ if ( $isiPhone && !$iPhoneCookie ) {
     if(!$MORPH->nojs) {
     	//if (!$pack_js) {
     		if(in_array(1, $js_jquery)) { $MORPH->addScript($templatepath .'/core/js/jquery.js'); }
+    		foreach ($MORPH->scriptsAfterJQuery as $script => $type) {
+    			$MORPH->addScript($script);
+    		}
     		if(in_array(1, $js_jqueryui) || ($isEditForm == 1)) { $MORPH->addScript($templatepath .'/core/js/ui.js'); }
     		if (isset($document->_scripts[JURI::base(true).'/media/system/js/caption.js'])) {
     		    unset($document->_scripts[JURI::base(true).'/media/system/js/caption.js']);
@@ -454,6 +457,9 @@ if ( $isiPhone && !$iPhoneCookie ) {
     		if( $modernizr == 1 ) { $MORPH->addScript($templatepath .'/core/js/modernizr.js');}    		
     		if( $selectivizr == 1 ) { $MORPH->addScript($templatepath .'/core/js/selectivizr.js');}
     		if( $megamenu_enabled == 1 ) { $MORPH->addScript($templatepath .'/core/js/megamenu.js');}
+    		foreach ($MORPH->scriptsBeforeRender as $script => $type) {
+    			$MORPH->addScript($script);
+    		}
     		if(file_exists(JPATH_ROOT.$themeletpath .'/js/themelet.js')) $MORPH->addScriptAfter($themeletpath .'/js/themelet.js');
     		if(file_exists(JPATH_ROOT.$themeletpath .'/js/custom.js')) $MORPH->addScriptAfter($themeletpath .'/js/custom.js');
 			if ( $custom_fonts == 1 && $font_providers == 'typekit' ) { 
