@@ -239,7 +239,7 @@ class Morph {
 		return $this->$param_name;
 	}
 
-	public function addScriptAfterJQuery($url, $getFirstCmd='', $firstFilter='', $getSecondCmd='', $secondFilter='', $type = 'text/javascript')
+	public function addScript($url, $getFirstCmd='', $firstFilter='', $getSecondCmd='', $secondFilter='', $type = 'text/javascript')
 	{
 		if ($getFirstCmd && $getSecondCmd) {
 			if($getFirstCmd == $firstFilter && $getSecondCmd == $secondFilter) {
