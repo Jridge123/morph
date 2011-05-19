@@ -31,6 +31,7 @@ class Morph {
 	public $scripts = array();
 	public $scriptsAfterJQuery = array();
 	public $scriptsBeforeRender = array();
+	public $scriptsInsideRender = array();
 	public $scriptsAfter = array();
 	public $scriptDeclarations = '';
 	
@@ -340,14 +341,37 @@ class Morph {
 	{	
 		if ($getFirstCmd && $getSecondCmd) {
 			if($getFirstCmd == $firstFilter && $getSecondCmd == $secondFilter) {
-				$this->scriptsAfter .= $type; 
+				$this->scriptsAfter[$url] = $type;
 			}
 		} else if ($getFirstCmd) {
 			if($getFirstCmd == $firstFilter) {
-				$this->scriptsAfter .= $type;
+				$this->scriptsAfter[$url] = $type;
 			}
 		} else {
-			$this->scriptsAfter .= $type; 
+			$this->scriptsAfter[$url] = $type;
+		}
+	}
+	
+	/**
+	 * Adds a script ALWAYS inside the render.js file NB!! is exactly same as addScriptAfter() which is to be depreciated
+	 *
+	 * This allows the js to be optionally packed, minified, gzipped and cached
+	 *
+	 * @param	string	$script		The script are injected in the end of the template.js.php but before the declarations.
+	 * @return	object	$this
+	 */
+	public function addScriptInsideRender($url, $getFirstCmd='', $firstFilter='', $getSecondCmd='', $secondFilter='', $type = 'text/javascript')
+	{
+		if ($getFirstCmd && $getSecondCmd) {
+			if($getFirstCmd == $firstFilter && $getSecondCmd == $secondFilter) {
+				$this->scriptsInsideRender[$url] = $type; 
+			}
+		} else if ($getFirstCmd) {
+			if($getFirstCmd == $firstFilter) {
+				$this->scriptsInsideRender[$url] = $type; 
+			}
+		} else {
+			$this->scriptsInsideRender[$url] = $type; 
 		}
 	}
 	
