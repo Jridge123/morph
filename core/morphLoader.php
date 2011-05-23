@@ -486,6 +486,7 @@ class Morph {
 		$db=& JFactory::getDBO();
 		$query = "SELECT * FROM `#__configurator` WHERE `param_value` = 'tabs' ";
 		$db->setQuery( $query );
+		$tabscount = '';
 		$tabInstances = $db->loadObjectList();
 		if (!empty($tabInstances)) {
 			foreach ($tabInstances as $instance) :
@@ -508,6 +509,7 @@ class Morph {
 		$db=& JFactory::getDBO();
 		$query = "SELECT * FROM `#__configurator` WHERE `param_value` = 'accordion' ";
 		$db->setQuery( $query );
+		$accordionscount = '';
 		$accInstances = $db->loadObjectList();
 		if (!empty($accInstances)) {
 			foreach ($accInstances as $instance) :
