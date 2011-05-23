@@ -390,7 +390,6 @@ foreach($this->js->scriptsAfter as $js => $type)
 {
 	echo file_get_contents(JPATH_ROOT.$js);
 } ?>
-here->>>
 <?php 
 foreach($this->js->scriptsInsideRender as $js => $type)
 {
