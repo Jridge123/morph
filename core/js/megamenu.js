@@ -22,7 +22,7 @@
 		namespace = $(container).attr('rel');
 		var settings = {
 			namespace: namespace,
-			persistent: true,
+			persistent: false,
 			wrapclass: '',
 			effects: {
 				openMegaMenu: {
