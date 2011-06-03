@@ -456,7 +456,7 @@ if ( $isiPhone && !$iPhoneCookie ) {
     		if( $fontsizer_enabled == 1 ) { $MORPH->addScript($templatepath .'/core/js/fontsizer.js');}
     		if( $preloader_enabled == 1 ) { $MORPH->addScript($templatepath .'/core/js/preloader.js');}
     		if( $modernizr == 1){
-    			if( file_exists($modernizr_custom) ) {
+    			if( file_exists($modernizer_custom) ) {
     				$MORPH->addScript($themeletpath .'/js/modernizr.js');
     			} else {
     				$MORPH->addScript($templatepath .'/core/js/modernizr.js');
