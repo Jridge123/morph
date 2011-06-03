@@ -156,7 +156,7 @@ $customfunctions			= $absolutepath.'/custom.php';
 $themeletfunctions			= $absolutepath.'/themelet.php';
 $foot_override				= $absolutepath.'/html/foot.php';
 $footer_script				= $absolutepath.'/script.php';
-$modernizer_custom			= $absolutepath.'/js/modernizer.js';
+$modernizr_custom			= $absolutepath.'/js/modernizr.js';
 
 // Overriding includes via the themelet:
 $inc_bottomshelf1			= $absolutepath.'/includes/bottomshelf1.php';
@@ -456,7 +456,7 @@ if ( $isiPhone && !$iPhoneCookie ) {
     		if( $fontsizer_enabled == 1 ) { $MORPH->addScript($templatepath .'/core/js/fontsizer.js');}
     		if( $preloader_enabled == 1 ) { $MORPH->addScript($templatepath .'/core/js/preloader.js');}
     		if( $modernizr == 1){
-    			if( file_exists($modernizer_custom) ) {
+    			if( file_exists($modernizr_custom) ) {
     				$MORPH->addScript($themeletpath .'/js/modernizr.js');
     			} else {
     				$MORPH->addScript($templatepath .'/core/js/modernizr.js');
