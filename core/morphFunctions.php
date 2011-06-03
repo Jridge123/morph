@@ -156,6 +156,7 @@ $customfunctions			= $absolutepath.'/custom.php';
 $themeletfunctions			= $absolutepath.'/themelet.php';
 $foot_override				= $absolutepath.'/html/foot.php';
 $footer_script				= $absolutepath.'/script.php';
+$modernizer_custom			= $absolutepath.'/js/modernizer.js';
 
 // Overriding includes via the themelet:
 $inc_bottomshelf1			= $absolutepath.'/includes/bottomshelf1.php';
@@ -454,8 +455,14 @@ if ( $isiPhone && !$iPhoneCookie ) {
     		if( $lightbox_enabled == 1 ) { $MORPH->addScript($templatepath .'/core/js/colorbox.js');}
     		if( $fontsizer_enabled == 1 ) { $MORPH->addScript($templatepath .'/core/js/fontsizer.js');}
     		if( $preloader_enabled == 1 ) { $MORPH->addScript($templatepath .'/core/js/preloader.js');}
-    		if( $modernizr == 1 ) { $MORPH->addScript($templatepath .'/core/js/modernizr.js');}    		
-    		if( $selectivizr == 1 ) { $MORPH->addScript($templatepath .'/core/js/selectivizr.js');}
+    		if( $modernizr == 1){
+    			if( file_exists($modernizr_custom) ) {
+    				$MORPH->addScript($themeletpath .'/js/modernizr.js');
+    			} else {
+    				$MORPH->addScript($templatepath .'/core/js/modernizr.js');
+    			}
+    		}
+       		if( $selectivizr == 1 ) { $MORPH->addScript($templatepath .'/core/js/selectivizr.js');}
     		if( $megamenu_enabled == 1 ) { $MORPH->addScript($templatepath .'/core/js/megamenu.js');}
     		foreach ($MORPH->scriptsBeforeRender as $script => $type) {
     			$MORPH->addScript($script);
