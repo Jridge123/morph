@@ -494,7 +494,9 @@ class Morph {
 				$position = $pieces[0];
 				$query = 'SELECT COUNT(*) FROM `#__modules` WHERE `position` = "'.$position.'" AND `published` = 1 ';
 				$db->setQuery( $query ); $result = $db->loadResult();
-				$tabscount = $result != 0 ? 1 : 0;
+				if ($result != 0) {
+					$tabscount = $result;
+				}
 			endforeach;
 		}
 		return $tabscount;
@@ -517,7 +519,9 @@ class Morph {
 				$position = $pieces[0];
 				$query = 'SELECT COUNT(*) FROM `#__modules` WHERE `position` = "'.$position.'" AND `published` = 1 ';
 				$db->setQuery( $query ); $result = $db->loadResult();
-				$accordionscount = $result != 0 ? 1 : 0;
+				if ($result != 0) {
+					$accordionscount = $result;
+				}
 			endforeach;
 		}
 		return $accordionscount;
