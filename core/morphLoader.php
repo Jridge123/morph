@@ -115,6 +115,17 @@ class Morph {
 			$this->logo_size[1] = 'null';
 			$this->logo = 'null';
 		}
+		
+		if ($this->logo_text == ""){ 
+			$app = JFactory::getApplication();
+			$this->logo_text = $app->getCfg('sitename');
+		}
+		
+		if ($this->gfont_text_enabled == 1){ 
+			$this->gfont_text = '&text='.str_replace(" ", "", $this->logo_text);
+		} else {
+			$this->gfont_text = '';
+		}
 
 		if($this->developer_toolbar || $this->debug)
 		{

@@ -538,15 +538,6 @@ if (!$MORPH->countModules('outersplit or outer1 or outer2 or outer3 or outer4 or
 if (!$MORPH->countModules('innersplit or inner1 or inner2 or inner3 or inner4 or inner5')) $layouts->CurrentInnerScheme = '';
 if (!$MORPH->countModules('user4')) $no_search = 'no_search';
 
-if ($logo_text == ""){ 
-	$logo_text = $mainframe->getCfg('sitename');
-}
-if ($gfont_text_enabled == 1){ 
-	$gfont_text = '&text='.str_replace(" ", "", $logo_text);
-} else {
-	$gfont_text = '';
-}
-
 // Activate rtl for testing
 // $direction = 'rtl';
 if(  $isiPhone && !$iPhoneCookie  ){
