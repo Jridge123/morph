@@ -107,7 +107,7 @@ jQuery.noConflict();
 (function($) {
 	$(document).ready(function(){
 		$('#gcf_placeholder').css('z-index','9999');
-		$("#topnav.call-for-action .menu > li:last").addClass("action-link");
+		$("#topnav.call-for-action li:last").addClass("action-link");
 		$("#topnav.call-for-action li:last").prev("li").addClass("second-last");
 		
 		$("body").removeClass("js-disabled").addClass("js-enabled");
@@ -288,8 +288,8 @@ jQuery.noConflict();
 	    $(".mod.sidefish ul.menu").superfish({ 
 	    	animation: {height:'show'},   // slide-down effect without fade-in 
 	    	delay:     1200               // 1.2 second delay on mouseout 
-	    });	    
-		<?php if ( $this->js->toolbar_slider == 1 ) { ?>
+	    });
+		<?php } if ( $this->js->toolbar_slider == 1 ) { ?>
    		initSlider('#toolbar', '<?php echo $this->js->toolbar_slider_text; ?>'); 
 		<?php } if ( $this->js->topshelf1_slider == 1 ) { ?>
    		initSlider('#topshelf1', '<?php echo $this->js->topshelf1_slider_text; ?>');
