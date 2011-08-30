@@ -448,7 +448,6 @@ if ( $isiPhone && !$iPhoneCookie ) {
     		if( $sidefish >= 1 or $topfish >= 1 or $topdrop >= 1  ) { $MORPH->addScript($templatepath .'/core/js/superfish.js'); }
     		if( $topfish >= 1 && $topnav_supersubs == 1 ) { $MORPH->addScript($templatepath .'/core/js/supersubs.js'); }
     		if( $plugin_scrollto == 1 ) { $MORPH->addScript($templatepath .'/core/js/scrollto.js'); }
-    		if( $simpleticker == 1 ) { $MORPH->addScript($templatepath .'/core/js/innerfade.js');}
     		if( $simpletweet == 1 ) { $MORPH->addScript('/modules/mod_simpletweet/js/simpletweet.js'); }
     		if( $lazyload_enabled == 1 ) { $MORPH->addScript($templatepath .'/core/js/lazyload.js'); }
     		if( $captions_enabled == 1 ) { $MORPH->addScript($templatepath .'/core/js/captify.js'); }
@@ -558,7 +557,6 @@ if(  $isiPhone && !$iPhoneCookie  ){
 		if ( file_exists($css_modules)) { $MORPH->addStyleSheet($themeletpath .'/css/modules.css'); }
 		if ( file_exists($css_themelet)) { $MORPH->addStyleSheet($themeletpath .'/css/themelet.css'); }
 		if ( file_exists($css_modfx)) { $MORPH->addStyleSheet($themeletpath .'/css/modfx.css');	}
-		if ( $simpleticker == 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/simpleticker.css'); }
 		if ( $aidanews == 1 && file_exists($css_aida)) { $MORPH->addStyleSheet($themeletpath .'/css/aidanews.css'); }
 		if ( $simpletweet == 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/simpletweet.css'); }
 		if ( $simplecontact == 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/simplecontact.css'); }
