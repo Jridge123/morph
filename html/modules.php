@@ -93,6 +93,8 @@ function modChrome_split($module, &$params, &$attribs) {
 	$pub_modules = JModuleHelper::getModules($module->position);
 	$menu = JSite::getMenu();
 	$active_item = $menu->getActive();
+	$morph = Morph::getInstance();
+	$innerwrap = $morph->{$attribs['name'].'_module_inner'};
 	$parent_id = $active_item->tree[0];
 	$parent_item = $menu->getItem($parent_id);
 	$submenu_heading = $parent_item->name;
@@ -105,11 +107,12 @@ function modChrome_split($module, &$params, &$attribs) {
 		$posSuffix = ' '.$params->get('moduleclass_sfx');
 	} 
 ?>
-<div class="mod mod-basic splitmenu<?php echo ' ' . $posSuffix; ?>" id="mod<?php echo $module->id; ?>">
-    <?php if ($module->showtitle != 0) : ?><h3 class="modhead"><span class="icon"></span><?php echo $heading[0]; ?></h3><?php endif; ?>
-	<div class="modinner">
-	    <?php echo $module->content; ?>
-	</div>
+<div class="mod mod-basic splitmenu<?php echo ' ' . $posSuffix; ?><?php if($innerwrap == 1){ ?> outer-wrap<?php } if($innerwrap == 2){ ?> inner-wrap<?php } echo $posSuffix; ?>" id="mod<?php echo $module->id; ?>">
+	<?php if($innerwrap == 1){ ?><div class="modinner"><?php } ?>
+	<?php if ($module->showtitle != 0) : ?><h3 class="modhead"><span class="icon"></span><?php echo $heading[0]; ?></h3><?php endif; ?>
+	<?php if($innerwrap == 2){ ?><div class="modinner"><?php } ?>
+	<?php echo $module->content; ?>
+	<?php if($innerwrap == 1 || $innerwrap == 2){ ?></div><?php } ?>
 </div>
 <?php }
 function modChrome_tabs($module, &$params, &$attribs) {
