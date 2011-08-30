@@ -288,13 +288,8 @@ jQuery.noConflict();
 	    $(".mod.sidefish ul.menu").superfish({ 
 	    	animation: {height:'show'},   // slide-down effect without fade-in 
 	    	delay:     1200               // 1.2 second delay on mouseout 
-	    });
-	    
-	    <?php } if ( $this->js->simpleticker == 1 ) { ?>
-	    <?php /* $("#news").newsTicker('<?php echo $this->js->tickerdelay; ?>');*/ ?>
-	     $('#news').innerfade({ animationtype: 'fade', speed: 750, timeout: 9000, type: 'random', containerheight: '1em' }); 
-	    
-		<?php } if ( $this->js->toolbar_slider == 1 ) { ?>
+	    });	    
+		<?php if ( $this->js->toolbar_slider == 1 ) { ?>
    		initSlider('#toolbar', '<?php echo $this->js->toolbar_slider_text; ?>'); 
 		<?php } if ( $this->js->topshelf1_slider == 1 ) { ?>
    		initSlider('#topshelf1', '<?php echo $this->js->topshelf1_slider_text; ?>');
