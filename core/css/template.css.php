@@ -6,17 +6,15 @@ if ($this->css->site_width == 'doc') { $site_width = 750; }
 elseif ($this->css->site_width == 'doc2') {	$site_width = 950; }
 elseif ($this->css->site_width == 'doc4') {	$site_width = 974; }
 if ( $this->css->logowrap_height ) { ?>#branding{height:<?php echo $this->css->logowrap_height; ?>;}<?php } ?>
-<?php $branding_secwidth = $site_width - 30 - $this->css->logo_size[0]; ?>
-#branding-secondary{width:<?php echo $branding_secwidth; ?>px;float:right;}
 <?php if ( $this->css->logo_type == 0 ) { ?>/* Text Based Logo */
-<?php $branding_secwidth = $site_width - 30 - $this->css->logo_width; ?>
-#branding-secondary{width:<?php echo $branding_secwidth; ?>px;float:right;}
 #<?php echo $this->css->themelet; ?> #branding h1{top:<?php echo $this->css->logo0_top; ?>;left:<?php echo $this->css->logo0_left; ?>;z-index:<?php echo $this->css->logo0_stack; ?>;font-size:<?php echo $this->css->logo0_textsize; ?>;}
 #<?php echo $this->css->themelet; ?> #branding h1 a{font-family:<?php echo $this->css->logo0_fontfamily; ?>;color:<?php echo $this->css->logo0_textcolor; ?>;}
 <?php } if ( $this->css->logo_type == 1 ) { ?>
 /* CSS Image Based Logo */
 #<?php echo $this->css->themelet; ?> #branding h1{top:<?php echo $this->css->logo1_top; ?>;left:<?php echo $this->css->logo1_left; ?>;z-index:<?php echo $this->css->logo1_stack; ?>;}
 #<?php echo $this->css->themelet; ?> #branding h1 a{<?php if(!empty($this->css->logo_size[0])) { ?>width:<?php echo $this->css->logo_size[0]; ?>px;<?php } if(!empty($this->css->logo_size[1])) { ?>height:<?php echo $this->css->logo_size[1]; ?>px;<?php } ?>background-image: url(<?php echo $this->css->logo; ?>);}
+<?php $branding_secwidth = $site_width - 30 - $this->css->logo_size[0]; ?>
+#branding-secondary{width:<?php echo $branding_secwidth; ?>px;float:right;}
 <?php } if ( $this->css->logo_type == 2 ) { ?>
 /* Image Based Logo */
 #<?php echo $this->css->themelet; ?> #branding.logotype-2 a.logo-img{top:<?php echo $this->css->logo2_top; ?>;left:<?php echo $this->css->logo2_left; ?>;z-index:<?php echo $this->css->logo2_stack; ?>;}
