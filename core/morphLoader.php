@@ -538,6 +538,34 @@ class Morph {
 		return $accordionscount;
 	}
 	
+	public function getPageClass() 
+	{
+		if(!preg_match('/administrator/i', $_SERVER['REQUEST_URI'])){
+			$this->pageclass   			= "";
+			$menus      				= JSite::getMenu();
+			$menu      					= $menus->getActive();
+			$cache						= $this->cache ? '&cache='.$this->cachetime : false;
+			$gzip						= $this->gzip_compression ? '&gzip='.$this->gzip_compression : false;
+			if (is_object( $menu )) :
+				$params 					= new JParameter( $menu->params );
+				$this->pageclass 					= $params->get( 'pageclass_sfx' );
+			endif;
+			return $this->pageclass;
+		} else {
+			$this->pageclass   				= "";
+			return $this->pageclass;
+		}
+	}
+	
+	public function isDateBadge() {
+		if (strstr(self::getPageClass(), 'datebadge')) :
+			$datebadge = 1;	
+		else :
+			$datebadge = 0;	
+		endif;
+		return $datebadge;
+	}
+	
 	/**
 	 * Parse relative layout path
 	 *
