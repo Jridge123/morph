@@ -751,6 +751,7 @@ function getYuiSuffix ($moduleName, $jj_const){
 
 function sidebar_module($chrome, $position, $jj_const, $modfx, $glob, $debug_modules, $nojs){
 	if(Morph::countModules($position) > 0){
+	$modfx = (strstr($modfx, 'modstyle')) ? 'block '.$modfx : '';
 		if($chrome === 'basic' or $chrome === 'outline' or $chrome === ''){ 
 			if ($modfx){ ?>
 			<div class="<?php echo $modfx ?>">
@@ -826,12 +827,12 @@ function blocks($position, $glob, $jj_const, $classes, $site_width, $debug_modul
 	${$position.'_inner'} == 1 ? $hasInner = 'hasinner' : $hasInner = 'no-inner';
 	if($morph->countModules($position) && ${$position.'_show'} == 0 || $logo_show == 1 ){
 		if ( ${$position.'_wrap'} == 1 ) {  $hasWrap = 'haswrap'; ?>
-		<div id="<?php echo $position; ?>-wrap" class="block <?php echo $position_class; ?> wrap modcount<?php echo $modcount .' '. ${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }if(${$position.'_blockfx'} !== ''){ echo ' '.${$position.'_blockfx'}; }?>">
+		<div id="<?php echo $position; ?>-wrap" class="<?php echo $position_class; ?> wrap modcount<?php echo $modcount .' '. ${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }if(${$position.'_blockfx'} !== ''){ echo ' '.${$position.'_blockfx'}; }?>">
 		<?php } else { $hasWrap = 'no-wrap'; }?>
 			<?php if ( ${$position.'_chrome'} == 'grid' ) { ?>
-			<div id="<?php echo $position; ?>" class="block <?php if ( $logo_show == 1 ) { echo 'logo-active '; } ?> <?php echo $position_class; ?> <?php echo $site_width ?> <?php getYuiSuffix($position, $jj_const); ?> clearer modcount<?php echo $modcount.' '.${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }if(${$position.'_blockfx'} !== ''){ echo ' '.${$position.'_blockfx'}; } echo ' '.$hasWrap.' '.$hasInner; ?>">
+			<div id="<?php echo $position; ?>" class="<?php if ( $logo_show == 1 ) { echo 'logo-active '; } ?> <?php echo $position_class; ?> <?php echo $site_width ?> <?php getYuiSuffix($position, $jj_const); ?> clearer modcount<?php echo $modcount.' '.${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }if(${$position.'_blockfx'} !== ''){ echo ' '.${$position.'_blockfx'}; } echo ' '.$hasWrap.' '.$hasInner; ?>">
 			<?php } else { ?>	
-			<div id="<?php echo $position; ?>" class="block <?php if ( $logo_show == 1 ) { echo 'logo-active '; } ?> <?php echo $position_class; ?> <?php echo $site_width ?> clearer modcount<?php echo $modcount.' '.${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }if(${$position.'_blockfx'} !== ''){ echo ' '.${$position.'_blockfx'}; } echo ' '.$hasWrap.' '.$hasInner; ?>">
+			<div id="<?php echo $position; ?>" class="<?php if ( $logo_show == 1 ) { echo 'logo-active '; } ?> <?php echo $position_class; ?> <?php echo $site_width ?> clearer modcount<?php echo $modcount.' '.${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }if(${$position.'_blockfx'} !== ''){ echo ' '.${$position.'_blockfx'}; } echo ' '.$hasWrap.' '.$hasInner; ?>">
 			<?php } ?>
 			<?php if ( ${$position.'_inner'} == 1 ) { ?><div id="<?php echo $position; ?>-inner" class="inner clearer"><?php } ?>
 			<?php if ( $logo_show == 1 ) { ?>
@@ -865,12 +866,12 @@ function mastheadBlock($position, $glob, $jj_const, $classes, $site_width, $debu
 	${$position.'_inner'} == 1 ? $hasInner = 'hasinner' : $hasInner = 'no-inner';
 	if($glob->countModules($position) && ${$position.'_show'} == 0 || $logo_show == 1 ){ ?>
 		<?php if ( ${$position.'_wrap'} == 1 ) { $hasWrap = 'haswrap' ; ?>
-			<div id="<?php echo $position; ?>-wrap" class="clearer block <?php echo $position_class; ?> wrap modcount<?php echo $modcount.' '.${$position . '_chrome'}; if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; } if(${$position.'_blockfx'} !== ''){ echo ' '.${$position.'_blockfx'}; } ?>">
+			<div id="<?php echo $position; ?>-wrap" class="clearer <?php echo $position_class; ?> wrap modcount<?php echo $modcount.' '.${$position . '_chrome'}; if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; } if(${$position.'_blockfx'} !== ''){ echo ' '.${$position.'_blockfx'}; } ?>">
 		<?php } else { $hasWrap = 'no-wrap'; }?>
 		<?php if ( ${$position.'_chrome'} == 'grid' ) { ?>
-				<div id="<?php echo $position; ?>" class="block<?php if ( $logo_show == 1 ) { echo ' logo-active '; } ?> <?php echo $morph->position_class; ?> <?php echo $site_width; ?> <?php getYuiSuffix($position, $jj_const); ?> clearer modcount<?php echo $modcount.' '.${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }if(${$position.'_blockfx'} !== ''){ echo ' '.${$position.'_blockfx'}; } echo ' '.$hasWrap.' '.$hasInner; ?>">
+				<div id="<?php echo $position; ?>" class="<?php if ( $logo_show == 1 ) { echo ' logo-active '; } ?> <?php echo $morph->position_class; ?> <?php echo $site_width; ?> <?php getYuiSuffix($position, $jj_const); ?> clearer modcount<?php echo $modcount.' '.${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }if(${$position.'_blockfx'} !== ''){ echo ' '.${$position.'_blockfx'}; } echo ' '.$hasWrap.' '.$hasInner; ?>">
 		<?php } else { ?>	
-			<div id="<?php echo $position; ?>" class="block <?php if ( $logo_show == 1 ) { echo 'logo-active '; } ?> <?php echo $position_class; ?> <?php echo $site_width ?> clearer modcount<?php echo $modcount.' '.${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }if(${$position.'_blockfx'} !== ''){ echo ' '.${$position.'_blockfx'}; }  echo ' '.$hasWrap.' '.$hasInner; ?>">
+			<div id="<?php echo $position; ?>" class="<?php if ( $logo_show == 1 ) { echo 'logo-active '; } ?> <?php echo $position_class; ?> <?php echo $site_width ?> clearer modcount<?php echo $modcount.' '.${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }if(${$position.'_blockfx'} !== ''){ echo ' '.${$position.'_blockfx'}; }  echo ' '.$hasWrap.' '.$hasInner; ?>">
 		<?php } ?>
 		
 		<?php if ( ${$position.'_inner'} == 1 ) { ?>
@@ -1005,7 +1006,7 @@ function topnav_classes() {
 	$morph = Morph::getInstance();
 	$topnav_position_class = $morph->topnav_position;
 	$topnav_position_class = str_replace("_", "-", $topnav_position_class);
-	$topnavClass = 'block primary-nav ';
+	$topnavClass = 'primary-nav ';
 	$topnavClass .= $topnav_position_class.' ';
 	$topnavClass .= $morph->topnav_blockfx.' ';
 	$topnavClass .= pt_classes(array('subtext' => $morph->subtext, 'topnav_actionlink' => $morph->topnav_actionlink, 'topdrop' => $morph->topdrop, 'topfish' => $morph->topfish), $morph->site_width);
