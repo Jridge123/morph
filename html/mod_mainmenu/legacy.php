@@ -356,7 +356,7 @@ function mosShowHFMenu(& $params, $style = 0)
 		switch ($style)
 		{
 			case 1 :
-				echo '<ul id="' . $menuclass . '">';
+				echo '<ul id="' . $menuclass . '" class="menu">';
 				foreach ($links as $link) {
 					echo '<li>' . $link . '</li>';
 				}
