@@ -54,6 +54,8 @@ function moduleHeadings($modtitle){
 function modChrome_basic($module, &$params, &$attribs) {
 	$pub_modules = JModuleHelper::getModules($module->position);
 	$morph = Morph::getInstance();
+	$modfx = $params->get('moduleclass_sfx');
+	$hasmodstyle = (strstr($modfx, 'modstyle')) ? ' block ' : '';
 	$innerwrap = $morph->{$attribs['name'].'_module_inner'};
 	if ($pub_modules[0]->id == $module->id) {
 		$posSuffix = ' '.$params->get('moduleclass_sfx') . ' first';
@@ -62,7 +64,7 @@ function modChrome_basic($module, &$params, &$attribs) {
 	} else {
 		$posSuffix = ' '.$params->get('moduleclass_sfx');
 	} ?>
-	<div class="<?php if ($module->showtitle == 0) { ?>noheading <?php } ?>mod mod-basic<?php if($innerwrap == 1){ ?> outer-wrap<?php } if($innerwrap == 2){ ?> inner-wrap<?php } echo $posSuffix; ?>" id="mod<?php echo $module->id; ?>">
+	<div class="<?php echo $hasmodstyle; if ($module->showtitle == 0) { ?>noheading <?php } ?>mod mod-basic<?php if($innerwrap == 1){ ?> outer-wrap<?php } if($innerwrap == 2){ ?> inner-wrap<?php } echo $posSuffix; ?>" id="mod<?php echo $module->id; ?>">
 		<?php if($innerwrap == 1){ ?><div class="modinner"><?php } ?>
 		<?php if ($module->showtitle != 0) : ?><h3 class="modhead"><span class="icon"></span><?php echo moduleHeadings($module->title); ?></h3><?php endif; ?>
 		<?php if($innerwrap == 2){ ?><div class="modinner"><?php } ?>
@@ -73,6 +75,8 @@ function modChrome_basic($module, &$params, &$attribs) {
 function modChrome_grid($module, &$params, &$attribs) {
 	$pub_modules = JModuleHelper::getModules($module->position);
 	$morph = Morph::getInstance();
+	$modfx = $params->get('moduleclass_sfx');
+	$hasmodstyle = (strstr($modfx, 'modstyle')) ? ' block ' : '';
 	$innerwrap = $morph->{$attribs['name'].'_module_inner'};
 	if ($pub_modules[0]->id == $module->id) {
 		$posSuffix = ' '.$params->get('moduleclass_sfx') . ' first';
@@ -81,7 +85,7 @@ function modChrome_grid($module, &$params, &$attribs) {
 	} else {
 		$posSuffix = ' '.$params->get('moduleclass_sfx');
 	} ?>
-	<div class="mod mod-grid yui-u<?php if($innerwrap == 1){ ?> outer-wrap<?php } if($innerwrap == 2){ ?> inner-wrap<?php } echo $posSuffix; ?>" id="mod<?php echo $module->id; ?>">
+	<div class="mod mod-grid yui-u<?php echo $hasmodstyle; if($innerwrap == 1){ ?> outer-wrap<?php } if($innerwrap == 2){ ?> inner-wrap<?php } echo $posSuffix; ?>" id="mod<?php echo $module->id; ?>">
 		<?php if($innerwrap == 1){ ?><div class="modinner"><?php } ?>
 		<?php if ($module->showtitle != 0) : ?><h3 class="modhead"><span class="icon"></span><?php echo moduleHeadings($module->title); ?></h3><?php endif; ?>
 		<?php if($innerwrap == 2){ ?><div class="modinner"><?php } ?>
@@ -99,6 +103,8 @@ function modChrome_split($module, &$params, &$attribs) {
 	$parent_item = $menu->getItem($parent_id);
 	$submenu_heading = $parent_item->name;
 	$heading = explode(' # ',$submenu_heading);
+	$split_modfx = $morph->{$attribs['name'].'_modfx'};
+	$hasmodstyle = (strstr($split_modfx, 'modstyle')) ? ' block ' : '';
 	if ($pub_modules[0]->id == $module->id) {
 		$posSuffix = ' '.$params->get('moduleclass_sfx') . ' first';
 	} elseif ($pub_modules[count($pub_modules)-1]->id == $module->id) {
@@ -106,8 +112,9 @@ function modChrome_split($module, &$params, &$attribs) {
 	} else {
 		$posSuffix = ' '.$params->get('moduleclass_sfx');
 	} 
+	
 ?>
-<div class="mod mod-basic splitmenu<?php echo ' ' . $posSuffix; ?><?php if($innerwrap == 1){ ?> outer-wrap<?php } if($innerwrap == 2){ ?> inner-wrap<?php } echo $posSuffix; ?>" id="mod<?php echo $module->id; ?>">
+<div class="mod mod-basic <?php if($split_modfx){ echo ' ' . $hasmodstyle.$split_modfx; } ?> splitmenu<?php echo ' ' . $posSuffix; ?><?php if($innerwrap == 1){ ?> outer-wrap<?php } if($innerwrap == 2){ ?> inner-wrap<?php } echo $posSuffix; ?>" id="mod<?php echo $module->id; ?>">
 	<?php if($innerwrap == 1){ ?><div class="modinner"><?php } ?>
 	<?php if ($module->showtitle != 0) : ?><h3 class="modhead"><span class="icon"></span><?php echo $heading[0]; ?></h3><?php endif; ?>
 	<?php if($innerwrap == 2){ ?><div class="modinner"><?php } ?>
@@ -120,7 +127,8 @@ global $morph_tabs,$tabscount,$loadtabs,$istabsload;
 	$themodules = JModuleHelper::getModules($module->position);
 	$countmodules = count($themodules);
 	$morph = Morph::getInstance();
-	$tabs_modfx = $morph->{$attribs['name'].'_modfx'};		
+	$tabs_modfx = $morph->{$attribs['name'].'_modfx'};
+	$hasmodstyle = (strstr($tabs_modfx, 'modstyle')) ? ' block ' : '';		
 	if(!isset($morph_tabs[$attribs['name']])){	
 		foreach ($themodules as $mod){
 			if(!$mod->content){
@@ -139,7 +147,7 @@ global $morph_tabs,$tabscount,$loadtabs,$istabsload;
 			}
 		}
 		$tabscount++; ?>
-		<div id="tabs<?php echo $tabscount; ?>" class="mod<?php if($tabs_modfx){ echo ' ' . $tabs_modfx; } ?>">
+		<div id="tabs<?php echo $tabscount; ?>" class="mod<?php if($tabs_modfx){ echo ' ' . $hasmodstyle.$tabs_modfx; } ?>">
 			<ul class="ui-tabs-nav clearer">
 			<?php
 			$curr_tab = 1;
@@ -166,6 +174,7 @@ function modChrome_accordion($module, &$params, &$attribs) {
 	$countmodules = count($themodules);
 	$morph = Morph::getInstance();
 	$accordion_modfx = $morph->{$attribs['name'].'_modfx'};
+	$hasmodstyle = (strstr($accordion_modfx, 'modstyle')) ? 'block ' : '';	
 	if(!isset($morph_accordions[$attribs['name']])){
 		foreach ($themodules as $i => $mod){	
 			if(!$mod->content){
@@ -184,7 +193,7 @@ function modChrome_accordion($module, &$params, &$attribs) {
 			}
 		}
 	$accordionscount++; ?>
-		<div id="accordions<?php echo $accordionscount; ?>" class="mod<?php if($accordion_modfx){ echo ' ' . $accordion_modfx; } ?>">
+		<div id="accordions<?php echo $accordionscount; ?>" class="mod<?php if($accordion_modfx){ echo ' ' . $hasmodstyle.$accordion_modfx; } ?>">
 			<?php
 			$curr_accordion = 1;
 			$accordions_contents = '';
