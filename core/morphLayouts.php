@@ -144,6 +144,7 @@ class morphLayouts {
 		$outer4_count 				= $morph->countModules('outer4');
 		$outer5_count 				= $morph->countModules('outer5');
 
+		$this->outer_hide = '';	
 		$this->get_pageClass();
 		if(isset($this->pageclass)){
 			strstr($this->pageclass, 'outer0') ? $this->outer_hide=1 : $this->outer_hide=0;

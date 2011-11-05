@@ -1,81 +1,115 @@
-<?php defined( '_JEXEC' ) or die( 'Restricted access' );
+<?php
+/**
+ * @version		$Id: blog_item.php 21321 2011-05-11 01:05:59Z dextercowley $
+ * @package		Joomla.Site
+ * @subpackage	com_content
+ * @copyright	Copyright (C) 2005 - 2011 Open Source Matters, Inc. All rights reserved.
+ * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
+// no direct access
+defined('_JEXEC') or die;
+
 if($override = Morph::override(__FILE__, $this)) {
 	if(file_exists($override)) include $override;
 } else {
-$cparams = JComponentHelper::getParams ('com_media');
+
+	JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
 ?>
-<?php if ($this->params->get('show_page_title')) : ?>
-<h1 class="componentheading">
-	<?php echo $this->escape($this->params->get('page_title')); ?>
-</h1>
-<?php endif; ?>
-<?php if ($this->params->def('show_description', 1) || $this->params->def('show_description_image', 1)) : ?>
-<div class="desc">
-	<?php if ($this->params->get('show_description_image') && $this->category->image) : ?>
-	<img src="<?php echo $this->baseurl . $cparams->get('image_path') . '/' . $this->category->image; ?>" class="image-<?php echo $this->category->image_position; ?>" />
-	<?php endif; ?>
-	<?php if ($this->params->get('show_description') && $this->category->description) :
-		echo $this->category->description;
-	endif; ?>
-	<?php if ($this->params->get('show_description_image') && $this->category->image) : ?>
-	<div class="wrap_image">&nbsp;</div>
-	<?php endif; ?>
-</div>
-<?php endif; ?>
-<div class="blog">
-	<?php $i = $this->pagination->limitstart;
-	$rowcount = $this->params->def('num_leading_articles', 1);
-	for ($y = 0; $y < $rowcount && $i < $this->total; $y++, $i++) : ?>
-	<div class="leading">
-		<?php $this->item =& $this->getItem($i, $this->params);
-		echo $this->loadTemplate('item'); ?>
-	</div>
-	<?php endfor; ?>
-	<?php $introcount = $this->params->def('num_intro_articles', 4);
-	if ($introcount) :
-		$colcount = $this->params->def('num_columns', 2);
-		if ($colcount == 0) :
-			$colcount = 1;
-		endif;
-		$rowcount = (int) $introcount / $colcount;
-		$ii = 0;
-		for ($y = 0; $y < $rowcount && $i < $this->total; $y++) : ?>
-			<div class="article-row ">
-				<?php for ($z = 0; $z < $colcount && $ii < $introcount && $i < $this->total; $z++, $i++, $ii++) : ?>
-				
-					<?php if($colcount > 1) { ?>
-					<div class="article-column column<?php echo $z + 1; ?> cols<?php echo $colcount; ?>" >
-					<?php } ?>
-					
-					    <?php $this->item =& $this->getItem($i, $this->params);
-						echo $this->loadTemplate('item'); ?>
-					
-					<?php if($colcount > 1) { ?>
-					</div>
-					<?php } ?>
-					
-				<?php endfor; ?>
+
+	<div class="blog<?php echo $this->pageclass_sfx;?>">
+		<?php if ($this->params->get('show_page_heading', 1)) : ?>
+			<h1><?php echo $this->escape($this->params->get('page_heading')); ?></h1>
+		<?php endif; ?>
+	
+		<?php if ($this->params->get('show_category_title', 1) OR $this->params->get('page_subheading')) : ?>
+		<h2>
+			<?php echo $this->escape($this->params->get('page_subheading')); ?>
+			<?php if ($this->params->get('show_category_title')) : ?>
+				<span class="subheading-category"><?php echo $this->category->title;?></span>
+			<?php endif; ?>
+		</h2>
+		<?php endif; ?>
+	
+		<?php if ($this->params->get('show_description', 1) || $this->params->def('show_description_image', 1)) : ?>
+			<div class="desc">
+			<?php if ($this->params->get('show_description_image') && $this->category->getParams()->get('image')) : ?>
+				<img src="<?php echo $this->category->getParams()->get('image'); ?>"/>
+			<?php endif; ?>
+			<?php if ($this->params->get('show_description') && $this->category->description) : ?>
+				<?php echo JHtml::_('content.prepare', $this->category->description); ?>
+			<?php endif; ?>
+			<div class="clr"></div>
 			</div>
-		<?php endfor;
-	endif; ?>
-	<?php $numlinks = $this->params->def('num_links', 4);
-	if ($numlinks && $i < $this->total) : ?>
-	<div class="blog-more">
-		<?php $this->links = array_slice($this->items, $i - $this->pagination->limitstart, $i - $this->pagination->limitstart + $numlinks);
-		echo $this->loadTemplate('links'); ?>
-	</div>
-	<?php endif; ?>
-	<?php if ($this->params->def('show_pagination', 2) == 1  || ($this->params->get('show_pagination') == 2 && $this->pagination->get('pages.total') > 1)) : ?>
-	<div id="pagination-wrap">
-		<?php if( $this->pagination->get('pages.total') > 1 ) : ?>
-		<div class="pagination-links">
-			<?php echo $this->pagination->getPagesCounter(); ?>
+		<?php endif; ?>
+	
+		<?php $leadingcount=0 ; ?>
+		<?php if (!empty($this->lead_items)) : ?>
+		<div class="leading">
+			<?php foreach ($this->lead_items as &$item) : ?>
+				<div class="leading-<?php echo $leadingcount; ?><?php echo $item->state == 0 ? ' system-unpublished' : null; ?>">
+					<?php
+						$this->item = &$item;
+						echo $this->loadTemplate('item');
+					?>
+				</div>
+				<?php
+					$leadingcount++;
+				?>
+			<?php endforeach; ?>
 		</div>
 		<?php endif; ?>
-		<?php if ($this->params->def('show_pagination_results', 1)) : ?>
-			<?php echo $this->pagination->getPagesLinks(); ?>
+		
+		<?php
+			$introcount=(count($this->intro_items));
+			$counter=0;
+		?>
+		
+		<?php if (!empty($this->intro_items)) : ?>
+			<?php foreach ($this->intro_items as $key => &$item) : ?>
+			<?php
+				$key= ($key-$leadingcount)+1;
+				$rowcount=( ((int)$key-1) %	(int) $this->columns) +1;
+				$row = $counter / $this->columns ;
+				if ($rowcount==1) : ?>
+			<div class="article-row cols-<?php echo (int) $this->columns;?> <?php echo 'row-'.$row ; ?>">
+			<?php endif; ?>
+			<div class="item column-<?php echo $rowcount;?><?php echo $item->state == 0 ? ' system-unpublished' : null; ?>">
+				<?php
+					$this->item = &$item;
+					echo $this->loadTemplate('item');
+				?>
+			</div>
+			<?php $counter++; ?>
+			<?php if (($rowcount == $this->columns) or ($counter ==$introcount)): ?>
+						<span class="row-separator"></span>
+						</div>
+		
+					<?php endif; ?>
+			<?php endforeach; ?>
 		<?php endif; ?>
-	</div>		
-	<?php endif; ?>
-</div>
-<?php } ?><!-- close the themelet override check -->
+	
+		<?php if (!empty($this->link_items)) : ?>
+			<?php echo $this->loadTemplate('links'); ?>
+		<?php endif; ?>
+	
+	
+		<?php if (!empty($this->children[$this->category->id])&& $this->maxLevel != 0) : ?>
+			<h3><?php echo JTEXT::_('JGLOBAL_SUBCATEGORIES'); ?></h3>
+			<?php echo $this->loadTemplate('children'); ?>
+		<?php endif; ?>
+	
+		<?php if (($this->params->def('show_pagination', 1) == 1  || ($this->params->get('show_pagination') == 2)) && ($this->pagination->get('pages.total') > 1)) : ?>
+			<div class="pagination">
+				<?php if ($this->params->def('show_pagination_results', 1)) : ?>
+					<p class="counter">
+						<?php echo $this->pagination->getPagesCounter(); ?>
+					</p>
+				<?php endif; ?>
+				<?php echo $this->pagination->getPagesLinks(); ?>
+			</div>
+		<?php endif; ?>
+	
+	</div>
+
+<?php } // close the themelet override check ?>

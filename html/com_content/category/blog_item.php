@@ -1,80 +1,114 @@
-<?php defined( '_JEXEC' ) or die( 'Restricted access' );
+<?php
+/**
+ * @version		$Id: blog_item.php 21321 2011-05-11 01:05:59Z dextercowley $
+ * @package		Joomla.Site
+ * @subpackage	com_content
+ * @copyright	Copyright (C) 2005 - 2011 Open Source Matters, Inc. All rights reserved.
+ * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
+// no direct access
+defined('_JEXEC') or die;
+
 if($override = Morph::override(__FILE__, $this)) {
 	if(file_exists($override)) include $override;
 } else {
-include_once(JPATH_ROOT.'/templates/morph/html/com_content/icon.php');
-$lang =& JFactory::getLanguage();
-$lang->load('tpl_morph', JPATH_SITE);
-$canEdit = ($this->user->authorize('com_content', 'edit', 'content', 'all') || $this->user->authorize('com_content', 'edit', 'content', 'own'));
+
+// Create a shortcut for params.
+$params = &$this->item->params;
+$canEdit	= $this->item->params->get('access-edit');
 $morph = Morph::getInstance();
 ?>
-<?php if ($this->item->params->get('show_title')) : ?>
-<h2 class="contentheading">
-	<?php if ($this->item->params->get('link_titles') && $this->item->readmore_link != '') : ?>
-	<a href="<?php echo $this->item->readmore_link; ?>">
-		<?php echo $this->escape($this->item->title); ?></a>
-	<?php else : ?>
-		<?php echo $this->escape($this->item->title); ?>
-	<?php endif; ?>
-</h2>
+
+<?php if ($this->item->state == 0) : ?>
+<div class="system-unpublished">
 <?php endif; ?>
-<!-- created date and author -->
-<?php if ($this->item->params->get('show_author') && ($this->item->author != "") ||	$this->item->params->get('show_create_date') ||	$this->item->params->get('show_pdf_icon') || $this->item->params->get('show_print_icon') || $this->item->params->get('show_email_icon') || ($this->user->authorize('com_content', 'edit', 'content', 'all') || $this->user->authorize('com_content', 'edit', 'content', 'own'))){ ?>	
+
+<?php if ($params->get('show_title')) : ?>
+	<h2>
+		<?php if ($params->get('link_titles') && $params->get('access-view')) : ?>
+			<a href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid)); ?>">
+			<?php echo $this->escape($this->item->title); ?></a>
+		<?php else : ?>
+			<?php echo $this->escape($this->item->title); ?>
+		<?php endif; ?>
+	</h2>
+<?php endif; ?>
+
+<?php if (($params->get('show_author')) or ($params->get('show_create_date')) or ($params->get('show_author')) or ($params->get('show_print_icon')) or ($params->get('show_email_icon'))  ) : ?>
 <ul class="article-info">		
-<?php if ($this->item->params->get('show_create_date')) { ?>
-    <li class="created"><?php echo $morph->date($this->item->created); ?></li>
-<?php } if (($this->item->params->get('show_author')) && ($this->item->author != "")) { ?>
-	<li class="author"><?php JText::printf('Written by', ($this->item->created_by_alias ? $this->item->created_by_alias : $this->item->author)); ?></li>
-<?php } if ($this->item->params->get('show_pdf_icon')) { ?>
-    <li class="icons"><?php echo articleIcons::pdf($this->item, $this->item->params, $this->access); ?></li>
-<?php } if ($this->item->params->get('show_print_icon')) { ?>
-    <li class="icons"><?php echo articleIcons::print_popup($this->item, $this->item->params, $this->access); ?></li>
-<?php } if ($this->item->params->get('show_email_icon')) { ?>
-    <li class="icons"><?php echo articleIcons::email($this->item, $this->item->params, $this->access); ?></li>
-<?php } ?>
-<?php if ($this->user->authorize('com_content', 'edit', 'content', 'all') || $this->user->authorize('com_content', 'edit', 'content', 'own')) : ?>
-	<?php echo JHTML::_('icon.edit', $this->item, $this->item->params, $this->access); ?>
-<?php endif; ?>
-</ul>
-<?php } ?>
-<!-- section & category -->
-<?php if (($this->item->params->get('show_section') && $this->item->sectionid) || ($this->item->params->get('show_category') && $this->item->catid)) { ?>
-<p class="filing">
-	<?php if ($this->item->params->get('show_section') && $this->item->sectionid && isset($this->item->section)) { ?>		
-		<?php if ($this->item->params->get('link_section')) { echo '<a href="'.JRoute::_(ContentHelperRoute::getSectionRoute($this->item->sectionid)).'">'; } ?>
-		<span class="article-section"><?php echo $this->item->section; ?></span>
-		<?php if ($this->item->params->get('link_section')) { echo '</a>'; } ?>
-	<?php } ?>
-	<?php if ($this->item->params->get('show_category') && $this->item->catid) { ?>
-		<?php if ($this->item->params->get('link_category')) { echo '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catslug, $this->item->sectionid)).'">'; } ?>
-		<span class="article-category"><?php echo $this->item->category; ?></span>
-		<?php if ($this->item->params->get('link_category')) { echo '</a>'; } ?>
-	<?php } ?>
-</p>
-<?php } ?>		
-<?php echo $this->item->event->beforeDisplayContent; ?>
-<?php if (isset ($this->item->toc)) :
-	echo $this->item->toc;
-endif; ?>
-<?php echo JFilterOutput::ampReplace($this->item->text);  ?>
-	<!-- date modified -->
-	<?php if ( intval($this->item->modified) != 0 && $this->item->params->get('show_modify_date')) : ?>
-		<p class="modified"><?php echo JText::sprintf('LAST_UPDATED2', JHTML::_('date', $this->item->modified, JText::_('DATE_FORMAT_LC2'))); ?>.</p>
-	<?php endif; ?>
-    <?php if ($this->item->params->get('show_readmore') && $this->item->readmore) : ?>
-    <p class="readon">
-	<?php if ($morph->article_preview) : ?>
-	<a href="<?php echo $this->item->readmore_link; ?>" title="<?php echo JText::sprintf($this->item->title); ?>" rel="article-preview" class="preview-link"><?php echo JText::_('TPL_MORPH_ARTICLE_PREVIEW'); ?></a>
-	<?php endif ?>
-	<a href="<?php echo $this->item->readmore_link; ?>" title="<?php echo JText::sprintf($this->item->title); ?>">
-	<?php if ($this->item->readmore_register) :
-		echo JText::_('Register to read more...');
-	elseif ($readmore = $this->item->params->get('readmore')) :
-		echo $readmore;
-	else :
-		echo JText::sprintf('READMORE', '<span>', $this->escape($this->item->title), '</span>');
-	endif; ?></a>
-    </p>
+    <?php if ($params->get('show_publish_date')) : ?>
+        <li class="created"><?php echo JText::sprintf('COM_CONTENT_CREATED_DATE_ON', $morph->date($this->item->publish_up)); ?></li>
     <?php endif; ?>
+    <?php if ($params->get('show_author') && !empty($this->item->author )) : ?>
+	<li class="author">
+	    <?php $author =  $this->item->author; ?>
+		<?php $author = ($this->item->created_by_alias ? $this->item->created_by_alias : $author);?>
+		<?php if (!empty($this->item->contactid ) &&  $params->get('link_author') == true):?>
+			<?php 	echo JText::sprintf('COM_CONTENT_WRITTEN_BY' ,
+			 JHtml::_('link',JRoute::_('index.php?option=com_contact&view=contact&id='.$this->item->contactid),$author)); ?>
+		<?php else :?>
+			<?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', $author); ?>
+		<?php endif; ?>
+	</li>
+    <?php endif; ?>
+	<?php if ($params->get('show_print_icon')) : ?>
+    <li class="icons print"><?php echo JHtml::_('icon.print_popup', $this->item, $params); ?></li>
+    <?php endif; ?>
+	<?php if ($params->get('show_email_icon')) : ?>
+    <li class="icons email"><?php echo JHtml::_('icon.email', $this->item, $params); ?></li>
+    <?php endif; ?>
+    <?php if ($canEdit) : ?>
+    <li class="icons edit"><?php echo JHtml::_('icon.edit', $this->item, $params); ?></li>
+    <?php endif; ?>
+</ul>
+<?php endif; ?>
+
+
+<?php if (!$params->get('show_intro')) : ?>
+	<?php echo $this->item->event->afterDisplayTitle; ?>
+<?php endif; ?>
+
+<?php echo $this->item->event->beforeDisplayContent; ?>
+
+<?php echo $this->item->introtext; ?>
+
+<?php if ($params->get('show_readmore') && $this->item->readmore) :
+	if ($params->get('access-view')) :
+		$link = JRoute::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid));
+	else :
+		$menu = JFactory::getApplication()->getMenu();
+		$active = $menu->getActive();
+		$itemId = $active->id;
+		$link1 = JRoute::_('index.php?option=com_users&view=login&&Itemid=' . $itemId);
+		$returnURL = JRoute::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid));
+		$link = new JURI($link1);
+		$link->setVar('return', base64_encode($returnURL));
+	endif;
+?>
+			<p class="readmore">
+				<a href="<?php echo $link; ?>">
+					<?php if (!$params->get('access-view')) :
+						echo JText::_('COM_CONTENT_REGISTER_TO_READ_MORE');
+					elseif ($readmore = $this->item->alternative_readmore) :
+						echo $readmore;
+						if ($params->get('show_readmore_title', 0) != 0) :
+						    echo JHtml::_('string.truncate', ($this->item->title), $params->get('readmore_limit'));
+						endif;
+					elseif ($params->get('show_readmore_title', 0) == 0) :
+						echo JText::sprintf('COM_CONTENT_READ_MORE_TITLE');
+					else :
+						echo JText::_('COM_CONTENT_READ_MORE');
+						echo JHtml::_('string.truncate', ($this->item->title), $params->get('readmore_limit'));
+					endif; ?></a>
+		</p>
+<?php endif; ?>
+
+<?php if ($this->item->state == 0) : ?>
+</div>
+<?php endif; ?>
+
+<div class="item-separator"></div>
 <?php echo $this->item->event->afterDisplayContent; ?>
-<?php } ?><!-- close the themelet override check -->
+
+<?php } // close the themelet override check ?>

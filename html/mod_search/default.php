@@ -1,7 +1,8 @@
 <?php // no direct access
 defined('_JEXEC') or die('Restricted access');
-if($override = Morph::override(__FILE__, $this)) {
-	if(file_exists($override)) include $override;
+$view = &JFactory::getDocument();
+if($override = Morph::override(__FILE__, $view)) {
+   if(file_exists($override)) include $override;
 } else { ?>
 <form action="index.php" method="post">
 	<div class="search<?php if ( $button == 1 ) { ?> button-active<?php } ?>">

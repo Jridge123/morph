@@ -1,6 +1,7 @@
 <?php defined( '_JEXEC' ) or die( 'Restricted access' );
-if($override = Morph::override(__FILE__, $this)) {
-	if(file_exists($override)) include $override;
+$view = &JFactory::getDocument();
+if($override = Morph::override(__FILE__, $view)) {
+   if(file_exists($override)) include $override;
 } else { ?>
 <div class="bannergroup">
 	<?php if ($headerText) : ?><h4><?php echo $headerText ?></h4><?php endif; ?>

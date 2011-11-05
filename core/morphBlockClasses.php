@@ -6,10 +6,7 @@ if(!isset(${$position.'_count'})){ ${$position.'_count'} = ''; }else{ ${$positio
 if(!isset(${$position.'_chrome'})){ ${$position.'_chrome'} = ''; }else{ ${$position.'_chrome'} = ${$position.'_chrome'}; }
 if(!isset(${$position.'_modfx'})){ ${$position.'_modfx'} = ''; }else{ ${$position.'_modfx'} = ${$position.'_modfx'}; }
 if(!isset(${$position.'_logo'})){ ${$position.'_logo'} = ''; }else{ ${$position.'_logo'} = ${$position.'_logo'}; }
-
-$blocksfx = ${$position.'_blockfx'};
-$blocksfx = (strstr($blocksfx, 'blockstyle')) ? 'block '.$blocksfx : $blocksfx;
-
+if(!isset(${$position.'_blockfx'})){ ${$position.'_blockfx'} = ''; }else{ ${$position.'_blockfx'} = ${$position.'_blockfx'}; }
 $classes = array(
 	$position.'_wrap' 	=> ${$position.'_wrap'},
 	$position.'_show' 	=> ${$position.'_show'}, 
@@ -18,5 +15,5 @@ $classes = array(
 	$position.'_chrome' => ${$position.'_chrome'}, 
 	$position.'_modfx'	=> ${$position.'_modfx'},
 	$position.'_logo'	=> ${$position.'_logo'},
-	$position.'_blockfx'	=> $blocksfx,
+	$position.'_blockfx'	=> ${$position.'_blockfx'}
 );

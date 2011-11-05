@@ -57,45 +57,15 @@ if($isiPhone && !$iPhoneCookie && $iphone_mode == 1) {
 	include_once('core/includes/skipto.php');
 	if(Morph::countModules('advert1')) { ?><jdoc:include type="modules" name="advert1" style="none" /><?php } ?>
 	<?php 
-	if($toolbar_position == 0) {
-		if(file_exists($inc_toolbar)) { 
-			include_once($inc_toolbar); 
-		} else { 
-			include_once('core/includes/toolbar.php'); 
-		}
-	}
+	if($toolbar_position == 0) { include_once('core/includes/toolbar.php'); }
 	if(file_exists($inc_masthead)) { include_once($inc_masthead); } else { include_once('core/includes/masthead.php'); }
-	
-	if($toolbar_position == 1) {
-		if(file_exists($inc_toolbar)) { 
-			include_once($inc_toolbar); 
-		} else { 
-			include_once('core/includes/toolbar.php'); 
-		}
-	}
-	
+	if($toolbar_position == 1) { include_once('core/includes/toolbar.php'); }
 	if(file_exists($inc_subhead)) { include_once($inc_subhead); } else { include_once('core/includes/subhead.php'); }
-
-	if($toolbar_position == 2) {
-		if(file_exists($inc_toolbar)) { 
-			include_once($inc_toolbar); 
-		} else { 
-			include_once('core/includes/toolbar.php'); 
-		}
-	}
-	
+	if($toolbar_position == 2) { include_once('core/includes/toolbar.php'); }
 	if(file_exists($inc_topshelf1)) { include_once($inc_topshelf1); } else { include_once('core/includes/topshelf1.php'); }
 	if(file_exists($inc_topshelf2)) { include_once($inc_topshelf2); } else { include_once('core/includes/topshelf2.php'); }
 	if(file_exists($inc_topshelf3)) { include_once($inc_topshelf3); } else { include_once('core/includes/topshelf3.php'); }
-
-	if($toolbar_position == 3) {
-		if(file_exists($inc_toolbar)) { 
-			include_once($inc_toolbar); 
-		} else { 
-			include_once('core/includes/toolbar.php'); 
-		}
-	}
-	
+	if($toolbar_position == 3) { include_once('core/includes/toolbar.php'); }
 	if(file_exists($inc_main)) { include_once($inc_main); } else { include_once('core/includes/main.php'); }
 	if(file_exists($inc_bottomshelf1)) { include_once($inc_bottomshelf1); } else { include_once('core/includes/bottomshelf1.php'); }
 	if(file_exists($inc_bottomshelf2)) { include_once($inc_bottomshelf2); } else { include_once('core/includes/bottomshelf2.php'); }

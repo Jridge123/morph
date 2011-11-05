@@ -1,8 +1,11 @@
 <?php // no direct access
 defined('_JEXEC') or die('Restricted access');
-if($override = Morph::override(__FILE__, $this)) {
-	if(file_exists($override)) include $override;
+
+$view = &JFactory::getDocument();
+if($override = Morph::override(__FILE__, $view)) {
+   if(file_exists($override)) include $override;
 } else {
+
 // Include the syndicate functions only once
 require_once( dirname(__FILE__).'/helper.php' );
 $button			 = $params->get('button', '');
