@@ -682,6 +682,7 @@ $jj_const = array(
 		5				=> "yui-g5"		// yui-gb for 5 blocks in a grid
 	),
 	"mod_suffix" => array(
+		"masthead"		=>$document->params->get('masthead_gridsplit'),
 		"toolbar"		=>$document->params->get('toolbar_gridsplit'),
 		"top"			=>$document->params->get('top_gridsplit'),
 		"topnav"		=>$document->params->get('topnav_gridsplit'),
