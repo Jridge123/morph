@@ -64,7 +64,7 @@ function modChrome_basic($module, &$params, &$attribs) {
 	} else {
 		$posSuffix = ' '.$params->get('moduleclass_sfx');
 	} ?>
-	<div class="<?php echo $hasmodstyle; if ($module->showtitle == 0) { ?>noheading <?php } ?>mod mod-basic<?php if($innerwrap == 1){ ?> outer-wrap<?php } if($innerwrap == 2){ ?> inner-wrap<?php } echo $posSuffix; ?>" id="mod<?php echo $module->id; ?>">
+	<div class="<?php echo $hasmodstyle;?> <?php if($innerwrap == 0){ ?> no-wrap<?php } if ($module->showtitle == 0) { ?>noheading <?php } ?>mod mod-basic<?php if($innerwrap == 1){ ?> outer-wrap<?php } if($innerwrap == 2){ ?> inner-wrap<?php } echo $posSuffix; ?>" id="mod<?php echo $module->id; ?>">
 		<?php if($innerwrap == 1){ ?><div class="modinner"><?php } ?>
 		<?php if ($module->showtitle != 0) : ?><h3 class="modhead"><span class="icon"></span><?php echo moduleHeadings($module->title); ?></h3><?php endif; ?>
 		<?php if($innerwrap == 2){ ?><div class="modinner"><?php } ?>
@@ -85,7 +85,7 @@ function modChrome_grid($module, &$params, &$attribs) {
 	} else {
 		$posSuffix = ' '.$params->get('moduleclass_sfx');
 	} ?>
-	<div class="mod mod-grid yui-u<?php echo $hasmodstyle; if($innerwrap == 1){ ?> outer-wrap<?php } if($innerwrap == 2){ ?> inner-wrap<?php } echo $posSuffix; ?>" id="mod<?php echo $module->id; ?>">
+	<div class="mod mod-grid yui-u<?php echo $hasmodstyle;?><?php if($innerwrap == 0){ ?> no-wrap<?php } if($innerwrap == 1){ ?> outer-wrap<?php } if($innerwrap == 2){ ?> inner-wrap<?php } echo $posSuffix; ?>" id="mod<?php echo $module->id; ?>">
 		<?php if($innerwrap == 1){ ?><div class="modinner"><?php } ?>
 		<?php if ($module->showtitle != 0) : ?><h3 class="modhead"><span class="icon"></span><?php echo moduleHeadings($module->title); ?></h3><?php endif; ?>
 		<?php if($innerwrap == 2){ ?><div class="modinner"><?php } ?>
@@ -114,7 +114,7 @@ function modChrome_split($module, &$params, &$attribs) {
 	} 
 	
 ?>
-<div class="mod mod-basic <?php if($split_modfx){ echo ' ' . $hasmodstyle.$split_modfx; } ?> splitmenu<?php echo ' ' . $posSuffix; ?><?php if($innerwrap == 1){ ?> outer-wrap<?php } if($innerwrap == 2){ ?> inner-wrap<?php } echo $posSuffix; ?>" id="mod<?php echo $module->id; ?>">
+<div class="mod mod-basic <?php if($split_modfx){ echo ' ' . $hasmodstyle.$split_modfx; } ?> splitmenu<?php echo ' ' . $posSuffix; ?><?php if($innerwrap == 0){ ?> no-wrap<?php } if($innerwrap == 1){ ?> outer-wrap<?php } if($innerwrap == 2){ ?> inner-wrap<?php } echo $posSuffix; ?>" id="mod<?php echo $module->id; ?>">
 	<?php if($innerwrap == 1){ ?><div class="modinner"><?php } ?>
 	<?php if ($module->showtitle != 0) : ?><h3 class="modhead"><span class="icon"></span><?php echo $heading[0]; ?></h3><?php endif; ?>
 	<?php if($innerwrap == 2){ ?><div class="modinner"><?php } ?>
