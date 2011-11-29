@@ -29,20 +29,25 @@ $tiny_url = get_tiny_url($current_url);
 ?>
 <div class="article-page">
 	<?php echo $renderer->render('article1', $option, null); ?>
+	
 	<?php if ($this->params->get('show_page_title', 1) && $this->params->get('page_title') != $this->article->title) : ?>
 		<div class="page-title">
 			<?php echo $this->escape($this->params->get('page_title')); ?>
 		</div>
 	<?php endif; ?>		
+    
     <!-- start article top -->
-    <?php if ($morph->article_title) : ?>
-		<h1 class="article-title">
-			<?php if ($this->params->get('link_titles') && $this->article->readmore_link != '') : ?>
-				<a href="<?php echo $this->article->readmore_link; ?>"><?php echo $this->escape($this->article->title); ?></a>
-			<?php else : ?>
-				<?php echo $this->escape($this->article->title); ?>
-			<?php endif; ?>
-		</h1>
+    <?php if ($this->params->get('show_title')) : ?>
+	    <?php if ($morph->article_title) : ?>
+			<h1 class="article-title">
+				<?php if ($this->params->get('link_titles') && $this->article->readmore_link != '') : ?>
+					<a href="<?php echo $this->article->readmore_link; ?>"><?php echo $this->escape($this->article->title); ?></a>
+				<?php else : ?>
+					<?php echo $this->escape($this->article->title); ?>
+				<?php endif; ?>
+			</h1>
+	    <?php endif; ?>
+	    
     <?php endif; ?>
     <?php if ($this->print) :
     	echo '<span class="print-icon">' . JHTML::_('icon.print_screen', $this->article, $this->params, $this->access) . '</span>';
