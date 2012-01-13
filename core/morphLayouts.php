@@ -38,7 +38,7 @@ class morphLayouts {
 	}
 	
 	public function get_pageClass() 
-	{
+	{	
 		if(!preg_match('/administrator/i', $_SERVER['REQUEST_URI'])){
 			$MORPH = Morph::getInstance();
 			$this->pageclass   				= "";
@@ -48,12 +48,13 @@ class morphLayouts {
 			$gzip						= $MORPH->gzip_compression ? '&gzip='.$MORPH->gzip_compression : false;
 			if (is_object( $menu )) :
 				$params 					= new JParameter( $menu->params );
-				$this->pageclass 					= $params->get( 'pageclass_sfx' );
+				$this->pageclass		= $params->get( 'pageclass_sfx' );
 			endif;
-			return $this->pageclass;
+			return $this->pageclass;			
 		} else {
 			$this->pageclass   				= "";
 			return $this->pageclass;
+			
 		}
 	}
 	
@@ -99,7 +100,7 @@ class morphLayouts {
 		return $this->CurrentOuterScheme;
 	}
 	
-	// set position class on sidebars
+		// set position class on sidebars
 	public function outerPos()
 	{
 		$this->outer_pos_class = '';
@@ -143,10 +144,14 @@ class morphLayouts {
 		$outer3_count 				= $morph->countModules('outer3');
 		$outer4_count 				= $morph->countModules('outer4');
 		$outer5_count 				= $morph->countModules('outer5');
-
+		
+		//@TODO added by vivek
+		//@TODO need to confirm if needed
 		$this->outer_hide = '';	
+		//@TODO end added by vivek
 		$this->get_pageClass();
 		if(isset($this->pageclass)){
+		
 			strstr($this->pageclass, 'outer0') ? $this->outer_hide=1 : $this->outer_hide=0;
 		}
 				
@@ -362,7 +367,6 @@ class morphLayouts {
 			
 			$right_padding_bdinner = $this->padding_bdinner[$right_padding_bdinner_pos] *$em_multiply;
 			$left_padding_bdinner = $this->padding_bdinner[$left_padding_bdinner_pos] *$em_multiply;
-			
 			$total_bdinner = $right_padding_bdinner + $left_padding_bdinner;
 			
 			// 2 sidebar gutter

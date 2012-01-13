@@ -15,7 +15,10 @@
  *
  */
 
-include_once 'morphConfigurator.php';
+$morph_component_path = JPATH_ADMINISTRATOR.'/components/com_configurator';
+include_once $morph_component_path . '/configurator.common.php';
+include_once $morph_component_path . '/configurator.class.php';
+include_once $morph_component_path . '/depencies.php';
 jimport('joomla.filesystem.file');
 
 class Morph {
@@ -248,6 +251,21 @@ class Morph {
 		return $this->$param_name;
 	}
 
+	public function addScript($url, $getFirstCmd='', $firstFilter='', $getSecondCmd='', $secondFilter='', $type = 'text/javascript')
+	{
+		if ($getFirstCmd && $getSecondCmd) {
+			if($getFirstCmd == $firstFilter && $getSecondCmd == $secondFilter) {
+				$this->scripts[$url] = $type;
+			}
+		} else if ($getFirstCmd) {
+			if($getFirstCmd == $firstFilter) {
+				$this->scripts[$url] = $type;
+			}
+		} else {
+			$this->scripts[$url] = $type;
+		}
+	}
+	
 	/**
 	 * Adds a script declaration (inline javascript) to Morph
 	 *
@@ -275,12 +293,6 @@ class Morph {
 		return $this;
 	}
 	
-	public function addScript($url, $type = 'text/javascript', $defer = true, $async = true)
-	{
-		$this->scripts[$url]['mime'] 	= $type;
-		$this->scripts[$url]['defer']	= $defer;
-		$this->scripts[$url]['async']	= $async;
-	}
 	
 	/**
 	 * Adds a script ALWAYS just after morph loads jquery
@@ -290,11 +302,19 @@ class Morph {
 	 * @param	string	$script		The script is injected just after Morph's version of jQuery
 	 * @return	object	$this
 	 */
-	public function addScriptAfterJQuery($url, $type = 'text/javascript', $defer = true, $async = true)
+	public function addScriptAfterJQuery($url, $getFirstCmd='', $firstFilter='', $getSecondCmd='', $secondFilter='', $type = 'text/javascript')
 	{
-		$this->addScriptAfterJQuery[$url]['mime'] 	= $type;
-		$this->addScriptAfterJQuery[$url]['defer']	= $defer;
-		$this->addScriptAfterJQuery[$url]['async']	= $async;
+		if ($getFirstCmd && $getSecondCmd) {
+			if($getFirstCmd == $firstFilter && $getSecondCmd == $secondFilter) {
+				$this->scriptsAfterJQuery[$url] = $type; 
+			}
+		} else if ($getFirstCmd) {
+			if($getFirstCmd == $firstFilter) {
+				$this->scriptsAfterJQuery[$url] = $type; 
+			}
+		} else {
+			$this->scriptsAfterJQuery[$url] = $type; 
+		}
 	}
 	
 	/**
@@ -305,11 +325,19 @@ class Morph {
 	 * @param	string	$script		The script is injected before the template.js.php loads.
 	 * @return	object	$this
 	 */
-	public function addScriptBeforeRender($url, $type = 'text/javascript', $defer = true, $async = true)
+	public function addScriptBeforeRender($url, $getFirstCmd='', $firstFilter='', $getSecondCmd='', $secondFilter='', $type = 'text/javascript')
 	{
-		$this->addScriptBeforeRender[$url]['mime'] 	= $type;
-		$this->addScriptBeforeRender[$url]['defer']	= $defer;
-		$this->addScriptBeforeRender[$url]['async']	= $async;
+		if ($getFirstCmd && $getSecondCmd) {
+			if($getFirstCmd == $firstFilter && $getSecondCmd == $secondFilter) {
+				$this->scriptsBeforeRender[$url] = $type; 
+			}
+		} else if ($getFirstCmd) {
+			if($getFirstCmd == $firstFilter) {
+				$this->scriptsBeforeRender[$url] = $type; 
+			}
+		} else {
+			$this->scriptsBeforeRender[$url] = $type; 
+		}
 	}
 	
 	/**
@@ -320,11 +348,19 @@ class Morph {
 	 * @param	string	$script		The script are injected in the end of the template.js.php but before the declarations.
 	 * @return	object	$this
 	 */
-	public function addScriptAfter($url, $type = 'text/javascript', $defer = true, $async = true)
-	{
-		$this->addScriptAfter[$url]['mime'] 	= $type;
-		$this->addScriptAfter[$url]['defer']	= $defer;
-		$this->addScriptAfter[$url]['async']	= $async;
+	public function addScriptAfter($url, $getFirstCmd='', $firstFilter='', $getSecondCmd='', $secondFilter='', $type = 'text/javascript')
+	{	
+		if ($getFirstCmd && $getSecondCmd) {
+			if($getFirstCmd == $firstFilter && $getSecondCmd == $secondFilter) {
+				$this->scriptsAfter[$url] = $type;
+			}
+		} else if ($getFirstCmd) {
+			if($getFirstCmd == $firstFilter) {
+				$this->scriptsAfter[$url] = $type;
+			}
+		} else {
+			$this->scriptsAfter[$url] = $type;
+		}
 	}
 	
 	/**
@@ -335,11 +371,19 @@ class Morph {
 	 * @param	string	$script		The script are injected in the end of the template.js.php but before the declarations.
 	 * @return	object	$this
 	 */
-	public function addScriptInsideRender($url, $type = 'text/javascript', $defer = true, $async = true)
+	public function addScriptInsideRender($url, $getFirstCmd='', $firstFilter='', $getSecondCmd='', $secondFilter='', $type = 'text/javascript')
 	{
-		$this->addScriptInsideRender[$url]['mime'] 	= $type;
-		$this->addScriptInsideRender[$url]['defer']	= $defer;
-		$this->addScriptInsideRender[$url]['async']	= $async;
+		if ($getFirstCmd && $getSecondCmd) {
+			if($getFirstCmd == $firstFilter && $getSecondCmd == $secondFilter) {
+				$this->scriptsInsideRender[$url] = $type; 
+			}
+		} else if ($getFirstCmd) {
+			if($getFirstCmd == $firstFilter) {
+				$this->scriptsInsideRender[$url] = $type; 
+			}
+		} else {
+			$this->scriptsInsideRender[$url] = $type; 
+		}
 	}
 	
 	public function addStyleSheet($url, $type = 'text/css', $media = null, $attribs = array())
@@ -378,14 +422,9 @@ class Morph {
 		{
 		
 			if(!$this->jquery_core) unset($this->scripts['/templates/'.$document->template.'/core/js/jquery.js']);
-			$renderarray = array (
-		        'mime' => 'text/javascript',
-		        'defer' => 1,
-		        'async' => 1
-		        );
 			if($this->pack_js)
 			{
-				$document->_scripts = array_merge(array($renderjs => $renderarray), $document->_scripts);
+				$document->_scripts = array_merge(array($renderjs => 'text/javascript'), $document->_scripts);
 			}
 			else
 			{
@@ -395,7 +434,7 @@ class Morph {
 					$scriptsBefore[JURI::root(1).$script] = $type;
 				}
 				
-				$document->_scripts = array_merge($scriptsBefore, array($renderjs => $renderarray), $document->_scripts);
+				$document->_scripts = array_merge($scriptsBefore, array($renderjs => 'text/javascript'), $document->_scripts);
 				$this->scripts = array();
 			}
 		}
@@ -497,6 +536,34 @@ class Morph {
 			endforeach;
 		}
 		return $accordionscount;
+	}
+	
+	public function getPageClass() 
+	{
+		if(!preg_match('/administrator/i', $_SERVER['REQUEST_URI'])){
+			$this->pageclass   			= "";
+			$menus      				= JSite::getMenu();
+			$menu      					= $menus->getActive();
+			$cache						= $this->cache ? '&cache='.$this->cachetime : false;
+			$gzip						= $this->gzip_compression ? '&gzip='.$this->gzip_compression : false;
+			if (is_object( $menu )) :
+				$params 					= new JParameter( $menu->params );
+				$this->pageclass 					= $params->get( 'pageclass_sfx' );
+			endif;
+			return $this->pageclass;
+		} else {
+			$this->pageclass   				= "";
+			return $this->pageclass;
+		}
+	}
+	
+	public function isDateBadge() {
+		if (strstr(self::getPageClass(), 'datebadge')) :
+			$datebadge = 1;	
+		else :
+			$datebadge = 0;	
+		endif;
+		return $datebadge;
 	}
 	
 	/**
@@ -702,6 +769,6 @@ class Morph {
 			'[year2]'		=> '<span class="year">%G</span>'
 		);
 	
-		return JHtml::_('date', $date, str_ireplace(array_keys($pattern), array_values($pattern), JText::_('l, d F Y')));
+		return JHTML::_('date', $date, str_ireplace(array_keys($pattern), array_values($pattern), $this->dateformat));
 	}
 }

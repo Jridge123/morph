@@ -6,7 +6,7 @@ jimport('joomla.application.module.helper');
 
 /* tabs count
 *******************************************************/
-$tabscount = 1;
+$tabscount = $morph->tabscount();
 
 /* accordion count
 *******************************************************/
@@ -41,13 +41,16 @@ $db->setQuery( $query ); $sidefish = $db->loadResult();
 $query = "SELECT COUNT(*) FROM `#__modules` WHERE `position` = 'outersplit' AND `module` = 'mod_mainmenu' OR `position` = 'outer1' AND `module` = 'mod_mainmenu' OR `position` = 'outer2' AND `module` = 'mod_mainmenu' OR `position` = 'outer3' AND `module` = 'mod_mainmenu' OR `position` = 'outer4' AND `module` = 'mod_mainmenu' OR `position` = 'outer5' AND `module` = 'mod_mainmenu' OR `position` = 'innersplit' AND `module` = 'mod_mainmenu' OR `position` = 'inner1' AND `module` = 'mod_mainmenu' OR `position` = 'inner2' AND `module` = 'mod_mainmenu' OR `position` = 'inner3' AND `module` = 'mod_mainmenu' OR `position` = 'inner4' AND `module` = 'mod_mainmenu' OR `position` = 'inner5' AND `module` = 'mod_mainmenu'" ;
 $db->setQuery( $query ); $sidenav_count = $db->loadResult();
 
+$query = "SELECT COUNT(*) FROM `#__modules` WHERE `position` = 'user3' AND `module` = 'mod_mainmenu' OR `position` = 'masthead' AND `module` = 'mod_mainmenu'  OR `position` = 'toolbar' AND `module` = 'mod_mainmenu'";
+$db->setQuery( $query ); $topnav_count = $db->loadResult();
+
 $simpletweet = JModuleHelper::isEnabled( 'simpletweet' );
 $simplecontact = JModuleHelper::isEnabled( 'simplecontact' );
 $simplesocial = JModuleHelper::isEnabled( 'simplesocial' );
 $aidanews = JModuleHelper::isEnabled( 'aidanews' );
 
 // Let's pass session variables to the js and css views so we only have to run the sql queries once.
-$counts = array('tabscount', 'accordionscount', 'topdrop', 'topfish', 'subtext', 'sidefish', 'sidenav_count', 'simpletweet', 'simplecontact', 'simplesocial');
+$counts = array('tabscount', 'accordionscount', 'topdrop', 'topfish', 'subtext', 'sidefish', 'sidenav_count', 'topnav_count', 'simpletweet', 'simplecontact', 'simplesocial');
 foreach($counts as $count)
 {
 	$_SESSION[$count] = $$count;

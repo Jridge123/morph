@@ -62,6 +62,9 @@ $includespath = JPATH_SITE.'/templates/morph/core/includes/';
 $blockclassespath = JPATH_SITE.'/templates/morph/core/morphBlockClasses.php';
 
 // set the document parameters with what morph found:
+//@TODO start added by Manoj
+jimport( 'joomla.html.parameter' );
+//@TODO end added by Manoj
 $params	= new JParameter(null);
 $params->loadObject($MORPH);
 $document->params = $params;
@@ -96,7 +99,6 @@ $bottomshelf2_count 		= $MORPH->countModules('bottomshelf2');
 $bottomshelf3_count 		= $MORPH->countModules('bottomshelf3');
 $user1_count 				= $MORPH->countModules('user1');
 $user2_count 				= $MORPH->countModules('user2');
-$user3_count 				= $MORPH->countModules('user3');
 $inset1_count 				= $MORPH->countModules('inset1');
 $inset2_count 				= $MORPH->countModules('inset2');
 $inset3_count 				= $MORPH->countModules('inset3');
@@ -419,6 +421,22 @@ $isiPod			= $browser->getBrowser() == MBrowser::PLATFORM_IPOD;
 $isBlackberry	= $browser->getBrowser() == MBrowser::PLATFORM_BLACKBERRY;
 $isAndroid		= $browser->getBrowser() == MBrowser::PLATFORM_ANDROID;
 $iPhoneCookie	= isset($_COOKIE['iPhone']) ? $_COOKIE['iPhone'] == 'normal' : false;
+
+//@TODO start changed/added by vivek
+//check if Wordpress is installed	
+if(JVERSION>='1.6.0')
+{
+	$isComWP=0;
+	$db = JFactory::getDbo();
+	$db->setQuery("SELECT enabled FROM #__extensions WHERE name = 'com_wordpress'");
+	$isComWP=($db->loadResult()==1);
+}
+else{ 
+	$isComWP=(bool)JComponentHelper::isEnabled('com_wordpress', true);
+}
+//@TODO end changed/added by vivek
+$isModUtilWP	= JModuleHelper::isEnabled('wordpress_utility');
+$isModWidgWP	= JModuleHelper::isEnabled('wordpress_widgetmod');
 $isModFlickr	= JModuleHelper::isEnabled('simpleflickr');
 
 if ( $isiPhone && !$iPhoneCookie ) {
@@ -442,9 +460,9 @@ if ( $isiPhone && !$iPhoneCookie ) {
     		if(in_array(1, $js_slider)) { $MORPH->addScript($templatepath .'/core/js/slider.js');}
     		if( $tabscount >= 1  || $isEditForm == 1) { $MORPH->addScript($templatepath .'/core/js/tabs.js'); }
     		if( $accordionscount >= 1 ) { $MORPH->addScript($templatepath .'/core/js/accordion.js'); }
-    		if( $MORPH->topfish >= 1 && $topnav_hoverintent == 1 ) { $MORPH->addScript($templatepath .'/core/js/hoverintent.js'); }
-    		if( $sidefish >= 1 or $MORPH->topfish >= 1 or $MORPH->topdrop >= 1  ) { $MORPH->addScript($templatepath .'/core/js/superfish.js'); }
-    		if( $MORPH->topfish >= 1 && $topnav_supersubs == 1 ) { $MORPH->addScript($templatepath .'/core/js/supersubs.js'); }
+    		if( $topfish >= 1 && $topnav_hoverintent == 1 ) { $MORPH->addScript($templatepath .'/core/js/hoverintent.js'); }
+    		if( $sidefish >= 1 or $topfish >= 1 or $topdrop >= 1  ) { $MORPH->addScript($templatepath .'/core/js/superfish.js'); }
+    		if( $topfish >= 1 && $topnav_supersubs == 1 ) { $MORPH->addScript($templatepath .'/core/js/supersubs.js'); }
     		if( $plugin_scrollto == 1 ) { $MORPH->addScript($templatepath .'/core/js/scrollto.js'); }
     		if( $simpletweet == 1 ) { $MORPH->addScript('/modules/mod_simpletweet/js/simpletweet.js'); }
     		if( $lazyload_enabled == 1 ) { $MORPH->addScript($templatepath .'/core/js/lazyload.js'); }
@@ -473,7 +491,17 @@ if ( $isiPhone && !$iPhoneCookie ) {
 			}
 			if ( $custom_fonts == 1 && $font_providers == 'fontsdotcom' ) { $doc->addStyleSheet('http://fast.fonts.com/jsapi/'.$fontsdotcom_id.'.js'); }
 			    		
-			
+			if($isModUtilWP || $isComWP){
+				$wp_images_js = '/images/wordpress/themes/morph/js/images.js';
+				$wp_theme_js = '/images/wordpress/themes/morph/js/theme.js';
+				$wp_jqtools_js = '/images/wordpress/themes/morph/js/jquery-tools.js';
+				if(file_exists(JPATH_ROOT.$wp_jqtools_js)) $MORPH->addScriptAfter($wp_jqtools_js);
+				if(file_exists(JPATH_ROOT.$wp_images_js)) $MORPH->addScriptAfter($wp_images_js);
+				// only load if its the wordpress component/wptheme
+				if(JRequest::getVar('option') == 'com_wordpress'){ 
+					if(file_exists(JPATH_ROOT.$wp_theme_js)) $MORPH->addScriptAfter($wp_theme_js); 
+				}
+			}
     }else{
     	if(isIE6()){ 
     		$MORPH->addScript($templatepath .'/core/js/ie6.js');
@@ -533,8 +561,9 @@ if(  $isiPhone && !$iPhoneCookie  ){
 } else {
 	//if (!$pack_css) {
 		if ( file_exists($css_yui)) { $MORPH->addStyleSheet($themeletpath .'/css/yui.css'); } else { $MORPH->addStyleSheet($templatepath .'/core/css/yui.css'); }
-		if ( $MORPH->topfish >= 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/topnav-topfish.css'); }
-		if ( $MORPH->topdrop >= 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/topnav-topdrop.css'); }
+		if ( $topnav_count >= 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/topnav-default.css'); }
+		if ( $topfish >= 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/topnav-topfish.css'); }
+		if ( $topdrop >= 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/topnav-topdrop.css'); }
 		if ( $sidenav_count >= 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/sidenav-default.css'); }
 		if ( $sidefish >= 1 ) { $MORPH->addStyleSheet($themeletpath .'/css/sidenav-sidefish.css'); }
 		if ( $tabscount >= 1 || $isEditForm == 1) { $MORPH->addStyleSheet($themeletpath .'/css/tabs.css'); }
@@ -561,6 +590,21 @@ if(  $isiPhone && !$iPhoneCookie  ){
 		if( $lightbox_enabled == 1 ) { $MORPH->addStyleSheet($templatepath .'/core/css/colorbox_'. $colorbox_style .'.css'); }
 		// add CSS to Morph for WP for Joomla
 		// first if there is no wordpress component loading we still need the supporting files if the module is being used
+		if($isModUtilWP || $isModWidgWP || $isComWP){
+			$wp_images_css = '/images/wordpress/themes/morph/css/images.css';
+			$wp_theme_css = '/images/wordpress/themes/morph/css/theme.css';
+			$wp_modules_css = '/images/wordpress/themes/morph/css/modules.css';
+			$wp_widgets_css = '/images/wordpress/themes/morph/css/widgets.css';
+			
+			// load if module or wordpress component
+			if(file_exists(JPATH_ROOT.$wp_images_css)) $MORPH->addStylesheet($wp_images_css); 
+			// load if module is loaded
+			if($isModUtilWP && file_exists(JPATH_ROOT.$wp_modules_css)) $MORPH->addStylesheet($wp_modules_css);
+			// load if widget module is used
+			if($isModWidgWP && file_exists(JPATH_ROOT.$wp_widgets_css)) $MORPH->addStylesheet($wp_widgets_css);
+			// only load if its the wordpress component/wptheme
+			if(JRequest::getVar('option') == 'com_wordpress' && file_exists(JPATH_ROOT.$wp_theme_css)) $MORPH->addStylesheet($wp_theme_css); 
+		}
 				
 		if($MORPH->developer_toolbar == 1) { $MORPH->addStyleSheetAfter($templatepath .'/core/css/devbar.css'); }
 		if ( $direction == 'rtl' && file_exists($css_rtl)){ $MORPH->addStyleSheetAfter($themeletpath .'/css/rtl.css'); } elseif ($direction == 'rtl') { $MORPH->addStyleSheetAfter($templatepath .'/core/css/rtl.css'); }
@@ -723,6 +767,7 @@ function getYuiSuffix ($moduleName, $jj_const){
 
 function sidebar_module($chrome, $position, $jj_const, $modfx, $glob, $debug_modules, $nojs){
 	if(Morph::countModules($position) > 0){
+	$modfx = (strstr($modfx, 'modstyle')) ? 'block '.$modfx : '';
 		if($chrome === 'basic' or $chrome === 'outline' or $chrome === ''){ 
 			if ($modfx){ ?>
 			<div class="<?php echo $modfx ?>">
@@ -798,12 +843,12 @@ function blocks($position, $glob, $jj_const, $classes, $site_width, $debug_modul
 	${$position.'_inner'} == 1 ? $hasInner = 'hasinner' : $hasInner = 'no-inner';
 	if($morph->countModules($position) && ${$position.'_show'} == 0 || $logo_show == 1 ){
 		if ( ${$position.'_wrap'} == 1 ) {  $hasWrap = 'haswrap'; ?>
-		<div id="<?php echo $position; ?>-wrap" class="block <?php echo $position_class; ?> wrap modcount<?php echo $modcount .' '. ${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }if(${$position.'_blockfx'} !== ''){ echo ' '.${$position.'_blockfx'}; }?>">
+		<div id="<?php echo $position; ?>-wrap" class="<?php echo $position_class; ?> wrap modcount<?php echo $modcount .' '. ${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }if(${$position.'_blockfx'} !== ''){ echo ' '.${$position.'_blockfx'}; }?>">
 		<?php } else { $hasWrap = 'no-wrap'; }?>
 			<?php if ( ${$position.'_chrome'} == 'grid' ) { ?>
-			<div id="<?php echo $position; ?>" class="block <?php if ( $logo_show == 1 ) { echo 'logo-active '; } ?> <?php echo $position_class; ?> <?php echo $site_width ?> <?php getYuiSuffix($position, $jj_const); ?> clearer modcount<?php echo $modcount.' '.${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }if(${$position.'_blockfx'} !== ''){ echo ' '.${$position.'_blockfx'}; } echo ' '.$hasWrap.' '.$hasInner; ?>">
+			<div id="<?php echo $position; ?>" class="<?php if ( $logo_show == 1 ) { echo 'logo-active '; } ?> <?php echo $position_class; ?> <?php echo $site_width ?> <?php getYuiSuffix($position, $jj_const); ?> clearer modcount<?php echo $modcount.' '.${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }if(${$position.'_blockfx'} !== ''){ echo ' '.${$position.'_blockfx'}; } echo ' '.$hasWrap.' '.$hasInner; ?>">
 			<?php } else { ?>	
-			<div id="<?php echo $position; ?>" class="block <?php if ( $logo_show == 1 ) { echo 'logo-active '; } ?> <?php echo $position_class; ?> <?php echo $site_width ?> clearer modcount<?php echo $modcount.' '.${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }if(${$position.'_blockfx'} !== ''){ echo ' '.${$position.'_blockfx'}; } echo ' '.$hasWrap.' '.$hasInner; ?>">
+			<div id="<?php echo $position; ?>" class="<?php if ( $logo_show == 1 ) { echo 'logo-active '; } ?> <?php echo $position_class; ?> <?php echo $site_width ?> clearer modcount<?php echo $modcount.' '.${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }if(${$position.'_blockfx'} !== ''){ echo ' '.${$position.'_blockfx'}; } echo ' '.$hasWrap.' '.$hasInner; ?>">
 			<?php } ?>
 			<?php if ( ${$position.'_inner'} == 1 ) { ?><div id="<?php echo $position; ?>-inner" class="inner clearer"><?php } ?>
 			<?php if ( $logo_show == 1 ) { ?>
@@ -837,12 +882,12 @@ function mastheadBlock($position, $glob, $jj_const, $classes, $site_width, $debu
 	${$position.'_inner'} == 1 ? $hasInner = 'hasinner' : $hasInner = 'no-inner';
 	if($glob->countModules($position) && ${$position.'_show'} == 0 || $logo_show == 1 ){ ?>
 		<?php if ( ${$position.'_wrap'} == 1 ) { $hasWrap = 'haswrap' ; ?>
-			<div id="<?php echo $position; ?>-wrap" class="clearer block <?php echo $position_class; ?> wrap modcount<?php echo $modcount.' '.${$position . '_chrome'}; if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; } if(${$position.'_blockfx'} !== ''){ echo ' '.${$position.'_blockfx'}; } ?>">
+			<div id="<?php echo $position; ?>-wrap" class="clearer <?php echo $position_class; ?> wrap modcount<?php echo $modcount.' '.${$position . '_chrome'}; if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; } if(${$position.'_blockfx'} !== ''){ echo ' '.${$position.'_blockfx'}; } ?>">
 		<?php } else { $hasWrap = 'no-wrap'; }?>
 		<?php if ( ${$position.'_chrome'} == 'grid' ) { ?>
-				<div id="<?php echo $position; ?>" class="block<?php if ( $logo_show == 1 ) { echo ' logo-active '; } ?> <?php echo $morph->position_class; ?> <?php echo $site_width; ?> <?php getYuiSuffix($position, $jj_const); ?> clearer modcount<?php echo $modcount.' '.${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }if(${$position.'_blockfx'} !== ''){ echo ' '.${$position.'_blockfx'}; } echo ' '.$hasWrap.' '.$hasInner; ?>">
+				<div id="<?php echo $position; ?>" class="<?php if ( $logo_show == 1 ) { echo ' logo-active '; } ?> <?php echo $morph->position_class; ?> <?php echo $site_width; ?> <?php getYuiSuffix($position, $jj_const); ?> clearer modcount<?php echo $modcount.' '.${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }if(${$position.'_blockfx'} !== ''){ echo ' '.${$position.'_blockfx'}; } echo ' '.$hasWrap.' '.$hasInner; ?>">
 		<?php } else { ?>	
-			<div id="<?php echo $position; ?>" class="block <?php if ( $logo_show == 1 ) { echo 'logo-active '; } ?> <?php echo $position_class; ?> <?php echo $site_width ?> clearer modcount<?php echo $modcount.' '.${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }if(${$position.'_blockfx'} !== ''){ echo ' '.${$position.'_blockfx'}; }  echo ' '.$hasWrap.' '.$hasInner; ?>">
+			<div id="<?php echo $position; ?>" class="<?php if ( $logo_show == 1 ) { echo 'logo-active '; } ?> <?php echo $position_class; ?> <?php echo $site_width ?> clearer modcount<?php echo $modcount.' '.${$position . '_chrome'};if(${$position.'_modfx'} !== ''){ echo ' '.${$position.'_modfx'}; }if(${$position.'_blockfx'} !== ''){ echo ' '.${$position.'_blockfx'}; }  echo ' '.$hasWrap.' '.$hasInner; ?>">
 		<?php } ?>
 		
 		<?php if ( ${$position.'_inner'} == 1 ) { ?>
@@ -892,11 +937,22 @@ function pt_body_classes($menu, $view, $themelet){
 	$version = $engine.str_replace('.', '', $browser->getVersion());
 	$zoo_installed = 0;	
 	
+	jimport('joomla.application.component.helper');
+	//@TODO start added/changed by Manoj
 	//check if zoo is installed	
-	$db = JFactory::getDbo();
-	$db->setQuery("SELECT enabled FROM #__extensions WHERE name = 'com_zoo'");
-	$zoo_installed = ($db->loadResult() == 1);
-	// TODO: @chris -> check this zoo code I dont think it works with J1.7;
+	if(JVERSION>='1.6.0')
+	{
+		$db = JFactory::getDbo();
+		$db->setQuery("SELECT enabled FROM #__extensions WHERE name = 'com_zoo'");
+		$zoo_installed = ($db->loadResult() == 1);
+	}
+	else
+	{
+		if(JComponentHelper::isEnabled('com_zoo', true)){
+			$zoo_installed = 1;
+		}
+	}
+	//@TODO end added/changed by Manoj
 	if($zoo_installed == 1) {
 		require_once(JPATH_ADMINISTRATOR.'/components/com_zoo/config.php'); 
 		$path_to_xml = JPATH_ADMINISTRATOR . '/components/com_zoo/manifest.xml';
@@ -978,7 +1034,7 @@ function topnav_classes() {
 	$morph = Morph::getInstance();
 	$topnav_position_class = $morph->topnav_position;
 	$topnav_position_class = str_replace("_", "-", $topnav_position_class);
-	$topnavClass = 'block primary-nav ';
+	$topnavClass = 'primary-nav ';
 	$topnavClass .= $topnav_position_class.' ';
 	$topnavClass .= $morph->topnav_blockfx.' ';
 	$topnavClass .= pt_classes(array('subtext' => $morph->subtext, 'topnav_actionlink' => $morph->topnav_actionlink, 'topdrop' => $morph->topdrop, 'topfish' => $morph->topfish), $morph->site_width);

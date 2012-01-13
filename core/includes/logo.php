@@ -1,23 +1,32 @@
-<?php $app = JFactory::getApplication() ?>
-<div id="branding" class="logotype-<?php echo $morph->logo_type; ?><?php if ( $slogan_text !== "" ) { ' slogan'; } ?>">
+<?php 
+//@TODO added by Manoj
+$mainframe = JFactory::getApplication();
+/*
+replaced $mainframe->getCfg('sitename');
+with $mainframe->sitename;
+everywhere in this file
+*/
+//@TODO end added by Manoj
+?>
+<div id="branding" class="logotype-<?php echo $morph->logo_type; ?><?php if ( $slogan_text !== '' ) { ' slogan'; } ?>">
 	<?php if ( $morph->logo_type == 0 ) { ?>
 		<!-- h1 text logo -->
-		<h1><a href="<?php echo JURI::root() ?>" title="<?php if ($morph->logo_linktitle != ""){ echo $morph->logo_linktitle; } else { echo $app->sitename; } ?>">
-		<?php if ($morph->logo_text != ""){ echo $morph->logo_text; } else { echo $app->sitename; } ?>
+		<h1><a href="<?php echo JURI::root() ?>" title="<?php if ($morph->logo_linktitle != ''){ echo $morph->logo_linktitle;} else { echo $mainframe->sitename;} ?>">
+		<?php if ($morph->logo_text != ""){ echo $morph->logo_text; } else { echo $mainframe->sitename; } ?>
 		</a></h1>
 	<?php } ?>
 
 		<?php if ( $morph->logo_type == 1 ) { ?>
 		<!-- h1 image logo -->
-		<h1><a href="<?php echo JURI::root() ?>" title="<?php if ($morph->logo_linktitle != ""){ echo $morph->logo_linktitle; } else { echo $app->sitename; } ?>">
-		<?php if ($morph->logo_text != ""){ echo $morph->logo_text; } else { echo $app->sitename; } ?>
+		<h1><a href="<?php echo JURI::root() ?>" title="<?php if ($morph->logo_linktitle != ''){ echo $morph->logo_linktitle; } else { echo $mainframe->sitename;} ?>">
+		<?php if ($morph->logo_text != ""){ echo $morph->logo_text; } else { echo $mainframe->sitename; } ?>
 		</a></h1>
 	<?php } ?>
 
 		<?php if ( $morph->logo_type == 2 ) { ?>
 		<!-- inline image logo -->
-		<a class="logo-img" href="<?php echo JURI::root() ?>" title="<?php if ($morph->logo_linktitle != ""){ echo $morph->logo_linktitle; } else { echo $app->sitename; } ?>">
-		<img src="<?php echo $morph->logo; ?>" width="<?php echo $morph->logo_size[0]; ?>" height="<?php echo $morph->logo_size[1]; ?>" alt="<?php if ( $morph->logo_alttext != ""){ echo $morph->logo_alttext; } else { echo $app->sitename; } ?>" border="0" /></a>
+		<a class="logo-img" href="<?php echo JURI::root() ?>" title="<?php if ($morph->logo_linktitle != ''){ echo $morph->logo_linktitle; } else { echo $mainframe->sitename;} ?>">
+		<img src="<?php echo $morph->logo; ?>" width="<?php echo $morph->logo_size[0]; ?>" height="<?php echo $morph->logo_size[1]; ?>" alt="<?php if ( $morph->logo_alttext != ''){ echo $morph->logo_alttext; } else { echo $mainframe->sitename; } ?>" border="0" /></a>
 	<?php } ?>
 
 		<?php if ( $morph->logo_type == 3 ) { ?>
