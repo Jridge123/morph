@@ -99,6 +99,7 @@ $bottomshelf2_count 		= $MORPH->countModules('bottomshelf2');
 $bottomshelf3_count 		= $MORPH->countModules('bottomshelf3');
 $user1_count 				= $MORPH->countModules('user1');
 $user2_count 				= $MORPH->countModules('user2');
+$user3_count 				= $MORPH->countModules('user3');
 $inset1_count 				= $MORPH->countModules('inset1');
 $inset2_count 				= $MORPH->countModules('inset2');
 $inset3_count 				= $MORPH->countModules('inset3');
@@ -552,6 +553,7 @@ $layouts = new morphLayouts();
 if (!$MORPH->countModules('outersplit or outer1 or outer2 or outer3 or outer4 or outer5')) $layouts->CurrentOuterScheme = '';
 if (!$MORPH->countModules('innersplit or inner1 or inner2 or inner3 or inner4 or inner5')) $layouts->CurrentInnerScheme = '';
 if (!$MORPH->countModules('user4')) $no_search = 'no_search';
+$topnav_count = $MORPH->countModules('user3');
 
 // Activate rtl for testing
 // $direction = 'rtl';
