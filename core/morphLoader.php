@@ -251,19 +251,11 @@ class Morph {
 		return $this->$param_name;
 	}
 
-	public function addScript($url, $getFirstCmd='', $firstFilter='', $getSecondCmd='', $secondFilter='', $type = 'text/javascript')
+	public function addScript($url, $type = 'text/javascript', $defer = true, $async = true)
 	{
-		if ($getFirstCmd && $getSecondCmd) {
-			if($getFirstCmd == $firstFilter && $getSecondCmd == $secondFilter) {
-				$this->scripts[$url] = $type;
-			}
-		} else if ($getFirstCmd) {
-			if($getFirstCmd == $firstFilter) {
-				$this->scripts[$url] = $type;
-			}
-		} else {
-			$this->scripts[$url] = $type;
-		}
+		$this->scripts[$url]['type'] 	= $type;
+		$this->scripts[$url]['defer']	= $defer;
+		$this->scripts[$url]['async']	= $async;
 	}
 	
 	/**
@@ -302,19 +294,11 @@ class Morph {
 	 * @param	string	$script		The script is injected just after Morph's version of jQuery
 	 * @return	object	$this
 	 */
-	public function addScriptAfterJQuery($url, $getFirstCmd='', $firstFilter='', $getSecondCmd='', $secondFilter='', $type = 'text/javascript')
+	public function addScriptAfterJQuery($url, $type = 'text/javascript', $defer = true, $async = true)
 	{
-		if ($getFirstCmd && $getSecondCmd) {
-			if($getFirstCmd == $firstFilter && $getSecondCmd == $secondFilter) {
-				$this->scriptsAfterJQuery[$url] = $type; 
-			}
-		} else if ($getFirstCmd) {
-			if($getFirstCmd == $firstFilter) {
-				$this->scriptsAfterJQuery[$url] = $type; 
-			}
-		} else {
-			$this->scriptsAfterJQuery[$url] = $type; 
-		}
+		$this->addScriptAfterJQuery[$url]['type'] 	= $type;
+		$this->addScriptAfterJQuery[$url]['defer']	= $defer;
+		$this->addScriptAfterJQuery[$url]['async']	= $async;
 	}
 	
 	/**
@@ -325,19 +309,11 @@ class Morph {
 	 * @param	string	$script		The script is injected before the template.js.php loads.
 	 * @return	object	$this
 	 */
-	public function addScriptBeforeRender($url, $getFirstCmd='', $firstFilter='', $getSecondCmd='', $secondFilter='', $type = 'text/javascript')
+	public function addScriptBeforeRender($url, $type = 'text/javascript', $defer = true, $async = true)
 	{
-		if ($getFirstCmd && $getSecondCmd) {
-			if($getFirstCmd == $firstFilter && $getSecondCmd == $secondFilter) {
-				$this->scriptsBeforeRender[$url] = $type; 
-			}
-		} else if ($getFirstCmd) {
-			if($getFirstCmd == $firstFilter) {
-				$this->scriptsBeforeRender[$url] = $type; 
-			}
-		} else {
-			$this->scriptsBeforeRender[$url] = $type; 
-		}
+		$this->addScriptBeforeRender[$url]['type'] 	= $type;
+		$this->addScriptBeforeRender[$url]['defer']	= $defer;
+		$this->addScriptBeforeRender[$url]['async']	= $async;
 	}
 	
 	/**
@@ -348,19 +324,11 @@ class Morph {
 	 * @param	string	$script		The script are injected in the end of the template.js.php but before the declarations.
 	 * @return	object	$this
 	 */
-	public function addScriptAfter($url, $getFirstCmd='', $firstFilter='', $getSecondCmd='', $secondFilter='', $type = 'text/javascript')
-	{	
-		if ($getFirstCmd && $getSecondCmd) {
-			if($getFirstCmd == $firstFilter && $getSecondCmd == $secondFilter) {
-				$this->scriptsAfter[$url] = $type;
-			}
-		} else if ($getFirstCmd) {
-			if($getFirstCmd == $firstFilter) {
-				$this->scriptsAfter[$url] = $type;
-			}
-		} else {
-			$this->scriptsAfter[$url] = $type;
-		}
+	public function addScriptAfter($url, $type = 'text/javascript', $defer = true, $async = true)
+	{
+		$this->addScriptAfter[$url]['type'] 	= $type;
+		$this->addScriptAfter[$url]['defer']	= $defer;
+		$this->addScriptAfter[$url]['async']	= $async;
 	}
 	
 	/**
@@ -371,19 +339,11 @@ class Morph {
 	 * @param	string	$script		The script are injected in the end of the template.js.php but before the declarations.
 	 * @return	object	$this
 	 */
-	public function addScriptInsideRender($url, $getFirstCmd='', $firstFilter='', $getSecondCmd='', $secondFilter='', $type = 'text/javascript')
+	public function addScriptInsideRender($url, $type = 'text/javascript', $defer = true, $async = true)
 	{
-		if ($getFirstCmd && $getSecondCmd) {
-			if($getFirstCmd == $firstFilter && $getSecondCmd == $secondFilter) {
-				$this->scriptsInsideRender[$url] = $type; 
-			}
-		} else if ($getFirstCmd) {
-			if($getFirstCmd == $firstFilter) {
-				$this->scriptsInsideRender[$url] = $type; 
-			}
-		} else {
-			$this->scriptsInsideRender[$url] = $type; 
-		}
+		$this->addScriptInsideRender[$url]['type'] 	= $type;
+		$this->addScriptInsideRender[$url]['defer']	= $defer;
+		$this->addScriptInsideRender[$url]['async']	= $async;
 	}
 	
 	public function addStyleSheet($url, $type = 'text/css', $media = null, $attribs = array())
@@ -422,19 +382,24 @@ class Morph {
 		{
 		
 			if(!$this->jquery_core) unset($this->scripts['/templates/'.$document->template.'/core/js/jquery.js']);
+			$renderarray = array (
+			    'mime' => 'text/javascript',
+			    'defer' => 1,
+			    'async' => 1
+			    );
 			if($this->pack_js)
 			{
-				$document->_scripts = array_merge(array($renderjs => 'text/javascript'), $document->_scripts);
+				$document->_scripts = array_merge(array($renderjs => $renderarray), $document->_scripts);
 			}
 			else
 			{
 				$scriptsBefore = array();
 				foreach($this->scripts as $script => $type)
 				{
-					$scriptsBefore[JURI::root(1).$script] = $type;
+					$scriptsBefore[JURI::root(1).$script] = $renderarray;
 				}
 				
-				$document->_scripts = array_merge($scriptsBefore, array($renderjs => 'text/javascript'), $document->_scripts);
+				$document->_scripts = array_merge($scriptsBefore, array($renderjs => $renderarray), $document->_scripts);
 				$this->scripts = array();
 			}
 		}
