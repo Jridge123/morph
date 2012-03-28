@@ -185,7 +185,12 @@ $inc_user1					= $absolutepath.'/includes/user1.php';
 $inc_user2					= $absolutepath.'/includes/user2.php';
 $MORPH->slogan_text 		= str_replace("&", "&amp;", $MORPH->slogan_text);
 
+//@TODO changed by vivek 13
+if(JVERSION>='1.6.0')
+$moo = JFactory::getConfig()->getValue('debug') ? '-core-uncompressed.js' : '-core.js';
+else
 $moo = JFactory::getConfig()->getValue('debug') ? '-uncompressed.js' : '.js';
+//@TODO changed by vivek 13
 $mtu = JURI::base(true).'/plugins/system/mtupgrade/mootools'.$moo;
 $moo = JURI::base(true).'/media/system/js/mootools'.$moo;
 $option = JRequest::getCmd('option');
