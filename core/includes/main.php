@@ -8,7 +8,7 @@
 		<?php } if($global_wrap == 1 && $global_wrap_start == 7){ ?>
 		<div id="global-wrap" class="clearer <?php echo $site_width; ?>"><?php } ?>
 		<div id="yui-main">
-			<div class="yui-b<?php if (!Morph::countModules('outer1 or outer2 or outer3 or outer4 or outer5') && ($this->countMenuChildren() < 1 ) ){ echo ' no-left'; } ?>">
+			<div class="yui-b<?php if (!Morph::countModules('outer1 or outer2 or outer3 or outer4 or outer5') ){ echo ' no-left'; } ?>">
 				<?php $position = 'inset1'; include ($blockclassespath); echo blocks($position, $this, $jj_const, $classes, '', $debug_modules, $nojs); ?>
 				<!-- apply inner scheme -->
 				<div class="<?php if($layouts->CurrentInnerScheme != 'none'){ echo $layouts->innerLayouts['inner_sidebar_position'].'-tertiary '; } ?>clearer" id="inner-wrap">

@@ -1,7 +1,6 @@
 <?php // no direct access
 defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.module.helper');
-
 function moduleHeadings($modtitle){
 	// splitters
 	$pretext = '\\';
@@ -9,10 +8,8 @@ function moduleHeadings($modtitle){
 	$twotone = '|';
 	$spaces = array('<span class="twotone"> ', '<span class="pretext"> ', '<span class="subtext"> ', ' </span>');
 	$nospaces = array('<span class="twotone">', '<span class="pretext">', '<span class="subtext">', '</span>');	
-	
 	// Fix amps
 	$modtitle = JFilterOutput::ampReplace($modtitle);
-	
 	// subtext & twotone
 	if(strstr($modtitle, $subtext) && strstr($modtitle, $twotone)){
 		$twotone_arr = explode($twotone, $modtitle);
@@ -22,7 +19,6 @@ function moduleHeadings($modtitle){
 		$string = $str_twotone .' '. $str_subtext;
 		return str_replace($spaces, $nospaces, $string);
 	}
-	
 	// subtext & twotone
 	if(strstr($modtitle, $pretext) && strstr($modtitle, $twotone)){
 		$pretext_arr = explode($pretext, $modtitle);

@@ -1,6 +1,6 @@
 <?php
 /**
- * @version		$Id: blog_item.php 21321 2011-05-11 01:05:59Z dextercowley $
+ * @version		$Id: default_item.php 21321 2011-05-11 01:05:59Z dextercowley $
  * @package		Joomla.Site
  * @subpackage	com_content
  * @copyright	Copyright (C) 2005 - 2011 Open Source Matters, Inc. All rights reserved.
@@ -23,7 +23,6 @@ $morph = Morph::getInstance();
 <?php if ($this->item->state == 0) : ?>
 <div class="system-unpublished">
 <?php endif; ?>
-
 <?php if ($params->get('show_title')) : ?>
 	<h2>
 		<?php if ($params->get('link_titles') && $params->get('access-view')) : ?>
@@ -38,19 +37,18 @@ $morph = Morph::getInstance();
 <?php if (($params->get('show_author')) or ($params->get('show_create_date')) or ($params->get('show_author')) or ($params->get('show_print_icon')) or ($params->get('show_email_icon'))  ) : ?>
 <ul class="article-info">		
     <?php if ($params->get('show_publish_date')) : ?>
-        <!--<li class="created"><?php //echo JText::sprintf('COM_CONTENT_CREATED_DATE_ON', $morph->date($this->item->publish_up)); ?></li>-->
-        <li class="created"><?php echo JText::sprintf('COM_CONTENT_CREATED_DATE_ON', JHtml::_('date', $this->item->created, JText::_('DATE_FORMAT_LC2'))); ?></li>
+        <li class="created"><?php echo JText::sprintf('COM_CONTENT_CREATED_DATE_ON', $morph->date($this->item->publish_up)); ?></li>
     <?php endif; ?>
     <?php if ($params->get('show_author') && !empty($this->item->author )) : ?>
 	<li class="author">
 	    <?php $author =  $this->item->author; ?>
-		<?php $author = ($this->item->created_by_alias ? $this->item->created_by_alias : $author);?>
-		<?php if (!empty($this->item->contactid ) &&  $params->get('link_author') == true):?>
-			<?php 	echo JText::sprintf('COM_CONTENT_WRITTEN_BY' ,
-			 JHtml::_('link',JRoute::_('index.php?option=com_contact&view=contact&id='.$this->item->contactid),$author)); ?>
-		<?php else :?>
-			<?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', $author); ?>
-		<?php endif; ?>
+	    		<?php $author = ($this->item->created_by_alias ? $this->item->created_by_alias : $author);?>
+	    			<?php if (!empty($this->item->contactid ) &&  $params->get('link_author') == true):?>
+	    				<?php 	echo JText::sprintf('COM_CONTENT_WRITTEN_BY' ,
+	    				 JHtml::_('link',JRoute::_('index.php?option=com_contact&view=contact&id='.$this->item->contactid),$author)); ?>
+	    			<?php else :?>
+	    				<?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', $author); ?>
+	    			<?php endif; ?>
 	</li>
     <?php endif; ?>
 	<?php if ($params->get('show_print_icon')) : ?>
@@ -64,6 +62,7 @@ $morph = Morph::getInstance();
     <?php endif; ?>
 </ul>
 <?php endif; ?>
+
 
 <?php if (!$params->get('show_intro')) : ?>
 	<?php echo $this->item->event->afterDisplayTitle; ?>

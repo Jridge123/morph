@@ -38,8 +38,7 @@ $morph = Morph::getInstance();
 <?php if (($params->get('show_author')) or ($params->get('show_create_date')) or ($params->get('show_author')) or ($params->get('show_print_icon')) or ($params->get('show_email_icon'))  ) : ?>
 <ul class="article-info">		
     <?php if ($params->get('show_publish_date')) : ?>
-        <!--<li class="created"><?php //echo JText::sprintf('COM_CONTENT_CREATED_DATE_ON', $morph->date($this->item->publish_up)); ?></li>-->
-        <li class="created"><?php echo JText::sprintf('COM_CONTENT_CREATED_DATE_ON', JHtml::_('date', $this->item->created, JText::_('DATE_FORMAT_LC2'))); ?></li>
+        <li class="created"><?php echo JText::sprintf('COM_CONTENT_CREATED_DATE_ON', $morph->date($this->item->publish_up)); ?></li>
     <?php endif; ?>
     <?php if ($params->get('show_author') && !empty($this->item->author )) : ?>
 	<li class="author">
@@ -64,6 +63,7 @@ $morph = Morph::getInstance();
     <?php endif; ?>
 </ul>
 <?php endif; ?>
+
 
 <?php if (!$params->get('show_intro')) : ?>
 	<?php echo $this->item->event->afterDisplayTitle; ?>
