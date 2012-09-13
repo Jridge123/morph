@@ -10,7 +10,7 @@
 // no direct access
 defined('_JEXEC') or die;
 
-	JHtml::_('behavior.keepalive');
+	//JHtml::_('behavior.keepalive');
 	?>
 	<?php if ($type == 'logout') : ?>
 	<form action="<?php echo JRoute::_('index.php', true, $params->get('usesecure')); ?>" method="post" id="login-mod">

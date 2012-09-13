@@ -230,6 +230,8 @@ if (isset($document->_scripts[$mtu])) {
 if ( $remove_generator == 1 ) {
 $document->setGenerator(null);
 }
+unset($this->_scripts[JURI::root(true).'/media/system/js/caption.js']);
+$this->_script = preg_replace('%window\.addEvent\(\'load\',\s*function\(\)\s*{\s*new\s*JCaption\(\'img.caption\'\);\s*}\);\s*%', '', $this->_script);
 
 /* activate the tabs for the article edit mode */
 if ($option=="com_content" && $task=="edit" ) {
