@@ -427,6 +427,10 @@ class Morph {
 		$this->cache();
 	}
 	
+	//function countModules changed by manoj for j25
+	//changed for Strict Standards: Accessing static property JDocumentHTML::$_buffer as non static in /morph/core/morphLoader.php on line 445
+	//refer to http://forum.joomla.org/viewtopic.php?f=625&t=617146
+	/*
 	public function countModules($condition)
 	{
 		$result = '';
@@ -452,6 +456,36 @@ class Morph {
 
 		return eval($str);
 	}
+	*/
+	public function countModules($condition)
+	{
+		$result = '';
+		
+		$document = JFactory::getDocument();
+
+		$words = explode(' ', $condition);
+		for($i = 0; $i < count($words); $i+=2)
+		{
+			// odd parts (modules)
+			$name		= strtolower($words[$i]);
+			$words[$i]	= 0;
+			//if(!isset($document->_buffer['modules'][$name])) 
+			$rawbuffer = $document->getBuffer('modules', $name );
+		    if ( !isset($rawbuffer) )
+			{
+				$modules = JModuleHelper::getModules($name);
+				$result  = $document->getBuffer('modules', $name);
+				$words[$i] += !empty($result);
+			}
+			else {
+            	$words[$i] += !empty($rawbuffer);
+        	}
+		}
+
+		$str = 'return '.implode(' ', $words).';';
+
+		return eval($str);
+	}
 	
 	/**
 	 * count to see if any modules are using morph's tabs chrome
@@ -459,7 +493,10 @@ class Morph {
 	 * @return return true or false
 	 */
 	public function tabscount() {
-		$db=& JFactory::getDBO();
+		//$db=& JFactory::getDBO();
+		//changed by manoj for j25
+		//changed for Strict Standards: Only variables should be assigned by reference in morph/core/morphLoader.php on line 462
+		$db=JFactory::getDBO();
 		$query = "SELECT * FROM `#__configurator` WHERE `param_value` = 'tabs' ";
 		$db->setQuery( $query );
 		$tabscount = '';

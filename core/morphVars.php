@@ -1,7 +1,12 @@
 <?php defined( '_JEXEC' ) or die( 'Restricted access' );
 $morph = Morph::getInstance();
-$db=& JFactory::getDBO();
-$doc =& JFactory::getDocument();
+//$db=& JFactory::getDBO();
+//$doc =& JFactory::getDocument();
+//changed by manoj for j25
+//changed for - Strict Standards: Only variables should be assigned by reference in /morph/core/morphVars.php on line 3
+//Strict Standards: Only variables should be assigned by reference in /morph/core/morphVars.php on line 4
+$db=JFactory::getDBO();
+$doc=JFactory::getDocument();
 jimport('joomla.application.module.helper');
 
 /* tabs count

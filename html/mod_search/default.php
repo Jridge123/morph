@@ -1,6 +1,9 @@
 <?php // no direct access
 defined('_JEXEC') or die('Restricted access');
-$view = &JFactory::getDocument();
+//$view = &JFactory::getDocument();
+//changed by manoj for j25
+//changed for - Strict Standards: Only variables should be assigned by reference in /morph/html/mod_search/default.php on line 3
+$view = JFactory::getDocument();
 if($override = Morph::override(__FILE__, $view)) {
    if(file_exists($override)) include $override;
 } else { ?>
